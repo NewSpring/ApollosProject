@@ -42,7 +42,7 @@ class Home extends PureComponent {
     return (
       <BackgroundView>
         <SafeAreaView>
-          <Query query={getUserFeed} fetchPolicy="cache-and-network">
+          <Query query={getUserFeed} fetchPolicy="network-only">
             {({ loading, error, data, refetch }) => (
               <FeedView
                 ListItemComponent={ContentCardConnected}
