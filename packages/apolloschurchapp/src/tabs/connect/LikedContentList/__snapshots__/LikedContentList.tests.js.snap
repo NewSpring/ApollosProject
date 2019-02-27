@@ -138,11 +138,11 @@ exports[`LikedContentList component renders LikedContentList 1`] = `
               <View
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -173,7 +173,7 @@ exports[`LikedContentList component renders LikedContentList 1`] = `
                       style={
                         Object {
                           "color": "#303030",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 16,
                           "lineHeight": 23.04,
                           "textAlign": "center",
@@ -186,7 +186,7 @@ exports[`LikedContentList component renders LikedContentList 1`] = `
                       style={
                         Object {
                           "color": "#505050",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "lineHeight": 17.28,
                           "textAlign": "center",
@@ -303,11 +303,11 @@ fragment largeCardFragment on ContentItem {
               <View
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -338,7 +338,7 @@ fragment largeCardFragment on ContentItem {
                       style={
                         Object {
                           "color": "#303030",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 16,
                           "lineHeight": 23.04,
                           "textAlign": "center",
@@ -351,7 +351,7 @@ fragment largeCardFragment on ContentItem {
                       style={
                         Object {
                           "color": "#505050",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "lineHeight": 17.28,
                           "textAlign": "center",

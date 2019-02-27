@@ -54,8 +54,8 @@ exports[`LoginButton component renders a LoginButton that is loading 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "#00676D",
-            "borderColor": "#00676D",
+            "backgroundColor": "#6bac43",
+            "borderColor": "#6bac43",
             "borderRadius": 48,
             "borderWidth": 2,
             "elevation": 2,
@@ -70,7 +70,7 @@ exports[`LoginButton component renders a LoginButton that is loading 1`] = `
       >
         <ActivityIndicator
           animating={true}
-          color="#FFFFFF"
+          color="#ffffff"
           hidesWhenStopped={true}
           size="small"
         />
@@ -134,8 +134,8 @@ exports[`LoginButton component renders a LoginButton when logged out 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "#00676D",
-            "borderColor": "#00676D",
+            "backgroundColor": "#6bac43",
+            "borderColor": "#6bac43",
             "borderRadius": 48,
             "borderWidth": 2,
             "elevation": 2,
@@ -151,8 +151,8 @@ exports[`LoginButton component renders a LoginButton when logged out 1`] = `
         <Text
           style={
             Object {
-              "color": "#FFFFFF",
-              "fontFamily": "InterUI-Bold",
+              "color": "#ffffff",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }

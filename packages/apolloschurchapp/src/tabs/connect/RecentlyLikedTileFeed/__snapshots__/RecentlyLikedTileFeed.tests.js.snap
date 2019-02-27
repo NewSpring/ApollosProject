@@ -64,7 +64,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -101,7 +101,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
               style={
                 Object {
                   "color": "#505050",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                 }
@@ -110,7 +110,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
               <Text
                 style={
                   Object {
-                    "color": "#17B582",
+                    "color": "#6bac43",
                   }
                 }
               >
@@ -241,10 +241,10 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                 inHorizontalList={true}
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "margin": 8,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -270,7 +270,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -280,7 +280,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "width": "100%",
                         }
                       }
@@ -301,7 +301,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 3.5199999999999996,
@@ -313,7 +313,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 12,
                           "marginVertical": 2.6400000000000006,
@@ -400,9 +400,9 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                             fill={
                               Array [
                                 0,
-                                0.6470588235294118,
-                                0.6470588235294118,
-                                0.6470588235294118,
+                                0.5215686274509804,
+                                0.5215686274509804,
+                                0.5215686274509804,
                                 1,
                               ]
                             }
@@ -454,13 +454,13 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                           <Text
                             style={
                               Object {
-                                "color": "#A5A5A5",
-                                "fontFamily": "InterUI-Bold",
+                                "color": "#858585",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
                             }
-                            tint="#A5A5A5"
+                            tint="#858585"
                           >
                             0
                           </Text>
@@ -506,10 +506,10 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                 inHorizontalList={true}
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "margin": 8,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -535,7 +535,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -545,7 +545,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "width": "100%",
                         }
                       }
@@ -566,7 +566,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 3.5199999999999996,
@@ -578,7 +578,7 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 12,
                           "marginVertical": 2.6400000000000006,
@@ -665,9 +665,9 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                             fill={
                               Array [
                                 0,
-                                0.6470588235294118,
-                                0.6470588235294118,
-                                0.6470588235294118,
+                                0.5215686274509804,
+                                0.5215686274509804,
+                                0.5215686274509804,
                                 1,
                               ]
                             }
@@ -719,13 +719,13 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                           <Text
                             style={
                               Object {
-                                "color": "#A5A5A5",
-                                "fontFamily": "InterUI-Bold",
+                                "color": "#858585",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
                             }
-                            tint="#A5A5A5"
+                            tint="#858585"
                           >
                             0
                           </Text>
@@ -808,7 +808,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
             style={
               Object {
                 "alignSelf": "stretch",
-                "backgroundColor": "#A5A5A5",
+                "backgroundColor": "#dddddd",
                 "borderRadius": 16,
                 "height": 14,
                 "marginVertical": 3.08,
@@ -845,7 +845,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
               style={
                 Object {
                   "alignSelf": "stretch",
-                  "backgroundColor": "#A5A5A5",
+                  "backgroundColor": "#dddddd",
                   "borderRadius": 16,
                   "height": 12,
                   "marginVertical": 2.6400000000000006,
@@ -975,10 +975,10 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                 inHorizontalList={true}
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "margin": 8,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1004,7 +1004,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1014,7 +1014,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "width": "100%",
                         }
                       }
@@ -1035,7 +1035,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 3.5199999999999996,
@@ -1047,7 +1047,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 12,
                           "marginVertical": 2.6400000000000006,
@@ -1134,9 +1134,9 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                             fill={
                               Array [
                                 0,
-                                0.6470588235294118,
-                                0.6470588235294118,
-                                0.6470588235294118,
+                                0.5215686274509804,
+                                0.5215686274509804,
+                                0.5215686274509804,
                                 1,
                               ]
                             }
@@ -1188,13 +1188,13 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                           <Text
                             style={
                               Object {
-                                "color": "#A5A5A5",
-                                "fontFamily": "InterUI-Bold",
+                                "color": "#858585",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
                             }
-                            tint="#A5A5A5"
+                            tint="#858585"
                           >
                             0
                           </Text>
@@ -1240,10 +1240,10 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                 inHorizontalList={true}
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "margin": 8,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1269,7 +1269,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1279,7 +1279,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "width": "100%",
                         }
                       }
@@ -1300,7 +1300,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 3.5199999999999996,
@@ -1312,7 +1312,7 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 12,
                           "marginVertical": 2.6400000000000006,
@@ -1399,9 +1399,9 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                             fill={
                               Array [
                                 0,
-                                0.6470588235294118,
-                                0.6470588235294118,
-                                0.6470588235294118,
+                                0.5215686274509804,
+                                0.5215686274509804,
+                                0.5215686274509804,
                                 1,
                               ]
                             }
@@ -1453,13 +1453,13 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                           <Text
                             style={
                               Object {
-                                "color": "#A5A5A5",
-                                "fontFamily": "InterUI-Bold",
+                                "color": "#858585",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
                             }
-                            tint="#A5A5A5"
+                            tint="#858585"
                           >
                             0
                           </Text>

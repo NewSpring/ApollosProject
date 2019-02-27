@@ -37,7 +37,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -47,7 +47,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -60,7 +60,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -299,7 +299,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -349,7 +349,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -359,7 +359,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -372,7 +372,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -478,7 +478,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -526,7 +526,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -536,7 +536,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -549,7 +549,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -844,7 +844,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -892,7 +892,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -902,7 +902,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -915,7 +915,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -939,7 +939,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -1339,7 +1339,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -1389,7 +1389,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -1399,7 +1399,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -1412,7 +1412,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -1436,7 +1436,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -2125,7 +2125,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -2173,7 +2173,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -2183,7 +2183,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -2196,7 +2196,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -2220,7 +2220,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -2653,7 +2653,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3089,7 +3089,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3137,7 +3137,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -3147,7 +3147,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -3160,7 +3160,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -3345,7 +3345,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3393,7 +3393,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "Colfax-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -3403,7 +3403,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -3416,7 +3416,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -3495,7 +3495,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3702,7 +3702,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3753,7 +3753,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "Colfax-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3790,7 +3790,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "fontFamily": "Colfax-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3838,7 +3838,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#dddddd",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3850,7 +3850,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#dddddd",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3862,7 +3862,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#dddddd",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3874,7 +3874,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#dddddd",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3886,7 +3886,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#dddddd",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,

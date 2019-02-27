@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrayerRequest updates a user's attributes, if there is a current user 1`] = `
+Object {
+  "data": Object {
+    "getPrayerRequests": null,
+  },
+  "errors": Array [
+    [GraphQLError: Cannot read property 'getPrayerRequests' of undefined],
+  ],
+}
+`;

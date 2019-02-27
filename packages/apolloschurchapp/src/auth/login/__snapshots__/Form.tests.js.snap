@@ -127,7 +127,7 @@ exports[`The LoginForm component should render 1`] = `
                         style={
                           Object {
                             "color": "#303030",
-                            "fontFamily": "InterUI-Bold",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 14,
                             "height": 38,
                             "paddingVertical": 0,
@@ -177,7 +177,7 @@ exports[`The LoginForm component should render 1`] = `
                         Object {
                           "backgroundColor": "transparent",
                           "color": "#505050",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "lineHeight": 17.28,
                           "paddingVertical": 4,
@@ -199,7 +199,7 @@ exports[`The LoginForm component should render 1`] = `
                     <View
                       style={
                         Object {
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "bottom": -0.5,
                           "height": 0.5,
                         }
@@ -223,7 +223,7 @@ exports[`The LoginForm component should render 1`] = `
                         hasError={false}
                         style={
                           Object {
-                            "backgroundColor": "#00676D",
+                            "backgroundColor": "#6bac43",
                             "bottom": 0,
                             "height": 0.5,
                           }
@@ -281,7 +281,7 @@ exports[`The LoginForm component should render 1`] = `
                         style={
                           Object {
                             "color": "#303030",
-                            "fontFamily": "InterUI-Bold",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 14,
                             "height": 38,
                             "paddingVertical": 0,
@@ -331,7 +331,7 @@ exports[`The LoginForm component should render 1`] = `
                         Object {
                           "backgroundColor": "transparent",
                           "color": "#505050",
-                          "fontFamily": "InterUI-Bold",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "lineHeight": 17.28,
                           "paddingVertical": 4,
@@ -353,7 +353,7 @@ exports[`The LoginForm component should render 1`] = `
                     <View
                       style={
                         Object {
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "bottom": -0.5,
                           "height": 0.5,
                         }
@@ -377,7 +377,7 @@ exports[`The LoginForm component should render 1`] = `
                         hasError={false}
                         style={
                           Object {
-                            "backgroundColor": "#00676D",
+                            "backgroundColor": "#6bac43",
                             "bottom": 0,
                             "height": 0.5,
                           }
@@ -391,7 +391,7 @@ exports[`The LoginForm component should render 1`] = `
                 onPress={[Function]}
                 style={
                   Object {
-                    "color": "#17B582",
+                    "color": "#6bac43",
                   }
                 }
               >
@@ -427,8 +427,8 @@ exports[`The LoginForm component should render 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#00676D",
-                "borderColor": "#00676D",
+                "backgroundColor": "#6bac43",
+                "borderColor": "#6bac43",
                 "borderRadius": 48,
                 "borderWidth": 2,
                 "elevation": 2,
@@ -444,8 +444,8 @@ exports[`The LoginForm component should render 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#FFFFFF",
-                  "fontFamily": "InterUI-Bold",
+                  "color": "#ffffff",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 16,
                   "lineHeight": 23.04,
                 }

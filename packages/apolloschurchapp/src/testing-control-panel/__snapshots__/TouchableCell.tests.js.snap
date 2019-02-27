@@ -51,7 +51,7 @@ exports[`touchable cell renders the cell, icon, and text 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "#FFFFFF",
+            "backgroundColor": "#ffffff",
             "flexDirection": "row",
             "justifyContent": "flex-start",
             "minHeight": 40,

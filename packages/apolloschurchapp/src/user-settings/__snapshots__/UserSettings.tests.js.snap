@@ -85,7 +85,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 40,
                     "height": 80,
                     "justifyContent": "flex-end",
@@ -126,9 +126,9 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
                     fill={
                       Array [
                         0,
-                        0.6470588235294118,
-                        0.6470588235294118,
-                        0.6470588235294118,
+                        0.8666666666666667,
+                        0.8666666666666667,
+                        0.8666666666666667,
                         1,
                       ]
                     }
@@ -176,7 +176,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -186,7 +186,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               onPress={[Function]}
               style={
                 Object {
-                  "color": "#17B582",
+                  "color": "#6bac43",
                 }
               }
             >
@@ -212,9 +212,9 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#FFFFFF",
+              "backgroundColor": "#ffffff",
               "borderBottomWidth": 0.5,
-              "borderColor": "rgba(165, 165, 165, 0.30000000000000004)",
+              "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
               "borderLeftWidth": 0,
               "borderRightWidth": 0,
               "borderTopWidth": 0.5,
@@ -241,7 +241,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,
@@ -345,7 +345,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                "backgroundColor": "rgba(133, 133, 133, 0.30000000000000004)",
                 "height": 0.5,
                 "marginLeft": 10.666666666666666,
                 "width": "100%",
@@ -371,7 +371,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,
@@ -476,9 +476,9 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#FFFFFF",
+              "backgroundColor": "#ffffff",
               "borderBottomWidth": 0.5,
-              "borderColor": "rgba(165, 165, 165, 0.30000000000000004)",
+              "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
               "borderLeftWidth": 0,
               "borderRightWidth": 0,
               "borderTopWidth": 0.5,
@@ -505,7 +505,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,
@@ -610,9 +610,9 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#FFFFFF",
+              "backgroundColor": "#ffffff",
               "borderBottomWidth": 0.5,
-              "borderColor": "rgba(165, 165, 165, 0.30000000000000004)",
+              "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
               "borderLeftWidth": 0,
               "borderRightWidth": 0,
               "borderTopWidth": 0.5,
@@ -639,7 +639,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,
@@ -743,7 +743,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                "backgroundColor": "rgba(133, 133, 133, 0.30000000000000004)",
                 "height": 0.5,
                 "marginLeft": 10.666666666666666,
                 "width": "100%",
@@ -769,7 +769,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,
@@ -874,9 +874,9 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "#FFFFFF",
+              "backgroundColor": "#ffffff",
               "borderBottomWidth": 0.5,
-              "borderColor": "rgba(165, 165, 165, 0.30000000000000004)",
+              "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
               "borderLeftWidth": 0,
               "borderRightWidth": 0,
               "borderTopWidth": 0.5,
@@ -903,7 +903,7 @@ exports[`UserSettings component renders UserSettings when logged in 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFFFFF",
+                  "backgroundColor": "#ffffff",
                   "flexDirection": "row",
                   "justifyContent": "flex-start",
                   "minHeight": 40,

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrayerRequests gets all prayer requests 1`] = `
+Array [
+  Array [
+    "PrayerRequests",
+    Object {},
+    Object {},
+  ],
+]
+`;
+
+exports[`PrayerRequests gets all prayer requests 2`] = `
+Object {
+  "id": 51,
+}
+`;
