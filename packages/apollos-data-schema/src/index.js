@@ -504,12 +504,12 @@ export const passSchema = gql`
 
 export const prayerRequestSchema = gql`
   extend type Query {
-    getPrayerRequests: PrayerRequest
+    getPrayerRequests: [PrayerRequest]
   }
 
   type PrayerRequest implements Node {
     id: ID!
-    text: String!
+    text: String
   }
 `;
 

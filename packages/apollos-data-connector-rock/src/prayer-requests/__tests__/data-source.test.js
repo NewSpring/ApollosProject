@@ -1,5 +1,5 @@
 import ApollosConfig from '@apollosproject/config';
-import PrayerRequests from '../data-source';
+import PrayerRequest from '../data-source';
 import { buildGetMock } from '../../test-utils';
 
 ApollosConfig.loadJs({
@@ -10,13 +10,13 @@ ApollosConfig.loadJs({
   },
 });
 
-describe('PrayerRequests', () => {
+describe('PrayerRequest', () => {
   it('constructs', () => {
-    expect(new PrayerRequests()).toBeTruthy();
+    expect(new PrayerRequest()).toBeTruthy();
   });
 
   it('gets all prayer requests', () => {
-    const dataSource = new PrayerRequests();
+    const dataSource = new PrayerRequest();
     dataSource.get = buildGetMock({ Id: 51 }, dataSource);
     const result = dataSource.getPrayerRequests();
     expect(result).resolves.toMatchSnapshot();

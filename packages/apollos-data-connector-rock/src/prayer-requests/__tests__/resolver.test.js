@@ -3,18 +3,12 @@ import { fetch } from 'apollo-server-env';
 import ApollosConfig from '@apollosproject/config';
 
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
-import {
-  peopleSchema,
-  mediaSchema,
-  authSchema,
-} from '@apollosproject/data-schema';
+import { prayerRequestSchema } from '@apollosproject/data-schema';
 
 // we import the root-level schema and resolver so we test the entire integration:
-import * as Person from '../index';
-import authMock from '../../authMock';
+import * as PrayerRequest from '../index';
 
-const Auth = { schema: authSchema, dataSource: authMock };
-const { getContext, getSchema } = createTestHelpers({ Person, Auth });
+const { getContext, getSchema } = createTestHelpers({ PrayerRequest });
 
 ApollosConfig.loadJs({
   ROCK: {
@@ -30,7 +24,7 @@ describe('PrayerRequest', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([peopleSchema, mediaSchema]);
+    schema = getSchema([prayerRequestSchema]);
     context = getContext();
   });
 

@@ -9,7 +9,7 @@ import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 
 // const { ROCK, ROCK_MAPPINGS, ROCK_CONSTANTS } = ApollosConfig;
 
-export default class PrayerRequests extends RockApolloDataSource {
+export default class PrayerRequest extends RockApolloDataSource {
   resource = 'PrayerRequests';
 
   getPrayerRequests = () => this.request().get();

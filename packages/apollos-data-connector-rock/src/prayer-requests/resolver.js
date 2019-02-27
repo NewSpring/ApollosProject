@@ -3,7 +3,7 @@ import { createGlobalId } from '@apollosproject/server-core';
 export default {
   Query: {
     getPrayerRequests: (root, args, { dataSources }) =>
-      dataSources.PrayerRequests.getPrayerRequests,
+      dataSources.PrayerRequest.getPrayerRequests(),
   },
   //   Mutation: {
   //     updateProfileField: (root, { input: { field, value } }, { dataSources }) =>

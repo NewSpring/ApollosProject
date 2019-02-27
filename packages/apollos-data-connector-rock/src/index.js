@@ -5,7 +5,7 @@ import * as ContentItem from './content-items';
 import * as ContentChannel from './content-channels';
 import * as Sharable from './sharable';
 import * as Person from './people';
-import * as PrayerRequests from './prayer-requests';
+import * as PrayerRequest from './prayer-requests';
 import * as Family from './family';
 import * as Auth from './auth';
 import * as AuthSms from './auth-sms';
@@ -21,7 +21,7 @@ export {
   ContentChannel,
   Sharable,
   Person,
-  PrayerRequests,
+  PrayerRequest,
   Family,
   Auth,
   PersonalDevice,
