@@ -8,7 +8,7 @@ import * as LiveStream from '@apollosproject/data-connector-church-online';
 import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
 import * as Pass from '@apollosproject/data-connector-passes';
-import * as Sms from '@apollosproject/data-connector-twilio';
+// import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   Followings,
   Interactions,
@@ -38,7 +38,7 @@ const data = {
   Cloudinary,
   Auth,
   AuthSms,
-  Sms,
+  // Sms,
   LiveStream,
   Theme,
   Scripture,

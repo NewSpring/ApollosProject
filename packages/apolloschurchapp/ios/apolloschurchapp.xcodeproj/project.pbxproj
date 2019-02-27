@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -70,6 +69,14 @@
 		F11DC26543E04A3DA179B698 /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E919BA2ED2A4CA48E331A2E /* libRNCWebView.a */; };
 		F3F4A3D13570438F9562746F /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F08D1EBF0C2A4E6798AA8F36 /* libSplashScreen.a */; };
 		F8FAD93CCE5641A8B87611EA /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB25CB02F40D4CC39DDA3C74 /* Inter-UI-Bold.otf */; };
+		A3AD4DEFD66A4FBEA4C4CC5D /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33149A5A25924036B096A0FF /* Colfax-Black.otf */; };
+		49EE227AF6514073AAA1D5EB /* Colfax-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC8E6CFE54463B93E0CB84 /* Colfax-BlackItalic.otf */; };
+		F7B105ECB9D84552820A6F64 /* Colfax-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5116F04C83F742C8A940BF66 /* Colfax-Bold.otf */; };
+		267D54D7ABEB4AB2863497E7 /* Colfax-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02B83F9C2DA645C89773DC99 /* Colfax-BoldItalic.otf */; };
+		6413D1350C5D4D2097B19B86 /* Colfax-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5007DF9E6D3C4AA4922AB2B9 /* Colfax-Medium.otf */; };
+		5643513C319A4C7C9B25CB81 /* Colfax-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B09F70A2C9D74568AE3FDB92 /* Colfax-MediumItalic.otf */; };
+		A30350FD37CA4A51B312772B /* Colfax-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1560FF39ED84627A7A10AC8 /* Colfax-Regular.otf */; };
+		E577C03E0A524C8384698BEA /* Colfax-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6731A64FFFA54F72858A8B17 /* Colfax-RegularItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -600,6 +607,14 @@
 		F9CFD638A5414DFF961A8D11 /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
 		FB25CB02F40D4CC39DDA3C74 /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
 		FC8FFB7C37BB4499AEB6FA37 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
+		33149A5A25924036B096A0FF /* Colfax-Black.otf */ = {isa = PBXFileReference; name = "Colfax-Black.otf"; path = "../assets/fonts/Colfax-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A5FC8E6CFE54463B93E0CB84 /* Colfax-BlackItalic.otf */ = {isa = PBXFileReference; name = "Colfax-BlackItalic.otf"; path = "../assets/fonts/Colfax-BlackItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5116F04C83F742C8A940BF66 /* Colfax-Bold.otf */ = {isa = PBXFileReference; name = "Colfax-Bold.otf"; path = "../assets/fonts/Colfax-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		02B83F9C2DA645C89773DC99 /* Colfax-BoldItalic.otf */ = {isa = PBXFileReference; name = "Colfax-BoldItalic.otf"; path = "../assets/fonts/Colfax-BoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5007DF9E6D3C4AA4922AB2B9 /* Colfax-Medium.otf */ = {isa = PBXFileReference; name = "Colfax-Medium.otf"; path = "../assets/fonts/Colfax-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B09F70A2C9D74568AE3FDB92 /* Colfax-MediumItalic.otf */ = {isa = PBXFileReference; name = "Colfax-MediumItalic.otf"; path = "../assets/fonts/Colfax-MediumItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1560FF39ED84627A7A10AC8 /* Colfax-Regular.otf */ = {isa = PBXFileReference; name = "Colfax-Regular.otf"; path = "../assets/fonts/Colfax-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6731A64FFFA54F72858A8B17 /* Colfax-RegularItalic.otf */ = {isa = PBXFileReference; name = "Colfax-RegularItalic.otf"; path = "../assets/fonts/Colfax-RegularItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -835,6 +850,14 @@
 				9FD7D997F4F14C439AC699B3 /* Inter-UI-Medium.otf */,
 				F79112193F3548D284406ABF /* Inter-UI-MediumItalic.otf */,
 				10F42B11F27E467A8C71C280 /* Inter-UI-Regular.otf */,
+				33149A5A25924036B096A0FF /* Colfax-Black.otf */,
+				A5FC8E6CFE54463B93E0CB84 /* Colfax-BlackItalic.otf */,
+				5116F04C83F742C8A940BF66 /* Colfax-Bold.otf */,
+				02B83F9C2DA645C89773DC99 /* Colfax-BoldItalic.otf */,
+				5007DF9E6D3C4AA4922AB2B9 /* Colfax-Medium.otf */,
+				B09F70A2C9D74568AE3FDB92 /* Colfax-MediumItalic.otf */,
+				D1560FF39ED84627A7A10AC8 /* Colfax-Regular.otf */,
+				6731A64FFFA54F72858A8B17 /* Colfax-RegularItalic.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1782,6 +1805,14 @@
 				A173C226549E48B991AC5D98 /* Inter-UI-Medium.otf in Resources */,
 				0D4EDF6EBA274F9D93DDED76 /* Inter-UI-MediumItalic.otf in Resources */,
 				7D060CA312AB4E828CD60DDC /* Inter-UI-Regular.otf in Resources */,
+				A3AD4DEFD66A4FBEA4C4CC5D /* Colfax-Black.otf in Resources */,
+				49EE227AF6514073AAA1D5EB /* Colfax-BlackItalic.otf in Resources */,
+				F7B105ECB9D84552820A6F64 /* Colfax-Bold.otf in Resources */,
+				267D54D7ABEB4AB2863497E7 /* Colfax-BoldItalic.otf in Resources */,
+				6413D1350C5D4D2097B19B86 /* Colfax-Medium.otf in Resources */,
+				5643513C319A4C7C9B25CB81 /* Colfax-MediumItalic.otf in Resources */,
+				A30350FD37CA4A51B312772B /* Colfax-Regular.otf in Resources */,
+				E577C03E0A524C8384698BEA /* Colfax-RegularItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

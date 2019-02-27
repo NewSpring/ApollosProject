@@ -28,7 +28,6 @@
     "preversion": "./scripts/update-change-log.sh",
     "prepublish": "./node_modules/.bin/lerna run build",
     "publish-schema": "./node_modules/.bin/apollo schema:publish --endpoint=\"https://apollos-church-api.now.sh\" --key=$ENGINE_API_KEY",
-    "deploy": "now --public --team apolloschurch --token $NOW_TOKEN --docker && now alias --team apolloschurch --token $NOW_TOKEN && now rm apollos-church-api --team apolloschurch --safe --yes --token $NOW_TOKEN && npm run publish-schema",
     "nuke": "./scripts/boom.sh && yarn nuke:node && yarn nuke:cache",
     "nuke:node": "rm -rdf ./node_modules packages/*/node_modules && yarn cache clean && yarn",
     "nuke:cache": "watchman watch-del-all && ./node_modules/.bin/lerna run start --scope apolloschurchapp --stream -- --reset-cache",
@@ -66,19 +65,5 @@
     "react-native": "0.57.5",
     "react-native-linear-gradient": "2.4.0",
     "react-native-svg": "6.5.2"
-  },
-  "now": {
-    "name": "apollos-church-api",
-    "alias": "apollos-church-api.now.sh",
-    "env": {
-      "ROCK_API": "@rock_api",
-      "ROCK_TOKEN": "@rock_token",
-      "BIBLE_API_KEY": "@bible_api_key",
-      "BIBLE_ID": "@bible_id",
-      "ENGINE_API_KEY": "@engine_api_key",
-      "PORT": "443",
-      "CLOUDINARY_URL": "@cloudinary_url",
-      "NOW_ENV": "true"
-    }
   }
 }

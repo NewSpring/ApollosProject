@@ -76,7 +76,6 @@ class Connect extends PureComponent {
               <SafeAreaView>
                 <ScrollView>
                   <Header>
-                    <BrandIcon />
                     <Title>Connect!</Title>
                     <Paragraph>
                       <BodyText>

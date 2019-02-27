@@ -67,6 +67,14 @@
 		<string>Inter-UI-Medium.otf</string>
 		<string>Inter-UI-MediumItalic.otf</string>
 		<string>Inter-UI-Regular.otf</string>
+		<string>Colfax-Black.otf</string>
+		<string>Colfax-BlackItalic.otf</string>
+		<string>Colfax-Bold.otf</string>
+		<string>Colfax-BoldItalic.otf</string>
+		<string>Colfax-Medium.otf</string>
+		<string>Colfax-MediumItalic.otf</string>
+		<string>Colfax-Regular.otf</string>
+		<string>Colfax-RegularItalic.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
