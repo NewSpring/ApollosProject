@@ -10,9 +10,9 @@ import {
   BodyText,
   Paragraph,
   BackgroundView,
-  withTheme,
+  // withTheme,
   styled,
-  Icon,
+  // Icon,
   PaddedView,
 } from '@apollosproject/ui-kit';
 import ActionTable from './ActionTable';
@@ -26,12 +26,12 @@ const Title = styled(({ theme }) => ({
   paddingBottom: theme.helpers.verticalRhythm(1.5),
 }))(H1);
 
-const BrandIcon = withTheme(({ theme }) => ({
-  name: 'brand-icon',
-  size: theme.sizing.baseUnit * 2.25,
-  marginBottom: theme.sizing.baseUnit,
-  fill: theme.colors.primary,
-}))(Icon);
+// const BrandIcon = withTheme(({ theme }) => ({
+//   name: 'brand-icon',
+//   size: theme.sizing.baseUnit * 2.25,
+//   marginBottom: theme.sizing.baseUnit,
+//   fill: theme.colors.primary,
+// }))(Icon);
 
 const Header = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 1.5,

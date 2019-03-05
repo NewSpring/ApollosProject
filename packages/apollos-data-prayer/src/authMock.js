@@ -3,6 +3,7 @@ export default class Auth {
 
   getCurrentPerson = () => ({
     id: 51,
+    primaryAliasId: 123,
     firstName: 'Isaac',
     lastName: 'Hardy',
     nickName: 'Isaac',

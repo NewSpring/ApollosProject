@@ -1,16 +1,33 @@
-// import { get } from 'lodash';
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
-// import ApollosConfig from '@apollosproject/config';
-// import moment from 'moment-timezone';
-// import natural from 'natural';
-// import sanitizeHtmlNode from 'sanitize-html';
-
-// import { createImageUrlFromGuid } from '../utils';
-
-// const { ROCK, ROCK_MAPPINGS, ROCK_CONSTANTS } = ApollosConfig;
 
 export default class PrayerRequest extends RockApolloDataSource {
   resource = 'PrayerRequests';
 
-  getPrayerRequests = () => this.request().get();
+  // QUERY ALL PrayerRequests
+  getAll = () => this.request('PrayerRequests/Public').get();
+
+  // QUERY PrayerRequests by Campus
+  getAllByCampus = (campusId) =>
+    this.request('PrayerRequests/Public')
+      .filter(`CampusId eq ${campusId}`)
+      .get();
+
+  // QUERY PrayerRequests from Current Person
+  getFromCurrentPerson = async () => {
+    const {
+      dataSources: { Auth },
+    } = this.context;
+
+    const { primaryAliasId } = await Auth.getCurrentPerson();
+
+    return this.request('PrayerRequests/Public')
+      .filter(`CreatedByPersonAliasId eq ${primaryAliasId}`)
+      .get();
+  };
+
+  // QUERY PrayRequest by ID
+  getFromId = (id) =>
+    this.request()
+      .find(id)
+      .get();
 }
