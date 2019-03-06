@@ -31,6 +31,16 @@ export default class PrayerRequest extends RockApolloDataSource {
       .find(id)
       .get();
 
+  // MUTATION increment prayed, for a request
+  incrementPrayed = async (parsedId) => {
+    try {
+      await this.put(`PrayerRequests/Prayed/${parsedId}`, {});
+      return await this.getFromId(parsedId);
+    } catch (err) {
+      throw new Error(`Unable to increment prayed request!`);
+    }
+  };
+
   // MUTATION add public prayer request
   add = async ({
     IsPublic,
@@ -60,7 +70,7 @@ export default class PrayerRequest extends RockApolloDataSource {
       });
       return this.getFromId(newPrayerRequest);
     } catch (err) {
-      throw new Error(`Unable to create prayer request!${err}`);
+      throw new Error(`Unable to create prayer request!`);
     }
   };
 }

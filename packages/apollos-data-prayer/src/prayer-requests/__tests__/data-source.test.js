@@ -140,4 +140,34 @@ describe('PrayerRequest', () => {
     expect(result).toMatchSnapshot();
     expect(dataSource.post.mock.calls).toMatchSnapshot();
   });
+
+  it('increments prayed for a request', async () => {
+    const dataSource = buildDataSource(AuthMock);
+
+    dataSource.put = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+        prayerCount: 8,
+      })
+    );
+
+    dataSource.get = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+        prayerCount: 8,
+      })
+    );
+
+    const result = await dataSource.incrementPrayed(10);
+    expect(result).toMatchSnapshot();
+    expect(dataSource.put.mock.calls).toMatchSnapshot();
+  });
 });

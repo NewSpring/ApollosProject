@@ -240,4 +240,40 @@ describe('PrayerRequest', () => {
     const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
+  it('increments prayed for a request', async () => {
+    const query = `
+      mutation {
+        incrementPrayed(id: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
+          id
+          firstName
+          lastName
+          text
+          createdByPersonAliasId
+          campusId
+          categoryId
+          flagCount
+          prayerCount
+        }
+      }
+    `;
+    const responseMock = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+        campusId: 16,
+        categoryId: 2,
+        flagCount: 0,
+        prayerCount: 4,
+      })
+    );
+    context.dataSources.PrayerRequest.put = responseMock;
+    context.dataSources.PrayerRequest.get = responseMock;
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
 });

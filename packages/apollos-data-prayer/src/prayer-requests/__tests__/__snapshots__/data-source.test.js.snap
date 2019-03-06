@@ -113,3 +113,23 @@ Object {
   "text": "Pray this works.",
 }
 `;
+
+exports[`PrayerRequest increments prayed for a request 1`] = `
+Object {
+  "createdByPersonAliasId": 447217,
+  "firstName": "Isaac",
+  "id": "PrayerRequest:b36e55d803443431e96bb4b5068147ec",
+  "lastName": "Hardy",
+  "prayerCount": 8,
+  "text": "Pray this works.",
+}
+`;
+
+exports[`PrayerRequest increments prayed for a request 2`] = `
+Array [
+  Array [
+    "PrayerRequests/Prayed/10",
+    Object {},
+  ],
+]
+`;

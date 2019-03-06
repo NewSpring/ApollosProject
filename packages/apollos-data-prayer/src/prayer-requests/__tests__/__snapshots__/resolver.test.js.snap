@@ -147,3 +147,21 @@ Array [
   ],
 ]
 `;
+
+exports[`PrayerRequest increments prayed for a request 1`] = `
+Object {
+  "data": Object {
+    "incrementPrayed": Object {
+      "campusId": 16,
+      "categoryId": 2,
+      "createdByPersonAliasId": 447217,
+      "firstName": "Isaac",
+      "flagCount": 0,
+      "id": "PrayerRequest:4ca828e6155e88cd21a8b67865472a9301e9f68a0e3823859d5a383958bc6c5b843f7453855c22c6f07f5955b5ca0bd1",
+      "lastName": "Hardy",
+      "prayerCount": 4,
+      "text": "Pray this works.",
+    },
+  },
+}
+`;

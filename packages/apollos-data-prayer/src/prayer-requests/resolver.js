@@ -1,4 +1,4 @@
-import { createGlobalId } from '@apollosproject/server-core';
+import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
 
 export default {
   Query: {
@@ -12,6 +12,11 @@ export default {
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.add(args),
+
+    incrementPrayed: (root, { id }, { dataSources }) => {
+      const { id: parsedId } = parseGlobalId(id);
+      return dataSources.PrayerRequest.incrementPrayed(parsedId);
+    },
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
