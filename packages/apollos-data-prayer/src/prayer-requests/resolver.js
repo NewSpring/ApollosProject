@@ -9,6 +9,10 @@ export default {
     getCurrentPersonPrayerRequests: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
   },
+  Mutation: {
+    addPublicPrayerRequest: (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.add(args),
+  },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),

@@ -30,4 +30,37 @@ export default class PrayerRequest extends RockApolloDataSource {
     this.request()
       .find(id)
       .get();
+
+  // MUTATION add public prayer request
+  add = async ({
+    IsPublic,
+    CampusId,
+    CategoryId,
+    Text,
+    FirstName,
+    LastName,
+  }) => {
+    const {
+      dataSources: { Auth },
+    } = this.context;
+    try {
+      const { primaryAliasId } = await Auth.getCurrentPerson();
+
+      const newPrayerRequest = await this.post('/PrayerRequests', {
+        FirstName, // Required by Rock
+        LastName,
+        Text, // Required by Rock
+        CategoryId,
+        CampusId,
+        IsPublic,
+        RequestedByPersonAliasId: primaryAliasId,
+        IsActive: true,
+        IsApproved: true,
+        EnteredDateTime: new Date().toJSON(), // Required by Rock
+      });
+      return this.getFromId(newPrayerRequest);
+    } catch (err) {
+      throw new Error(`Unable to create prayer request!${err}`);
+    }
+  };
 }

@@ -203,4 +203,41 @@ describe('PrayerRequest', () => {
     expect(result).toMatchSnapshot();
     expect(responseMock.mock.calls).toMatchSnapshot();
   });
+
+  it('creates a new prayer', async () => {
+    const query = `
+      mutation {
+        addPublicPrayerRequest(IsPublic: true, FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1) {
+          id
+          firstName
+          lastName
+          text
+          createdByPersonAliasId
+          campusId
+          categoryId
+          flagCount
+          prayerCount
+        }
+      }
+    `;
+    const responseMock = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+        campusId: 16,
+        categoryId: 2,
+        flagCount: 0,
+        prayerCount: 4,
+      })
+    );
+    context.dataSources.PrayerRequest.post = responseMock;
+    context.dataSources.PrayerRequest.get = responseMock;
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
 });

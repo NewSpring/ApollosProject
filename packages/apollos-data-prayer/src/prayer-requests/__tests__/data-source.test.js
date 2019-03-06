@@ -104,4 +104,40 @@ describe('PrayerRequest', () => {
     expect(result).resolves.toMatchSnapshot();
     expect(dataSource.get.mock.calls).toMatchSnapshot();
   });
+
+  it('creates prayer request', async () => {
+    const dataSource = buildDataSource(AuthMock);
+
+    dataSource.post = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+      })
+    );
+
+    dataSource.get = jest.fn(() =>
+      Promise.resolve({
+        id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+        text: 'Pray this works.',
+        createdByPersonAliasId: 447217,
+      })
+    );
+
+    const result = await dataSource.add({
+      FirstName: 'Test',
+      LastName: 'bro',
+      Text: 'Pray this works.',
+      CategoryId: 2,
+      CampusId: 16,
+      IsPublic: true,
+    });
+    delete dataSource.post.mock.calls[0][1].EnteredDateTime;
+    expect(result).toMatchSnapshot();
+    expect(dataSource.post.mock.calls).toMatchSnapshot();
+  });
 });

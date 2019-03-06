@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PrayerRequest creates prayer request 1`] = `
+Object {
+  "createdByPersonAliasId": 447217,
+  "firstName": "Isaac",
+  "id": "PrayerRequest:b36e55d803443431e96bb4b5068147ec",
+  "lastName": "Hardy",
+  "text": "Pray this works.",
+}
+`;
+
+exports[`PrayerRequest creates prayer request 2`] = `
+Array [
+  Array [
+    "/PrayerRequests",
+    Object {
+      "CampusId": 16,
+      "CategoryId": 2,
+      "FirstName": "Test",
+      "IsActive": true,
+      "IsApproved": true,
+      "IsPublic": true,
+      "LastName": "bro",
+      "RequestedByPersonAliasId": 123,
+      "Text": "Pray this works.",
+    },
+  ],
+]
+`;
+
 exports[`PrayerRequest gets all public prayer requests 1`] = `
 Array [
   Array [
