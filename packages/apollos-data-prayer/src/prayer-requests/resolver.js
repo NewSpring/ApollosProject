@@ -12,10 +12,13 @@ export default {
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.add(args),
-
     incrementPrayed: (root, { id }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.incrementPrayed(parsedId);
+    },
+    flagRequest: (root, { id }, { dataSources }) => {
+      const { id: parsedId } = parseGlobalId(id);
+      return dataSources.PrayerRequest.flag(parsedId);
     },
   },
   PrayerRequest: {

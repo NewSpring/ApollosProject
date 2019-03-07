@@ -41,6 +41,16 @@ export default class PrayerRequest extends RockApolloDataSource {
     }
   };
 
+  // MUTATION flag a prayer request
+  flag = async (parsedId) => {
+    try {
+      await this.put(`PrayerRequests/Flag/${parsedId}`, {});
+      return await this.getFromId(parsedId);
+    } catch (err) {
+      throw new Error(`Unable to increment prayed request!`);
+    }
+  };
+
   // MUTATION add public prayer request
   add = async ({
     IsPublic,

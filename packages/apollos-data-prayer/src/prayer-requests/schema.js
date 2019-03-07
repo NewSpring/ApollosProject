@@ -16,6 +16,7 @@ const prayerRequestSchema = gql`
       LastName: String
     ): PrayerRequest
     incrementPrayed(id: String!): PrayerRequest
+    flagRequest(id: String!): PrayerRequest
   }
   type PrayerRequest implements Node {
     id: ID!
