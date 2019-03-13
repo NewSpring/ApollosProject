@@ -34,5 +34,7 @@ export default {
     createdByPersonAliasId: ({ createdByPersonAliasId }) =>
       (typeof createdByPersonAliasId === 'number' && createdByPersonAliasId) ||
       0,
+    person: ({ createdByPersonAliasId }, args, { dataSources }) =>
+      dataSources.Person.getFromId(createdByPersonAliasId),
   },
 };

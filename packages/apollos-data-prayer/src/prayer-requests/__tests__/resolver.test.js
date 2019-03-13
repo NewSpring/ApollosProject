@@ -47,6 +47,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -98,6 +103,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -139,6 +149,11 @@ describe('PrayerRequest', () => {
             categoryId
             flagCount
             prayerCount
+            person {
+              id
+              firstName
+              lastName
+            }
           }
         }
       }
@@ -177,6 +192,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -217,6 +237,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -253,6 +278,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -290,6 +320,11 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
