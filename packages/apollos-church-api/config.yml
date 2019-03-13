@@ -96,6 +96,11 @@ ROCK_MAPPINGS:
   DEVOTIONAL_TYPE_IDS:
     - 17
 
+  PRAYER_GROUP_TYPE_IDS:
+    - 1
+    - 2
+    - 3
+
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
   TEXT: 1

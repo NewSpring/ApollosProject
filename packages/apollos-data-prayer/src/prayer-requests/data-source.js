@@ -1,5 +1,7 @@
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
+import ApollosConfig from '@apollosproject/config';
 
+const { ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
   resource = 'PrayerRequests';
 
@@ -23,6 +25,19 @@ export default class PrayerRequest extends RockApolloDataSource {
     return this.request('PrayerRequests/Public')
       .filter(`CreatedByPersonAliasId eq ${primaryAliasId}`)
       .get();
+  };
+
+  // QUERY PrayerRequests from groups
+  getFromGroups = async () => {
+    const {
+      dataSources: { Auth },
+    } = this.context;
+
+    const { primaryAliasId } = await Auth.getCurrentPerson();
+    const groupTypeIds = ROCK_MAPPINGS.PRAYER_GROUP_TYPE_IDS.join();
+    return this.request(
+      `PrayerRequests/GetByGroups/${primaryAliasId}?groupTypeId=${groupTypeIds}`
+    ).get();
   };
 
   // QUERY PrayRequest by ID

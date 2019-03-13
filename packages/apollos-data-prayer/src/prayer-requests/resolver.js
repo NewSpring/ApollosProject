@@ -8,6 +8,7 @@ export default {
       dataSources.PrayerRequest.getAllByCampus(campusId),
     getCurrentPersonPrayerRequests: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
+    getPrayerRequestsByGroups: (root, args, { dataSources }) => dataSources.PrayerRequest.getFromGroups(),
   },
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
