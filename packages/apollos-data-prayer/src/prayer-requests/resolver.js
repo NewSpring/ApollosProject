@@ -36,5 +36,9 @@ export default {
     createdByPersonAliasId: ({ createdByPersonAliasId }) =>
       (typeof createdByPersonAliasId === 'number' && createdByPersonAliasId) ||
       0,
+    requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
+      (typeof requestedByPersonAliasId === 'number' &&
+        requestedByPersonAliasId) ||
+      0,
   },
 };

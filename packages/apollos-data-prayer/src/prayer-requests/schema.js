@@ -29,6 +29,7 @@ const prayerRequestSchema = gql`
     categoryId: Int
     campusId: Int
     createdByPersonAliasId: Int
+    requestedByPersonAliasId: Int
   }
 `;
 
