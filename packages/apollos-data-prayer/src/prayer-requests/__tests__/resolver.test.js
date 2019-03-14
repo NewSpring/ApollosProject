@@ -19,6 +19,9 @@ ApollosConfig.loadJs({
     API_TOKEN: 'some-rock-token',
     IMAGE_URL: 'https://beta-rock.newspring.cc/GetImage.ashx',
   },
+  ROCK_MAPPINGS: {
+    PRAYER_GROUP_TYPE_IDS: [10, 23, 25],
+  },
   APP: {
     DEEP_LINK_HOST: 'apolloschurch',
   },
@@ -189,6 +192,48 @@ describe('PrayerRequest', () => {
           lastName: 'Hardy',
           text: 'Pray this works.',
           createdByPersonAliasId: 447217,
+          campusId: 16,
+          categoryId: 2,
+          flagCount: 0,
+          prayerCount: 4,
+        },
+      ])
+    );
+    context.dataSources.PrayerRequest.get = responseMock;
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+    expect(responseMock.mock.calls).toMatchSnapshot();
+  });
+
+  it('gets all prayers from groups', async () => {
+    const query = `
+      query {
+        getPrayerRequestsByGroups {
+          id
+          firstName
+          lastName
+          text
+          createdByPersonAliasId
+          requestedByPersonAliasId
+          campusId
+          categoryId
+          flagCount
+          prayerCount
+        }
+      }
+    `;
+
+    const responseMock = jest.fn(() =>
+      Promise.resolve([
+        {
+          id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+          firstName: 'Isaac',
+          lastName: 'Hardy',
+          text: 'Pray this works.',
+          createdByPersonAliasId: 447217,
+          requestedByPersonAliasId: 447217,
           campusId: 16,
           categoryId: 2,
           flagCount: 0,
