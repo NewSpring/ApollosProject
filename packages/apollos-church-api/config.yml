@@ -96,10 +96,11 @@ ROCK_MAPPINGS:
   DEVOTIONAL_TYPE_IDS:
     - 17
 
+  # Group type ids for all groups to share prayers
   PRAYER_GROUP_TYPE_IDS:
-    - 1
-    - 2
-    - 3
+    - 10
+    - 23
+    - 25
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

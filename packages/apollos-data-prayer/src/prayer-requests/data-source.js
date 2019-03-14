@@ -33,10 +33,10 @@ export default class PrayerRequest extends RockApolloDataSource {
       dataSources: { Auth },
     } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+    const { id } = await Auth.getCurrentPerson();
     const groupTypeIds = ROCK_MAPPINGS.PRAYER_GROUP_TYPE_IDS.join();
     return this.request(
-      `PrayerRequests/GetByGroups/${primaryAliasId}?groupTypeId=${groupTypeIds}`
+      `PrayerRequests/GetByGroups/${id}?groupTypeIds=${groupTypeIds}`
     ).get();
   };
 

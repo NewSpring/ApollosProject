@@ -5,6 +5,7 @@ const prayerRequestSchema = gql`
     getPublicPrayerRequests: [PrayerRequest]
     getPublicPrayerRequestsByCampus(campusId: Int!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest]
+    getPrayerRequestsByGroups: [PrayerRequest]
   }
   extend type Mutation {
     addPublicPrayerRequest(
