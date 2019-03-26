@@ -90,7 +90,7 @@ Object {
 exports[`PrayerRequest gets all prayers from groups 2`] = `
 Array [
   Array [
-    "PrayerRequests/GetByGroups/51?groupTypeIds=10,23,25",
+    "PrayerRequests/GetForGroupMembersOfPersonInGroupTypes?groupTypeIds=10,23,25&excludePerson=true",
     Object {},
     Object {},
   ],
