@@ -32,7 +32,8 @@ export default {
     prayerCount: ({ prayerCount }) =>
       (typeof prayerCount === 'number' && prayerCount) || 0,
     requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
-      (typeof requestedByPersonAliasId === 'number' && requestedByPersonAliasId) ||
+      (typeof requestedByPersonAliasId === 'number' &&
+        requestedByPersonAliasId) ||
       0,
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
