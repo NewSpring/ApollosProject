@@ -3,13 +3,11 @@ import { fetch } from 'apollo-server-env';
 import ApollosConfig from '@apollosproject/config';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
+import { peopleSchema } from '@apollosproject/data-schema';
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
-import {
-  peopleSchema
-} from '@apollosproject/data-schema';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
@@ -87,11 +85,13 @@ describe('PrayerRequest', () => {
     );
 
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -136,11 +136,13 @@ describe('PrayerRequest', () => {
       ])
     );
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -182,15 +184,17 @@ describe('PrayerRequest', () => {
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
-        prayerCount: 4
+        prayerCount: 4,
       })
     );
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -236,11 +240,13 @@ describe('PrayerRequest', () => {
       ])
     );
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -279,16 +285,18 @@ describe('PrayerRequest', () => {
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
-        prayerCount: 4
+        prayerCount: 4,
       })
     );
     context.dataSources.PrayerRequest.post = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -325,16 +333,18 @@ describe('PrayerRequest', () => {
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
-        prayerCount: 4
+        prayerCount: 4,
       })
     );
     context.dataSources.PrayerRequest.put = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -377,11 +387,13 @@ describe('PrayerRequest', () => {
     );
     context.dataSources.PrayerRequest.put = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
-    context.dataSources.Person.getFromAliasId = jest.fn(() => Promise.resolve({
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
         id: 1,
         firstName: 'Isaac',
-        lastName: 'Hardy'
-    }))
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
