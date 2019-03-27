@@ -4,15 +4,15 @@ import { Query } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
-import { LoginButton } from 'apolloschurchapp/src/auth';
+import { LoginButton } from '@apollosproject/ui-auth';
 import {
   H1,
   BodyText,
   Paragraph,
   BackgroundView,
-  // withTheme,
+  withTheme,
   styled,
-  // Icon,
+  Icon,
   PaddedView,
 } from '@apollosproject/ui-kit';
 import ActionTable from './ActionTable';
@@ -26,12 +26,12 @@ const Title = styled(({ theme }) => ({
   paddingBottom: theme.helpers.verticalRhythm(1.5),
 }))(H1);
 
-// const BrandIcon = withTheme(({ theme }) => ({
-//   name: 'brand-icon',
-//   size: theme.sizing.baseUnit * 2.25,
-//   marginBottom: theme.sizing.baseUnit,
-//   fill: theme.colors.primary,
-// }))(Icon);
+const BrandIcon = withTheme(({ theme }) => ({
+  name: 'brand-icon',
+  size: theme.sizing.baseUnit * 2.25,
+  marginBottom: theme.sizing.baseUnit,
+  fill: theme.colors.primary,
+}))(Icon);
 
 const Header = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 1.5,
@@ -42,6 +42,10 @@ const Header = styled(({ theme }) => ({
 const StyledLoginButton = styled(({ theme }) => ({
   marginVertical: theme.sizing.baseUnit,
 }))(LoginButton);
+
+const StyledScrollView = styled(({ theme }) => ({
+  marginVertical: theme.sizing.baseUnit,
+}))(ScrollView);
 
 class Connect extends PureComponent {
   static navigationOptions = () => ({
@@ -64,18 +68,19 @@ class Connect extends PureComponent {
             if (get(data, 'isLoggedIn', false))
               return (
                 <SafeAreaView>
-                  <ScrollView>
+                  <StyledScrollView>
                     <UserAvatarHeaderConnected key="UserAvatarHeaderConnected" />
                     <RecentlyLikedTileFeedConnected key="RecentlyLikedTileFeedConnected" />
                     <Toolbar />
                     <ActionTable />
-                  </ScrollView>
+                  </StyledScrollView>
                 </SafeAreaView>
               );
             return (
               <SafeAreaView>
                 <ScrollView>
                   <Header>
+                    <BrandIcon />
                     <Title>Connect!</Title>
                     <Paragraph>
                       <BodyText>

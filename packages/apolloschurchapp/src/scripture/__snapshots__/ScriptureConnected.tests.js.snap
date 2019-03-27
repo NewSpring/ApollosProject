@@ -2,6 +2,7 @@
 
 exports[`ScriptureConnected component renders without errors 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   onLayout={[Function]}
   style={
     Object {
@@ -37,7 +38,7 @@ exports[`ScriptureConnected component renders without errors 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "Colfax-Bold",
+            "fontFamily": "InterUI-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -47,7 +48,7 @@ exports[`ScriptureConnected component renders without errors 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "Colfax-Bold",
+              "fontFamily": "InterUI-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -60,7 +61,7 @@ exports[`ScriptureConnected component renders without errors 1`] = `
           style={
             Object {
               "color": "#505050",
-              "fontFamily": "Colfax-Bold",
+              "fontFamily": "InterUI-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
             }
@@ -142,7 +143,7 @@ exports[`ScriptureConnected component renders without errors 1`] = `
         style={
           Object {
             "color": "#505050",
-            "fontFamily": "Colfax-Regular",
+            "fontFamily": "InterUI-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }

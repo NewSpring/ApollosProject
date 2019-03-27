@@ -1,4 +1,3 @@
-jest.mock('./src/client/index');
 jest.mock('react-native-config', () => ({
   ONE_SIGNAL_KEY: 'doesntmatter',
 }));
@@ -7,13 +6,45 @@ jest.mock('react-native-custom-tabs', () => ({
     openURL: jest.fn(),
   },
 }));
+jest.mock('Animated', () => {
+  const ActualAnimated = require.requireActual('Animated');
+  return {
+    ...ActualAnimated,
+    timing: (value, config) => {
+      return {
+        start: (callback) => {
+          value.setValue(config.toValue);
+          callback && callback()
+        },
+        stop: () => ({}),
+      };
+    },
+    spring: (value, config) => {
+      return {
+        start: (callback) => {
+          value.setValue(config.toValue);
+          callback && callback()
+        },
+        stop: () => ({}),
+      };
+    },
+  };
+});
 
 jest.mock('react-native-safari-view', () => ({
   isAvailable: jest.fn().mockImplementation(() => Promise.resolve(true)),
   show: jest.fn(),
 }));
 
-jest.mock('react-native-onesignal');
+jest.mock('react-native-onesignal', () => ({
+  getPermissionSubscriptionState: (callback) =>
+    callback({ notificationsEnabled: true, subscriptionEnabled: true }),
+  promptForPushNotificationsWithUserResponse: (callback) => callback(true),
+  init: jest.fn(),
+  addEventListener: jest.fn(),
+  configure: jest.fn(),
+}));
+
 jest.mock('react-native-music-control', () => ({
   enableBackgroundMode: jest.fn(),
   enableControl: jest.fn(),
@@ -30,7 +61,14 @@ jest.mock('react-native-device-info', () => ({
 }));
 
 jest.mock('rn-fetch-blob', () => 'Fetch');
+jest.mock(
+  '@apollosproject/ui-passes/node_modules/rn-fetch-blob',
+  () => 'Fetch'
+);
 
 jest.mock('react-native-video', () => 'Video');
 
 jest.mock('NativeEventEmitter');
+
+jest.mock('react-native-maps');
+jest.mock('./src/client/index');

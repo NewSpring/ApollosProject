@@ -2,6 +2,7 @@
 
 exports[`the ScriptureList component renders a scripture List 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   onLayout={[Function]}
   style={
     Object {
@@ -35,8 +36,8 @@ exports[`the ScriptureList component renders a scripture List 1`] = `
     <Text
       style={
         Object {
-          "color": "#6bac43",
-          "fontFamily": "Colfax-Bold",
+          "color": "#00676D",
+          "fontFamily": "InterUI-Bold",
           "fontSize": 16,
           "lineHeight": 23.04,
           "paddingBottom": 24,
@@ -50,7 +51,7 @@ exports[`the ScriptureList component renders a scripture List 1`] = `
         padded={true}
         style={
           Object {
-            "color": "#6bac43",
+            "color": "#17B582",
           }
         }
       >

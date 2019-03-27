@@ -2,6 +2,7 @@
 
 exports[`the Devotional component renders a devotional 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   onLayout={[Function]}
   style={
     Object {
@@ -39,17 +40,36 @@ exports[`the Devotional component renders a devotional 1`] = `
           4294506484,
         ]
       }
+      endPoint={
+        Object {
+          "x": 0.5,
+          "y": 1,
+        }
+      }
       locations={null}
+      startPoint={
+        Object {
+          "x": 0.5,
+          "y": 0,
+        }
+      }
       style={
         Object {
           "flex": 1,
+          "height": "100%",
         }
       }
     >
-      <RCTSafeAreaView
+      <View
+        onLayout={[Function]}
+        pointerEvents="box-none"
         style={
           Object {
             "flex": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 20,
           }
         }
       >
@@ -70,7 +90,7 @@ exports[`the Devotional component renders a devotional 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#ffffff",
+                "backgroundColor": "#FFFFFF",
                 "elevation": 4,
                 "shadowColor": "black",
                 "shadowOffset": Object {
@@ -97,7 +117,7 @@ exports[`the Devotional component renders a devotional 1`] = `
               <View
                 style={
                   Object {
-                    "backgroundColor": "#2a4930",
+                    "backgroundColor": "#6EC5B8",
                     "bottom": 0,
                     "height": 3,
                     "left": 0,
@@ -187,7 +207,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -241,7 +261,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -321,7 +341,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Black",
+                              "fontFamily": "InterUI-Black",
                               "fontSize": 36,
                               "lineHeight": 41.4,
                               "paddingBottom": 25.92,
@@ -334,8 +354,8 @@ exports[`the Devotional component renders a devotional 1`] = `
                         <Text
                           style={
                             Object {
-                              "color": "#6bac43",
-                              "fontFamily": "Colfax-Bold",
+                              "color": "#00676D",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 24,
@@ -349,7 +369,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                             padded={true}
                             style={
                               Object {
-                                "color": "#6bac43",
+                                "color": "#17B582",
                               }
                             }
                           >
@@ -400,7 +420,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                             style={
                               Object {
                                 "color": "#303030",
-                                "fontFamily": "Colfax-Bold",
+                                "fontFamily": "InterUI-Bold",
                                 "fontSize": 16,
                                 "lineHeight": 23.04,
                               }
@@ -410,7 +430,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "Colfax-Bold",
+                                  "fontFamily": "InterUI-Bold",
                                   "fontSize": 16,
                                   "lineHeight": 23.04,
                                 }
@@ -423,7 +443,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "Colfax-Bold",
+                                  "fontFamily": "InterUI-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -505,7 +525,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "Colfax-Regular",
+                                "fontFamily": "InterUI-Regular",
                                 "fontSize": 9.6,
                                 "lineHeight": 10.37,
                               }
@@ -517,7 +537,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                             style={
                               Object {
                                 "color": "#303030",
-                                "fontFamily": "Colfax-Bold",
+                                "fontFamily": "InterUI-Bold",
                                 "fontSize": 16,
                                 "lineHeight": 23.04,
                               }
@@ -527,7 +547,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "Colfax-Bold",
+                                  "fontFamily": "InterUI-Bold",
                                   "fontSize": 16,
                                   "lineHeight": 23.04,
                                 }
@@ -540,7 +560,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "Colfax-Bold",
+                                  "fontFamily": "InterUI-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -860,7 +880,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "Colfax-Regular",
+                                "fontFamily": "InterUI-Regular",
                                 "fontSize": 9.6,
                                 "lineHeight": 10.37,
                               }
@@ -875,7 +895,7 @@ exports[`the Devotional component renders a devotional 1`] = `
             </RCTScrollView>
           </View>
         </View>
-      </RCTSafeAreaView>
+      </View>
     </BVLinearGradient>
   </View>
 </RCTSafeAreaView>
@@ -883,6 +903,7 @@ exports[`the Devotional component renders a devotional 1`] = `
 
 exports[`the Devotional component renders a loading state 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   onLayout={[Function]}
   style={
     Object {
@@ -920,17 +941,36 @@ exports[`the Devotional component renders a loading state 1`] = `
           4294506484,
         ]
       }
+      endPoint={
+        Object {
+          "x": 0.5,
+          "y": 1,
+        }
+      }
       locations={null}
+      startPoint={
+        Object {
+          "x": 0.5,
+          "y": 0,
+        }
+      }
       style={
         Object {
           "flex": 1,
+          "height": "100%",
         }
       }
     >
-      <RCTSafeAreaView
+      <View
+        onLayout={[Function]}
+        pointerEvents="box-none"
         style={
           Object {
             "flex": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 20,
           }
         }
       >
@@ -951,7 +991,7 @@ exports[`the Devotional component renders a loading state 1`] = `
           <View
             style={
               Object {
-                "backgroundColor": "#ffffff",
+                "backgroundColor": "#FFFFFF",
                 "elevation": 4,
                 "shadowColor": "black",
                 "shadowOffset": Object {
@@ -978,7 +1018,7 @@ exports[`the Devotional component renders a loading state 1`] = `
               <View
                 style={
                   Object {
-                    "backgroundColor": "#2a4930",
+                    "backgroundColor": "#6EC5B8",
                     "bottom": 0,
                     "height": 3,
                     "left": 0,
@@ -1068,7 +1108,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -1122,7 +1162,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -1202,7 +1242,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Black",
+                              "fontFamily": "InterUI-Black",
                               "fontSize": 36,
                               "lineHeight": 41.4,
                               "paddingBottom": 25.92,
@@ -1215,8 +1255,8 @@ exports[`the Devotional component renders a loading state 1`] = `
                         <Text
                           style={
                             Object {
-                              "color": "#6bac43",
-                              "fontFamily": "Colfax-Bold",
+                              "color": "#00676D",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 24,
@@ -1230,7 +1270,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             padded={true}
                             style={
                               Object {
-                                "color": "#6bac43",
+                                "color": "#17B582",
                               }
                             }
                           >
@@ -1281,7 +1321,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1293,7 +1333,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1305,7 +1345,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1317,7 +1357,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1329,7 +1369,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1343,7 +1383,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1355,7 +1395,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1367,7 +1407,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1379,7 +1419,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1391,7 +1431,7 @@ exports[`the Devotional component renders a loading state 1`] = `
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1408,7 +1448,7 @@ exports[`the Devotional component renders a loading state 1`] = `
             </RCTScrollView>
           </View>
         </View>
-      </RCTSafeAreaView>
+      </View>
     </BVLinearGradient>
   </View>
 </RCTSafeAreaView>
@@ -1416,6 +1456,7 @@ exports[`the Devotional component renders a loading state 1`] = `
 
 exports[`the Devotional component renders even with empty scripture array 1`] = `
 <RCTSafeAreaView
+  emulateUnlessSupported={true}
   onLayout={[Function]}
   style={
     Object {
@@ -1453,17 +1494,36 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
           4294506484,
         ]
       }
+      endPoint={
+        Object {
+          "x": 0.5,
+          "y": 1,
+        }
+      }
       locations={null}
+      startPoint={
+        Object {
+          "x": 0.5,
+          "y": 0,
+        }
+      }
       style={
         Object {
           "flex": 1,
+          "height": "100%",
         }
       }
     >
-      <RCTSafeAreaView
+      <View
+        onLayout={[Function]}
+        pointerEvents="box-none"
         style={
           Object {
             "flex": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 20,
           }
         }
       >
@@ -1484,7 +1544,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
           <View
             style={
               Object {
-                "backgroundColor": "#ffffff",
+                "backgroundColor": "#FFFFFF",
                 "elevation": 4,
                 "shadowColor": "black",
                 "shadowOffset": Object {
@@ -1511,7 +1571,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
               <View
                 style={
                   Object {
-                    "backgroundColor": "#2a4930",
+                    "backgroundColor": "#6EC5B8",
                     "bottom": 0,
                     "height": 3,
                     "left": 0,
@@ -1601,7 +1661,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -1655,7 +1715,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Bold",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 11.52,
@@ -1735,7 +1795,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           style={
                             Object {
                               "color": "#303030",
-                              "fontFamily": "Colfax-Black",
+                              "fontFamily": "InterUI-Black",
                               "fontSize": 36,
                               "lineHeight": 41.4,
                               "paddingBottom": 25.92,
@@ -1748,8 +1808,8 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                         <Text
                           style={
                             Object {
-                              "color": "#6bac43",
-                              "fontFamily": "Colfax-Bold",
+                              "color": "#00676D",
+                              "fontFamily": "InterUI-Bold",
                               "fontSize": 16,
                               "lineHeight": 23.04,
                               "paddingBottom": 24,
@@ -1763,7 +1823,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             padded={true}
                             style={
                               Object {
-                                "color": "#6bac43",
+                                "color": "#17B582",
                               }
                             }
                           >
@@ -1814,7 +1874,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1826,7 +1886,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1838,7 +1898,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1850,7 +1910,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1862,7 +1922,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1876,7 +1936,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1888,7 +1948,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1900,7 +1960,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1912,7 +1972,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1924,7 +1984,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#dddddd",
+                                "backgroundColor": "#A5A5A5",
                                 "borderRadius": 16,
                                 "height": 16,
                                 "marginVertical": 5,
@@ -1941,7 +2001,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
             </RCTScrollView>
           </View>
         </View>
-      </RCTSafeAreaView>
+      </View>
     </BVLinearGradient>
   </View>
 </RCTSafeAreaView>

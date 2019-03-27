@@ -1,6 +1,6 @@
 {
   "name": "apollos-data-prayer",
-  "version": "0.8.0-alpha.9",
+  "version": "0.8.1",
   "homepage": "https://github.com/NewSpring/apollos-prototype#readme",
   "main": "lib/index.js",
   "scripts": {
@@ -20,8 +20,8 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@apollosproject/data-schema": "^0.8.0-alpha.9",
-    "@apollosproject/server-core": "^0.8.0-alpha.9",
+    "@apollosproject/data-schema": "^0.8.1",
+    "@apollosproject/server-core": "^0.8.1",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",
     "natural": "^0.6.2",
@@ -32,8 +32,8 @@
     "@apollosproject/rock-apollo-data-source": "*"
   },
   "devDependencies": {
-    "@apollosproject/apollo-server-env-mock": "^0.8.0-alpha.9",
-    "@apollosproject/babel-preset-apollos": "^0.8.0-alpha.9",
+    "@apollosproject/apollo-server-env-mock": "^0.8.1",
+    "@apollosproject/babel-preset-apollos": "^0.8.1",
     "jest": "^23.6.0"
   },
   "publishConfig": {
