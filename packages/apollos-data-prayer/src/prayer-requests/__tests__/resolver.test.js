@@ -10,6 +10,7 @@ import authMock from '../../authMock';
 import {
   peopleSchema
 } from '@apollosproject/data-schema';
+
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
   Auth: { dataSource: authMock },
