@@ -95,12 +95,12 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                     inHorizontalList={true}
                     style={
                       Object {
-                        "backgroundColor": "#FFFFFF",
+                        "backgroundColor": "#ffffff",
                         "borderRadius": 16,
                         "margin": 8,
                         "marginHorizontal": 0,
                         "marginRight": 8,
-                        "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                        "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                         "shadowOffset": Object {
                           "height": 1,
                           "width": 0,
@@ -145,7 +145,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                             style={
                               Object {
                                 "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "width": "100%",
                               }
                             }
@@ -164,7 +164,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                                 Object {
                                   "alignSelf": "stretch",
                                   "aspectRatio": 1,
-                                  "backgroundColor": "#A5A5A5",
+                                  "backgroundColor": "#dddddd",
                                   "height": "100%",
                                   "opacity": 0,
                                   "resizeMode": "cover",
@@ -197,7 +197,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "InterUI-Medium",
+                                  "fontFamily": "Colfax-Medium",
                                   "fontSize": 14,
                                   "lineHeight": 20.16,
                                 }
@@ -209,7 +209,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "InterUI-Bold",
+                                  "fontFamily": "Colfax-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -223,7 +223,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "InterUI-Bold",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
@@ -249,12 +249,12 @@ Anderson, SC 29621-3619
                     inHorizontalList={true}
                     style={
                       Object {
-                        "backgroundColor": "#FFFFFF",
+                        "backgroundColor": "#ffffff",
                         "borderRadius": 16,
                         "margin": 8,
                         "marginHorizontal": 0,
                         "marginRight": 8,
-                        "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                        "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                         "shadowOffset": Object {
                           "height": 1,
                           "width": 0,
@@ -299,7 +299,7 @@ Anderson, SC 29621-3619
                             style={
                               Object {
                                 "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "width": "100%",
                               }
                             }
@@ -318,7 +318,7 @@ Anderson, SC 29621-3619
                                 Object {
                                   "alignSelf": "stretch",
                                   "aspectRatio": 1,
-                                  "backgroundColor": "#A5A5A5",
+                                  "backgroundColor": "#dddddd",
                                   "height": "100%",
                                   "opacity": 0,
                                   "resizeMode": "cover",
@@ -351,7 +351,7 @@ Anderson, SC 29621-3619
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "InterUI-Medium",
+                                  "fontFamily": "Colfax-Medium",
                                   "fontSize": 14,
                                   "lineHeight": 20.16,
                                 }
@@ -363,7 +363,7 @@ Anderson, SC 29621-3619
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "InterUI-Bold",
+                                  "fontFamily": "Colfax-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -377,7 +377,7 @@ Anderson, SC 29621-3619
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "InterUI-Bold",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
@@ -403,12 +403,12 @@ Richardson, TX 75080-5525
                     inHorizontalList={true}
                     style={
                       Object {
-                        "backgroundColor": "#FFFFFF",
+                        "backgroundColor": "#ffffff",
                         "borderRadius": 16,
                         "margin": 8,
                         "marginHorizontal": 0,
                         "marginRight": 8,
-                        "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                        "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                         "shadowOffset": Object {
                           "height": 1,
                           "width": 0,
@@ -453,7 +453,7 @@ Richardson, TX 75080-5525
                             style={
                               Object {
                                 "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "width": "100%",
                               }
                             }
@@ -472,7 +472,7 @@ Richardson, TX 75080-5525
                                 Object {
                                   "alignSelf": "stretch",
                                   "aspectRatio": 1,
-                                  "backgroundColor": "#A5A5A5",
+                                  "backgroundColor": "#dddddd",
                                   "height": "100%",
                                   "opacity": 0,
                                   "resizeMode": "cover",
@@ -505,7 +505,7 @@ Richardson, TX 75080-5525
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "InterUI-Medium",
+                                  "fontFamily": "Colfax-Medium",
                                   "fontSize": 14,
                                   "lineHeight": 20.16,
                                 }
@@ -517,7 +517,7 @@ Richardson, TX 75080-5525
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "InterUI-Bold",
+                                  "fontFamily": "Colfax-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -531,7 +531,7 @@ Richardson, TX 75080-5525
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "InterUI-Bold",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
@@ -557,12 +557,12 @@ Cincinnati, OH 45202-2118
                     inHorizontalList={true}
                     style={
                       Object {
-                        "backgroundColor": "#FFFFFF",
+                        "backgroundColor": "#ffffff",
                         "borderRadius": 16,
                         "margin": 8,
                         "marginHorizontal": 0,
                         "marginRight": 8,
-                        "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                        "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                         "shadowOffset": Object {
                           "height": 1,
                           "width": 0,
@@ -607,7 +607,7 @@ Cincinnati, OH 45202-2118
                             style={
                               Object {
                                 "aspectRatio": 1,
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "width": "100%",
                               }
                             }
@@ -626,7 +626,7 @@ Cincinnati, OH 45202-2118
                                 Object {
                                   "alignSelf": "stretch",
                                   "aspectRatio": 1,
-                                  "backgroundColor": "#A5A5A5",
+                                  "backgroundColor": "#dddddd",
                                   "height": "100%",
                                   "opacity": 0,
                                   "resizeMode": "cover",
@@ -659,7 +659,7 @@ Cincinnati, OH 45202-2118
                               style={
                                 Object {
                                   "color": "#303030",
-                                  "fontFamily": "InterUI-Medium",
+                                  "fontFamily": "Colfax-Medium",
                                   "fontSize": 14,
                                   "lineHeight": 20.16,
                                 }
@@ -671,7 +671,7 @@ Cincinnati, OH 45202-2118
                               style={
                                 Object {
                                   "color": "#505050",
-                                  "fontFamily": "InterUI-Bold",
+                                  "fontFamily": "Colfax-Bold",
                                   "fontSize": 12,
                                   "lineHeight": 17.28,
                                 }
@@ -685,7 +685,7 @@ Cincinnati, OH 45202-2118
                             style={
                               Object {
                                 "color": "#505050",
-                                "fontFamily": "InterUI-Bold",
+                                "fontFamily": "Colfax-Bold",
                                 "fontSize": 12,
                                 "lineHeight": 17.28,
                               }
@@ -731,8 +731,8 @@ South Barrington, IL 60010-6143
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#17B582",
-                      "borderColor": "#17B582",
+                      "backgroundColor": "#6bac43",
+                      "borderColor": "#6bac43",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -748,8 +748,8 @@ South Barrington, IL 60010-6143
                   <Text
                     style={
                       Object {
-                        "color": "#FFFFFF",
-                        "fontFamily": "InterUI-Bold",
+                        "color": "#ffffff",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 16,
                         "lineHeight": 23.04,
                       }

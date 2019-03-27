@@ -79,8 +79,8 @@ exports[`The Onboarding Slide component should render both slide navigation butt
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -96,8 +96,8 @@ exports[`The Onboarding Slide component should render both slide navigation butt
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -241,7 +241,7 @@ exports[`The Onboarding Slide component should render both slide navigation butt
         onPress={[MockFunction]}
         style={
           Object {
-            "color": "#A5A5A5",
+            "color": "#858585",
             "marginLeft": -16,
             "paddingHorizontal": 16,
             "paddingVertical": 15,
@@ -382,8 +382,8 @@ exports[`The Onboarding Slide component should render onboarding next button nav
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -399,8 +399,8 @@ exports[`The Onboarding Slide component should render onboarding next button nav
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -606,7 +606,7 @@ exports[`The Onboarding Slide component should render onboarding skip button nav
         onPress={[MockFunction]}
         style={
           Object {
-            "color": "#A5A5A5",
+            "color": "#858585",
             "marginLeft": -16,
             "paddingHorizontal": 16,
             "paddingVertical": 15,
@@ -681,7 +681,7 @@ exports[`The Onboarding Slide component should render onboarding skip button wit
         onPress={[MockFunction]}
         style={
           Object {
-            "color": "#A5A5A5",
+            "color": "#858585",
             "marginLeft": -16,
             "paddingHorizontal": 16,
             "paddingVertical": 15,
@@ -774,8 +774,8 @@ exports[`The Onboarding Slide component should render primary navigation button 
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -791,8 +791,8 @@ exports[`The Onboarding Slide component should render primary navigation button 
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -1016,8 +1016,8 @@ exports[`The Onboarding Slide component should render primary navigation button 
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -1033,8 +1033,8 @@ exports[`The Onboarding Slide component should render primary navigation button 
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }

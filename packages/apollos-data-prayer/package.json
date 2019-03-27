@@ -22,7 +22,6 @@
   "dependencies": {
     "@apollosproject/data-schema": "^0.8.1",
     "@apollosproject/server-core": "^0.8.1",
-    "jest": "^23.6.0",
     "lodash": "^4.17.11",
     "natural": "^0.6.2",
     "sanitize-html": "^1.19.3"
@@ -34,7 +33,8 @@
   "devDependencies": {
     "@apollosproject/apollo-server-env-mock": "^0.8.1",
     "@apollosproject/babel-preset-apollos": "^0.8.1",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "jest-fetch-mock": "2.1.1"
   },
   "publishConfig": {
     "access": "public"

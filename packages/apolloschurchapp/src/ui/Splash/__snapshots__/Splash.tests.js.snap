@@ -185,7 +185,7 @@ exports[`The Onboarding Splash component should pass additional props to Slide 1
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Black",
+              "fontFamily": "Colfax-Black",
               "fontSize": 43,
               "lineHeight": 49.45,
               "marginBottom": 32,
@@ -199,7 +199,7 @@ exports[`The Onboarding Splash component should pass additional props to Slide 1
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -244,8 +244,8 @@ exports[`The Onboarding Splash component should pass additional props to Slide 1
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -261,8 +261,8 @@ exports[`The Onboarding Splash component should pass additional props to Slide 1
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -592,7 +592,7 @@ exports[`The Onboarding Splash component should render 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Black",
+              "fontFamily": "Colfax-Black",
               "fontSize": 43,
               "lineHeight": 49.45,
               "marginBottom": 32,
@@ -606,7 +606,7 @@ exports[`The Onboarding Splash component should render 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -805,7 +805,7 @@ exports[`The Onboarding Splash component should render a custom description 1`] 
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Black",
+              "fontFamily": "Colfax-Black",
               "fontSize": 43,
               "lineHeight": 49.45,
               "marginBottom": 32,
@@ -819,7 +819,7 @@ exports[`The Onboarding Splash component should render a custom description 1`] 
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -1018,7 +1018,7 @@ exports[`The Onboarding Splash component should render a custom title 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Black",
+              "fontFamily": "Colfax-Black",
               "fontSize": 43,
               "lineHeight": 49.45,
               "marginBottom": 32,
@@ -1032,7 +1032,7 @@ exports[`The Onboarding Splash component should render a custom title 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -1245,8 +1245,8 @@ exports[`The Onboarding Splash component should render light text on a dark back
           isLight={false}
           style={
             Object {
-              "color": "#FFFFFF",
-              "fontFamily": "InterUI-Black",
+              "color": "#ffffff",
+              "fontFamily": "Colfax-Black",
               "fontSize": 43,
               "lineHeight": 49.45,
               "marginBottom": 32,
@@ -1259,8 +1259,8 @@ exports[`The Onboarding Splash component should render light text on a dark back
           isLight={false}
           style={
             Object {
-              "color": "#FFFFFF",
-              "fontFamily": "InterUI-Bold",
+              "color": "#ffffff",
+              "fontFamily": "Colfax-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }

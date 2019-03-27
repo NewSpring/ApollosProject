@@ -61,8 +61,8 @@ exports[`The Onboarding SlideWrapper component should pass additional props to S
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -75,7 +75,7 @@ exports[`The Onboarding SlideWrapper component should pass additional props to S
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -121,8 +121,8 @@ exports[`The Onboarding SlideWrapper component should pass additional props to S
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -138,8 +138,8 @@ exports[`The Onboarding SlideWrapper component should pass additional props to S
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -345,8 +345,8 @@ exports[`The Onboarding SlideWrapper component should render 1`] = `
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -359,7 +359,7 @@ exports[`The Onboarding SlideWrapper component should render 1`] = `
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -435,8 +435,8 @@ exports[`The Onboarding SlideWrapper component should render a custom descriptio
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -449,7 +449,7 @@ exports[`The Onboarding SlideWrapper component should render a custom descriptio
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -525,8 +525,8 @@ exports[`The Onboarding SlideWrapper component should render a custom first name
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -539,7 +539,7 @@ exports[`The Onboarding SlideWrapper component should render a custom first name
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -629,8 +629,8 @@ exports[`The Onboarding SlideWrapper component should render a custom image 1`] 
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -643,7 +643,7 @@ exports[`The Onboarding SlideWrapper component should render a custom image 1`] 
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -719,8 +719,8 @@ exports[`The Onboarding SlideWrapper component should render a custom title 1`] 
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -733,7 +733,7 @@ exports[`The Onboarding SlideWrapper component should render a custom title 1`] 
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }

@@ -66,8 +66,8 @@ exports[`The Onboarding AskNotifications component should pass additional props 
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -79,7 +79,7 @@ exports[`The Onboarding AskNotifications component should pass additional props 
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -108,7 +108,7 @@ exports[`The Onboarding AskNotifications component should pass additional props 
         onPress={[MockFunction]}
         style={
           Object {
-            "color": "#A5A5A5",
+            "color": "#858585",
             "marginLeft": -16,
             "paddingHorizontal": 16,
             "paddingVertical": 15,
@@ -188,8 +188,8 @@ exports[`The Onboarding AskNotifications component should render 1`] = `
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -201,7 +201,7 @@ exports[`The Onboarding AskNotifications component should render 1`] = `
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -283,8 +283,8 @@ exports[`The Onboarding AskNotifications component should render a button with c
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -296,7 +296,7 @@ exports[`The Onboarding AskNotifications component should render a button with c
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -327,8 +327,8 @@ exports[`The Onboarding AskNotifications component should render a button with c
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#00676D",
-                  "borderColor": "#00676D",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
                   "borderRadius": 16,
                   "borderWidth": 2,
                   "elevation": 2,
@@ -344,8 +344,8 @@ exports[`The Onboarding AskNotifications component should render a button with c
               <Text
                 style={
                   Object {
-                    "color": "#FFFFFF",
-                    "fontFamily": "InterUI-Bold",
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
                     "fontSize": 16,
                     "lineHeight": 23.04,
                   }
@@ -428,8 +428,8 @@ exports[`The Onboarding AskNotifications component should render a custom descri
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -441,7 +441,7 @@ exports[`The Onboarding AskNotifications component should render a custom descri
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -523,8 +523,8 @@ exports[`The Onboarding AskNotifications component should render a custom title 
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -536,7 +536,7 @@ exports[`The Onboarding AskNotifications component should render a custom title 
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -609,7 +609,7 @@ exports[`The Onboarding AskNotifications component should render children (image
           <View
             style={
               Object {
-                "backgroundColor": "#A5A5A5",
+                "backgroundColor": "#dddddd",
                 "overflow": "hidden",
                 "width": "100%",
               }
@@ -622,7 +622,7 @@ exports[`The Onboarding AskNotifications component should render children (image
               style={
                 Object {
                   "aspectRatio": 1,
-                  "backgroundColor": "#A5A5A5",
+                  "backgroundColor": "#dddddd",
                   "width": "100%",
                 }
               }
@@ -640,7 +640,7 @@ exports[`The Onboarding AskNotifications component should render children (image
                 }
                 style={
                   Object {
-                    "backgroundColor": "#A5A5A5",
+                    "backgroundColor": "#dddddd",
                     "opacity": 0,
                     "resizeMode": "cover",
                     "width": "100%",
@@ -662,8 +662,8 @@ exports[`The Onboarding AskNotifications component should render children (image
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -675,7 +675,7 @@ exports[`The Onboarding AskNotifications component should render children (image
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -757,8 +757,8 @@ exports[`The Onboarding AskNotifications component should render the button disa
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -770,7 +770,7 @@ exports[`The Onboarding AskNotifications component should render the button disa
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -801,8 +801,8 @@ exports[`The Onboarding AskNotifications component should render the button disa
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#00676D",
-                  "borderColor": "#00676D",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
                   "borderRadius": 16,
                   "borderWidth": 2,
                   "elevation": 2,
@@ -818,8 +818,8 @@ exports[`The Onboarding AskNotifications component should render the button disa
               <Text
                 style={
                   Object {
-                    "color": "#FFFFFF",
-                    "fontFamily": "InterUI-Bold",
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
                     "fontSize": 16,
                     "lineHeight": 23.04,
                   }
@@ -902,8 +902,8 @@ exports[`The Onboarding AskNotifications component should render with a button 1
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
               }
@@ -915,7 +915,7 @@ exports[`The Onboarding AskNotifications component should render with a button 1
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "paddingBottom": 24,
@@ -946,8 +946,8 @@ exports[`The Onboarding AskNotifications component should render with a button 1
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#00676D",
-                  "borderColor": "#00676D",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
                   "borderRadius": 16,
                   "borderWidth": 2,
                   "elevation": 2,
@@ -963,8 +963,8 @@ exports[`The Onboarding AskNotifications component should render with a button 1
               <Text
                 style={
                   Object {
-                    "color": "#FFFFFF",
-                    "fontFamily": "InterUI-Bold",
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
                     "fontSize": 16,
                     "lineHeight": 23.04,
                   }

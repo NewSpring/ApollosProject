@@ -61,8 +61,8 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -75,7 +75,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -89,7 +89,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -117,7 +117,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -130,7 +130,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -143,7 +143,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -164,7 +164,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -177,7 +177,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -190,7 +190,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -207,7 +207,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -245,8 +245,8 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -268,7 +268,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -511,7 +511,7 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -559,8 +559,8 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#00676D",
-              "borderColor": "#00676D",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
               "elevation": 2,
@@ -576,8 +576,8 @@ exports[`The Onboarding AboutYou component should pass additional props to Slide
           <Text
             style={
               Object {
-                "color": "#FFFFFF",
-                "fontFamily": "InterUI-Medium",
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
               }
@@ -783,8 +783,8 @@ exports[`The Onboarding AboutYou component should render 1`] = `
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -797,7 +797,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -811,7 +811,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -839,7 +839,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -852,7 +852,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -865,7 +865,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -886,7 +886,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -899,7 +899,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -912,7 +912,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -929,7 +929,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -967,8 +967,8 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -990,7 +990,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -1233,7 +1233,7 @@ exports[`The Onboarding AboutYou component should render 1`] = `
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -1311,8 +1311,8 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -1325,7 +1325,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -1339,7 +1339,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -1367,7 +1367,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -1380,7 +1380,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -1393,7 +1393,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -1414,7 +1414,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -1427,7 +1427,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -1440,7 +1440,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -1457,7 +1457,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -1495,8 +1495,8 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -1518,7 +1518,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -1761,7 +1761,7 @@ exports[`The Onboarding AboutYou component should render a custom date picker 1`
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -1839,8 +1839,8 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -1853,7 +1853,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -1867,7 +1867,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -1895,7 +1895,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -1908,7 +1908,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -1921,7 +1921,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -1942,7 +1942,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -1955,7 +1955,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -1968,7 +1968,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -1985,7 +1985,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -2023,8 +2023,8 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -2046,7 +2046,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -2289,7 +2289,7 @@ exports[`The Onboarding AboutYou component should render a custom description 1`
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -2367,8 +2367,8 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -2381,7 +2381,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -2395,7 +2395,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -2423,7 +2423,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -2436,7 +2436,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -2449,7 +2449,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -2470,7 +2470,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -2483,7 +2483,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -2496,7 +2496,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -2513,7 +2513,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -2551,8 +2551,8 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -2574,7 +2574,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -2817,7 +2817,7 @@ exports[`The Onboarding AboutYou component should render a custom gender list 1`
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -2909,8 +2909,8 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -2923,7 +2923,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -2937,7 +2937,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -2965,7 +2965,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -2978,7 +2978,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -2991,7 +2991,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -3012,7 +3012,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -3025,7 +3025,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -3038,7 +3038,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -3055,7 +3055,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -3093,8 +3093,8 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -3116,7 +3116,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -3359,7 +3359,7 @@ exports[`The Onboarding AboutYou component should render a custom image 1`] = `
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -3437,8 +3437,8 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -3451,7 +3451,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -3465,7 +3465,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -3493,7 +3493,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -3506,7 +3506,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -3519,7 +3519,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -3540,7 +3540,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -3553,7 +3553,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -3566,7 +3566,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -3583,7 +3583,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -3621,8 +3621,8 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -3644,7 +3644,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -3887,7 +3887,7 @@ exports[`The Onboarding AboutYou component should render a custom title 1`] = `
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,
@@ -3965,8 +3965,8 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
           <Text
             style={
               Object {
-                "color": "#00676D",
-                "fontFamily": "InterUI-Black",
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
                 "fontSize": 36,
                 "lineHeight": 41.4,
                 "marginBottom": 8,
@@ -3979,7 +3979,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
             style={
               Object {
                 "color": "#505050",
-                "fontFamily": "InterUI-Medium",
+                "fontFamily": "Colfax-Medium",
                 "fontSize": 14,
                 "lineHeight": 20.16,
                 "marginBottom": 16,
@@ -3993,7 +3993,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -4021,7 +4021,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -4035,7 +4035,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#00676D",
+                      "borderColor": "#6bac43",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -4047,7 +4047,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   <View
                     style={
                       Object {
-                        "backgroundColor": "#00676D",
+                        "backgroundColor": "#6bac43",
                         "borderRadius": 99,
                         "height": 12,
                         "width": 12,
@@ -4059,7 +4059,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -4080,7 +4080,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                 style={
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "borderBottomColor": "rgba(221, 221, 221, 0.30000000000000004)",
                     "borderBottomWidth": 0,
                     "flexDirection": "row",
                     "justifyContent": "space-between",
@@ -4093,7 +4093,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   style={
                     Object {
                       "alignItems": "center",
-                      "borderColor": "#A5A5A5",
+                      "borderColor": "#858585",
                       "borderRadius": 99,
                       "borderWidth": 2,
                       "height": 20,
@@ -4106,7 +4106,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   style={
                     Object {
                       "color": "#303030",
-                      "fontFamily": "InterUI-Medium",
+                      "fontFamily": "Colfax-Medium",
                       "fontSize": 14,
                       "lineHeight": 20.16,
                       "marginLeft": 8,
@@ -4123,7 +4123,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
               style={
                 Object {
                   "color": "gray",
-                  "fontFamily": "InterUI-Bold",
+                  "fontFamily": "Colfax-Bold",
                   "fontSize": 12,
                   "lineHeight": 17.28,
                   "opacity": 0.7,
@@ -4161,8 +4161,8 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#A5A5A5",
-                      "borderColor": "#A5A5A5",
+                      "backgroundColor": "#dddddd",
+                      "borderColor": "#dddddd",
                       "borderRadius": 16,
                       "borderWidth": 2,
                       "elevation": 2,
@@ -4184,7 +4184,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                       Object {
                         "alignItems": "center",
                         "color": "#303030",
-                        "fontFamily": "InterUI-Bold",
+                        "fontFamily": "Colfax-Bold",
                         "fontSize": 12,
                         "justifyContent": "center",
                         "lineHeight": 17.28,
@@ -4427,7 +4427,7 @@ exports[`The Onboarding AboutYou component should render the selected gender 1`]
                     Object {
                       "backgroundColor": "transparent",
                       "color": "#505050",
-                      "fontFamily": "InterUI-Bold",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                       "paddingVertical": 4,

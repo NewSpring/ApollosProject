@@ -247,11 +247,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -274,7 +274,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -286,7 +286,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -308,7 +308,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -320,7 +320,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -381,7 +381,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -400,7 +400,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -449,11 +449,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -476,7 +476,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -488,7 +488,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -510,7 +510,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -522,7 +522,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -583,7 +583,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -602,7 +602,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -651,11 +651,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -678,7 +678,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -690,7 +690,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -712,7 +712,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -724,7 +724,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -785,7 +785,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -804,7 +804,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -853,11 +853,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -880,7 +880,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -892,7 +892,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -914,7 +914,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -926,7 +926,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -987,7 +987,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -1006,7 +1006,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -1055,11 +1055,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1082,7 +1082,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1094,7 +1094,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -1116,7 +1116,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -1128,7 +1128,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -1189,7 +1189,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -1208,7 +1208,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -1257,11 +1257,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1284,7 +1284,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1296,7 +1296,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -1318,7 +1318,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -1330,7 +1330,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -1391,7 +1391,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -1410,7 +1410,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -1459,11 +1459,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1486,7 +1486,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1498,7 +1498,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -1520,7 +1520,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -1532,7 +1532,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -1593,7 +1593,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -1612,7 +1612,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -1661,11 +1661,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1688,7 +1688,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1700,7 +1700,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -1722,7 +1722,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -1734,7 +1734,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -1795,7 +1795,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -1814,7 +1814,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -1863,11 +1863,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -1890,7 +1890,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -1902,7 +1902,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -1924,7 +1924,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -1936,7 +1936,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -1997,7 +1997,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -2016,7 +2016,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,
@@ -2065,11 +2065,11 @@ exports[`content feed query component renders a feedview after successful query 
                 }
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "borderRadius": 16,
                     "marginHorizontal": 16,
                     "marginVertical": 12,
-                    "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                    "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                     "shadowOffset": Object {
                       "height": 1,
                       "width": 0,
@@ -2092,7 +2092,7 @@ exports[`content feed query component renders a feedview after successful query 
                     style={
                       Object {
                         "aspectRatio": 2,
-                        "backgroundColor": "#A5A5A5",
+                        "backgroundColor": "#dddddd",
                         "overflow": "hidden",
                         "width": "100%",
                       }
@@ -2104,7 +2104,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "aspectRatio": 2,
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "opacity": 1,
                           "resizeMode": "cover",
                           "width": "100%",
@@ -2126,7 +2126,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 24,
                           "marginVertical": 1.8000000000000007,
@@ -2138,7 +2138,7 @@ exports[`content feed query component renders a feedview after successful query 
                       style={
                         Object {
                           "alignSelf": "stretch",
-                          "backgroundColor": "#A5A5A5",
+                          "backgroundColor": "#dddddd",
                           "borderRadius": 16,
                           "height": 16,
                           "marginVertical": 5,
@@ -2199,7 +2199,7 @@ exports[`content feed query component renders a feedview after successful query 
                         <View
                           style={
                             Object {
-                              "backgroundColor": "#A5A5A5",
+                              "backgroundColor": "#dddddd",
                               "borderRadius": 16,
                               "height": 19.2,
                               "width": 19.2,
@@ -2218,7 +2218,7 @@ exports[`content feed query component renders a feedview after successful query 
                             style={
                               Object {
                                 "alignSelf": "stretch",
-                                "backgroundColor": "#A5A5A5",
+                                "backgroundColor": "#dddddd",
                                 "borderRadius": 16,
                                 "height": 12,
                                 "marginVertical": 2.6400000000000006,

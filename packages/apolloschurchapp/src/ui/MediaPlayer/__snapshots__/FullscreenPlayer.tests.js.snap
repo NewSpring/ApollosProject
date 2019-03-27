@@ -345,7 +345,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                               fill={
                                 Array [
                                   0,
-                                  4294506484,
+                                  4294967295,
                                 ]
                               }
                               fillOpacity={1}
@@ -401,8 +401,8 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                       <Text
                         style={
                           Object {
-                            "color": "#F8F7F4",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#ffffff",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 16,
                             "lineHeight": 23.04,
                             "textAlign": "center",
@@ -412,8 +412,8 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                       <Text
                         style={
                           Object {
-                            "color": "#DBDBD9",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#f7f7f7",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 12,
                             "lineHeight": 17.28,
                             "textAlign": "center",
@@ -469,8 +469,8 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -523,7 +523,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#17B582",
+                                    "backgroundColor": "#6bac43",
                                     "height": 16,
                                   }
                                 }
@@ -562,7 +562,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                               onStartShouldSetResponderCapture={[Function]}
                               style={
                                 Object {
-                                  "backgroundColor": "#F8F7F4",
+                                  "backgroundColor": "#ffffff",
                                   "borderRadius": 12,
                                   "elevation": 2,
                                   "height": 12,
@@ -578,8 +578,8 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -745,7 +745,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 stroke={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 strokeDasharray={null}
@@ -1035,7 +1035,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -1190,7 +1190,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -1345,7 +1345,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -1500,7 +1500,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -1544,7 +1544,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -1606,7 +1606,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
             style={
               Object {
                 "borderRadius": 8,
-                "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -1666,7 +1666,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                       style={
                         Object {
                           "alignItems": "center",
-                          "backgroundColor": "#FFFFFF",
+                          "backgroundColor": "#ffffff",
                           "bottom": 0,
                           "justifyContent": "center",
                           "left": 0,
@@ -1762,7 +1762,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                             fill={
                               Array [
                                 0,
-                                4289045925,
+                                4286940549,
                               ]
                             }
                             fillOpacity={1}
@@ -1810,7 +1810,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
               <View
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "flex": 1,
                   }
                 }
@@ -1845,7 +1845,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                       style={
                         Object {
                           "color": "#303030",
-                          "fontFamily": "InterUI-Medium",
+                          "fontFamily": "Colfax-Medium",
                           "fontSize": 14,
                           "height": 16,
                           "lineHeight": 20.16,
@@ -1856,8 +1856,8 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                     <Text
                       style={
                         Object {
-                          "color": "#A5A5A5",
-                          "fontFamily": "InterUI-Bold",
+                          "color": "#858585",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "height": 16,
                           "lineHeight": 17.28,
@@ -1994,7 +1994,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                           fill={
                             Array [
                               0,
-                              4289045925,
+                              4286940549,
                             ]
                           }
                           fillOpacity={1}
@@ -2097,7 +2097,7 @@ exports[`the FullscreenPlayer component should render fullscreen 1`] = `
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#17B582",
+                            "backgroundColor": "#6bac43",
                             "height": 16,
                           }
                         }
@@ -2476,7 +2476,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                               fill={
                                 Array [
                                   0,
-                                  4294506484,
+                                  4294967295,
                                 ]
                               }
                               fillOpacity={1}
@@ -2532,8 +2532,8 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                       <Text
                         style={
                           Object {
-                            "color": "#F8F7F4",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#ffffff",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 16,
                             "lineHeight": 23.04,
                             "textAlign": "center",
@@ -2543,8 +2543,8 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                       <Text
                         style={
                           Object {
-                            "color": "#DBDBD9",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#f7f7f7",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 12,
                             "lineHeight": 17.28,
                             "textAlign": "center",
@@ -2600,8 +2600,8 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -2654,7 +2654,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#17B582",
+                                    "backgroundColor": "#6bac43",
                                     "height": 16,
                                   }
                                 }
@@ -2693,7 +2693,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                               onStartShouldSetResponderCapture={[Function]}
                               style={
                                 Object {
-                                  "backgroundColor": "#F8F7F4",
+                                  "backgroundColor": "#ffffff",
                                   "borderRadius": 12,
                                   "elevation": 2,
                                   "height": 12,
@@ -2709,8 +2709,8 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -2876,7 +2876,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 stroke={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 strokeDasharray={null}
@@ -3166,7 +3166,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -3321,7 +3321,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -3476,7 +3476,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -3631,7 +3631,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -3675,7 +3675,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -3737,7 +3737,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
             style={
               Object {
                 "borderRadius": 8,
-                "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -3797,7 +3797,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                       style={
                         Object {
                           "alignItems": "center",
-                          "backgroundColor": "#FFFFFF",
+                          "backgroundColor": "#ffffff",
                           "bottom": 0,
                           "justifyContent": "center",
                           "left": 0,
@@ -3893,7 +3893,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                             fill={
                               Array [
                                 0,
-                                4289045925,
+                                4286940549,
                               ]
                             }
                             fillOpacity={1}
@@ -3941,7 +3941,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
               <View
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "flex": 1,
                   }
                 }
@@ -3976,7 +3976,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                       style={
                         Object {
                           "color": "#303030",
-                          "fontFamily": "InterUI-Medium",
+                          "fontFamily": "Colfax-Medium",
                           "fontSize": 14,
                           "height": 16,
                           "lineHeight": 20.16,
@@ -3987,8 +3987,8 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                     <Text
                       style={
                         Object {
-                          "color": "#A5A5A5",
-                          "fontFamily": "InterUI-Bold",
+                          "color": "#858585",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "height": 16,
                           "lineHeight": 17.28,
@@ -4125,7 +4125,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                           fill={
                             Array [
                               0,
-                              4289045925,
+                              4286940549,
                             ]
                           }
                           fillOpacity={1}
@@ -4228,7 +4228,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#17B582",
+                            "backgroundColor": "#6bac43",
                             "height": 16,
                           }
                         }
@@ -4607,7 +4607,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                               fill={
                                 Array [
                                   0,
-                                  4294506484,
+                                  4294967295,
                                 ]
                               }
                               fillOpacity={1}
@@ -4663,8 +4663,8 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                       <Text
                         style={
                           Object {
-                            "color": "#F8F7F4",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#ffffff",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 16,
                             "lineHeight": 23.04,
                             "textAlign": "center",
@@ -4674,8 +4674,8 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                       <Text
                         style={
                           Object {
-                            "color": "#DBDBD9",
-                            "fontFamily": "InterUI-Bold",
+                            "color": "#f7f7f7",
+                            "fontFamily": "Colfax-Bold",
                             "fontSize": 12,
                             "lineHeight": 17.28,
                             "textAlign": "center",
@@ -4731,8 +4731,8 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -4785,7 +4785,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                               <View
                                 style={
                                   Object {
-                                    "backgroundColor": "#17B582",
+                                    "backgroundColor": "#6bac43",
                                     "height": 16,
                                   }
                                 }
@@ -4824,7 +4824,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                               onStartShouldSetResponderCapture={[Function]}
                               style={
                                 Object {
-                                  "backgroundColor": "#F8F7F4",
+                                  "backgroundColor": "#ffffff",
                                   "borderRadius": 12,
                                   "elevation": 2,
                                   "height": 12,
@@ -4840,8 +4840,8 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                           style={
                             Object {
                               "alignItems": "center",
-                              "color": "#DBDBD9",
-                              "fontFamily": "InterUI-Bold",
+                              "color": "#f7f7f7",
+                              "fontFamily": "Colfax-Bold",
                               "fontSize": 12,
                               "lineHeight": 17.28,
                               "textAlign": "center",
@@ -5007,7 +5007,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 stroke={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 strokeDasharray={null}
@@ -5297,7 +5297,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -5452,7 +5452,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -5607,7 +5607,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -5762,7 +5762,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -5806,7 +5806,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                                 fill={
                                   Array [
                                     0,
-                                    4294506484,
+                                    4294967295,
                                   ]
                                 }
                                 fillOpacity={1}
@@ -5868,7 +5868,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
             style={
               Object {
                 "borderRadius": 8,
-                "shadowColor": "rgba(165, 165, 165, 0.30000000000000004)",
+                "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -5928,7 +5928,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                       style={
                         Object {
                           "alignItems": "center",
-                          "backgroundColor": "#FFFFFF",
+                          "backgroundColor": "#ffffff",
                           "bottom": 0,
                           "justifyContent": "center",
                           "left": 0,
@@ -6024,7 +6024,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                             fill={
                               Array [
                                 0,
-                                4289045925,
+                                4286940549,
                               ]
                             }
                             fillOpacity={1}
@@ -6072,7 +6072,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
               <View
                 style={
                   Object {
-                    "backgroundColor": "#FFFFFF",
+                    "backgroundColor": "#ffffff",
                     "flex": 1,
                   }
                 }
@@ -6107,7 +6107,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                       style={
                         Object {
                           "color": "#303030",
-                          "fontFamily": "InterUI-Medium",
+                          "fontFamily": "Colfax-Medium",
                           "fontSize": 14,
                           "height": 16,
                           "lineHeight": 20.16,
@@ -6118,8 +6118,8 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                     <Text
                       style={
                         Object {
-                          "color": "#A5A5A5",
-                          "fontFamily": "InterUI-Bold",
+                          "color": "#858585",
+                          "fontFamily": "Colfax-Bold",
                           "fontSize": 12,
                           "height": 16,
                           "lineHeight": 17.28,
@@ -6256,7 +6256,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                           fill={
                             Array [
                               0,
-                              4289045925,
+                              4286940549,
                             ]
                           }
                           fillOpacity={1}
@@ -6359,7 +6359,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                       <View
                         style={
                           Object {
-                            "backgroundColor": "#17B582",
+                            "backgroundColor": "#6bac43",
                             "height": 16,
                           }
                         }

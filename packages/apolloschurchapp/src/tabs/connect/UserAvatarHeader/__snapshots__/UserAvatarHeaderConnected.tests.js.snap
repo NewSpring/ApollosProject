@@ -55,7 +55,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
         <View
           style={
             Object {
-              "backgroundColor": "#FFFFFF",
+              "backgroundColor": "#ffffff",
               "flexDirection": "row",
             }
           }
@@ -88,7 +88,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#FFFFFF",
+                      "backgroundColor": "#ffffff",
                       "borderRadius": 40,
                       "height": 80,
                       "justifyContent": "flex-end",
@@ -186,7 +186,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
                         fill={
                           Array [
                             0,
-                            4289045925,
+                            4292730333,
                           ]
                         }
                         fillOpacity={1}
@@ -245,7 +245,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
               style={
                 Object {
                   "color": "#303030",
-                  "fontFamily": "InterUI-Black",
+                  "fontFamily": "Colfax-Black",
                   "fontSize": 24,
                   "lineHeight": 27.6,
                 }
@@ -349,7 +349,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
                     fill={
                       Array [
                         0,
-                        4289045925,
+                        4286940549,
                       ]
                     }
                     fillOpacity={1}
@@ -401,13 +401,13 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
                 <Text
                   style={
                     Object {
-                      "color": "#A5A5A5",
-                      "fontFamily": "InterUI-Bold",
+                      "color": "#858585",
+                      "fontFamily": "Colfax-Bold",
                       "fontSize": 12,
                       "lineHeight": 17.28,
                     }
                   }
-                  tint="#A5A5A5"
+                  tint="#858585"
                 >
                   
                 </Text>
@@ -517,7 +517,7 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
               fill={
                 Array [
                   0,
-                  4289045925,
+                  4286940549,
                 ]
               }
               fillOpacity={1}
