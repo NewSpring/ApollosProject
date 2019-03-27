@@ -2,19 +2,17 @@
 
 ### What does this PR do, or why is it needed?
 
-### What design trade-offs/decisions were made?
-
 ### How do I test this PR?
 
-### What automated tests did you write?
+> I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 
 ## TODO:
 
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
-- [ ] Closes [tag-issues-here]
+- [ ] Closes [#ISSUE]
 - [ ] No new warnings in tests, in storybook, and in-app
-- [ ] Upload GIF(s) of iOS and Android
-- [ ] Set a relevant reviewer
+- [ ] Upload GIF(s) of iOS and Android if applicable
+- [ ] Set two relevant reviewers
 
 ## REVIEW:
 
