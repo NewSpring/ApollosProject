@@ -4,7 +4,7 @@
 
 ### How do I test this PR?
 
-### Is this your best work? (Ecclesiastes 9:10 - MSG)
+> I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 
 ## TODO:
 
