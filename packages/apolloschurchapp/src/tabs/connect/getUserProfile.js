@@ -1,13 +1,15 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query {
+  query getCurrentUserProfile {
     currentUser {
       id
       profile {
         firstName
         lastName
-        location
+        campus {
+          name
+        }
         email
         nickName
         photo {

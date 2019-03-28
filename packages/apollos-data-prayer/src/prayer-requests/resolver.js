@@ -33,12 +33,15 @@ export default {
       (typeof flagCount === 'number' && flagCount) || 0,
     prayerCount: ({ prayerCount }) =>
       (typeof prayerCount === 'number' && prayerCount) || 0,
-    createdByPersonAliasId: ({ createdByPersonAliasId }) =>
-      (typeof createdByPersonAliasId === 'number' && createdByPersonAliasId) ||
+    requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
+      (typeof requestedByPersonAliasId === 'number' &&
+        requestedByPersonAliasId) ||
       0,
     requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
       (typeof requestedByPersonAliasId === 'number' &&
         requestedByPersonAliasId) ||
       0,
+    person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
+      dataSources.Person.getFromAliasId(requestedByPersonAliasId),
   },
 };

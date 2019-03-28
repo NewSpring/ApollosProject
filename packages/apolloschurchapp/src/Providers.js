@@ -1,13 +1,19 @@
 import React from 'react';
 import { Providers } from '@apollosproject/ui-kit';
+import { AuthProvider } from '@apollosproject/ui-auth';
+import NavigationService from './NavigationService';
+import { NotificationsManager } from './notifications';
 import ClientProvider from './client';
+import theme from './theme';
 
-import theme from './theme'; // where theme looks like:
-
-const NewSpringProviders = (props) => (
-  <Providers themeInput={theme}>
-    <ClientProvider {...props} />
-  </Providers>
+const AppProviders = (props) => (
+  <ClientProvider {...props}>
+    <NotificationsManager>
+      <AuthProvider navigateToAuth={() => NavigationService.navigate('Auth')}>
+        <Providers themeInput={theme} {...props} />
+      </AuthProvider>
+    </NotificationsManager>
+  </ClientProvider>
 );
 
-export default NewSpringProviders;
+export default AppProviders;

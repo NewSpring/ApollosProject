@@ -3,6 +3,7 @@ import { fetch } from 'apollo-server-env';
 import ApollosConfig from '@apollosproject/config';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
+import { peopleSchema } from '@apollosproject/data-schema';
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
@@ -11,6 +12,7 @@ import authMock from '../../authMock';
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
   Auth: { dataSource: authMock },
+  Person: { dataSource: authMock },
 });
 
 ApollosConfig.loadJs({
@@ -33,7 +35,7 @@ describe('PrayerRequest', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([prayerRequestSchema]);
+    schema = getSchema([prayerRequestSchema, peopleSchema]);
     context = getContext();
   });
 
@@ -45,11 +47,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -60,7 +67,7 @@ describe('PrayerRequest', () => {
           firstName: 'Isaac',
           lastName: 'Hardy',
           text: 'Pray this works.',
-          createdByPersonAliasId: 447217,
+          requestedByPersonAliasId: 447217,
           campusId: 16,
           categoryId: 2,
           flagCount: 0,
@@ -71,7 +78,7 @@ describe('PrayerRequest', () => {
           firstName: 'Rich',
           lastName: 'Dubee',
           text: 'Help me',
-          createdByPersonAliasId: 447217,
+          requestedByPersonAliasId: 447217,
           campusId: 16,
           categoryId: 2,
           flagCount: 0,
@@ -81,6 +88,13 @@ describe('PrayerRequest', () => {
     );
 
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -96,11 +110,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -111,7 +130,7 @@ describe('PrayerRequest', () => {
           firstName: 'Isaac',
           lastName: 'Hardy',
           text: 'Pray this works.',
-          createdByPersonAliasId: 447217,
+          requestedByPersonAliasId: 447217,
           campusId: 16,
           categoryId: 2,
           flagCount: 0,
@@ -120,6 +139,13 @@ describe('PrayerRequest', () => {
       ])
     );
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -137,11 +163,16 @@ describe('PrayerRequest', () => {
             firstName
             lastName
             text
-            createdByPersonAliasId
+            requestedByPersonAliasId
             campusId
             categoryId
             flagCount
             prayerCount
+            person {
+              id
+              firstName
+              lastName
+            }
           }
         }
       }
@@ -152,7 +183,7 @@ describe('PrayerRequest', () => {
         firstName: 'Isaac',
         lastName: 'Hardy',
         text: 'Pray this works.',
-        createdByPersonAliasId: 447217,
+        requestedByPersonAliasId: 447217,
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
@@ -160,6 +191,13 @@ describe('PrayerRequest', () => {
       })
     );
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -175,11 +213,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -191,7 +234,7 @@ describe('PrayerRequest', () => {
           firstName: 'Isaac',
           lastName: 'Hardy',
           text: 'Pray this works.',
-          createdByPersonAliasId: 447217,
+          requestedByPersonAliasId: 447217,
           campusId: 16,
           categoryId: 2,
           flagCount: 0,
@@ -200,6 +243,13 @@ describe('PrayerRequest', () => {
       ])
     );
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -257,11 +307,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -271,7 +326,7 @@ describe('PrayerRequest', () => {
         firstName: 'Isaac',
         lastName: 'Hardy',
         text: 'Pray this works.',
-        createdByPersonAliasId: 447217,
+        requestedByPersonAliasId: 447217,
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
@@ -280,6 +335,13 @@ describe('PrayerRequest', () => {
     );
     context.dataSources.PrayerRequest.post = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -293,11 +355,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -307,7 +374,7 @@ describe('PrayerRequest', () => {
         firstName: 'Isaac',
         lastName: 'Hardy',
         text: 'Pray this works.',
-        createdByPersonAliasId: 447217,
+        requestedByPersonAliasId: 447217,
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
@@ -316,6 +383,13 @@ describe('PrayerRequest', () => {
     );
     context.dataSources.PrayerRequest.put = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
@@ -330,11 +404,16 @@ describe('PrayerRequest', () => {
           firstName
           lastName
           text
-          createdByPersonAliasId
+          requestedByPersonAliasId
           campusId
           categoryId
           flagCount
           prayerCount
+          person {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `;
@@ -344,7 +423,7 @@ describe('PrayerRequest', () => {
         firstName: 'Isaac',
         lastName: 'Hardy',
         text: 'Pray this works.',
-        createdByPersonAliasId: 447217,
+        requestedByPersonAliasId: 447217,
         campusId: 16,
         categoryId: 2,
         flagCount: 0,
@@ -353,6 +432,13 @@ describe('PrayerRequest', () => {
     );
     context.dataSources.PrayerRequest.put = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);

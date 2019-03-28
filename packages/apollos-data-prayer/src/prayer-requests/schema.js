@@ -31,6 +31,7 @@ const prayerRequestSchema = gql`
     campusId: Int
     createdByPersonAliasId: Int
     requestedByPersonAliasId: Int
+    person: Person
   }
 `;
 
