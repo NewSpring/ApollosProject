@@ -37,10 +37,6 @@ export default {
       (typeof requestedByPersonAliasId === 'number' &&
         requestedByPersonAliasId) ||
       0,
-    requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
-      (typeof requestedByPersonAliasId === 'number' &&
-        requestedByPersonAliasId) ||
-      0,
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
   },
