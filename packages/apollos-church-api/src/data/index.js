@@ -64,6 +64,16 @@ const {
   applyServerMiddleware,
 } = createApolloServerConfig(data);
 
+console.log(schema);
+// this is where our local changes to the resolvers will go
+//      interface ContentItem
+//          UniversalContentItem
+//          DevotionalContentItem
+//          MediaContentItem
+//          ContentSeriesContentItem
+//      Scripture
+//
+
 export { dataSources, resolvers, schema, context, applyServerMiddleware };
 
 // the upload Scalar is added
