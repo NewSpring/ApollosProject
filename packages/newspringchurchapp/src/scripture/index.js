@@ -2,7 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
-import ScriptureItem from 'apolloschurchapp/src/ui/Scripture/ScriptureItem';
+import ScriptureItem from 'newspringchurchapp/src/ui/Scripture/ScriptureItem';
 import getScripture from './getScripture';
 
 /**

@@ -10,7 +10,7 @@ import {
   ChannelLabel,
   UIText,
 } from '@apollosproject/ui-kit';
-import { WebBrowserConsumer } from 'apolloschurchapp/src/ui/WebBrowser';
+import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 
 import getLiveStream from './getLiveStream';
 

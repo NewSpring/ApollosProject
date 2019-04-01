@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-import { largeCardFragment } from 'apolloschurchapp/src/ui/ContentCardConnected';
-import { contentItemFragment } from 'apolloschurchapp/src/content-single/getContentItem';
+import { largeCardFragment } from 'newspringchurchapp/src/ui/ContentCardConnected';
+import { contentItemFragment } from 'newspringchurchapp/src/content-single/getContentItem';
 
 export default gql`
   query getAllLikedContent($first: Int) {

@@ -12,8 +12,8 @@ import {
   PaddedView,
   H4,
 } from '@apollosproject/ui-kit';
-import { WebBrowserConsumer } from 'apolloschurchapp/src/ui/WebBrowser';
-import NavigationActions from 'apolloschurchapp/src/NavigationService';
+import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
+import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
   flexDirection: 'row',

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Providers from 'apolloschurchapp/src/Providers';
-import { getNotificationsEnabled } from 'apolloschurchapp/src/notifications';
-import { renderWithApolloData } from 'apolloschurchapp/src/utils/testUtils';
+import Providers from 'newspringchurchapp/src/Providers';
+import { getNotificationsEnabled } from 'newspringchurchapp/src/notifications';
+import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
 
 import AskNotificationsConnected from './AskNotificationsConnected';
 

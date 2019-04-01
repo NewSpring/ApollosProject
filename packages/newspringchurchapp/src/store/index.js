@@ -1,7 +1,7 @@
 import { merge, get } from 'lodash';
 import gql from 'graphql-tag';
 
-import { track, events } from 'apolloschurchapp/src/analytics';
+import { track, events } from 'newspringchurchapp/src/analytics';
 import { Platform } from 'react-native';
 import { CACHE_LOADED } from '../client/cache'; // eslint-disable-line
 

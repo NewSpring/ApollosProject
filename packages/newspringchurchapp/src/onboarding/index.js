@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Onboarding from 'apolloschurchapp/src/ui/Onboarding';
+import Onboarding from 'newspringchurchapp/src/ui/Onboarding';
 
 export default class TestingControlPanel extends PureComponent {
   static navigationOptions = () => ({

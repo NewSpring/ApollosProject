@@ -1,4 +1,4 @@
-package com.apolloschurchapp;
+package com.newspringchurchapp;
 
 import android.content.Intent;
 import android.os.Bundle;

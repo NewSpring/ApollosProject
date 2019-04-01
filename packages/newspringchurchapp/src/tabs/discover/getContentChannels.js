@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-import { contentItemFragment } from 'apolloschurchapp/src/content-single/getContentItem';
-import { tileCardFragment } from 'apolloschurchapp/src/ui/ContentCardConnected';
+import { contentItemFragment } from 'newspringchurchapp/src/content-single/getContentItem';
+import { tileCardFragment } from 'newspringchurchapp/src/ui/ContentCardConnected';
 
 export default gql`
   query getContentChannels {

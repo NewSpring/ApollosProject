@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
 
-import Providers from 'apolloschurchapp/src/Providers';
+import Providers from 'newspringchurchapp/src/Providers';
 
 import AboutYou from '.';
 

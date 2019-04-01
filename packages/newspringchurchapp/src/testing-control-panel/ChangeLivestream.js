@@ -3,8 +3,8 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 
-import { client } from 'apolloschurchapp/src/client';
-import getLiveStream from 'apolloschurchapp/src/live/getLiveStream';
+import { client } from 'newspringchurchapp/src/client';
+import getLiveStream from 'newspringchurchapp/src/live/getLiveStream';
 import TouchableCell from './TouchableCell';
 
 const changeLivestream = ({ isLive }) =>

@@ -15,8 +15,8 @@ import {
   styled,
   ActivityIndicator,
 } from '@apollosproject/ui-kit';
-import { WebBrowserConsumer } from 'apolloschurchapp/src/ui/WebBrowser';
-import AvatarForm from 'apolloschurchapp/src/ui/UserAvatarView/AvatarForm';
+import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
+import AvatarForm from 'newspringchurchapp/src/ui/UserAvatarView/AvatarForm';
 
 import { getLoginState, logout } from '@apollosproject/ui-auth';
 

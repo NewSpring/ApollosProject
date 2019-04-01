@@ -1,5 +1,5 @@
-import getAllLikedContent from 'apolloschurchapp/src/tabs/connect/getLikedContent';
-import { contentItemFragment } from 'apolloschurchapp/src/content-single/getContentItem';
+import getAllLikedContent from 'newspringchurchapp/src/tabs/connect/getLikedContent';
+import { contentItemFragment } from 'newspringchurchapp/src/content-single/getContentItem';
 
 const addItemToLikedContentList = ({ cache, item, variables }) => {
   try {

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -25,6 +26,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		15365DDE55894A50A464A271 /* Colfax-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC7F2F58CB8F4136914430D1 /* Colfax-RegularItalic.otf */; };
 		1C48DCDE11AC47C48E918489 /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC74A378C1CC40E4B6192D7F /* Inter-UI-Medium.otf */; };
 		1E6618B697C649BB9FCD362E /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EC3F23A3F4FFBBBC6583A /* libBVLinearGradient.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -43,11 +45,14 @@
 		470A7E49F0A8424780FFAE7B /* libDBCustomTabs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA3750D49B0422F9A4B45BE /* libDBCustomTabs.a */; };
 		4994C0DA2471456ABE1D0174 /* libRNAirplay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE434FF7E9549F392208DEF /* libRNAirplay.a */; };
 		4C19EE32F0B441CD93BB0172 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */; };
+		519F2C78513C4196A941DA65 /* Colfax-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF5B2D1A5346A58C6E2792 /* Colfax-Bold.otf */; };
+		51FFFC72669B4EF09C375CED /* Colfax-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADC603DD4E9E4F85940F47DF /* Colfax-Regular.otf */; };
 		578FFEC1D7D54C9B871A9E5B /* Inter-UI-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2BC2998547F4816B82E4 /* Inter-UI-BlackItalic.otf */; };
 		5CAC55FAB9964618918A0056 /* libSafariViewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 349D96BF833B4B1C88D02412 /* libSafariViewManager.a */; };
 		62236B4E7E814A95BC3A3B19 /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44246D0E44E48C4B8335DBD /* libRNScreens.a */; };
 		62BCE95D7F6B4F37B3CB4265 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605AEFB6B1BB4611BDCFE95C /* libRNImagePicker.a */; };
 		68D1351E80AA4A2C96288FD9 /* Inter-UI-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC21254B449443F99016EBFD /* Inter-UI-Black.otf */; };
+		6B8201D468DC4660B876A359 /* Colfax-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 530C79B9A92C48AE834DCFB9 /* Colfax-BoldItalic.otf */; };
 		6FFC53D62D7D482A9A92B721 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67356E00D116467DA58DF3CC /* libRNSVG-tvOS.a */; };
 		7FBC6BC3CE8D48298F9850A9 /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */; };
 		80E20D1B9CC74EB4A9A4CE7B /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0174E356BAEC413288BF654B /* libRNFetchBlob.a */; };
@@ -55,31 +60,27 @@
 		82A2FF1E6E114D3D962D533D /* libRNPassKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		834122CBBA8E476A8652994F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE039A0F55BB4B989835F759 /* libRNCWebView.a */; };
+		85FEE849558643629FE5F486 /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F910883757A847398A2A8308 /* Colfax-Black.otf */; };
 		894732A70B4740678E85B593 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */; };
 		90743C40BF544F10A810C43C /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */; };
 		93A2B0A9328A46A4B7DD5EFA /* DroidSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E007B33EDD74B82AEF02C24 /* DroidSerif-Regular.ttf */; };
+		A6D1E2837BC447309D44F9E8 /* Colfax-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF21156A2DC649D7BD51DC3E /* Colfax-MediumItalic.otf */; };
 		A975E0B94A5D44AEB410E546 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3175A44C4B4612AD79C04E /* libReactNativeConfig.a */; };
 		AB3BD177B8A14193A5EEDDF8 /* Inter-UI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A613256118404CB691DE2C8E /* Inter-UI-Regular.otf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B02F194A3F6A4FE29AC799B4 /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */; };
 		B0D490A62BC143209FD3BFE8 /* libMusicControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 393EA40CFC2843BF9BB667B3 /* libMusicControl.a */; };
 		B6899815EB024B7987617799 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 430F3786C56541B198E03A02 /* libRNSVG.a */; };
+		C1D4E57647D34F4698C76AFD /* Colfax-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58451842C30340C3B8BE0F82 /* Colfax-BlackItalic.otf */; };
 		CB1584B0772D4A67A81FC83F /* libMusicControl-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74625A1E54234FB7BE12070D /* libMusicControl-tvOS.a */; };
 		CE33B866C2DE49DEBE1AF23F /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1398ECED9AE14FD19B92232D /* libSplashScreen.a */; };
 		CFE4716D4F6D4ABF9ED485AC /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F155E84A5784CBE8D95A974 /* libRNDeviceInfo.a */; };
 		D2F560374F3341308A1579E7 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE26CDA2DC4CDBAB580A2F /* libRCTVideo.a */; };
+		DC80E0D9906C4A8DBE417A15 /* Colfax-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 265872E29E0143779BE0915E /* Colfax-Medium.otf */; };
 		E28D37FEDA0245DBAC6552D3 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9862436C289A498D8B2E6201 /* libAirMaps.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		FCB3069DB5DD4170B2CAEFC4 /* Inter-UI-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A460FD7884FD4574A818005A /* Inter-UI-MediumItalic.otf */; };
-		85FEE849558643629FE5F486 /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F910883757A847398A2A8308 /* Colfax-Black.otf */; };
-		C1D4E57647D34F4698C76AFD /* Colfax-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58451842C30340C3B8BE0F82 /* Colfax-BlackItalic.otf */; };
-		519F2C78513C4196A941DA65 /* Colfax-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF5B2D1A5346A58C6E2792 /* Colfax-Bold.otf */; };
-		6B8201D468DC4660B876A359 /* Colfax-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 530C79B9A92C48AE834DCFB9 /* Colfax-BoldItalic.otf */; };
-		DC80E0D9906C4A8DBE417A15 /* Colfax-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 265872E29E0143779BE0915E /* Colfax-Medium.otf */; };
-		A6D1E2837BC447309D44F9E8 /* Colfax-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF21156A2DC649D7BD51DC3E /* Colfax-MediumItalic.otf */; };
-		51FFFC72669B4EF09C375CED /* Colfax-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADC603DD4E9E4F85940F47DF /* Colfax-Regular.otf */; };
-		15365DDE55894A50A464A271 /* Colfax-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC7F2F58CB8F4136914430D1 /* Colfax-RegularItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -549,6 +550,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		2130E622CDAD43DF896EFF80 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		265872E29E0143779BE0915E /* Colfax-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-Medium.otf"; path = "../assets/fonts/Colfax-Medium.otf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* newspringchurchapp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "newspringchurchapp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* newspringchurchapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "newspringchurchapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -561,8 +563,11 @@
 		3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNPassKit.a; sourceTree = "<group>"; };
 		430F3786C56541B198E03A02 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		43F1D28CACD04757A0FB29A6 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
+		4CDF5B2D1A5346A58C6E2792 /* Colfax-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-Bold.otf"; path = "../assets/fonts/Colfax-Bold.otf"; sourceTree = "<group>"; };
 		4E007B33EDD74B82AEF02C24 /* DroidSerif-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Regular.ttf"; path = "../assets/fonts/DroidSerif-Regular.ttf"; sourceTree = "<group>"; };
 		4ED51CB73778472686A7279B /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
+		530C79B9A92C48AE834DCFB9 /* Colfax-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-BoldItalic.otf"; path = "../assets/fonts/Colfax-BoldItalic.otf"; sourceTree = "<group>"; };
+		58451842C30340C3B8BE0F82 /* Colfax-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-BlackItalic.otf"; path = "../assets/fonts/Colfax-BlackItalic.otf"; sourceTree = "<group>"; };
 		5A5A2BC2998547F4816B82E4 /* Inter-UI-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-BlackItalic.otf"; path = "../assets/fonts/Inter-UI-BlackItalic.otf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		605AEFB6B1BB4611BDCFE95C /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
@@ -585,9 +590,12 @@
 		A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-BoldItalic.ttf"; path = "../assets/fonts/DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
+		ADC603DD4E9E4F85940F47DF /* Colfax-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-Regular.otf"; path = "../assets/fonts/Colfax-Regular.otf"; sourceTree = "<group>"; };
 		AE039A0F55BB4B989835F759 /* libRNCWebView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCWebView.a; sourceTree = "<group>"; };
+		AF21156A2DC649D7BD51DC3E /* Colfax-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-MediumItalic.otf"; path = "../assets/fonts/Colfax-MediumItalic.otf"; sourceTree = "<group>"; };
 		BD872E89C275480496010898 /* MusicControl.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = MusicControl.xcodeproj; path = "../node_modules/react-native-music-control/ios/MusicControl.xcodeproj"; sourceTree = "<group>"; };
 		C7FE26CDA2DC4CDBAB580A2F /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
+		CC7F2F58CB8F4136914430D1 /* Colfax-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-RegularItalic.otf"; path = "../assets/fonts/Colfax-RegularItalic.otf"; sourceTree = "<group>"; };
 		CF3175A44C4B4612AD79C04E /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		D3BA7667091546469A730845 /* RNPassKit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPassKit.xcodeproj; path = "../node_modules/react-native-passkit-wallet/ios/RNPassKit.xcodeproj"; sourceTree = "<group>"; };
 		D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
@@ -598,14 +606,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F4FDE4F3C6704DA2A3E04D18 /* SafariViewManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SafariViewManager.xcodeproj; path = "../node_modules/react-native-safari-view/SafariViewManager.xcodeproj"; sourceTree = "<group>"; };
 		F617FE53F3334D93B2EEAA64 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
-		F910883757A847398A2A8308 /* Colfax-Black.otf */ = {isa = PBXFileReference; name = "Colfax-Black.otf"; path = "../assets/fonts/Colfax-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		58451842C30340C3B8BE0F82 /* Colfax-BlackItalic.otf */ = {isa = PBXFileReference; name = "Colfax-BlackItalic.otf"; path = "../assets/fonts/Colfax-BlackItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4CDF5B2D1A5346A58C6E2792 /* Colfax-Bold.otf */ = {isa = PBXFileReference; name = "Colfax-Bold.otf"; path = "../assets/fonts/Colfax-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		530C79B9A92C48AE834DCFB9 /* Colfax-BoldItalic.otf */ = {isa = PBXFileReference; name = "Colfax-BoldItalic.otf"; path = "../assets/fonts/Colfax-BoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		265872E29E0143779BE0915E /* Colfax-Medium.otf */ = {isa = PBXFileReference; name = "Colfax-Medium.otf"; path = "../assets/fonts/Colfax-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AF21156A2DC649D7BD51DC3E /* Colfax-MediumItalic.otf */ = {isa = PBXFileReference; name = "Colfax-MediumItalic.otf"; path = "../assets/fonts/Colfax-MediumItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		ADC603DD4E9E4F85940F47DF /* Colfax-Regular.otf */ = {isa = PBXFileReference; name = "Colfax-Regular.otf"; path = "../assets/fonts/Colfax-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CC7F2F58CB8F4136914430D1 /* Colfax-RegularItalic.otf */ = {isa = PBXFileReference; name = "Colfax-RegularItalic.otf"; path = "../assets/fonts/Colfax-RegularItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F910883757A847398A2A8308 /* Colfax-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-Black.otf"; path = "../assets/fonts/Colfax-Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1194,6 +1195,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 7TM8C6252Z;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2009,6 +2013,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-airplay-btn/ios",
@@ -2036,7 +2041,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church";
 				PRODUCT_NAME = newspringchurchapp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2047,6 +2052,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-airplay-btn/ios",
@@ -2074,7 +2080,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church";
 				PRODUCT_NAME = newspringchurchapp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

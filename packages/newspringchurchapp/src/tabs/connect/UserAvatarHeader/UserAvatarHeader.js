@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { withNavigation } from 'react-navigation';
 
-import UserAvatarView from 'apolloschurchapp/src/ui/UserAvatarView';
+import UserAvatarView from 'newspringchurchapp/src/ui/UserAvatarView';
 
 import {
   withIsLoading,

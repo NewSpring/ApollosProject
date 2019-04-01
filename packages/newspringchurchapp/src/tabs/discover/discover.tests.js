@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { createStackNavigator } from 'react-navigation';
 
-import Providers from 'apolloschurchapp/src/Providers';
+import Providers from 'newspringchurchapp/src/Providers';
 
 import Discover from './Discover';
 import getContentChannels from './getContentChannels';

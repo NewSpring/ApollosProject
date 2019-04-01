@@ -4,7 +4,7 @@ import { Query, ApolloConsumer } from 'react-apollo';
 import {
   requestPushPermissions,
   getNotificationsEnabled,
-} from 'apolloschurchapp/src/notifications';
+} from 'newspringchurchapp/src/notifications';
 
 import AskNotifications from '.';
 

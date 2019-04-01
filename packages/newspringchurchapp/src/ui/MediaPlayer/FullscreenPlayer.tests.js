@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Providers from 'apolloschurchapp/src/Providers';
-import { renderWithApolloData } from 'apolloschurchapp/src/utils/testUtils';
+import Providers from 'newspringchurchapp/src/Providers';
+import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import FullscreenPlayer from './FullscreenPlayer';

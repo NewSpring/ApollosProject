@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 
-import UserSettings from 'apolloschurchapp/src/user-settings';
+import UserSettings from 'newspringchurchapp/src/user-settings';
 
 import TestingControlPanel from '../../testing-control-panel';
 import tabBarIcon from '../tabBarIcon';

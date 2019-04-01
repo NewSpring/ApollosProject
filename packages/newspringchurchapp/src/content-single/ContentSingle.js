@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 import { ErrorCard, ThemeMixin } from '@apollosproject/ui-kit';
 
-import TrackEventWhenLoaded from 'apolloschurchapp/src/analytics/TrackEventWhenLoaded';
-import { events } from 'apolloschurchapp/src/analytics';
+import TrackEventWhenLoaded from 'newspringchurchapp/src/analytics/TrackEventWhenLoaded';
+import { events } from 'newspringchurchapp/src/analytics';
 
 import ActionContainer from './ActionContainer';
 import getContentItem from './getContentItem';
