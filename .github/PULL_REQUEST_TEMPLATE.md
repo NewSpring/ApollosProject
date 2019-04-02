@@ -8,8 +8,6 @@
 
 > I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 
----
-
 ## TODO
 
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
