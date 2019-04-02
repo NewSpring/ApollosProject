@@ -26,6 +26,7 @@ import {
   Campus,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
+import * as NSContentItem from './ns-rock-content-item';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -54,6 +55,9 @@ const data = {
   Pass,
   Template,
   Campus,
+
+  // Local models
+  NSContentItem,
 };
 
 const {
@@ -63,16 +67,6 @@ const {
   context,
   applyServerMiddleware,
 } = createApolloServerConfig(data);
-
-console.log(schema);
-// this is where our local changes to the resolvers will go
-//      interface ContentItem
-//          UniversalContentItem
-//          DevotionalContentItem
-//          MediaContentItem
-//          ContentSeriesContentItem
-//      Scripture
-//
 
 export { dataSources, resolvers, schema, context, applyServerMiddleware };
 
