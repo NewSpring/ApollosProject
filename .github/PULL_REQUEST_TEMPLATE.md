@@ -8,7 +8,9 @@
 
 > I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 
-## TODO:
+---
+
+## TODO
 
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
 - [ ] Closes [DEV-XXX](url)
@@ -16,7 +18,7 @@
 - [ ] Upload GIF(s) of iOS and Android if applicable
 - [ ] Set two relevant reviewers
 
-## REVIEW:
+## REVIEW
 
 **Manual QA**
 
