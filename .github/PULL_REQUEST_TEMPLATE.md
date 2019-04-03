@@ -11,7 +11,7 @@
 ## TODO
 
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
-- [ ] Closes [DEV-XXX](url)
+- [ ] Closes [DEV-XXX](#url)
 - [ ] No new warnings in tests, in storybook, and in-app
 - [ ] Upload GIF(s) of iOS and Android if applicable
 - [ ] Set two relevant reviewers
