@@ -16,7 +16,6 @@ import {
   Interactions,
   RockConstants,
   Person,
-  ContentItem,
   ContentChannel,
   Sharable,
   Auth,
@@ -26,7 +25,7 @@ import {
   Campus,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
-import * as NSContentItem from './ns-rock-content-item';
+import * as ContentItem from './content-item';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -55,9 +54,6 @@ const data = {
   Pass,
   Template,
   Campus,
-
-  // Local models
-  NSContentItem,
 };
 
 const {
