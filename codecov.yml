@@ -9,7 +9,7 @@ coverage:
           - packages/apollos-server-core/*
       mobile:
         paths:
-          - packages/apolloschurchapp/*
+          - packages/newspringchurchapp/*
           - packages/ui-kit/*
 comment:
   layout: "reach, diff, files"
