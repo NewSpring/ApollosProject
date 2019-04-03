@@ -79,7 +79,7 @@ import {
 APP:
   # This variable is used for generating deep links.
   # It should match whatver is in your Info.plist `CFBundleURLTypes`
-  DEEP_LINK_HOST: apolloschurchapp
+  DEEP_LINK_HOST: newspringchurchapp
 ```
  - [ ] Add `CONTENT_ITEM_TYPES` to `ROCK_MAPPINGS`. This is used to reference all the different content item types. You should be safe to use the below as a default.
  ```

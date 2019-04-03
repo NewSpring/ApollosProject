@@ -23,7 +23,7 @@
 5. Fill in the Push Details.
 
 - Use anything you want as the Title/Message
-- Under "Additional Properties", add "url" : "apolloschurchapp://AppStackNavigator/Connect" to navigate when the notification is received. Any deep linking URL is supported.
-- Other test urls: "apolloschurchapp://AppStackNavigator/ContentSingle?ItemId=DevotionalContentItem:bdc2c29b85949e4ca8232b373a07953d"
+- Under "Additional Properties", add "url" : "newspringchurchapp://AppStackNavigator/Connect" to navigate when the notification is received. Any deep linking URL is supported.
+- Other test urls: "newspringchurchapp://AppStackNavigator/ContentSingle?ItemId=DevotionalContentItem:bdc2c29b85949e4ca8232b373a07953d"
 
 6. Send the Push!
