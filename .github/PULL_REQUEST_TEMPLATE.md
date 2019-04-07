@@ -4,17 +4,19 @@
 
 ### How do I test this PR?
 
+---
+
 > I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 
-## TODO:
+## TODO
 
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
-- [ ] Closes [#ISSUE]
+- [ ] Closes [DEV-XXX](#url)
 - [ ] No new warnings in tests, in storybook, and in-app
 - [ ] Upload GIF(s) of iOS and Android if applicable
 - [ ] Set two relevant reviewers
 
-## REVIEW:
+## REVIEW
 
 **Manual QA**
 
@@ -30,5 +32,7 @@
 - [ ] Could the code be simpler?
 - [ ] Will the code be easy to modify in the future?
 - [ ] What's one part of these changes that makes you excited to merge it?
+
+---
 
 > The purpose of PR Review is to _improve the quality of the software._
