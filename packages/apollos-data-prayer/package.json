@@ -20,6 +20,8 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "react": "16.6.3",
+    "react-native": "^0.58.5",
     "@apollosproject/data-schema": "^0.8.1",
     "@apollosproject/server-core": "^0.8.1",
     "lodash": "^4.17.11",
