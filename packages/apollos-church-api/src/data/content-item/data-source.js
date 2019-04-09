@@ -1,7 +1,7 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
-import { get, isString } from 'lodash';
+import { get } from 'lodash';
 
 import ApollosConfig from '@apollosproject/config';
 
