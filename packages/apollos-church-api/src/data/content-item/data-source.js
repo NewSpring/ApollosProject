@@ -61,7 +61,6 @@ export default class ContentItem extends oldContentItem.dataSource {
           .includes('audio')
       );
     } catch (error) {
-      console.log(error);
       return attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET;
     }
   };
