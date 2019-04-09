@@ -1,20 +1,17 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
-// import { get } from 'lodash';
+import { get } from 'lodash';
 
-// import ApollosConfig from '@apollosproject/config';
+import ApollosConfig from '@apollosproject/config';
 
-// const { ROCK_CONSTANTS } = ApollosConfig;
-
-// TODO: Move this to own UTILS file
-// const enforceProtocol = (uri) => (uri.startsWith('//') ? `https:${uri}` : uri);
+const { ROCK_CONSTANTS, ROCK, ROCK_MAPPINGS } = ApollosConfig;
 
 // TODO: Move this to own UTILS file
-// const createImageUrlFromGuid = (uri) =>
-//   console.log(uri) || uri.split('-').length === 5
-//     ? `${ApollosConfig.ROCK.IMAGE_URL}?guid=${uri}`
-//     : enforceProtocol(uri);
+const createAssetUrl = (value) =>
+  `${ROCK.IMAGE_URL}/${
+    ROCK_MAPPINGS.ASSET_STORAGE_PROVIDERS[`${value.AssetStorageProviderId}`]
+  }/${value.Key}`;
 
 export default class ContentItem extends oldContentItem.dataSource {
   createSummary = ({ content, attributeValues: { summary = {} } }) => {
@@ -32,136 +29,156 @@ export default class ContentItem extends oldContentItem.dataSource {
     )[0];
   };
 
-  //   attributeIsVideo = ({ key, attributeValues, attributes }) =>
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_FILE ||
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_URL ||
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.WISTIA ||
-  //     (key.toLowerCase().includes('video') &&
-  //       typeof attributeValues[key].value === 'string' &&
-  //       attributeValues[key].value.startsWith('http')); // looks like a video url
+  attributeIsVideo = ({ key, attributeValues, attributes }) =>
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_FILE ||
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_URL ||
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.WISTIA ||
+    (key.toLowerCase().includes('video') &&
+      typeof attributeValues[key].value === 'string' &&
+      attributeValues[key].value.startsWith('http')); // looks like a video url
 
-  //   attributeIsImage = ({ key, attributeValues, attributes }) =>
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.IMAGE ||
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
-  //     (key.toLowerCase().includes('image') &&
-  //       typeof attributeValues[key].value === 'string' &&
-  //       attributeValues[key].value.startsWith('http')); // looks like an image url
+  attributeIsImage = ({ key, attributeValues, attributes }) =>
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.IMAGE ||
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
+    (key.toLowerCase().includes('image') &&
+      typeof attributeValues[key].value === 'string' &&
+      attributeValues[key].value.startsWith('http')); // looks like an image url
 
-  //   attributeIsAudio = ({ key, attributeValues, attributes }) =>
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_FILE ||
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_URL ||
-  //     attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
-  //     (key.toLowerCase().includes('audio') &&
-  //       typeof attributeValues[key].value === 'string' &&
-  //       attributeValues[key].value.startsWith('http')); // looks like an audio url
+  attributeIsAudio = ({ key, attributeValues, attributes }) =>
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_FILE ||
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_URL ||
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
+    (key.toLowerCase().includes('audio') &&
+      typeof attributeValues[key].value === 'string' &&
+      attributeValues[key].value.startsWith('http')); // looks like an audio url
 
-  //   hasMedia = ({ attributeValues, attributes }) =>
-  //     Object.keys(attributes).filter((key) =>
-  //       this.attributeIsVideo({
-  //         key,
-  //         attributeValues,
-  //         attributes,
-  //       })
-  //     ).length ||
-  //     Object.keys(attributes).filter((key) =>
-  //       this.attributeIsAudio({
-  //         key,
-  //         attributeValues,
-  //         attributes,
-  //       })
-  //     ).length;
+  hasMedia = ({ attributeValues, attributes }) =>
+    Object.keys(attributes).filter((key) =>
+      this.attributeIsVideo({
+        key,
+        attributeValues,
+        attributes,
+      })
+    ).length ||
+    Object.keys(attributes).filter((key) =>
+      this.attributeIsAudio({
+        key,
+        attributeValues,
+        attributes,
+      })
+    ).length;
 
-  //   getImages = ({ attributeValues, attributes }) => {
-  //     const imageKeys = Object.keys(attributes).filter((key) =>
-  //       this.attributeIsImage({
-  //         key,
-  //         attributeValues,
-  //         attributes,
-  //       })
-  //     );
-  //     return imageKeys.map((key) => ({
-  //       __typename: 'ImageMedia',
-  //       key,
-  //       name: attributes[key].name,
-  //       sources: attributeValues[key].value
-  //         ? [{ uri: createImageUrlFromGuid(attributeValues[key].value) }]
-  //         : [],
-  //     }));
-  //   };
+  getImages = ({ attributeValues, attributes }) => {
+    const imageKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsImage({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return imageKeys.map((key) => ({
+      __typename: 'ImageMedia',
+      key,
+      name: attributes[key].name,
+      sources:
+        Object.keys(attributeValues[key].value).length !== 0
+          ? [
+              {
+                uri:
+                  typeof attributeValues[key].value === 'string'
+                    ? createAssetUrl(JSON.parse(attributeValues[key].value))
+                    : createAssetUrl(attributeValues[key].value),
+              },
+            ]
+          : [],
+    }));
+  };
 
-  //   getVideos = ({ attributeValues, attributes }) => {
-  //     const videoKeys = Object.keys(attributes).filter((key) =>
-  //       this.attributeIsVideo({
-  //         key,
-  //         attributeValues,
-  //         attributes,
-  //       })
-  //     );
-  //     return videoKeys.map((key) => ({
-  //       __typename: 'VideoMedia',
-  //       key,
-  //       name: attributes[key].name,
-  //       embedHtml: get(attributeValues, 'videoEmbed.value', null), // TODO: this assumes that the key `VideoEmebed` is always used on Rock
-  //       sources: attributeValues[key].value
-  //         ? [{ uri: attributeValues[key].value }]
-  //         : [],
-  //     }));
-  //   };
+  getVideos = ({ attributeValues, attributes }) => {
+    const videoKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsVideo({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return videoKeys.map((key) => ({
+      __typename: 'VideoMedia',
+      key,
+      name: attributes[key].name,
+      embedHtml: get(attributeValues, 'videoEmbed.value', null), // TODO: this assumes that the key `VideoEmebed` is always used on Rock
+      sources: attributeValues[key].value
+        ? [
+            {
+              uri: attributeValues[key].value,
+            },
+          ]
+        : [],
+    }));
+  };
 
-  //   getAudios = ({ attributeValues, attributes }) => {
-  //     const audioKeys = Object.keys(attributes).filter((key) =>
-  //       this.attributeIsAudio({
-  //         key,
-  //         attributeValues,
-  //         attributes,
-  //       })
-  //     );
-  //     return audioKeys.map((key) => ({
-  //       __typename: 'AudioMedia',
-  //       key,
-  //       name: attributes[key].name,
-  //       sources: attributeValues[key].value
-  //         ? [{ uri: attributeValues[key].value }]
-  //         : [],
-  //     }));
-  //   };
+  getAudios = ({ attributeValues, attributes }) => {
+    const audioKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsAudio({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    return audioKeys.map((key) => ({
+      __typename: 'AudioMedia',
+      key,
+      name: attributes[key].name,
+      sources:
+        Object.keys(attributeValues[key].value).length !== 0
+          ? [
+              {
+                uri:
+                  typeof attributeValues[key].value === 'string'
+                    ? createAssetUrl(JSON.parse(attributeValues[key].value))
+                    : createAssetUrl(attributeValues[key].value),
+              },
+            ]
+          : [],
+    }));
+  };
 
-  //   async getCoverImage(root) {
-  //     const pickBestImage = (images) => {
-  //       // TODO: there's probably a _much_ more explicit and better way to handle this
-  //       const squareImage = images.find((image) =>
-  //         image.key.toLowerCase().includes('square')
-  //       );
-  //       if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
-  //       return { ...images[0], __typename: 'ImageMedia' };
-  //     };
+  async getCoverImage(root) {
+    const pickBestImage = (images) => {
+      // TODO: there's probably a _much_ more explicit and better way to handle this
+      const squareImage = images.find((image) =>
+        image.key.toLowerCase().includes('square')
+      );
+      if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
+      return { ...images[0], __typename: 'ImageMedia' };
+    };
 
-  //     const ourImages = this.getImages(root).filter(
-  //       (image) => image.sources.length
-  //     ); // filter images w/o URLs
-  //     if (ourImages.length) return pickBestImage(ourImages);
+    const ourImages = this.getImages(root).filter(
+      (image) => image.sources.length
+    ); // filter images w/o URLs
+    if (ourImages.length) return pickBestImage(ourImages);
 
-  //     // If no image, check parent for image:
-  //     const parentItemsCursor = await this.getCursorByChildContentItemId(root.id);
-  //     if (!parentItemsCursor) return null;
+    // If no image, check parent for image:
+    const parentItemsCursor = await this.getCursorByChildContentItemId(root.id);
+    if (!parentItemsCursor) return null;
 
-  //     const parentItems = await parentItemsCursor.get();
+    const parentItems = await parentItemsCursor.get();
 
-  //     if (parentItems.length) {
-  //       const parentImages = parentItems
-  //         .map(this.getImages)
-  //         .find((images) => images.length);
+    if (parentItems.length) {
+      const parentImages = parentItems
+        .map(this.getImages)
+        .find((images) => images.length);
 
-  //       if (!parentImages) return null;
+      if (!parentImages) return null;
 
-  //       const validParentImages = parentImages.filter(
-  //         (image) => image.sources.length
-  //       );
+      const validParentImages = parentImages.filter(
+        (image) => image.sources.length
+      );
 
-  //       if (validParentImages && validParentImages.length)
-  //         return pickBestImage(validParentImages);
-  //     }
+      if (validParentImages && validParentImages.length)
+        return pickBestImage(validParentImages);
+    }
 
-  //     return null;
-  //   }
+    return null;
+  }
 }
