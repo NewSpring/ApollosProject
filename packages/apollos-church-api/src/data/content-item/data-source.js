@@ -1,7 +1,7 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
-import { get } from 'lodash';
+import { get, isString } from 'lodash';
 
 import ApollosConfig from '@apollosproject/config';
 
@@ -15,58 +15,56 @@ const createAssetUrl = (value) =>
 
 export default class ContentItem extends oldContentItem.dataSource {
   createSummary = ({ content, attributeValues: { summary = {} } }) => {
-    if (summary.value) return summary.value;
-    if (!content || typeof content !== 'string') return '';
+    let htmlNode = content;
+
+    if (summary.value) {
+      htmlNode = summary.value;
+    }
+    if (!htmlNode || typeof htmlNode !== 'string') return '';
     // Protect against 0 length sentences (tokenizer will throw an error)
-    if (content.split(' ').length === 1) return '';
+    if (htmlNode.split(' ').length === 1) return '';
 
     const tokenizer = new natural.SentenceTokenizer();
     return tokenizer.tokenize(
-      sanitizeHtmlNode(content, {
+      sanitizeHtmlNode(htmlNode, {
         allowedTags: [],
         allowedAttributes: [],
       })
     )[0];
   };
 
-  attributeIsVideo = ({ key, attributeValues, attributes }) =>
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_FILE ||
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.VIDEO_URL ||
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.WISTIA ||
-    (key.toLowerCase().includes('video') &&
-      typeof attributeValues[key].value === 'string' &&
-      attributeValues[key].value.startsWith('http')); // looks like a video url
+  attributeIsVideo = ({ key, attributes }) =>
+    attributes[key].fieldTypeId === ROCK_CONSTANTS.WISTIA;
 
-  attributeIsImage = ({ key, attributeValues, attributes }) =>
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.IMAGE ||
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
-    (key.toLowerCase().includes('image') &&
-      typeof attributeValues[key].value === 'string' &&
-      attributeValues[key].value.startsWith('http')); // looks like an image url
+  attributeIsImage = ({ key, attributeValues, attributes }) => {
+    try {
+      return (
+        attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET &&
+        !get(JSON.parse(attributeValues[key].value), 'Key', '')
+          .split('/')
+          .includes('audio') &&
+        !get(JSON.parse(attributeValues[key].value), 'Key', '')
+          .split('/')
+          .includes('video')
+      );
+    } catch (error) {
+      return attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET;
+    }
+  };
 
-  attributeIsAudio = ({ key, attributeValues, attributes }) =>
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_FILE ||
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.AUDIO_URL ||
-    attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET ||
-    (key.toLowerCase().includes('audio') &&
-      typeof attributeValues[key].value === 'string' &&
-      attributeValues[key].value.startsWith('http')); // looks like an audio url
-
-  hasMedia = ({ attributeValues, attributes }) =>
-    Object.keys(attributes).filter((key) =>
-      this.attributeIsVideo({
-        key,
-        attributeValues,
-        attributes,
-      })
-    ).length ||
-    Object.keys(attributes).filter((key) =>
-      this.attributeIsAudio({
-        key,
-        attributeValues,
-        attributes,
-      })
-    ).length;
+  attributeIsAudio = ({ key, attributeValues, attributes }) => {
+    try {
+      return (
+        attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET &&
+        get(JSON.parse(attributeValues[key].value), 'Key', '')
+          .split('/')
+          .includes('audio')
+      );
+    } catch (error) {
+      console.log(error);
+      return attributes[key].fieldTypeId === ROCK_CONSTANTS.S3_ASSET;
+    }
+  };
 
   getImages = ({ attributeValues, attributes }) => {
     const imageKeys = Object.keys(attributes).filter((key) =>
@@ -80,17 +78,16 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'ImageMedia',
       key,
       name: attributes[key].name,
-      sources:
-        Object.keys(attributeValues[key].value).length !== 0
-          ? [
-              {
-                uri:
-                  typeof attributeValues[key].value === 'string'
-                    ? createAssetUrl(JSON.parse(attributeValues[key].value))
-                    : createAssetUrl(attributeValues[key].value),
-              },
-            ]
-          : [],
+      sources: Object.keys(attributeValues[key].value).length
+        ? [
+            {
+              uri:
+                typeof attributeValues[key].value === 'string'
+                  ? createAssetUrl(JSON.parse(attributeValues[key].value))
+                  : createAssetUrl(attributeValues[key].value),
+            },
+          ]
+        : [],
     }));
   };
 
@@ -102,6 +99,7 @@ export default class ContentItem extends oldContentItem.dataSource {
         attributes,
       })
     );
+
     return videoKeys.map((key) => ({
       __typename: 'VideoMedia',
       key,
@@ -110,7 +108,9 @@ export default class ContentItem extends oldContentItem.dataSource {
       sources: attributeValues[key].value
         ? [
             {
-              uri: attributeValues[key].value,
+              uri: `https://newspringchurch.wistia.com/medias/${
+                attributeValues[key].value
+              }`,
             },
           ]
         : [],
