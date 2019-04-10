@@ -1,16 +1,8 @@
-import React, { PureComponent } from 'react';
-// import { View } from 'react-native';
-import PropTypes from 'prop-types';
-import { Query } from 'apollo-graphql';
+import React from 'react';
+import { Query } from 'react-apollo';
+import { View } from 'react-native';
 
-import {
-  PaddedView,
-  Card,
-  CardContent,
-  styled,
-  H5,
-  withIsLoading,
-} from '@apollosproject/ui-kit';
+import { PaddedView, CardContent, styled, H5 } from '@apollosproject/ui-kit';
 
 import MyPrayerCard from './MyPrayerCard';
 import getMyPrayers from './getMyPrayers';
@@ -22,38 +14,30 @@ const Header = styled(({ theme }) => ({
 const Content = styled(() => ({
   borderBottomWidth: 0,
   borderTopWidth: 0,
+}))(View);
+
+const MyPrayersView = styled(() => ({
+  paddingHorizontal: 0,
 }))(PaddedView);
 
-class MyPrayers extends PureComponent {
-  static propTypes = {
-    isLoading: PropTypes.bool, // eslint-disable-line
-    content: PropTypes.array, // eslint-disable-line
-  };
-
-  render() {
-    const { isLoading, content } = this.props;
-
-    return (
-      <Card>
-        <Header>
-          <H5>My Prayers</H5>
-        </Header>
+const MyPrayers = () => (
+  <MyPrayersView>
+    <Header>
+      <H5>My Prayers</H5>
+    </Header>
+    <Query query={getMyPrayers} fetchPolicy="cache-and-network">
+      {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
         <Content>
-          <Query query={getMyPrayers}>
-            {content.map((item) => (
-              <MyPrayerCard
-                isLoading={isLoading}
-                key={item.id}
-                id={item.id}
-                duration={item.duration}
-                text={item.text}
-              />
-            ))}
-          </Query>
+          {getCurrentPersonPrayerRequests.map((prayer) => (
+            <MyPrayerCard
+              key={prayer.id}
+              duration={prayer.enteredDateTime}
+              text={prayer.text}
+            />
+          ))}
         </Content>
-      </Card>
-    );
-  }
-}
-
-export default withIsLoading(MyPrayers);
+      )}
+    </Query>
+  </MyPrayersView>
+);
+export default MyPrayers;

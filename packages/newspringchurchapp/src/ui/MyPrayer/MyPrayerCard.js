@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, pure } from 'recompose';
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import moment from 'moment';
 
 import {
@@ -11,23 +11,31 @@ import {
   CardContent,
   H5,
   UIText,
+  PaddedView,
 } from '@apollosproject/ui-kit';
 
 const enhance = compose(
   withIsLoading,
   pure
 );
-const CardContainer = styled(({ theme }) => ({
-  height: theme.sizing.baseUnit * 6,
-}))(View);
 
-const MyPrayerCard = enhance(({ duration, text, isLoading, ...otherProps }) => (
-  <CardContainer>
-    <Card isLoading={isLoading} {...otherProps}>
+const PrayerText = styled(() => ({
+  textAlign: 'center',
+}))(UIText);
+
+const HeaderView = styled(() => ({
+  paddingBottom: 0,
+}))(PaddedView);
+
+const MyPrayerCard = enhance(({ duration, text, ...otherProps }) => (
+  <Card {...otherProps}>
+    <HeaderView>
       <H5>{moment(duration).fromNow()}</H5>
-      <CardContent>{text ? <UIText>{text}</UIText> : null}</CardContent>
-    </Card>
-  </CardContainer>
+    </HeaderView>
+    <CardContent>
+      <PrayerText>{text}</PrayerText>
+    </CardContent>
+  </Card>
 ));
 
 MyPrayerCard.propTypes = {

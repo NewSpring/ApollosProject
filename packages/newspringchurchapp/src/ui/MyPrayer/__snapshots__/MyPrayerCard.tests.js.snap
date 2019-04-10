@@ -1,0 +1,561 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the MyPrayerCard component renders Prayer1 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      id="PrayerRequest:b99bbd5002a0bf8d4c73e86afe9d4787"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingBottom": 0,
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
+              }
+            }
+          >
+            2 days ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontStyle": null,
+                "fontWeight": null,
+                "lineHeight": 20.16,
+                "textAlign": "center",
+              }
+            }
+          >
+            This is a test to see if I have a prayer request.
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`the MyPrayerCard component renders Prayer2 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      id="PrayerRequest:a043b2710b8d9c0d2f659ff90d00cf9d"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingBottom": 0,
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
+              }
+            }
+          >
+            3 hours ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontStyle": null,
+                "fontWeight": null,
+                "lineHeight": 20.16,
+                "textAlign": "center",
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a tellus sit amet mi consectetur pharetra lacinia eget arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus felis diam, sagittis ut.
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`the MyPrayerCard component renders Prayer3 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      id="PrayerRequest:05c9c6351be882103edb1e350c77422b"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingBottom": 0,
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
+              }
+            }
+          >
+            3 hours ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontStyle": null,
+                "fontWeight": null,
+                "lineHeight": 20.16,
+                "textAlign": "center",
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, elit nec lobortis aliquam, urna.
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`the MyPrayerCard component renders Prayer4 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      id="PrayerRequest:1c627c20911791321f819125a65c3c9d"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingBottom": 0,
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
+              }
+            }
+          >
+            2 hours ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontStyle": null,
+                "fontWeight": null,
+                "lineHeight": 20.16,
+                "textAlign": "center",
+              }
+            }
+          >
+            Lorem Lorem Lorem Lorem Ipsum Ipsum Ipsum Dolor Dolor sit sit sit amet amet.
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`the MyPrayerCard component renders Prayer5 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      id="PrayerRequest:66a4d75b02b447556e4e3806430a9946"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "paddingBottom": 0,
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
+              }
+            }
+          >
+            an hour ago
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontStyle": null,
+                "fontWeight": null,
+                "lineHeight": 20.16,
+                "textAlign": "center",
+              }
+            }
+          >
+            Aaron is the man with the plan who owns a can and drives to Japan which has a lot of sand.
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
