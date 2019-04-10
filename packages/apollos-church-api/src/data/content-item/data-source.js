@@ -14,6 +14,21 @@ const createAssetUrl = (value) =>
   }/${value.Key}`;
 
 export default class ContentItem extends oldContentItem.dataSource {
+  getWistiaVideoUri = async (wistiaHashedId) => {
+    try {
+      const videoData = await this.request('WistiaMedias')
+        .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
+        .select('MediaData')
+        .get();
+
+      const mediaData = await JSON.parse(videoData[0].mediaData);
+
+      return await get(mediaData, 'assets[0].url', '');
+    } catch (error) {
+      return '';
+    }
+  };
+
   createSummary = ({ content, attributeValues: { summary = {} } }) => {
     let htmlNode = content;
 
@@ -107,9 +122,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       sources: attributeValues[key].value
         ? [
             {
-              uri: `https://newspringchurch.wistia.com/medias/${
-                attributeValues[key].value
-              }`,
+              uri: this.getWistiaVideoUri(attributeValues[key].value),
             },
           ]
         : [],
