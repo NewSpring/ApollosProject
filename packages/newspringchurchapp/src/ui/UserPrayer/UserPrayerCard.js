@@ -20,7 +20,7 @@ const HeaderView = styled(() => ({
 }))(PaddedView);
 
 // eslint-disable-next-line react/display-name
-const MyPrayerCard = memo(({ duration, text, ...otherProps }) => (
+const UserPrayerCard = memo(({ duration, text, ...otherProps }) => (
   <Card {...otherProps}>
     <HeaderView>
       <H5>{moment(duration).fromNow()}</H5>
@@ -31,10 +31,10 @@ const MyPrayerCard = memo(({ duration, text, ...otherProps }) => (
   </Card>
 ));
 
-MyPrayerCard.propTypes = {
+UserPrayerCard.propTypes = {
   duration: PropTypes.string.isRequired,
   text: PropTypes.string,
   isLoading: PropTypes.bool,
 };
 
-export default MyPrayerCard;
+export default UserPrayerCard;

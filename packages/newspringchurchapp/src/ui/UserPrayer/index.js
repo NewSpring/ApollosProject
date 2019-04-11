@@ -4,8 +4,8 @@ import { View } from 'react-native';
 
 import { PaddedView, CardContent, styled, H5 } from '@apollosproject/ui-kit';
 
-import MyPrayerCard from './MyPrayerCard';
-import getMyPrayers from './getMyPrayers';
+import UserPrayerCard from './UserPrayerCard';
+import getUserPrayers from './getUserPrayers';
 
 const Header = styled(({ theme }) => ({
   backgroundColor: theme.colors.background.paper,
@@ -16,31 +16,30 @@ const Content = styled(() => ({
   borderTopWidth: 0,
 }))(View);
 
-const MyPrayersView = styled(() => ({
+const UserPrayersView = styled(() => ({
   paddingHorizontal: 0,
 }))(PaddedView);
 
-const MyPrayers = () => (
-  <MyPrayersView>
+const UserPrayers = () => (
+  <UserPrayersView>
     <Header>
       <H5>My Prayers</H5>
     </Header>
-    <Query query={getMyPrayers} fetchPolicy="cache-and-network">
+    <Query query={getUserPrayers} fetchPolicy="cache-and-network">
       {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
         <Content>
           {getCurrentPersonPrayerRequests
-            .slice(0)
-            .reverse()
             .map((prayer) => (
-              <MyPrayerCard
+              <UserPrayerCard
                 key={prayer.id}
                 duration={prayer.enteredDateTime}
                 text={prayer.text}
               />
-            ))}
+            ))
+            .reverse()}
         </Content>
       )}
     </Query>
-  </MyPrayersView>
+  </UserPrayersView>
 );
-export default MyPrayers;
+export default UserPrayers;
