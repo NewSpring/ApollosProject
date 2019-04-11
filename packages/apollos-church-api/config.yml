@@ -78,7 +78,7 @@ ROCK_MAPPINGS:
     - 27
     - 16
     - 18
-    - 19
+    - 20
     - 28
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
@@ -86,7 +86,7 @@ ROCK_MAPPINGS:
     - 27
     - 16
     - 18
-    - 19
+    - 20
     - 28
 
   # Group type ids for all groups to share prayers

@@ -13,14 +13,20 @@ const resolver = {
         backgroundColor: { value },
       },
     }) => ({
-      type: () => 'DARK',
+      type: () => 'LIGHT',
       colors: () => ({
-        primary: `#${value || ''}`,
+        primary: `#${value || 'fff'}`,
         secondary: '#6bac43',
-        screen: `#${value || ''}`,
-        paper: `#${value || ''}`,
+        screen: '#F8F7F4',
+        paper: `#fff`,
       }),
     }),
+    htmlContent: (root, args, { dataSources }) =>
+      dataSources.ContentItem.createSummary(root),
+  },
+  MediaContentItem: {
+    htmlContent: (root, args, { dataSources }) =>
+      dataSources.ContentItem.createSummary(root),
   },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
