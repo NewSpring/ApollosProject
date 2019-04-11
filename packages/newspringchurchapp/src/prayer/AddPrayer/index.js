@@ -1,28 +1,45 @@
 import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { H2, H5, FlexedView, styled } from '@apollosproject/ui-kit';
-
-const Content = styled({
-  justifyContent: 'center',
-})(FlexedView);
+import {
+  H3,
+  H5,
+  styled,
+  Button,
+  Card,
+  CardContent,
+} from '@apollosproject/ui-kit';
 
 const Title = styled(({ theme }) => ({
-  color: theme.colors.primary,
-  marginBottom: theme.sizing.baseUnit * 0.5,
-}))(H2);
+  marginBottom: theme.sizing.baseUnit,
+  textAlign: 'center',
+}))(H3);
 
 const Description = styled(({ theme }) => ({
   color: theme.colors.text.secondary,
   marginBottom: theme.sizing.baseUnit,
+  textAlign: 'center',
+}))(H5);
+
+const StyledButton = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 2,
+}))(Button);
+
+const ButtonLabel = styled(({ theme }) => ({
+  color: theme.colors.text.primary,
 }))(H5);
 
 const AddPrayer = memo(({ imgSrc, title, description }) => (
-  <Content>
-    <Image source={imgSrc} />
-    <Title>{title}</Title>
-    <Description>{description}</Description>
-  </Content>
+  <Card>
+    <CardContent>
+      <Image source={imgSrc} />
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      <StyledButton>
+        <ButtonLabel>Add Your Prayer</ButtonLabel>
+      </StyledButton>
+    </CardContent>
+  </Card>
 ));
 
 AddPrayer.propTypes = {
