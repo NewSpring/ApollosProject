@@ -62,10 +62,10 @@ ROCK_MAPPINGS:
       # When resolving "ContentSeriesContentItem" look in rock for a "ContentChannelItem"
       EntityType: ContentChannelItem
       # Used to define the subset of content channels types that use this specific type.
-      ContentChannelTypeId: [6, 7]
+      ContentChannelId: [18, 20]
     DevotionalContentItem:
       EntityType: ContentChannelItem
-      ContentChannelTypeId: [1]
+      ContentChannelId: [17]
     MediaContentItem:
       EntityType: ContentChannelItem
     UniversalContentItem:
@@ -88,13 +88,6 @@ ROCK_MAPPINGS:
     - 18
     - 19
     - 28
-
-  SERIES_CONTENT_CHANNEL_TYPE_IDS:
-    - 18
-    - 20
-  
-  DEVOTIONAL_TYPE_IDS:
-    - 17
 
   # Group type ids for all groups to share prayers
   PRAYER_GROUP_TYPE_IDS:

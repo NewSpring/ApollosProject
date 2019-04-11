@@ -2,8 +2,8 @@ import { ContentItem as oldContentItem } from '@apollosproject/data-connector-ro
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
 import { get } from 'lodash';
-
 import ApollosConfig from '@apollosproject/config';
+import getScripturesFromTemplate from './getScripturesFromTemplate';
 
 const { ROCK_CONSTANTS, ROCK, ROCK_MAPPINGS } = ApollosConfig;
 
@@ -14,6 +14,26 @@ const createAssetUrl = (value) =>
   }/${value.Key}`;
 
 export default class ContentItem extends oldContentItem.dataSource {
+  getContentItemScriptures = async (id) => {
+    try {
+      const request = await this.post(
+        'Lava/RenderTemplate',
+        getScripturesFromTemplate(id)
+      );
+
+      return await JSON.parse(request.replace(/\s/g, '')).map((item) => {
+        let scripture;
+        return Object.keys(item).reduce((previous, key) => {
+          scripture = `${item[previous]} ${item[key]}`;
+          return scripture;
+        });
+      });
+    } catch (error) {
+      console.log(error);
+      return '';
+    }
+  };
+
   getWistiaVideoUri = async (wistiaHashedId) => {
     try {
       const videoData = await this.request('WistiaMedias')
@@ -23,7 +43,7 @@ export default class ContentItem extends oldContentItem.dataSource {
 
       const mediaData = await JSON.parse(videoData[0].mediaData);
 
-      return await get(mediaData, 'assets[0].url', '');
+      return get(mediaData, 'assets[0].url', '');
     } catch (error) {
       return '';
     }
