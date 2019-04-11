@@ -7,6 +7,17 @@ import ApollosConfig from '@apollosproject/config';
 const { ROCK_MAPPINGS } = ApollosConfig;
 
 const resolver = {
+  ContentSeriesContentItem: {
+    theme: ({ attributeValues: { backgroundColor } }) => ({
+      type: () => 'DARK',
+      colors: () => ({
+        primary: `#${backgroundColor.value}`,
+        secondary: '#6bac43',
+        screen: `#${backgroundColor.value}`,
+        paper: `#${backgroundColor.value}`,
+      }),
+    }),
+  },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
       const scriptures = await dataSources.ContentItem.getContentItemScriptures(
