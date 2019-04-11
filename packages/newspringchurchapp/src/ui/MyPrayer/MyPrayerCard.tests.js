@@ -10,7 +10,7 @@ const prayer1 = {
   firstName: 'Aaron',
   lastName: 'Attendee',
   text: 'This is a test to see if I have a prayer request.',
-  enteredDateTime: '2019-04-08T11:21:53.053',
+  enteredDateTime: '2017-04-08T11:21:53.053',
 };
 const prayer2 = {
   id: 'PrayerRequest:a043b2710b8d9c0d2f659ff90d00cf9d',
@@ -18,7 +18,7 @@ const prayer2 = {
   lastName: 'Attendee',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a tellus sit amet mi consectetur pharetra lacinia eget arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus felis diam, sagittis ut.',
-  enteredDateTime: '2019-04-10T13:50:22.753',
+  enteredDateTime: '2017-04-10T13:50:22.753',
 };
 const prayer3 = {
   id: 'PrayerRequest:05c9c6351be882103edb1e350c77422b',
@@ -26,7 +26,7 @@ const prayer3 = {
   lastName: 'Attendee',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, elit nec lobortis aliquam, urna.',
-  enteredDateTime: '2019-04-10T13:53:24.623',
+  enteredDateTime: '2017-04-10T13:53:24.623',
 };
 const prayer4 = {
   id: 'PrayerRequest:1c627c20911791321f819125a65c3c9d',
@@ -34,7 +34,7 @@ const prayer4 = {
   lastName: 'Attendee',
   text:
     'Lorem Lorem Lorem Lorem Ipsum Ipsum Ipsum Dolor Dolor sit sit sit amet amet.',
-  enteredDateTime: '2019-04-10T14:55:14.01',
+  enteredDateTime: '2017-04-10T14:55:14.01',
 };
 const prayer5 = {
   id: 'PrayerRequest:66a4d75b02b447556e4e3806430a9946',
@@ -42,7 +42,7 @@ const prayer5 = {
   lastName: 'Attendee',
   text:
     'Aaron is the man with the plan who owns a can and drives to Japan which has a lot of sand.',
-  enteredDateTime: '2019-04-10T15:14:54.013',
+  enteredDateTime: '2017-04-10T15:14:54.013',
 };
 
 describe('the MyPrayerCard component', () => {

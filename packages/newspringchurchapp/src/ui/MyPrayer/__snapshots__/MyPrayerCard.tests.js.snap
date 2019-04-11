@@ -79,7 +79,7 @@ exports[`the MyPrayerCard component renders Prayer1 1`] = `
               }
             }
           >
-            2 days ago
+            2 years ago
           </Text>
         </View>
         <View
@@ -191,7 +191,7 @@ exports[`the MyPrayerCard component renders Prayer2 1`] = `
               }
             }
           >
-            3 hours ago
+            2 years ago
           </Text>
         </View>
         <View
@@ -303,7 +303,7 @@ exports[`the MyPrayerCard component renders Prayer3 1`] = `
               }
             }
           >
-            3 hours ago
+            2 years ago
           </Text>
         </View>
         <View
@@ -415,7 +415,7 @@ exports[`the MyPrayerCard component renders Prayer4 1`] = `
               }
             }
           >
-            2 hours ago
+            2 years ago
           </Text>
         </View>
         <View
@@ -527,7 +527,7 @@ exports[`the MyPrayerCard component renders Prayer5 1`] = `
               }
             }
           >
-            an hour ago
+            2 years ago
           </Text>
         </View>
         <View
