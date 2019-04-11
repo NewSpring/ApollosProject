@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Avatar, FlexedView, styled, H3 } from '@apollosproject/ui-kit';

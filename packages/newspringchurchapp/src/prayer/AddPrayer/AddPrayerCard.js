@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { H5, styled, Button, Card, CardContent } from '@apollosproject/ui-kit';
-import AddPrayerHeader from '.';
+import { AddPrayerHeader } from './AddPrayerHeader';
 
 const StyledCardContent = styled(() => ({
   alignItems: 'center',
@@ -22,7 +22,7 @@ const ButtonLabel = styled(({ theme }) => ({
   color: theme.colors.text.primary,
 }))(H5);
 
-const AddPrayer = memo(({ imgSrc, title, description }) => (
+const AddPrayerCard = memo(({ imgSrc, title, description }) => (
   <Card>
     <StyledCardContent>
       <AddPrayerHeader imgSrc={imgSrc} title={title} />
@@ -34,17 +34,17 @@ const AddPrayer = memo(({ imgSrc, title, description }) => (
   </Card>
 ));
 
-AddPrayer.propTypes = {
+AddPrayerCard.propTypes = {
   imgSrc: Image.propTypes,
   title: PropTypes.string,
   description: PropTypes.string,
 };
 
-AddPrayer.defaultProps = {
+AddPrayerCard.defaultProps = {
   description:
     "There aren't currently any prayers in your community. Send them one now.",
 };
 
-AddPrayer.displayName = 'AddPrayer';
+AddPrayerCard.displayName = 'AddPrayerCard';
 
-export default AddPrayer;
+export default AddPrayerCard;

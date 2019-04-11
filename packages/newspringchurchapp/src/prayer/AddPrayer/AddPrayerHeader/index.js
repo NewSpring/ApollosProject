@@ -3,14 +3,14 @@ import { View } from 'react-native';
 import { Query } from 'react-apollo';
 
 import getProfilePic from './getProfilePic';
-import AddPrayerCard from './AddPrayerCard';
+import AddPrayerHeader from './AddPrayerHeader';
 
-const ConnectedAddPrayer = () => (
+const ConnectedAddPrayerHeader = () => (
   <View>
     <Query query={getProfilePic} fetchPolicy="cache-and-network">
-      {({ data }) => <AddPrayerCard imgSrc={data.photo} />}
+      {({ data }) => <AddPrayerHeader imgSrc={data.photo} />}
     </Query>
   </View>
 );
 
-export default ConnectedAddPrayer;
+export default ConnectedAddPrayerHeader;
