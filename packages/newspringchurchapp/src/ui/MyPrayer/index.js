@@ -28,13 +28,16 @@ const MyPrayers = () => (
     <Query query={getMyPrayers} fetchPolicy="cache-and-network">
       {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
         <Content>
-          {getCurrentPersonPrayerRequests.map((prayer) => (
-            <MyPrayerCard
-              key={prayer.id}
-              duration={prayer.enteredDateTime}
-              text={prayer.text}
-            />
-          ))}
+          {getCurrentPersonPrayerRequests
+            .slice(0)
+            .reverse()
+            .map((prayer) => (
+              <MyPrayerCard
+                key={prayer.id}
+                duration={prayer.enteredDateTime}
+                text={prayer.text}
+              />
+            ))}
         </Content>
       )}
     </Query>
