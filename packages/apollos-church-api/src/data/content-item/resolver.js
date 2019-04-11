@@ -24,10 +24,6 @@ const resolver = {
     htmlContent: (root, args, { dataSources }) =>
       dataSources.ContentItem.createSummary(root),
   },
-  MediaContentItem: {
-    htmlContent: (root, args, { dataSources }) =>
-      dataSources.ContentItem.createSummary(root),
-  },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
       const scriptures = await dataSources.ContentItem.getContentItemScriptures(
