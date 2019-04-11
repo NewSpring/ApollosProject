@@ -41,7 +41,6 @@ AddPrayer.propTypes = {
 };
 
 AddPrayer.defaultProps = {
-  title: 'Ask for prayer',
   description:
     "There aren't currently any prayers in your community. Send them one now.",
 };
