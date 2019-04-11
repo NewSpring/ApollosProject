@@ -17,6 +17,7 @@ export const contentItemFragment = gql`
       type
       colors {
         primary
+        secondary
         screen
         paper
       }
