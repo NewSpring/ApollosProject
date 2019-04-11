@@ -8,13 +8,17 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 
 const resolver = {
   ContentSeriesContentItem: {
-    theme: ({ attributeValues: { backgroundColor } }) => ({
+    theme: ({
+      attributeValues: {
+        backgroundColor: { value },
+      },
+    }) => ({
       type: () => 'DARK',
       colors: () => ({
-        primary: `#${backgroundColor.value}`,
+        primary: `#${value || ''}`,
         secondary: '#6bac43',
-        screen: `#${backgroundColor.value}`,
-        paper: `#${backgroundColor.value}`,
+        screen: `#${value || ''}`,
+        paper: `#${value || ''}`,
       }),
     }),
   },
