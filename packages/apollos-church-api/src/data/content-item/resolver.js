@@ -15,7 +15,7 @@ const resolver = {
       if (scriptures.length) {
         return dataSources.Scripture.getScriptures(scriptures);
       }
-      return null;
+      return [];
     },
   },
   ContentItem: {

@@ -29,7 +29,6 @@ export default class ContentItem extends oldContentItem.dataSource {
         });
       });
     } catch (error) {
-      console.log(error);
       return '';
     }
   };
