@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { compose, pure } from 'recompose';
-// import { View } from 'react-native';
 import moment from 'moment';
 
 import {
   Card,
-  withIsLoading,
   styled,
   CardContent,
   H5,
   UIText,
   PaddedView,
 } from '@apollosproject/ui-kit';
-
-const enhance = compose(
-  withIsLoading,
-  pure
-);
 
 const PrayerText = styled(() => ({
   textAlign: 'center',
@@ -27,7 +19,8 @@ const HeaderView = styled(() => ({
   paddingBottom: 0,
 }))(PaddedView);
 
-const MyPrayerCard = enhance(({ duration, text, ...otherProps }) => (
+// eslint-disable-next-line react/display-name
+const MyPrayerCard = memo(({ duration, text, ...otherProps }) => (
   <Card {...otherProps}>
     <HeaderView>
       <H5>{moment(duration).fromNow()}</H5>
