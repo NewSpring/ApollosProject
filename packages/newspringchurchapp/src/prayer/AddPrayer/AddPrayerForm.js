@@ -22,6 +22,8 @@ const BottomView = styled(() => ({
 const AddPrayerForm = memo(({ imgSrc, btnLabel }) => (
   <FlexedView>
     <AddPrayerHeader imgSrc={imgSrc} />
+    {/* TODO: add underline={false} prop to TextInput, 
+        pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
     <TextInput editable placeholder="Start typing your prayer..." />
     <BottomView>
       <Switch label="Anonymous" />
