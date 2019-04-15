@@ -4,25 +4,21 @@ import { fetch } from 'apollo-server-env';
 import { createGlobalId } from '@apollosproject/server-core';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 import ApollosConfig from '@apollosproject/config';
-import { AuthenticationError } from 'apollo-server';
-import { get } from 'lodash';
 
 import {
   mediaSchema,
   themeSchema,
   scriptureSchema,
-  contentSharableSchema,
 } from '@apollosproject/data-schema';
+
 // we import the root-level schema and resolver so we test the entire integration:
 import {
   ContentChannel,
   Sharable,
-  Person,
   RockConstants,
 } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
-// import { generateToken } from '../../auth/token';
 
 class Scripture {
   // eslint-disable-next-line class-methods-use-this
@@ -37,33 +33,8 @@ class Scripture {
     ];
   }
 }
-class AuthDataSource {
-  initialize({ context }) {
-    this.context = context;
-  }
 
-  getCurrentPerson() {
-    if (this.context.currentPerson) {
-      return { id: 'someId' };
-    }
-    throw new AuthenticationError('Must be logged in');
-  }
-}
-
-const Auth = {
-  dataSource: AuthDataSource,
-  contextMiddleware: ({ req, context }) => {
-    if (get(req, 'headers.authorization')) {
-      return {
-        ...context,
-        currentPerson: true,
-      };
-    }
-    return { ...context };
-  },
-};
-
-const { getSchema } = createTestHelpers({
+const { getSchema, getContext } = createTestHelpers({
   ContentChannel,
   ContentItem,
   Sharable,
@@ -77,8 +48,6 @@ const { getSchema } = createTestHelpers({
     dataSource: Scripture,
   },
   RockConstants,
-  Person,
-  Auth,
 });
 // we import the root-level schema and resolver so we test the entire integration:
 
@@ -193,12 +162,8 @@ describe('UniversalContentItem', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([
-      themeSchema,
-      mediaSchema,
-      scriptureSchema,
-      contentSharableSchema,
-    ]);
+    schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
+    context = getContext();
   });
 
   it('gets a newspring content item', async () => {
