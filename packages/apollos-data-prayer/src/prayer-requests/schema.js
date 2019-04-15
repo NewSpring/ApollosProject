@@ -24,6 +24,7 @@ const prayerRequestSchema = gql`
     firstName: String
     lastName: String
     text: String!
+    enteredDateTime: String!
     isPublic: Boolean
     flagCount: Int
     prayerCount: Int
