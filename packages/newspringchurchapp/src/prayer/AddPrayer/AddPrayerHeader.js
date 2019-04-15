@@ -1,8 +1,12 @@
 import React, { memo } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Avatar, FlexedView, styled, H3 } from '@apollosproject/ui-kit';
+import { Avatar, styled, H3 } from '@apollosproject/ui-kit';
+
+const HeaderContent = styled(() => ({
+  alignItems: 'center',
+}))(View);
 
 const Title = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 0.5,
@@ -10,10 +14,10 @@ const Title = styled(({ theme }) => ({
 }))(H3);
 
 const AddPrayerHeader = memo(({ imgSrc, title }) => (
-  <FlexedView>
+  <HeaderContent>
     <Avatar source={imgSrc} />
     <Title>{title}</Title>
-  </FlexedView>
+  </HeaderContent>
 ));
 
 AddPrayerHeader.propTypes = {

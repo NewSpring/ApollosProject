@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { H5, styled, Button, Card, CardContent } from '@apollosproject/ui-kit';
-import { AddPrayerHeader } from './AddPrayerHeader';
+import AddPrayerHeader from './AddPrayerHeader';
 
 const StyledCardContent = styled(() => ({
   alignItems: 'center',
@@ -22,10 +22,10 @@ const ButtonLabel = styled(({ theme }) => ({
   color: theme.colors.text.primary,
 }))(H5);
 
-const AddPrayerCard = memo(({ imgSrc, title, description }) => (
+const AddPrayerCard = memo(({ imgSrc, description }) => (
   <Card>
     <StyledCardContent>
-      <AddPrayerHeader imgSrc={imgSrc} title={title} />
+      <AddPrayerHeader imgSrc={imgSrc} />
       <Description>{description}</Description>
       <AddPrayerButton>
         <ButtonLabel>Add Your Prayer</ButtonLabel>
@@ -36,7 +36,6 @@ const AddPrayerCard = memo(({ imgSrc, title, description }) => (
 
 AddPrayerCard.propTypes = {
   imgSrc: Image.propTypes,
-  title: PropTypes.string,
   description: PropTypes.string,
 };
 

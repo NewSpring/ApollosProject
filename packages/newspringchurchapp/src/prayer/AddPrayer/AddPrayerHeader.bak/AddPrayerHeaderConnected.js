@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import getProfilePic from './getProfilePic';
 import AddPrayerHeader from './AddPrayerHeader';
 
-const ConnectedAddPrayerHeader = () => (
+const AddPrayerHeaderConnected = () => (
   <View>
     <Query query={getProfilePic} fetchPolicy="cache-and-network">
       {({ data }) => <AddPrayerHeader imgSrc={data.photo} />}
@@ -13,4 +13,4 @@ const ConnectedAddPrayerHeader = () => (
   </View>
 );
 
-export default ConnectedAddPrayerHeader;
+export default AddPrayerHeaderConnected;
