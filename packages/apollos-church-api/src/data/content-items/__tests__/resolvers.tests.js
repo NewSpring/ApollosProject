@@ -11,6 +11,7 @@ import {
   mediaSchema,
   themeSchema,
   scriptureSchema,
+  contentSharableSchema,
 } from '@apollosproject/data-schema';
 // we import the root-level schema and resolver so we test the entire integration:
 import {
@@ -96,6 +97,25 @@ ApollosConfig.loadJs({
   ROCK_MAPPINGS: {
     FEED_CONTENT_CHANNEL_IDS: [1, 2, 3, 4, 6, 8],
     SERIES_CONTENT_CHANNEL_TYPE_IDS: [6, 7],
+    CONTENT_ITEM: {
+      ContentSeriesContentItem: {
+        EntityType: 'ContentChannelItem',
+        ContentChannelId: [18, 20],
+      },
+      DevotionalContentItem: {
+        EntityType: 'ContentChannelItem',
+        ContentChannelId: [17],
+      },
+      MediaContentItem: {
+        EntityType: 'ContentChannelItem',
+      },
+      UniversalContentItem: {
+        EntityType: 'ContentChannelItem',
+      },
+      ContentItem: {
+        EntityType: 'ContentChannelItem',
+      },
+    },
   },
 });
 
@@ -173,7 +193,12 @@ describe('UniversalContentItem', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
+    schema = getSchema([
+      themeSchema,
+      mediaSchema,
+      scriptureSchema,
+      contentSharableSchema,
+    ]);
   });
 
   it('gets a newspring content item', async () => {
