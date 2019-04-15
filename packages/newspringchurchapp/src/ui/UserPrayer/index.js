@@ -20,7 +20,7 @@ const UserPrayersView = styled(() => ({
   paddingHorizontal: 0,
 }))(PaddedView);
 
-const UserPrayersList = () => (
+const UserPrayerList = () => (
   <UserPrayersView>
     <Header>
       <H5>My Prayers</H5>
@@ -42,4 +42,4 @@ const UserPrayersList = () => (
     </Query>
   </UserPrayersView>
 );
-export default UserPrayersList;
+export default UserPrayerList;
