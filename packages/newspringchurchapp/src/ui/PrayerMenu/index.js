@@ -24,6 +24,14 @@ const loadingStateObject = {
 const prayerMenuData = [
   {
     id: '1',
+    description: 'Pray for the prayers you haved saved',
+    image: 'https://picsum.photos/600/400/?random',
+    link: 'https://github.com',
+    overlayColor: ['#6BAC43', '#6BAC43'],
+    title: 'My Saved Prayers',
+  },
+  {
+    id: '2',
     description: 'Pray for the people in our church',
     image: 'https://picsum.photos/600/400/?random',
     link: 'https://github.com',
@@ -31,7 +39,7 @@ const prayerMenuData = [
     title: 'My Church',
   },
   {
-    id: '2',
+    id: '3',
     description: 'Pray for the people at your campus',
     image: 'https://picsum.photos/600/400/?random',
     link: 'https://github.com',
@@ -39,7 +47,7 @@ const prayerMenuData = [
     title: 'My Campus',
   },
   {
-    id: '3',
+    id: '4',
     description: 'Pray for those people in your community',
     image: 'https://picsum.photos/600/400/?random',
     link: 'https://github.com',
@@ -47,7 +55,7 @@ const prayerMenuData = [
     title: 'My Community',
   },
   {
-    id: '4',
+    id: '5',
     description: 'Revisit your prayers',
     image: 'https://picsum.photos/600/400/?random',
     link: 'https://github.com',
