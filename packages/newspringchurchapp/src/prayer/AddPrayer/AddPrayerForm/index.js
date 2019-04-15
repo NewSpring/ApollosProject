@@ -8,8 +8,9 @@ import {
   Button,
   styled,
   FlexedView,
+  PaddedView,
 } from '@apollosproject/ui-kit';
-import AddPrayerHeader from './AddPrayerHeader';
+import AddPrayerHeader from '../AddPrayerHeader';
 
 const StyledButton = styled(() => ({
   borderRadius: 0,
@@ -19,17 +20,23 @@ const BottomView = styled(() => ({
   justifyContent: 'flex-end',
 }))(FlexedView);
 
-const AddPrayerForm = memo(({ imgSrc, btnLabel }) => (
-  <FlexedView>
-    <AddPrayerHeader imgSrc={imgSrc} />
-    {/* TODO: add underline={false} prop to TextInput, 
+const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
+  <ModalView {...otherProps}>
+    <FlexedView>
+      <AddPrayerHeader imgSrc={imgSrc} />
+      {/* TODO: add underline={false} prop to TextInput, 
         pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
-    <TextInput editable placeholder="Start typing your prayer..." />
-    <BottomView>
-      <Switch label="Anonymous" />
-      <StyledButton title={btnLabel} />
-    </BottomView>
-  </FlexedView>
+      <PaddedView>
+        <TextInput editable placeholder="Start typing your prayer..." />
+      </PaddedView>
+      <BottomView>
+        <PaddedView>
+          <Switch label="Anonymous" />
+        </PaddedView>
+        <StyledButton title={btnLabel} />
+      </BottomView>
+    </FlexedView>
+  </ModalView>
 ));
 
 AddPrayerForm.propTypes = {

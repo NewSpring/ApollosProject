@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { H5, styled, Button, Card, CardContent } from '@apollosproject/ui-kit';
-import AddPrayerHeader from './AddPrayerHeader';
+import AddPrayerHeader from '../AddPrayerHeader';
 
 const StyledCardContent = styled(() => ({
   alignItems: 'center',

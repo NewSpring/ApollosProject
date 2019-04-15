@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
-import AddPrayerHeader from './AddPrayerHeader';
+import AddPrayerHeader from '.';
 
 storiesOf('prayer/AddPrayer/AddPrayerHeader', module)
   .add('default', () => <AddPrayerHeader />)
