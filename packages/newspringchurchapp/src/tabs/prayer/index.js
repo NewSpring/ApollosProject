@@ -1,10 +1,5 @@
-import React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import Svg from 'react-native-svg';
-import { Icon } from '@apollosproject/ui-kit';
-import tabBarIcon from '../tabBarIcon';
-import prayerIcon from '../../../assets/icons/pray.svg';
-
+import { tabBarIconNewSpring } from '../tabBarIcon';
 import Prayer from './Prayer';
 
 export const PrayerNavigator = createStackNavigator(
@@ -17,9 +12,9 @@ export const PrayerNavigator = createStackNavigator(
     headerTransitionPreset: 'fade-in-place',
   }
 );
-
+// <NSIcon name="pray" size={24} />
 PrayerNavigator.navigationOptions = {
-  tabBarIcon: <prayerIcon width={24} height={24} />,
+  tabBarIcon: tabBarIconNewSpring('pray'),
 };
 
 export default PrayerNavigator;

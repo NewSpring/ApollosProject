@@ -20,7 +20,7 @@ const pascalCase = (string) =>
 
 const enhance = compose(pure);
 
-const Icon = enhance(({ name, size, isLoading = false, ...otherProps }) => {
+const NSIcon = enhance(({ name, size, isLoading = false, ...otherProps }) => {
   const IconComponent = Icons[pascalCase(name)];
   return (
     <Placeholder.Media size={size} hasRadius onReady={!isLoading}>
@@ -29,15 +29,15 @@ const Icon = enhance(({ name, size, isLoading = false, ...otherProps }) => {
   );
 });
 
-Icon.propTypes = {
+NSIcon.propTypes = {
   name: PropTypes.oneOf(Object.keys(Icons).map(kebabCase)).isRequired,
   size: PropTypes.number,
   fill: PropTypes.string,
   isLoading: PropTypes.bool,
 };
 
-Icon.defaultProps = {
+NSIcon.defaultProps = {
   size: 32, // 32 is the default size used within the svg component
 };
 
-export default Icon;
+export default NSIcon;
