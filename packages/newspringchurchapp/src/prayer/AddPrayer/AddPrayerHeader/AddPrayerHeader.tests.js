@@ -6,8 +6,6 @@ import AddPrayerHeader from '.';
 
 describe('The AddPrayerHeader component', () => {
   it('should render', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerHeader />
@@ -16,8 +14,6 @@ describe('The AddPrayerHeader component', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should render a custom avatar', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerHeader
@@ -28,8 +24,6 @@ describe('The AddPrayerHeader component', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should render a custom title', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerHeader title={'custom title'} />

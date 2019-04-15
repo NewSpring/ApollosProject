@@ -6,8 +6,6 @@ import AddPrayerCard from '.';
 
 describe('The AddPrayerCard component', () => {
   it('should render', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerCard />
@@ -16,8 +14,6 @@ describe('The AddPrayerCard component', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should render a custom avatar', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerCard imgSrc={{ uri: 'https://picsum.photos/55/55?random' }} />
@@ -26,8 +22,6 @@ describe('The AddPrayerCard component', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should render a custom title', () => {
-    /* we have to pass in a date via defaultDate or the DateInput component will create a current date
-     * object and invalidate the snapshots every time. */
     const tree = renderer.create(
       <Providers>
         <AddPrayerCard
