@@ -14,6 +14,8 @@ export default {
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.add(args),
+    deletePublicPrayerRequest: (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.delete(args),
     incrementPrayed: (root, { id }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.incrementPrayed(parsedId);

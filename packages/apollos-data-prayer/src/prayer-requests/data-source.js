@@ -68,6 +68,16 @@ export default class PrayerRequest extends RockApolloDataSource {
     }
   };
 
+  // MUTATION Delete a prayer request
+  delete = async (parsedId) => {
+    try {
+      await this.delete(`PrayerRequests/${parsedId}`, {});
+      return await this.getFromId(parsedId);
+    } catch (err) {
+      throw new Error(`Unable to delete prayer request`);
+    }
+  };
+
   // MUTATION add public prayer request
   add = async ({
     IsPublic,

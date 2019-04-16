@@ -1,6 +1,9 @@
-import React, { memo } from 'react';
+import React, { PureComponent } from 'react';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+
+import ActionSheet from 'react-native-actionsheet';
 
 import {
   Card,
@@ -9,6 +12,8 @@ import {
   H5,
   UIText,
   PaddedView,
+  SideBySideView,
+  ButtonLink,
 } from '@apollosproject/ui-kit';
 
 const PrayerText = styled(() => ({
@@ -19,17 +24,42 @@ const HeaderView = styled(() => ({
   paddingBottom: 0,
 }))(PaddedView);
 
-// eslint-disable-next-line react/display-name
-const UserPrayerCard = memo(({ duration, text, ...otherProps }) => (
-  <Card {...otherProps}>
-    <HeaderView>
-      <H5>{moment(duration).fromNow()}</H5>
-    </HeaderView>
-    <CardContent>
-      <PrayerText>{text}</PrayerText>
-    </CardContent>
-  </Card>
-));
+const HorizontalTextLayout = styled(({ theme }) => ({
+  height: theme.helpers.verticalRhythm(0.875),
+}))(SideBySideView);
+
+class UserPrayerCard extends PureComponent {
+  handleShowActionSheet = () => {
+    this.ActionSheet.show();
+  };
+
+  render() {
+    const { duration, text, ...otherProps } = this.props;
+    return (
+      <Card {...otherProps}>
+        <HeaderView>
+          <HorizontalTextLayout>
+            <H5>{moment(duration).fromNow()}</H5>
+            <ButtonLink onPress={this.handleShowActionSheet}>Menu</ButtonLink>
+            <ActionSheet
+              ref={(o) => {
+                this.ActionSheet = o;
+              }}
+              title={'Would you like to remove the prayer request?'}
+              options={['Remove Prayer Request', 'Cancel']}
+              cancelButtonIndex={1}
+              destructiveButtonindex={0}
+              onPress={() => console.warn('you pressed the button')}
+            />
+          </HorizontalTextLayout>
+        </HeaderView>
+        <CardContent>
+          <PrayerText>{text}</PrayerText>
+        </CardContent>
+      </Card>
+    );
+  }
+}
 
 UserPrayerCard.propTypes = {
   duration: PropTypes.string.isRequired,

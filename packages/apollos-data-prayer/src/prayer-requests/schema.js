@@ -16,6 +16,7 @@ const prayerRequestSchema = gql`
       FirstName: String!
       LastName: String
     ): PrayerRequest
+    deletePublicPrayerRequest(id: String!): PrayerRequest
     incrementPrayed(id: String!): PrayerRequest
     flagRequest(id: String!): PrayerRequest
   }
