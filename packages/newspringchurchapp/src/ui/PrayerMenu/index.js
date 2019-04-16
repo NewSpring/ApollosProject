@@ -1,6 +1,13 @@
-import React from 'react';
-import { View } from 'react-native';
-import { H3, HorizontalTileFeed, styled } from '@apollosproject/ui-kit';
+import React, { PureComponent } from 'react';
+import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
+import {
+  H3,
+  HorizontalTileFeed,
+  TabSceneMap as SceneMap,
+  styled,
+  TabView,
+} from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
 
 const RowHeader = styled(({ theme }) => ({
@@ -64,24 +71,90 @@ const prayerMenuData = [
   },
 ];
 
-const PrayerMenu = () => (
-  <>
-    <RowHeader>
-      <H3>Pray for Others</H3>
-    </RowHeader>
+const Tab = ({ name }) => <Text>{name}</Text>;
+Tab.propTypes = {
+  name: PropTypes.string,
+};
+
+class PrayerMenu extends PureComponent {
+  tabRoutes = [
+    {
+      title: 'My Saved Prayers',
+      key: 'saved',
+    },
+    {
+      title: 'My Church',
+      key: 'church',
+    },
+    {
+      title: 'My Campus',
+      key: 'campus',
+    },
+    {
+      title: 'My Community',
+      key: 'community',
+    },
+    {
+      title: 'My Prayers',
+      key: 'prayers',
+    },
+  ];
+
+  tabRoute = (name) => () => <Tab name={name} />;
+
+  // link={item.link}
+  // onPressItem={() =>
+  //    navigation.navigate('ContentSingle', {
+  //      itemId: id,
+  //    })
+  // }
+
+  renderTabBar = () => (
     <HorizontalTileFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
         <PrayerMenuCard
           image={item.image}
-          link={item.link}
           overlayColor={item.overlayColor}
           title={item.title}
         />
       )}
       loadingStateObject={loadingStateObject}
     />
-  </>
-);
+  );
+
+  render() {
+    return (
+      <>
+        <RowHeader>
+          <H3>Pray for Others</H3>
+        </RowHeader>
+        {/* <HorizontalTileFeed
+          content={prayerMenuData}
+          renderItem={({ item }) => (
+            <PrayerMenuCard
+              image={item.image}
+              link={item.link}
+              overlayColor={item.overlayColor}
+              title={item.title}
+            />
+          )}
+          loadingStateObject={loadingStateObject}
+        /> */}
+        <TabView
+          routes={this.tabRoutes}
+          renderScene={SceneMap({
+            saved: this.tabRoute('SAVED'),
+            church: this.tabRoute('CHURCH'),
+            campus: this.tabRoute('CAMPUS'),
+            community: this.tabRoute('COMMUNITY'),
+            prayers: this.tabRoute('PRAYERS'),
+          })}
+          renderTabBar={this.renderTabBar}
+        />
+      </>
+    );
+  }
+}
 
 export default PrayerMenu;
