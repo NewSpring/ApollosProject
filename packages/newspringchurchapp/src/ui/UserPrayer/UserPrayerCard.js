@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -35,6 +34,8 @@ class UserPrayerCard extends PureComponent {
 
   render() {
     const { duration, text, ...otherProps } = this.props;
+
+    const options = ['Remove Prayer Request', 'Cancel'];
     return (
       <Card {...otherProps}>
         <HeaderView>
@@ -46,7 +47,7 @@ class UserPrayerCard extends PureComponent {
                 this.ActionSheet = o;
               }}
               title={'Would you like to remove the prayer request?'}
-              options={['Remove Prayer Request', 'Cancel']}
+              options={options}
               cancelButtonIndex={1}
               destructiveButtonindex={0}
               onPress={() => console.warn('you pressed the button')}
