@@ -62,6 +62,7 @@ class UserPrayerCard extends PureComponent {
   }
 }
 
+
 UserPrayerCard.propTypes = {
   duration: PropTypes.string.isRequired,
   text: PropTypes.string,
