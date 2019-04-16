@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { pure, compose } from 'recompose';
-import { H5, styled, TouchableScale, withTheme } from '@apollosproject/ui-kit';
+import { H5, styled, withTheme } from '@apollosproject/ui-kit';
 import GradientOverlayImage from '../GradientOverlayImage';
 
 const CardView = styled(
@@ -37,21 +37,17 @@ const enhance = compose(
   pure
 );
 
-const TileImage = enhance(
-  ({ image, isLoading, link, onPressItem, overlayColor, text }) => (
-    <TouchableScale onPress={() => !isLoading && onPressItem({ ...link })}>
-      <CardView>
-        <SquareGradientOverlayImage
-          source={image}
-          isLoading={isLoading}
-          maintainAspectRatio={false}
-          overlayColor={overlayColor || null}
-        />
-        <Title>{text}</Title>
-      </CardView>
-    </TouchableScale>
-  )
-);
+const TileImage = enhance(({ image, isLoading, overlayColor, text }) => (
+  <CardView>
+    <SquareGradientOverlayImage
+      source={image}
+      isLoading={isLoading}
+      maintainAspectRatio={false}
+      overlayColor={overlayColor || null}
+    />
+    <Title>{text}</Title>
+  </CardView>
+));
 
 TileImage.propTypes = {
   image: GradientOverlayImage.propTypes.source,

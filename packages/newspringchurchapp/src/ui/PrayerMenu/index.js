@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import {
   H3,
   HorizontalTileFeed,
-  TabSceneMap as SceneMap,
   styled,
-  TabView,
+  TouchableScale,
 } from '@apollosproject/ui-kit';
+import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
 
 const RowHeader = styled(({ theme }) => ({
@@ -36,6 +36,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Saved Prayers',
+    key: 'prayers',
   },
   {
     id: '2',
@@ -44,6 +45,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Church',
+    key: 'church',
   },
   {
     id: '3',
@@ -52,6 +54,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Campus',
+    key: 'campus',
   },
   {
     id: '4',
@@ -60,6 +63,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Community',
+    key: 'community',
   },
   {
     id: '5',
@@ -68,6 +72,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Prayers',
+    key: 'prayers',
   },
 ];
 
@@ -77,47 +82,47 @@ Tab.propTypes = {
 };
 
 class PrayerMenu extends PureComponent {
-  tabRoutes = [
-    {
-      title: 'My Saved Prayers',
-      key: 'saved',
-    },
-    {
-      title: 'My Church',
-      key: 'church',
-    },
-    {
-      title: 'My Campus',
-      key: 'campus',
-    },
-    {
-      title: 'My Community',
-      key: 'community',
-    },
-    {
-      title: 'My Prayers',
-      key: 'prayers',
-    },
-  ];
+  state = {
+    index: 0,
+    routes: [
+      {
+        title: 'My Saved Prayers',
+        key: 'saved',
+      },
+      {
+        title: 'My Church',
+        key: 'church',
+      },
+      {
+        title: 'My Campus',
+        key: 'campus',
+      },
+      {
+        title: 'My Community',
+        key: 'community',
+      },
+      {
+        title: 'My Prayers',
+        key: 'prayers',
+      },
+    ],
+  };
 
   tabRoute = (name) => () => <Tab name={name} />;
 
-  // link={item.link}
-  // onPressItem={() =>
-  //    navigation.navigate('ContentSingle', {
-  //      itemId: id,
-  //    })
-  // }
+  handleIndexChange = (index) => this.setState({ index });
 
-  renderTabBar = () => (
+  renderTabBar = (props) => (
     <HorizontalTileFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
-        <PrayerMenuCard
-          image={item.image}
-          overlayColor={item.overlayColor}
-          title={item.title}
-        />
+        <TouchableScale key={item.key} onPress={() => props.jumpTo(item.key)}>
+          <PrayerMenuCard
+            image={item.image}
+            overlayColor={item.overlayColor}
+            title={item.title}
+          />
+        </TouchableScale>
       )}
       loadingStateObject={loadingStateObject}
     />
@@ -129,20 +134,8 @@ class PrayerMenu extends PureComponent {
         <RowHeader>
           <H3>Pray for Others</H3>
         </RowHeader>
-        {/* <HorizontalTileFeed
-          content={prayerMenuData}
-          renderItem={({ item }) => (
-            <PrayerMenuCard
-              image={item.image}
-              link={item.link}
-              overlayColor={item.overlayColor}
-              title={item.title}
-            />
-          )}
-          loadingStateObject={loadingStateObject}
-        /> */}
         <TabView
-          routes={this.tabRoutes}
+          navigationState={{ ...this.state }}
           renderScene={SceneMap({
             saved: this.tabRoute('SAVED'),
             church: this.tabRoute('CHURCH'),
@@ -151,6 +144,7 @@ class PrayerMenu extends PureComponent {
             prayers: this.tabRoute('PRAYERS'),
           })}
           renderTabBar={this.renderTabBar}
+          onIndexChange={this.handleIndexChange}
         />
       </>
     );
