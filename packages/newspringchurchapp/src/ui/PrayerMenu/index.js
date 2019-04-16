@@ -36,7 +36,7 @@ const prayerMenuData = [
     link: 'https://github.com',
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Saved Prayers',
-    key: 'prayers',
+    key: 'saved',
   },
   {
     id: '2',
@@ -76,9 +76,22 @@ const prayerMenuData = [
   },
 ];
 
-const Tab = ({ name }) => <Text>{name}</Text>;
+const StyledView = styled(({ theme }) => ({
+  paddingTop: theme.sizing.baseUnit * 1.5,
+  paddingLeft: theme.sizing.baseUnit * 0.5,
+  paddingBottom: theme.sizing.baseUnit * 1.25,
+}))(View);
+
+const Tab = ({ index }) => {
+  const data = prayerMenuData[index - 1];
+  return (
+    <StyledView>
+      <Text>{data.description}</Text>
+    </StyledView>
+  );
+};
 Tab.propTypes = {
-  name: PropTypes.string,
+  index: PropTypes.number,
 };
 
 class PrayerMenu extends PureComponent {
@@ -108,7 +121,7 @@ class PrayerMenu extends PureComponent {
     ],
   };
 
-  tabRoute = (name) => () => <Tab name={name} />;
+  tabRoute = (index) => () => <Tab index={index} />;
 
   handleIndexChange = (index) => this.setState({ index });
 
@@ -137,11 +150,11 @@ class PrayerMenu extends PureComponent {
         <TabView
           navigationState={{ ...this.state }}
           renderScene={SceneMap({
-            saved: this.tabRoute('SAVED'),
-            church: this.tabRoute('CHURCH'),
-            campus: this.tabRoute('CAMPUS'),
-            community: this.tabRoute('COMMUNITY'),
-            prayers: this.tabRoute('PRAYERS'),
+            saved: this.tabRoute(1),
+            church: this.tabRoute(2),
+            campus: this.tabRoute(3),
+            community: this.tabRoute(4),
+            prayers: this.tabRoute(5),
           })}
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
