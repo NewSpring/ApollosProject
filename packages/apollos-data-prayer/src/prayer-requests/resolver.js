@@ -37,6 +37,8 @@ export default {
       (typeof requestedByPersonAliasId === 'number' &&
         requestedByPersonAliasId) ||
       0,
+    isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
+      value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
   },
