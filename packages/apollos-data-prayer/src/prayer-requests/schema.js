@@ -15,6 +15,7 @@ const prayerRequestSchema = gql`
       Text: String!
       FirstName: String!
       LastName: String
+      IsAnonymous: String
     ): PrayerRequest
     incrementPrayed(id: String!): PrayerRequest
     flagRequest(id: String!): PrayerRequest
@@ -33,6 +34,7 @@ const prayerRequestSchema = gql`
     createdByPersonAliasId: Int
     requestedByPersonAliasId: Int
     person: Person
+    isAnonymous: Boolean
   }
 `;
 
