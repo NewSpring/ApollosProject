@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { Mutation } from 'react-apollo';
 
 import ActionSheet from 'react-native-actionsheet';
-
 import {
   Card,
   styled,
@@ -14,6 +14,9 @@ import {
   SideBySideView,
   ButtonLink,
 } from '@apollosproject/ui-kit';
+
+import deleteUserPrayer from './deleteUserPrayer';
+import getUserPrayers from './getUserPrayers';
 
 const PrayerText = styled(() => ({
   textAlign: 'center',
@@ -33,7 +36,7 @@ class UserPrayerCard extends PureComponent {
   };
 
   render() {
-    const { duration, text, ...otherProps } = this.props;
+    const { duration, text, key, ...otherProps } = this.props;
 
     const options = ['Remove Prayer Request', 'Cancel'];
     return (
@@ -41,17 +44,34 @@ class UserPrayerCard extends PureComponent {
         <HeaderView>
           <HorizontalTextLayout>
             <H5>{moment(duration).fromNow()}</H5>
-            <ButtonLink onPress={this.handleShowActionSheet}>Menu</ButtonLink>
-            <ActionSheet
-              ref={(o) => {
-                this.ActionSheet = o;
+            <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+            <Mutation
+              mutation={deleteUserPrayer}
+              update={async (
+                cache,
+                { data: { deletePublicPrayerRequest } }
+              ) => {
+                await cache.writeQuery({
+                  query: getUserPrayers,
+                  data: deletePublicPrayerRequest.filter(
+                    (prayer) => prayer.id === key
+                  ),
+                });
               }}
-              title={'Would you like to remove the prayer request?'}
-              options={options}
-              cancelButtonIndex={1}
-              destructiveButtonindex={0}
-              onPress={() => console.warn('you pressed the button')}
-            />
+            >
+              {(deletePrayer) => (
+                <ActionSheet
+                  ref={(o) => {
+                    this.ActionSheet = o;
+                  }}
+                  title={'Would you like to remove the prayer request?'}
+                  options={options}
+                  cancelButtonIndex={1}
+                  destructiveButtonindex={0}
+                  onPress={() => deletePrayer({ parsedId: key })}
+                />
+              )}
+            </Mutation>
           </HorizontalTextLayout>
         </HeaderView>
         <CardContent>
@@ -62,11 +82,11 @@ class UserPrayerCard extends PureComponent {
   }
 }
 
-
 UserPrayerCard.propTypes = {
   duration: PropTypes.string.isRequired,
   text: PropTypes.string,
   isLoading: PropTypes.bool,
+  key: PropTypes.string,
 };
 
 export default UserPrayerCard;
