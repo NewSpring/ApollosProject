@@ -337,7 +337,7 @@ describe('PrayerRequest', () => {
   it('creates a new prayer', async () => {
     const query = `
       mutation {
-        addPublicPrayerRequest(IsPublic: true, FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1, IsAnonymous: "True") {
+        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1, IsAnonymous: "True") {
           id
           firstName
           lastName

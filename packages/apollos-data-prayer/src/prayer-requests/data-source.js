@@ -72,7 +72,6 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   // MUTATION add public prayer request
   add = async ({
-    IsPublic,
     CampusId,
     CategoryId,
     Text,
@@ -92,7 +91,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         Text, // Required by Rock
         CategoryId,
         CampusId,
-        IsPublic,
+        IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
         IsApproved: true,
