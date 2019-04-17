@@ -1,25 +1,24 @@
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   H3,
   HorizontalTileFeed,
   styled,
   TouchableScale,
+  PaddedView,
+  BodyText,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
 import UserPrayerList from '../UserPrayer';
 
-const RowHeader = styled(({ theme }) => ({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
-  paddingTop: theme.sizing.baseUnit * 0.5,
-  paddingLeft: theme.sizing.baseUnit * 0.5,
-  paddingBottom: theme.sizing.baseUnit * 1.25,
-}))(View);
+}))(PaddedView);
+
+const StyledPaddedView = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit,
+}))(PaddedView);
 
 const loadingStateObject = {
   node: {
@@ -73,19 +72,17 @@ const prayerMenuData = [
   },
 ];
 
-const StyledView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit * 1.5,
-  paddingLeft: theme.sizing.baseUnit * 0.5,
-  paddingBottom: theme.sizing.baseUnit * 1.25,
-}))(View);
+const StyledFeed = styled(({ theme }) => ({
+  paddingLeft: theme.sizing.baseUnit,
+}))(HorizontalTileFeed);
 
 const Tab = ({ index }) => {
   const data = prayerMenuData[index - 1];
   return (
-    <StyledView>
-      <Text>{data.description}</Text>
-      <View>{data.component}</View>
-    </StyledView>
+    <StyledPaddedView>
+      <BodyText>{data.description}</BodyText>
+      {data.component}
+    </StyledPaddedView>
   );
 };
 Tab.propTypes = {
@@ -124,7 +121,7 @@ class PrayerMenu extends PureComponent {
   handleIndexChange = (index) => this.setState({ index });
 
   renderTabBar = (props) => (
-    <HorizontalTileFeed
+    <StyledFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
         <TouchableScale key={item.key} onPress={() => props.jumpTo(item.key)}>
