@@ -1,3 +1,6 @@
+// TODO: Would prefer to use icons from TAP core. If our icons get merged
+// and we update the ui-kit we can get rid of everything in this folder.
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { compose, pure } from 'recompose';

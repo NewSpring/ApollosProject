@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from '@apollosproject/ui-kit';
+// TODO: Go back and use the TAP core icon when we get our icons in an updated
+// version of the ui-kit.
 import NSIcon from '../ui/NSIcon';
 
 const tabBarIcon = (name) => {

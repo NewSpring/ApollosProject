@@ -12,7 +12,8 @@ export const PrayerNavigator = createStackNavigator(
     headerTransitionPreset: 'fade-in-place',
   }
 );
-// <NSIcon name="pray" size={24} />
+
+// TODO: Go back and use the TAP core icon when we get an updated ui-kit
 PrayerNavigator.navigationOptions = {
   tabBarIcon: tabBarIconNewSpring('pray'),
 };
