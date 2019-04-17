@@ -5,6 +5,8 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
   resource = 'PrayerRequests';
 
+  expanded = true;
+
   // QUERY ALL PrayerRequests
   getAll = () => this.request('PrayerRequests/Public').get();
 
@@ -80,12 +82,12 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   // MUTATION add public prayer request
   add = async ({
-    IsPublic,
     CampusId,
     CategoryId,
     Text,
     FirstName,
     LastName,
+    IsAnonymous,
   }) => {
     const {
       dataSources: { Auth },
@@ -99,12 +101,17 @@ export default class PrayerRequest extends RockApolloDataSource {
         Text, // Required by Rock
         CategoryId,
         CampusId,
-        IsPublic,
+        IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
         IsApproved: true,
         EnteredDateTime: new Date().toJSON(), // Required by Rock
       });
+      // Sets the attribute value "IsAnonymous" on newly created prayer request
+      await this.post(
+        `/PrayerRequests/AttributeValue/${newPrayerRequest}?attributeKey=IsAnonymous&attributeValue=${IsAnonymous ||
+          'False'}`
+      );
       return this.getFromId(newPrayerRequest);
     } catch (err) {
       throw new Error(`Unable to create prayer request!`);
