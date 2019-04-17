@@ -9,7 +9,7 @@ import {
   styled,
   CardContent,
   H5,
-  UIText,
+  BodyText,
   PaddedView,
   SideBySideView,
   ButtonLink,
@@ -17,7 +17,7 @@ import {
 
 const PrayerText = styled(() => ({
   textAlign: 'center',
-}))(UIText);
+}))(BodyText);
 
 const HeaderView = styled(() => ({
   paddingBottom: 0,
