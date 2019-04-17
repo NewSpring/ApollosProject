@@ -36,7 +36,7 @@ class UserPrayerCard extends PureComponent {
   };
 
   render() {
-    const { duration, text, key, ...otherProps } = this.props;
+    const { duration, text, id, ...otherProps } = this.props;
 
     const options = ['Remove Prayer Request', 'Cancel'];
     return (
@@ -54,7 +54,7 @@ class UserPrayerCard extends PureComponent {
                 await cache.writeQuery({
                   query: getUserPrayers,
                   data: deletePublicPrayerRequest.filter(
-                    (prayer) => prayer.id === key
+                    (prayer) => prayer.id === id
                   ),
                 });
               }}
@@ -68,7 +68,7 @@ class UserPrayerCard extends PureComponent {
                   options={options}
                   cancelButtonIndex={1}
                   destructiveButtonindex={0}
-                  onPress={() => deletePrayer({ parsedId: key })}
+                  onPress={() => deletePrayer({ variables: { parsedId: id } })}
                 />
               )}
             </Mutation>
@@ -86,7 +86,7 @@ UserPrayerCard.propTypes = {
   duration: PropTypes.string.isRequired,
   text: PropTypes.string,
   isLoading: PropTypes.bool,
-  key: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default UserPrayerCard;

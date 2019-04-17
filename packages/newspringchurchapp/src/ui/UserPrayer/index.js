@@ -13,13 +13,14 @@ const StyledView = styled(({ theme }) => ({
 }))(View);
 
 const UserPrayerList = () => (
-  <Query query={getUserPrayers} fetchPolicy="cache-and-network">
+  <Query query={getUserPrayers} fetchPolicy="network-only">
     {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
       <StyledView>
         {getCurrentPersonPrayerRequests
           .map((prayer) => (
             <UserPrayerCard
               key={prayer.id}
+              id={prayer.id}
               duration={prayer.enteredDateTime}
               text={prayer.text}
             />

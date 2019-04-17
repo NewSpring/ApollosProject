@@ -15,6 +15,7 @@ export default {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.add(args),
     deletePublicPrayerRequest: (root, { id }, { dataSources }) => {
+      console.log('HEHEHEHEHEHEHEh: ', id);
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.deletePrayer(parsedId);
     },
