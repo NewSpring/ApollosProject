@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
-import { BackgroundView, PaddedView, styled } from '@apollosproject/ui-kit';
+import { BackgroundView, styled } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../ui/PrayerMenu';
 
 const Header = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 1.5,
   backgroundColor: theme.colors.background.paper,
   paddingTop: theme.sizing.baseUnit * 4,
-}))(PaddedView);
+}))(ScrollView);
 
 class Prayer extends PureComponent {
   static navigationOptions = () => ({
@@ -18,11 +18,9 @@ class Prayer extends PureComponent {
     return (
       <BackgroundView>
         <SafeAreaView>
-          <ScrollView>
-            <Header>
-              <PrayerMenu />
-            </Header>
-          </ScrollView>
+          <Header>
+            <PrayerMenu />
+          </Header>
         </SafeAreaView>
       </BackgroundView>
     );

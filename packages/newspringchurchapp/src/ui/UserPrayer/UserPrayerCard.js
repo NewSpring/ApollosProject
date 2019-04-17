@@ -7,13 +7,13 @@ import {
   styled,
   CardContent,
   H5,
-  UIText,
+  BodyText,
   PaddedView,
 } from '@apollosproject/ui-kit';
 
 const PrayerText = styled(() => ({
   textAlign: 'center',
-}))(UIText);
+}))(BodyText);
 
 const HeaderView = styled(() => ({
   paddingBottom: 0,

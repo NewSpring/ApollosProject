@@ -2,44 +2,31 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { View } from 'react-native';
 
-import { PaddedView, CardContent, styled, H5 } from '@apollosproject/ui-kit';
+import { styled } from '@apollosproject/ui-kit';
 
 import UserPrayerCard from './UserPrayerCard';
 import getUserPrayers from './getUserPrayers';
 
-const Header = styled(({ theme }) => ({
-  backgroundColor: theme.colors.background.paper,
-}))(CardContent);
-
-const Content = styled(() => ({
-  borderBottomWidth: 0,
-  borderTopWidth: 0,
+const StyledView = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 1.5,
+  marginBottom: theme.sizing.baseUnit * 4,
 }))(View);
 
-const UserPrayerView = styled(() => ({
-  paddingHorizontal: 0,
-}))(PaddedView);
-
 const UserPrayerList = () => (
-  <UserPrayerView>
-    <Header>
-      <H5>My Prayers</H5>
-    </Header>
-    <Query query={getUserPrayers} fetchPolicy="cache-and-network">
-      {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
-        <Content>
-          {getCurrentPersonPrayerRequests
-            .map((prayer) => (
-              <UserPrayerCard
-                key={prayer.id}
-                duration={prayer.enteredDateTime}
-                text={prayer.text}
-              />
-            ))
-            .reverse()}
-        </Content>
-      )}
-    </Query>
-  </UserPrayerView>
+  <Query query={getUserPrayers} fetchPolicy="cache-and-network">
+    {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
+      <StyledView>
+        {getCurrentPersonPrayerRequests
+          .map((prayer) => (
+            <UserPrayerCard
+              key={prayer.id}
+              duration={prayer.enteredDateTime}
+              text={prayer.text}
+            />
+          ))
+          .reverse()}
+      </StyledView>
+    )}
+  </Query>
 );
 export default UserPrayerList;
