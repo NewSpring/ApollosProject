@@ -9,7 +9,6 @@ const prayerRequestSchema = gql`
   }
   extend type Mutation {
     addPublicPrayerRequest(
-      IsPublic: Boolean!
       CampusId: Int!
       CategoryId: Int!
       Text: String!
@@ -26,7 +25,6 @@ const prayerRequestSchema = gql`
     lastName: String
     text: String!
     enteredDateTime: String!
-    isPublic: Boolean
     flagCount: Int
     prayerCount: Int
     categoryId: Int
