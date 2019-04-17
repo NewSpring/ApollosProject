@@ -9,6 +9,7 @@ import {
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
+import UserPrayerList from '../UserPrayer';
 
 const RowHeader = styled(({ theme }) => ({
   flexDirection: 'row',
@@ -68,6 +69,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Prayers',
     key: 'prayers',
+    component: <UserPrayerList />,
   },
 ];
 
@@ -82,6 +84,7 @@ const Tab = ({ index }) => {
   return (
     <StyledView>
       <Text>{data.description}</Text>
+      <View>{data.component}</View>
     </StyledView>
   );
 };

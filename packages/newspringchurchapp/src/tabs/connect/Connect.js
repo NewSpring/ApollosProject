@@ -15,7 +15,6 @@ import {
   Icon,
   PaddedView,
 } from '@apollosproject/ui-kit';
-import UserPrayerList from '../../ui/UserPrayer';
 import ActionTable from './ActionTable';
 import Toolbar from './Toolbar';
 import { UserAvatarHeaderConnected } from './UserAvatarHeader';
@@ -74,7 +73,6 @@ class Connect extends PureComponent {
                     <RecentlyLikedTileFeedConnected key="RecentlyLikedTileFeedConnected" />
                     <Toolbar />
                     <ActionTable />
-                    <UserPrayerList />
                   </StyledScrollView>
                 </SafeAreaView>
               );
