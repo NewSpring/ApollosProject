@@ -1,6 +1,5 @@
 import { ContentItem as originalContentItem } from '@apollosproject/data-connector-rock';
 import { schemaMerge } from '@apollosproject/server-core';
-// import { get } from 'lodash';
 
 import ApollosConfig from '@apollosproject/config';
 
