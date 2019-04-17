@@ -52,6 +52,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -72,6 +73,11 @@ describe('PrayerRequest', () => {
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
         },
         {
           id: 'PrayerRequest:57c465ee3cd69524d729569b338607de',
@@ -83,6 +89,11 @@ describe('PrayerRequest', () => {
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
         },
       ])
     );
@@ -115,6 +126,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -135,6 +147,11 @@ describe('PrayerRequest', () => {
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
         },
       ])
     );
@@ -168,6 +185,7 @@ describe('PrayerRequest', () => {
             categoryId
             flagCount
             prayerCount
+            isAnonymous
             person {
               id
               firstName
@@ -188,6 +206,11 @@ describe('PrayerRequest', () => {
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
+        attributeValues: {
+          isAnonymous: {
+            value: 'True',
+          },
+        },
       })
     );
     context.dataSources.PrayerRequest.get = responseMock;
@@ -218,6 +241,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -239,6 +263,11 @@ describe('PrayerRequest', () => {
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
         },
       ])
     );
@@ -271,6 +300,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
         }
       }
     `;
@@ -288,6 +318,11 @@ describe('PrayerRequest', () => {
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
         },
       ])
     );
@@ -302,7 +337,7 @@ describe('PrayerRequest', () => {
   it('creates a new prayer', async () => {
     const query = `
       mutation {
-        addPublicPrayerRequest(IsPublic: true, FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1) {
+        addPublicPrayerRequest(IsPublic: true, FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1, IsAnonymous: "True") {
           id
           firstName
           lastName
@@ -312,6 +347,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -331,6 +367,11 @@ describe('PrayerRequest', () => {
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
+        attributeValues: {
+          isAnonymous: {
+            value: 'True',
+          },
+        },
       })
     );
     context.dataSources.PrayerRequest.post = responseMock;
@@ -360,6 +401,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -379,6 +421,11 @@ describe('PrayerRequest', () => {
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
+        attributeValues: {
+          isAnonymous: {
+            value: 'True',
+          },
+        },
       })
     );
     context.dataSources.PrayerRequest.put = responseMock;
@@ -409,6 +456,7 @@ describe('PrayerRequest', () => {
           categoryId
           flagCount
           prayerCount
+          isAnonymous
           person {
             id
             firstName
@@ -428,6 +476,11 @@ describe('PrayerRequest', () => {
         categoryId: 2,
         flagCount: 0,
         prayerCount: 1,
+        attributeValues: {
+          isAnonymous: {
+            value: 'True',
+          },
+        },
       })
     );
     context.dataSources.PrayerRequest.put = responseMock;
