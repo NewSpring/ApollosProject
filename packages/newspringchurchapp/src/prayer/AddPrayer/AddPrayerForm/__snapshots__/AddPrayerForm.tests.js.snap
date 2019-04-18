@@ -280,6 +280,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                     allowFontScaling={true}
                     editable={true}
                     onBlur={[Function]}
+                    onChangeText={[Function]}
                     onFocus={[Function]}
                     placeholder="Start typing your prayer..."
                     placeholderTextColor="rgba(48, 48, 48, 0.6)"
@@ -506,38 +507,54 @@ exports[`The AddPrayerForm component should render 1`] = `
             </View>
           </View>
           <View
-            bordered={false}
-            disabled={false}
-            pill={true}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#6bac43",
-                "borderColor": "#6bac43",
-                "borderRadius": 0,
-                "borderWidth": 2,
-                "elevation": 2,
-                "flexDirection": "row",
-                "height": 48,
-                "justifyContent": "center",
                 "opacity": 1,
-                "overflow": "hidden",
-                "paddingHorizontal": 16,
               }
             }
           >
-            <Text
+            <View
+              bordered={false}
+              disabled={false}
+              pill={true}
               style={
                 Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Colfax-Bold",
-                  "fontSize": 16,
-                  "lineHeight": 23.04,
+                  "alignItems": "center",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
+                  "borderRadius": 0,
+                  "borderWidth": 2,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "paddingHorizontal": 16,
                 }
               }
             >
-              Send prayer to community
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 23.04,
+                  }
+                }
+              >
+                Send prayer to community
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -931,6 +948,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                     allowFontScaling={true}
                     editable={true}
                     onBlur={[Function]}
+                    onChangeText={[Function]}
                     onFocus={[Function]}
                     placeholder="Start typing your prayer..."
                     placeholderTextColor="rgba(48, 48, 48, 0.6)"
@@ -1157,38 +1175,54 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             </View>
           </View>
           <View
-            bordered={false}
-            disabled={false}
-            pill={true}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#6bac43",
-                "borderColor": "#6bac43",
-                "borderRadius": 0,
-                "borderWidth": 2,
-                "elevation": 2,
-                "flexDirection": "row",
-                "height": 48,
-                "justifyContent": "center",
                 "opacity": 1,
-                "overflow": "hidden",
-                "paddingHorizontal": 16,
               }
             }
           >
-            <Text
+            <View
+              bordered={false}
+              disabled={false}
+              pill={true}
               style={
                 Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Colfax-Bold",
-                  "fontSize": 16,
-                  "lineHeight": 23.04,
+                  "alignItems": "center",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
+                  "borderRadius": 0,
+                  "borderWidth": 2,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "paddingHorizontal": 16,
                 }
               }
             >
-              Send prayer to community
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 23.04,
+                  }
+                }
+              >
+                Send prayer to community
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -1670,6 +1704,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                     allowFontScaling={true}
                     editable={true}
                     onBlur={[Function]}
+                    onChangeText={[Function]}
                     onFocus={[Function]}
                     placeholder="Start typing your prayer..."
                     placeholderTextColor="rgba(48, 48, 48, 0.6)"
@@ -1896,38 +1931,54 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             </View>
           </View>
           <View
-            bordered={false}
-            disabled={false}
-            pill={true}
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#6bac43",
-                "borderColor": "#6bac43",
-                "borderRadius": 0,
-                "borderWidth": 2,
-                "elevation": 2,
-                "flexDirection": "row",
-                "height": 48,
-                "justifyContent": "center",
                 "opacity": 1,
-                "overflow": "hidden",
-                "paddingHorizontal": 16,
               }
             }
           >
-            <Text
+            <View
+              bordered={false}
+              disabled={false}
+              pill={true}
               style={
                 Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Colfax-Bold",
-                  "fontSize": 16,
-                  "lineHeight": 23.04,
+                  "alignItems": "center",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
+                  "borderRadius": 0,
+                  "borderWidth": 2,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "paddingHorizontal": 16,
                 }
               }
             >
-              custom button label
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 23.04,
+                  }
+                }
+              >
+                custom button label
+              </Text>
+            </View>
           </View>
         </View>
       </View>
