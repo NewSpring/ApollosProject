@@ -53,9 +53,9 @@ const { getSchema, getContext } = createTestHelpers({
 
 ApollosConfig.loadJs({
   ROCK: {
-    API_URL: 'https://beta-rock.newspring.cc/api',
+    API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
-    IMAGE_URL: 'https://beta-rock.newspring.cc/GetImage.ashx',
+    IMAGE_URL: 'https://s3.amazonaws.com',
     TIMEZONE: 'America/New_York',
   },
   ROCK_CONSTANTS: {
