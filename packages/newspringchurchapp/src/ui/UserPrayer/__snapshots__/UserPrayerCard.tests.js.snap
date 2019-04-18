@@ -91,14 +91,14 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
           }
         >
           <Text
+            bold={false}
+            italic={false}
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "System",
-                "fontSize": 14,
-                "fontStyle": null,
-                "fontWeight": null,
-                "lineHeight": 20.16,
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
                 "textAlign": "center",
               }
             }
