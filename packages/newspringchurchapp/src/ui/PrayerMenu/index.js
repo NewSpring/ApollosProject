@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   H3,
@@ -11,6 +12,7 @@ import {
 import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
 import UserPrayerList from '../UserPrayer';
+import PrayerPreviewCard from '../PrayerPreviewCard';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -28,6 +30,27 @@ const loadingStateObject = {
   },
 };
 
+const PrayerPreviewCardComponent = () => (
+  <PrayerPreviewCard
+    imageSource={{
+      uri: 'https://fillmurray.com/400/600',
+    }}
+    name={'Bill'}
+    overlayColor={['#FFF', '#FFF']}
+    prayer={
+      'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+    }
+    source={'Anderson'}
+  />
+);
+
+const StyledPrayerPreviewCardComponent = styled({
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  right: 0,
+})(PrayerPreviewCardComponent);
+
 const prayerMenuData = [
   {
     id: '1',
@@ -44,6 +67,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Church',
     key: 'church',
+    component: <StyledPrayerPreviewCardComponent />,
   },
   {
     id: '3',
@@ -52,6 +76,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Campus',
     key: 'campus',
+    component: <PrayerPreviewCardComponent />,
   },
   {
     id: '4',
@@ -60,6 +85,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Community',
     key: 'community',
+    component: <PrayerPreviewCardComponent />,
   },
   {
     id: '5',
@@ -81,7 +107,7 @@ const Tab = ({ index }) => {
   return (
     <StyledPaddedView>
       <BodyText>{data.description}</BodyText>
-      {data.component}
+      <View>{data.component}</View>
     </StyledPaddedView>
   );
 };
