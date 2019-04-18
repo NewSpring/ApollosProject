@@ -5,11 +5,13 @@ import TabBar from './tabBar';
 import Connect from './connect';
 import Home from './home';
 import Discover from './discover';
+import Prayer from './prayer';
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home,
     Discover,
+    Prayer,
     Connect,
   },
   {

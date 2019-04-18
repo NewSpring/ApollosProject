@@ -1,0 +1,1 @@
+export Pray from './Pray';
