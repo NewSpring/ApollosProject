@@ -21,6 +21,11 @@ const BottomView = styled(() => ({
   justifyContent: 'flex-end',
 }))(FlexedView);
 
+const SwitchContainer = styled(() => ({
+  width: '60%',
+  alignSelf: 'center',
+}))(PaddedView);
+
 const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
   <Formik
     initialValues={{ prayer: '', anonymous: false }}
@@ -42,13 +47,13 @@ const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
             />
           </PaddedView>
           <BottomView>
-            <PaddedView>
+            <SwitchContainer>
               <Switch
-                label="Anonymous"
+                label="Share anonymously"
                 value={values.anonymous}
                 onValueChange={handleChange('anonymous')}
               />
-            </PaddedView>
+            </SwitchContainer>
             <StyledButton title={btnLabel} onPress={handleSubmit} />
           </BottomView>
         </FlexedView>

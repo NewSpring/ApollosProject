@@ -1,7 +1,14 @@
 import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { H5, styled, Button, Card, CardContent } from '@apollosproject/ui-kit';
+import {
+  BodyText,
+  H5,
+  styled,
+  Button,
+  Card,
+  CardContent,
+} from '@apollosproject/ui-kit';
 import AddPrayerHeader from '../AddPrayerHeader';
 
 const StyledCardContent = styled(() => ({
@@ -9,12 +16,11 @@ const StyledCardContent = styled(() => ({
 }))(CardContent);
 
 const Description = styled(({ theme }) => ({
-  color: theme.colors.text.secondary,
   marginBottom: theme.sizing.baseUnit,
-}))(H5);
+}))(BodyText);
 
 const AddPrayerButton = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
   width: '100%',
 }))(Button);
 
