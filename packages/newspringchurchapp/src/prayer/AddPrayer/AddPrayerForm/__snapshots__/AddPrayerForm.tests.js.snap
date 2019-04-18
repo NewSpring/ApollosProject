@@ -402,8 +402,10 @@ exports[`The AddPrayerForm component should render 1`] = `
           <View
             style={
               Object {
+                "alignSelf": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
+                "width": "60%",
               }
             }
           >
@@ -473,7 +475,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                           }
                         }
                       >
-                        Anonymous
+                        Share anonymously
                       </Text>
                     </View>
                   </View>
@@ -1070,8 +1072,10 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
           <View
             style={
               Object {
+                "alignSelf": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
+                "width": "60%",
               }
             }
           >
@@ -1141,7 +1145,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                           }
                         }
                       >
-                        Anonymous
+                        Share anonymously
                       </Text>
                     </View>
                   </View>
@@ -1826,8 +1830,10 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
           <View
             style={
               Object {
+                "alignSelf": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
+                "width": "60%",
               }
             }
           >
@@ -1897,7 +1903,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                           }
                         }
                       >
-                        Anonymous
+                        Share anonymously
                       </Text>
                     </View>
                   </View>

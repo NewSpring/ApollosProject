@@ -235,12 +235,14 @@ exports[`The AddPrayerCard component should render 1`] = `
             </Text>
           </View>
           <Text
+            bold={false}
+            italic={false}
             style={
               Object {
-                "color": "#505050",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
                 "marginBottom": 16,
               }
             }
@@ -262,7 +264,7 @@ exports[`The AddPrayerCard component should render 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 32,
+                "marginTop": 16,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,
@@ -437,12 +439,14 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
             </Text>
           </View>
           <Text
+            bold={false}
+            italic={false}
             style={
               Object {
-                "color": "#505050",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
                 "marginBottom": 16,
               }
             }
@@ -464,7 +468,7 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 32,
+                "marginTop": 16,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,
@@ -727,12 +731,14 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
             </Text>
           </View>
           <Text
+            bold={false}
+            italic={false}
             style={
               Object {
-                "color": "#505050",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
                 "marginBottom": 16,
               }
             }
@@ -754,7 +760,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 32,
+                "marginTop": 16,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,
