@@ -13,7 +13,7 @@ const StyledView = styled(({ theme }) => ({
 }))(View);
 
 const UserPrayerList = () => (
-  <Query query={getUserPrayers} fetchPolicy="network-only">
+  <Query query={getUserPrayers} fetchPolicy="cache-and-network">
     {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
       <StyledView>
         {getCurrentPersonPrayerRequests

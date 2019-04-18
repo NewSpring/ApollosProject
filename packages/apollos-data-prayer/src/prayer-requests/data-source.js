@@ -74,7 +74,7 @@ export default class PrayerRequest extends RockApolloDataSource {
   deletePrayer = async (parsedId) => {
     try {
       this.expanded = false;
-      await this.delete(`PrayerRequests/${parsedId}`, {});
+      await this.delete(`PrayerRequests/${parsedId}`);
       this.expanded = true;
       return await this.getFromId(parsedId);
     } catch (err) {

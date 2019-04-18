@@ -81,7 +81,7 @@ const Tab = ({ index }) => {
   return (
     <StyledPaddedView>
       <BodyText>{data.description}</BodyText>
-      {data.component}
+      <UserPrayerList />
     </StyledPaddedView>
   );
 };
