@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  mutation deletePrayer($parsedId: String!) {
+  mutation deleteUserPrayer($parsedId: String!) {
     deletePublicPrayerRequest(id: $parsedId) {
       id
     }
