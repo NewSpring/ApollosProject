@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { styled } from '@apollosproject/ui-kit';
-import TileImage from '../TileImage';
+import TileImage from '../../ui/TileImage';
 
 const Square = styled(({ theme }) => ({
   marginRight: theme.sizing.baseUnit * 0.75,

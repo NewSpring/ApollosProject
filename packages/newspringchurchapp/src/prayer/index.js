@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PrayerMenu from 'newspringchurchapp/src/ui/PrayerMenu';
+import PrayerMenu from './PrayerMenu';
 
 export default class Prayer extends PureComponent {
   static navigationOptions = () => ({
