@@ -15,7 +15,7 @@ const Title = styled(({ theme }) => ({
 
 const AddPrayerHeader = memo(({ imgSrc, title }) => (
   <HeaderContent>
-    <Avatar source={imgSrc} />
+    <Avatar source={imgSrc} size={'medium'} />
     <Title>{title}</Title>
   </HeaderContent>
 ));
