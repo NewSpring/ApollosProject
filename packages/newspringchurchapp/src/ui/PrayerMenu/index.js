@@ -12,7 +12,7 @@ import {
 import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
 import UserPrayerList from '../UserPrayer';
-import PrayerPreviewCard from '../PrayerPreviewCard';
+import PrayerPreviewCard from '../../prayer/PrayerPreviewCard';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed

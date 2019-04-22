@@ -11,7 +11,7 @@ const cardData = {
   name: 'Bill',
   overlayColor: ['#FFF', '#FFF'],
   prayer:
-    'I want to go back to school for my PTA degree next year, but I’m afraid of not getting accepted. I have a great job right now but I’m not very happy. Pray my plans for school align with God’s plans for me.',
+    'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?',
   source: 'Anderson',
 };
 
