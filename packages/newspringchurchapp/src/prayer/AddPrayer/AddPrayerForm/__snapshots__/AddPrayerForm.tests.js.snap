@@ -81,22 +81,22 @@ exports[`The AddPrayerForm component should render 1`] = `
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 40,
+                "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 10,
-                "marginRight": 10,
+                "marginBottom": 20,
+                "marginRight": 20,
                 "overflow": "hidden",
-                "width": 40,
+                "width": 80,
               }
             }
-            themeSize={40}
+            themeSize={80}
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight={40}
-              bbWidth={40}
-              height={40}
+              bbHeight={80}
+              bbWidth={80}
+              height={80}
               meetOrSlice={0}
               minX={0}
               minY={0}
@@ -110,14 +110,14 @@ exports[`The AddPrayerForm component should render 1`] = `
                   null,
                   Object {
                     "flex": 0,
-                    "height": 40,
-                    "width": 40,
+                    "height": 80,
+                    "width": 80,
                   },
                 ]
               }
               vbHeight={24}
               vbWidth={24}
-              width={40}
+              width={80}
             >
               <RNSVGGroup
                 fill={
@@ -839,16 +839,16 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 40,
+                "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 10,
-                "marginRight": 10,
+                "marginBottom": 20,
+                "marginRight": 20,
                 "overflow": "hidden",
-                "width": 40,
+                "width": 80,
               }
             }
-            themeSize={40}
+            themeSize={80}
           >
             <View
               animate={null}
@@ -864,6 +864,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             >
               <Image
                 onLoad={[Function]}
+                size="medium"
                 source={
                   Array [
                     Object {
@@ -875,7 +876,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#dddddd",
-                    "borderRadius": 20,
+                    "borderRadius": 40,
                     "bottom": 0,
                     "height": "100%",
                     "left": 0,
@@ -886,7 +887,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                     "width": "100%",
                   }
                 }
-                themeSize={40}
+                themeSize={80}
               />
             </View>
           </View>
@@ -1509,22 +1510,22 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
-                "borderRadius": 20,
-                "height": 40,
+                "borderRadius": 40,
+                "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 10,
-                "marginRight": 10,
+                "marginBottom": 20,
+                "marginRight": 20,
                 "overflow": "hidden",
-                "width": 40,
+                "width": 80,
               }
             }
-            themeSize={40}
+            themeSize={80}
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight={40}
-              bbWidth={40}
-              height={40}
+              bbHeight={80}
+              bbWidth={80}
+              height={80}
               meetOrSlice={0}
               minX={0}
               minY={0}
@@ -1538,14 +1539,14 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   null,
                   Object {
                     "flex": 0,
-                    "height": 40,
-                    "width": 40,
+                    "height": 80,
+                    "width": 80,
                   },
                 ]
               }
               vbHeight={24}
               vbWidth={24}
-              width={40}
+              width={80}
             >
               <RNSVGGroup
                 fill={
