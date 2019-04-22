@@ -88,6 +88,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
               "title": "My Saved Prayers",
             },
             Object {
+              "component": <mapProps(getContext(mapProps(withPropsOnChange(mapProps(PrayerPreviewCardComponent))))) />,
               "description": "Pray for the people in our church",
               "id": "2",
               "image": "https://picsum.photos/600/400/?random",
@@ -99,6 +100,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
               "title": "My Church",
             },
             Object {
+              "component": <PrayerPreviewCardComponent />,
               "description": "Pray for the people at your campus",
               "id": "3",
               "image": "https://picsum.photos/600/400/?random",
@@ -110,6 +112,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
               "title": "My Campus",
             },
             Object {
+              "component": <PrayerPreviewCardComponent />,
               "description": "Pray for those people in your community",
               "id": "4",
               "image": "https://picsum.photos/600/400/?random",
@@ -983,6 +986,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
               <View
                 style={
                   Object {
+                    "height": "100%",
                     "marginTop": 16,
                     "paddingHorizontal": 16,
                     "paddingVertical": 16,
@@ -1003,6 +1007,14 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
                 >
                   Pray for the prayers you haved saved
                 </Text>
+                <View
+                  style={
+                    Object {
+                      "height": "100%",
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
               </View>
             </View>
             <View
