@@ -48,6 +48,11 @@ const getGradientValues = (overlayColor) => {
   return values;
 };
 
+const StyledCard = styled(() => ({
+  marginHorizontal: 0,
+  marginVertical: 0,
+}))(Card);
+
 const StyledCardContent = styled(() => ({
   alignItems: 'center',
 }))(CardContent);
@@ -71,16 +76,14 @@ const PrayerPreviewCard = ({
   source,
 }) => (
   <>
-    <Card>
-      <PaddedView>
-        <StyledCardContent>
-          <Avatar source={imageSource} />
-          <H3>Pray For {name}</H3>
-          <H6>{source}</H6>
-          <StyledBodyText>{prayer}</StyledBodyText>
-        </StyledCardContent>
-      </PaddedView>
-    </Card>
+    <StyledCard>
+      <StyledCardContent>
+        <Avatar source={imageSource} />
+        <H3>Pray For {name}</H3>
+        <H6>{source}</H6>
+        <StyledBodyText>{prayer}</StyledBodyText>
+      </StyledCardContent>
+    </StyledCard>
     <Overlay
       colors={getGradientValues(overlayColor).colors}
       start={getGradientValues(overlayColor).start}

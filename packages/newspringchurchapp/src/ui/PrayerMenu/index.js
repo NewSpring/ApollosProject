@@ -18,10 +18,6 @@ const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
 }))(PaddedView);
 
-const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit,
-}))(PaddedView);
-
 const loadingStateObject = {
   node: {
     id: 'fakeId0',
@@ -102,12 +98,22 @@ const StyledFeed = styled(({ theme }) => ({
   paddingLeft: theme.sizing.baseUnit,
 }))(HorizontalTileFeed);
 
+const StyledPaddedView = styled(({ theme }) => ({
+  height: '100%',
+  marginTop: theme.sizing.baseUnit,
+}))(PaddedView);
+
+const StyledView = styled(() => ({
+  height: '100%',
+  justifyContent: 'flex-end',
+}))(View);
+
 const Tab = ({ index }) => {
   const data = prayerMenuData[index - 1];
   return (
     <StyledPaddedView>
       <BodyText>{data.description}</BodyText>
-      <View>{data.component}</View>
+      <StyledView>{data.component}</StyledView>
     </StyledPaddedView>
   );
 };

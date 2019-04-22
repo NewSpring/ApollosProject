@@ -4,7 +4,6 @@ import { BackgroundView, styled } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../ui/PrayerMenu';
 
 const Header = styled(({ theme }) => ({
-  paddingBottom: theme.sizing.baseUnit * 1.5,
   backgroundColor: theme.colors.background.paper,
   paddingTop: theme.sizing.baseUnit * 4,
 }))(ScrollView);
