@@ -142,27 +142,45 @@
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
 
-"@apollosproject/ui-auth@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.1.tgz#83eb08333e36d4cb9a59d632ffb9f039f4d346b5"
+"@apollosproject/ui-analytics@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.2.tgz#e73effb5229f50e9a5f394c03fce3b8b34da3c9d"
+  integrity sha512-hmQ03Hw1dkZK2e9sjQ+QDh+UZPOUkxWKNDV/LHD8N2SXTA/Zc8Hpl1PuKEGThY9kPfLnc1F4rGjPNyXqBq8MVg==
   dependencies:
     apollo-client "2.5.1"
     apollo-link-context "1.0.14"
     graphql-tag "2.9.2"
     lodash "4.17.11"
     react-apollo "2.5.1"
+    react-native-device-info "^1.1.0"
     react-native-keyboard-aware-scroll-view "0.7.0"
 
-"@apollosproject/ui-htmlview@0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.1.tgz#42423b42454b88283a52c0983a2041a5fbf3fc84"
+"@apollosproject/ui-auth@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.2.tgz#c665a5e12d46f9414222b89e835732d47b27609d"
+  integrity sha512-00aaXcB/yQ/gSRajPNr/zH07dvnM95uO3H2vM9x0Mf8lQJWz3faMMX4tx1WBu98ANsyCSk9C3/LB5hi3uvzYLg==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.1"
+    apollo-client "2.5.1"
+    apollo-link-context "1.0.14"
+    formik "1.5.1"
+    graphql-tag "2.9.2"
+    lodash "4.17.11"
+    react-apollo "2.5.1"
+    react-native-keyboard-aware-scroll-view "0.7.0"
+    react-navigation "2.11.2"
+
+"@apollosproject/ui-htmlview@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.2.tgz#a5624e9df96a8bcfd28367baf4fe6874f3abf534"
+  integrity sha512-+sFr3Iu7SbntJbbO38fdHscN0nW37YDK+26LM6Qfln8nqaDtM3sGwOPjdqCPdg/wrJjvRilrHcH8TOGRu+0sqg==
+  dependencies:
+    "@apollosproject/ui-kit" "^0.8.2"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.1.tgz#0b35cf2118b6d497908164d90f68dc8c8df331d8"
+"@apollosproject/ui-kit@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.2.tgz#e3cb3e5c7d6edaaec58704620debaa8099709802"
+  integrity sha512-86IaKr3rSkyKxGXsPpSzYC9CCfZyGlI3D7o10y53VYY3rjnrF0ZbF3g40/tZmXxBaJyH6VbssLow2lmL2+9YhQ==
   dependencies:
     color "^3.1.0"
     lodash "^4.17.11"
@@ -171,11 +189,12 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-passes@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.1.tgz#a36c871e7e0c1acaa388145363fa0a580e0233d6"
+"@apollosproject/ui-passes@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.2.tgz#93b17ad145efa7ee27889d4aa51a64efbf3918e4"
+  integrity sha512-xXFbhpA4kQi1zQjOJXlskThMqPrjeYmPXYZ19RZ8CLZXOx4jaGPRN0u2mOZsIcmT9DMjhediD4TIQwdyptKUBA==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.1"
+    "@apollosproject/ui-kit" "^0.8.2"
     graphql-tag "^2.10.1"
     react-apollo "2.5.1"
 
@@ -5686,7 +5705,7 @@ create-react-class@^15.6.2, create-react-class@^15.6.3:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-create-react-context@^0.2.1:
+create-react-context@^0.2.1, create-react-context@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
   dependencies:
@@ -5936,6 +5955,11 @@ deep-is@~0.1.3:
 deepmerge@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
+
+deepmerge@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
 
 default-require-extensions@^1.0.0:
   version "1.0.0"
@@ -7166,6 +7190,21 @@ formik@0.11.11:
     prop-types "^15.5.10"
     warning "^3.0.0"
 
+formik@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/formik/-/formik-1.5.1.tgz#ef5687e1ade5b1fe5f1d51435b422238aad107e9"
+  integrity sha512-FBWGBKQkcCE4d5b5l2fKccD9d1QxNxw/0bQTRvp3EjzA8Bnjmsm9H/Oy0375UA8P3FPmfJkF4cXLLdEqK7fP5A==
+  dependencies:
+    create-react-context "^0.2.2"
+    deepmerge "^2.1.1"
+    hoist-non-react-statics "^2.5.5"
+    lodash "^4.17.11"
+    lodash-es "^4.17.11"
+    prop-types "^15.6.1"
+    react-fast-compare "^2.0.1"
+    tiny-warning "^1.0.2"
+    tslib "^1.9.3"
+
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
@@ -7848,7 +7887,7 @@ hoist-non-react-statics@1.x.x, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
-hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0, hoist-non-react-statics@^2.5.5:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
@@ -9439,6 +9478,11 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
+
+lodash-es@^4.17.11:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
+  integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -11779,6 +11823,11 @@ react-error-overlay@^5.1.0:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.4.tgz#88dfb88857c18ceb3b9f95076f850d7121776991"
 
+react-fast-compare@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+  integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
 react-fuzzy@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/react-fuzzy/-/react-fuzzy-0.5.2.tgz#fc13bf6f0b785e5fefe908724efebec4935eaefe"
@@ -11834,6 +11883,11 @@ react-native-custom-tabs@0.1.7:
 react-native-device-info@0.22.5:
   version "0.22.5"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.22.5.tgz#9b1882cbb030f2926cff77336e7cd2e87edf52bf"
+
+react-native-device-info@^1.1.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-1.5.0.tgz#09e17c8199ac51082d72193f17eb445e9c83e68d"
+  integrity sha512-TiZxPkiuKR1GLS9wWAqjKzk37viBLt64EGzjn0IoySosXJpa7E4XKOwAvNR9xcSZ4iSlsVMtRM2QnA8wHe5M2g==
 
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
@@ -13638,6 +13692,11 @@ timers-browserify@^2.0.4:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.10.tgz#1d28e3d2aadf1d5a5996c4e9f95601cd053480ae"
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-warning@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.2.tgz#1dfae771ee1a04396bdfde27a3adcebc6b648b28"
+  integrity sha512-rru86D9CpQRLvsFG5XFdy0KdLAvjdQDyZCsRcuu60WtzFylDM3eAWSxEVz5kzL2Gp544XiUvPbVKtOA/txLi9Q==
 
 title-case@^2.1.0:
   version "2.1.1"
