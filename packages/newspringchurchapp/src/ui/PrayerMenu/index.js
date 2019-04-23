@@ -39,7 +39,7 @@ const PrayerPreviewCardComponent = () => (
     source={'Anderson'}
   />
 );
-
+// TODO: remove once this is pulling data
 const StyledPrayerPreviewCardComponent = styled({
   position: 'absolute',
   bottom: 0,
