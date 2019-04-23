@@ -15,7 +15,7 @@ const cardData = {
   source: 'Anderson',
 };
 
-storiesOf('PrayerPreviewCard', module).add('Example', () => (
+storiesOf('prayer/PrayerPreviewCard', module).add('Example', () => (
   <PaddedView>
     <PrayerPreviewCard
       imageSource={cardData.imageSource}
