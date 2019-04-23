@@ -34,7 +34,6 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
     }
   >
     <View
-      id="PrayerRequest:b99bbd5002a0bf8d4c73e86afe9d4787"
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -69,18 +68,40 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
             }
           }
         >
-          <Text
+          <View
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
+                "alignItems": "stretch",
+                "flexDirection": "row",
+                "flexWrap": "nowrap",
+                "height": 20.16,
+                "justifyContent": "space-between",
               }
             }
           >
-            2 years ago
-          </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Medium",
+                  "fontSize": 14,
+                  "lineHeight": 20.16,
+                }
+              }
+            >
+              2 years ago
+            </Text>
+            <Text
+              onPress={[Function]}
+              style={
+                Object {
+                  "color": "#6bac43",
+                }
+              }
+            >
+              ...
+            </Text>
+          </View>
         </View>
         <View
           style={

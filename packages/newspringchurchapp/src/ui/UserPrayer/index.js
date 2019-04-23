@@ -15,21 +15,21 @@ const StyledView = styled(({ theme }) => ({
 }))(View);
 
 const UserPrayerList = () => (
-  <Query query={getUserPrayers} fetchPolicy="cache-and-network">
+  <Query query={getUserPrayers} fetchPolicy="network-only">
     {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
       <Mutation
         mutation={deleteUserPrayer}
         update={async (cache, { data: { deletePublicPrayerRequest } }) => {
-          const { currentPrayersList } = cache.readQuery({
+          const currentCurrentPersonPrayerRequests = cache.readQuery({
             query: getUserPrayers,
           });
           const deletedId = deletePublicPrayerRequest.id;
-          const newPrayersList = currentPrayersList.filter(
+          const newPrayersList = currentCurrentPersonPrayerRequests.getCurrentPersonPrayerRequests.filter(
             (prayer) => prayer.id !== deletedId
           );
           await cache.writeQuery({
             query: getUserPrayers,
-            data: { getCurrentPersonPrayerRequests: [...newPrayersList] },
+            data: { getCurrentPersonPrayerRequests: newPrayersList },
           });
         }}
       >
