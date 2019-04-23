@@ -25,7 +25,7 @@ const loadingStateObject = {
     isLoading: true,
   },
 };
-
+// TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = () => (
   <PrayerPreviewCard
     imageSource={{
