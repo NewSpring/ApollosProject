@@ -15,12 +15,8 @@ const StyledCardContent = styled(() => ({
   alignItems: 'center',
 }))(CardContent);
 
-const Description = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit,
-}))(BodyText);
-
 const AddPrayerButton = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit,
+  marginTop: theme.sizing.baseUnit * 2,
   width: '100%',
 }))(Button);
 
@@ -32,7 +28,7 @@ const AddPrayerCard = memo(({ imgSrc, description }) => (
   <Card>
     <StyledCardContent>
       <AddPrayerHeader imgSrc={imgSrc} />
-      <Description>{description}</Description>
+      <BodyText>{description}</BodyText>
       <AddPrayerButton>
         <ButtonLabel>Add Your Prayer</ButtonLabel>
       </AddPrayerButton>

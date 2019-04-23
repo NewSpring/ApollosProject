@@ -8,15 +8,17 @@ const HeaderContent = styled(() => ({
   alignItems: 'center',
 }))(View);
 
-const Title = styled(({ theme }) => ({
+const TitleView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 2,
-}))(H3);
+}))(View);
 
 const AddPrayerHeader = memo(({ imgSrc, title }) => (
   <HeaderContent>
     <Avatar source={imgSrc} size={'medium'} />
-    <Title>{title}</Title>
+    <TitleView>
+      <H3>{title}</H3>
+    </TitleView>
   </HeaderContent>
 ));
 

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { Formik } from 'formik';
 import {
   ModalView,
@@ -10,6 +10,7 @@ import {
   styled,
   FlexedView,
   PaddedView,
+  H5,
 } from '@apollosproject/ui-kit';
 import AddPrayerHeader from '../AddPrayerHeader';
 
@@ -22,9 +23,20 @@ const BottomView = styled(() => ({
 }))(FlexedView);
 
 const SwitchContainer = styled(() => ({
-  width: '60%',
+  width: '70%',
   alignSelf: 'center',
+  flexDirection: 'row',
+  justifyContent: 'center',
 }))(PaddedView);
+
+const SwitchLabel = styled(({ theme }) => ({
+  color: theme.colors.primary,
+}))(H5);
+
+const SwitchLabelContainer = styled(({ theme }) => ({
+  justifyContent: 'center',
+  marginLeft: theme.sizing.baseUnit,
+}))(View);
 
 const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
   <Formik
@@ -34,7 +46,7 @@ const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
     {({ handleChange, handleBlur, handleSubmit, values }) => (
       <ModalView {...otherProps}>
         <FlexedView>
-          <AddPrayerHeader imgSrc={imgSrc} />
+          <AddPrayerHeader imgSrc={values.anonymous ? null : imgSrc} />
           {/* TODO: add underline={false} prop to TextInput, 
         pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
           <PaddedView>
@@ -49,10 +61,12 @@ const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
           <BottomView>
             <SwitchContainer>
               <Switch
-                label="Share anonymously"
                 value={values.anonymous}
                 onValueChange={handleChange('anonymous')}
               />
+              <SwitchLabelContainer>
+                <SwitchLabel>Share Anonymously</SwitchLabel>
+              </SwitchLabelContainer>
             </SwitchContainer>
             <StyledButton title={btnLabel} onPress={handleSubmit} />
           </BottomView>
