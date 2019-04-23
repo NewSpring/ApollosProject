@@ -220,20 +220,27 @@ exports[`The AddPrayerForm component should render 1`] = `
               </RNSVGGroup>
             </RNSVGSvgView>
           </View>
-          <Text
+          <View
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "Colfax-Black",
-                "fontSize": 24,
-                "lineHeight": 27.6,
                 "marginBottom": 32,
                 "marginTop": 8,
               }
             }
           >
-            Ask for prayer
-          </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Black",
+                  "fontSize": 24,
+                  "lineHeight": 27.6,
+                }
+              }
+            >
+              Ask for prayer
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -403,9 +410,11 @@ exports[`The AddPrayerForm component should render 1`] = `
             style={
               Object {
                 "alignSelf": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
-                "width": "60%",
+                "width": "70%",
               }
             }
           >
@@ -474,9 +483,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                             "paddingVertical": 4,
                           }
                         }
-                      >
-                        Share anonymously
-                      </Text>
+                      />
                     </View>
                   </View>
                   <View
@@ -506,6 +513,27 @@ exports[`The AddPrayerForm component should render 1`] = `
                   </View>
                 </View>
               </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "justifyContent": "center",
+                  "marginLeft": 16,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#6bac43",
+                    "fontFamily": "Colfax-Medium",
+                    "fontSize": 14,
+                    "lineHeight": 20.16,
+                  }
+                }
+              >
+                Share Anonymously
+              </Text>
             </View>
           </View>
           <View
@@ -891,20 +919,27 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
               />
             </View>
           </View>
-          <Text
+          <View
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "Colfax-Black",
-                "fontSize": 24,
-                "lineHeight": 27.6,
                 "marginBottom": 32,
                 "marginTop": 8,
               }
             }
           >
-            Ask for prayer
-          </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Black",
+                  "fontSize": 24,
+                  "lineHeight": 27.6,
+                }
+              }
+            >
+              Ask for prayer
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -1074,9 +1109,11 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             style={
               Object {
                 "alignSelf": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
-                "width": "60%",
+                "width": "70%",
               }
             }
           >
@@ -1145,9 +1182,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                             "paddingVertical": 4,
                           }
                         }
-                      >
-                        Share anonymously
-                      </Text>
+                      />
                     </View>
                   </View>
                   <View
@@ -1177,6 +1212,27 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   </View>
                 </View>
               </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "justifyContent": "center",
+                  "marginLeft": 16,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#6bac43",
+                    "fontFamily": "Colfax-Medium",
+                    "fontSize": 14,
+                    "lineHeight": 20.16,
+                  }
+                }
+              >
+                Share Anonymously
+              </Text>
             </View>
           </View>
           <View
@@ -1649,20 +1705,27 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
               </RNSVGGroup>
             </RNSVGSvgView>
           </View>
-          <Text
+          <View
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "Colfax-Black",
-                "fontSize": 24,
-                "lineHeight": 27.6,
                 "marginBottom": 32,
                 "marginTop": 8,
               }
             }
           >
-            Ask for prayer
-          </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Black",
+                  "fontSize": 24,
+                  "lineHeight": 27.6,
+                }
+              }
+            >
+              Ask for prayer
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -1832,9 +1895,11 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             style={
               Object {
                 "alignSelf": "center",
+                "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
-                "width": "60%",
+                "width": "70%",
               }
             }
           >
@@ -1903,9 +1968,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                             "paddingVertical": 4,
                           }
                         }
-                      >
-                        Share anonymously
-                      </Text>
+                      />
                     </View>
                   </View>
                   <View
@@ -1935,6 +1998,27 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   </View>
                 </View>
               </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "justifyContent": "center",
+                  "marginLeft": 16,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#6bac43",
+                    "fontFamily": "Colfax-Medium",
+                    "fontSize": 14,
+                    "lineHeight": 20.16,
+                  }
+                }
+              >
+                Share Anonymously
+              </Text>
             </View>
           </View>
           <View

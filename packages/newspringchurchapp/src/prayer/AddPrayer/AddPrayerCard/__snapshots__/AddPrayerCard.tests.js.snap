@@ -219,20 +219,27 @@ exports[`The AddPrayerCard component should render 1`] = `
                 </RNSVGGroup>
               </RNSVGSvgView>
             </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#303030",
-                  "fontFamily": "Colfax-Black",
-                  "fontSize": 24,
-                  "lineHeight": 27.6,
                   "marginBottom": 32,
                   "marginTop": 8,
                 }
               }
             >
-              Ask for prayer
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#303030",
+                    "fontFamily": "Colfax-Black",
+                    "fontSize": 24,
+                    "lineHeight": 27.6,
+                  }
+                }
+              >
+                Ask for prayer
+              </Text>
+            </View>
           </View>
           <Text
             bold={false}
@@ -243,7 +250,6 @@ exports[`The AddPrayerCard component should render 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
-                "marginBottom": 16,
               }
             }
           >
@@ -264,7 +270,7 @@ exports[`The AddPrayerCard component should render 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 16,
+                "marginTop": 32,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,
@@ -424,20 +430,27 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 />
               </View>
             </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#303030",
-                  "fontFamily": "Colfax-Black",
-                  "fontSize": 24,
-                  "lineHeight": 27.6,
                   "marginBottom": 32,
                   "marginTop": 8,
                 }
               }
             >
-              Ask for prayer
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#303030",
+                    "fontFamily": "Colfax-Black",
+                    "fontSize": 24,
+                    "lineHeight": 27.6,
+                  }
+                }
+              >
+                Ask for prayer
+              </Text>
+            </View>
           </View>
           <Text
             bold={false}
@@ -448,7 +461,6 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
-                "marginBottom": 16,
               }
             }
           >
@@ -469,7 +481,7 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 16,
+                "marginTop": 32,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,
@@ -716,20 +728,27 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 </RNSVGGroup>
               </RNSVGSvgView>
             </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#303030",
-                  "fontFamily": "Colfax-Black",
-                  "fontSize": 24,
-                  "lineHeight": 27.6,
                   "marginBottom": 32,
                   "marginTop": 8,
                 }
               }
             >
-              Ask for prayer
-            </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#303030",
+                    "fontFamily": "Colfax-Black",
+                    "fontSize": 24,
+                    "lineHeight": 27.6,
+                  }
+                }
+              >
+                Ask for prayer
+              </Text>
+            </View>
           </View>
           <Text
             bold={false}
@@ -740,7 +759,6 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
-                "marginBottom": 16,
               }
             }
           >
@@ -761,7 +779,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 "flexDirection": "row",
                 "height": 48,
                 "justifyContent": "center",
-                "marginTop": 16,
+                "marginTop": 32,
                 "opacity": 1,
                 "overflow": "hidden",
                 "paddingHorizontal": 16,

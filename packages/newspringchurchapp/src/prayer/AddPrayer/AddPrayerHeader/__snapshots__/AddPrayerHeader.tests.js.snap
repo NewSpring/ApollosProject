@@ -184,20 +184,27 @@ exports[`The AddPrayerHeader component should render 1`] = `
           </RNSVGGroup>
         </RNSVGSvgView>
       </View>
-      <Text
+      <View
         style={
           Object {
-            "color": "#303030",
-            "fontFamily": "Colfax-Black",
-            "fontSize": 24,
-            "lineHeight": 27.6,
             "marginBottom": 32,
             "marginTop": 8,
           }
         }
       >
-        Ask for prayer
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#303030",
+              "fontFamily": "Colfax-Black",
+              "fontSize": 24,
+              "lineHeight": 27.6,
+            }
+          }
+        >
+          Ask for prayer
+        </Text>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>
@@ -300,20 +307,27 @@ exports[`The AddPrayerHeader component should render a custom avatar 1`] = `
           />
         </View>
       </View>
-      <Text
+      <View
         style={
           Object {
-            "color": "#303030",
-            "fontFamily": "Colfax-Black",
-            "fontSize": 24,
-            "lineHeight": 27.6,
             "marginBottom": 32,
             "marginTop": 8,
           }
         }
       >
-        Ask for prayer
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#303030",
+              "fontFamily": "Colfax-Black",
+              "fontSize": 24,
+              "lineHeight": 27.6,
+            }
+          }
+        >
+          Ask for prayer
+        </Text>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>
@@ -503,20 +517,27 @@ exports[`The AddPrayerHeader component should render a custom title 1`] = `
           </RNSVGGroup>
         </RNSVGSvgView>
       </View>
-      <Text
+      <View
         style={
           Object {
-            "color": "#303030",
-            "fontFamily": "Colfax-Black",
-            "fontSize": 24,
-            "lineHeight": 27.6,
             "marginBottom": 32,
             "marginTop": 8,
           }
         }
       >
-        custom title
-      </Text>
+        <Text
+          style={
+            Object {
+              "color": "#303030",
+              "fontFamily": "Colfax-Black",
+              "fontSize": 24,
+              "lineHeight": 27.6,
+            }
+          }
+        >
+          custom title
+        </Text>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>
