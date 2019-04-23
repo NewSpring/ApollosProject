@@ -12,8 +12,14 @@ const HTMLContent = ({ contentId }) => {
 
   return (
     <Query query={getContentItemContent} variables={{ contentId }}>
-      {({ data: { node: { htmlContent } = {} } = {}, loading, error }) => {
+      {({
+        data: { node: { htmlContent, summary } = {} } = {},
+        loading,
+        error,
+      }) => {
         if (error) return <ErrorCard error={error} />;
+        if (htmlContent === '')
+          return <HTMLView isLoading={!summary && loading}>{summary}</HTMLView>;
         return (
           <HTMLView isLoading={!htmlContent && loading}>{htmlContent}</HTMLView>
         );
