@@ -17,9 +17,9 @@ const { getSchema, getContext } = createTestHelpers({
 
 ApollosConfig.loadJs({
   ROCK: {
-    API_URL: 'https://beta-rock.newspring.cc/api',
+    API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
-    IMAGE_URL: 'https://beta-rock.newspring.cc/GetImage.ashx',
+    IMAGE_URL: 'https://apollosrock.newspring.cc/GetImage.ashx',
   },
   ROCK_MAPPINGS: {
     PRAYER_GROUP_TYPE_IDS: [10, 23, 25],

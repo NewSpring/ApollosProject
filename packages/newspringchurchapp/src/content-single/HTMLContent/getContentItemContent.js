@@ -6,6 +6,7 @@ export default gql`
       ... on ContentItem {
         id
         htmlContent
+        summary
       }
     }
   }
