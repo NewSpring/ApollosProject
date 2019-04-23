@@ -22,10 +22,10 @@ import {
   PersonalDevice,
   Template,
   AuthSms,
-  Campus,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ContentItem from './content-items';
+import * as Campus from './campuses';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
