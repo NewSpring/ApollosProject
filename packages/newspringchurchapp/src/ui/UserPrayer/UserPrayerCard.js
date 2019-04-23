@@ -30,6 +30,9 @@ const HorizontalTextLayout = styled(({ theme }) => ({
   height: theme.helpers.verticalRhythm(0.875),
 }))(SideBySideView);
 
+const cancelIndex = 1;
+const destructiveIndex = 0;
+
 class UserPrayerCard extends PureComponent {
   handleShowActionSheet = () => {
     this.ActionSheet.show();
@@ -37,7 +40,12 @@ class UserPrayerCard extends PureComponent {
 
   render() {
     const { duration, text, id, deletePrayer, ...otherProps } = this.props;
-
+    const handleOnPress = (index) => {
+      if (index !== cancelIndex) {
+        return deletePrayer(id);
+      }
+      return index;
+    };
     const options = ['Remove Prayer Request', 'Cancel'];
     return (
       <Card {...otherProps}>
@@ -51,9 +59,9 @@ class UserPrayerCard extends PureComponent {
               }}
               title={'Would you like to remove the prayer request?'}
               options={options}
-              cancelButtonIndex={1}
-              destructiveButtonindex={0}
-              onPress={() => deletePrayer(id)}
+              cancelButtonIndex={cancelIndex}
+              destructiveButtonIndex={destructiveIndex}
+              onPress={(index) => handleOnPress(index)}
             />
           </HorizontalTextLayout>
         </HeaderView>
