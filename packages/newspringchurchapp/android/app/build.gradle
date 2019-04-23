@@ -154,6 +154,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-gesture-handler')
+    implementation project(':react-native-reanimated')
     implementation project(':react-native-passkit-wallet')
     implementation project(':react-native-maps')
     implementation project(':rn-fetch-blob')
