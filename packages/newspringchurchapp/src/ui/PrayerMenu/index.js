@@ -176,7 +176,7 @@ class PrayerMenu extends PureComponent {
         </RowHeader>
         <TabView
           initialLayout={{
-            // height: Dimensions.get('window').height,
+            height: Dimensions.get('window').height,
             width: Dimensions.get('window').width,
           }}
           navigationState={{ ...this.state }}

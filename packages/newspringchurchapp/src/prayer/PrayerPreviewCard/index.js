@@ -57,7 +57,7 @@ const StyledCardContent = styled(() => ({
   alignItems: 'center',
 }))(CardContent);
 
-const StyledBodyText = styled(({ theme }) => ({
+const StyledBodyTextContainer = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
 }))(BodyText);
 
@@ -81,7 +81,9 @@ const PrayerPreviewCard = ({
         <Avatar source={imageSource} />
         <H3>Pray For {name}</H3>
         <H6>{source}</H6>
-        <StyledBodyText>{prayer}</StyledBodyText>
+        <StyledBodyTextContainer>
+          <BodyText>{prayer}</BodyText>
+        </StyledBodyTextContainer>
       </StyledCardContent>
     </StyledCard>
     <Overlay
