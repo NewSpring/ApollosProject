@@ -47,6 +47,7 @@ const StyledPrayerPreviewCardComponent = styled({
   right: 0,
 })(PrayerPreviewCardComponent);
 
+// TODO: this needs to be dynamic at some point
 const prayerMenuData = [
   {
     id: '1',
