@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   H3,
@@ -99,8 +99,8 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  height: '100%',
-  marginTop: theme.sizing.baseUnit,
+  height: Dimensions.get('window').height * 0.5,
+  marginTop: theme.sizing.baseUnit * 2,
 }))(PaddedView);
 
 const StyledView = styled(() => ({
@@ -175,6 +175,10 @@ class PrayerMenu extends PureComponent {
           <H3>Pray for Others</H3>
         </RowHeader>
         <TabView
+          initialLayout={{
+            // height: Dimensions.get('window').height,
+            width: Dimensions.get('window').width,
+          }}
           navigationState={{ ...this.state }}
           renderScene={SceneMap({
             saved: this.tabRoute(1),

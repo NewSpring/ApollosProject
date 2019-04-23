@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import { BackgroundView, styled } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../ui/PrayerMenu';
 
+const { height } = Dimensions.get('window');
 const Header = styled(({ theme }) => ({
   backgroundColor: theme.colors.background.paper,
-  paddingTop: theme.sizing.baseUnit * 4,
+  marginTop: theme.sizing.baseUnit * 6,
+  height,
 }))(ScrollView);
 
 class Prayer extends PureComponent {
