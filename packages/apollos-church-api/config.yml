@@ -13,7 +13,7 @@ APP:
   DEEP_LINK_HOST: newspringchurchapp
   ROOT_API_URL: ${ROOT_URL}
 ROCK:
-  API_URL: https://beta-rock.newspring.cc/api
+  API_URL: https://alpha-rock.newspring.cc/api
   API_TOKEN: ${ROCK_TOKEN}
   IMAGE_URL: https://s3.amazonaws.com
   # This should match the timezone of the Rock server
@@ -98,7 +98,7 @@ ROCK_MAPPINGS:
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
     PersonaId: 210
-    
+
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
     '7': ns.downloads
