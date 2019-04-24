@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Prayer from '.';
+import PrayerMenu from '.';
 
 it('renders prayer without crashing', () => {
-  const rendered = renderer.create(<Prayer />).toJSON();
+  const rendered = renderer.create(<PrayerMenu />).toJSON();
   expect(rendered).toBeTruthy();
 });

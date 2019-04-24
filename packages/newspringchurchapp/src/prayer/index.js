@@ -122,7 +122,7 @@ Tab.propTypes = {
   index: PropTypes.number,
 };
 
-class Prayer extends PureComponent {
+class PrayerMenu extends PureComponent {
   static navigationOptions = () => ({
     title: 'Prayer',
     header: null,
@@ -201,4 +201,4 @@ class Prayer extends PureComponent {
   }
 }
 
-export default Prayer;
+export default PrayerMenu;
