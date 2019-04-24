@@ -22,9 +22,9 @@ ApolloServer.loadJs({
   },
   ROCK: {
     TIMEZONE: 'America/New_York',
-    API_URL: 'https://apollosrock.newspring.cc/api',
+    API_URL: 'https://beta-srock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
-    IMAGE_URL: 'https://apollosrock.newspring.cc/GetImage.ashx',
+    IMAGE_URL: 'https://beta-srock.newspring.cc/GetImage.ashx',
   },
 });
 
