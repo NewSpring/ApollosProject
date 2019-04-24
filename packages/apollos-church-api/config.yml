@@ -95,6 +95,10 @@ ROCK_MAPPINGS:
     - 23
     - 25
 
+  DATAVIEW_CATEGORIES:
+    # Id of the category used to store all persona dataviews
+    PersonaId: 210
+    
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
     '7': ns.downloads
