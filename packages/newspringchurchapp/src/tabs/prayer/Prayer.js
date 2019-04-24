@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import { BackgroundView, styled } from '@apollosproject/ui-kit';
-import PrayerMenu from '../../prayer/PrayerMenu';
+import * as PrayerMenu from '../../prayer';
 
 const { height } = Dimensions.get('window');
 const Header = styled(({ theme }) => ({
