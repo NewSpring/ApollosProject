@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-// import { Mutation } from 'react-apollo';
 
 import ActionSheet from 'react-native-actionsheet';
 import {
@@ -15,9 +14,6 @@ import {
   ButtonLink,
 } from '@apollosproject/ui-kit';
 
-// import deleteUserPrayer from './deleteUserPrayer';
-// import getUserPrayers from './getUserPrayers';
-
 const PrayerText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
@@ -30,15 +26,14 @@ const HorizontalTextLayout = styled(({ theme }) => ({
   height: theme.helpers.verticalRhythm(0.875),
 }))(SideBySideView);
 
-const cancelIndex = 1;
-const destructiveIndex = 0;
-
 class UserPrayerCard extends PureComponent {
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
 
   render() {
+    const cancelIndex = 1;
+    const destructiveIndex = 0;
     const { duration, text, id, deletePrayer, ...otherProps } = this.props;
     const handleOnPress = (index) => {
       if (index !== cancelIndex) {
