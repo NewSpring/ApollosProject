@@ -13,9 +13,9 @@ APP:
   DEEP_LINK_HOST: newspringchurchapp
   ROOT_API_URL: ${ROOT_URL}
 ROCK:
-  API_URL: https://alpha-rock.newspring.cc/api
+  API_URL: https://beta-rock.newspring.cc/api
   API_TOKEN: ${ROCK_TOKEN}
-  IMAGE_URL: https://alpha-rock.newspring.cc/GetImage.ashx
+  IMAGE_URL: https://s3.amazonaws.com
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
 ONE_SIGNAL:
@@ -62,10 +62,10 @@ ROCK_MAPPINGS:
       # When resolving "ContentSeriesContentItem" look in rock for a "ContentChannelItem"
       EntityType: ContentChannelItem
       # Used to define the subset of content channels types that use this specific type.
-      ContentChannelTypeId: [6, 7]
+      ContentChannelId: [18, 20]
     DevotionalContentItem:
       EntityType: ContentChannelItem
-      ContentChannelTypeId: [1]
+      ContentChannelId: [17]
     MediaContentItem:
       EntityType: ContentChannelItem
     UniversalContentItem:
@@ -78,7 +78,7 @@ ROCK_MAPPINGS:
     - 27
     - 16
     - 18
-    - 19
+    - 20
     - 28
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
@@ -86,21 +86,24 @@ ROCK_MAPPINGS:
     - 27
     - 16
     - 18
-    - 19
-    - 28
-
-  SERIES_CONTENT_CHANNEL_TYPE_IDS:
-    - 18
     - 20
-  
-  DEVOTIONAL_TYPE_IDS:
-    - 17
+    - 28
 
   # Group type ids for all groups to share prayers
   PRAYER_GROUP_TYPE_IDS:
     - 10
     - 23
     - 25
+
+  DATAVIEW_CATEGORIES:
+    # Id of the category used to store all persona dataviews
+    PersonaId: 210
+    
+  ASSET_STORAGE_PROVIDERS:
+    '6': ns.assets
+    '7': ns.downloads
+    '8': ns.images
+    '9': ns.videos
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
@@ -214,3 +217,5 @@ ROCK_CONSTANTS:
   GROUP_MEMBER: 118
   TIME_ZONE: 119
   LABEL: 120
+  WISTIA: 125
+  S3_ASSET: 133

@@ -5,10 +5,10 @@ import { createApolloServerConfig } from '@apollosproject/server-core';
 import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
 import * as LiveStream from '@apollosproject/data-connector-church-online';
-import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
 import * as Pass from '@apollosproject/data-connector-passes';
-// import * as Sms from '@apollosproject/data-connector-twilio';
+import * as Sms from '@apollosproject/data-connector-twilio';
+
 import { PrayerRequest } from 'apollos-data-prayer';
 
 import {
@@ -16,16 +16,16 @@ import {
   Interactions,
   RockConstants,
   Person,
-  ContentItem,
   ContentChannel,
   Sharable,
   Auth,
   PersonalDevice,
   Template,
   AuthSms,
-  Campus,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
+import * as ContentItem from './content-items';
+import * as Campus from './campuses';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -36,10 +36,9 @@ const data = {
   ContentChannel,
   ContentItem,
   Person,
-  Cloudinary,
   Auth,
   AuthSms,
-  // Sms,
+  Sms,
   PrayerRequest,
   LiveStream,
   Theme,
