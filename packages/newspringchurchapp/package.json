@@ -66,10 +66,11 @@
     ]
   },
   "dependencies": {
-    "@apollosproject/ui-auth": "^0.8.1",
-    "@apollosproject/ui-htmlview": "0.8.1",
-    "@apollosproject/ui-kit": "^0.8.1",
-    "@apollosproject/ui-passes": "^0.8.1",
+    "@apollosproject/ui-analytics": "0.8.2",
+    "@apollosproject/ui-auth": "^0.8.2",
+    "@apollosproject/ui-htmlview": "0.8.2",
+    "@apollosproject/ui-kit": "^0.8.2",
+    "@apollosproject/ui-passes": "^0.8.2",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-cache-persist": "0.1.1",
     "apollo-client": "2.5.1",

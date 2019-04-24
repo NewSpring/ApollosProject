@@ -10,24 +10,20 @@ jest.mock('Animated', () => {
   const ActualAnimated = require.requireActual('Animated');
   return {
     ...ActualAnimated,
-    timing: (value, config) => {
-      return {
-        start: (callback) => {
-          value.setValue(config.toValue);
-          callback && callback()
-        },
-        stop: () => ({}),
-      };
-    },
-    spring: (value, config) => {
-      return {
-        start: (callback) => {
-          value.setValue(config.toValue);
-          callback && callback()
-        },
-        stop: () => ({}),
-      };
-    },
+    timing: (value, config) => ({
+      start: (callback) => {
+        value.setValue(config.toValue);
+        callback && callback();
+      },
+      stop: () => ({}),
+    }),
+    spring: (value, config) => ({
+      start: (callback) => {
+        value.setValue(config.toValue);
+        callback && callback();
+      },
+      stop: () => ({}),
+    }),
   };
 });
 
@@ -62,9 +58,16 @@ jest.mock('react-native-device-info', () => ({
 
 jest.mock('rn-fetch-blob', () => 'Fetch');
 
+jest.mock('@apollosproject/ui-analytics', () => ({
+  track: () => '',
+  AnalyticsConsumer: ({ children }) => children({ test: jest.fn() }),
+  AnalyticsProvider: ({ children }) => children,
+}));
+
 jest.mock('react-native-video', () => 'Video');
 
 jest.mock('NativeEventEmitter');
 
 jest.mock('react-native-maps');
+jest.mock('DatePickerIOS', () => 'DatePicker');
 jest.mock('./src/client/index');
