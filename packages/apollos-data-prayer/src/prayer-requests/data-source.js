@@ -76,7 +76,6 @@ export default class PrayerRequest extends RockApolloDataSource {
       this.expanded = false;
       const deletedPrayer = await this.getFromId(parsedId);
       await this.delete(`PrayerRequests/${parsedId}`);
-      this.expanded = true;
       return deletedPrayer;
     } catch (err) {
       throw new Error(`Unable to delete prayer request`);
