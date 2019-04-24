@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { PaddedView } from '@apollosproject/ui-kit';
 
-import PrayerCard from './PrayerCard';
+import PrayerCard from '.';
 
 const cardData = {
   imageSource: {
