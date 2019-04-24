@@ -14,6 +14,10 @@ import {
 } from '@apollosproject/ui-kit';
 import AddPrayerHeader from '../AddPrayerHeader';
 
+const StyledTextInput = styled(() => ({
+  height: '100%',
+}))(TextInput);
+
 const StyledButton = styled(() => ({
   borderRadius: 0,
 }))(Button);
@@ -49,15 +53,18 @@ const AddPrayerForm = memo(({ imgSrc, btnLabel, ...otherProps }) => (
           <AddPrayerHeader imgSrc={values.anonymous ? null : imgSrc} />
           {/* TODO: add underline={false} prop to TextInput, 
         pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
-          <PaddedView>
-            <TextInput
-              editable
-              placeholder="Start typing your prayer..."
-              onChangeText={handleChange('prayer')}
-              onBlur={handleBlur('prayer')}
-              value={values.prayer}
-            />
-          </PaddedView>
+          <FlexedView>
+            <PaddedView>
+              <StyledTextInput
+                editable
+                multiline
+                placeholder="Start typing your prayer..."
+                onChangeText={handleChange('prayer')}
+                onBlur={handleBlur('prayer')}
+                value={values.prayer}
+              />
+            </PaddedView>
+          </FlexedView>
           <BottomView>
             <SwitchContainer>
               <Switch
