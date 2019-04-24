@@ -939,7 +939,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
             20,
           ]
         }
-        enabled={false}
+        enabled={true}
         failOffsetY={
           Array [
             -20,
@@ -955,6 +955,12 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
             Object {
               "flex": 1,
               "flexDirection": "row",
+              "transform": Array [
+                Object {
+                  "translateX": undefined,
+                },
+              ],
+              "width": 3750,
             }
           }
         >
@@ -964,14 +970,11 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
             style={
               Array [
                 Object {
+                  "flex": 1,
                   "overflow": "hidden",
                 },
                 Object {
-                  "bottom": 0,
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
+                  "width": 750,
                 },
                 undefined,
               ]
@@ -980,7 +983,8 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
             <View
               style={
                 Object {
-                  "marginTop": 16,
+                  "height": 667,
+                  "marginTop": 32,
                   "paddingHorizontal": 16,
                   "paddingVertical": 16,
                 }
@@ -1000,6 +1004,14 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
               >
                 Pray for the prayers you haved saved
               </Text>
+              <View
+                style={
+                  Object {
+                    "height": "100%",
+                    "justifyContent": "flex-end",
+                  }
+                }
+              />
             </View>
           </View>
           <View
@@ -1011,7 +1023,9 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
                   "flex": 1,
                   "overflow": "hidden",
                 },
-                null,
+                Object {
+                  "width": 750,
+                },
                 undefined,
               ]
             }
@@ -1025,7 +1039,9 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
                   "flex": 1,
                   "overflow": "hidden",
                 },
-                null,
+                Object {
+                  "width": 750,
+                },
                 undefined,
               ]
             }
@@ -1039,7 +1055,9 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
                   "flex": 1,
                   "overflow": "hidden",
                 },
-                null,
+                Object {
+                  "width": 750,
+                },
                 undefined,
               ]
             }
@@ -1053,7 +1071,9 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
                   "flex": 1,
                   "overflow": "hidden",
                 },
-                null,
+                Object {
+                  "width": 750,
+                },
                 undefined,
               ]
             }
