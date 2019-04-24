@@ -56,7 +56,7 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
       </Text>
     </View>
     <View
-      collapsable={false}
+      onLayout={[Function]}
       style={
         Array [
           Object {
@@ -930,103 +930,133 @@ exports[`the PrayerMenu component renders the prayer menu 1`] = `
         </View>
       </RCTScrollView>
       <View
-        onLayout={[Function]}
-        style={
-          Object {
-            "flex": 1,
-          }
+        activeOffsetX={
+          Array [
+            -20,
+            20,
+          ]
         }
+        enabled={false}
+        failOffsetY={
+          Array [
+            -20,
+            20,
+          ]
+        }
+        onGestureEvent={[Function]}
+        onHandlerStateChange={[Function]}
       >
-        <RCTScrollView
-          alwaysBounceHorizontal={false}
-          automaticallyAdjustContentInsets={false}
-          bounces={false}
-          contentContainerStyle={
-            Object {
-              "flex": 1,
-            }
-          }
-          contentOffset={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          directionalLockEnabled={true}
-          horizontal={true}
-          keyboardDismissMode="on-drag"
-          keyboardShouldPersistTaps="always"
-          onMomentumScrollEnd={[Function]}
-          onScroll={[Function]}
-          overScrollMode="never"
-          pagingEnabled={true}
-          scrollEventThrottle={1}
-          scrollsToTop={false}
-          showsHorizontalScrollIndicator={false}
+        <View
+          removeClippedSubviews={false}
           style={
             Object {
               "flex": 1,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View
-              accessibilityElementsHidden={false}
-              importantForAccessibility="auto"
-              style={
+          <View
+            accessibilityElementsHidden={false}
+            importantForAccessibility="auto"
+            style={
+              Array [
                 Object {
                   "flex": 1,
                   "overflow": "hidden",
+                },
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginTop": 16,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 16,
                 }
               }
             >
-              <View
+              <Text
+                bold={false}
+                italic={false}
                 style={
                   Object {
-                    "marginTop": 16,
-                    "paddingHorizontal": 16,
-                    "paddingVertical": 16,
+                    "color": "#303030",
+                    "fontFamily": "Colfax-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 26,
                   }
                 }
               >
-                <Text
-                  bold={false}
-                  italic={false}
-                  style={
-                    Object {
-                      "color": "#303030",
-                      "fontFamily": "Colfax-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 26,
-                    }
-                  }
-                >
-                  Pray for the prayers you haved saved
-                </Text>
-              </View>
+                Pray for the prayers you haved saved
+              </Text>
             </View>
-            <View
-              accessibilityElementsHidden={true}
-              importantForAccessibility="no-hide-descendants"
-              style={null}
-            />
-            <View
-              accessibilityElementsHidden={true}
-              importantForAccessibility="no-hide-descendants"
-              style={null}
-            />
-            <View
-              accessibilityElementsHidden={true}
-              importantForAccessibility="no-hide-descendants"
-              style={null}
-            />
-            <View
-              accessibilityElementsHidden={true}
-              importantForAccessibility="no-hide-descendants"
-              style={null}
-            />
           </View>
-        </RCTScrollView>
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "overflow": "hidden",
+                },
+                null,
+                undefined,
+              ]
+            }
+          />
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "overflow": "hidden",
+                },
+                null,
+                undefined,
+              ]
+            }
+          />
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "overflow": "hidden",
+                },
+                null,
+                undefined,
+              ]
+            }
+          />
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "overflow": "hidden",
+                },
+                null,
+                undefined,
+              ]
+            }
+          />
+        </View>
       </View>
     </View>
   </View>
