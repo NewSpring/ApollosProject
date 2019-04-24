@@ -14,8 +14,9 @@ import {
   H6,
   PaddedView,
   styled,
-  Chip,
+  Touchable,
   ButtonLink,
+  ChannelLabel,
 } from '@apollosproject/ui-kit';
 import flagRequest from './flagRequest';
 
@@ -76,10 +77,12 @@ class PrayerCard extends PureComponent {
         </EllipsisView>
         <StyledCardContent>
           <Avatar source={imageSource} />
-          <H3>Pray For {name}</H3>
+          <H3> Pray For {name}</H3>
           <H6>{source}</H6>
           <StyledBodyText>{prayer}</StyledBodyText>
-          <Chip title="How to Pray?" onPress={() => {}} />
+          <Touchable onPress={() => {}}>
+            <ChannelLabel icon="information" label="How to Pray?" />
+          </Touchable>
           <PaddedView>
             <Button onPress={() => {}} title={`Start Praying for ${name}`} />
           </PaddedView>
