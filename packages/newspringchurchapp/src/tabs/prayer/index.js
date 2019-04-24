@@ -1,10 +1,24 @@
+import React from 'react';
+import { View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
+import AddPrayerForm from '../../prayer/AddPrayer/AddPrayerForm';
 import Prayer from './Prayer';
+
+class AddPrayerFormScreen extends React.Component {
+  render() {
+    return (
+      <View>
+        <AddPrayerForm />
+      </View>
+    );
+  }
+}
 
 export const PrayerNavigator = createStackNavigator(
   {
     Prayer,
+    AddPrayerForm: AddPrayerFormScreen,
   },
   {
     initialRouteName: 'Prayer',

@@ -20,7 +20,7 @@ class Prayer extends PureComponent {
       <BackgroundView>
         <SafeAreaView>
           <Header>
-            <PrayerMenu />
+            <PrayerMenu {...this.props} />
           </Header>
         </SafeAreaView>
       </BackgroundView>

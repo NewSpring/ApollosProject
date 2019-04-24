@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 import {
   H3,
   HorizontalTileFeed,
@@ -13,6 +15,7 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import PrayerMenuCard from '../PrayerMenuCard';
 import UserPrayerList from '../UserPrayer';
 import PrayerPreviewCard from '../../prayer/PrayerPreviewCard';
+import AddPrayerCard from '../../prayer/AddPrayer/AddPrayerCard';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -172,6 +175,28 @@ class PrayerMenu extends PureComponent {
   render() {
     return (
       <>
+        <Query
+          query={gql`
+            query {
+              currentUser {
+                id
+                profile {
+                  photo {
+                    uri
+                  }
+                }
+              }
+            }
+          `}
+          fetchPolicy={'cache-and-network'}
+        >
+          {({ data }) => (
+            <AddPrayerCard
+              imgSrc={data.currentUser.profile.photo}
+              {...this.props}
+            />
+          )}
+        </Query>
         <RowHeader>
           <H3>Pray for Others</H3>
         </RowHeader>

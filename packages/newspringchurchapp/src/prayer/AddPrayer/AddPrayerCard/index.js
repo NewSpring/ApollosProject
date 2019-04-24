@@ -20,17 +20,15 @@ const AddPrayerButton = styled(({ theme }) => ({
   width: '100%',
 }))(Button);
 
-const ButtonLabel = styled(({ theme }) => ({
-  color: theme.colors.text.primary,
-}))(H5);
-
-const AddPrayerCard = memo(({ imgSrc, description }) => (
+const AddPrayerCard = memo(({ imgSrc, description, ...props }) => (
   <Card>
     <StyledCardContent>
       <AddPrayerHeader imgSrc={imgSrc} />
       <BodyText>{description}</BodyText>
-      <AddPrayerButton>
-        <ButtonLabel>Add Your Prayer</ButtonLabel>
+      <AddPrayerButton
+        onPress={() => props.navigation.navigate('AddPrayerForm')}
+      >
+        <H5>Add Your Prayer</H5>
       </AddPrayerButton>
     </StyledCardContent>
   </Card>
