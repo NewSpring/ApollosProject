@@ -3,15 +3,11 @@ import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
 import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
+import { createAssetUrl } from '../utils';
+
 import getScripturesFromTemplate from './getScripturesFromTemplate';
 
-const { ROCK_CONSTANTS, ROCK, ROCK_MAPPINGS } = ApollosConfig;
-
-// TODO: Move this to own UTILS file
-const createAssetUrl = (value) =>
-  `${ROCK.IMAGE_URL}/${
-    ROCK_MAPPINGS.ASSET_STORAGE_PROVIDERS[`${value.AssetStorageProviderId}`]
-  }/${value.Key}`;
+const { ROCK_CONSTANTS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
   getContentItemScriptures = async (id) => {
