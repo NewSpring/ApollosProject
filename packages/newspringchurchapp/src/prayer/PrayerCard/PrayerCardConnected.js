@@ -7,7 +7,10 @@ import PrayerCard from './PrayerCard';
 
 // eslint-disable-next-line react/display-name
 const PrayerCardConnected = memo(({ id, ...props }) => (
-  <Mutation mutation={flagPrayerRequest}>
+  <Mutation
+    mutation={flagPrayerRequest}
+    update={async(cache, { data: { flagRequest } })}
+  >
     {(handlePress) => (
       <PrayerCard
         flagRequest={async () => {
