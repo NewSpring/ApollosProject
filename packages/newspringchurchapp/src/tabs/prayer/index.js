@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
+
 import Prayer from './Prayer';
 
 export const PrayerNavigator = createStackNavigator(
