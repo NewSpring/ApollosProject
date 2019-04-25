@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Query } from 'apollo-client';
+import { Query } from 'react-apollo';
 import getProfilePic from '../../getProfilePic';
 import AddPrayerForm from './AddPrayerForm';
 

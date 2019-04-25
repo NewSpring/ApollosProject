@@ -7,7 +7,7 @@ import Prayer from './Prayer';
 const PrayerNavigator = createStackNavigator(
   {
     Prayer,
-    AddPrayerForm: {
+    AddPrayerFormConnected: {
       // TODO: remove the lint disable once react-navigation can work well with memo
       screen: () => <AddPrayerFormConnected />, // eslint-disable-line react/display-name
       navigationOptions: { header: null },

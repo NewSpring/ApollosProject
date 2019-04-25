@@ -33,7 +33,7 @@ const AddPrayerCard = memo(({ imgSrc, title, description, ...props }) => (
     <PaddedView>
       <Button
         title={'Add Prayer'}
-        onPress={() => props.navigation.navigate('AddPrayerForm')}
+        onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
     </PaddedView>
   </Card>
