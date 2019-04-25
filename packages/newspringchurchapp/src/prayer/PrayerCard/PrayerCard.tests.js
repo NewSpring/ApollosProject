@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Providers from 'newspringchurchapp/src/Providers';
 
-import PrayerCard from '.';
+import PrayerCard from './PrayerCard';
 
 const cardData = {
   imageSource: {
