@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const prayerRequestSchema = gql`
   extend type Query {
-    getPublicPrayerRequests: [PrayerRequest]
+    getPublicPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPublicPrayerRequestsByCampus(campusId: Int!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPrayerRequestsByGroups: [PrayerRequest]
