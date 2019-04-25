@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
-// import { get } from 'lodash';
+import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,8 +9,9 @@ import {
   ModalViewHeader,
 } from '@apollosproject/ui-kit';
 
-import PrayerPreviewCard from 'newspringchurchapp/src/prayer/PrayerPreviewCard';
+import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
 import getPublicPrayerRequests from './getPublicPrayerRequests';
+
 /**
  * This is where the component description lives
  * A FeedView wrapped in a query to pull content data.
@@ -39,45 +40,16 @@ class ChurchPrayerList extends PureComponent {
         <Query query={getPublicPrayerRequests} fetchPolicy="cache-and-network">
           {({ loading, error, data, refetch }) => (
             <FeedView
-              ListItemComponent={PrayerPreviewCard}
-              content={[
-                {
-                  imageSource: {
-                    uri: 'https://fillmurray.com/400/600',
-                  },
-                  name: 'Isaac Hardy',
-                  overlayColor: ['#FFF', '#FFF'],
-                  prayer: 'Hellllllllo!',
-                  source: 'Anderson',
-                },
-                {
-                  imageSource: {
-                    uri: 'https://fillmurray.com/400/600',
-                  },
-                  name: 'Isaac Hardy',
-                  overlayColor: ['#FFF', '#FFF'],
-                  prayer: 'Hellllllllo!',
-                  source: 'Anderson',
-                },
-                {
-                  imageSource: {
-                    uri: 'https://fillmurray.com/400/600',
-                  },
-                  name: 'Isaac Hardy',
-                  overlayColor: ['#FFF', '#FFF'],
-                  prayer: 'Hellllllllo!',
-                  source: 'Anderson',
-                },
-                {
-                  imageSource: {
-                    uri: 'https://fillmurray.com/400/600',
-                  },
-                  name: 'Isaac Hardy',
-                  overlayColor: ['#FFF', '#FFF'],
-                  prayer: 'Hellllllllo!',
-                  source: 'Anderson',
-                },
-              ]}
+              ListItemComponent={PrayerCardConnected}
+              content={get(data, 'getPublicPrayerRequests', []).map(
+                (prayer) => ({
+                  id: prayer.id,
+                  prayer: prayer.text,
+                  source: prayer.campusId,
+                  name: prayer.firstName,
+                  ...prayer,
+                })
+              )}
               isLoading={loading}
               error={error}
               refetch={refetch}
