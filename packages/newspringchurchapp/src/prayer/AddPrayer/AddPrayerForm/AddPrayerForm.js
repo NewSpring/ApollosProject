@@ -95,7 +95,7 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
                 <SwitchLabel>Share Anonymously</SwitchLabel>
               </SwitchLabelContainer>
             </SwitchContainer>
-            <StyledButton title={btnLabel} onPress={() => console.log(props)} />
+            <StyledButton title={btnLabel} onPress={handleSubmit} />
           </BottomView>
         </FlexedSafeAreaView>
       </ModalView>
