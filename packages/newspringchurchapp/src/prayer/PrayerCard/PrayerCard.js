@@ -83,7 +83,7 @@ class PrayerCard extends PureComponent {
             <ChannelLabel icon="information" label="How to Pray?" />
           </Touchable>
           <PaddedView>
-            <Button onPress={() => {}} title={`Start Praying for ${name}`} />
+            <Button onPress={() => {}} title={`Pray`} />
           </PaddedView>
         </StyledCardContent>
       </StyledCard>
