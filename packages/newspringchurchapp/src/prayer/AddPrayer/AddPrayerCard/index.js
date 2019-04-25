@@ -47,9 +47,9 @@ AddPrayerCard.propTypes = {
 };
 
 AddPrayerCard.defaultProps = {
+  title: 'Ask for prayer',
   description:
     "There aren't currently any prayers in your community. Send them one now.",
-  title: 'Ask for prayer',
 };
 
 AddPrayerCard.displayName = 'AddPrayerCard';

@@ -1,24 +1,14 @@
-import React, { memo } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
 import AddPrayerForm from '../../prayer/AddPrayer/AddPrayerForm';
 import Prayer from './Prayer';
 
-// class AddPrayerFormScreen extends React.Component {
-// render() {
-// return (
-// <View>
-// <AddPrayerForm {...this.props} />
-// </View>
-// );
-// }
-// }
-
 const PrayerNavigator = createStackNavigator(
   {
     Prayer,
     AddPrayerForm: {
+      // TODO: remove the lint disable once react-navigation can work well with memo
       screen: () => <AddPrayerForm />, // eslint-disable-line react/display-name
       navigationOptions: { header: null },
     },

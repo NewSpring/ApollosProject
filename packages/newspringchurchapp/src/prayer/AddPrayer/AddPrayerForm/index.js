@@ -15,7 +15,6 @@ import {
   H5,
   Avatar,
 } from '@apollosproject/ui-kit';
-import AddPrayerHeader from '../AddPrayerHeader';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
