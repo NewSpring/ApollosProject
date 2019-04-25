@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   BodyText,
@@ -11,7 +11,6 @@ import {
   Avatar,
   H3,
 } from '@apollosproject/ui-kit';
-// import AddPrayerHeader from '../AddPrayerHeader';
 
 const StyledCardContent = styled({
   alignItems: 'center',
@@ -41,7 +40,9 @@ const AddPrayerCard = memo(({ imgSrc, title, description, ...props }) => (
 ));
 
 AddPrayerCard.propTypes = {
-  imgSrc: Image.propTypes,
+  imgSrc: PropTypes.shape({
+    uri: PropTypes.string,
+  }),
   title: PropTypes.string,
   description: PropTypes.string,
 };

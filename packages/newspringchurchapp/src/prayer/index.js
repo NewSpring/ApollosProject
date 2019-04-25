@@ -16,6 +16,7 @@ import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayer';
 import PrayerPreviewCard from './PrayerPreviewCard';
+import getProfilePic from './getProfilePic';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -180,21 +181,7 @@ class PrayerMenu extends PureComponent {
   render() {
     return (
       <>
-        <Query
-          query={gql`
-            query {
-              currentUser {
-                id
-                profile {
-                  photo {
-                    uri
-                  }
-                }
-              }
-            }
-          `}
-          fetchPolicy={'cache-and-network'}
-        >
+        <Query query={getProfilePic} fetchPolicy={'cache-and-network'}>
           {({ data }) => (
             <AddPrayerCard
               imgSrc={data.currentUser.profile.photo}
