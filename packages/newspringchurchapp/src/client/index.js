@@ -7,6 +7,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import { authLink } from '@apollosproject/ui-auth';
 import { resolvers, schema, defaults } from '../store';
+import { bugsnagLink } from '../bugsnag';
 import httpLink from './httpLink';
 import cache, { ensureCacheHydration, MARK_CACHE_LOADED } from './cache';
 
