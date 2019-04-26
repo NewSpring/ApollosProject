@@ -11,7 +11,7 @@ import { bugsnagLink } from '../bugsnag';
 import httpLink from './httpLink';
 import cache, { ensureCacheHydration, MARK_CACHE_LOADED } from './cache';
 
-const link = ApolloLink.from([authLink, httpLink]);
+const link = ApolloLink.from([bugsnagLink, authLink, httpLink]);
 
 export const client = new ApolloClient({
   link,

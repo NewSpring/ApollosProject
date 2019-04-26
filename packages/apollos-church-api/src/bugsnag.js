@@ -2,7 +2,7 @@ import bugsnag from '@bugsnag/js';
 import bugsnagExpress from '@bugsnag/plugin-express';
 
 const bugsnagClient = bugsnag({
-  apiKiey: process.env.BUGSNAG_API_KEY,
+  apiKey: process.env.BUGSNAG_API_KEY,
   notifyReleaseStages: ['production', 'staging'], // don't send errors in dev or test.
 });
 
