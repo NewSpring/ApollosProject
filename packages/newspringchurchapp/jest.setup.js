@@ -57,6 +57,10 @@ jest.mock('react-native-device-info', () => ({
 }));
 
 jest.mock('rn-fetch-blob', () => 'Fetch');
+jest.mock(
+  '@apollosproject/ui-passes/node_modules/rn-fetch-blob',
+  () => 'Fetch'
+);
 
 jest.mock('@apollosproject/ui-analytics', () => ({
   track: () => '',
