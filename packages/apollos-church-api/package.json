@@ -45,6 +45,8 @@
     "@apollosproject/data-connector-twilio": "0.8.2",
     "@apollosproject/rock-apollo-data-source": "^0.8.2",
     "@apollosproject/server-core": "^0.8.2",
+    "@bugsnag/js": "^6.2.0",
+    "@bugsnag/plugin-express": "^6.2.0",
     "apollo-server": "^2.0.5",
     "color": "3.0.0",
     "dotenv": "6.0.0",
