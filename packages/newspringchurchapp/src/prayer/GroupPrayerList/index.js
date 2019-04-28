@@ -57,7 +57,7 @@ class GroupPrayerList extends PureComponent {
                   <H6>Press down on heart to pray</H6>
                 </FlexedView>
               )}
-              content={get(data, 'getGroupPrayerRequests', []).map(
+              content={get(data, 'getPrayerRequestsByGroups', []).map(
                 (prayer) => ({
                   id: prayer.id,
                   prayer: prayer.text,
