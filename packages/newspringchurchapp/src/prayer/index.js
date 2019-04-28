@@ -8,6 +8,7 @@ import {
   TouchableScale,
   PaddedView,
   BodyText,
+  ButtonLink,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
@@ -26,6 +27,7 @@ const loadingStateObject = {
     isLoading: true,
   },
 };
+
 // TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = () => (
   <PrayerPreviewCard
@@ -40,6 +42,7 @@ const PrayerPreviewCardComponent = () => (
     source={'Anderson'}
   />
 );
+
 // TODO: remove once this is pulling data
 const StyledPrayerPreviewCardComponent = styled({
   position: 'absolute',
@@ -101,26 +104,32 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  height: Dimensions.get('window').height * 0.5,
   marginTop: theme.sizing.baseUnit * 2,
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: '100%',
+  height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
 }))(View);
 
-const Tab = ({ index }) => {
+const StyledButtonLink = styled(({ theme }) => ({
+  textAlign: 'center',
+  marginBottom: theme.sizing.baseUnit * 2,
+}))(ButtonLink);
+
+const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
   return (
     <StyledPaddedView>
       <BodyText>{data.description}</BodyText>
-      <StyledView>{data.component}</StyledView>
+      {!showAddPrayerCard ? <StyledView>{data.component}</StyledView> : null}
     </StyledPaddedView>
   );
 };
+
 Tab.propTypes = {
   index: PropTypes.number,
+  showAddPrayerCard: PropTypes.bool,
 };
 
 class PrayerMenu extends PureComponent {
@@ -153,9 +162,12 @@ class PrayerMenu extends PureComponent {
         key: 'prayers',
       },
     ],
+    showAddPrayerCard: true,
   };
 
-  tabRoute = (index) => () => <Tab index={index} />;
+  tabRoute = (index) => () => (
+    <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
+  );
 
   handleIndexChange = (index) => this.setState({ index });
 
@@ -163,7 +175,13 @@ class PrayerMenu extends PureComponent {
     <StyledFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
-        <TouchableScale key={item.key} onPress={() => props.jumpTo(item.key)}>
+        <TouchableScale
+          key={item.key}
+          onPress={() => {
+            this.setState({ showAddPrayerCard: false });
+            props.jumpTo(item.key);
+          }}
+        >
           <PrayerMenuCard
             image={item.image}
             overlayColor={item.overlayColor}
@@ -178,7 +196,18 @@ class PrayerMenu extends PureComponent {
   render() {
     return (
       <>
-        <AddPrayerCardConnected {...this.props} />
+        {this.state.showAddPrayerCard ? (
+          <AddPrayerCardConnected {...this.props} />
+        ) : null}
+        {!this.state.showAddPrayerCard ? (
+          <StyledButtonLink
+            onPress={() => {
+              this.setState({ showAddPrayerCard: true });
+            }}
+          >
+            Add your prayer
+          </StyledButtonLink>
+        ) : null}
         <RowHeader>
           <H3>Pray for Others</H3>
         </RowHeader>
