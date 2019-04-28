@@ -24,7 +24,11 @@ const TitleView = styled(({ theme }) => ({
 const AddPrayerCard = memo(({ imgSrc, title, description, ...props }) => (
   <Card>
     <StyledCardContent>
-      <Avatar source={imgSrc} size={'medium'} />
+      <Avatar
+        source={imgSrc}
+        size={'medium'}
+        containerStyle={{ marginRight: 0 }}
+      />
       <TitleView>
         <H3>{title}</H3>
       </TitleView>
