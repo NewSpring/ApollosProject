@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Formik } from 'formik';
 import {
@@ -19,6 +19,11 @@ import {
 const FlexedSafeAreaView = styled({
   flex: 1,
 })(SafeAreaView);
+
+const ShrinkingView = styled(({ theme }) => ({
+  flex: 1,
+  paddingTop: theme.sizing.baseUnit,
+}))(KeyboardAvoidingView);
 
 const HeaderView = styled({
   alignItems: 'center',
@@ -65,38 +70,44 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
     {({ handleChange, handleBlur, handleSubmit, values }) => (
       <ModalView {...props}>
         <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
-          <HeaderView>
-            <Avatar source={values.anonymous ? null : imgSrc} size={'medium'} />
-            <TitleView>
-              <H3>{title}</H3>
-            </TitleView>
-          </HeaderView>
-          {/* TODO: add underline={false} prop to TextInput, 
+          <ShrinkingView behavior={'padding'}>
+            <HeaderView>
+              <Avatar
+                source={values.anonymous ? null : imgSrc}
+                size={'medium'}
+                containerStyle={{ marginRight: 0 }}
+              />
+              <TitleView>
+                <H3>{title}</H3>
+              </TitleView>
+            </HeaderView>
+            {/* TODO: add underline={false} prop to TextInput, 
         pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
-          <FlexedView>
-            <PaddedView>
-              <StyledTextInput
-                editable
-                multiline
-                placeholder="Start typing your prayer..."
-                onChangeText={handleChange('prayer')}
-                onBlur={handleBlur('prayer')}
-                value={values.prayer}
-              />
-            </PaddedView>
-          </FlexedView>
-          <BottomView>
-            <SwitchContainer>
-              <Switch
-                value={values.anonymous}
-                onValueChange={handleChange('anonymous')}
-              />
-              <SwitchLabelContainer>
-                <SwitchLabel>Share Anonymously</SwitchLabel>
-              </SwitchLabelContainer>
-            </SwitchContainer>
-            <StyledButton title={btnLabel} onPress={handleSubmit} />
-          </BottomView>
+            <FlexedView>
+              <PaddedView>
+                <StyledTextInput
+                  editable
+                  multiline
+                  placeholder="Start typing your prayer..."
+                  onChangeText={handleChange('prayer')}
+                  onBlur={handleBlur('prayer')}
+                  value={values.prayer}
+                />
+              </PaddedView>
+            </FlexedView>
+            <BottomView>
+              <SwitchContainer>
+                <Switch
+                  value={values.anonymous}
+                  onValueChange={handleChange('anonymous')}
+                />
+                <SwitchLabelContainer>
+                  <SwitchLabel>Share Anonymously</SwitchLabel>
+                </SwitchLabelContainer>
+              </SwitchContainer>
+              <StyledButton title={btnLabel} onPress={handleSubmit} />
+            </BottomView>
+          </ShrinkingView>
         </FlexedSafeAreaView>
       </ModalView>
     )}

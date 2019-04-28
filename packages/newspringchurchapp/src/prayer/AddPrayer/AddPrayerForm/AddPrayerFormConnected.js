@@ -5,7 +5,7 @@ import getProfilePic from '../../getProfilePic';
 import AddPrayerForm from './AddPrayerForm';
 
 const AddPrayerFormConnected = memo(({ ...props }) => (
-  <Query query={getProfilePic} fetchPolicy={'cache-and-network'}>
+  <Query query={getProfilePic} fetchPolicy={'cache-only'}>
     {({ data }) => (
       <AddPrayerForm
         imgSrc={get(data, 'currentUser.profile.photo', { uri: '' })}
