@@ -111,20 +111,23 @@ const StyledPaddedView = styled(({ theme }) => ({
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: Dimensions.get('window').height * 0.4,
+  height: Dimensions.get('window').height * 0.45,
   justifyContent: 'flex-end',
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
   textAlign: 'center',
-  marginBottom: theme.sizing.baseUnit * 2,
   color: theme.colors.text.tertiary,
 }))(ButtonLink);
 
-const StyledContainer = styled(() => ({
-  display: 'flex',
-  justifyContent: 'center',
+const StyledContainer = styled(({ theme }) => ({
   alignItems: 'center',
+  marginTop: theme.sizing.baseUnit * 3,
+  marginBottom: theme.sizing.baseUnit * 2,
+}))(View);
+
+const StyledAddPrayerContainer = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 6,
 }))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
@@ -211,13 +214,13 @@ class PrayerMenu extends PureComponent {
     return (
       <>
         {this.state.showAddPrayerCard ? (
-          <AddPrayerCardConnected {...this.props} />
+          <StyledAddPrayerContainer>
+            <AddPrayerCardConnected {...this.props} />
+          </StyledAddPrayerContainer>
         ) : null}
         {!this.state.showAddPrayerCard ? (
-          <>
-            <StyledContainer>
-              <NSIcon name={'down-arrow'} fill={this.props.tint} size={24} />
-            </StyledContainer>
+          <StyledContainer>
+            <NSIcon name={'down-arrow'} fill={this.props.tint} size={24} />
             <StyledButtonLink
               onPress={() => {
                 this.setState({ showAddPrayerCard: true });
@@ -225,7 +228,7 @@ class PrayerMenu extends PureComponent {
             >
               Add your prayer
             </StyledButtonLink>
-          </>
+          </StyledContainer>
         ) : null}
         <RowHeader>
           <H3>Pray for Others</H3>
