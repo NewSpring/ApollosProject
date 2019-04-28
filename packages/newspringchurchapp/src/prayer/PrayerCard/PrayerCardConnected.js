@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Mutation } from 'react-apollo';
 import PropTypes from 'prop-types';
 
-import getCampusPrayerRequests from '../ChurchPrayer';
+import getCampusPrayerRequests from '../ChurchPrayer/getPublicPrayerRequests';
 import flagPrayerRequest from './flagPrayerRequest';
 import PrayerCard from './PrayerCard';
 
@@ -14,20 +14,19 @@ const PrayerCardConnected = memo(({ id, ...props }) => (
       const currentPrayerList = cache.readQuery({
         query: getCampusPrayerRequests,
       });
-      console.warn('after readQuery');
       const flagIndex = currentPrayerList.getPublicPrayerRequests.findIndex(
         (prayer) => prayer.id === flagRequest.id
       );
       const incrementFlag = () => {
-        currentPrayerList.getPublicPrayerRequests.flagCount += 1;
+        currentPrayerList.getPublicPrayerRequests[flagIndex].flagCount += 1;
       };
       const updatedPrayerList = () => {
         currentPrayerList.getPublicPrayerRequests.forEach((prayer) =>
-          prayer.id === flagIndex ? incrementFlag(prayer) : prayer
+          prayer.id === flagRequest.id ? incrementFlag(prayer) : prayer
         );
         return currentPrayerList.getPublicPrayerRequests;
       };
-      console.warn('THIS IS WORKING', updatedPrayerList);
+      updatedPrayerList(currentPrayerList.getPublicPrayerRequests);
       await cache.writeQuery({
         query: getCampusPrayerRequests,
         data: { getPublicPrayerRequests: updatedPrayerList },
