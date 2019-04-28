@@ -20,9 +20,10 @@ const FlexedSafeAreaView = styled({
   flex: 1,
 })(SafeAreaView);
 
-const ShrinkingView = styled({
+const ShrinkingView = styled(({ theme }) => ({
   flex: 1,
-})(KeyboardAvoidingView);
+  paddingTop: theme.sizing.baseUnit,
+}))(KeyboardAvoidingView);
 
 const HeaderView = styled({
   alignItems: 'center',
