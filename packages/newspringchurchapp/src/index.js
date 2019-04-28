@@ -8,7 +8,9 @@ import Passes from '@apollosproject/ui-passes';
 import MediaPlayer from 'newspringchurchapp/src/ui/MediaPlayer';
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
-import ChurchPrayerList from './prayer/ChurchPrayer';
+import ChurchPrayerList from './prayer/ChurchPrayerList';
+import CampusPrayerList from './prayer/CampusPrayerList';
+import GroupPrayerList from './prayer/GroupPrayerList';
 import Providers from './Providers';
 import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
@@ -45,6 +47,8 @@ const AppNavigator = createStackNavigator(
     Onboarding,
     Prayer,
     ChurchPrayerList,
+    CampusPrayerList,
+    GroupPrayerList,
   },
   {
     initialRouteName: 'ProtectedRoute',

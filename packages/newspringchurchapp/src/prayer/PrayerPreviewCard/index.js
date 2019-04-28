@@ -69,7 +69,7 @@ const ButtonView = styled({
 })(View);
 
 const PrayerPreviewCard = withNavigation(
-  ({ imageSource, name, overlayColor, prayer, source, navigation }) => (
+  ({ imageSource, name, overlayColor, prayer, source, navigation, route }) => (
     <>
       <StyledCard>
         <StyledCardContent>
@@ -91,7 +91,7 @@ const PrayerPreviewCard = withNavigation(
         <PaddedView>
           <ButtonView>
             <Button
-              onPress={() => navigation.navigate('ChurchPrayerList')}
+              onPress={() => navigation.navigate(route)}
               title="Start Praying"
             />
           </ButtonView>

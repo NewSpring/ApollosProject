@@ -4,19 +4,26 @@ import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import {
-  BackgroundView,
   FeedView,
+  BackgroundView,
+  PaddedView,
   ModalViewHeader,
+  styled,
+  FlexedView,
+  H6,
 } from '@apollosproject/ui-kit';
 
 import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
-import getPublicPrayerRequests from './getPublicPrayerRequests';
+import getGroupPrayerRequests from './getGroupPrayerRequests';
 
+const PaddedFeedView = styled(({ theme }) => ({
+  paddingTop: theme.sizing.baseUnit * 7,
+}))(FeedView);
 /**
  * This is where the component description lives
- * A FeedView wrapped in a query to pull content data.
+ * A FeedView wrapped in a query to pull content data.s
  */
-class ChurchPrayerList extends PureComponent {
+class GroupPrayerList extends PureComponent {
   /** Function for React Navigation to set information in the header. */
   static navigationOptions = ({ navigation }) => ({
     header: <ModalViewHeader onClose={() => navigation.popToTop()} />,
@@ -32,16 +39,25 @@ class ChurchPrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = () => console.log('HIHIHIHI');
+  handleOnPress = (item) => console.log('Prayer for: ', item);
 
   render() {
     return (
       <BackgroundView>
-        <Query query={getPublicPrayerRequests} fetchPolicy="cache-and-network">
+        <Query query={getGroupPrayerRequests} fetchPolicy="cache-and-network">
           {({ loading, error, data, refetch }) => (
-            <FeedView
-              ListItemComponent={PrayerCardConnected}
-              content={get(data, 'getPublicPrayerRequests', []).map(
+            <PaddedFeedView
+              ListItemComponent={(item) => (
+                <PaddedView>
+                  <PrayerCardConnected onPress={this.handleOnPress} {...item} />
+                </PaddedView>
+              )}
+              ItemSeparatorComponent={() => (
+                <FlexedView>
+                  <H6>Press down on heart to pray</H6>
+                </FlexedView>
+              )}
+              content={get(data, 'getGroupPrayerRequests', []).map(
                 (prayer) => ({
                   id: prayer.id,
                   prayer: prayer.text,
@@ -62,4 +78,4 @@ class ChurchPrayerList extends PureComponent {
   }
 }
 
-export default ChurchPrayerList;
+export default GroupPrayerList;
