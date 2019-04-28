@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Dimensions } from 'react-native';
+import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 import {
   H3,
@@ -9,8 +10,10 @@ import {
   PaddedView,
   BodyText,
   ButtonLink,
+  withTheme,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
+import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayer';
@@ -115,7 +118,14 @@ const StyledView = styled(() => ({
 const StyledButtonLink = styled(({ theme }) => ({
   textAlign: 'center',
   marginBottom: theme.sizing.baseUnit * 2,
+  color: theme.colors.text.tertiary,
 }))(ButtonLink);
+
+const StyledContainer = styled(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
@@ -137,6 +147,10 @@ class PrayerMenu extends PureComponent {
     title: 'Prayer',
     header: null,
   });
+
+  static propTypes = {
+    tint: PropTypes.string,
+  };
 
   state = {
     index: 0,
@@ -200,13 +214,18 @@ class PrayerMenu extends PureComponent {
           <AddPrayerCardConnected {...this.props} />
         ) : null}
         {!this.state.showAddPrayerCard ? (
-          <StyledButtonLink
-            onPress={() => {
-              this.setState({ showAddPrayerCard: true });
-            }}
-          >
-            Add your prayer
-          </StyledButtonLink>
+          <>
+            <StyledContainer>
+              <NSIcon name={'down-arrow'} fill={this.props.tint} size={24} />
+            </StyledContainer>
+            <StyledButtonLink
+              onPress={() => {
+                this.setState({ showAddPrayerCard: true });
+              }}
+            >
+              Add your prayer
+            </StyledButtonLink>
+          </>
         ) : null}
         <RowHeader>
           <H3>Pray for Others</H3>
@@ -232,4 +251,10 @@ class PrayerMenu extends PureComponent {
   }
 }
 
-export default PrayerMenu;
+const enhance = compose(
+  withTheme(({ theme, tint }) => ({
+    tint: tint || theme.colors.text.tertiary,
+  }))
+);
+
+export default enhance(PrayerMenu);
