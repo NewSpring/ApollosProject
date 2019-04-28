@@ -424,7 +424,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
                     }
                   }
                 >
-                  Start Praying for Bill
+                  Pray
                 </Text>
               </View>
             </View>

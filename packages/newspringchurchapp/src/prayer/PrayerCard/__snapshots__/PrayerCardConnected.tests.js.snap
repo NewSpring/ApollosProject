@@ -507,7 +507,7 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
                     }
                   }
                 >
-                  Start Praying for undefined
+                  Pray
                 </Text>
               </View>
             </View>
