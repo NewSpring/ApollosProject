@@ -178,9 +178,7 @@ class PrayerMenu extends PureComponent {
             image={item.image}
             overlayColor={item.overlayColor}
             title={item.title}
-            selected={
-              this.state.prayerMenuItemSelected == item.key ? true : false
-            }
+            selected={this.state.prayerMenuItemSelected === item.key}
           />
         </TouchableScale>
       )}
