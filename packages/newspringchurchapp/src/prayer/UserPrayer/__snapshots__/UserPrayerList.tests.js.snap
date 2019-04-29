@@ -33,14 +33,18 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "marginBottom": 64,
-          "marginTop": 24,
-        }
-      }
-    />
+    <RCTScrollView>
+      <View>
+        <View
+          style={
+            Object {
+              "marginBottom": 64,
+              "marginTop": 24,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
   </View>
 </RCTSafeAreaView>
 `;
