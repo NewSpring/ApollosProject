@@ -10,22 +10,28 @@ const Square = styled(({ theme }) => ({
   height: 120,
 }))(View);
 
-const PrayerMenuCard = ({ image, link, overlayColor, title }) => (
-  <Square>
-    <TileImage
-      image={image}
-      isLoading
-      link={link}
-      overlayColor={overlayColor}
-      text={title}
-    />
-  </Square>
-);
+const PrayerMenuCard = ({ image, link, overlayColor, selected, title }) => {
+  // darken the overlay color if the tile is "selected"
+  const selectedOverlayColor = ['#1C683E', '#1C683E'];
+  const newOverlayColor = selected ? selectedOverlayColor : overlayColor;
+  return (
+    <Square>
+      <TileImage
+        image={image}
+        isLoading
+        link={link}
+        overlayColor={newOverlayColor}
+        text={title}
+      />
+    </Square>
+  );
+};
 
 PrayerMenuCard.propTypes = {
   image: PropTypes.string,
   link: PropTypes.string,
   overlayColor: PropTypes.arrayOf(PropTypes.string),
+  selected: PropTypes.bool,
   title: PropTypes.string,
 };
 
