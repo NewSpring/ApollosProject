@@ -1,7 +1,14 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  mutation {
+  mutation AddPrayer(
+    $campusID: String!
+    $categoryID: Int!
+    $text: String!
+    $firstName: String!
+    $lastName: String
+    $isAnonymous: Boolean
+  ) {
     addPublicPrayerRequest(
       CampusId: $campusID
       CategoryId: $categoryID
