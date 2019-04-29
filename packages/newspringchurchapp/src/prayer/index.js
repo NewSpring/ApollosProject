@@ -220,7 +220,14 @@ class PrayerMenu extends PureComponent {
         ) : null}
         {!this.state.showAddPrayerCard ? (
           <StyledContainer>
-            <NSIcon name={'arrow-up'} fill={this.props.tint} size={24} />
+            <NSIcon
+              onPress={() => {
+                this.setState({ showAddPrayerCard: true });
+              }}
+              name={'arrow-up'}
+              fill={this.props.tint}
+              size={24}
+            />
             <StyledButtonLink
               onPress={() => {
                 this.setState({ showAddPrayerCard: true });
