@@ -3,6 +3,7 @@ package com.newspringchurchapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.mybdesign.RNPassKit.RNPassKitPackage;
 import com.bugsnag.BugsnagReactNative;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -40,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPassKitPackage(),
             BugsnagReactNative.getPackage(),
             new RNGestureHandlerPackage(),
             new ReanimatedPackage(),
