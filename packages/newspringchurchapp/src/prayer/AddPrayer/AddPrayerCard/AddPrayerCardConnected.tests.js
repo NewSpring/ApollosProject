@@ -2,13 +2,13 @@ import React from 'react';
 
 import Providers from 'newspringchurchapp/src/Providers';
 import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
-import getProfilePic from '../../getProfilePic';
+import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import AddPrayerCardConnected from './AddPrayerCardConnected';
 
 const mocks = [
   {
     request: {
-      query: getProfilePic,
+      query: getUserProfile,
     },
     result: {
       data: {

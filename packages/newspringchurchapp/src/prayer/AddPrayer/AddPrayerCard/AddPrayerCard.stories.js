@@ -5,8 +5,10 @@ import AddPrayerCard from '.';
 
 storiesOf('prayer/AddPrayer/AddPrayerCard', module)
   .add('default', () => <AddPrayerCard />)
-  .add('imgSrc', () => (
-    <AddPrayerCard imgSrc={{ uri: 'https://picsum.photos/55/55?random' }} />
+  .add('avatarSource', () => (
+    <AddPrayerCard
+      avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
+    />
   ))
   .add('description', () => (
     <AddPrayerCard

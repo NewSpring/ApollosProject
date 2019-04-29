@@ -18,7 +18,7 @@ describe('The AddPrayerForm component', () => {
       <Providers>
         <AddPrayerForm
           navigation={jest.fn()}
-          imgSrc={{ uri: 'https://picsum.photos/55/55?random' }}
+          avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
         />
       </Providers>
     );

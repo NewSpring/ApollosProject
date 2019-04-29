@@ -1,20 +1,26 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
-import getProfilePic from '../../getProfilePic';
+import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import AddPrayerForm from './AddPrayerForm';
 
-const AddPrayerFormConnected = memo(({ ...props }) => (
-  <Query query={getProfilePic} fetchPolicy={'cache-and-network'}>
-    {({ data }) => (
-      <AddPrayerForm
-        imgSrc={get(data, 'currentUser.profile.photo', { uri: '' })}
-        {...props}
-      />
-    )}
-  </Query>
-));
+class AddPrayerFormConnected extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
 
-AddPrayerFormConnected.displayName = 'AddPrayerFormConnected';
+  render() {
+    return (
+      <Query query={getUserProfile} fetchPolicy={'cache-only'}>
+        {({ data }) => (
+          <AddPrayerForm
+            avatarSource={get(data, 'currentUser.profile.photo', { uri: null })}
+            {...this.props}
+          />
+        )}
+      </Query>
+    );
+  }
+}
 
 export default AddPrayerFormConnected;
