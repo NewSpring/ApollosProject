@@ -179,7 +179,7 @@ class PrayerMenu extends PureComponent {
         key: 'prayers',
       },
     ],
-    showAddPrayerCard: true,
+    prayerMenuItemSelected: 1,
   };
 
   tabRoute = (index) => () => (
@@ -195,7 +195,9 @@ class PrayerMenu extends PureComponent {
         <TouchableScale
           key={item.key}
           onPress={() => {
-            this.setState({ showAddPrayerCard: false });
+            this.setState({
+              prayerMenuItemSelected: item.key,
+            });
             props.jumpTo(item.key);
           }}
         >
@@ -203,6 +205,7 @@ class PrayerMenu extends PureComponent {
             image={item.image}
             overlayColor={item.overlayColor}
             title={item.title}
+            selected={this.state.prayerMenuItemSelected === item.key}
           />
         </TouchableScale>
       )}
