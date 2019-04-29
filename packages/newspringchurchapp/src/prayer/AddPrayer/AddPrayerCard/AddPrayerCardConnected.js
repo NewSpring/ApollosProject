@@ -5,7 +5,7 @@ import getProfilePic from '../../getProfilePic';
 import AddPrayerCard from './AddPrayerCard';
 
 const AddPrayerCardConnected = memo(({ ...props }) => (
-  <Query query={getProfilePic} fetchPolicy={'cache-and-network'}>
+  <Query query={getProfilePic} fetchPolicy={'cache-only'}>
     {({ data }) => (
       <AddPrayerCard
         imgSrc={get(data, 'currentUser.profile.photo', { uri: '' })}
