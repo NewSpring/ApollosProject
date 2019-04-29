@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -28,7 +27,7 @@ const PaddedFeedView = styled(({ theme }) => ({
  * This is where the component description lives
  * A FeedView wrapped in a query to pull content data.s
  */
-class GroupPrayerList extends PureComponent {
+class PrayerList extends PureComponent {
   /** Function for React Navigation to set information in the header. */
   static navigationOptions = ({ navigation }) => ({
     header: <ModalViewHeader onClose={() => navigation.popToTop()} />,
@@ -44,18 +43,15 @@ class GroupPrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = (item) => console.log('Prayer for: ', item);
+  handleOnPress = () => this.scrollToNextPrayer();
+
+  // This doesn't work. Just keeping it here for now
+  scrollToNextPrayer = () =>
+    this.scroller.scrollTo({ x: 0, y: 1000, animated: true });
 
   render() {
     const { navigation } = this.props;
     const list = navigation.getParam('list', '');
-    const {
-      currentUser: {
-        profile: { campus: { id: campusId = '' } = {} } = {},
-      } = {},
-    } = cache.readQuery({
-      query: getUserProfile,
-    });
 
     let query;
     let prayers;
@@ -70,11 +66,19 @@ class GroupPrayerList extends PureComponent {
         query = getPublicPrayerRequests;
         prayers = 'getPublicPrayerRequests';
         break;
-      case 'CampusPrayerList':
+      case 'CampusPrayerList': {
+        const {
+          currentUser: {
+            profile: { campus: { id: campusId = '' } = {} } = {},
+          } = {},
+        } = cache.readQuery({
+          query: getUserProfile,
+        });
         query = getPublicPrayerRequestsByCampus;
         prayers = 'getPublicPrayerRequestsByCampus';
         variables = { campusId };
         break;
+      }
       default:
         query = getPublicPrayerRequests;
         prayers = 'getPublicPrayerRequests';
@@ -89,6 +93,9 @@ class GroupPrayerList extends PureComponent {
         >
           {({ loading, error, data, refetch }) => (
             <PaddedFeedView
+              ref={(scroller) => {
+                this.scroller = scroller;
+              }}
               ListItemComponent={(item) => (
                 <PaddedView>
                   <PrayerCardConnected onPress={this.handleOnPress} {...item} />
@@ -107,6 +114,7 @@ class GroupPrayerList extends PureComponent {
                 ...prayer,
               }))}
               isLoading={loading}
+              scrollEnabled={false}
               error={error}
               refetch={refetch}
               onPressItem={this.handleOnPress}
@@ -118,4 +126,4 @@ class GroupPrayerList extends PureComponent {
   }
 }
 
-export default GroupPrayerList;
+export default PrayerList;
