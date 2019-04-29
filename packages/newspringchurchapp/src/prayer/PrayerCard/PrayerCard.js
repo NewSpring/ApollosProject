@@ -6,7 +6,6 @@ import ActionSheet from 'react-native-actionsheet';
 import {
   Avatar,
   BodyText,
-  Button,
   Card,
   CardContent,
   H3,
@@ -25,7 +24,8 @@ const StyledCard = styled(() => ({
 }))(Card);
 
 const EllipsisView = styled(({ theme }) => ({
-  paddingHorizontal: theme.sizing.baseUnit,
+  paddingTop: theme.sizing.baseUnit,
+  paddingHorizontal: theme.sizing.baseUnit * 2,
 }))(View);
 
 const GreyH4 = styled(({ theme }) => ({
@@ -39,6 +39,7 @@ const StyledCardContent = styled(() => ({
 
 const StyledBodyText = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
+  height: theme.sizing.baseUnit * 15,
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
@@ -47,7 +48,7 @@ class PrayerCard extends PureComponent {
   };
 
   render() {
-    const { imageSource, name, prayer, id, source, flagRequest } = this.props;
+    const { imageSource, name, text, id, source, flagRequest } = this.props;
     const cancelIndex = 1;
     const destructiveIndex = 0;
     const handleOnPress = (index) => {
@@ -78,12 +79,11 @@ class PrayerCard extends PureComponent {
           <Avatar source={imageSource} />
           <H3> Pray For {name}</H3>
           <H6>{source}</H6>
-          <StyledBodyText>{prayer}</StyledBodyText>
-          <Touchable onPress={() => {}}>
-            <ChannelLabel icon="information" label="How to Pray?" />
-          </Touchable>
+          <StyledBodyText>{text}</StyledBodyText>
           <PaddedView>
-            <Button onPress={() => {}} title={`Pray`} />
+            <Touchable onPress={() => {}}>
+              <ChannelLabel icon="information" label="How to Pray?" />
+            </Touchable>
           </PaddedView>
         </StyledCardContent>
       </StyledCard>
@@ -94,7 +94,7 @@ class PrayerCard extends PureComponent {
 PrayerCard.propTypes = {
   imageSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
-  prayer: PropTypes.string,
+  text: PropTypes.string,
   source: PropTypes.string,
   id: PropTypes.string,
   flagRequest: PropTypes.func,

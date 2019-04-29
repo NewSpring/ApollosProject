@@ -108,7 +108,7 @@ class PrayerList extends PureComponent {
               )}
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
-                prayer: prayer.text,
+                text: prayer.text,
                 source: prayer.campusId,
                 name: prayer.firstName,
                 ...prayer,

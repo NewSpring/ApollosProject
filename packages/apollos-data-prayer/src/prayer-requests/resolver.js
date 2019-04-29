@@ -5,7 +5,6 @@ export default {
     getPublicPrayerRequests: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
     getPublicPrayerRequestsByCampus: (root, { campusId }, { dataSources }) => {
-      console.log(campusId);
       const { id: parsedId } = parseGlobalId(campusId);
       return dataSources.PrayerRequest.getAllByCampus(parsedId);
     },
