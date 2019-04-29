@@ -495,14 +495,14 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNGestureHandler;
 		};
-		BF065B12227757BD0080037B /* PBXContainerItemProxy */ = {
+		BF0659F322773A9E0080037B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
-		BF065B15227757BD0080037B /* PBXContainerItemProxy */ = {
+		BF0659F822773A9E0080037B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
 			proxyType = 2;
@@ -1399,7 +1399,7 @@
 					ProjectRef = 10B0392307184C498573F1A2 /* RNFetchBlob.xcodeproj */;
 				},
 				{
-					ProductGroup = BF065B07227757BD0080037B /* Products */;
+					ProductGroup = BF0659B322773A810080037B /* Products */;
 					ProjectRef = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
 				},
 				{
@@ -1411,7 +1411,7 @@
 					ProjectRef = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
 				},
 				{
-					ProductGroup = BF065B09227757BD0080037B /* Products */;
+					ProductGroup = BF0659B122773A810080037B /* Products */;
 					ProjectRef = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
 				},
 				{
