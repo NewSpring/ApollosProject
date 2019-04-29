@@ -54,7 +54,6 @@
 		62BCE95D7F6B4F37B3CB4265 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605AEFB6B1BB4611BDCFE95C /* libRNImagePicker.a */; };
 		68D1351E80AA4A2C96288FD9 /* Inter-UI-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC21254B449443F99016EBFD /* Inter-UI-Black.otf */; };
 		6B8201D468DC4660B876A359 /* Colfax-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 530C79B9A92C48AE834DCFB9 /* Colfax-BoldItalic.otf */; };
-		6CEF4C0F8E854B869CB1B9DA /* libBugsnagReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113D34DA374943C8B9FA7F0F /* libBugsnagReactNative.a */; };
 		6FFC53D62D7D482A9A92B721 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67356E00D116467DA58DF3CC /* libRNSVG-tvOS.a */; };
 		7FBC6BC3CE8D48298F9850A9 /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */; };
 		80E20D1B9CC74EB4A9A4CE7B /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0174E356BAEC413288BF654B /* libRNFetchBlob.a */; };
@@ -481,13 +480,6 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
-		BF0659B922773A9E0080037B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27DC3A20D882484E9B7A3154 /* BugsnagReactNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8AD256131D6DE5F600C7D842;
-			remoteInfo = BugsnagReactNative;
-		};
 		BF0659F122773A9E0080037B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
@@ -570,7 +562,6 @@
 		0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
 		0F155E84A5784CBE8D95A974 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		10B0392307184C498573F1A2 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
-		113D34DA374943C8B9FA7F0F /* libBugsnagReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBugsnagReactNative.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		1398ECED9AE14FD19B92232D /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -585,7 +576,6 @@
 		1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		2130E622CDAD43DF896EFF80 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		265872E29E0143779BE0915E /* Colfax-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Colfax-Medium.otf"; path = "../assets/fonts/Colfax-Medium.otf"; sourceTree = "<group>"; };
-		27DC3A20D882484E9B7A3154 /* BugsnagReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BugsnagReactNative.xcodeproj; path = "../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* newspringchurchapp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "newspringchurchapp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* newspringchurchapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "newspringchurchapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -695,7 +685,6 @@
 				82A2FF1E6E114D3D962D533D /* libRNPassKit.a in Frameworks */,
 				8F4E1AB900E746DB86031C3D /* libRNReanimated.a in Frameworks */,
 				2635341B4C8C4C2C901DC3DF /* libRNGestureHandler.a in Frameworks */,
-				6CEF4C0F8E854B869CB1B9DA /* libBugsnagReactNative.a in Frameworks */,
 				E54D8EB8C19D48DCBF241465 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,7 +919,6 @@
 				3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */,
 				6B83F63C4DE14443BC6C34CF /* libRNReanimated.a */,
 				522D152631A649D498E202A1 /* libRNGestureHandler.a */,
-				113D34DA374943C8B9FA7F0F /* libBugsnagReactNative.a */,
 				4CC11F2AE5474E99B417D60D /* libRNGestureHandler-tvOS.a */,
 			);
 			name = "Recovered References";
@@ -1096,7 +1084,6 @@
 				D3BA7667091546469A730845 /* RNPassKit.xcodeproj */,
 				3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */,
 				BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */,
-				27DC3A20D882484E9B7A3154 /* BugsnagReactNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1159,14 +1146,6 @@
 			children = (
 				BF0659F222773A9E0080037B /* libRNGestureHandler.a */,
 				BF0659F422773A9E0080037B /* libRNGestureHandler-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF0659B522773A810080037B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF0659BA22773A9E0080037B /* libBugsnagReactNative.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1305,10 +1284,6 @@
 				{
 					ProductGroup = BF08F44622429D0700FFB1DC /* Products */;
 					ProjectRef = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
-				},
-				{
-					ProductGroup = BF0659B522773A810080037B /* Products */;
-					ProjectRef = 27DC3A20D882484E9B7A3154 /* BugsnagReactNative.xcodeproj */;
 				},
 				{
 					ProductGroup = 79CEBFD5223011FE00D8F685 /* Products */;
@@ -1820,13 +1795,6 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BF0659BA22773A9E0080037B /* libBugsnagReactNative.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libBugsnagReactNative.a;
-			remoteRef = BF0659B922773A9E0080037B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		BF0659F222773A9E0080037B /* libRNGestureHandler.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -2069,7 +2037,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = newspringchurchappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2118,7 +2085,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = newspringchurchappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2169,7 +2135,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = newspringchurchapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2211,7 +2176,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = newspringchurchapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2259,7 +2223,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "newspringchurchapp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2316,7 +2279,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "newspringchurchapp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2372,7 +2334,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "newspringchurchapp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2428,7 +2389,6 @@
 					"$(SRCROOT)/../node_modules/react-native-passkit-wallet/ios/RNPassKit",
 					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "newspringchurchapp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
