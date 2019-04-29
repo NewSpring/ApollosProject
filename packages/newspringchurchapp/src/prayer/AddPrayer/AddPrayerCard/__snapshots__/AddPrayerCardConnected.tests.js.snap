@@ -1,0 +1,314 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AddPrayerCardConnected 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 16,
+          "marginHorizontal": 16,
+          "marginVertical": 12,
+          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 1,
+          "shadowRadius": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "aspectRatio": undefined,
+            "borderRadius": 16,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 40,
+                "height": 80,
+                "justifyContent": "flex-end",
+                "marginBottom": 20,
+                "marginRight": 20,
+                "overflow": "hidden",
+                "width": 80,
+              }
+            }
+            themeSize={80}
+          >
+            <RNSVGSvgView
+              align="xMidYMid"
+              bbHeight={80}
+              bbWidth={80}
+              height={80}
+              meetOrSlice={0}
+              minX={0}
+              minY={0}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderWidth": 0,
+                  },
+                  undefined,
+                  null,
+                  Object {
+                    "flex": 0,
+                    "height": 80,
+                    "width": 80,
+                  },
+                ]
+              }
+              vbHeight={24}
+              vbWidth={24}
+              width={80}
+            >
+              <RNSVGGroup
+                fill={
+                  Array [
+                    0,
+                    4278190080,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                font={Object {}}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={
+                  Array [
+                    "fill",
+                    "fillOpacity",
+                    "fillRule",
+                    "stroke",
+                    "strokeWidth",
+                    "strokeOpacity",
+                    "strokeDasharray",
+                    "strokeDashoffset",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                    "strokeMiterlimit",
+                  ]
+                }
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth={1}
+                x={0}
+                y={0}
+              >
+                <RNSVGPath
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-3.33 8.33C8.67 8.5 10.2 7 12 7s3.33 1.5 3.33 3.33v.84c0 1.84-1.53 3.33-3.33 3.33S8.67 13 8.67 11.17v-.84zm3.33 10c-2.03 0-3.9-.73-5.33-1.93.7-1.32 2.07-2.23 3.66-2.23h3.34c1.6 0 2.97.9 3.66 2.22-1.44 1.2-3.3 1.92-5.33 1.92z"
+                  fill={
+                    Array [
+                      0,
+                      4292730333,
+                    ]
+                  }
+                  fillOpacity={1}
+                  fillRule={1}
+                  matrix={
+                    Array [
+                      1,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                    ]
+                  }
+                  opacity={1}
+                  originX={0}
+                  originY={0}
+                  propList={
+                    Array [
+                      "fill",
+                    ]
+                  }
+                  rotation={0}
+                  scaleX={1}
+                  scaleY={1}
+                  skewX={0}
+                  skewY={0}
+                  stroke={null}
+                  strokeDasharray={null}
+                  strokeDashoffset={null}
+                  strokeLinecap={0}
+                  strokeLinejoin={0}
+                  strokeMiterlimit={4}
+                  strokeOpacity={1}
+                  strokeWidth={1}
+                  x={0}
+                  y={0}
+                />
+              </RNSVGGroup>
+            </RNSVGSvgView>
+          </View>
+          <View
+            style={
+              Object {
+                "marginBottom": 32,
+                "marginTop": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Black",
+                  "fontSize": 24,
+                  "lineHeight": 27.6,
+                }
+              }
+            >
+              Ask for prayer
+            </Text>
+          </View>
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+              }
+            }
+          >
+            There aren't currently any prayers in your community. Send them one now.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 16,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              bordered={false}
+              disabled={false}
+              pill={true}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
+                  "borderRadius": 48,
+                  "borderWidth": 2,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "paddingHorizontal": 16,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 23.04,
+                  }
+                }
+              >
+                Add Prayer
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

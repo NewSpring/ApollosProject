@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Dimensions } from 'react-native';
+import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 import {
   H3,
@@ -8,8 +9,12 @@ import {
   TouchableScale,
   PaddedView,
   BodyText,
+  ButtonLink,
+  withTheme,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
+import NSIcon from '../ui/NSIcon';
+import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayer';
 import PrayerPreviewCard from './PrayerPreviewCard';
@@ -102,26 +107,42 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  height: Dimensions.get('window').height * 0.5,
   marginTop: theme.sizing.baseUnit * 2,
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: '100%',
+  height: Dimensions.get('window').height * 0.45,
   justifyContent: 'flex-end',
 }))(View);
 
-const Tab = ({ index }) => {
+const StyledButtonLink = styled(({ theme }) => ({
+  textAlign: 'center',
+  color: theme.colors.text.tertiary,
+}))(ButtonLink);
+
+const StyledContainer = styled(({ theme }) => ({
+  alignItems: 'center',
+  marginTop: theme.sizing.baseUnit * 3,
+  marginBottom: theme.sizing.baseUnit * 2,
+}))(View);
+
+const StyledAddPrayerContainer = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 6,
+}))(View);
+
+const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
   return (
     <StyledPaddedView>
       <BodyText>{data.description}</BodyText>
-      <StyledView>{data.component}</StyledView>
+      {!showAddPrayerCard ? <StyledView>{data.component}</StyledView> : null}
     </StyledPaddedView>
   );
 };
+
 Tab.propTypes = {
   index: PropTypes.number,
+  showAddPrayerCard: PropTypes.bool,
 };
 
 class PrayerMenu extends PureComponent {
@@ -129,6 +150,10 @@ class PrayerMenu extends PureComponent {
     title: 'Prayer',
     header: null,
   });
+
+  static propTypes = {
+    tint: PropTypes.string,
+  };
 
   state = {
     index: 0,
@@ -157,7 +182,9 @@ class PrayerMenu extends PureComponent {
     prayerMenuItemSelected: 1,
   };
 
-  tabRoute = (index) => () => <Tab index={index} />;
+  tabRoute = (index) => () => (
+    <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
+  );
 
   handleIndexChange = (index) => this.setState({ index });
 
@@ -189,6 +216,30 @@ class PrayerMenu extends PureComponent {
   render() {
     return (
       <>
+        {this.state.showAddPrayerCard ? (
+          <StyledAddPrayerContainer>
+            <AddPrayerCardConnected {...this.props} />
+          </StyledAddPrayerContainer>
+        ) : null}
+        {!this.state.showAddPrayerCard ? (
+          <StyledContainer>
+            <NSIcon
+              onPress={() => {
+                this.setState({ showAddPrayerCard: true });
+              }}
+              name={'arrow-up'}
+              fill={this.props.tint}
+              size={24}
+            />
+            <StyledButtonLink
+              onPress={() => {
+                this.setState({ showAddPrayerCard: true });
+              }}
+            >
+              Add your prayer
+            </StyledButtonLink>
+          </StyledContainer>
+        ) : null}
         <RowHeader>
           <H3>Pray for Others</H3>
         </RowHeader>
@@ -213,4 +264,10 @@ class PrayerMenu extends PureComponent {
   }
 }
 
-export default PrayerMenu;
+const enhance = compose(
+  withTheme(({ theme, tint }) => ({
+    tint: tint || theme.colors.text.tertiary,
+  }))
+);
+
+export default enhance(PrayerMenu);

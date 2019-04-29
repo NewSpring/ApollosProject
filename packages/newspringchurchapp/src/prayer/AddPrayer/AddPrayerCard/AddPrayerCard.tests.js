@@ -16,7 +16,9 @@ describe('The AddPrayerCard component', () => {
   it('should render a custom avatar', () => {
     const tree = renderer.create(
       <Providers>
-        <AddPrayerCard imgSrc={{ uri: 'https://picsum.photos/55/55?random' }} />
+        <AddPrayerCard
+          avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
+        />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
