@@ -157,11 +157,11 @@ class PrayerMenu extends PureComponent {
     prayerMenuItemSelected: 1,
   };
 
-  tabRoute = index => () => <Tab index={index} />;
+  tabRoute = (index) => () => <Tab index={index} />;
 
-  handleIndexChange = index => this.setState({ index });
+  handleIndexChange = (index) => this.setState({ index });
 
-  renderTabBar = props => (
+  renderTabBar = (props) => (
     <StyledFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
