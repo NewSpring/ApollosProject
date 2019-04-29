@@ -105,7 +105,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                   "height": 80,
                   "justifyContent": "flex-end",
                   "marginBottom": 20,
-                  "marginRight": 0,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }
@@ -917,7 +917,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   "height": 80,
                   "justifyContent": "flex-end",
                   "marginBottom": 20,
-                  "marginRight": 0,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }
@@ -1642,7 +1642,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   "height": 80,
                   "justifyContent": "flex-end",
                   "marginBottom": 20,
-                  "marginRight": 0,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }

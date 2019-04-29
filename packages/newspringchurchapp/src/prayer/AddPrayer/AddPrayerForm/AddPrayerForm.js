@@ -72,10 +72,10 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
         <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
           <ShrinkingView behavior={'padding'}>
             <HeaderView>
+              {/* TODO: margin will be fixed pending core #667 */}
               <Avatar
                 source={values.anonymous ? null : imgSrc}
                 size={'medium'}
-                containerStyle={{ marginRight: 0 }}
               />
               <TitleView>
                 <H3>{title}</H3>
