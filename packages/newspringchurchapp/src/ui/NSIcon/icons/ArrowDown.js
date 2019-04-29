@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Svg, { Line, Polyline } from "react-native-svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Svg, { Line, Polyline } from 'react-native-svg';
 
-import makeIcon from "./makeIcon";
+import makeIcon from './makeIcon';
 
 const Icon = makeIcon(({ size = 32, fill, ...otherProps } = {}) => (
   <Svg width={size} height={size} viewBox="0 0 24 24" {...otherProps}>
@@ -18,7 +18,7 @@ const Icon = makeIcon(({ size = 32, fill, ...otherProps } = {}) => (
     <Polyline
       class="a"
       points="8.25,19.497 12,23.247 15.75,19.497"
-      fill={"none"}
+      fill={'none'}
       stroke={fill}
       strokeWidth={2}
     />
@@ -27,7 +27,7 @@ const Icon = makeIcon(({ size = 32, fill, ...otherProps } = {}) => (
 
 Icon.propTypes = {
   size: PropTypes.number,
-  fill: PropTypes.string
+  fill: PropTypes.string,
 };
 
 export default Icon;
