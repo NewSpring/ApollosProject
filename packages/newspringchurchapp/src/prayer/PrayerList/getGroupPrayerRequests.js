@@ -9,6 +9,7 @@ export default gql`
       isAnonymous
       text
       flagCount
+      campusId
     }
   }
 `;

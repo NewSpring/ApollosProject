@@ -39,7 +39,8 @@ const StyledCardContent = styled(() => ({
 
 const StyledBodyText = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
-  height: theme.sizing.baseUnit * 15,
+  height: theme.sizing.baseUnit * 16,
+  textAlign: 'center',
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
@@ -79,7 +80,9 @@ class PrayerCard extends PureComponent {
           <Avatar source={imageSource} />
           <H3> Pray For {name}</H3>
           <H6>{source}</H6>
-          <StyledBodyText>{text}</StyledBodyText>
+          <PaddedView>
+            <StyledBodyText>{text}</StyledBodyText>
+          </PaddedView>
           <PaddedView>
             <Touchable onPress={() => {}}>
               <ChannelLabel icon="information" label="How to Pray?" />
