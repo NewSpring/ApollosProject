@@ -12,7 +12,6 @@ import {
   FlexedView,
   PaddedView,
   H3,
-  H5,
   Avatar,
 } from '@apollosproject/ui-kit';
 
@@ -49,20 +48,10 @@ const BottomView = styled({
 const SwitchContainer = styled({
   width: '70%',
   alignSelf: 'center',
-  flexDirection: 'row',
   justifyContent: 'center',
 })(PaddedView);
 
-const SwitchLabel = styled(({ theme }) => ({
-  color: theme.colors.primary,
-}))(H5);
-
-const SwitchLabelContainer = styled(({ theme }) => ({
-  justifyContent: 'center',
-  marginLeft: theme.sizing.baseUnit,
-}))(View);
-
-const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
+const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
   <Formik
     initialValues={{ prayer: '', anonymous: false }}
     onSubmit={(values) => console.log(values)}
@@ -74,15 +63,13 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
             <HeaderView>
               {/* TODO: margin will be fixed pending core #667 */}
               <Avatar
-                source={values.anonymous ? null : imgSrc}
+                source={values.anonymous ? null : avatarSource}
                 size={'medium'}
               />
               <TitleView>
                 <H3>{title}</H3>
               </TitleView>
             </HeaderView>
-            {/* TODO: add underline={false} prop to TextInput, 
-        pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
             <FlexedView>
               <PaddedView>
                 <StyledTextInput
@@ -92,6 +79,7 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
                   onChangeText={handleChange('prayer')}
                   onBlur={handleBlur('prayer')}
                   value={values.prayer}
+                  underline={false}
                 />
               </PaddedView>
             </FlexedView>
@@ -100,10 +88,8 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
                 <Switch
                   value={values.anonymous}
                   onValueChange={handleChange('anonymous')}
+                  label={'Share Anonymously'}
                 />
-                <SwitchLabelContainer>
-                  <SwitchLabel>Share Anonymously</SwitchLabel>
-                </SwitchLabelContainer>
               </SwitchContainer>
               <StyledButton title={btnLabel} onPress={handleSubmit} />
             </BottomView>
@@ -115,7 +101,7 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
 ));
 
 AddPrayerForm.propTypes = {
-  imgSrc: PropTypes.shape({
+  avatarSource: PropTypes.shape({
     uri: PropTypes.string,
   }),
   title: PropTypes.string,

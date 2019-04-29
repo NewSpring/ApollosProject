@@ -1,4 +1,3 @@
-import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
 import { AddPrayerFormConnected } from '../../prayer/AddPrayer/AddPrayerForm';
@@ -7,11 +6,7 @@ import Prayer from './Prayer';
 const PrayerNavigator = createStackNavigator(
   {
     Prayer,
-    AddPrayerFormConnected: {
-      // TODO: remove the lint disable once react-navigation can work well with memo
-      screen: () => <AddPrayerFormConnected />, // eslint-disable-line react/display-name
-      navigationOptions: { header: null },
-    },
+    AddPrayerFormConnected,
   },
   {
     initialRouteName: 'Prayer',

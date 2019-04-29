@@ -8,7 +8,7 @@ const AddPrayerCardConnected = memo(({ ...props }) => (
   <Query query={getProfilePic} fetchPolicy={'cache-only'}>
     {({ data }) => (
       <AddPrayerCard
-        imgSrc={get(data, 'currentUser.profile.photo', { uri: '' })}
+        avatarSource={get(data, 'currentUser.profile.photo', { uri: null })}
         {...props}
       />
     )}

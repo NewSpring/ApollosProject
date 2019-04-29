@@ -325,6 +325,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -435,7 +436,6 @@ exports[`The AddPrayerForm component should render 1`] = `
               style={
                 Object {
                   "alignSelf": "center",
-                  "flexDirection": "row",
                   "justifyContent": "center",
                   "paddingHorizontal": 16,
                   "paddingVertical": 16,
@@ -508,7 +508,9 @@ exports[`The AddPrayerForm component should render 1`] = `
                               "paddingVertical": 4,
                             }
                           }
-                        />
+                        >
+                          Share Anonymously
+                        </Text>
                       </View>
                     </View>
                     <View
@@ -538,27 +540,6 @@ exports[`The AddPrayerForm component should render 1`] = `
                     </View>
                   </View>
                 </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "justifyContent": "center",
-                    "marginLeft": 16,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "#6bac43",
-                      "fontFamily": "Colfax-Medium",
-                      "fontSize": 14,
-                      "lineHeight": 20.16,
-                    }
-                  }
-                >
-                  Share Anonymously
-                </Text>
               </View>
             </View>
             <View
@@ -1050,6 +1031,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1160,7 +1142,6 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
               style={
                 Object {
                   "alignSelf": "center",
-                  "flexDirection": "row",
                   "justifyContent": "center",
                   "paddingHorizontal": 16,
                   "paddingVertical": 16,
@@ -1233,7 +1214,9 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                               "paddingVertical": 4,
                             }
                           }
-                        />
+                        >
+                          Share Anonymously
+                        </Text>
                       </View>
                     </View>
                     <View
@@ -1263,27 +1246,6 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                     </View>
                   </View>
                 </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "justifyContent": "center",
-                    "marginLeft": 16,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "#6bac43",
-                      "fontFamily": "Colfax-Medium",
-                      "fontSize": 14,
-                      "lineHeight": 20.16,
-                    }
-                  }
-                >
-                  Share Anonymously
-                </Text>
               </View>
             </View>
             <View
@@ -1862,6 +1824,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1972,7 +1935,6 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
               style={
                 Object {
                   "alignSelf": "center",
-                  "flexDirection": "row",
                   "justifyContent": "center",
                   "paddingHorizontal": 16,
                   "paddingVertical": 16,
@@ -2045,7 +2007,9 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                               "paddingVertical": 4,
                             }
                           }
-                        />
+                        >
+                          Share Anonymously
+                        </Text>
                       </View>
                     </View>
                     <View
@@ -2075,27 +2039,6 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                     </View>
                   </View>
                 </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "justifyContent": "center",
-                    "marginLeft": 16,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "#6bac43",
-                      "fontFamily": "Colfax-Medium",
-                      "fontSize": 14,
-                      "lineHeight": 20.16,
-                    }
-                  }
-                >
-                  Share Anonymously
-                </Text>
               </View>
             </View>
             <View

@@ -21,11 +21,11 @@ const TitleView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit * 2,
 }))(View);
 
-const AddPrayerCard = memo(({ imgSrc, title, description, ...props }) => (
+const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <Card>
     <StyledCardContent>
       {/* TODO: margin will be fixed pending core #667 */}
-      <Avatar source={imgSrc} size={'medium'} />
+      <Avatar source={avatarSource} size={'medium'} />
       <TitleView>
         <H3>{title}</H3>
       </TitleView>
@@ -41,7 +41,7 @@ const AddPrayerCard = memo(({ imgSrc, title, description, ...props }) => (
 ));
 
 AddPrayerCard.propTypes = {
-  imgSrc: PropTypes.shape({
+  avatarSource: PropTypes.shape({
     uri: PropTypes.string,
   }),
   title: PropTypes.string,
