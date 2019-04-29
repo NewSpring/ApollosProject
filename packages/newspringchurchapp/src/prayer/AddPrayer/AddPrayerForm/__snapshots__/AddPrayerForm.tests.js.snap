@@ -325,6 +325,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1050,6 +1051,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1862,6 +1864,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />

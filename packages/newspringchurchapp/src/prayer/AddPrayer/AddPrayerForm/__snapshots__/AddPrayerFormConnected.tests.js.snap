@@ -325,6 +325,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
