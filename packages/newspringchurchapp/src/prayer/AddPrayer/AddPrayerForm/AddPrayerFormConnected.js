@@ -1,7 +1,7 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
-import getProfilePic from '../../getProfilePic';
+import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import AddPrayerForm from './AddPrayerForm';
 
 class AddPrayerFormConnected extends React.Component {
@@ -11,7 +11,7 @@ class AddPrayerFormConnected extends React.Component {
 
   render() {
     return (
-      <Query query={getProfilePic} fetchPolicy={'cache-only'}>
+      <Query query={getUserProfile} fetchPolicy={'cache-only'}>
         {({ data }) => (
           <AddPrayerForm
             avatarSource={get(data, 'currentUser.profile.photo', { uri: null })}
