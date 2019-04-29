@@ -81,8 +81,6 @@ const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
                 <H3>{title}</H3>
               </TitleView>
             </HeaderView>
-            {/* TODO: add underline={false} prop to TextInput, 
-        pending https://github.com/ApollosProject/apollos-prototype/issues/629 */}
             <FlexedView>
               <PaddedView>
                 <StyledTextInput
@@ -92,6 +90,7 @@ const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
                   onChangeText={handleChange('prayer')}
                   onBlur={handleBlur('prayer')}
                   value={values.prayer}
+                  underline={false}
                 />
               </PaddedView>
             </FlexedView>
