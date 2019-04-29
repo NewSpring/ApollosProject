@@ -21,8 +21,13 @@ import getPublicPrayerRequests from './getPublicPrayerRequests';
 import getPublicPrayerRequestsByCampus from './getCampusPrayerRequests';
 
 const PaddedFeedView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit * 7,
+  paddingTop: theme.sizing.baseUnit * 5,
 }))(FeedView);
+
+const DividerView = styled(({ theme }) => ({
+  alignItems: 'center',
+  marginBottom: theme.sizing.baseUnit,
+}))(FlexedView);
 /**
  * This is where the component description lives
  * A FeedView wrapped in a query to pull content data.s
@@ -102,9 +107,9 @@ class PrayerList extends PureComponent {
                 </PaddedView>
               )}
               ItemSeparatorComponent={() => (
-                <FlexedView>
-                  <H6>Press down on heart to pray</H6>
-                </FlexedView>
+                <DividerView>
+                  <H6>Press down on card to pray</H6>
+                </DividerView>
               )}
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
