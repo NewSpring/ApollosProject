@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -101,7 +100,7 @@ class GroupPrayerList extends PureComponent {
               )}
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
-                prayer: prayer.text,
+                text: prayer.text,
                 source: prayer.campusId,
                 name: prayer.firstName,
                 ...prayer,
