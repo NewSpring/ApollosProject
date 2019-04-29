@@ -8,7 +8,7 @@ const AddPrayerFormConnected = memo(({ ...props }) => (
   <Query query={getProfilePic} fetchPolicy={'cache-only'}>
     {({ data }) => (
       <AddPrayerForm
-        imgSrc={get(data, 'currentUser.profile.photo', { uri: '' })}
+        avatarSource={get(data, 'currentUser.profile.photo', { uri: null })}
         {...props}
       />
     )}

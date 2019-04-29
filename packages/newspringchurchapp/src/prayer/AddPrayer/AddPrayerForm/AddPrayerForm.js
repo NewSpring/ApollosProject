@@ -62,7 +62,7 @@ const SwitchLabelContainer = styled(({ theme }) => ({
   marginLeft: theme.sizing.baseUnit,
 }))(View);
 
-const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
+const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
   <Formik
     initialValues={{ prayer: '', anonymous: false }}
     onSubmit={(values) => console.log(values)}
@@ -74,7 +74,7 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
             <HeaderView>
               {/* TODO: margin will be fixed pending core #667 */}
               <Avatar
-                source={values.anonymous ? null : imgSrc}
+                source={values.anonymous ? null : avatarSource}
                 size={'medium'}
               />
               <TitleView>
@@ -115,7 +115,7 @@ const AddPrayerForm = memo(({ imgSrc, title, btnLabel, ...props }) => (
 ));
 
 AddPrayerForm.propTypes = {
-  imgSrc: PropTypes.shape({
+  avatarSource: PropTypes.shape({
     uri: PropTypes.string,
   }),
   title: PropTypes.string,
