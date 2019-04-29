@@ -12,7 +12,6 @@ import {
   FlexedView,
   PaddedView,
   H3,
-  H5,
   Avatar,
 } from '@apollosproject/ui-kit';
 
@@ -49,18 +48,8 @@ const BottomView = styled({
 const SwitchContainer = styled({
   width: '70%',
   alignSelf: 'center',
-  flexDirection: 'row',
   justifyContent: 'center',
 })(PaddedView);
-
-const SwitchLabel = styled(({ theme }) => ({
-  color: theme.colors.primary,
-}))(H5);
-
-const SwitchLabelContainer = styled(({ theme }) => ({
-  justifyContent: 'center',
-  marginLeft: theme.sizing.baseUnit,
-}))(View);
 
 const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
   <Formik
@@ -99,10 +88,8 @@ const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
                 <Switch
                   value={values.anonymous}
                   onValueChange={handleChange('anonymous')}
+                  label={'Share Anonymously'}
                 />
-                <SwitchLabelContainer>
-                  <SwitchLabel>Share Anonymously</SwitchLabel>
-                </SwitchLabelContainer>
               </SwitchContainer>
               <StyledButton title={btnLabel} onPress={handleSubmit} />
             </BottomView>
