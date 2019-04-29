@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import { View, Dimensions } from 'react-native';
-import { compose } from 'recompose';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from "react";
+import { View, Dimensions } from "react-native";
+import { compose } from "recompose";
+import PropTypes from "prop-types";
 import {
   H3,
   HorizontalTileFeed,
@@ -10,124 +10,124 @@ import {
   PaddedView,
   BodyText,
   ButtonLink,
-  withTheme,
-} from '@apollosproject/ui-kit';
-import { TabView, SceneMap } from 'react-native-tab-view';
-import NSIcon from '../ui/NSIcon';
-import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
-import PrayerMenuCard from './PrayerMenuCard';
-import UserPrayerList from './UserPrayer';
-import PrayerPreviewCard from './PrayerPreviewCard';
+  withTheme
+} from "@apollosproject/ui-kit";
+import { TabView, SceneMap } from "react-native-tab-view";
+import NSIcon from "../ui/NSIcon";
+import { AddPrayerCardConnected } from "./AddPrayer/AddPrayerCard";
+import PrayerMenuCard from "./PrayerMenuCard";
+import UserPrayerList from "./UserPrayer";
+import PrayerPreviewCard from "./PrayerPreviewCard";
 
 const RowHeader = styled(() => ({
-  zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
+  zIndex: 2 // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
 }))(PaddedView);
 
 const loadingStateObject = {
   node: {
-    id: 'fakeId0',
-    title: '',
-    isLoading: true,
-  },
+    id: "fakeId0",
+    title: "",
+    isLoading: true
+  }
 };
 
 // TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = () => (
   <PrayerPreviewCard
     imageSource={{
-      uri: 'https://fillmurray.com/400/600',
+      uri: "https://fillmurray.com/400/600"
     }}
-    name={'Bill'}
-    overlayColor={['#FFF', '#FFF']}
+    name={"Bill"}
+    overlayColor={["#FFF", "#FFF"]}
     prayer={
-      'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+      "I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?"
     }
-    source={'Anderson'}
+    source={"Anderson"}
   />
 );
 
 // TODO: remove once this is pulling data
 const StyledPrayerPreviewCardComponent = styled({
-  position: 'absolute',
+  position: "absolute",
   bottom: 0,
   left: 0,
-  right: 0,
+  right: 0
 })(PrayerPreviewCardComponent);
 
 // TODO: this needs to be dynamic at some point
 const prayerMenuData = [
   {
-    id: '1',
-    description: 'Pray for the prayers you haved saved',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Saved Prayers',
-    key: 'saved',
+    id: "1",
+    description: "Pray for the prayers you haved saved",
+    image: "https://picsum.photos/600/400/?random",
+    overlayColor: ["#6BAC43", "#6BAC43"],
+    title: "My Saved Prayers",
+    key: "saved"
   },
   {
-    id: '2',
-    description: 'Pray for the people in our church',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Church',
-    key: 'church',
-    component: <StyledPrayerPreviewCardComponent />,
+    id: "2",
+    description: "Pray for the people in our church",
+    image: "https://picsum.photos/600/400/?random",
+    overlayColor: ["#6BAC43", "#6BAC43"],
+    title: "My Church",
+    key: "church",
+    component: <StyledPrayerPreviewCardComponent />
   },
   {
-    id: '3',
-    description: 'Pray for the people at your campus',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Campus',
-    key: 'campus',
-    component: <PrayerPreviewCardComponent />,
+    id: "3",
+    description: "Pray for the people at your campus",
+    image: "https://picsum.photos/600/400/?random",
+    overlayColor: ["#6BAC43", "#6BAC43"],
+    title: "My Campus",
+    key: "campus",
+    component: <PrayerPreviewCardComponent />
   },
   {
-    id: '4',
-    description: 'Pray for those people in your community',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Community',
-    key: 'community',
-    component: <PrayerPreviewCardComponent />,
+    id: "4",
+    description: "Pray for those people in your community",
+    image: "https://picsum.photos/600/400/?random",
+    overlayColor: ["#6BAC43", "#6BAC43"],
+    title: "My Community",
+    key: "community",
+    component: <PrayerPreviewCardComponent />
   },
   {
-    id: '5',
-    description: 'Revisit your prayers',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Prayers',
-    key: 'prayers',
-    component: <UserPrayerList />,
-  },
+    id: "5",
+    description: "Revisit your prayers",
+    image: "https://picsum.photos/600/400/?random",
+    overlayColor: ["#6BAC43", "#6BAC43"],
+    title: "My Prayers",
+    key: "prayers",
+    component: <UserPrayerList />
+  }
 ];
 
 const StyledFeed = styled(({ theme }) => ({
-  paddingLeft: theme.sizing.baseUnit,
+  paddingLeft: theme.sizing.baseUnit
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit * 2
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: Dimensions.get('window').height * 0.45,
-  justifyContent: 'flex-end',
+  height: Dimensions.get("window").height * 0.45,
+  justifyContent: "flex-end"
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
-  textAlign: 'center',
-  color: theme.colors.text.tertiary,
+  textAlign: "center",
+  color: theme.colors.text.tertiary
 }))(ButtonLink);
 
 const StyledContainer = styled(({ theme }) => ({
-  alignItems: 'center',
+  alignItems: "center",
   marginTop: theme.sizing.baseUnit * 3,
-  marginBottom: theme.sizing.baseUnit * 2,
+  marginBottom: theme.sizing.baseUnit * 2
 }))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 6,
+  marginTop: theme.sizing.baseUnit * 6
 }))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
@@ -142,53 +142,53 @@ const Tab = ({ index, showAddPrayerCard }) => {
 
 Tab.propTypes = {
   index: PropTypes.number,
-  showAddPrayerCard: PropTypes.bool,
+  showAddPrayerCard: PropTypes.bool
 };
 
 class PrayerMenu extends PureComponent {
   static navigationOptions = () => ({
-    title: 'Prayer',
-    header: null,
+    title: "Prayer",
+    header: null
   });
 
   static propTypes = {
-    tint: PropTypes.string,
+    tint: PropTypes.string
   };
 
   state = {
     index: 0,
     routes: [
       {
-        title: 'My Saved Prayers',
-        key: 'saved',
+        title: "My Saved Prayers",
+        key: "saved"
       },
       {
-        title: 'My Church',
-        key: 'church',
+        title: "My Church",
+        key: "church"
       },
       {
-        title: 'My Campus',
-        key: 'campus',
+        title: "My Campus",
+        key: "campus"
       },
       {
-        title: 'My Community',
-        key: 'community',
+        title: "My Community",
+        key: "community"
       },
       {
-        title: 'My Prayers',
-        key: 'prayers',
-      },
+        title: "My Prayers",
+        key: "prayers"
+      }
     ],
-    showAddPrayerCard: true,
+    showAddPrayerCard: true
   };
 
-  tabRoute = (index) => () => (
+  tabRoute = index => () => (
     <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
   );
 
-  handleIndexChange = (index) => this.setState({ index });
+  handleIndexChange = index => this.setState({ index });
 
-  renderTabBar = (props) => (
+  renderTabBar = props => (
     <StyledFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
@@ -220,7 +220,7 @@ class PrayerMenu extends PureComponent {
         ) : null}
         {!this.state.showAddPrayerCard ? (
           <StyledContainer>
-            <NSIcon name={'down-arrow'} fill={this.props.tint} size={24} />
+            <NSIcon name={"arrow-up"} fill={this.props.tint} size={24} />
             <StyledButtonLink
               onPress={() => {
                 this.setState({ showAddPrayerCard: true });
@@ -235,8 +235,8 @@ class PrayerMenu extends PureComponent {
         </RowHeader>
         <TabView
           initialLayout={{
-            height: Dimensions.get('window').height,
-            width: Dimensions.get('window').width,
+            height: Dimensions.get("window").height,
+            width: Dimensions.get("window").width
           }}
           navigationState={{ ...this.state }}
           renderScene={SceneMap({
@@ -244,7 +244,7 @@ class PrayerMenu extends PureComponent {
             church: this.tabRoute(2),
             campus: this.tabRoute(3),
             community: this.tabRoute(4),
-            prayers: this.tabRoute(5),
+            prayers: this.tabRoute(5)
           })}
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
@@ -256,7 +256,7 @@ class PrayerMenu extends PureComponent {
 
 const enhance = compose(
   withTheme(({ theme, tint }) => ({
-    tint: tint || theme.colors.text.tertiary,
+    tint: tint || theme.colors.text.tertiary
   }))
 );
 
