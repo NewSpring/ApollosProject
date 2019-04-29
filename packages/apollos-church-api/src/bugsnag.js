@@ -5,7 +5,9 @@ import bugsnagExpress from '@bugsnag/plugin-express';
 const isTest = process.env.NODE_ENV === 'test';
 
 const bugsnagClient = bugsnag({
-  apiKey: isTest ? 'c9d60ae4c7e70c4b6c4ebd3e8056d2b8' : process.env.BUGSNAG_API_KEY,
+  apiKey: isTest
+    ? 'c9d60ae4c7e70c4b6c4ebd3e8056d2b8'
+    : process.env.BUGSNAG_API_KEY,
   notifyReleaseStages: ['production', 'staging'], // don't send errors in dev or test.
 });
 
