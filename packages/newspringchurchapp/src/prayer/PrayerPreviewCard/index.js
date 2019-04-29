@@ -91,7 +91,9 @@ const PrayerPreviewCard = withNavigation(
         <PaddedView>
           <ButtonView>
             <Button
-              onPress={() => navigation.navigate(route)}
+              onPress={() =>
+                navigation.navigate('GroupPrayerList', { list: route })
+              }
               title="Start Praying"
             />
           </ButtonView>

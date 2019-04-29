@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Mutation } from 'react-apollo';
 import PropTypes from 'prop-types';
 
-import getCampusPrayerRequests from '../ChurchPrayerList/getPublicPrayerRequests';
+import getCampusPrayerRequests from '../GroupPrayerList/getPublicPrayerRequests';
 import flagPrayerRequest from './flagPrayerRequest';
 import PrayerCard from './PrayerCard';
 
