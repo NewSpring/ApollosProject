@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Providers from 'newspringchurchapp/src/Providers';
 
-import AddPrayerForm from '.';
+import AddPrayerForm from './AddPrayerForm';
 
 describe('The AddPrayerForm component', () => {
   it('should render', () => {
@@ -18,7 +18,7 @@ describe('The AddPrayerForm component', () => {
       <Providers>
         <AddPrayerForm
           navigation={jest.fn()}
-          imgSrc={{ uri: 'https://picsum.photos/55/55?random' }}
+          avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
         />
       </Providers>
     );

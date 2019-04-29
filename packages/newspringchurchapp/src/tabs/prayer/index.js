@@ -1,15 +1,18 @@
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
+import { AddPrayerFormConnected } from '../../prayer/AddPrayer/AddPrayerForm';
 import Prayer from './Prayer';
 
-export const PrayerNavigator = createStackNavigator(
+const PrayerNavigator = createStackNavigator(
   {
     Prayer,
+    AddPrayerFormConnected,
   },
   {
     initialRouteName: 'Prayer',
     headerMode: 'float',
     headerTransitionPreset: 'fade-in-place',
+    mode: 'modal',
   }
 );
 
