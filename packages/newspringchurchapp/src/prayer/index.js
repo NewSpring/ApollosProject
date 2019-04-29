@@ -25,6 +25,7 @@ const loadingStateObject = {
     isLoading: true,
   },
 };
+
 // TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = () => (
   <PrayerPreviewCard
@@ -39,6 +40,7 @@ const PrayerPreviewCardComponent = () => (
     source={'Anderson'}
   />
 );
+
 // TODO: remove once this is pulling data
 const StyledPrayerPreviewCardComponent = styled({
   position: 'absolute',
@@ -152,6 +154,7 @@ class PrayerMenu extends PureComponent {
         key: 'prayers',
       },
     ],
+    prayerMenuItemSelected: 1,
   };
 
   tabRoute = (index) => () => <Tab index={index} />;
@@ -162,11 +165,20 @@ class PrayerMenu extends PureComponent {
     <StyledFeed
       content={prayerMenuData}
       renderItem={({ item }) => (
-        <TouchableScale key={item.key} onPress={() => props.jumpTo(item.key)}>
+        <TouchableScale
+          key={item.key}
+          onPress={() => {
+            this.setState({
+              prayerMenuItemSelected: item.key,
+            });
+            props.jumpTo(item.key);
+          }}
+        >
           <PrayerMenuCard
             image={item.image}
             overlayColor={item.overlayColor}
             title={item.title}
+            selected={this.state.prayerMenuItemSelected === item.key}
           />
         </TouchableScale>
       )}
