@@ -27,7 +27,7 @@ const Icon = makeIcon(({ size = 32, fill, ...otherProps } = {}) => (
 
 Icon.propTypes = {
   size: PropTypes.number,
-  fill: PropTypes.string
+  fill: PropTypes.string,
 };
 
 export default Icon;
