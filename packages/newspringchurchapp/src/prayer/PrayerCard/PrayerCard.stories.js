@@ -19,7 +19,7 @@ storiesOf('PrayerCard', module).add('Example', () => (
     <PrayerCard
       imageSource={cardData.imageSource}
       name={cardData.name}
-      prayer={cardData.prayer}
+      text={cardData.text}
       source={cardData.source}
     />
   </PaddedView>
