@@ -31,7 +31,7 @@
     ]
   },
   "scripts": {
-    "android": "react-native run-android",
+    "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android --appId com.newspringchurchapp --main-activity LaunchActivity",
     "codecov": "cat ./coverage/lcov.info | codecov",
     "fixlint": "eslint ./src --fix",
     "ios": "react-native run-ios --simulator=\"iPhone X\"",
@@ -76,10 +76,12 @@
     "apollo-client": "2.5.1",
     "apollo-link": "1.2.8",
     "apollo-link-context": "1.0.14",
+    "apollo-link-error": "^1.1.10",
     "apollo-link-http": "1.5.11",
     "apollo-link-schema": "1.1.6",
     "apollo-upload-client": "9.0.0",
     "buffer": "^5.2.1",
+    "bugsnag-react-native": "^2.17.1",
     "color": "3.0.0",
     "dotenv": "^6.2.0",
     "entities": "1.1.1",

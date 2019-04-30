@@ -20,10 +20,6 @@ import UserWebBrowser from './user-web-browser';
 import Onboarding from './onboarding';
 import Prayer from './prayer';
 
-// Sentry.config(
-//   'https://5908fa19ed37447f86b2717423cadec5:45dd3b58792b413cb67109c5e63a0bb7@sentry.io/1241658'
-// ).install();
-
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
   backgroundColor: theme.colors.paper,
