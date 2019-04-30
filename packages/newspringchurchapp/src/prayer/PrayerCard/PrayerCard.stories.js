@@ -9,7 +9,7 @@ const cardData = {
     uri: 'https://fillmurray.com/400/600',
   },
   name: 'Bill',
-  prayer:
+  text:
     'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?',
   source: 'Anderson',
 };
