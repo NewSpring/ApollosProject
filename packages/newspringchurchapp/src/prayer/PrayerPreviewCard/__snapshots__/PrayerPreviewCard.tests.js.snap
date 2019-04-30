@@ -224,66 +224,57 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       }
     >
       <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "paddingHorizontal": 16,
-            "paddingVertical": 16,
+            "opacity": 1,
           }
         }
       >
         <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          bordered={false}
+          disabled={false}
+          pill={true}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
+              "borderRadius": 48,
+              "borderWidth": 2,
+              "bottom": 0,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "center",
+              "left": 0,
               "opacity": 1,
+              "overflow": "hidden",
+              "paddingHorizontal": 16,
+              "position": "absolute",
+              "right": 0,
             }
           }
         >
-          <View
-            bordered={false}
-            disabled={false}
-            pill={true}
+          <Text
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#6bac43",
-                "borderColor": "#6bac43",
-                "borderRadius": 48,
-                "borderWidth": 2,
-                "bottom": 0,
-                "elevation": 2,
-                "flexDirection": "row",
-                "height": 48,
-                "justifyContent": "center",
-                "left": 0,
-                "opacity": 1,
-                "overflow": "hidden",
-                "paddingHorizontal": 16,
-                "position": "absolute",
-                "right": 0,
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Bold",
+                "fontSize": 16,
+                "lineHeight": 23.04,
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Colfax-Bold",
-                  "fontSize": 16,
-                  "lineHeight": 23.04,
-                }
-              }
-            >
-              Start Praying
-            </Text>
-          </View>
+            Start Praying
+          </Text>
         </View>
       </View>
     </View>
