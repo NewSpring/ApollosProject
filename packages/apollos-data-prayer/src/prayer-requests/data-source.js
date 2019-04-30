@@ -50,6 +50,9 @@ export default class PrayerRequest extends RockApolloDataSource {
       .find(id)
       .get();
 
+  getFromIds = (ids) =>
+    this.request().filterOneOf(ids.map((id) => `Id eq ${id}`));
+
   // MUTATION increment prayed, for a request
   incrementPrayed = async (parsedId) => {
     try {
