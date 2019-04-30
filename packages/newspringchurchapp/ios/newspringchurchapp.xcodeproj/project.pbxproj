@@ -1191,22 +1191,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF08F44622429D0700FFB1DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF08F44A22429D0700FFB1DC /* libAirMaps.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF08F5152242B97900FFB1DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF08F5192242B97A00FFB1DC /* libRNPassKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		DC478AAF22725EFC002436A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
