@@ -60,7 +60,7 @@ class PrayerCard extends PureComponent {
       }
       return index;
     };
-    const options = ['Report Prayer Request', 'Cancel'];
+    const options = ['Report as Inappropriate', 'Cancel'];
     return (
       <StyledCard>
         <EllipsisView>
