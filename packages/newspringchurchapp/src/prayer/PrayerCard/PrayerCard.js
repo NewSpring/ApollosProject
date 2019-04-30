@@ -9,7 +9,6 @@ import {
   Card,
   CardContent,
   H3,
-  H4,
   H6,
   PaddedView,
   styled,
@@ -24,14 +23,17 @@ const StyledCard = styled(() => ({
 }))(Card);
 
 const EllipsisView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit,
-  paddingHorizontal: theme.sizing.baseUnit * 2,
+  paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
-const GreyH4 = styled(({ theme }) => ({
-  color: theme.colors.text.secondary,
+const GreyH3 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
   textAlign: 'right',
-}))(H4);
+}))(H3);
+
+const GreyH6 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+}))(H6);
 
 const StyledCardContent = styled(() => ({
   alignItems: 'center',
@@ -63,7 +65,7 @@ class PrayerCard extends PureComponent {
       <StyledCard>
         <EllipsisView>
           <ButtonLink onPress={this.handleShowActionSheet}>
-            <GreyH4>...</GreyH4>
+            <GreyH3>...</GreyH3>
           </ButtonLink>
           <ActionSheet
             ref={(o) => {
@@ -77,9 +79,9 @@ class PrayerCard extends PureComponent {
           />
         </EllipsisView>
         <StyledCardContent>
-          <Avatar source={imageSource} />
+          <Avatar source={imageSource} size="medium" />
           <H3> Pray For {name}</H3>
-          <H6>{source}</H6>
+          <GreyH6>{source}</GreyH6>
           <PaddedView>
             <StyledBodyText>{text}</StyledBodyText>
           </PaddedView>

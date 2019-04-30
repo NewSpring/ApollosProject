@@ -24,6 +24,10 @@ const PaddedFeedView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 5,
 }))(FeedView);
 
+const GreyH6 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+}))(H6);
+
 const DividerView = styled(({ theme }) => ({
   alignItems: 'center',
   marginBottom: theme.sizing.baseUnit,
@@ -108,7 +112,7 @@ class PrayerList extends PureComponent {
               )}
               ItemSeparatorComponent={() => (
                 <DividerView>
-                  <H6>Press down on card to pray</H6>
+                  <GreyH6>Press down on card to pray</GreyH6>
                 </DividerView>
               )}
               content={get(data, prayers, []).map((prayer) => ({
