@@ -4,10 +4,8 @@ export default {
   Query: {
     getPublicPrayerRequests: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
-    getPublicPrayerRequestsByCampus: (root, { campusId }, { dataSources }) => {
-      const { id: parsedId } = parseGlobalId(campusId);
-      return dataSources.PrayerRequest.getAllByCampus(parsedId);
-    },
+    getPublicPrayerRequestsByCampus: (root, { campusId }, { dataSources }) =>
+      dataSources.PrayerRequest.getAllByCampus(campusId),
     getCurrentPersonPrayerRequests: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
     getPrayerRequestsByGroups: (root, args, { dataSources }) =>
