@@ -13,6 +13,7 @@ import {
   withTheme,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
+import { SafeAreaView } from 'react-navigation';
 import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
@@ -107,12 +108,13 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
+  marginBottom: theme.sizing.baseUnit,
 }))(PaddedView);
 
-const StyledView = styled(() => ({
+const StyledView = styled(({ theme }) => ({
   height: Dimensions.get('window').height * 0.45,
-  justifyContent: 'flex-end',
+  marginTop: theme.sizing.baseUnit * 2,
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
@@ -122,12 +124,12 @@ const StyledButtonLink = styled(({ theme }) => ({
 
 const StyledContainer = styled(({ theme }) => ({
   alignItems: 'center',
-  marginTop: theme.sizing.baseUnit * 3,
+  marginTop: theme.sizing.baseUnit,
   marginBottom: theme.sizing.baseUnit * 2,
 }))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 6,
+  marginTop: theme.sizing.baseUnit * 2,
 }))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
@@ -217,7 +219,7 @@ class PrayerMenu extends PureComponent {
 
   render() {
     return (
-      <>
+      <SafeAreaView>
         {this.state.showAddPrayerCard ? (
           <StyledAddPrayerContainer>
             <AddPrayerCardConnected {...this.props} />
@@ -267,7 +269,7 @@ class PrayerMenu extends PureComponent {
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
         />
-      </>
+      </SafeAreaView>
     );
   }
 }
