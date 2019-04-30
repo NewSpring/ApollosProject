@@ -20,8 +20,8 @@ const cardData = {
   source: 'Anderson',
 };
 
-describe('the UserPrayerList component', () => {
-  it('renders a list of prayers', async () => {
+describe('the PrayerCardConnected component', () => {
+  it('renders prayer card connected to data', async () => {
     const mock = {
       request: {
         query: flagPrayerRequest,

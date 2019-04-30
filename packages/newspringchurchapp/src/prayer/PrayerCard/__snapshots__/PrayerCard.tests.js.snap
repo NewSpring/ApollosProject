@@ -165,7 +165,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               }
             }
           >
-             Pray For 
+            Pray For 
             Bill
           </Text>
           <Text
@@ -183,8 +183,9 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
           <View
             style={
               Object {
-                "paddingHorizontal": 16,
-                "paddingVertical": 16,
+                "alignItems": "center",
+                "height": 256,
+                "marginTop": 24,
               }
             }
           >
@@ -196,13 +197,13 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
                   "color": "#303030",
                   "fontFamily": "Colfax-Regular",
                   "fontSize": 16,
-                  "height": 256,
                   "lineHeight": 26,
-                  "marginTop": 24,
                   "textAlign": "center",
                 }
               }
-            />
+            >
+              I want to go back to school for my PTA degree next year, but I’m afraid of not getting accepted. I have a great job right now but I’m not very happy. Pray my plans for school align with God’s plans for me.
+            </Text>
           </View>
           <View
             style={
