@@ -26,6 +26,7 @@ describe('the PrayerMenuCard component', () => {
           overlayColor={cardData.overlayColor}
           prayer={cardData.prayer}
           source={cardData.source}
+          navigation={{}}
         />
       </Providers>
     );

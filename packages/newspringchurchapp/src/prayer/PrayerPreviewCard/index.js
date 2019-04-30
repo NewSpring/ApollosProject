@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import Color from 'color';
@@ -88,14 +88,10 @@ const PrayerPreviewCard = withNavigation(
         locations={getGradientValues(overlayColor).locations}
       />
       <PaddedView>
-        <PaddedView>
-          <View>
-            <StyledButton
-              onPress={() => navigation.navigate('PrayerList', { list: route })}
-              title="Start Praying"
-            />
-          </View>
-        </PaddedView>
+        <StyledButton
+          onPress={() => navigation.navigate('PrayerList', { list: route })}
+          title="Start Praying"
+        />
       </PaddedView>
     </>
   )
