@@ -9,7 +9,7 @@ const cardData = {
     uri: 'https://fillmurray.com/400/600',
   },
   name: 'Bill',
-  prayer:
+  text:
     'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?',
   source: 'Anderson',
 };
@@ -19,7 +19,7 @@ storiesOf('PrayerCard', module).add('Example', () => (
     <PrayerCard
       imageSource={cardData.imageSource}
       name={cardData.name}
-      prayer={cardData.prayer}
+      text={cardData.text}
       source={cardData.source}
     />
   </PaddedView>

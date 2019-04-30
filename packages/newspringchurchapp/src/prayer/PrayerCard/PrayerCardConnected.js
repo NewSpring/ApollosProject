@@ -33,20 +33,18 @@ const PrayerCardConnected = memo(({ id, ...props }) => (
       });
     }}
   >
-    {(handlePress) =>
-      console.log('Props', { ...props }) || (
-        <PrayerCard
-          flagRequest={async () => {
-            await handlePress({
-              variables: {
-                parsedId: id,
-              },
-            });
-          }}
-          {...props}
-        />
-      )
-    }
+    {(handlePress) => (
+      <PrayerCard
+        flagRequest={async () => {
+          await handlePress({
+            variables: {
+              parsedId: id,
+            },
+          });
+        }}
+        {...props}
+      />
+    )}
   </Mutation>
 ));
 
