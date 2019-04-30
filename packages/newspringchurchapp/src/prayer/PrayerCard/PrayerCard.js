@@ -55,7 +55,8 @@ class PrayerCard extends PureComponent {
   };
 
   render() {
-    const { imageSource, name, text, id, source, flagRequest } = this.props;
+    const { imageSource, name, text, id, flagRequest, source } = this.props;
+
     const cancelIndex = 1;
     const destructiveIndex = 0;
     const handleOnPress = (index) => {
