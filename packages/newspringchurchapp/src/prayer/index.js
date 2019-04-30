@@ -110,7 +110,7 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
 }))(PaddedView);
 
 const StyledView = styled(() => ({

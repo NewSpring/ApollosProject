@@ -61,12 +61,12 @@ const StyledBodyTextContainer = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
 }))(BodyText);
 
-const ButtonView = styled({
+const StyledButton = styled({
   position: 'absolute',
   bottom: 0,
   left: 0,
   right: 0,
-})(View);
+})(Button);
 
 const PrayerPreviewCard = withNavigation(
   ({ imageSource, name, overlayColor, prayer, source, navigation, route }) => (
@@ -89,12 +89,12 @@ const PrayerPreviewCard = withNavigation(
       />
       <PaddedView>
         <PaddedView>
-          <ButtonView>
-            <Button
+          <View>
+            <StyledButton
               onPress={() => navigation.navigate('PrayerList', { list: route })}
               title="Start Praying"
             />
-          </ButtonView>
+          </View>
         </PaddedView>
       </PaddedView>
     </>
