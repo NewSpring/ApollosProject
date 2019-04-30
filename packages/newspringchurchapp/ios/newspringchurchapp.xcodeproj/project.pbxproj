@@ -2223,7 +2223,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church";
 				PRODUCT_NAME = newspringchurchapp;
+<<<<<<< Updated upstream
 				PROVISIONING_PROFILE_SPECIFIER = "";
+=======
+>>>>>>> Stashed changes
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
