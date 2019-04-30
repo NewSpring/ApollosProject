@@ -9,6 +9,8 @@ import {
   PaddedView,
 } from '@apollosproject/ui-kit';
 
+import NSIcon from 'newspringchurchapp/src/ui/NSIcon';
+
 const StyledCard = styled(() => ({
   marginHorizontal: 0,
   marginVertical: 0,
@@ -33,7 +35,7 @@ const PrayerActionMenuCard = () => (
       <StyledCardContent>
         <StyledPaddedView>
           <StyledTouchable onPress={() => {}}>
-            <Icon name="ArrowUp" />
+            <NSIcon name="arrow-up" />
             <H5>Done Praying</H5>
           </StyledTouchable>
         </StyledPaddedView>
@@ -46,7 +48,7 @@ const PrayerActionMenuCard = () => (
         <StyledPaddedView>
           <StyledTouchable onPress={() => {}}>
             <H5>Done Praying</H5>
-            <Icon name="ArrowDown" />
+            <NSIcon name="arrow-down" />
           </StyledTouchable>
         </StyledPaddedView>
       </StyledCardContent>

@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { Icon, withTheme } from '@apollosproject/ui-kit';
 import { ProtectedTouchable } from '@apollosproject/ui-auth';
 
-import { withNavigation } from 'react-navigation';
-
 const SaveIcon = withTheme(
   ({ theme: { colors: { secondary } = {} } = {}, isSaved } = {}) => ({
     name: isSaved ? 'Like-solid' : 'Like',
@@ -17,7 +15,7 @@ SaveIcon.propTypes = {
   isSaved: PropTypes.bool,
 };
 
-const Save = withNavigation(({ isSaved, toggleSave, itemId }) => (
+const Save = ({ isSaved, toggleSave, itemId }) => (
   <ProtectedTouchable
     onPress={() =>
       toggleSave({ itemId, operation: isSaved ? 'UnSave' : 'Save' })
@@ -25,7 +23,7 @@ const Save = withNavigation(({ isSaved, toggleSave, itemId }) => (
   >
     <SaveIcon isSaved={isSaved} />
   </ProtectedTouchable>
-));
+);
 
 Save.propTypes = {
   itemId: PropTypes.string,
