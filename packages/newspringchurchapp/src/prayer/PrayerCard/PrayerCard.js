@@ -71,7 +71,7 @@ class PrayerCard extends PureComponent {
             ref={(o) => {
               this.ActionSheet = o;
             }}
-            title={'Would you like to remove the prayer request?'}
+            title={'Would you like to report the prayer request?'}
             options={options}
             cancelButtonIndex={cancelIndex}
             destructiveButtonIndex={destructiveIndex}
