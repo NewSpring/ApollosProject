@@ -183,6 +183,7 @@ class PrayerMenu extends PureComponent {
       },
     ],
     prayerMenuItemSelected: 1,
+    showAddPrayerCard: true,
   };
 
   tabRoute = (index) => () => (
@@ -200,6 +201,7 @@ class PrayerMenu extends PureComponent {
           onPress={() => {
             this.setState({
               prayerMenuItemSelected: item.key,
+              showAddPrayerCard: false,
             });
             props.jumpTo(item.key);
           }}
@@ -228,7 +230,10 @@ class PrayerMenu extends PureComponent {
           <StyledContainer>
             <NSIcon
               onPress={() => {
-                this.setState({ showAddPrayerCard: true });
+                this.setState({
+                  showAddPrayerCard: true,
+                  prayerMenuItemSelected: 1,
+                });
               }}
               name={'arrow-up'}
               fill={this.props.tint}
@@ -236,7 +241,10 @@ class PrayerMenu extends PureComponent {
             />
             <StyledButtonLink
               onPress={() => {
-                this.setState({ showAddPrayerCard: true });
+                this.setState({
+                  showAddPrayerCard: true,
+                  prayerMenuItemSelected: 1,
+                });
               }}
             >
               Add your prayer
