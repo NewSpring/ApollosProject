@@ -495,6 +495,41 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		841BEC412278AD55008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGestureHandler;
+		};
+		841BEC432278AD55008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
+		};
+		841BEC482278AD55008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNReanimated;
+		};
+		841BED672278B92D008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		841BEDA22278B92D008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D42A7D820341E6800A0D1AE;
+			remoteInfo = RNPassKit;
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -508,27 +543,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8AD256131D6DE5F600C7D842;
 			remoteInfo = BugsnagReactNative;
-		};
-		BF065B10227757BD0080037B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNGestureHandler;
-		};
-		BF0659F322773A9E0080037B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
-			remoteInfo = "RNGestureHandler-tvOS";
-		};
-		BF0659F822773A9E0080037B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNReanimated;
 		};
 		BF08F42F22429D0700FFB1DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -557,20 +571,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
-		};
-		BF08F44922429D0700FFB1DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
-			remoteInfo = AirMaps;
-		};
-		BF08F5182242B97A00FFB1DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6D42A7D820341E6800A0D1AE;
-			remoteInfo = RNPassKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1175,6 +1175,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		841BEBEF2278AB24008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BEC492278AD55008D9707 /* libRNReanimated.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		841BEC032278AB24008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BEC422278AD55008D9707 /* libRNGestureHandler.a */,
+				841BEC442278AD55008D9707 /* libRNGestureHandler-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		841BED422278B8DA008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BEDA32278B92D008D9707 /* libRNPassKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		841BED512278B8DA008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BED682278B92D008D9707 /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1188,39 +1221,6 @@
 			isa = PBXGroup;
 			children = (
 				BF065B0D227757BD0080037B /* libBugsnagReactNative.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF065B07227757BD0080037B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF065B11227757BD0080037B /* libRNGestureHandler.a */,
-				BF065B13227757BD0080037B /* libRNGestureHandler-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF065B09227757BD0080037B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF065B16227757BD0080037B /* libRNReanimated.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF08F44622429D0700FFB1DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF08F44A22429D0700FFB1DC /* libAirMaps.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF08F5152242B97900FFB1DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF08F5192242B97A00FFB1DC /* libRNPassKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1315,6 +1315,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 7TM8C6252Z;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1341,7 +1342,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BF08F44622429D0700FFB1DC /* Products */;
+					ProductGroup = 841BED512278B8DA008D9707 /* Products */;
 					ProjectRef = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
 				},
 				{
@@ -1437,7 +1438,7 @@
 					ProjectRef = 10B0392307184C498573F1A2 /* RNFetchBlob.xcodeproj */;
 				},
 				{
-					ProductGroup = BF0659B322773A810080037B /* Products */;
+					ProductGroup = 841BEC032278AB24008D9707 /* Products */;
 					ProjectRef = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
 				},
 				{
@@ -1445,11 +1446,11 @@
 					ProjectRef = 629FCAAD128E41B4BAE2BCF4 /* RNImagePicker.xcodeproj */;
 				},
 				{
-					ProductGroup = BF08F5152242B97900FFB1DC /* Products */;
+					ProductGroup = 841BED422278B8DA008D9707 /* Products */;
 					ProjectRef = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
 				},
 				{
-					ProductGroup = BF0659B122773A810080037B /* Products */;
+					ProductGroup = 841BEBEF2278AB24008D9707 /* Products */;
 					ProjectRef = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
 				},
 				{
@@ -1872,6 +1873,41 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		841BEC422278AD55008D9707 /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = 841BEC412278AD55008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		841BEC442278AD55008D9707 /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 841BEC432278AD55008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		841BEC492278AD55008D9707 /* libRNReanimated.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNReanimated.a;
+			remoteRef = 841BEC482278AD55008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		841BED682278B92D008D9707 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 841BED672278B92D008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		841BEDA32278B92D008D9707 /* libRNPassKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPassKit.a;
+			remoteRef = 841BEDA22278B92D008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1884,27 +1920,6 @@
 			fileType = archive.ar;
 			path = libBugsnagReactNative.a;
 			remoteRef = BF065B0C227757BD0080037B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF065B11227757BD0080037B /* libRNGestureHandler.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGestureHandler.a;
-			remoteRef = BF065B10227757BD0080037B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF065B13227757BD0080037B /* libRNGestureHandler-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNGestureHandler-tvOS.a";
-			remoteRef = BF065B12227757BD0080037B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF065B16227757BD0080037B /* libRNReanimated.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNReanimated.a;
-			remoteRef = BF065B15227757BD0080037B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		BF08F43022429D0700FFB1DC /* libjsi.a */ = {
@@ -1933,20 +1948,6 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = BF08F43522429D0700FFB1DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF08F44A22429D0700FFB1DC /* libAirMaps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAirMaps.a;
-			remoteRef = BF08F44922429D0700FFB1DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF08F5192242B97A00FFB1DC /* libRNPassKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNPassKit.a;
-			remoteRef = BF08F5182242B97A00FFB1DC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2204,7 +2205,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
@@ -2239,6 +2240,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church";
 				PRODUCT_NAME = newspringchurchapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2247,7 +2250,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2281,6 +2284,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church";
 				PRODUCT_NAME = newspringchurchapp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
