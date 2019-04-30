@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -494,6 +495,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNReanimated;
 		};
+		841BED672278B92D008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		841BEDA22278B92D008D9707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D42A7D820341E6800A0D1AE;
+			remoteInfo = RNPassKit;
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -535,41 +550,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
-		};
-		BF08F44922429D0700FFB1DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
-			remoteInfo = AirMaps;
-		};
-		BF08F5182242B97A00FFB1DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6D42A7D820341E6800A0D1AE;
-			remoteInfo = RNPassKit;
-		};
-		DC478AE922725EFC002436A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CFDD4BA5D0E4E2AB58B9F7E /* RNReanimated.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNReanimated;
-		};
-		DC478AF422725EFC002436A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNGestureHandler;
-		};
-		DC478AF622725EFC002436A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCB495C31BFE499DBBDA1276 /* RNGestureHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
-			remoteInfo = "RNGestureHandler-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1174,6 +1154,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		841BED422278B8DA008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BEDA32278B92D008D9707 /* libRNPassKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		841BED512278B8DA008D9707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BED682278B92D008D9707 /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,23 +1183,6 @@
 			isa = PBXGroup;
 			children = (
 				BF065B0D227757BD0080037B /* libBugsnagReactNative.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DC478AAF22725EFC002436A4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DC478AEA22725EFC002436A4 /* libRNReanimated.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DC478AF022725EFC002436A4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DC478AF522725EFC002436A4 /* libRNGestureHandler.a */,
-				DC478AF722725EFC002436A4 /* libRNGestureHandler-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1325,7 +1304,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BF08F44622429D0700FFB1DC /* Products */;
+					ProductGroup = 841BED512278B8DA008D9707 /* Products */;
 					ProjectRef = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
 				},
 				{
@@ -1429,7 +1408,7 @@
 					ProjectRef = 629FCAAD128E41B4BAE2BCF4 /* RNImagePicker.xcodeproj */;
 				},
 				{
-					ProductGroup = BF08F5152242B97900FFB1DC /* Products */;
+					ProductGroup = 841BED422278B8DA008D9707 /* Products */;
 					ProjectRef = D3BA7667091546469A730845 /* RNPassKit.xcodeproj */;
 				},
 				{
@@ -1856,6 +1835,20 @@
 			remoteRef = 841BEC482278AD55008D9707 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		841BED682278B92D008D9707 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 841BED672278B92D008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		841BEDA32278B92D008D9707 /* libRNPassKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPassKit.a;
+			remoteRef = 841BEDA22278B92D008D9707 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1896,41 +1889,6 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = BF08F43522429D0700FFB1DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF08F44A22429D0700FFB1DC /* libAirMaps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAirMaps.a;
-			remoteRef = BF08F44922429D0700FFB1DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF08F5192242B97A00FFB1DC /* libRNPassKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNPassKit.a;
-			remoteRef = BF08F5182242B97A00FFB1DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC478AEA22725EFC002436A4 /* libRNReanimated.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNReanimated.a;
-			remoteRef = DC478AE922725EFC002436A4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC478AF522725EFC002436A4 /* libRNGestureHandler.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGestureHandler.a;
-			remoteRef = DC478AF422725EFC002436A4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC478AF722725EFC002436A4 /* libRNGestureHandler-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNGestureHandler-tvOS.a";
-			remoteRef = DC478AF622725EFC002436A4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2233,8 +2191,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-airplay-btn/ios",
