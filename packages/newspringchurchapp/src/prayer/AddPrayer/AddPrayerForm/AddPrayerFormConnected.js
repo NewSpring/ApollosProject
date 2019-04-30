@@ -1,9 +1,9 @@
 import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
-import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
-import GET_PRAYERS from 'newspringchurchapp/src/prayer/UserPrayer/getUserPrayers';
-import ADD_PRAYER from './addPrayer';
+import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
+import getPrayers from 'newspringchurchapp/src/prayer/UserPrayer/getUserPrayers';
+import addPrayer from './addPrayer';
 import AddPrayerForm from './AddPrayerForm';
 
 class AddPrayerFormConnected extends React.Component {
@@ -13,16 +13,16 @@ class AddPrayerFormConnected extends React.Component {
 
   render() {
     return (
-      <Query query={GET_USER_PROFILE} fetchPolicy={'cache-only'}>
-        {(queryObj) => (
+      <Query query={getUserProfile} fetchPolicy={'cache-only'}>
+        {({ data: userData }) => (
           <Mutation
-            mutation={ADD_PRAYER}
+            mutation={addPrayer}
             update={(cache, { data: { addPublicPrayerRequest } }) => {
               const { getCurrentPersonPrayerRequests } = cache.readQuery({
-                query: GET_PRAYERS,
+                query: getPrayers,
               });
               cache.writeQuery({
-                query: GET_PRAYERS,
+                query: getPrayers,
                 data: {
                   getCurrentPersonPrayerRequests: getCurrentPersonPrayerRequests.concat(
                     [addPublicPrayerRequest]
@@ -31,33 +31,24 @@ class AddPrayerFormConnected extends React.Component {
               });
             }}
           >
-            {(addPrayer) => (
+            {(createPrayer) => (
               <AddPrayerForm
                 onSubmit={(values) => {
-                  addPrayer({
+                  createPrayer({
                     variables: {
-                      campusID: get(
-                        queryObj.data,
-                        'currentUser.profile.campus.id'
-                      ),
+                      campusID: get(userData, 'currentUser.profile.campus.id'),
                       // TODO: make this dynamic
                       categoryID: 2,
                       text: values.prayer,
-                      firstName: get(
-                        queryObj.data,
-                        'currentUser.profile.firstName'
-                      ),
-                      lastName: get(
-                        queryObj.data,
-                        'currentUser.profile.lastName'
-                      ),
+                      firstName: get(userData, 'currentUser.profile.firstName'),
+                      lastName: get(userData, 'currentUser.profile.lastName'),
                       isAnonymous: values.anonymous,
                     },
                   });
                   // TODO: wonder if this should be tied to the ModalView onClose method???
                   this.props.navigation.pop();
                 }}
-                avatarSource={get(queryObj.data, 'currentUser.profile.photo', {
+                avatarSource={get(userData, 'currentUser.profile.photo', {
                   uri: null,
                 })}
                 {...this.props}
