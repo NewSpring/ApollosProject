@@ -80,7 +80,7 @@ class PrayerCard extends PureComponent {
         </EllipsisView>
         <StyledCardContent>
           <Avatar source={imageSource} size="medium" />
-          <H3> Pray For {name}</H3>
+          <H3>Pray For {name}</H3>
           <GreyH6>{source}</GreyH6>
           <PaddedView>
             <StyledBodyText>{text}</StyledBodyText>
