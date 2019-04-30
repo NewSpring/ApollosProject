@@ -12,12 +12,12 @@ import {
   H3,
 } from '@apollosproject/ui-kit';
 
-const StyledCardContent = styled({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
-})(CardContent);
+  marginTop: theme.sizing.baseUnit,
+}))(CardContent);
 
 const TitleView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 2,
 }))(View);
 

@@ -109,7 +109,6 @@ const StyledFeed = styled(({ theme }) => ({
 
 const StyledPaddedView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit,
-  marginBottom: theme.sizing.baseUnit,
 }))(PaddedView);
 
 const StyledView = styled(({ theme }) => ({
