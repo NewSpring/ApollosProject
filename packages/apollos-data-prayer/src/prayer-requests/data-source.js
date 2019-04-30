@@ -14,7 +14,7 @@ export default class PrayerRequest extends RockApolloDataSource {
   // QUERY PrayerRequests by Campus
   getAllByCampus = (campusId) =>
     this.request('PrayerRequests/Public')
-      .filter(`CampusId eq ${campusId}`)
+      .filter(`CampusId eq ${parseGlobalId(campusId)}`)
       .get();
 
   // QUERY PrayerRequests from Current Person
