@@ -4,7 +4,10 @@ exports[`PrayerRequest creates a new prayer 1`] = `
 Object {
   "data": Object {
     "addPublicPrayerRequest": Object {
-      "campusId": 16,
+      "campus": Object {
+        "id": "16",
+        "name": "Anderson",
+      },
       "categoryId": 2,
       "firstName": "Isaac",
       "flagCount": 0,
@@ -28,7 +31,10 @@ exports[`PrayerRequest flags a prayer request 1`] = `
 Object {
   "data": Object {
     "flagRequest": Object {
-      "campusId": 16,
+      "campus": Object {
+        "id": "16",
+        "name": "Anderson",
+      },
       "categoryId": 2,
       "firstName": "Isaac",
       "flagCount": 0,
@@ -53,7 +59,10 @@ Object {
   "data": Object {
     "getCurrentPersonPrayerRequests": Array [
       Object {
-        "campusId": 16,
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "categoryId": 2,
         "firstName": "Isaac",
         "flagCount": 0,
@@ -89,7 +98,10 @@ Object {
   "data": Object {
     "getPrayerRequestsByGroups": Array [
       Object {
-        "campusId": 16,
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "categoryId": 2,
         "createdByPersonAliasId": 447217,
         "firstName": "Isaac",
@@ -121,7 +133,10 @@ Object {
   "data": Object {
     "getPublicPrayerRequests": Array [
       Object {
-        "campusId": 16,
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "categoryId": 2,
         "firstName": "Isaac",
         "flagCount": 0,
@@ -138,7 +153,10 @@ Object {
         "text": "Pray this works.",
       },
       Object {
-        "campusId": 16,
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "categoryId": 2,
         "firstName": "Rich",
         "flagCount": 0,
@@ -174,7 +192,10 @@ Object {
   "data": Object {
     "getPublicPrayerRequestsByCampus": Array [
       Object {
-        "campusId": 16,
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "categoryId": 2,
         "firstName": "Isaac",
         "flagCount": 0,
@@ -198,7 +219,7 @@ Object {
 exports[`PrayerRequest gets all public prayer requests by campus 2`] = `
 Array [
   Array [
-    "PrayerRequests/Public?loadAttributes=expanded&%24filter=CampusId%20eq%2016",
+    "PrayerRequests/Public?loadAttributes=expanded&%24filter=CampusId%20eq%203",
     Object {},
     Object {},
   ],
@@ -210,7 +231,10 @@ Object {
   "data": Object {
     "node": Object {
       "__typename": "PrayerRequest",
-      "campusId": 16,
+      "campus": Object {
+        "id": "16",
+        "name": "Anderson",
+      },
       "categoryId": 2,
       "firstName": "Isaac",
       "flagCount": 0,
@@ -244,7 +268,10 @@ exports[`PrayerRequest increments prayed for a request 1`] = `
 Object {
   "data": Object {
     "incrementPrayed": Object {
-      "campusId": 16,
+      "campus": Object {
+        "id": "16",
+        "name": "Anderson",
+      },
       "categoryId": 2,
       "firstName": "Isaac",
       "flagCount": 0,

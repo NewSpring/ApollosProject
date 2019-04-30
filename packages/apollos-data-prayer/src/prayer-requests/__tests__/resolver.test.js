@@ -8,11 +8,13 @@ import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
+import campusMock from '../../campusMock';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
+  Campus: { dataSource: campusMock },
 });
 
 ApollosConfig.loadJs({
@@ -48,8 +50,9 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -71,9 +74,7 @@ describe('PrayerRequest', () => {
           lastName: 'Hardy',
           text: 'Pray this works.',
           requestedByPersonAliasId: 447217,
-          campus: {
-            id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-          },
+          campusId: 16,
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
@@ -89,9 +90,7 @@ describe('PrayerRequest', () => {
           lastName: 'Dubee',
           text: 'Help me',
           requestedByPersonAliasId: 447217,
-          campus: {
-            id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-          },
+          campusId: 16,
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
@@ -122,14 +121,15 @@ describe('PrayerRequest', () => {
   it('gets all public prayer requests by campus', async () => {
     const query = `
       query {
-        getPublicPrayerRequestsByCampus(campus: Campus:772fcb6087247ebad630814e2ce0cd16) {
+        getPublicPrayerRequestsByCampus(campusId: "Campus:4f68015ba18662a7409d1219a4ce013e") {
           id
           firstName
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -151,9 +151,7 @@ describe('PrayerRequest', () => {
           lastName: 'Hardy',
           text: 'Pray this works.',
           requestedByPersonAliasId: 447217,
-          campus: {
-            id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-          },
+          campusId: 16,
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
@@ -191,8 +189,9 @@ describe('PrayerRequest', () => {
             lastName
             text
             requestedByPersonAliasId
-            campus { 
+            campus {
               id
+              name
             }
             categoryId
             flagCount
@@ -214,9 +213,7 @@ describe('PrayerRequest', () => {
         lastName: 'Hardy',
         text: 'Pray this works.',
         requestedByPersonAliasId: 447217,
-        campus: {
-          id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-        },
+        campusId: 16,
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
@@ -251,8 +248,9 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -275,9 +273,7 @@ describe('PrayerRequest', () => {
           lastName: 'Hardy',
           text: 'Pray this works.',
           requestedByPersonAliasId: 447217,
-          campus: {
-            id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-          },
+          campusId: 16,
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
@@ -314,8 +310,9 @@ describe('PrayerRequest', () => {
           text
           createdByPersonAliasId
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -334,9 +331,7 @@ describe('PrayerRequest', () => {
           text: 'Pray this works.',
           createdByPersonAliasId: 447217,
           requestedByPersonAliasId: 447217,
-          campus: {
-            id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-          },
+          campusId: 16,
           categoryId: 2,
           flagCount: 0,
           prayerCount: 4,
@@ -359,14 +354,15 @@ describe('PrayerRequest', () => {
   it('creates a new prayer', async () => {
     const query = `
       mutation {
-        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: Campus:772fcb6087247ebad630814e2ce0cd16, CategoryId: 1, IsAnonymous: true) {
+        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: "Campus:4f68015ba18662a7409d1219a4ce013e", CategoryId: 1, IsAnonymous: true) {
           id
           firstName
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -387,9 +383,7 @@ describe('PrayerRequest', () => {
         lastName: 'Hardy',
         text: 'Pray this works.',
         requestedByPersonAliasId: 447217,
-        campus: {
-          id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-        },
+        campusId: 16,
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
@@ -423,8 +417,9 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -445,9 +440,7 @@ describe('PrayerRequest', () => {
         lastName: 'Hardy',
         text: 'Pray this works.',
         requestedByPersonAliasId: 447217,
-        campus: {
-          id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-        },
+        campusId: 16,
         categoryId: 2,
         flagCount: 0,
         prayerCount: 4,
@@ -482,8 +475,9 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campus { 
+          campus {
             id
+            name
           }
           categoryId
           flagCount
@@ -504,9 +498,7 @@ describe('PrayerRequest', () => {
         lastName: 'Hardy',
         text: 'Pray this works.',
         requestedByPersonAliasId: 447217,
-        campus: {
-          id: 'Campus:772fcb6087247ebad630814e2ce0cd16',
-        },
+        campusId: 16,
         categoryId: 2,
         flagCount: 0,
         prayerCount: 1,
