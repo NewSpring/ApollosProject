@@ -51,56 +51,59 @@ const SwitchContainer = styled({
   justifyContent: 'center',
 })(PaddedView);
 
-const AddPrayerForm = memo(({ avatarSource, title, btnLabel, ...props }) => (
-  <Formik
-    initialValues={{ prayer: '', anonymous: false }}
-    onSubmit={(values) => console.log(values)}
-  >
-    {({ handleChange, handleBlur, handleSubmit, values }) => (
-      <ModalView {...props}>
-        <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
-          <ShrinkingView behavior={'padding'}>
-            <HeaderView>
-              {/* TODO: margin will be fixed pending core #667 */}
-              <Avatar
-                source={values.anonymous ? null : avatarSource}
-                size={'medium'}
-              />
-              <TitleView>
-                <H3>{title}</H3>
-              </TitleView>
-            </HeaderView>
-            <FlexedView>
-              <PaddedView>
-                <StyledTextInput
-                  editable
-                  multiline
-                  placeholder="Start typing your prayer..."
-                  onChangeText={handleChange('prayer')}
-                  onBlur={handleBlur('prayer')}
-                  value={values.prayer}
-                  underline={false}
+const AddPrayerForm = memo(
+  ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
+    <Formik
+      initialValues={{ prayer: '', anonymous: false }}
+      onSubmit={onSubmit}
+    >
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
+        <ModalView {...props}>
+          <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
+            <ShrinkingView behavior={'padding'}>
+              <HeaderView>
+                {/* TODO: margin will be fixed pending core #667 */}
+                <Avatar
+                  source={values.anonymous ? null : avatarSource}
+                  size={'medium'}
                 />
-              </PaddedView>
-            </FlexedView>
-            <BottomView>
-              <SwitchContainer>
-                <Switch
-                  value={values.anonymous}
-                  onValueChange={handleChange('anonymous')}
-                  label={'Share Anonymously'}
-                />
-              </SwitchContainer>
-              <StyledButton title={btnLabel} onPress={handleSubmit} />
-            </BottomView>
-          </ShrinkingView>
-        </FlexedSafeAreaView>
-      </ModalView>
-    )}
-  </Formik>
-));
+                <TitleView>
+                  <H3>{title}</H3>
+                </TitleView>
+              </HeaderView>
+              <FlexedView>
+                <PaddedView>
+                  <StyledTextInput
+                    editable
+                    multiline
+                    placeholder="Start typing your prayer..."
+                    onChangeText={handleChange('prayer')}
+                    onBlur={handleBlur('prayer')}
+                    value={values.prayer}
+                    underline={false}
+                  />
+                </PaddedView>
+              </FlexedView>
+              <BottomView>
+                <SwitchContainer>
+                  <Switch
+                    value={values.anonymous}
+                    onValueChange={handleChange('anonymous')}
+                    label={'Share Anonymously'}
+                  />
+                </SwitchContainer>
+                <StyledButton title={btnLabel} onPress={handleSubmit} />
+              </BottomView>
+            </ShrinkingView>
+          </FlexedSafeAreaView>
+        </ModalView>
+      )}
+    </Formik>
+  )
+);
 
 AddPrayerForm.propTypes = {
+  onSubmit: PropTypes.func,
   avatarSource: PropTypes.shape({
     uri: PropTypes.string,
   }),
@@ -114,4 +117,5 @@ AddPrayerForm.defaultProps = {
 };
 
 AddPrayerForm.displayName = 'AddPrayerForm';
+
 export default AddPrayerForm;

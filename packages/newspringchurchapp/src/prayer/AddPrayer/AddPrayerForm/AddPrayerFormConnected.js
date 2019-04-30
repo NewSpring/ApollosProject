@@ -1,7 +1,9 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
-import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
+import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
+import GET_PRAYERS from 'newspringchurchapp/src/prayer/UserPrayer/getUserPrayers';
+import ADD_PRAYER from './addPrayer';
 import AddPrayerForm from './AddPrayerForm';
 
 class AddPrayerFormConnected extends React.Component {
@@ -11,12 +13,39 @@ class AddPrayerFormConnected extends React.Component {
 
   render() {
     return (
-      <Query query={getUserProfile} fetchPolicy={'cache-only'}>
-        {({ data }) => (
-          <AddPrayerForm
-            avatarSource={get(data, 'currentUser.profile.photo', { uri: null })}
-            {...this.props}
-          />
+      <Query query={GET_USER_PROFILE} fetchPolicy={'cache-only'}>
+        {(queryObj) => (
+          <Mutation
+            mutation={ADD_PRAYER}
+            update={(cache, { data: { addPrayer } }) => {
+              const { prayers } = cache.readQuery({ query: GET_PRAYERS });
+              cache.writeQuery({
+                query: GET_PRAYERS,
+                data: { prayers: prayers.concat([addPrayer]) },
+              });
+            }}
+          >
+            {(addPrayer) => (
+              <AddPrayerForm
+                onSubmit={() => {
+                  addPrayer({
+                    variables: {
+                      campusID: 'fake',
+                      categoryID: 2,
+                      text: 'prayer',
+                      firstName: 'Michael',
+                      lastName: 'Neeley',
+                      isAnonymous: false,
+                    },
+                  });
+                }}
+                avatarSource={get(queryObj.data, 'currentUser.profile.photo', {
+                  uri: null,
+                })}
+                {...this.props}
+              />
+            )}
+          </Mutation>
         )}
       </Query>
     );
