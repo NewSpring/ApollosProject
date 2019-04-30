@@ -114,7 +114,7 @@ const StyledPaddedView = styled(({ theme }) => ({
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: Dimensions.get('window').height * 0.45,
+  height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
 }))(View);
 

@@ -88,14 +88,10 @@ const PrayerPreviewCard = withNavigation(
         locations={getGradientValues(overlayColor).locations}
       />
       <PaddedView>
-        <PaddedView>
-          <View>
-            <StyledButton
-              onPress={() => navigation.navigate('PrayerList', { list: route })}
-              title="Start Praying"
-            />
-          </View>
-        </PaddedView>
+        <StyledButton
+          onPress={() => navigation.navigate('PrayerList', { list: route })}
+          title="Start Praying"
+        />
       </PaddedView>
     </>
   )
