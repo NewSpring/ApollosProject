@@ -40,6 +40,7 @@ class AddPrayerFormConnected extends React.Component {
                         queryObj.data,
                         'currentUser.profile.campus.id'
                       ),
+                      // TODO: make this dynamic
                       categoryID: 2,
                       text: values.prayer,
                       firstName: get(
@@ -53,6 +54,8 @@ class AddPrayerFormConnected extends React.Component {
                       isAnonymous: values.anonymous,
                     },
                   });
+                  // TODO: wonder if this should be tied to the ModalView onClose method???
+                  this.props.navigation.pop();
                 }}
                 avatarSource={get(queryObj.data, 'currentUser.profile.photo', {
                   uri: null,

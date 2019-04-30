@@ -23,6 +23,7 @@ export default gql`
       }
       categoryId
       text
+      enteredDateTime
       firstName
       lastName
       isAnonymous
