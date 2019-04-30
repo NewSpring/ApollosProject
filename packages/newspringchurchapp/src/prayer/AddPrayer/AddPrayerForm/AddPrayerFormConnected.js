@@ -17,25 +17,40 @@ class AddPrayerFormConnected extends React.Component {
         {(queryObj) => (
           <Mutation
             mutation={ADD_PRAYER}
-            update={(cache, { data: { addPrayer } }) => {
-              const { prayers } = cache.readQuery({ query: GET_PRAYERS });
+            update={(cache, { data: { addPublicPrayerRequest } }) => {
+              const { getCurrentPersonPrayerRequests } = cache.readQuery({
+                query: GET_PRAYERS,
+              });
               cache.writeQuery({
                 query: GET_PRAYERS,
-                data: { prayers: prayers.concat([addPrayer]) },
+                data: {
+                  getCurrentPersonPrayerRequests: getCurrentPersonPrayerRequests.concat(
+                    [addPublicPrayerRequest]
+                  ),
+                },
               });
             }}
           >
             {(addPrayer) => (
               <AddPrayerForm
-                onSubmit={() => {
+                onSubmit={(values) => {
                   addPrayer({
                     variables: {
-                      campusID: 'fake',
+                      campusID: get(
+                        queryObj.data,
+                        'currentUser.profile.campus.id'
+                      ),
                       categoryID: 2,
-                      text: 'prayer',
-                      firstName: 'Michael',
-                      lastName: 'Neeley',
-                      isAnonymous: false,
+                      text: values.prayer,
+                      firstName: get(
+                        queryObj.data,
+                        'currentUser.profile.firstName'
+                      ),
+                      lastName: get(
+                        queryObj.data,
+                        'currentUser.profile.lastName'
+                      ),
+                      isAnonymous: values.anonymous,
                     },
                   });
                 }}

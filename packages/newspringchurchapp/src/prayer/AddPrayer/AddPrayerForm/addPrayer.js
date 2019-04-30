@@ -17,7 +17,15 @@ export default gql`
       LastName: $lastName
       IsAnonymous: $isAnonymous
     ) {
+      id
+      campus {
+        id
+      }
+      categoryId
       text
+      firstName
+      lastName
+      isAnonymous
     }
   }
 `;
