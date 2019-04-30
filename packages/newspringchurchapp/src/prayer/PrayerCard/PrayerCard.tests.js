@@ -22,7 +22,7 @@ describe('the PrayerCard component', () => {
         <PrayerCard
           imageSource={cardData.imageSource}
           name={cardData.name}
-          prayer={cardData.prayer}
+          text={cardData.text}
           source={cardData.source}
         />
       </Providers>
