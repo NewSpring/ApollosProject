@@ -36,10 +36,29 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
     <View
       style={
         Object {
-          "aspectRatio": 1,
           "height": 120,
+          "marginBottom": 8,
           "marginRight": 12,
+          "marginTop": 8,
+          "transform": Array [
+            Object {
+              "scaleX": 0.95,
+            },
+            Object {
+              "scaleY": 1,
+            },
+          ],
         }
+      }
+      transform={
+        Array [
+          Object {
+            "scaleX": 0.95,
+          },
+          Object {
+            "scaleY": 1,
+          },
+        ]
       }
     >
       <View
@@ -100,8 +119,8 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
           <BVLinearGradient
             colors={
               Array [
-                3429608515,
-                3429608515,
+                3432959617,
+                3432959617,
               ]
             }
             endPoint={
