@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -7,10 +8,10 @@ import {
   Card,
   styled,
   CardContent,
+  H3,
   H5,
   BodyText,
   PaddedView,
-  SideBySideView,
   ButtonLink,
 } from '@apollosproject/ui-kit';
 
@@ -18,13 +19,25 @@ const PrayerText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
 
-const HeaderView = styled(() => ({
+const HeaderView = styled(({ theme }) => ({
   paddingBottom: 0,
+  paddingTop: theme.sizing.baseUnit * 0.5,
 }))(PaddedView);
 
-const HorizontalTextLayout = styled(({ theme }) => ({
-  height: theme.helpers.verticalRhythm(0.875),
-}))(SideBySideView);
+const StyledLayout = styled(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+}))(View);
+
+const GreyH3 = styled(({ theme }) => ({
+  color: theme.colors.lightTertiary,
+}))(H3);
+
+const GreyH5 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+}))(H5);
 
 class UserPrayerCard extends PureComponent {
   handleShowActionSheet = () => {
@@ -45,9 +58,11 @@ class UserPrayerCard extends PureComponent {
     return (
       <Card {...otherProps}>
         <HeaderView>
-          <HorizontalTextLayout>
-            <H5>{moment(duration).fromNow()}</H5>
-            <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+          <StyledLayout>
+            <GreyH5>{moment(duration).fromNow()}</GreyH5>
+            <ButtonLink onPress={this.handleShowActionSheet}>
+              <GreyH3>...</GreyH3>
+            </ButtonLink>
             <ActionSheet
               ref={(o) => {
                 this.ActionSheet = o;
@@ -58,7 +73,7 @@ class UserPrayerCard extends PureComponent {
               destructiveButtonIndex={destructiveIndex}
               onPress={(index) => handleOnPress(index)}
             />
-          </HorizontalTextLayout>
+          </StyledLayout>
         </HeaderView>
         <CardContent>
           <PrayerText>{text}</PrayerText>

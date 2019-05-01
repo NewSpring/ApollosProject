@@ -64,6 +64,7 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
             Object {
               "paddingBottom": 0,
               "paddingHorizontal": 16,
+              "paddingTop": 8,
               "paddingVertical": 16,
             }
           }
@@ -71,10 +72,9 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
           <View
             style={
               Object {
-                "alignItems": "stretch",
+                "alignItems": "flex-end",
+                "display": "flex",
                 "flexDirection": "row",
-                "flexWrap": "nowrap",
-                "height": 20.16,
                 "justifyContent": "space-between",
               }
             }
@@ -82,7 +82,7 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#303030",
+                  "color": "#858585",
                   "fontFamily": "Colfax-Medium",
                   "fontSize": 14,
                   "lineHeight": 20.16,
@@ -99,7 +99,18 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
                 }
               }
             >
-              ...
+              <Text
+                style={
+                  Object {
+                    "color": "#dddddd",
+                    "fontFamily": "Colfax-Black",
+                    "fontSize": 24,
+                    "lineHeight": 27.6,
+                  }
+                }
+              >
+                ...
+              </Text>
             </Text>
           </View>
         </View>
