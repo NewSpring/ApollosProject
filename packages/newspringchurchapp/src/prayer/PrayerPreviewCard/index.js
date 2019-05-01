@@ -49,7 +49,7 @@ const StyledButton = styled({
 const PrayerPreviewCard = withNavigation(
   ({ overlayColor, navigation, route, ...props }) => (
     <>
-      <PrayerCard interactive={false} help={false} {...props} />
+      <PrayerCard interactive={false} showHelp={false} {...props} />
       <Overlay
         colors={getGradientValues(overlayColor).colors}
         start={getGradientValues(overlayColor).start}

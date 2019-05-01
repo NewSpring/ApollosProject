@@ -52,7 +52,7 @@ class PrayerCard extends PureComponent {
   render() {
     const {
       interactive,
-      help,
+      showHelp,
       header,
       avatarSource,
       avatarSize,
@@ -68,11 +68,10 @@ class PrayerCard extends PureComponent {
     buttons.push({ title: 'Cancel', method: null, destructive: false });
 
     const handleOnPress = (index) => {
-      const methods = buttons.map((option) => option.method);
-      // this will only work for methods that take the prayer id as the first and only argument
-      methods[index]();
-      // TODO: is this needed?
-      return index;
+      const buttonMethods = buttons.map((option) => option.method);
+      // don't use this if they clicked "cancel"
+      if (index === buttonMethods.length) return;
+      buttonMethods[index]();
     };
     return (
       <Card>
@@ -106,7 +105,7 @@ class PrayerCard extends PureComponent {
             </UserHeader>
           ) : null}
           <StyledBodyText>{prayer}</StyledBodyText>
-          {help ? (
+          {showHelp ? (
             <PaddedView>
               <Touchable onPress={() => {}}>
                 <ChannelLabel icon="information" label="How to Pray?" />
@@ -121,7 +120,7 @@ class PrayerCard extends PureComponent {
 
 PrayerCard.propTypes = {
   interactive: PropTypes.bool,
-  help: PropTypes.bool,
+  showHelp: PropTypes.bool,
   header: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
@@ -140,7 +139,7 @@ PrayerCard.propTypes = {
 
 PrayerCard.defaultProps = {
   interactive: true,
-  help: true,
+  showHelp: true,
   header: true,
   avatarSize: 'small',
   name: 'request',
