@@ -5,30 +5,30 @@ import { Icon, withTheme } from '@apollosproject/ui-kit';
 import { ProtectedTouchable } from '@apollosproject/ui-auth';
 
 const SaveIcon = withTheme(
-  ({ theme: { colors: { secondary } = {} } = {}, isSaved } = {}) => ({
-    name: isSaved ? 'Like-solid' : 'Like',
+  ({ theme: { colors: { secondary } = {} } = {}, isLiked } = {}) => ({
+    name: isLiked ? 'Like-solid' : 'Like',
     fill: secondary,
   })
 )(Icon);
 
 SaveIcon.propTypes = {
-  isSaved: PropTypes.bool,
+  isLiked: PropTypes.bool,
 };
 
-const Save = ({ isSaved, toggleSave, itemId }) => (
+const Save = ({ isLiked, toggleLike, itemId }) => (
   <ProtectedTouchable
     onPress={() =>
-      toggleSave({ itemId, operation: isSaved ? 'UnSave' : 'Save' })
+      toggleLike({ itemId, operation: isLiked ? 'UnLike' : 'Like' })
     }
   >
-    <SaveIcon isSaved={isSaved} />
+    <SaveIcon isSaved={isLiked} />
   </ProtectedTouchable>
 );
 
 Save.propTypes = {
   itemId: PropTypes.string,
-  isSaved: PropTypes.bool,
-  toggleSave: PropTypes.func,
+  isLiked: PropTypes.bool,
+  toggleLike: PropTypes.func,
 };
 
 export { Save as default, SaveIcon };

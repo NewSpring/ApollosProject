@@ -6,7 +6,7 @@ const prayerRequestSchema = gql`
     getPublicPrayerRequestsByCampus(campusId: String!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPrayerRequestsByGroups: [PrayerRequest]
-    savedPrayers(first: Int, after: String): PrayerRequest
+    savedPrayers(first: Int, after: String): PrayerRequestsLiked
       @cacheControl(maxAge: 0)
   }
   extend type Mutation {
@@ -38,6 +38,16 @@ const prayerRequestSchema = gql`
     person: Person
     isAnonymous: Boolean
     isLiked: Boolean @cacheControl(maxAge: 0)
+  }
+  type PrayerRequestsLiked {
+    edges: [PrayerRequestsLikedEdge]
+    # TODO totalCount: Int
+    pageInfo: PaginationInfo
+  }
+
+  type PrayerRequestsLikedEdge {
+    node: PrayerRequest
+    cursor: String
   }
 `;
 
