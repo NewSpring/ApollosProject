@@ -100,9 +100,13 @@ const PrayerPreviewCard = withNavigation(
 PrayerPreviewCard.propTypes = {
   imageSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
-  overlayColor: PropTypes.any, //eslint-disable-line
+  overlayColor: PropTypes.string,
   prayer: PropTypes.string,
   source: PropTypes.string,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
+  route: PropTypes.string,
 };
 
 export default PrayerPreviewCard;
