@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -7,6 +8,7 @@ import {
   Card,
   styled,
   CardContent,
+  H3,
   H5,
   BodyText,
   PaddedView,
@@ -25,6 +27,18 @@ const HeaderView = styled(() => ({
 const HorizontalTextLayout = styled(({ theme }) => ({
   height: theme.helpers.verticalRhythm(0.875),
 }))(SideBySideView);
+
+const StyledLayout = styled(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+}))(View);
+
+const GreyH3 = styled(({ theme }) => ({
+  color: theme.colors.lightTertiary,
+  justifyContent: 'center',
+}))(H3);
 
 class UserPrayerCard extends PureComponent {
   handleShowActionSheet = () => {
@@ -45,9 +59,11 @@ class UserPrayerCard extends PureComponent {
     return (
       <Card {...otherProps}>
         <HeaderView>
-          <HorizontalTextLayout>
+          <StyledLayout>
             <H5>{moment(duration).fromNow()}</H5>
-            <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+            <ButtonLink onPress={this.handleShowActionSheet}>
+              <GreyH3>...</GreyH3>
+            </ButtonLink>
             <ActionSheet
               ref={(o) => {
                 this.ActionSheet = o;
@@ -58,7 +74,7 @@ class UserPrayerCard extends PureComponent {
               destructiveButtonIndex={destructiveIndex}
               onPress={(index) => handleOnPress(index)}
             />
-          </HorizontalTextLayout>
+          </StyledLayout>
         </HeaderView>
         <CardContent>
           <PrayerText>{text}</PrayerText>
