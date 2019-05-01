@@ -198,7 +198,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       locations={
         Array [
           0.25,
-          0.75,
+          0.8,
         ]
       }
       startPoint={

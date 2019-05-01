@@ -240,7 +240,12 @@ class PrayerMenu extends PureComponent {
       <SafeAreaView>
         {this.state.showAddPrayerCard ? (
           <StyledAddPrayerContainer>
-            <AddPrayerCardConnected {...this.props} />
+            <AddPrayerCardConnected
+              description={
+                'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
+              }
+              {...this.props}
+            />
           </StyledAddPrayerContainer>
         ) : null}
         {!this.state.showAddPrayerCard ? (

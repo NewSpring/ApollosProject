@@ -101,7 +101,7 @@ const PrayerPreviewCard = withNavigation(
 PrayerPreviewCard.propTypes = {
   imageSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
-  overlayColor: PropTypes.array,
+  overlayColor: PropTypes.arrayOf(PropTypes.string),
   prayer: PropTypes.string,
   source: PropTypes.string,
   navigation: PropTypes.shape({

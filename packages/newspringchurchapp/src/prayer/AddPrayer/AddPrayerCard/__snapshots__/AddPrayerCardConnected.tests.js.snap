@@ -242,6 +242,7 @@ exports[`renders AddPrayerCardConnected 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
+                "textAlign": "center",
               }
             }
           >

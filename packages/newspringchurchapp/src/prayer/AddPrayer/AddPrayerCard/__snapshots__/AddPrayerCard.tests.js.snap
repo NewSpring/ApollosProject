@@ -242,6 +242,7 @@ exports[`The AddPrayerCard component should render 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
+                "textAlign": "center",
               }
             }
           >
@@ -468,6 +469,7 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
+                "textAlign": "center",
               }
             }
           >
@@ -781,6 +783,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
+                "textAlign": "center",
               }
             }
           >

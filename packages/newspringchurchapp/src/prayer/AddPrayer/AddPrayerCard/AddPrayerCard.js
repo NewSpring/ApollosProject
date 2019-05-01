@@ -21,6 +21,10 @@ const TitleView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(View);
 
+const StyledBodyText = styled(() => ({
+  textAlign: 'center',
+}))(BodyText);
+
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <Card>
     <StyledCardContent>
@@ -29,7 +33,7 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
       <TitleView>
         <H3>{title}</H3>
       </TitleView>
-      <BodyText>{description}</BodyText>
+      <StyledBodyText>{description}</StyledBodyText>
     </StyledCardContent>
     <PaddedView>
       <Button
