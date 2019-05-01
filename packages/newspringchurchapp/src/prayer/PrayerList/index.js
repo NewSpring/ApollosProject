@@ -59,13 +59,13 @@ class PrayerList extends PureComponent {
   scrollToNextPrayer = () =>
     this.scroller.scrollTo({ x: 0, y: 1000, animated: true });
 
-  calculateQuery = () => {
+  render() {
     const { navigation } = this.props;
     const list = navigation.getParam('list', '');
 
     let query;
     let prayers;
-    let variables;
+    let variables = {};
 
     switch (list) {
       case 'GroupPrayerList':
@@ -78,14 +78,15 @@ class PrayerList extends PureComponent {
         break;
       case 'CampusPrayerList': {
         const {
-          currentUser: { profile: { campus: { id } } = {} } = {},
+          currentUser: {
+            profile: { campus: { id: campusId = '' } = {} } = {},
+          } = {},
         } = cache.readQuery({
           query: getUserProfile,
         });
-
         query = getPublicPrayerRequestsByCampus;
         prayers = 'getPublicPrayerRequestsByCampus';
-        variables = { campusId: id };
+        variables = { campusId };
         break;
       }
       default:
@@ -93,13 +94,6 @@ class PrayerList extends PureComponent {
         prayers = 'getPublicPrayerRequests';
         break;
     }
-
-    return { query, prayers, variables };
-  };
-
-  render() {
-    const { query, prayers, variables } = this.calculateQuery();
-
     return (
       <BackgroundView>
         <Query
@@ -115,17 +109,19 @@ class PrayerList extends PureComponent {
               ListItemComponent={(item) => (
                 <Mutation
                   mutation={flagPrayerRequest}
-                  update={async ({ data: { flagRequest } }) => {
+                  update={async () => {
                     const prayerRequests = cache.readQuery({
                       query,
                     });
-                    const { id } = flagRequest;
-                    const newPrayersList = prayerRequests.prayers.filter(
-                      (prayer) => prayer.id !== id
+                    const newPrayersList = prayerRequests[prayers].filter(
+                      (prayer) => prayer.id !== item.id
                     );
+                    const newPrayerObject = {
+                      [`${prayers}`]: newPrayersList,
+                    };
                     await cache.writeQuery({
                       query,
-                      data: { prayers: newPrayersList },
+                      data: newPrayerObject,
                     });
                   }}
                 >
@@ -154,8 +150,8 @@ class PrayerList extends PureComponent {
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
                 text: prayer.text,
+                source: prayer.campusId,
                 name: prayer.firstName,
-                source: prayer.campus ? prayer.campus.name : '',
                 ...prayer,
               }))}
               isLoading={loading}
