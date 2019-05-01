@@ -62,7 +62,7 @@ const prayerMenuData = [
         prayer={
           'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
         }
-        source={'Anderson'}
+        campus={'Hilton Head'}
         route={'ChurchPrayerList'}
       />
     ),
@@ -85,7 +85,7 @@ const prayerMenuData = [
         prayer={
           'Pray that God will do big things at our Connect table this month.'
         }
-        source={'Anderson'}
+        campus={'Anderson'}
         route={'CampusPrayerList'}
       />
     ),
@@ -108,7 +108,7 @@ const prayerMenuData = [
         prayer={
           'Please pray for our small group. We are just starting it and want God to bless it'
         }
-        source={'Small Group'}
+        campus={'Greenville'}
         route={'GroupPrayerList'}
       />
     ),
@@ -156,10 +156,12 @@ const StyledAddPrayerContainer = styled(({ theme }) => ({
 const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
   return (
-    <StyledPaddedView>
-      <BodyText>{data.description}</BodyText>
+    <>
+      <StyledPaddedView>
+        <BodyText>{data.description}</BodyText>
+      </StyledPaddedView>
       {!showAddPrayerCard ? <StyledView>{data.component}</StyledView> : null}
-    </StyledPaddedView>
+    </>
   );
 };
 

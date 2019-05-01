@@ -59,7 +59,7 @@ class PrayerCard extends PureComponent {
       avatarSize,
       created,
       name,
-      source,
+      campus,
       prayer,
       options,
     } = this.props;
@@ -103,7 +103,7 @@ class PrayerCard extends PureComponent {
             <UserHeader>
               <Avatar source={avatarSource} size={avatarSize} />
               <H3>Pray For {name}</H3>
-              {source ? <GreyH6>{source}</GreyH6> : null}
+              {campus ? <GreyH6>{campus}</GreyH6> : null}
             </UserHeader>
           ) : null}
           <StyledBodyText>{prayer}</StyledBodyText>
@@ -129,7 +129,7 @@ PrayerCard.propTypes = {
   created: PropTypes.string,
   name: PropTypes.string,
   prayer: PropTypes.string,
-  source: PropTypes.string,
+  campus: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
