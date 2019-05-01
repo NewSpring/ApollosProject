@@ -70,7 +70,7 @@ class PrayerCard extends PureComponent {
     const handleOnPress = (index) => {
       const buttonMethods = buttons.map((option) => option.method);
       // don't use this if they clicked "cancel"
-      if (index === buttonMethods.length) return;
+      if (index === buttonMethods.length - 1) return;
       buttonMethods[index]();
     };
     return (
