@@ -53,8 +53,9 @@ const StyledCard = styled(() => ({
   marginVertical: 0,
 }))(Card);
 
-const StyledCardContent = styled(() => ({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
+  marginTop: theme.sizing.baseUnit,
 }))(CardContent);
 
 const StyledBodyTextContainer = styled(({ theme }) => ({
@@ -73,7 +74,7 @@ const PrayerPreviewCard = withNavigation(
     <>
       <StyledCard>
         <StyledCardContent>
-          <Avatar source={imageSource} />
+          <Avatar source={imageSource} size={'medium'} />
           <H3>Pray For {name}</H3>
           <H6>{source}</H6>
           <StyledBodyTextContainer>

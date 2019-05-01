@@ -129,9 +129,10 @@ const StyledPaddedView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit,
 }))(PaddedView);
 
-const StyledView = styled(() => ({
+const StyledView = styled(({ theme }) => ({
   height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
+  marginTop: theme.sizing.baseUnit,
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
@@ -142,7 +143,7 @@ const StyledButtonLink = styled(({ theme }) => ({
 const StyledContainer = styled(({ theme }) => ({
   alignItems: 'center',
   marginTop: theme.sizing.baseUnit,
-  marginBottom: theme.sizing.baseUnit * 2,
+  marginBottom: theme.sizing.baseUnit,
 }))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
