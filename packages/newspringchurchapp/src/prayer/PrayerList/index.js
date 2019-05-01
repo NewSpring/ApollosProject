@@ -17,6 +17,7 @@ import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import flagPrayerRequest from '../PrayerCard/flagPrayerRequest';
+import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
 import getGroupPrayerRequests from './getGroupPrayerRequests';
 import getPublicPrayerRequests from './getPublicPrayerRequests';
 import getPublicPrayerRequestsByCampus from './getCampusPrayerRequests';
@@ -43,6 +44,10 @@ class PrayerList extends PureComponent {
     header: <ModalViewHeader onClose={() => navigation.popToTop()} />,
   });
 
+  state = {
+    selectedPrayer: false,
+  };
+
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
@@ -53,7 +58,9 @@ class PrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = () => this.scrollToNextPrayer();
+  handleOnPress = () => this.setState({ selectedPrayer: true });
+
+  handleResetState = () => this.setState({ selectedPrayer: false });
 
   // This doesn't work. Just keeping it here for now
   scrollToNextPrayer = () =>
@@ -129,21 +136,30 @@ class PrayerList extends PureComponent {
                     });
                   }}
                 >
-                  {(handlePress) => (
-                    <PaddedView>
-                      <PrayerCard
-                        onPress={this.handleOnPress}
-                        flagRequest={async () => {
-                          await handlePress({
-                            variables: {
-                              parsedId: item.id,
-                            },
-                          });
-                        }}
-                        {...item}
-                      />
-                    </PaddedView>
-                  )}
+                  {(handlePress) =>
+                    this.state.selectedPrayer ? (
+                      <PaddedView>
+                        <PrayerActionMenuCardConnected
+                          onAdvancePrayer={this.handleResetState}
+                          {...item}
+                        />
+                      </PaddedView>
+                    ) : (
+                      <PaddedView>
+                        <PrayerCard
+                          onPress={this.handleOnPress}
+                          flagRequest={async () => {
+                            await handlePress({
+                              variables: {
+                                parsedId: item.id,
+                              },
+                            });
+                          }}
+                          {...item}
+                        />
+                      </PaddedView>
+                    )
+                  }
                 </Mutation>
               )}
               ItemSeparatorComponent={() => (

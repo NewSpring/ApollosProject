@@ -53,7 +53,7 @@ const PrayerActionMenuCard = ({ exitPrayer, savePrayer, advancePrayer }) => (
         <StyledPaddedView>
           <StyledTouchable onPress={() => advancePrayer()}>
             <PaddedView>
-              <H4>Done Praying</H4>
+              <H4>Next Prayer</H4>
             </PaddedView>
             <NSIcon name="arrow-down" />
           </StyledTouchable>

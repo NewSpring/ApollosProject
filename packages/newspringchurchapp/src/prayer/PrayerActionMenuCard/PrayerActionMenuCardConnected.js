@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Mutation } from 'react-apollo';
 
 import PrayerActionMenuCard from './PrayerActionMenuCard';
 
-const PrayerActionMenuCardConnected = ({ advancePrayer, ...props }) => {
+const PrayerActionMenuCardConnected = ({ onAdvancePrayer, ...props }) => {
   const exitPrayer = () => props.navigation.navigate('Prayer');
+  const handlePress = () => {};
   return (
-    <Mutation>
-      {(handlePress) => (
-        <PrayerActionMenuCard
-          exitPrayer={exitPrayer}
-          savePrayer={async () => {
-            await handlePress();
-          }}
-          advancePrayer={advancePrayer}
-        />
-      )}
-    </Mutation>
+    <PrayerActionMenuCard
+      exitPrayer={exitPrayer}
+      savePrayer={async () => {
+        await handlePress();
+      }}
+      advancePrayer={onAdvancePrayer}
+    />
   );
 };
 
 PrayerActionMenuCardConnected.propTypes = {
-  advancePrayer: PropTypes.func,
+  onAdvancePrayer: PropTypes.func,
 };
 
 export default PrayerActionMenuCardConnected;
