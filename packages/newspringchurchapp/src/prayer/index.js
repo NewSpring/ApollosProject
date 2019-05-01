@@ -32,32 +32,6 @@ const loadingStateObject = {
   },
 };
 
-// TODO: remove once this is pulling data
-const PrayerPreviewCardComponent = ({ route }) => (
-  <PrayerPreviewCard
-    imageSource={{
-      uri: 'https://fillmurray.com/400/600',
-    }}
-    name={'Bill'}
-    overlayColor={['#FFF', '#FFF']}
-    prayer={
-      'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
-    }
-    source={'Anderson'}
-    route={route}
-  />
-);
-PrayerPreviewCardComponent.propTypes = {
-  route: PropTypes.string,
-};
-// TODO: remove once this is pulling data
-const StyledPrayerPreviewCardComponent = styled({
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  right: 0,
-})(PrayerPreviewCardComponent);
-
 // TODO: this needs to be dynamic at some point
 const prayerMenuData = [
   {
@@ -76,7 +50,20 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Church',
     key: 'church',
-    component: <StyledPrayerPreviewCardComponent route={'ChurchPrayerList'} />,
+    component: (
+      <PrayerPreviewCard
+        imageSource={{
+          uri: 'https://fillmurray.com/400/600',
+        }}
+        name={'Bill'}
+        overlayColor={['#FFF', '#FFF']}
+        prayer={
+          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+        }
+        source={'Anderson'}
+        route={'ChurchPrayerList'}
+      />
+    ),
   },
   {
     id: '3',
@@ -85,7 +72,20 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Campus',
     key: 'campus',
-    component: <PrayerPreviewCardComponent route={'CampusPrayerList'} />,
+    component: (
+      <PrayerPreviewCard
+        imageSource={{
+          uri: 'https://fillmurray.com/400/600',
+        }}
+        name={'Bill'}
+        overlayColor={['#FFF', '#FFF']}
+        prayer={
+          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+        }
+        source={'Anderson'}
+        route={'CampusPrayerList'}
+      />
+    ),
   },
   {
     id: '4',
@@ -94,7 +94,20 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Community',
     key: 'community',
-    component: <PrayerPreviewCardComponent route={'GroupPrayerList'} />,
+    component: (
+      <PrayerPreviewCard
+        imageSource={{
+          uri: 'https://fillmurray.com/400/600',
+        }}
+        name={'Bill'}
+        overlayColor={['#FFF', '#FFF']}
+        prayer={
+          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+        }
+        source={'Anderson'}
+        route={'GroupPrayerList'}
+      />
+    ),
   },
   {
     id: '5',
