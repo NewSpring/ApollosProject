@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -30,37 +30,39 @@ const StyledTouchable = styled(({ theme }) => ({
   padding: theme.sizing.baseUnit * 1.5,
 }))(Touchable);
 
-const PrayerActionMenuCard = ({ exitPrayer, savePrayer, advancePrayer }) => (
-  <>
-    <StyledCard>
-      <StyledCardContent>
-        <StyledPaddedView>
-          <StyledTouchable onPress={() => exitPrayer()}>
-            <PaddedView>
-              <NSIcon name="arrow-up" />
-            </PaddedView>
-            <H4>Done Praying</H4>
-          </StyledTouchable>
-        </StyledPaddedView>
-        <StyledPaddedView>
-          <StyledTouchable onPress={() => savePrayer()}>
-            <PaddedView>
-              <Icon name="Like" />
-            </PaddedView>
-            <H4>Save Prayer</H4>
-          </StyledTouchable>
-        </StyledPaddedView>
-        <StyledPaddedView>
-          <StyledTouchable onPress={() => advancePrayer()}>
-            <PaddedView>
-              <H4>Next Prayer</H4>
-            </PaddedView>
-            <NSIcon name="arrow-down" />
-          </StyledTouchable>
-        </StyledPaddedView>
-      </StyledCardContent>
-    </StyledCard>
-  </>
+const PrayerActionMenuCard = memo(
+  ({ exitPrayer, savePrayer, advancePrayer }) => (
+    <>
+      <StyledCard>
+        <StyledCardContent>
+          <StyledPaddedView>
+            <StyledTouchable onPress={() => exitPrayer()}>
+              <PaddedView>
+                <NSIcon name="arrow-up" />
+              </PaddedView>
+              <H4>Done Praying</H4>
+            </StyledTouchable>
+          </StyledPaddedView>
+          <StyledPaddedView>
+            <StyledTouchable onPress={() => savePrayer()}>
+              <PaddedView>
+                <Icon name="Like" />
+              </PaddedView>
+              <H4>Save Prayer</H4>
+            </StyledTouchable>
+          </StyledPaddedView>
+          <StyledPaddedView>
+            <StyledTouchable onPress={() => advancePrayer()}>
+              <PaddedView>
+                <H4>Next Prayer</H4>
+              </PaddedView>
+              <NSIcon name="arrow-down" />
+            </StyledTouchable>
+          </StyledPaddedView>
+        </StyledCardContent>
+      </StyledCard>
+    </>
+  )
 );
 
 PrayerActionMenuCard.propTypes = {
@@ -68,5 +70,7 @@ PrayerActionMenuCard.propTypes = {
   savePrayer: PropTypes.func,
   advancePrayer: PropTypes.func,
 };
+
+PrayerActionMenuCard.displayName = 'PrayerActionMenuCard';
 
 export default PrayerActionMenuCard;

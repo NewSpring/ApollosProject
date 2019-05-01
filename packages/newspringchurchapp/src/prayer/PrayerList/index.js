@@ -104,6 +104,7 @@ class PrayerList extends PureComponent {
 
   render() {
     const { query, prayers, variables } = this.calculateQuery();
+    const { navigation } = this.props;
 
     return (
       <BackgroundView>
@@ -141,6 +142,7 @@ class PrayerList extends PureComponent {
                       <PaddedView>
                         <PrayerActionMenuCardConnected
                           onAdvancePrayer={this.handleResetState}
+                          navigation={navigation}
                           {...item}
                         />
                       </PaddedView>
