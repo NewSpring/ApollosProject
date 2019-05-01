@@ -12,7 +12,6 @@ import {
   H5,
   BodyText,
   PaddedView,
-  SideBySideView,
   ButtonLink,
 } from '@apollosproject/ui-kit';
 
@@ -24,7 +23,7 @@ const HeaderView = styled(() => ({
   paddingBottom: 0,
 }))(PaddedView);
 
-const StyledLayout = styled(({ theme }) => ({
+const StyledLayout = styled(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   flexDirection: 'row',

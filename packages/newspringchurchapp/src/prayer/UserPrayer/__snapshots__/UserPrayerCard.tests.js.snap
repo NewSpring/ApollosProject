@@ -71,10 +71,9 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
           <View
             style={
               Object {
-                "alignItems": "stretch",
+                "alignItems": "flex-end",
+                "display": "flex",
                 "flexDirection": "row",
-                "flexWrap": "nowrap",
-                "height": 20.16,
                 "justifyContent": "space-between",
               }
             }
@@ -99,7 +98,19 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
                 }
               }
             >
-              ...
+              <Text
+                style={
+                  Object {
+                    "color": "#dddddd",
+                    "fontFamily": "Colfax-Black",
+                    "fontSize": 24,
+                    "justifyContent": "center",
+                    "lineHeight": 27.6,
+                  }
+                }
+              >
+                ...
+              </Text>
             </Text>
           </View>
         </View>
