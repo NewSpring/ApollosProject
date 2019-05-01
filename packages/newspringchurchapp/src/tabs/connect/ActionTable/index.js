@@ -32,7 +32,7 @@ const ActionTable = () => (
       <View>
         <RowHeader>
           <Name>
-            <H4>{'Connect with Apollos'}</H4>
+            <H4>{'Connect with NewSpring'}</H4>
           </Name>
         </RowHeader>
         <TableView>
@@ -59,16 +59,18 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
         </TableView>
-        <TableView>
-          <Touchable
-            onPress={() => NavigationActions.navigate('TestingControlPanel')}
-          >
-            <Cell>
-              <CellIcon name="settings" />
-              <CellText>Open Testing Panel</CellText>
-            </Cell>
-          </Touchable>
-        </TableView>
+        {process.env.NODE_ENV !== 'production' ? (
+          <TableView>
+            <Touchable
+              onPress={() => NavigationActions.navigate('TestingControlPanel')}
+            >
+              <Cell>
+                <CellIcon name="settings" />
+                <CellText>Open Testing Panel</CellText>
+              </Cell>
+            </Touchable>
+          </TableView>
+        ) : null}
       </View>
     )}
   </WebBrowserConsumer>
