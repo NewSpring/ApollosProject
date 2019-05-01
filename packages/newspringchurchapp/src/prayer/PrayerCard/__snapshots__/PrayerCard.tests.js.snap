@@ -111,6 +111,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               Object {
                 "alignItems": "center",
                 "marginBottom": 24,
+                "marginTop": 16,
               }
             }
           >
@@ -270,6 +271,18 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
             >
               Pray For 
               Bill
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#858585",
+                  "fontFamily": "Colfax-Bold",
+                  "fontSize": 12,
+                  "lineHeight": 17.28,
+                }
+              }
+            >
+              Anderson
             </Text>
           </View>
           <Text

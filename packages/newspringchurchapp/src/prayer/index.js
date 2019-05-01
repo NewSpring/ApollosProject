@@ -53,9 +53,10 @@ const prayerMenuData = [
     key: 'church',
     component: (
       <PrayerPreviewCard
-        imageSource={{
+        avatarSource={{
           uri: 'https://rock.newspring.cc/GetImage.ashx?id=564401',
         }}
+        avatarSize={'medium'}
         name={'Dan'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
@@ -75,9 +76,10 @@ const prayerMenuData = [
     key: 'campus',
     component: (
       <PrayerPreviewCard
-        imageSource={{
+        avatarSource={{
           uri: 'https://rock.newspring.cc/GetImage.ashx?id=564499',
         }}
+        avatarSize={'medium'}
         name={'Morgan'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
@@ -97,9 +99,10 @@ const prayerMenuData = [
     key: 'community',
     component: (
       <PrayerPreviewCard
-        imageSource={{
+        avatarSource={{
           uri: 'https://rock.newspring.cc/GetImage.ashx?id=567835',
         }}
+        avatarSize={'medium'}
         name={'Jake'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
