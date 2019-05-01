@@ -30,7 +30,8 @@ export default {
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
-    campusId: ({ campusId }) => (typeof campusId === 'number' && campusId) || 0,
+    campus: ({ campusId }, args, { dataSources }) =>
+      dataSources.Campus.getFromId(campusId),
     categoryId: ({ categoryId }) =>
       (typeof categoryId === 'number' && categoryId) || 0,
     flagCount: ({ flagCount }) =>
