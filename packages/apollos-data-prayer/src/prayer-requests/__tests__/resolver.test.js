@@ -3,16 +3,18 @@ import { fetch } from 'apollo-server-env';
 import ApollosConfig from '@apollosproject/config';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
-import { peopleSchema } from '@apollosproject/data-schema';
+import { peopleSchema, campusSchema } from '@apollosproject/data-schema';
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
+import campusMock from '../../campusMock';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
+  Campus: { dataSource: campusMock },
 });
 
 ApollosConfig.loadJs({
@@ -35,7 +37,7 @@ describe('PrayerRequest', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([prayerRequestSchema, peopleSchema]);
+    schema = getSchema([prayerRequestSchema, peopleSchema, campusSchema]);
     context = getContext();
   });
 
@@ -48,7 +50,10 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -116,13 +121,16 @@ describe('PrayerRequest', () => {
   it('gets all public prayer requests by campus', async () => {
     const query = `
       query {
-        getPublicPrayerRequestsByCampus(campusId: 16) {
+        getPublicPrayerRequestsByCampus(campusId: "Campus:4f68015ba18662a7409d1219a4ce013e") {
           id
           firstName
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -181,7 +189,10 @@ describe('PrayerRequest', () => {
             lastName
             text
             requestedByPersonAliasId
-            campusId
+            campus {
+              id
+              name
+            }
             categoryId
             flagCount
             prayerCount
@@ -237,7 +248,10 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -296,7 +310,10 @@ describe('PrayerRequest', () => {
           text
           createdByPersonAliasId
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -337,13 +354,16 @@ describe('PrayerRequest', () => {
   it('creates a new prayer', async () => {
     const query = `
       mutation {
-        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: 16, CategoryId: 1, IsAnonymous: "True") {
+        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: "Campus:4f68015ba18662a7409d1219a4ce013e", CategoryId: 1, IsAnonymous: true) {
           id
           firstName
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -397,7 +417,10 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount
@@ -452,7 +475,10 @@ describe('PrayerRequest', () => {
           lastName
           text
           requestedByPersonAliasId
-          campusId
+          campus {
+            id
+            name
+          }
           categoryId
           flagCount
           prayerCount

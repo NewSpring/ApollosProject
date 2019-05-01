@@ -59,13 +59,13 @@ class PrayerList extends PureComponent {
   scrollToNextPrayer = () =>
     this.scroller.scrollTo({ x: 0, y: 1000, animated: true });
 
-  render() {
+  calculateQuery = () => {
     const { navigation } = this.props;
     const list = navigation.getParam('list', '');
 
     let query;
     let prayers;
-    let variables = {};
+    let variables;
 
     switch (list) {
       case 'GroupPrayerList':
@@ -78,15 +78,14 @@ class PrayerList extends PureComponent {
         break;
       case 'CampusPrayerList': {
         const {
-          currentUser: {
-            profile: { campus: { id: campusId = '' } = {} } = {},
-          } = {},
+          currentUser: { profile: { campus: { id } } = {} } = {},
         } = cache.readQuery({
           query: getUserProfile,
         });
+
         query = getPublicPrayerRequestsByCampus;
         prayers = 'getPublicPrayerRequestsByCampus';
-        variables = { campusId };
+        variables = { campusId: id };
         break;
       }
       default:
@@ -94,6 +93,13 @@ class PrayerList extends PureComponent {
         prayers = 'getPublicPrayerRequests';
         break;
     }
+
+    return { query, prayers, variables };
+  };
+
+  render() {
+    const { query, prayers, variables } = this.calculateQuery();
+
     return (
       <BackgroundView>
         <Query
@@ -148,8 +154,8 @@ class PrayerList extends PureComponent {
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
                 text: prayer.text,
-                source: prayer.campusId,
                 name: prayer.firstName,
+                source: prayer.campus ? prayer.campus.name : '',
                 ...prayer,
               }))}
               isLoading={loading}

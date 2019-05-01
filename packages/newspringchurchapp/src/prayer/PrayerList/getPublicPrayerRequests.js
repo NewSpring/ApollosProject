@@ -9,7 +9,10 @@ export default gql`
       isAnonymous
       text
       flagCount
-      campusId
+      campus {
+        id
+        name
+      }
     }
   }
 `;
