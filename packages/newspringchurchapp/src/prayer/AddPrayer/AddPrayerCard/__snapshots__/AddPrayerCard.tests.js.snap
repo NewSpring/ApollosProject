@@ -63,6 +63,7 @@ exports[`The AddPrayerCard component should render 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "marginTop": 16,
               "paddingHorizontal": 16,
               "paddingVertical": 16,
             }
@@ -375,6 +376,7 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "marginTop": 16,
               "paddingHorizontal": 16,
               "paddingVertical": 16,
             }
@@ -600,6 +602,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "marginTop": 16,
               "paddingHorizontal": 16,
               "paddingVertical": 16,
             }
