@@ -18,6 +18,7 @@ import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayer';
 import PrayerPreviewCard from './PrayerPreviewCard';
+import SavedPrayerList from './SavedPrayer';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -63,6 +64,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Saved Prayers',
     key: 'saved',
+    component: <SavedPrayerList />,
   },
   {
     id: '2',
