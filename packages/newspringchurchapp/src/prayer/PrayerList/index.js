@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -13,9 +13,10 @@ import {
   H6,
 } from '@apollosproject/ui-kit';
 
-import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
+import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
+import flagPrayerRequest from '../PrayerCard/flagPrayerRequest';
 import getGroupPrayerRequests from './getGroupPrayerRequests';
 import getPublicPrayerRequests from './getPublicPrayerRequests';
 import getPublicPrayerRequestsByCampus from './getCampusPrayerRequests';
@@ -106,9 +107,38 @@ class PrayerList extends PureComponent {
                 this.scroller = scroller;
               }}
               ListItemComponent={(item) => (
-                <PaddedView>
-                  <PrayerCardConnected onPress={this.handleOnPress} {...item} />
-                </PaddedView>
+                <Mutation
+                  mutation={flagPrayerRequest}
+                  update={async ({ data: { flagRequest } }) => {
+                    const prayerRequests = cache.readQuery({
+                      query,
+                    });
+                    const { id } = flagRequest;
+                    const newPrayersList = prayerRequests.prayers.filter(
+                      (prayer) => prayer.id !== id
+                    );
+                    await cache.writeQuery({
+                      query,
+                      data: { prayers: newPrayersList },
+                    });
+                  }}
+                >
+                  {(handlePress) => (
+                    <PaddedView>
+                      <PrayerCard
+                        onPress={this.handleOnPress}
+                        flagRequest={async () => {
+                          await handlePress({
+                            variables: {
+                              parsedId: item.id,
+                            },
+                          });
+                        }}
+                        {...item}
+                      />
+                    </PaddedView>
+                  )}
+                </Mutation>
               )}
               ItemSeparatorComponent={() => (
                 <DividerView>
