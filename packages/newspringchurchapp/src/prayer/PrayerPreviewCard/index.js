@@ -42,7 +42,7 @@ const getGradientValues = (overlayColor) => {
     colors,
     start: { x: 0, y: 0 },
     end: { x: 0, y: 1 },
-    locations: [0.25, 0.75],
+    locations: [0.25, 0.8],
   };
 
   return values;
@@ -101,7 +101,7 @@ const PrayerPreviewCard = withNavigation(
 PrayerPreviewCard.propTypes = {
   imageSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
-  overlayColor: PropTypes.string,
+  overlayColor: PropTypes.array,
   prayer: PropTypes.string,
   source: PropTypes.string,
   navigation: PropTypes.shape({
