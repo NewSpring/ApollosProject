@@ -73,8 +73,8 @@ class PrayerCard extends PureComponent {
             <GreyH3>...</GreyH3>
           </ButtonLink>
           <ActionSheet
-            ref={(o) => {
-              this.ActionSheet = o;
+            ref={(sheet) => {
+              this.ActionSheet = sheet;
             }}
             title={'Would you like to report the prayer request?'}
             options={options}
