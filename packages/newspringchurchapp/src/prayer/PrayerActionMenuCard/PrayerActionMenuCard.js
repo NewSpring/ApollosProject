@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
@@ -29,24 +30,24 @@ const StyledTouchable = styled(({ theme }) => ({
   padding: theme.sizing.baseUnit * 2,
 }))(Touchable);
 
-const PrayerActionMenuCard = () => (
+const PrayerActionMenuCard = ({ exitPrayer, savePrayer, advancePrayer }) => (
   <>
     <StyledCard>
       <StyledCardContent>
         <StyledPaddedView>
-          <StyledTouchable onPress={() => {}}>
+          <StyledTouchable onPress={() => exitPrayer()}>
             <NSIcon name="arrow-up" />
             <H5>Done Praying</H5>
           </StyledTouchable>
         </StyledPaddedView>
         <StyledPaddedView>
-          <StyledTouchable onPress={() => {}}>
+          <StyledTouchable onPress={() => savePrayer()}>
             <Icon name="Like" />
             <H5>Save Prayer</H5>
           </StyledTouchable>
         </StyledPaddedView>
         <StyledPaddedView>
-          <StyledTouchable onPress={() => {}}>
+          <StyledTouchable onPress={() => advancePrayer()}>
             <H5>Done Praying</H5>
             <NSIcon name="arrow-down" />
           </StyledTouchable>
@@ -55,5 +56,11 @@ const PrayerActionMenuCard = () => (
     </StyledCard>
   </>
 );
+
+PrayerActionMenuCard.propTypes = {
+  exitPrayer: PropTypes.func,
+  savePrayer: PropTypes.func,
+  advancePrayer: PropTypes.func,
+};
 
 export default PrayerActionMenuCard;
