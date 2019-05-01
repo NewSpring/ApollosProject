@@ -24,10 +24,6 @@ const HeaderView = styled(() => ({
   paddingBottom: 0,
 }))(PaddedView);
 
-const HorizontalTextLayout = styled(({ theme }) => ({
-  height: theme.helpers.verticalRhythm(0.875),
-}))(SideBySideView);
-
 const StyledLayout = styled(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
