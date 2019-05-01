@@ -81,9 +81,10 @@ exports[`the UserPrayerCard component renders Prayer 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#303030",
+                  "color": "#858585",
                   "fontFamily": "Colfax-Medium",
                   "fontSize": 14,
+                  "justifyContent": "center",
                   "lineHeight": 20.16,
                 }
               }
