@@ -1,12 +1,14 @@
 import { createStackNavigator } from 'react-navigation';
 import { tabBarIconNewSpring } from '../tabBarIcon';
 import { AddPrayerFormConnected } from '../../prayer/AddPrayer/AddPrayerForm';
+import PrayerList from '../../prayer/PrayerList';
 import Prayer from './Prayer';
 
 const PrayerNavigator = createStackNavigator(
   {
     Prayer,
     AddPrayerFormConnected,
+    PrayerList,
   },
   {
     initialRouteName: 'Prayer',

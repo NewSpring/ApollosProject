@@ -67,7 +67,9 @@ export default {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
     campus: ({ campusId }, args, { dataSources }) =>
-      dataSources.Campus.getFromId(campusId),
+      (typeof campusId === 'number' &&
+        dataSources.Campus.getFromId(campusId)) ||
+      null,
     categoryId: ({ categoryId }) =>
       (typeof categoryId === 'number' && categoryId) || 0,
     flagCount: ({ flagCount }) =>
