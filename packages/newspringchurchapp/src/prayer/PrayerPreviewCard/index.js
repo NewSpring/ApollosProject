@@ -56,6 +56,7 @@ const StyledCard = styled(() => ({
 const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
   marginTop: theme.sizing.baseUnit,
+  paddingBottom: theme.sizing.baseUnit,
 }))(CardContent);
 
 const StyledBodyTextContainer = styled(({ theme }) => ({
@@ -64,7 +65,7 @@ const StyledBodyTextContainer = styled(({ theme }) => ({
 
 const BottomButton = styled({
   position: 'absolute',
-  bottom: 35,
+  bottom: 30,
   left: 0,
   right: 0,
 })(Button);
@@ -94,9 +95,7 @@ const PrayerPreviewCard = ({
       locations={getGradientValues(overlayColor).locations}
     />
     <PaddedView>
-      <PaddedView>
-        <BottomButton onPress={() => {}} title="Start Praying" />
-      </PaddedView>
+      <BottomButton onPress={() => {}} title="Start Praying" />
     </PaddedView>
   </>
 );
