@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import moment from 'moment';
 
 import ActionSheet from 'react-native-actionsheet';
 import {
@@ -15,16 +16,16 @@ import {
   Touchable,
   ButtonLink,
   ChannelLabel,
+  SideBySideView,
 } from '@apollosproject/ui-kit';
 
-const EllipsisView = styled(({ theme }) => ({
-  paddingHorizontal: theme.sizing.baseUnit,
-}))(View);
-
-const GreyH3 = styled(({ theme }) => ({
-  color: theme.colors.text.tertiary,
-  textAlign: 'right',
-}))(H3);
+const HeaderView = styled(({ theme }) => ({
+  paddingBottom: 0,
+  paddingTop: theme.sizing.baseUnit * 0.3,
+  paddingRight: theme.sizing.baseUnit,
+  paddingLeft: theme.sizing.baseUnit,
+  height: theme.helpers.verticalRhythm(0.875),
+}))(SideBySideView);
 
 const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -34,14 +35,14 @@ const StyledCardContent = styled(() => ({
   alignItems: 'center',
 }))(CardContent);
 
+const UserHeader = styled(({ theme }) => ({
+  alignItems: 'center',
+  marginBottom: theme.sizing.baseUnit * 1.5,
+}))(View);
+
 const StyledBodyText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
-
-const BodyTextView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
-  alignItems: 'center',
-}))(View);
 
 class PrayerCard extends PureComponent {
   handleShowActionSheet = () => {
@@ -51,64 +52,61 @@ class PrayerCard extends PureComponent {
   render() {
     const {
       interactive,
+      help,
+      header,
       avatarSource,
       avatarSize,
+      created,
       name,
       campus,
       prayer,
-      prayerID,
+      options,
     } = this.props;
 
-    const options = [
-      {
-        title: 'Flag',
-        method: (arg) => arg,
-        destructive: false,
-      },
-      {
-        title: 'Save',
-        method: () => 'savePrayer',
-        destructive: false,
-      },
-      { title: 'Cancel', method: null, destructive: false },
-    ];
+    // add a cancel button
+    const buttons = options || [];
+    buttons.push({ title: 'Cancel', method: null, destructive: false });
+
     const handleOnPress = (index) => {
-      const methods = options.map((option) => option.method);
+      const methods = buttons.map((option) => option.method);
       // this will only work for methods that take the prayer id as the first and only argument
-      methods[index](prayerID);
+      methods[index]();
       // TODO: is this needed?
       return index;
     };
     return (
       <Card>
         {interactive ? (
-          <EllipsisView>
-            <ButtonLink onPress={this.handleShowActionSheet}>
-              <GreyH3>...</GreyH3>
-            </ButtonLink>
+          <HeaderView>
+            <H6>{created ? moment(created).fromNow() : ''}</H6>
+            {buttons ? (
+              <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+            ) : null}
             <ActionSheet
               ref={(sheet) => {
                 this.ActionSheet = sheet;
               }}
-              options={options.map((option) => option.title)}
-              cancelButtonIndex={options.length}
+              options={buttons.map((option) => option.title)}
+              cancelButtonIndex={buttons.length}
               // this will only make the first option listed as destructive turn red
               // ActionSheet only allows for one destructive button
-              destructiveButtonIndex={options
+              destructiveButtonIndex={buttons
                 .map((option) => option.destructive)
                 .indexOf(true)}
               onPress={(index) => handleOnPress(index)}
             />
-          </EllipsisView>
+          </HeaderView>
         ) : null}
         <StyledCardContent>
-          <Avatar source={avatarSource} size={avatarSize} />
-          <H3>Pray For {name}</H3>
-          {campus ? <GreyH6>{campus}</GreyH6> : null}
-          <BodyTextView>
-            <StyledBodyText>{prayer}</StyledBodyText>
-          </BodyTextView>
-          {interactive ? (
+          {header ? (
+            <UserHeader>
+              <Avatar source={avatarSource} size={avatarSize} />
+              <H3>Pray For {name}</H3>
+              {campus ? <GreyH6>{campus}</GreyH6> : null}
+            </UserHeader>
+          ) : null}
+          <StyledBodyText>{prayer}</StyledBodyText>
+          {help ? (
             <PaddedView>
               <Touchable onPress={() => {}}>
                 <ChannelLabel icon="information" label="How to Pray?" />
@@ -123,16 +121,27 @@ class PrayerCard extends PureComponent {
 
 PrayerCard.propTypes = {
   interactive: PropTypes.bool,
+  help: PropTypes.bool,
+  header: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
+  created: PropTypes.string,
   name: PropTypes.string,
   prayer: PropTypes.string,
   campus: PropTypes.string,
-  prayerID: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      method: PropTypes.func,
+      destructive: PropTypes.bool,
+    })
+  ),
 };
 
 PrayerCard.defaultProps = {
   interactive: true,
+  help: true,
+  header: true,
   avatarSize: 'small',
   name: 'request',
 };

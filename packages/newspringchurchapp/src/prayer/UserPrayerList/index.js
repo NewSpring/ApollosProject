@@ -4,10 +4,10 @@ import { View, ScrollView } from 'react-native';
 
 import { styled } from '@apollosproject/ui-kit';
 
-import UserPrayerCard from './UserPrayerCard';
+import PrayerCard from '../PrayerCard';
 
-import deleteUserPrayer from './deleteUserPrayer';
-import getUserPrayers from './getUserPrayers';
+import deleteUserPrayer from '../data/mutations/deleteUserPrayer';
+import getUserPrayers from '../data/queries/getUserPrayers';
 
 const StyledView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
@@ -34,22 +34,29 @@ const UserPrayerList = () => (
             });
           }}
         >
-          {(handlePress) => (
+          {(deletePrayer) => (
             <StyledView>
               {getCurrentPersonPrayerRequests
                 .map((prayer) => (
-                  <UserPrayerCard
+                  <PrayerCard
                     key={prayer.id}
-                    id={prayer.id}
-                    duration={prayer.enteredDateTime}
-                    text={prayer.text}
-                    deletePrayer={async () => {
-                      await handlePress({
-                        variables: {
-                          parsedId: prayer.id,
+                    created={prayer.enteredDateTime}
+                    prayer={prayer.text}
+                    help={false}
+                    header={false}
+                    options={[
+                      {
+                        title: 'Delete',
+                        method: async () => {
+                          await deletePrayer({
+                            variables: {
+                              parsedId: prayer.id,
+                            },
+                          });
                         },
-                      });
-                    }}
+                        destructive: true,
+                      },
+                    ]}
                   />
                 ))
                 .reverse()}

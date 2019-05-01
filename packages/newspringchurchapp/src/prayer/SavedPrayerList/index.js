@@ -9,12 +9,6 @@ const SavedPrayerList = () => (
     <PrayerCard />
     <PrayerCard />
     <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
   </ScrollView>
 );
 
