@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import moment from 'moment';
 
 import ActionSheet from 'react-native-actionsheet';
 import {
@@ -15,21 +16,16 @@ import {
   Touchable,
   ButtonLink,
   ChannelLabel,
+  SideBySideView,
 } from '@apollosproject/ui-kit';
 
-const StyledCard = styled(() => ({
-  marginHorizontal: 0,
-  marginVertical: 0,
-}))(Card);
-
-const EllipsisView = styled(({ theme }) => ({
-  paddingHorizontal: theme.sizing.baseUnit,
-}))(View);
-
-const GreyH3 = styled(({ theme }) => ({
-  color: theme.colors.text.tertiary,
-  textAlign: 'right',
-}))(H3);
+const HeaderView = styled(({ theme }) => ({
+  paddingBottom: 0,
+  paddingTop: theme.sizing.baseUnit * 0.3,
+  paddingRight: theme.sizing.baseUnit,
+  paddingLeft: theme.sizing.baseUnit,
+  height: theme.helpers.verticalRhythm(0.875),
+}))(SideBySideView);
 
 const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -39,15 +35,14 @@ const StyledCardContent = styled(() => ({
   alignItems: 'center',
 }))(CardContent);
 
+const UserHeader = styled(({ theme }) => ({
+  alignItems: 'center',
+  marginBottom: theme.sizing.baseUnit * 1.5,
+}))(View);
+
 const StyledBodyText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
-
-const BodyTextView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
-  height: theme.sizing.baseUnit * 16,
-  alignItems: 'center',
-}))(View);
 
 class PrayerCard extends PureComponent {
   handleShowActionSheet = () => {
@@ -55,59 +50,99 @@ class PrayerCard extends PureComponent {
   };
 
   render() {
-    const { imageSource, name, text, id, flagRequest, source } = this.props;
+    const {
+      interactive,
+      showHelp,
+      header,
+      avatarSource,
+      avatarSize,
+      created,
+      name,
+      campus,
+      prayer,
+      options,
+    } = this.props;
 
-    const cancelIndex = 1;
-    const destructiveIndex = 0;
+    // add a cancel button
+    const buttons = options || [];
+    buttons.push({ title: 'Cancel', method: null, destructive: false });
+
     const handleOnPress = (index) => {
-      if (index !== cancelIndex) {
-        return flagRequest(id);
-      }
-      return index;
+      const buttonMethods = buttons.map((option) => option.method);
+      // don't use this if they clicked "cancel"
+      if (index === buttonMethods.length - 1) return;
+      buttonMethods[index]();
     };
-    const options = ['Report as Inappropriate', 'Cancel'];
     return (
-      <StyledCard>
-        <EllipsisView>
-          <ButtonLink onPress={this.handleShowActionSheet}>
-            <GreyH3>...</GreyH3>
-          </ButtonLink>
-          <ActionSheet
-            ref={(sheet) => {
-              this.ActionSheet = sheet;
-            }}
-            title={'Would you like to report the prayer request?'}
-            options={options}
-            cancelButtonIndex={cancelIndex}
-            destructiveButtonIndex={destructiveIndex}
-            onPress={(index) => handleOnPress(index)}
-          />
-        </EllipsisView>
+      <Card>
+        {interactive ? (
+          <HeaderView>
+            <H6>{created ? moment(created).fromNow() : ''}</H6>
+            {buttons ? (
+              <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+            ) : null}
+            <ActionSheet
+              ref={(sheet) => {
+                this.ActionSheet = sheet;
+              }}
+              options={buttons.map((option) => option.title)}
+              cancelButtonIndex={buttons.length}
+              // this will only make the first option listed as destructive turn red
+              // ActionSheet only allows for one destructive button
+              destructiveButtonIndex={buttons
+                .map((option) => option.destructive)
+                .indexOf(true)}
+              onPress={(index) => handleOnPress(index)}
+            />
+          </HeaderView>
+        ) : null}
         <StyledCardContent>
-          <Avatar source={imageSource} size="medium" />
-          <H3>Pray For {name}</H3>
-          <GreyH6>{source}</GreyH6>
-          <BodyTextView>
-            <StyledBodyText>{text}</StyledBodyText>
-          </BodyTextView>
-          <PaddedView>
-            <Touchable onPress={() => {}}>
-              <ChannelLabel icon="information" label="How to Pray?" />
-            </Touchable>
-          </PaddedView>
+          {header ? (
+            <UserHeader>
+              <Avatar source={avatarSource} size={avatarSize} />
+              <H3>Pray For {name}</H3>
+              {campus ? <GreyH6>{campus}</GreyH6> : null}
+            </UserHeader>
+          ) : null}
+          <StyledBodyText>{prayer}</StyledBodyText>
+          {showHelp ? (
+            <PaddedView>
+              <Touchable onPress={() => {}}>
+                <ChannelLabel icon="information" label="How to Pray?" />
+              </Touchable>
+            </PaddedView>
+          ) : null}
         </StyledCardContent>
-      </StyledCard>
+      </Card>
     );
   }
 }
 
 PrayerCard.propTypes = {
-  imageSource: PropTypes.objectOf(PropTypes.string),
+  interactive: PropTypes.bool,
+  showHelp: PropTypes.bool,
+  header: PropTypes.bool,
+  avatarSource: PropTypes.shape({ uri: PropTypes.string }),
+  avatarSize: PropTypes.string,
+  created: PropTypes.string,
   name: PropTypes.string,
-  text: PropTypes.string,
-  source: PropTypes.string,
-  id: PropTypes.string,
-  flagRequest: PropTypes.func,
+  prayer: PropTypes.string,
+  campus: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      method: PropTypes.func,
+      destructive: PropTypes.bool,
+    })
+  ),
+};
+
+PrayerCard.defaultProps = {
+  interactive: true,
+  showHelp: true,
+  header: true,
+  avatarSize: 'small',
+  name: 'request',
 };
 
 export default PrayerCard;
