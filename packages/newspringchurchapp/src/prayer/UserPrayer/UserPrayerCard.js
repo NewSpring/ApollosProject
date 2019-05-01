@@ -35,6 +35,11 @@ const GreyH3 = styled(({ theme }) => ({
   justifyContent: 'center',
 }))(H3);
 
+const GreyH5 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+  justifyContent: 'center',
+}))(H5);
+
 class UserPrayerCard extends PureComponent {
   handleShowActionSheet = () => {
     this.ActionSheet.show();
@@ -55,7 +60,7 @@ class UserPrayerCard extends PureComponent {
       <Card {...otherProps}>
         <HeaderView>
           <StyledLayout>
-            <H5>{moment(duration).fromNow()}</H5>
+            <GreyH5>{moment(duration).fromNow()}</GreyH5>
             <ButtonLink onPress={this.handleShowActionSheet}>
               <GreyH3>...</GreyH3>
             </ButtonLink>
