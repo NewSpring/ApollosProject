@@ -291,6 +291,7 @@ class PrayerMenu extends PureComponent {
           })}
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
+          swipeEnabled={false}
         />
       </SafeAreaView>
     );
