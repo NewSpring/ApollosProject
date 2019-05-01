@@ -134,7 +134,7 @@ class PrayerList extends PureComponent {
                         onPress={this.handleOnPress}
                         options={[
                           {
-                            title: 'Flag',
+                            title: 'Flag as inappropriate',
                             method: async () => {
                               await flagPrayer({
                                 variables: {
@@ -142,7 +142,7 @@ class PrayerList extends PureComponent {
                                 },
                               });
                             },
-                            destructive: false,
+                            destructive: true,
                           },
                         ]}
                         {...item}

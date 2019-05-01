@@ -46,7 +46,7 @@ const UserPrayerList = () => (
                     header={false}
                     options={[
                       {
-                        title: 'Delete',
+                        title: 'Remove',
                         method: async () => {
                           await deletePrayer({
                             variables: {
