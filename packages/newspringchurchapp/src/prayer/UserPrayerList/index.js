@@ -42,7 +42,7 @@ const UserPrayerList = () => (
                     key={prayer.id}
                     created={prayer.enteredDateTime}
                     prayer={prayer.text}
-                    help={false}
+                    showHelp={false}
                     header={false}
                     options={[
                       {
