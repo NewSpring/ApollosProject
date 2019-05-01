@@ -37,7 +37,7 @@ const ActionTable = () => (
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/235')}
+            onPress={() => openUrl('https://rock.newspring.cc/Workflows/431')}
           >
             <Cell>
               <CellIcon name="check" />
