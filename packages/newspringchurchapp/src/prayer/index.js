@@ -16,9 +16,9 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
-import UserPrayerList from './UserPrayer';
+import UserPrayerList from './UserPrayerList';
 import PrayerPreviewCard from './PrayerPreviewCard';
-import SavedPrayerList from './SavedPrayer';
+import SavedPrayerList from './SavedPrayerList';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -35,7 +35,7 @@ const loadingStateObject = {
 // TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = ({ route }) => (
   <PrayerPreviewCard
-    imageSource={{
+    avatarSource={{
       uri: 'https://fillmurray.com/400/600',
     }}
     name={'Bill'}
@@ -43,7 +43,7 @@ const PrayerPreviewCardComponent = ({ route }) => (
     prayer={
       'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
     }
-    source={'Anderson'}
+    campus={'Anderson'}
     route={route}
   />
 );
