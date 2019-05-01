@@ -45,14 +45,28 @@ export default {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.flag(parsedId);
     },
-    savePrayer: async (root, { nodeId }, { dataSources }) =>
-      dataSources.Followings.followNode({
+    savePrayer: async (
+      root,
+      { nodeId },
+      { dataSources, models: { Node } },
+      { schema }
+    ) => {
+      await dataSources.Followings.followNode({
         nodeId,
-      }),
-    unSavePrayer: async (root, { nodeId }, { dataSources }) =>
-      dataSources.Followings.unFollowNode({
+      });
+      return Node.get(nodeId, dataSources, schema);
+    },
+    unSavePrayer: async (
+      root,
+      { nodeId },
+      { dataSources, models: { Node } },
+      { schema }
+    ) => {
+      await dataSources.Followings.unFollowNode({
         nodeId,
-      }),
+      });
+      return Node.get(nodeId, dataSources, schema);
+    },
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>

@@ -1,6 +1,8 @@
 export default class Followings {
   initialize = () => {};
 
+  get = () => {};
+
   followNode = () => ({
     id: 'PrayerRequest:57c465ee3cd69524d729569b338607de',
     firstName: 'Rich',
