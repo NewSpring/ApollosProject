@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 import {
@@ -140,12 +141,12 @@ const StyledButtonLink = styled(({ theme }) => ({
 
 const StyledContainer = styled(({ theme }) => ({
   alignItems: 'center',
-  marginTop: theme.sizing.baseUnit * 3,
+  marginTop: theme.sizing.baseUnit,
   marginBottom: theme.sizing.baseUnit * 2,
 }))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 6,
+  marginTop: theme.sizing.baseUnit * 2,
 }))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
@@ -235,7 +236,7 @@ class PrayerMenu extends PureComponent {
 
   render() {
     return (
-      <>
+      <SafeAreaView>
         {this.state.showAddPrayerCard ? (
           <StyledAddPrayerContainer>
             <AddPrayerCardConnected {...this.props} />
@@ -285,7 +286,7 @@ class PrayerMenu extends PureComponent {
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
         />
-      </>
+      </SafeAreaView>
     );
   }
 }
