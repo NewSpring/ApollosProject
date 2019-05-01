@@ -53,12 +53,12 @@ const prayerMenuData = [
     component: (
       <PrayerPreviewCard
         imageSource={{
-          uri: 'https://fillmurray.com/400/600',
+          uri: 'https://rock.newspring.cc/GetImage.ashx?id=564401',
         }}
-        name={'Bill'}
+        name={'Dan'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
-          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+          'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
         }
         source={'Anderson'}
         route={'ChurchPrayerList'}
@@ -75,12 +75,12 @@ const prayerMenuData = [
     component: (
       <PrayerPreviewCard
         imageSource={{
-          uri: 'https://fillmurray.com/400/600',
+          uri: 'https://rock.newspring.cc/GetImage.ashx?id=564499',
         }}
-        name={'Bill'}
+        name={'Morgan'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
-          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+          'Pray that God will do big things at our Connect table this month.'
         }
         source={'Anderson'}
         route={'CampusPrayerList'}
@@ -97,14 +97,14 @@ const prayerMenuData = [
     component: (
       <PrayerPreviewCard
         imageSource={{
-          uri: 'https://fillmurray.com/400/600',
+          uri: 'https://rock.newspring.cc/GetImage.ashx?id=567835',
         }}
-        name={'Bill'}
+        name={'Jake'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
-          'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
+          'Please pray for our small group. We are just starting it and want God to bless it'
         }
-        source={'Anderson'}
+        source={'Small Group'}
         route={'GroupPrayerList'}
       />
     ),
