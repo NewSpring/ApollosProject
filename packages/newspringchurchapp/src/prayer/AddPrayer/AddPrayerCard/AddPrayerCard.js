@@ -17,8 +17,7 @@ const StyledCardContent = styled({
 })(CardContent);
 
 const TitleView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 0.5,
-  marginBottom: theme.sizing.baseUnit * 2,
+  marginBottom: theme.sizing.baseUnit,
 }))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
