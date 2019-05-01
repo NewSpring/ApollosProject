@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
-  H5,
+  H4,
   styled,
   Touchable,
   Icon,
@@ -27,7 +27,7 @@ const StyledPaddedView = styled(() => ({
 
 const StyledTouchable = styled(({ theme }) => ({
   alignItems: 'center',
-  padding: theme.sizing.baseUnit * 2,
+  padding: theme.sizing.baseUnit * 1.5,
 }))(Touchable);
 
 const PrayerActionMenuCard = ({ exitPrayer, savePrayer, advancePrayer }) => (
@@ -36,19 +36,25 @@ const PrayerActionMenuCard = ({ exitPrayer, savePrayer, advancePrayer }) => (
       <StyledCardContent>
         <StyledPaddedView>
           <StyledTouchable onPress={() => exitPrayer()}>
-            <NSIcon name="arrow-up" />
-            <H5>Done Praying</H5>
+            <PaddedView>
+              <NSIcon name="arrow-up" />
+            </PaddedView>
+            <H4>Done Praying</H4>
           </StyledTouchable>
         </StyledPaddedView>
         <StyledPaddedView>
           <StyledTouchable onPress={() => savePrayer()}>
-            <Icon name="Like" />
-            <H5>Save Prayer</H5>
+            <PaddedView>
+              <Icon name="Like" />
+            </PaddedView>
+            <H4>Save Prayer</H4>
           </StyledTouchable>
         </StyledPaddedView>
         <StyledPaddedView>
           <StyledTouchable onPress={() => advancePrayer()}>
-            <H5>Done Praying</H5>
+            <PaddedView>
+              <H4>Done Praying</H4>
+            </PaddedView>
             <NSIcon name="arrow-down" />
           </StyledTouchable>
         </StyledPaddedView>
