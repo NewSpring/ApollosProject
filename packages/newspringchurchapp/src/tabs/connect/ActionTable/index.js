@@ -45,9 +45,7 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/236')}
-          >
+          <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
             <Cell>
               <CellIcon name="groups" />
               <CellText>Join a small group</CellText>
