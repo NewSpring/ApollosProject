@@ -37,7 +37,6 @@ const prayerRequestSchema = gql`
     requestedByPersonAliasId: Int
     person: Person
     isAnonymous: Boolean
-    isLiked: Boolean @cacheControl(maxAge: 0)
   }
 `;
 
