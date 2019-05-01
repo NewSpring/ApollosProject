@@ -215,8 +215,7 @@ exports[`renders AddPrayerCardConnected 1`] = `
           <View
             style={
               Object {
-                "marginBottom": 32,
-                "marginTop": 8,
+                "marginBottom": 16,
               }
             }
           >
