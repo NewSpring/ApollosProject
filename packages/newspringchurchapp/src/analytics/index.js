@@ -1,77 +1,9 @@
-import gql from 'graphql-tag';
-import DeviceInfo from 'react-native-device-info';
-import { Platform } from 'react-native';
+import RNAmplitude from 'react-native-amplitude-analytics';
+import Config from 'react-native-config';
 
-const anonymousId = DeviceInfo.getUniqueID();
+const amplitude = new RNAmplitude(Config.AMPLITUDE_API_KEY);
 
-const deviceInfo = {
-  platform: Platform.OS === 'ios' ? 'iOS' : 'Android',
-  deviceId: anonymousId,
-  deviceModel: DeviceInfo.getModel(),
-  osVersion: DeviceInfo.getSystemVersion(),
-  appVersion: DeviceInfo.getVersion(),
-};
+export const track = ({ eventName, properties }) =>
+  amplitude.logEvent(eventName, properties);
 
-const trackMutation = gql`
-  mutation track($input: AnalyticsTrackInput!) {
-    trackEvent(input: $input) {
-      success
-    }
-  }
-`;
-
-const identifyMutation = gql`
-  mutation identify($input: AnalyticsIdentifyInput!) {
-    identifySelf(input: $input) {
-      success
-    }
-  }
-`;
-
-const propertiesToGqlInput = (props = []) =>
-  Object.keys(props).map((key) => ({
-    field: key,
-    value: props[key],
-  }));
-
-export const track = ({ eventName, properties, client }) =>
-  client.mutate({
-    mutation: trackMutation,
-    variables: {
-      input: {
-        anonymousId,
-        deviceInfo,
-        eventName,
-        properties: propertiesToGqlInput(properties),
-      },
-    },
-  });
-
-export const identify = ({ client }) =>
-  client.mutate({
-    mutation: identifyMutation,
-    variables: {
-      input: {
-        anonymousId,
-        deviceInfo,
-      },
-    },
-  });
-
-export const events = {
-  LikeContent: 'Like Content',
-  UnlikeContent: 'Unlike Content',
-  ViewContent: 'View Content',
-  ShareContent: 'Share Content',
-  UserLogin: 'User Login',
-  UserSignup: 'User Signup',
-  UserLogout: 'UserLogout',
-  UserForgotPassword: 'User Forgot Password',
-  UserPlayedMedia: 'User Played Media',
-};
-
-export default {
-  track,
-  identify,
-  events,
-};
+export default amplitude;
