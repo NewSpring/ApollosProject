@@ -10,6 +10,31 @@ export default {
       dataSources.PrayerRequest.getFromCurrentPerson(),
     getPrayerRequestsByGroups: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
+    savedPrayers: async (root, { after, first }, { dataSources }) => {
+      const followingsPaginated = await dataSources.Followings.paginatedGetFollowingsForCurrentUser(
+        { type: 'PrayerRequest', after, first }
+      );
+
+      const followings = await followingsPaginated.edges;
+      const ids = followings.map((f) => f.node.entityId);
+      const prayerRequests = await dataSources.PrayerRequest.getFromIds(
+        ids
+      ).get();
+      const prayerRequestEdges = prayerRequests.map((prayerRequest) => ({
+        node: { ...prayerRequest, isLiked: true },
+        following: followings.find((f) => f.node.entityId === prayerRequest.id)
+          .node,
+        cursor: followings.find((f) => f.node.entityId === prayerRequest.id)
+          .cursor,
+      }));
+      const sortedPrayerRequestEdges = prayerRequestEdges.sort(
+        (a, b) =>
+          new Date(a.following.createdDateTime) <
+          new Date(b.following.createdDateTime)
+      );
+
+      return { edges: sortedPrayerRequestEdges };
+    },
   },
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
@@ -26,6 +51,17 @@ export default {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.flag(parsedId);
     },
+    savePrayer: async (
+      root,
+      { input: { nodeId, operation } },
+      { dataSources },
+      { schema }
+    ) =>
+      dataSources.Followings.updateLikeContentItem({
+        nodeId,
+        operation,
+        schema,
+      }),
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
