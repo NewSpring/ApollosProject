@@ -132,7 +132,7 @@ const StyledPaddedView = styled(({ theme }) => ({
 const StyledView = styled(({ theme }) => ({
   height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
-  marginTop: theme.sizing.baseUnit,
+  marginTop: theme.sizing.baseUnit * 2,
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
