@@ -64,6 +64,16 @@ jest.mock('@apollosproject/ui-analytics', () => ({
   AnalyticsProvider: ({ children }) => children,
 }));
 
+
+jest.mock('react-native-amplitude-analytics', () => {
+  class AnalyticsMock {
+    logEvent(){
+      return null;
+    }
+  }
+  return AnalyticsMock;
+});
+
 jest.mock('react-native-video', () => 'Video');
 
 jest.mock('react-native-reanimated', () => ({
@@ -137,3 +147,4 @@ jest.mock('NativeEventEmitter');
 jest.mock('react-native-maps');
 jest.mock('DatePickerIOS', () => 'DatePicker');
 jest.mock('./src/client/index');
+

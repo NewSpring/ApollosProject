@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 
 import {
   FeedView,
-  BackgroundView,
   PaddedView,
-  ModalViewHeader,
+  ModalView,
   styled,
   FlexedView,
   H6,
@@ -16,10 +15,10 @@ import {
 import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
-import flagPrayerRequest from '../PrayerCard/flagPrayerRequest';
-import getGroupPrayerRequests from './getGroupPrayerRequests';
-import getPublicPrayerRequests from './getPublicPrayerRequests';
-import getPublicPrayerRequestsByCampus from './getCampusPrayerRequests';
+import flagPrayerRequest from '../data/mutations/flagPrayerRequest';
+import getGroupPrayerRequests from '../data/queries/getGroupPrayerRequests';
+import getPublicPrayerRequests from '../data/queries/getPublicPrayerRequests';
+import getPublicPrayerRequestsByCampus from '../data/queries/getCampusPrayerRequests';
 
 const PaddedFeedView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 5,
@@ -39,9 +38,9 @@ const DividerView = styled(({ theme }) => ({
  */
 class PrayerList extends PureComponent {
   /** Function for React Navigation to set information in the header. */
-  static navigationOptions = ({ navigation }) => ({
-    header: <ModalViewHeader onClose={() => navigation.popToTop()} />,
-  });
+  static navigationOptions = {
+    header: null,
+  };
 
   static propTypes = {
     navigation: PropTypes.shape({
@@ -99,7 +98,7 @@ class PrayerList extends PureComponent {
     const { query, prayers, variables } = this.calculateQuery();
 
     return (
-      <BackgroundView>
+      <ModalView>
         <Query
           query={query}
           variables={variables}
@@ -129,17 +128,23 @@ class PrayerList extends PureComponent {
                     });
                   }}
                 >
-                  {(handlePress) => (
+                  {(flagPrayer) => (
                     <PaddedView>
                       <PrayerCard
                         onPress={this.handleOnPress}
-                        flagRequest={async () => {
-                          await handlePress({
-                            variables: {
-                              parsedId: item.id,
+                        options={[
+                          {
+                            title: 'Flag as inappropriate',
+                            method: async () => {
+                              await flagPrayer({
+                                variables: {
+                                  parsedId: item.id,
+                                },
+                              });
                             },
-                          });
-                        }}
+                            destructive: true,
+                          },
+                        ]}
                         {...item}
                       />
                     </PaddedView>
@@ -153,10 +158,9 @@ class PrayerList extends PureComponent {
               )}
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
-                text: prayer.text,
-                source: prayer.campus ? prayer.campus.name : '',
+                prayer: prayer.text,
+                campus: prayer.campus.name || '',
                 name: prayer.firstName,
-                ...prayer,
               }))}
               isLoading={loading}
               scrollEnabled={false}
@@ -166,7 +170,7 @@ class PrayerList extends PureComponent {
             />
           )}
         </Query>
-      </BackgroundView>
+      </ModalView>
     );
   }
 }

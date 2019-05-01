@@ -17,9 +17,9 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
-import UserPrayerList from './UserPrayer';
+import UserPrayerList from './UserPrayerList';
 import PrayerPreviewCard from './PrayerPreviewCard';
-import SavedPrayerList from './SavedPrayer';
+import SavedPrayerList from './SavedPrayerList';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed

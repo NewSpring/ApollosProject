@@ -77,7 +77,6 @@ build/
 
 # storybook
 storyLoader.js
-*.xcworkspacedata
 
 # sublime text settings
 *.sublime-project
