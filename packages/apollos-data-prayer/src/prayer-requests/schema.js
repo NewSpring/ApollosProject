@@ -6,8 +6,7 @@ const prayerRequestSchema = gql`
     getPublicPrayerRequestsByCampus(campusId: String!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPrayerRequestsByGroups: [PrayerRequest]
-    savedPrayers(first: Int, after: String): PrayerRequestsLiked
-      @cacheControl(maxAge: 0)
+    savedPrayers: [PrayerRequest]
   }
   extend type Mutation {
     addPublicPrayerRequest(
@@ -21,7 +20,8 @@ const prayerRequestSchema = gql`
     deletePublicPrayerRequest(id: String!): PrayerRequest
     incrementPrayed(id: String!): PrayerRequest
     flagRequest(id: String!): PrayerRequest
-    savePrayer(input: LikeEntityInput!): PrayerRequest
+    savePrayer(nodeId: String!): PrayerRequest
+    unSavePrayer(nodeId: String!): PrayerRequest
   }
   type PrayerRequest implements Node {
     id: ID!
@@ -38,15 +38,6 @@ const prayerRequestSchema = gql`
     person: Person
     isAnonymous: Boolean
     isLiked: Boolean @cacheControl(maxAge: 0)
-  }
-  type PrayerRequestsLiked {
-    edges: [PrayerRequestsLikedEdge]
-    # TODO totalCount: Int
-    pageInfo: PaginationInfo
-  }
-  type PrayerRequestsLikedEdge {
-    node: PrayerRequest
-    cursor: String
   }
 `;
 
