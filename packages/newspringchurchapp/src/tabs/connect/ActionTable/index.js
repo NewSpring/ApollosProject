@@ -52,9 +52,7 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
-          >
+          <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
             <Cell>
               <CellIcon name="download" />
               <CellText>I would like to give</CellText>
