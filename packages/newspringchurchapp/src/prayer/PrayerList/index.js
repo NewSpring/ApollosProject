@@ -141,7 +141,9 @@ class PrayerList extends PureComponent {
                     this.state.selectedPrayer ? (
                       <PaddedView>
                         <PrayerActionMenuCardConnected
-                          onAdvancePrayer={this.handleResetState}
+                          onAdvancePrayer={
+                            this.scrollToNextPrayer && this.handleResetState
+                          }
                           navigation={navigation}
                           {...item}
                         />
@@ -177,7 +179,7 @@ class PrayerList extends PureComponent {
                 ...prayer,
               }))}
               isLoading={loading}
-              scrollEnabled={false}
+              scrollEnabled
               error={error}
               refetch={refetch}
               onPressItem={this.handleOnPress}
