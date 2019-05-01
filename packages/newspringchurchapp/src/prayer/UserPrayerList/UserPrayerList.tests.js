@@ -2,7 +2,7 @@ import React from 'react';
 import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
 
 import Providers from 'newspringchurchapp/src/Providers';
-import getUserPrayers from './getUserPrayers';
+import getUserPrayers from '../data/queries/getUserPrayers';
 import UserPrayerList from '.';
 
 const prayers = [
