@@ -52,13 +52,6 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => NavigationActions.navigate('Prayer')}>
-            <Cell>
-              <CellIcon name="share" />
-              <CellText>I need prayer</CellText>
-            </Cell>
-          </Touchable>
-          <Divider />
           <Touchable
             onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
           >
