@@ -27,7 +27,7 @@ const getGradientValues = (overlayColor) => {
         .fade(0.6)
         .string()}`,
       `${Color(overlayColor[1])
-        .fade(0)
+        .fade(0.05)
         .string()}`,
     ];
   } else {
@@ -53,8 +53,9 @@ const StyledCard = styled(() => ({
   marginVertical: 0,
 }))(Card);
 
-const StyledCardContent = styled(() => ({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
+  marginTop: theme.sizing.baseUnit,
 }))(CardContent);
 
 const StyledBodyTextContainer = styled(({ theme }) => ({
@@ -63,7 +64,7 @@ const StyledBodyTextContainer = styled(({ theme }) => ({
 
 const BottomButton = styled({
   position: 'absolute',
-  bottom: 0,
+  bottom: 35,
   left: 0,
   right: 0,
 })(Button);
@@ -78,7 +79,7 @@ const PrayerPreviewCard = ({
   <>
     <StyledCard>
       <StyledCardContent>
-        <Avatar source={imageSource} />
+        <Avatar source={imageSource} size={'medium'} />
         <H3>Pray For {name}</H3>
         <H6>{source}</H6>
         <StyledBodyTextContainer>
