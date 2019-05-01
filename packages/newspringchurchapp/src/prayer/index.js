@@ -33,7 +33,7 @@ const loadingStateObject = {
 };
 
 // TODO: remove once this is pulling data
-const PrayerPreviewCardComponent = () => (
+const PrayerPreviewCardComponent = ({ route }) => (
   <PrayerPreviewCard
     imageSource={{
       uri: 'https://fillmurray.com/400/600',
@@ -44,9 +44,12 @@ const PrayerPreviewCardComponent = () => (
       'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
     }
     source={'Anderson'}
+    route={route}
   />
 );
-
+PrayerPreviewCardComponent.propTypes = {
+  route: PropTypes.string,
+};
 // TODO: remove once this is pulling data
 const StyledPrayerPreviewCardComponent = styled({
   position: 'absolute',
@@ -73,7 +76,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Church',
     key: 'church',
-    component: <StyledPrayerPreviewCardComponent />,
+    component: <StyledPrayerPreviewCardComponent route={'ChurchPrayerList'} />,
   },
   {
     id: '3',
@@ -82,7 +85,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Campus',
     key: 'campus',
-    component: <PrayerPreviewCardComponent />,
+    component: <PrayerPreviewCardComponent route={'CampusPrayerList'} />,
   },
   {
     id: '4',
@@ -91,7 +94,7 @@ const prayerMenuData = [
     overlayColor: ['#6BAC43', '#6BAC43'],
     title: 'My Community',
     key: 'community',
-    component: <PrayerPreviewCardComponent />,
+    component: <PrayerPreviewCardComponent route={'GroupPrayerList'} />,
   },
   {
     id: '5',
@@ -109,11 +112,11 @@ const StyledFeed = styled(({ theme }) => ({
 }))(HorizontalTileFeed);
 
 const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
 }))(PaddedView);
 
 const StyledView = styled(() => ({
-  height: Dimensions.get('window').height * 0.45,
+  height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
 }))(View);
 

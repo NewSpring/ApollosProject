@@ -14,7 +14,7 @@ import {
   PaddedView,
   styled,
 } from '@apollosproject/ui-kit';
-
+import { withNavigation } from 'react-navigation';
 // TODO: Borrowed `Overlay` and `getGradientValues` from <GradientOverlayImage />
 // We should probably extract these to someplace else and import them in both places.
 const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
@@ -61,43 +61,40 @@ const StyledBodyTextContainer = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
 }))(BodyText);
 
-const BottomButton = styled({
+const StyledButton = styled({
   position: 'absolute',
   bottom: 0,
   left: 0,
   right: 0,
 })(Button);
 
-const PrayerPreviewCard = ({
-  imageSource,
-  name,
-  overlayColor,
-  prayer,
-  source,
-}) => (
-  <>
-    <StyledCard>
-      <StyledCardContent>
-        <Avatar source={imageSource} />
-        <H3>Pray For {name}</H3>
-        <H6>{source}</H6>
-        <StyledBodyTextContainer>
-          <BodyText>{prayer}</BodyText>
-        </StyledBodyTextContainer>
-      </StyledCardContent>
-    </StyledCard>
-    <Overlay
-      colors={getGradientValues(overlayColor).colors}
-      start={getGradientValues(overlayColor).start}
-      end={getGradientValues(overlayColor).end}
-      locations={getGradientValues(overlayColor).locations}
-    />
-    <PaddedView>
+const PrayerPreviewCard = withNavigation(
+  ({ imageSource, name, overlayColor, prayer, source, navigation, route }) => (
+    <>
+      <StyledCard>
+        <StyledCardContent>
+          <Avatar source={imageSource} />
+          <H3>Pray For {name}</H3>
+          <H6>{source}</H6>
+          <StyledBodyTextContainer>
+            <BodyText>{prayer}</BodyText>
+          </StyledBodyTextContainer>
+        </StyledCardContent>
+      </StyledCard>
+      <Overlay
+        colors={getGradientValues(overlayColor).colors}
+        start={getGradientValues(overlayColor).start}
+        end={getGradientValues(overlayColor).end}
+        locations={getGradientValues(overlayColor).locations}
+      />
       <PaddedView>
-        <BottomButton onPress={() => {}} title="Start Praying" />
+        <StyledButton
+          onPress={() => navigation.navigate('PrayerList', { list: route })}
+          title="Start Praying"
+        />
       </PaddedView>
-    </PaddedView>
-  </>
+    </>
+  )
 );
 
 PrayerPreviewCard.propTypes = {
