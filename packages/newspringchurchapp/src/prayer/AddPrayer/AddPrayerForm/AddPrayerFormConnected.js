@@ -2,7 +2,7 @@ import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
-import getPrayers from 'newspringchurchapp/src/prayer/UserPrayer/getUserPrayers';
+import getPrayers from 'newspringchurchapp/src/prayer/UserPrayerList/getUserPrayers';
 import addPrayer from './addPrayer';
 import AddPrayerForm from './AddPrayerForm';
 
