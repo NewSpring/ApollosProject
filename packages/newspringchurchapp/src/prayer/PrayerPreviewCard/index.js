@@ -3,18 +3,9 @@ import { StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import Color from 'color';
-import {
-  Avatar,
-  BodyText,
-  Button,
-  Card,
-  CardContent,
-  H3,
-  H6,
-  PaddedView,
-  styled,
-} from '@apollosproject/ui-kit';
+import { Button, PaddedView, styled } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
+import PrayerCard from '../PrayerCard';
 // TODO: Borrowed `Overlay` and `getGradientValues` from <GradientOverlayImage />
 // We should probably extract these to someplace else and import them in both places.
 const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
@@ -48,19 +39,6 @@ const getGradientValues = (overlayColor) => {
   return values;
 };
 
-const StyledCard = styled(() => ({
-  marginHorizontal: 0,
-  marginVertical: 0,
-}))(Card);
-
-const StyledCardContent = styled(() => ({
-  alignItems: 'center',
-}))(CardContent);
-
-const StyledBodyTextContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
-}))(BodyText);
-
 const StyledButton = styled({
   position: 'absolute',
   bottom: 0,
@@ -69,18 +47,9 @@ const StyledButton = styled({
 })(Button);
 
 const PrayerPreviewCard = withNavigation(
-  ({ imageSource, name, overlayColor, prayer, source, navigation, route }) => (
+  ({ overlayColor, navigation, route, ...props }) => (
     <>
-      <StyledCard>
-        <StyledCardContent>
-          <Avatar source={imageSource} />
-          <H3>Pray For {name}</H3>
-          <H6>{source}</H6>
-          <StyledBodyTextContainer>
-            <BodyText>{prayer}</BodyText>
-          </StyledBodyTextContainer>
-        </StyledCardContent>
-      </StyledCard>
+      <PrayerCard interactive={false} {...props} />
       <Overlay
         colors={getGradientValues(overlayColor).colors}
         start={getGradientValues(overlayColor).start}
@@ -98,7 +67,7 @@ const PrayerPreviewCard = withNavigation(
 );
 
 PrayerPreviewCard.propTypes = {
-  imageSource: PropTypes.objectOf(PropTypes.string),
+  avatarSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
   overlayColor: PropTypes.any, //eslint-disable-line
   prayer: PropTypes.string,

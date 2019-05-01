@@ -17,11 +17,6 @@ import {
   ChannelLabel,
 } from '@apollosproject/ui-kit';
 
-const StyledCard = styled(() => ({
-  marginHorizontal: 0,
-  marginVertical: 0,
-}))(Card);
-
 const EllipsisView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
@@ -45,7 +40,6 @@ const StyledBodyText = styled(() => ({
 
 const BodyTextView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
-  height: theme.sizing.baseUnit * 16,
   alignItems: 'center',
 }))(View);
 
@@ -55,59 +49,92 @@ class PrayerCard extends PureComponent {
   };
 
   render() {
-    const { imageSource, name, text, id, flagRequest, source } = this.props;
+    const {
+      interactive,
+      avatarSource,
+      avatarSize,
+      name,
+      campus,
+      prayer,
+      prayerID,
+    } = this.props;
 
-    const cancelIndex = 1;
-    const destructiveIndex = 0;
+    const options = [
+      {
+        title: 'Flag',
+        method: (arg) => arg,
+        destructive: false,
+      },
+      {
+        title: 'Save',
+        method: () => 'savePrayer',
+        destructive: false,
+      },
+      { title: 'Cancel', method: null, destructive: false },
+    ];
     const handleOnPress = (index) => {
-      if (index !== cancelIndex) {
-        return flagRequest(id);
-      }
+      const methods = options.map((option) => option.method);
+      // this will only work for methods that take the prayer id as the first and only argument
+      methods[index](prayerID);
+      // TODO: is this needed?
       return index;
     };
-    const options = ['Report as Inappropriate', 'Cancel'];
     return (
-      <StyledCard>
-        <EllipsisView>
-          <ButtonLink onPress={this.handleShowActionSheet}>
-            <GreyH3>...</GreyH3>
-          </ButtonLink>
-          <ActionSheet
-            ref={(sheet) => {
-              this.ActionSheet = sheet;
-            }}
-            title={'Would you like to report the prayer request?'}
-            options={options}
-            cancelButtonIndex={cancelIndex}
-            destructiveButtonIndex={destructiveIndex}
-            onPress={(index) => handleOnPress(index)}
-          />
-        </EllipsisView>
+      <Card>
+        {interactive ? (
+          <EllipsisView>
+            <ButtonLink onPress={this.handleShowActionSheet}>
+              <GreyH3>...</GreyH3>
+            </ButtonLink>
+            <ActionSheet
+              ref={(sheet) => {
+                this.ActionSheet = sheet;
+              }}
+              options={options.map((option) => option.title)}
+              cancelButtonIndex={options.length}
+              // this will only make the first option listed as destructive turn red
+              // ActionSheet only allows for one destructive button
+              destructiveButtonIndex={options
+                .map((option) => option.destructive)
+                .indexOf(true)}
+              onPress={(index) => handleOnPress(index)}
+            />
+          </EllipsisView>
+        ) : null}
         <StyledCardContent>
-          <Avatar source={imageSource} size="medium" />
+          <Avatar source={avatarSource} size={avatarSize} />
           <H3>Pray For {name}</H3>
-          <GreyH6>{source}</GreyH6>
+          {campus ? <GreyH6>{campus}</GreyH6> : null}
           <BodyTextView>
-            <StyledBodyText>{text}</StyledBodyText>
+            <StyledBodyText>{prayer}</StyledBodyText>
           </BodyTextView>
-          <PaddedView>
-            <Touchable onPress={() => {}}>
-              <ChannelLabel icon="information" label="How to Pray?" />
-            </Touchable>
-          </PaddedView>
+          {interactive ? (
+            <PaddedView>
+              <Touchable onPress={() => {}}>
+                <ChannelLabel icon="information" label="How to Pray?" />
+              </Touchable>
+            </PaddedView>
+          ) : null}
         </StyledCardContent>
-      </StyledCard>
+      </Card>
     );
   }
 }
 
 PrayerCard.propTypes = {
-  imageSource: PropTypes.objectOf(PropTypes.string),
+  interactive: PropTypes.bool,
+  avatarSource: PropTypes.shape({ uri: PropTypes.string }),
+  avatarSize: PropTypes.string,
   name: PropTypes.string,
-  text: PropTypes.string,
-  source: PropTypes.string,
-  id: PropTypes.string,
-  flagRequest: PropTypes.func,
+  prayer: PropTypes.string,
+  campus: PropTypes.string,
+  prayerID: PropTypes.string,
+};
+
+PrayerCard.defaultProps = {
+  interactive: true,
+  avatarSize: 'small',
+  name: 'request',
 };
 
 export default PrayerCard;

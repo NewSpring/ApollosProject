@@ -35,7 +35,7 @@ const loadingStateObject = {
 // TODO: remove once this is pulling data
 const PrayerPreviewCardComponent = ({ route }) => (
   <PrayerPreviewCard
-    imageSource={{
+    avatarSource={{
       uri: 'https://fillmurray.com/400/600',
     }}
     name={'Bill'}
@@ -43,7 +43,7 @@ const PrayerPreviewCardComponent = ({ route }) => (
     prayer={
       'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?'
     }
-    source={'Anderson'}
+    campus={'Anderson'}
     route={route}
   />
 );

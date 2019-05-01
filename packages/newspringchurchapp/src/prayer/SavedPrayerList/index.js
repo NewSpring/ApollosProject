@@ -1,20 +1,20 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import SavedPrayerCard from './SavedPrayerCard';
+import PrayerCard from '../PrayerCard';
 
 const SavedPrayerList = () => (
   <ScrollView>
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
-    <SavedPrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
+    <PrayerCard />
   </ScrollView>
 );
 
