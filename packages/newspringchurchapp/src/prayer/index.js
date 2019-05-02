@@ -62,7 +62,7 @@ const prayerMenuData = [
         prayer={
           'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
         }
-        campus={'Anderson'}
+        source={'Anderson'}
         route={'ChurchPrayerList'}
       />
     ),
@@ -85,7 +85,7 @@ const prayerMenuData = [
         prayer={
           'Pray that God will do big things at our Connect table this month.'
         }
-        campus={'Anderson'}
+        source={'Anderson'}
         route={'CampusPrayerList'}
       />
     ),
@@ -108,7 +108,7 @@ const prayerMenuData = [
         prayer={
           'Please pray for Fuse! FSKO is coming and we want God to show up big.'
         }
-        campus={'Greenwood'}
+        source={'Greenwood'}
         route={'GroupPrayerList'}
       />
     ),
