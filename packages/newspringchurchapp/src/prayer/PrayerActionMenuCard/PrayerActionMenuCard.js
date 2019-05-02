@@ -46,43 +46,40 @@ class PrayerActionMenuCard extends PureComponent {
       expandedHeight,
     } = this.props;
     return (
-      <>
-        <StyledCard expandedHeight={expandedHeight}>
-          <StyledCardContent>
-            <StyledPaddedView>
-              <StyledTouchable onPress={() => exitPrayer()}>
-                <PaddedView>
-                  <NSIcon name="arrow-up" />
-                </PaddedView>
-                <H4>Done Praying</H4>
-              </StyledTouchable>
-            </StyledPaddedView>
-            <StyledPaddedView>
-              <StyledTouchable
-                onPress={() => {
-                  savePrayerId();
-                  this.handleOnSavePrayer();
-                }}
-              >
-                <PaddedView>
-                  <Icon
-                    name={this.state.hasSavedPrayer ? 'LikeSolid' : 'Like'}
-                  />
-                </PaddedView>
-                <H4>Save Prayer</H4>
-              </StyledTouchable>
-            </StyledPaddedView>
-            <StyledPaddedView>
-              <StyledTouchable onPress={() => advancePrayer()}>
-                <PaddedView>
-                  <H4>Next Prayer</H4>
-                </PaddedView>
-                <NSIcon name="arrow-down" />
-              </StyledTouchable>
-            </StyledPaddedView>
-          </StyledCardContent>
-        </StyledCard>
-      </>
+      <StyledCard expandedHeight={expandedHeight}>
+        <StyledCardContent>
+          <StyledPaddedView>
+            {/* TODO: Practice good DRY methods by combing these three touchables into a reusable component */}
+            <StyledTouchable onPress={() => exitPrayer()}>
+              <PaddedView>
+                <NSIcon name="arrow-up" />
+              </PaddedView>
+              <H4>Done Praying</H4>
+            </StyledTouchable>
+          </StyledPaddedView>
+          <StyledPaddedView>
+            <StyledTouchable
+              onPress={() => {
+                savePrayerId();
+                this.handleOnSavePrayer();
+              }}
+            >
+              <PaddedView>
+                <Icon name={this.state.hasSavedPrayer ? 'LikeSolid' : 'Like'} />
+              </PaddedView>
+              <H4>Save Prayer</H4>
+            </StyledTouchable>
+          </StyledPaddedView>
+          <StyledPaddedView>
+            <StyledTouchable onPress={() => advancePrayer()}>
+              <PaddedView>
+                <H4>Next Prayer</H4>
+              </PaddedView>
+              <NSIcon name="arrow-down" />
+            </StyledTouchable>
+          </StyledPaddedView>
+        </StyledCardContent>
+      </StyledCard>
     );
   }
 }

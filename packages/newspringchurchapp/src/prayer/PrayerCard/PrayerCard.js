@@ -66,6 +66,10 @@ const StyledBodyText = styled(() => ({
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
+  static navigationOptions = () => ({
+    header: null,
+  });
+
   state = {
     cardPressed: false,
   };
@@ -93,6 +97,7 @@ class PrayerCard extends PureComponent {
       incrementPrayer,
       advancePrayer,
       prayerId,
+      navigation,
     } = this.props;
 
     const expandedHeight = Dimensions.get('window').height * 0.72;
@@ -146,6 +151,7 @@ class PrayerCard extends PureComponent {
               />
             </HeaderView>
           ) : null}
+
           <StyledCardContent>
             {header ? (
               <UserHeader>
@@ -157,7 +163,15 @@ class PrayerCard extends PureComponent {
             <StyledBodyText>{prayer}</StyledBodyText>
             {showHelp ? (
               <PaddedView>
-                <Touchable onPress={() => {}}>
+                <Touchable
+                  onPress={() => {
+                    navigation.navigate('ContentSingle', {
+                      itemId:
+                        'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                      itemTitle: 'Learning how to pray like Jesus',
+                    });
+                  }}
+                >
                   <ChannelLabel icon="information" label="How to Pray?" />
                 </Touchable>
               </PaddedView>
@@ -173,7 +187,6 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
-  navigation: PropTypes.shape({}),
   actionsEnabled: PropTypes.bool,
   expanded: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
@@ -192,6 +205,9 @@ PrayerCard.propTypes = {
       destructive: PropTypes.bool,
     })
   ),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
 };
 
 PrayerCard.defaultProps = {
