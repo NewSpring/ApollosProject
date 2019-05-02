@@ -129,6 +129,7 @@ class PrayerList extends PureComponent {
                 >
                   {(flagPrayer) => (
                     <PrayerCard
+<<<<<<< HEAD
                       avatarSize={'medium'}
                       navigation={navigation}
                       actionsEnabled
@@ -136,9 +137,14 @@ class PrayerList extends PureComponent {
                       onAdvancePrayer={() => {
                         console.log('Advancing Prayer');
                       }}
+=======
+                      onPress={this.handleOnPress}
+                      expanded
+                      avatarSize={'medium'}
+>>>>>>> e467efe2d0cce5f797b7728afe488fc0e3f7726c
                       options={[
                         {
-                          title: 'Flag as Inappropriate',
+                          title: 'Flag as inappropriate',
                           method: async () => {
                             await flagPrayer({
                               variables: {

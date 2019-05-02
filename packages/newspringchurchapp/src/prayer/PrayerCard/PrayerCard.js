@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import moment from 'moment';
 
 import ActionSheet from 'react-native-actionsheet';
@@ -19,6 +19,16 @@ import {
   ChannelLabel,
 } from '@apollosproject/ui-kit';
 import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
+
+const ExpandedCard = styled(({ expanded }) => {
+  let styles = {};
+  styles = expanded
+    ? {
+        height: Dimensions.get('window').height * 0.72,
+      }
+    : {};
+  return styles;
+})(Card);
 
 const HeaderView = styled(({ theme }) => ({
   display: 'flex',
@@ -71,6 +81,7 @@ class PrayerCard extends PureComponent {
       actionsEnabled,
       showHelp,
       header,
+      expanded,
       avatarSource,
       avatarSize,
       created,
@@ -100,7 +111,7 @@ class PrayerCard extends PureComponent {
         advancePrayer={advancePrayer}
       />
     ) : (
-      <Card onPress={this.handleCardPressed}>
+      <ExpandedCard expanded={expanded} onPress={this.handleCardPressed}>
         {interactive ? (
           <HeaderView>
             <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
@@ -139,7 +150,7 @@ class PrayerCard extends PureComponent {
             </PaddedView>
           ) : null}
         </StyledCardContent>
-      </Card>
+      </ExpandedCard>
     );
   }
 }
@@ -150,6 +161,7 @@ PrayerCard.propTypes = {
   header: PropTypes.bool,
   navigation: PropTypes.shape({}),
   actionsEnabled: PropTypes.bool,
+  expanded: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
   created: PropTypes.string,
@@ -171,8 +183,10 @@ PrayerCard.defaultProps = {
   interactive: true,
   showHelp: true,
   header: true,
+  expanded: false,
   avatarSize: 'small',
-  name: 'request',
+  name: 'Request',
+  source: 'Web',
 };
 
 export default PrayerCard;

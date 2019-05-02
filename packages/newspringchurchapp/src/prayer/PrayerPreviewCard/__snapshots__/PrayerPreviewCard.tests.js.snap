@@ -34,6 +34,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
     }
   >
     <View
+      expanded={false}
       style={
         Object {
           "backgroundColor": "#ffffff",
@@ -145,6 +146,18 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
             >
               Pray For 
               Bill
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#858585",
+                  "fontFamily": "Colfax-Bold",
+                  "fontSize": 12,
+                  "lineHeight": 17.28,
+                }
+              }
+            >
+              Web
             </Text>
           </View>
           <Text
