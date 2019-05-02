@@ -50,7 +50,7 @@ const SavedPrayerList = () => (
                       {
                         title: 'Remove Prayer',
                         method: async () => {
-                          await deletePrayer({
+                          await unsavePrayer({
                             variables: {
                               nodeId: prayer.id,
                             },
