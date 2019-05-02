@@ -20,16 +20,12 @@ import {
 } from '@apollosproject/ui-kit';
 
 const HeaderView = styled(({ theme }) => ({
-  // paddingBottom: 0,
-  // paddingTop: theme.sizing.baseUnit * 0.3,
-  // paddingRight: theme.sizing.baseUnit,
-  // paddingLeft: theme.sizing.baseUnit,
-  // height: theme.helpers.verticalRhythm(0.875),
   display: 'flex',
   justifyContent: 'space-between',
   flexDirection: 'row',
   alignItems: 'flex-end',
   marginHorizontal: theme.sizing.baseUnit,
+  marginTop: theme.sizing.baseUnit * 0.5,
 }))(View);
 
 const GreyH3 = styled(({ theme }) => ({

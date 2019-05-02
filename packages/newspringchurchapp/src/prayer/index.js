@@ -62,7 +62,7 @@ const prayerMenuData = [
         prayer={
           'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
         }
-        campus={'Hilton Head'}
+        campus={'Anderson'}
         route={'ChurchPrayerList'}
       />
     ),
@@ -100,15 +100,15 @@ const prayerMenuData = [
     component: (
       <PrayerPreviewCard
         avatarSource={{
-          uri: 'https://rock.newspring.cc/GetImage.ashx?id=567835',
+          uri: 'https://rock.newspring.cc/GetImage.ashx?id=576112',
         }}
         avatarSize={'medium'}
-        name={'Jake'}
+        name={'Devin'}
         overlayColor={['#FFF', '#FFF']}
         prayer={
-          'Please pray for our small group. We are just starting it and want God to bless it'
+          'Please pray for Fuse! FSKO is coming and we want God to show up big.'
         }
-        campus={'Greenville'}
+        campus={'Greenwood'}
         route={'GroupPrayerList'}
       />
     ),
