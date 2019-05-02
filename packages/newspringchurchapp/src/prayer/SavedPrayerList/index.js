@@ -5,7 +5,7 @@ import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
 import savedPrayerList from '../data/queries/getSavedPrayers';
-import UnSavePrayer from '../data/mutations/unSavePrayer';
+import unSavePrayer from '../data/mutations/unSavePrayer';
 
 const StyledView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
@@ -17,12 +17,12 @@ const SavedPrayerList = () => (
     <Query query={savedPrayerList} fetchPolicy="cache-and-network">
       {({ data: { savedPrayers = [] } = {} }) => (
         <Mutation
-          mutation={UnSavePrayer}
-          update={async (cache, { data: { unSavePrayer } }) => {
+          mutation={unSavePrayer}
+          update={async (cache, { data: { unSavePrayer: returnedPrayer } }) => {
             const currentSavedPrayers = cache.readQuery({
               query: savedPrayerList,
             });
-            const { id } = unSavePrayer;
+            const { id } = returnedPrayer;
             const newPrayersList = currentSavedPrayers.savedPrayers.filter(
               (prayer) => prayer.id !== id
             );
@@ -32,7 +32,7 @@ const SavedPrayerList = () => (
             });
           }}
         >
-          {(unsavePrayer) => (
+          {(unSave) => (
             <StyledView>
               {savedPrayers
                 .map((prayer) => (
@@ -48,15 +48,15 @@ const SavedPrayerList = () => (
                     header
                     options={[
                       {
-                        title: 'Un-save Prayer',
+                        title: 'Remove Prayer',
                         method: async () => {
-                          await unsavePrayer({
+                          await unSave({
                             variables: {
                               nodeId: prayer.id,
                             },
                           });
                         },
-                        destructive: false,
+                        destructive: true,
                       },
                     ]}
                   />

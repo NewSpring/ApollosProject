@@ -1,8 +1,8 @@
 import React from 'react';
-import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
 
+import renderer from 'react-test-renderer';
 import Providers from 'newspringchurchapp/src/Providers';
-import getSavedPrayers from '../data/queries/getUserPrayers';
+import getSavedPrayers from '../data/queries/getSavedPrayers';
 import SavedPrayerList from '.';
 
 const savedPrayers = [
@@ -49,7 +49,7 @@ const mock = {
 
 describe('the SavedPrayerList component', () => {
   it('renders a list of saved prayers', async () => {
-    const tree = await renderWithApolloData(
+    const tree = renderer.create(
       <Providers mocks={[mock]}>
         <SavedPrayerList />
       </Providers>
