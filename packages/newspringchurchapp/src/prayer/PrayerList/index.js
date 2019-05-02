@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { ModalView, styled, FlexedView, H6 } from '@apollosproject/ui-kit';
 
-import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
+import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import flagPrayerRequest from '../data/mutations/flagPrayerRequest';
@@ -134,7 +134,7 @@ class PrayerList extends PureComponent {
                     }}
                   >
                     {(flagPrayer) => (
-                      <PrayerCard
+                      <PrayerCardConnected
                         avatarSize={'medium'}
                         expanded
                         actionsEnabled

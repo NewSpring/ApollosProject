@@ -21,11 +21,11 @@ import {
 } from '@apollosproject/ui-kit';
 import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
 
-const ExpandedCard = styled(({ expanded }) => {
+const ExpandedCard = styled(({ expanded, expandedHeight }) => {
   let styles = {};
   styles = expanded
     ? {
-        height: Dimensions.get('window').height * 0.72,
+        height: expandedHeight,
       }
     : {};
   return styles;
@@ -90,9 +90,12 @@ class PrayerCard extends PureComponent {
       source,
       prayer,
       options,
+      incrementPrayer,
       advancePrayer,
       prayerId,
     } = this.props;
+
+    const expandedHeight = Dimensions.get('window').height * 0.72;
 
     // add a cancel button
     const buttons = options || [];
@@ -108,14 +111,20 @@ class PrayerCard extends PureComponent {
     return actionsEnabled && this.state.cardPressed ? (
       <PaddedView>
         <PrayerActionMenuCardConnected
+          expandedHeight={expandedHeight}
           navigation={this.props.navigation}
           prayerId={prayerId}
           advancePrayer={advancePrayer}
         />
       </PaddedView>
     ) : (
-      <TouchableScale onPress={this.handleCardPressed}>
-        <ExpandedCard expanded={expanded}>
+      <TouchableScale
+        onPress={() => {
+          incrementPrayer();
+          this.handleCardPressed();
+        }}
+      >
+        <ExpandedCard expandedHeight={expandedHeight} expanded={expanded}>
           {interactive ? (
             <HeaderView>
               <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
@@ -174,6 +183,7 @@ PrayerCard.propTypes = {
   prayer: PropTypes.string,
   source: PropTypes.string,
   advancePrayer: PropTypes.func,
+  incrementPrayer: PropTypes.func,
   prayerId: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({

@@ -12,9 +12,10 @@ import {
 
 import NSIcon from 'newspringchurchapp/src/ui/NSIcon';
 
-const StyledCard = styled(() => ({
+const StyledCard = styled(({ expandedHeight }) => ({
   marginHorizontal: 0,
   marginVertical: 0,
+  height: expandedHeight,
 }))(Card);
 
 const StyledCardContent = styled(() => ({
@@ -31,9 +32,9 @@ const StyledTouchable = styled(({ theme }) => ({
 }))(Touchable);
 
 const PrayerActionMenuCard = memo(
-  ({ exitPrayer, savePrayer, advancePrayer }) => (
+  ({ exitPrayer, savePrayer, advancePrayer, expandedHeight }) => (
     <>
-      <StyledCard>
+      <StyledCard expandedHeight={expandedHeight}>
         <StyledCardContent>
           <StyledPaddedView>
             <StyledTouchable onPress={() => exitPrayer()}>
@@ -69,6 +70,7 @@ PrayerActionMenuCard.propTypes = {
   exitPrayer: PropTypes.func,
   savePrayer: PropTypes.func,
   advancePrayer: PropTypes.func,
+  expandedHeight: PropTypes.number,
 };
 
 PrayerActionMenuCard.displayName = 'PrayerActionMenuCard';
