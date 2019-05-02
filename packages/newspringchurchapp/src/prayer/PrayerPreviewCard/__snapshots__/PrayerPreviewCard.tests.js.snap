@@ -34,6 +34,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
     }
   >
     <View
+      expanded={false}
       style={
         Object {
           "backgroundColor": "#ffffff",

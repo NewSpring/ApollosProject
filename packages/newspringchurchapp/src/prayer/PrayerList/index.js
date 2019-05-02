@@ -132,6 +132,7 @@ class PrayerList extends PureComponent {
                     <PaddedView>
                       <PrayerCard
                         onPress={this.handleOnPress}
+                        expanded
                         options={[
                           {
                             title: 'Flag as inappropriate',
