@@ -64,6 +64,10 @@ const StyledBodyText = styled(() => ({
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
+  static navigationOptions = () => ({
+    header: null,
+  });
+
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
@@ -81,6 +85,7 @@ class PrayerCard extends PureComponent {
       source,
       prayer,
       options,
+      navigation,
     } = this.props;
 
     // add a cancel button
@@ -128,7 +133,14 @@ class PrayerCard extends PureComponent {
           <StyledBodyText>{prayer}</StyledBodyText>
           {showHelp ? (
             <PaddedView>
-              <Touchable onPress={() => {}}>
+              <Touchable
+                onPress={() => {
+                  navigation.navigate('ContentSingle', {
+                    itemId: 'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                    itemTitle: 'Learning how to pray like Jesus',
+                  });
+                }}
+              >
                 <ChannelLabel icon="information" label="How to Pray?" />
               </Touchable>
             </PaddedView>
@@ -157,6 +169,9 @@ PrayerCard.propTypes = {
       destructive: PropTypes.bool,
     })
   ),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
 };
 
 PrayerCard.defaultProps = {
