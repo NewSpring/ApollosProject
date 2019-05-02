@@ -129,25 +129,24 @@ class PrayerList extends PureComponent {
                   }}
                 >
                   {(flagPrayer) => (
-                    <PaddedView>
-                      <PrayerCard
-                        onPress={this.handleOnPress}
-                        options={[
-                          {
-                            title: 'Flag as inappropriate',
-                            method: async () => {
-                              await flagPrayer({
-                                variables: {
-                                  parsedId: item.id,
-                                },
-                              });
-                            },
-                            destructive: true,
+                    <PrayerCard
+                      avatarSize={'medium'}
+                      onPress={this.handleOnPress}
+                      options={[
+                        {
+                          title: 'Flag as Inappropriate',
+                          method: async () => {
+                            await flagPrayer({
+                              variables: {
+                                parsedId: item.id,
+                              },
+                            });
                           },
-                        ]}
-                        {...item}
-                      />
-                    </PaddedView>
+                          destructive: true,
+                        },
+                      ]}
+                      {...item}
+                    />
                   )}
                 </Mutation>
               )}

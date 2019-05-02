@@ -47,7 +47,6 @@ const StyledCardContent = styled(() => ({
 const UserHeader = styled(({ theme }) => ({
   alignItems: 'center',
   marginBottom: theme.sizing.baseUnit * 1.5,
-  marginTop: theme.sizing.baseUnit,
 }))(View);
 
 const StyledBodyText = styled(() => ({
