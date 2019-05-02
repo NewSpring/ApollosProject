@@ -129,11 +129,12 @@ class PrayerList extends PureComponent {
                 >
                   {(flagPrayer) => (
                     <PrayerCard
-                      avatarSize={'medium'}
                       onPress={this.handleOnPress}
+                      expanded
+                      avatarSize={'medium'}
                       options={[
                         {
-                          title: 'Flag as Inappropriate',
+                          title: 'Flag as inappropriate',
                           method: async () => {
                             await flagPrayer({
                               variables: {
