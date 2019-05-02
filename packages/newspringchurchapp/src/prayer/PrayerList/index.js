@@ -5,22 +5,21 @@ import PropTypes from 'prop-types';
 
 import {
   FeedView,
-  BackgroundView,
-  PaddedView,
-  ModalViewHeader,
+  ModalView,
   styled,
   FlexedView,
+  PaddedView,
   H6,
 } from '@apollosproject/ui-kit';
 
 import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
+import PrayerActionMenuCardConnected from 'newspringchurchapp/src/prayer/PrayerActionMenuCard/PrayerActionMenuCardConnected';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
-import flagPrayerRequest from '../PrayerCard/flagPrayerRequest';
-import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
-import getGroupPrayerRequests from './getGroupPrayerRequests';
-import getPublicPrayerRequests from './getPublicPrayerRequests';
-import getPublicPrayerRequestsByCampus from './getCampusPrayerRequests';
+import flagPrayerRequest from '../data/mutations/flagPrayerRequest';
+import getGroupPrayerRequests from '../data/queries/getGroupPrayerRequests';
+import getPublicPrayerRequests from '../data/queries/getPublicPrayerRequests';
+import getPublicPrayerRequestsByCampus from '../data/queries/getCampusPrayerRequests';
 
 const PaddedFeedView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 5,
@@ -40,9 +39,9 @@ const DividerView = styled(({ theme }) => ({
  */
 class PrayerList extends PureComponent {
   /** Function for React Navigation to set information in the header. */
-  static navigationOptions = ({ navigation }) => ({
-    header: <ModalViewHeader onClose={() => navigation.popToTop()} />,
-  });
+  static navigationOptions = {
+    header: null,
+  };
 
   state = {
     selectedPrayer: false,
@@ -107,7 +106,7 @@ class PrayerList extends PureComponent {
     const { navigation } = this.props;
 
     return (
-      <BackgroundView>
+      <ModalView>
         <Query
           query={query}
           variables={variables}
@@ -137,7 +136,7 @@ class PrayerList extends PureComponent {
                     });
                   }}
                 >
-                  {(handlePress) =>
+                  {(flagPrayer) =>
                     this.state.selectedPrayer ? (
                       <PaddedView>
                         <PrayerActionMenuCardConnected
@@ -149,19 +148,24 @@ class PrayerList extends PureComponent {
                         />
                       </PaddedView>
                     ) : (
-                      <PaddedView>
-                        <PrayerCard
-                          onPress={this.handleOnPress}
-                          flagRequest={async () => {
-                            await handlePress({
-                              variables: {
-                                parsedId: item.id,
-                              },
-                            });
-                          }}
-                          {...item}
-                        />
-                      </PaddedView>
+                      <PrayerCard
+                        avatarSize={'medium'}
+                        onPress={this.handleOnPress}
+                        options={[
+                          {
+                            title: 'Flag as Inappropriate',
+                            method: async () => {
+                              await flagPrayer({
+                                variables: {
+                                  parsedId: item.id,
+                                },
+                              });
+                            },
+                            destructive: true,
+                          },
+                        ]}
+                        {...item}
+                      />
                     )
                   }
                 </Mutation>
@@ -173,10 +177,9 @@ class PrayerList extends PureComponent {
               )}
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
-                text: prayer.text,
-                source: prayer.campus ? prayer.campus.name : '',
+                prayer: prayer.text,
+                source: prayer.campus.name || '',
                 name: prayer.firstName,
-                ...prayer,
               }))}
               isLoading={loading}
               scrollEnabled
@@ -186,7 +189,7 @@ class PrayerList extends PureComponent {
             />
           )}
         </Query>
-      </BackgroundView>
+      </ModalView>
     );
   }
 }

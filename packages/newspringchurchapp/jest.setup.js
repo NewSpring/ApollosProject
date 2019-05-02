@@ -64,6 +64,15 @@ jest.mock('@apollosproject/ui-analytics', () => ({
   AnalyticsProvider: ({ children }) => children,
 }));
 
+jest.mock('react-native-amplitude-analytics', () => {
+  class AnalyticsMock {
+    logEvent() {
+      return null;
+    }
+  }
+  return AnalyticsMock;
+});
+
 jest.mock('react-native-video', () => 'Video');
 
 jest.mock('react-native-reanimated', () => ({

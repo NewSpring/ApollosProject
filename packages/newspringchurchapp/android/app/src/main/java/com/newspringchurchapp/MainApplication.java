@@ -3,6 +3,7 @@ package com.newspringchurchapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.sudoplz.reactnativeamplitudeanalytics.RNAmplitudeSDKPackage;
 import com.mybdesign.RNPassKit.RNPassKitPackage;
 import com.bugsnag.BugsnagReactNative;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNAmplitudeSDKPackage(MainApplication.this),
             new RNPassKitPackage(),
             BugsnagReactNative.getPackage(),
             new RNGestureHandlerPackage(),

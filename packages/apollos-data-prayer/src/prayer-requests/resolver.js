@@ -10,30 +10,24 @@ export default {
       dataSources.PrayerRequest.getFromCurrentPerson(),
     getPrayerRequestsByGroups: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
-    savedPrayers: async (root, { after, first }, { dataSources }) => {
-      const followingsPaginated = await dataSources.Followings.paginatedGetFollowingsForCurrentUser(
-        { type: 'PrayerRequest', after, first }
-      );
+    savedPrayers: async (root, args, { dataSources }) => {
+      try {
+        const followings = await dataSources.Followings.getFollowingsForCurrentUser(
+          {
+            type: 'PrayerRequest',
+          }
+        );
 
-      const followings = await followingsPaginated.edges;
-      const ids = followings.map((f) => f.node.entityId);
-      const prayerRequests = await dataSources.PrayerRequest.getFromIds(
-        ids
-      ).get();
-      const prayerRequestEdges = prayerRequests.map((prayerRequest) => ({
-        node: { ...prayerRequest, isLiked: true },
-        following: followings.find((f) => f.node.entityId === prayerRequest.id)
-          .node,
-        cursor: followings.find((f) => f.node.entityId === prayerRequest.id)
-          .cursor,
-      }));
-      const sortedPrayerRequestEdges = prayerRequestEdges.sort(
-        (a, b) =>
-          new Date(a.following.createdDateTime) <
-          new Date(b.following.createdDateTime)
-      );
+        const stuff = await followings.get();
+        const prayerIds = stuff.map((follow) => follow.entityId);
+        const prayers = await dataSources.PrayerRequest.getFromIds(
+          prayerIds
+        ).get();
 
-      return { edges: sortedPrayerRequestEdges };
+        return prayers;
+      } catch (err) {
+        throw new Error(err);
+      }
     },
   },
   Mutation: {
@@ -53,15 +47,26 @@ export default {
     },
     savePrayer: async (
       root,
-      { input: { nodeId, operation } },
-      { dataSources },
+      { nodeId },
+      { dataSources, models: { Node } },
       { schema }
-    ) =>
-      dataSources.Followings.updateLikeContentItem({
+    ) => {
+      await dataSources.Followings.followNode({
         nodeId,
-        operation,
-        schema,
-      }),
+      });
+      return Node.get(nodeId, dataSources, schema);
+    },
+    unSavePrayer: async (
+      root,
+      { nodeId },
+      { dataSources, models: { Node } },
+      { schema }
+    ) => {
+      await dataSources.Followings.unFollowNode({
+        nodeId,
+      });
+      return Node.get(nodeId, dataSources, schema);
+    },
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
