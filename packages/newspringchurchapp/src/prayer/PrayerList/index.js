@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import {
   FeedView,
-  PaddedView,
   ModalView,
   styled,
   FlexedView,
@@ -129,25 +128,26 @@ class PrayerList extends PureComponent {
                   }}
                 >
                   {(flagPrayer) => (
-                    <PaddedView>
-                      <PrayerCard
-                        onPress={this.handleOnPress}
-                        options={[
-                          {
-                            title: 'Flag as inappropriate',
-                            method: async () => {
-                              await flagPrayer({
-                                variables: {
-                                  parsedId: item.id,
-                                },
-                              });
-                            },
-                            destructive: true,
+                    <PrayerCard
+                      onPress={this.handleOnPress}
+                      expanded
+                      avatarSize={'medium'}
+                      options={[
+                        {
+                          title: 'Flag as inappropriate',
+                          method: async () => {
+                            await flagPrayer({
+                              variables: {
+                                parsedId: item.id,
+                              },
+                            });
                           },
-                        ]}
-                        {...item}
-                      />
-                    </PaddedView>
+                          destructive: true,
+                        },
+                      ]}
+                      {...item}
+                      navigation={this.props.navigation}
+                    />
                   )}
                 </Mutation>
               )}
@@ -159,7 +159,7 @@ class PrayerList extends PureComponent {
               content={get(data, prayers, []).map((prayer) => ({
                 id: prayer.id,
                 prayer: prayer.text,
-                campus: prayer.campus.name || '',
+                source: prayer.campus.name || '',
                 name: prayer.firstName,
               }))}
               isLoading={loading}

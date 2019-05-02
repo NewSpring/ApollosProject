@@ -41,13 +41,13 @@ const getGradientValues = (overlayColor) => {
 
 const StyledButton = styled({
   position: 'absolute',
-  bottom: 0,
+  bottom: 15,
   left: 0,
   right: 0,
 })(Button);
 
 const PrayerPreviewCard = withNavigation(
-  ({ overlayColor, navigation, route, ...props }) => (
+  ({ overlayColor, route, ...props }) => (
     <>
       <PrayerCard interactive={false} showHelp={false} {...props} />
       <Overlay
@@ -58,7 +58,9 @@ const PrayerPreviewCard = withNavigation(
       />
       <PaddedView>
         <StyledButton
-          onPress={() => navigation.navigate('PrayerList', { list: route })}
+          onPress={() =>
+            props.navigation.navigate('PrayerList', { list: route })
+          }
           title="Start Praying"
         />
       </PaddedView>
@@ -69,9 +71,13 @@ const PrayerPreviewCard = withNavigation(
 PrayerPreviewCard.propTypes = {
   avatarSource: PropTypes.objectOf(PropTypes.string),
   name: PropTypes.string,
-  overlayColor: PropTypes.any, //eslint-disable-line
+  overlayColor: PropTypes.arrayOf(PropTypes.string),
   prayer: PropTypes.string,
   source: PropTypes.string,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
+  route: PropTypes.string,
 };
 
 export default PrayerPreviewCard;

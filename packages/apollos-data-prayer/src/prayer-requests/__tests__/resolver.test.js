@@ -9,12 +9,14 @@ import * as PrayerRequest from '../index';
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
 import campusMock from '../../campusMock';
+import followingsMock from '../../followingsMock';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
   Campus: { dataSource: campusMock },
+  Followings: { dataSource: followingsMock },
 });
 
 ApollosConfig.loadJs({
@@ -511,6 +513,171 @@ describe('PrayerRequest', () => {
     );
     context.dataSources.PrayerRequest.put = responseMock;
     context.dataSources.PrayerRequest.get = responseMock;
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
+
+  it('save a prayer request', async () => {
+    const query = `
+      mutation {
+        savePrayer(nodeId: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
+          id
+          firstName
+          lastName
+          text
+          requestedByPersonAliasId
+          campus {
+            id
+            name
+          }
+          categoryId
+          flagCount
+          prayerCount
+          isAnonymous
+          person {
+            id
+            firstName
+            lastName
+          }
+        }
+      }
+    `;
+
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
+
+  it('unsave a prayer request', async () => {
+    const query = `
+      mutation {
+        unSavePrayer(nodeId: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
+          id
+          firstName
+          lastName
+          text
+          requestedByPersonAliasId
+          campus {
+            id
+            name
+          }
+          categoryId
+          flagCount
+          prayerCount
+          isAnonymous
+          person {
+            id
+            firstName
+            lastName
+          }
+        }
+      }
+    `;
+
+    context.dataSources.Person.getFromAliasId = jest.fn(() =>
+      Promise.resolve({
+        id: 1,
+        firstName: 'Isaac',
+        lastName: 'Hardy',
+      })
+    );
+
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
+
+  it('gets all saved prayer requests', async () => {
+    const query = `
+      query {
+        savedPrayers {
+          id
+          firstName
+          lastName
+          text
+          requestedByPersonAliasId
+          campus {
+            id
+            name
+          }
+          categoryId
+          flagCount
+          prayerCount
+          isAnonymous
+          person {
+            id
+            firstName
+            lastName
+          }
+        }
+      }
+    `;
+
+    const responseMock = jest.fn(() => ({
+      get: () =>
+        Promise.resolve([
+          { entityId: 1 },
+          { entityId: 2 },
+          { entityId: 3 },
+          { entityId: 4 },
+          { entityId: 5 },
+        ]),
+    }));
+    context.dataSources.Followings.getFollowingsForCurrentUser = responseMock;
+    context.dataSources.PrayerRequest.getFromIds = jest.fn(() => ({
+      get: () => [
+        {
+          id: 'PrayerRequest:b36e55d803443431e96bb4b5068147ec',
+          firstName: 'Isaac',
+          lastName: 'Hardy',
+          text: 'Pray this works.',
+          requestedByPersonAliasId: 447217,
+          campusId: 16,
+          categoryId: 2,
+          flagCount: 0,
+          prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
+        },
+        {
+          id: 'PrayerRequest:57c465ee3cd69524d729569b338607de',
+          firstName: 'Rich',
+          lastName: 'Dubee',
+          text: 'Help me',
+          requestedByPersonAliasId: 447217,
+          campusId: 16,
+          categoryId: 2,
+          flagCount: 0,
+          prayerCount: 4,
+          attributeValues: {
+            isAnonymous: {
+              value: 'True',
+            },
+          },
+        },
+      ],
+    }));
+
     context.dataSources.Person.getFromAliasId = jest.fn(() =>
       Promise.resolve({
         id: 1,

@@ -226,6 +226,55 @@ Array [
 ]
 `;
 
+exports[`PrayerRequest gets all saved prayer requests 1`] = `
+Object {
+  "data": Object {
+    "savedPrayers": Array [
+      Object {
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
+        "categoryId": 2,
+        "firstName": "Isaac",
+        "flagCount": 0,
+        "id": "PrayerRequest:4ca828e6155e88cd21a8b67865472a9301e9f68a0e3823859d5a383958bc6c5b843f7453855c22c6f07f5955b5ca0bd1",
+        "isAnonymous": true,
+        "lastName": "Hardy",
+        "person": Object {
+          "firstName": "Isaac",
+          "id": "1",
+          "lastName": "Hardy",
+        },
+        "prayerCount": 4,
+        "requestedByPersonAliasId": 447217,
+        "text": "Pray this works.",
+      },
+      Object {
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
+        "categoryId": 2,
+        "firstName": "Rich",
+        "flagCount": 0,
+        "id": "PrayerRequest:04fbd6bf8d5ee1a6493f42615e65ea05bb9ce2844192b00af611268daee3297d6e00b42b4ceebbb632956536f1cb00f3",
+        "isAnonymous": true,
+        "lastName": "Dubee",
+        "person": Object {
+          "firstName": "Isaac",
+          "id": "1",
+          "lastName": "Hardy",
+        },
+        "prayerCount": 4,
+        "requestedByPersonAliasId": 447217,
+        "text": "Help me",
+      },
+    ],
+  },
+}
+`;
+
 exports[`PrayerRequest gets prayer request by id 1`] = `
 Object {
   "data": Object {
@@ -288,5 +337,27 @@ Object {
       "text": "Pray this works.",
     },
   },
+}
+`;
+
+exports[`PrayerRequest save a prayer request 1`] = `
+Object {
+  "data": Object {
+    "savePrayer": null,
+  },
+  "errors": Array [
+    [GraphQLError: No route matching https://apollosrock.newspring.cc/api/PrayerRequests/10?loadAttributes=expanded],
+  ],
+}
+`;
+
+exports[`PrayerRequest unsave a prayer request 1`] = `
+Object {
+  "data": Object {
+    "unSavePrayer": null,
+  },
+  "errors": Array [
+    [GraphQLError: No route matching https://apollosrock.newspring.cc/api/PrayerRequests/10?loadAttributes=expanded],
+  ],
 }
 `;

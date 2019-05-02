@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import moment from 'moment';
 
 import ActionSheet from 'react-native-actionsheet';
@@ -10,22 +10,41 @@ import {
   Card,
   CardContent,
   H3,
+  H5,
   H6,
   PaddedView,
   styled,
   Touchable,
   ButtonLink,
   ChannelLabel,
-  SideBySideView,
 } from '@apollosproject/ui-kit';
 
+const ExpandedCard = styled(({ expanded }) => {
+  let styles = {};
+  styles = expanded
+    ? {
+        height: Dimensions.get('window').height * 0.72,
+      }
+    : {};
+  return styles;
+})(Card);
+
 const HeaderView = styled(({ theme }) => ({
-  paddingBottom: 0,
-  paddingTop: theme.sizing.baseUnit * 0.3,
-  paddingRight: theme.sizing.baseUnit,
-  paddingLeft: theme.sizing.baseUnit,
-  height: theme.helpers.verticalRhythm(0.875),
-}))(SideBySideView);
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+  marginHorizontal: theme.sizing.baseUnit,
+  marginTop: theme.sizing.baseUnit * 0.5,
+}))(View);
+
+const GreyH3 = styled(({ theme }) => ({
+  color: theme.colors.lightTertiary,
+}))(H3);
+
+const GreyH5 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+}))(H5);
 
 const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -45,6 +64,10 @@ const StyledBodyText = styled(() => ({
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
+  static navigationOptions = () => ({
+    header: null,
+  });
+
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
@@ -54,13 +77,15 @@ class PrayerCard extends PureComponent {
       interactive,
       showHelp,
       header,
+      expanded,
       avatarSource,
       avatarSize,
       created,
       name,
-      campus,
+      source,
       prayer,
       options,
+      navigation,
     } = this.props;
 
     // add a cancel button
@@ -73,22 +98,23 @@ class PrayerCard extends PureComponent {
       if (index === buttonMethods.length - 1) return;
       buttonMethods[index]();
     };
+
     return (
-      <Card>
+      <ExpandedCard expanded={expanded}>
         {interactive ? (
           <HeaderView>
-            <H6>{created ? moment(created).fromNow() : ''}</H6>
+            <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
             {buttons ? (
-              <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+              <ButtonLink onPress={this.handleShowActionSheet}>
+                <GreyH3>...</GreyH3>
+              </ButtonLink>
             ) : null}
             <ActionSheet
               ref={(sheet) => {
                 this.ActionSheet = sheet;
               }}
               options={buttons.map((option) => option.title)}
-              cancelButtonIndex={buttons.length}
-              // this will only make the first option listed as destructive turn red
-              // ActionSheet only allows for one destructive button
+              cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
               destructiveButtonIndex={buttons
                 .map((option) => option.destructive)
                 .indexOf(true)}
@@ -101,19 +127,26 @@ class PrayerCard extends PureComponent {
             <UserHeader>
               <Avatar source={avatarSource} size={avatarSize} />
               <H3>Pray For {name}</H3>
-              {campus ? <GreyH6>{campus}</GreyH6> : null}
+              {source ? <GreyH6>{source}</GreyH6> : null}
             </UserHeader>
           ) : null}
           <StyledBodyText>{prayer}</StyledBodyText>
           {showHelp ? (
             <PaddedView>
-              <Touchable onPress={() => {}}>
+              <Touchable
+                onPress={() => {
+                  navigation.navigate('ContentSingle', {
+                    itemId: 'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                    itemTitle: 'Learning how to pray like Jesus',
+                  });
+                }}
+              >
                 <ChannelLabel icon="information" label="How to Pray?" />
               </Touchable>
             </PaddedView>
           ) : null}
         </StyledCardContent>
-      </Card>
+      </ExpandedCard>
     );
   }
 }
@@ -122,12 +155,13 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
+  expanded: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
   created: PropTypes.string,
   name: PropTypes.string,
   prayer: PropTypes.string,
-  campus: PropTypes.string,
+  source: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -135,14 +169,19 @@ PrayerCard.propTypes = {
       destructive: PropTypes.bool,
     })
   ),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
 };
 
 PrayerCard.defaultProps = {
   interactive: true,
   showHelp: true,
   header: true,
+  expanded: false,
   avatarSize: 'small',
-  name: 'request',
+  name: 'Request',
+  source: 'Web',
 };
 
 export default PrayerCard;
