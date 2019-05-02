@@ -111,7 +111,7 @@ class PrayerList extends PureComponent {
                         query,
                       });
                       const newPrayersList = prayerRequests[prayers].filter(
-                        (prayer) => prayer.id !== item.id
+                        (prayer) => prayer.id !== item.item.id
                       );
                       const newPrayerObject = {
                         [`${prayers}`]: newPrayersList,
@@ -132,14 +132,14 @@ class PrayerList extends PureComponent {
                             method: async () => {
                               await flagPrayer({
                                 variables: {
-                                  parsedId: item.id,
+                                  parsedId: item.item.id,
                                 },
                               });
                             },
                             destructive: true,
                           },
                         ]}
-                        {...item}
+                        {...item.item}
                       />
                     )}
                   </Mutation>
