@@ -39,16 +39,6 @@ const prayerRequestSchema = gql`
     isAnonymous: Boolean
     isLiked: Boolean @cacheControl(maxAge: 0)
   }
-  type PrayerRequestsLiked {
-    edges: [PrayerRequestsLikedEdge]
-    # TODO totalCount: Int
-    pageInfo: PaginationInfo
-  }
-
-  type PrayerRequestsLikedEdge {
-    node: PrayerRequest
-    cursor: String
-  }
 `;
 
 export default prayerRequestSchema;
