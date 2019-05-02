@@ -156,7 +156,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
                 }
               }
             >
-              NewSpring Church
+              Web
             </Text>
           </View>
           <Text
