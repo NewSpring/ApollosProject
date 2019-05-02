@@ -64,6 +64,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "marginBottom": 16,
               "paddingHorizontal": 16,
               "paddingVertical": 16,
             }
