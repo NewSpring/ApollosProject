@@ -41,10 +41,11 @@ const SavedPrayerList = () => (
                     avatarSource={get(prayer, 'person.photo.uri')}
                     avatarSize={'medium'}
                     name={get(prayer, 'firstName')}
-                    campus={get(prayer, 'campus.name')}
+                    source={get(prayer, 'campus.name')}
                     key={get(prayer, 'id')}
                     created={get(prayer, 'enteredDateTime')}
                     prayer={get(prayer, 'text')}
+                    anonymous={get(prayer, 'isAnonymous', false)}
                     showHelp
                     header
                     options={[

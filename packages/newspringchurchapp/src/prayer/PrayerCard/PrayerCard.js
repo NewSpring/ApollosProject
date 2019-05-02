@@ -152,7 +152,8 @@ PrayerCard.defaultProps = {
   showHelp: true,
   header: true,
   avatarSize: 'small',
-  name: 'request',
+  name: 'Request',
+  source: 'NewSpring Church',
 };
 
 export default PrayerCard;
