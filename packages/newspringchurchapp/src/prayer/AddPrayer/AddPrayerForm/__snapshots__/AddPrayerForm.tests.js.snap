@@ -522,18 +522,23 @@ exports[`The AddPrayerForm component should render 1`] = `
                       }
                     >
                       <RCTSwitch
-                        activeThumbColor="#ffffff"
-                        activeTrackColor="#6bac43"
                         onChange={[Function]}
                         onResponderTerminationRequest={[Function]}
                         onStartShouldSetResponder={[Function]}
                         onTintColor="#6bac43"
                         style={
-                          Object {
-                            "height": 31,
-                            "width": 51,
-                          }
+                          Array [
+                            Object {
+                              "height": 31,
+                              "width": 51,
+                            },
+                            Object {
+                              "backgroundColor": "#dddddd",
+                              "borderRadius": 16,
+                            },
+                          ]
                         }
+                        thumbTintColor="#ffffff"
                         tintColor="#dddddd"
                         value={false}
                       />
@@ -1228,18 +1233,23 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                       }
                     >
                       <RCTSwitch
-                        activeThumbColor="#ffffff"
-                        activeTrackColor="#6bac43"
                         onChange={[Function]}
                         onResponderTerminationRequest={[Function]}
                         onStartShouldSetResponder={[Function]}
                         onTintColor="#6bac43"
                         style={
-                          Object {
-                            "height": 31,
-                            "width": 51,
-                          }
+                          Array [
+                            Object {
+                              "height": 31,
+                              "width": 51,
+                            },
+                            Object {
+                              "backgroundColor": "#dddddd",
+                              "borderRadius": 16,
+                            },
+                          ]
                         }
+                        thumbTintColor="#ffffff"
                         tintColor="#dddddd"
                         value={false}
                       />
@@ -2021,18 +2031,23 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                       }
                     >
                       <RCTSwitch
-                        activeThumbColor="#ffffff"
-                        activeTrackColor="#6bac43"
                         onChange={[Function]}
                         onResponderTerminationRequest={[Function]}
                         onStartShouldSetResponder={[Function]}
                         onTintColor="#6bac43"
                         style={
-                          Object {
-                            "height": 31,
-                            "width": 51,
-                          }
+                          Array [
+                            Object {
+                              "height": 31,
+                              "width": 51,
+                            },
+                            Object {
+                              "backgroundColor": "#dddddd",
+                              "borderRadius": 16,
+                            },
+                          ]
                         }
+                        thumbTintColor="#ffffff"
                         tintColor="#dddddd"
                         value={false}
                       />
