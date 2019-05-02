@@ -1,14 +1,74 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Query, Mutation } from 'react-apollo';
+import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
+import savedPrayerList from '../data/queries/getSavedPrayers';
+import unSavePrayer from '../data/mutations/unSavePrayer';
+
+const StyledView = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 1.5,
+  marginBottom: theme.sizing.baseUnit * 4,
+}))(View);
 
 const SavedPrayerList = () => (
   <ScrollView>
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
-    <PrayerCard />
+    <Query query={savedPrayerList} fetchPolicy="cache-and-network">
+      {({ data: { savedPrayers = [] } = {} }) =>
+        console.log(savedPrayers) || (
+          <Mutation
+            mutation={unSavePrayer}
+            update={async (cache, { data: { unSavePrayer } }) => {
+              const currentSavedPrayers = cache.readQuery({
+                query: savedPrayerList,
+              });
+              const { id } = unSavePrayer;
+              const newPrayersList = currentSavedPrayers.savedPrayers.filter(
+                (prayer) => prayer.id !== id
+              );
+              await cache.writeQuery({
+                query: savedPrayerList,
+                data: { savedPrayers: newPrayersList },
+              });
+            }}
+          >
+            {(deletePrayer) => (
+              <StyledView>
+                {savedPrayers
+                  .map((prayer) => (
+                    <PrayerCard
+                      avatarSource={prayer.person.photo.uri}
+                      avatarSize={'medium'}
+                      name={prayer.firstName}
+                      campus={prayer.campus.name}
+                      key={prayer.id}
+                      created={prayer.enteredDateTime}
+                      prayer={prayer.text}
+                      showHelp
+                      header
+                      options={[
+                        {
+                          title: 'Remove Prayer',
+                          method: async () => {
+                            await deletePrayer({
+                              variables: {
+                                nodeId: prayer.id,
+                              },
+                            });
+                          },
+                          destructive: true,
+                        },
+                      ]}
+                    />
+                  ))
+                  .reverse()}
+              </StyledView>
+            )}
+          </Mutation>
+        )
+      }
+    </Query>
   </ScrollView>
 );
 
