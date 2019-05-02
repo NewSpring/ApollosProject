@@ -52,8 +52,9 @@ const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
 }))(H6);
 
-const StyledCardContent = styled(() => ({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
+  marginBottom: theme.sizing.baseUnit,
 }))(CardContent);
 
 const UserHeader = styled(({ theme }) => ({
@@ -98,6 +99,7 @@ class PrayerCard extends PureComponent {
       advancePrayer,
       prayerId,
       navigation,
+      anonymous,
     } = this.props;
 
     const expandedHeight = Dimensions.get('window').height * 0.72;
@@ -145,21 +147,29 @@ class PrayerCard extends PureComponent {
                   this.ActionSheet = sheet;
                 }}
                 options={buttons.map((option) => option.title)}
-                cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
-                destructiveButtonIndex={buttons
+                cancelButtonIndex={buttons.length}
+                destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
                   .map((option) => option.destructive)
                   .indexOf(true)}
                 onPress={(index) => handleOnPress(index)}
               />
             </HeaderView>
           ) : null}
-
           <StyledCardContent>
             {header ? (
               <UserHeader>
-                <Avatar source={avatarSource} size={avatarSize} />
-                <H3>Pray For {name}</H3>
-                {source ? <GreyH6>{source}</GreyH6> : null}
+                {anonymous ? (
+                  <>
+                    <Avatar size={avatarSize} />
+                    <H3>Pray For Request</H3>
+                  </>
+                ) : (
+                  <>
+                    <Avatar source={avatarSource} size={avatarSize} />
+                    <H3>Pray For {name}</H3>
+                    {source ? <GreyH6>{source}</GreyH6> : null}
+                  </>
+                )}
               </UserHeader>
             ) : null}
             <StyledBodyText>{prayer}</StyledBodyText>
@@ -210,6 +220,7 @@ PrayerCard.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
   }),
+  anonymous: PropTypes.bool,
 };
 
 PrayerCard.defaultProps = {
@@ -220,6 +231,7 @@ PrayerCard.defaultProps = {
   avatarSize: 'small',
   name: 'Request',
   source: 'Web',
+  anonymous: false,
 };
 
 export default PrayerCard;

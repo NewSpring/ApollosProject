@@ -129,6 +129,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
             style={
               Object {
                 "alignItems": "center",
+                "marginBottom": 16,
                 "paddingHorizontal": 16,
                 "paddingVertical": 16,
               }
