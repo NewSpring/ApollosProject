@@ -26,7 +26,7 @@ export default {
 
         return prayers;
       } catch (err) {
-        return [];
+        throw new Error(err);
       }
     },
   },
