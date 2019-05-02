@@ -32,12 +32,12 @@ const ActionTable = () => (
       <View>
         <RowHeader>
           <Name>
-            <H4>{'Connect with Apollos'}</H4>
+            <H4>{'Connect with NewSpring'}</H4>
           </Name>
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/235')}
+            onPress={() => openUrl('https://rock.newspring.cc/Workflows/431')}
           >
             <Cell>
               <CellIcon name="check" />
@@ -45,41 +45,32 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/236')}
-          >
+          <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
             <Cell>
               <CellIcon name="groups" />
               <CellText>Join a small group</CellText>
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => NavigationActions.navigate('Prayer')}>
-            <Cell>
-              <CellIcon name="share" />
-              <CellText>I need prayer</CellText>
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
-          >
+          <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
             <Cell>
               <CellIcon name="download" />
               <CellText>I would like to give</CellText>
             </Cell>
           </Touchable>
         </TableView>
-        <TableView>
-          <Touchable
-            onPress={() => NavigationActions.navigate('TestingControlPanel')}
-          >
-            <Cell>
-              <CellIcon name="settings" />
-              <CellText>Open Testing Panel</CellText>
-            </Cell>
-          </Touchable>
-        </TableView>
+        {process.env.NODE_ENV !== 'production' ? (
+          <TableView>
+            <Touchable
+              onPress={() => NavigationActions.navigate('TestingControlPanel')}
+            >
+              <Cell>
+                <CellIcon name="settings" />
+                <CellText>Open Testing Panel</CellText>
+              </Cell>
+            </Touchable>
+          </TableView>
+        ) : null}
       </View>
     )}
   </WebBrowserConsumer>

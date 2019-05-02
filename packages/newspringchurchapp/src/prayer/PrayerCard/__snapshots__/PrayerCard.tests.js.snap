@@ -62,25 +62,22 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
         <View
           style={
             Object {
-              "alignItems": "stretch",
+              "alignItems": "flex-end",
+              "display": "flex",
               "flexDirection": "row",
-              "flexWrap": "nowrap",
-              "height": 20.16,
               "justifyContent": "space-between",
-              "paddingBottom": 0,
-              "paddingLeft": 16,
-              "paddingRight": 16,
-              "paddingTop": 4.8,
+              "marginHorizontal": 16,
+              "marginTop": 8,
             }
           }
         >
           <Text
             style={
               Object {
-                "color": "#505050",
-                "fontFamily": "Colfax-Bold",
-                "fontSize": 12,
-                "lineHeight": 17.28,
+                "color": "#858585",
+                "fontFamily": "Colfax-Medium",
+                "fontSize": 14,
+                "lineHeight": 20.16,
               }
             }
           >
@@ -94,7 +91,18 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               }
             }
           >
-            ...
+            <Text
+              style={
+                Object {
+                  "color": "#dddddd",
+                  "fontFamily": "Colfax-Black",
+                  "fontSize": 24,
+                  "lineHeight": 27.6,
+                }
+              }
+            >
+              ...
+            </Text>
           </Text>
         </View>
         <View
@@ -270,6 +278,18 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
             >
               Pray For 
               Bill
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#858585",
+                  "fontFamily": "Colfax-Bold",
+                  "fontSize": 12,
+                  "lineHeight": 17.28,
+                }
+              }
+            >
+              Anderson
             </Text>
           </View>
           <Text
