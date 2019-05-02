@@ -12,14 +12,18 @@ import {
   H3,
 } from '@apollosproject/ui-kit';
 
-const StyledCardContent = styled({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
-})(CardContent);
+  marginTop: theme.sizing.baseUnit,
+}))(CardContent);
 
 const TitleView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 0.5,
-  marginBottom: theme.sizing.baseUnit * 2,
+  marginBottom: theme.sizing.baseUnit,
 }))(View);
+
+const StyledBodyText = styled(() => ({
+  textAlign: 'center',
+}))(BodyText);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <Card>
@@ -29,7 +33,7 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
       <TitleView>
         <H3>{title}</H3>
       </TitleView>
-      <BodyText>{description}</BodyText>
+      <StyledBodyText>{description}</StyledBodyText>
     </StyledCardContent>
     <PaddedView>
       <Button

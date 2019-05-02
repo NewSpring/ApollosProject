@@ -10,22 +10,31 @@ import {
   Card,
   CardContent,
   H3,
+  H5,
   H6,
   PaddedView,
   styled,
   Touchable,
   ButtonLink,
   ChannelLabel,
-  SideBySideView,
 } from '@apollosproject/ui-kit';
 
 const HeaderView = styled(({ theme }) => ({
-  paddingBottom: 0,
-  paddingTop: theme.sizing.baseUnit * 0.3,
-  paddingRight: theme.sizing.baseUnit,
-  paddingLeft: theme.sizing.baseUnit,
-  height: theme.helpers.verticalRhythm(0.875),
-}))(SideBySideView);
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+  marginHorizontal: theme.sizing.baseUnit,
+  marginTop: theme.sizing.baseUnit * 0.5,
+}))(View);
+
+const GreyH3 = styled(({ theme }) => ({
+  color: theme.colors.lightTertiary,
+}))(H3);
+
+const GreyH5 = styled(({ theme }) => ({
+  color: theme.colors.text.tertiary,
+}))(H5);
 
 const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -58,7 +67,7 @@ class PrayerCard extends PureComponent {
       avatarSize,
       created,
       name,
-      campus,
+      source,
       prayer,
       options,
     } = this.props;
@@ -73,22 +82,23 @@ class PrayerCard extends PureComponent {
       if (index === buttonMethods.length - 1) return;
       buttonMethods[index]();
     };
+
     return (
       <Card>
         {interactive ? (
           <HeaderView>
-            <H6>{created ? moment(created).fromNow() : ''}</H6>
+            <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
             {buttons ? (
-              <ButtonLink onPress={this.handleShowActionSheet}>...</ButtonLink>
+              <ButtonLink onPress={this.handleShowActionSheet}>
+                <GreyH3>...</GreyH3>
+              </ButtonLink>
             ) : null}
             <ActionSheet
               ref={(sheet) => {
                 this.ActionSheet = sheet;
               }}
               options={buttons.map((option) => option.title)}
-              cancelButtonIndex={buttons.length}
-              // this will only make the first option listed as destructive turn red
-              // ActionSheet only allows for one destructive button
+              cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
               destructiveButtonIndex={buttons
                 .map((option) => option.destructive)
                 .indexOf(true)}
@@ -101,7 +111,7 @@ class PrayerCard extends PureComponent {
             <UserHeader>
               <Avatar source={avatarSource} size={avatarSize} />
               <H3>Pray For {name}</H3>
-              {campus ? <GreyH6>{campus}</GreyH6> : null}
+              {source ? <GreyH6>{source}</GreyH6> : null}
             </UserHeader>
           ) : null}
           <StyledBodyText>{prayer}</StyledBodyText>
@@ -127,7 +137,7 @@ PrayerCard.propTypes = {
   created: PropTypes.string,
   name: PropTypes.string,
   prayer: PropTypes.string,
-  campus: PropTypes.string,
+  source: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
