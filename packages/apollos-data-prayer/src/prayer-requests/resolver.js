@@ -1,4 +1,5 @@
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
+import { uniq } from 'lodash';
 
 export default {
   Query: {
@@ -21,7 +22,7 @@ export default {
         const stuff = await followings.get();
         const prayerIds = stuff.map((follow) => follow.entityId);
         const prayers = await dataSources.PrayerRequest.getFromIds(
-          prayerIds
+          uniq(prayerIds)
         ).get();
 
         return prayers;
