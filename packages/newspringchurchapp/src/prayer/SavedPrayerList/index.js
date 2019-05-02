@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Query, Mutation } from 'react-apollo';
+import { get } from 'lodash';
 import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
@@ -37,13 +38,13 @@ const SavedPrayerList = () => (
               {savedPrayers
                 .map((prayer) => (
                   <PrayerCard
-                    avatarSource={prayer.person.photo.uri}
+                    avatarSource={get(prayer, 'person.photo.uri')}
                     avatarSize={'medium'}
-                    name={prayer.firstName}
-                    campus={prayer.campus.name}
-                    key={prayer.id}
-                    created={prayer.enteredDateTime}
-                    prayer={prayer.text}
+                    name={get(prayer, 'firstName')}
+                    campus={get(prayer, 'campus.name')}
+                    key={get(prayer, 'id')}
+                    created={get(prayer, 'enteredDateTime')}
+                    prayer={get(prayer, 'text')}
                     showHelp
                     header
                     options={[
@@ -52,7 +53,7 @@ const SavedPrayerList = () => (
                         method: async () => {
                           await unSave({
                             variables: {
-                              nodeId: prayer.id,
+                              nodeId: get(prayer, 'id'),
                             },
                           });
                         },
