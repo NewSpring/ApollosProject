@@ -31,7 +31,7 @@
     ]
   },
   "scripts": {
-    "android": "react-native run-android",
+    "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android --appId com.newspringchurchapp --main-activity LaunchActivity",
     "codecov": "cat ./coverage/lcov.info | codecov",
     "fixlint": "eslint ./src --fix",
     "ios": "react-native run-ios --simulator=\"iPhone X\"",
@@ -66,11 +66,11 @@
     ]
   },
   "dependencies": {
-    "@apollosproject/ui-analytics": "0.8.2",
-    "@apollosproject/ui-auth": "^0.8.2",
-    "@apollosproject/ui-htmlview": "0.8.2",
-    "@apollosproject/ui-kit": "^0.8.2",
-    "@apollosproject/ui-passes": "^0.8.2",
+    "@apollosproject/ui-analytics": "0.8.3",
+    "@apollosproject/ui-auth": "^0.8.3",
+    "@apollosproject/ui-htmlview": "0.8.3",
+    "@apollosproject/ui-kit": "^0.8.3",
+    "@apollosproject/ui-passes": "^0.8.3",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-cache-persist": "0.1.1",
     "apollo-client": "2.5.1",
@@ -103,6 +103,7 @@
     "react-native": "0.58.5",
     "react-native-actionsheet": "^2.4.2",
     "react-native-airplay-btn": "^1.0.6",
+    "react-native-amplitude-analytics": "^0.2.6",
     "react-native-config": "^0.11.7",
     "react-native-custom-tabs": "0.1.7",
     "react-native-device-info": "0.22.5",

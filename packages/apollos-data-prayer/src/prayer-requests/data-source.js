@@ -1,5 +1,6 @@
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 import ApollosConfig from '@apollosproject/config';
+import { parseGlobalId } from '@apollosproject/server-core';
 
 const { ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
@@ -13,7 +14,7 @@ export default class PrayerRequest extends RockApolloDataSource {
   // QUERY PrayerRequests by Campus
   getAllByCampus = (campusId) =>
     this.request('PrayerRequests/Public')
-      .filter(`CampusId eq ${campusId}`)
+      .filter(`CampusId eq ${parseGlobalId(campusId).id}`)
       .get();
 
   // QUERY PrayerRequests from Current Person
@@ -49,6 +50,9 @@ export default class PrayerRequest extends RockApolloDataSource {
     this.request()
       .find(id)
       .get();
+
+  getFromIds = (ids) =>
+    this.request().filterOneOf(ids.map((id) => `Id eq ${id}`));
 
   // MUTATION increment prayed, for a request
   incrementPrayed = async (parsedId) => {
@@ -102,7 +106,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         LastName,
         Text, // Required by Rock
         CategoryId,
-        CampusId,
+        CampusId: parseInt(parseGlobalId(CampusId).id, 10),
         IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
@@ -110,9 +114,11 @@ export default class PrayerRequest extends RockApolloDataSource {
         EnteredDateTime: new Date().toJSON(), // Required by Rock
       });
       // Sets the attribute value "IsAnonymous" on newly created prayer request
+      // TODO: we should combine this so network doesn't die and someone's prayer is left un-anonymous
       await this.post(
-        `/PrayerRequests/AttributeValue/${newPrayerRequest}?attributeKey=IsAnonymous&attributeValue=${IsAnonymous ||
-          'False'}`
+        `/PrayerRequests/AttributeValue/${newPrayerRequest}?attributeKey=IsAnonymous&attributeValue=${
+          IsAnonymous ? 'True' : 'False'
+        }`
       );
       return this.getFromId(newPrayerRequest);
     } catch (err) {

@@ -3,22 +3,25 @@ import gql from 'graphql-tag';
 const prayerRequestSchema = gql`
   extend type Query {
     getPublicPrayerRequests: [PrayerRequest]
-    getPublicPrayerRequestsByCampus(campusId: Int!): [PrayerRequest]
+    getPublicPrayerRequestsByCampus(campusId: String!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPrayerRequestsByGroups: [PrayerRequest]
+    savedPrayers: [PrayerRequest]
   }
   extend type Mutation {
     addPublicPrayerRequest(
-      CampusId: Int!
+      CampusId: String!
       CategoryId: Int!
       Text: String!
       FirstName: String!
       LastName: String
-      IsAnonymous: String
+      IsAnonymous: Boolean
     ): PrayerRequest
     deletePublicPrayerRequest(id: String!): PrayerRequest
     incrementPrayed(id: String!): PrayerRequest
     flagRequest(id: String!): PrayerRequest
+    savePrayer(nodeId: String!): PrayerRequest
+    unSavePrayer(nodeId: String!): PrayerRequest
   }
   type PrayerRequest implements Node {
     id: ID!
@@ -29,7 +32,7 @@ const prayerRequestSchema = gql`
     flagCount: Int
     prayerCount: Int
     categoryId: Int
-    campusId: Int
+    campus: Campus
     createdByPersonAliasId: Int
     requestedByPersonAliasId: Int
     person: Person
