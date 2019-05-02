@@ -131,6 +131,7 @@ class PrayerList extends PureComponent {
                     <PrayerCard
                       onPress={this.handleOnPress}
                       expanded
+                      avatarSize={'medium'}
                       options={[
                         {
                           title: 'Flag as inappropriate',

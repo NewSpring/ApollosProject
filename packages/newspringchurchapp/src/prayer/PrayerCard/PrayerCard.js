@@ -23,8 +23,6 @@ const ExpandedCard = styled(({ expanded }) => {
   let styles = {};
   styles = expanded
     ? {
-        marginHorizontal: 0,
-        marginVertical: 0,
         height: Dimensions.get('window').height * 0.7,
       }
     : {};
