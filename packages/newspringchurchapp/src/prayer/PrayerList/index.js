@@ -1,15 +1,10 @@
 import React, { PureComponent } from 'react';
+import { FlatList, View } from 'react-native';
 import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
-import {
-  FeedView,
-  ModalView,
-  styled,
-  FlexedView,
-  H6,
-} from '@apollosproject/ui-kit';
+import { ModalView, styled, FlexedView, H6 } from '@apollosproject/ui-kit';
 
 import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
 import cache from '../../client/cache';
@@ -21,7 +16,7 @@ import getPublicPrayerRequestsByCampus from '../data/queries/getCampusPrayerRequ
 
 const PaddedFeedView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 5,
-}))(FeedView);
+}))(View);
 
 const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -51,7 +46,7 @@ class PrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = () => this.scrollToNextPrayer();
+  handleOnPress = () => console.log('clicked');
 
   // This doesn't work. Just keeping it here for now
   scrollToNextPrayer = () =>
@@ -98,76 +93,75 @@ class PrayerList extends PureComponent {
 
     return (
       <ModalView>
-        <Query
-          query={query}
-          variables={variables}
-          fetchPolicy="cache-and-network"
-        >
-          {({ loading, error, data, refetch }) => (
-            <PaddedFeedView
-              ref={(scroller) => {
-                this.scroller = scroller;
-              }}
-              ListItemComponent={(item) => (
-                <Mutation
-                  mutation={flagPrayerRequest}
-                  update={async () => {
-                    const prayerRequests = cache.readQuery({
-                      query,
-                    });
-                    const newPrayersList = prayerRequests[prayers].filter(
-                      (prayer) => prayer.id !== item.id
-                    );
-                    const newPrayerObject = {
-                      [`${prayers}`]: newPrayersList,
-                    };
-                    await cache.writeQuery({
-                      query,
-                      data: newPrayerObject,
-                    });
-                  }}
-                >
-                  {(flagPrayer) => (
-                    <PrayerCard
-                      avatarSize={'medium'}
-                      onPress={this.handleOnPress}
-                      options={[
-                        {
-                          title: 'Flag as Inappropriate',
-                          method: async () => {
-                            await flagPrayer({
-                              variables: {
-                                parsedId: item.id,
-                              },
-                            });
+        <PaddedFeedView>
+          <Query
+            query={query}
+            variables={variables}
+            fetchPolicy="cache-and-network"
+          >
+            {({ data }) => (
+              <FlatList
+                ref={(scroller) => {
+                  this.scroller = scroller;
+                }}
+                renderItem={(item) => (
+                  <Mutation
+                    mutation={flagPrayerRequest}
+                    update={async () => {
+                      const prayerRequests = cache.readQuery({
+                        query,
+                      });
+                      const newPrayersList = prayerRequests[prayers].filter(
+                        (prayer) => prayer.id !== item.id
+                      );
+                      const newPrayerObject = {
+                        [`${prayers}`]: newPrayersList,
+                      };
+                      await cache.writeQuery({
+                        query,
+                        data: newPrayerObject,
+                      });
+                    }}
+                  >
+                    {(flagPrayer) => (
+                      <PrayerCard
+                        avatarSize={'medium'}
+                        onPress={this.handleOnPress}
+                        options={[
+                          {
+                            title: 'Flag as Inappropriate',
+                            method: async () => {
+                              await flagPrayer({
+                                variables: {
+                                  parsedId: item.id,
+                                },
+                              });
+                            },
+                            destructive: true,
                           },
-                          destructive: true,
-                        },
-                      ]}
-                      {...item}
-                    />
-                  )}
-                </Mutation>
-              )}
-              ItemSeparatorComponent={() => (
-                <DividerView>
-                  <GreyH6>Press down on card to pray</GreyH6>
-                </DividerView>
-              )}
-              content={get(data, prayers, []).map((prayer) => ({
-                id: prayer.id,
-                prayer: prayer.text,
-                source: prayer.campus.name || '',
-                name: prayer.firstName,
-              }))}
-              isLoading={loading}
-              scrollEnabled={false}
-              error={error}
-              refetch={refetch}
-              onPressItem={this.handleOnPress}
-            />
-          )}
-        </Query>
+                        ]}
+                        {...item}
+                      />
+                    )}
+                  </Mutation>
+                )}
+                ItemSeparatorComponent={() => (
+                  <DividerView>
+                    <GreyH6>Press down on card to pray</GreyH6>
+                  </DividerView>
+                )}
+                data={get(data, prayers, []).map((prayer) => ({
+                  key: prayer.id,
+                  id: prayer.id,
+                  prayer: prayer.text,
+                  source: prayer.campus.name || '',
+                  name: prayer.firstName,
+                }))}
+                scrollEnabled
+              />
+            )}
+          </Query>
+        </PaddedFeedView>
       </ModalView>
     );
   }
