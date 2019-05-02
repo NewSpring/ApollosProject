@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -31,44 +31,65 @@ const StyledTouchable = styled(({ theme }) => ({
   padding: theme.sizing.baseUnit * 1.5,
 }))(Touchable);
 
-const PrayerActionMenuCard = memo(
-  ({ exitPrayer, savePrayer, advancePrayer, expandedHeight }) => (
-    <>
-      <StyledCard expandedHeight={expandedHeight}>
-        <StyledCardContent>
-          <StyledPaddedView>
-            <StyledTouchable onPress={() => exitPrayer()}>
-              <PaddedView>
-                <NSIcon name="arrow-up" />
-              </PaddedView>
-              <H4>Done Praying</H4>
-            </StyledTouchable>
-          </StyledPaddedView>
-          <StyledPaddedView>
-            <StyledTouchable onPress={() => savePrayer()}>
-              <PaddedView>
-                <Icon name="Like" />
-              </PaddedView>
-              <H4>Save Prayer</H4>
-            </StyledTouchable>
-          </StyledPaddedView>
-          <StyledPaddedView>
-            <StyledTouchable onPress={() => advancePrayer()}>
-              <PaddedView>
-                <H4>Next Prayer</H4>
-              </PaddedView>
-              <NSIcon name="arrow-down" />
-            </StyledTouchable>
-          </StyledPaddedView>
-        </StyledCardContent>
-      </StyledCard>
-    </>
-  )
-);
+class PrayerActionMenuCard extends PureComponent {
+  state = {
+    hasSavedPrayer: false,
+  };
+
+  handleOnSavePrayer = () => this.setState({ hasSavedPrayer: true });
+
+  render() {
+    const {
+      exitPrayer,
+      savePrayerId,
+      advancePrayer,
+      expandedHeight,
+    } = this.props;
+    return (
+      <>
+        <StyledCard expandedHeight={expandedHeight}>
+          <StyledCardContent>
+            <StyledPaddedView>
+              <StyledTouchable onPress={() => exitPrayer()}>
+                <PaddedView>
+                  <NSIcon name="arrow-up" />
+                </PaddedView>
+                <H4>Done Praying</H4>
+              </StyledTouchable>
+            </StyledPaddedView>
+            <StyledPaddedView>
+              <StyledTouchable
+                onPress={() => {
+                  savePrayerId();
+                  this.handleOnSavePrayer();
+                }}
+              >
+                <PaddedView>
+                  <Icon
+                    name={this.state.hasSavedPrayer ? 'LikeSolid' : 'Like'}
+                  />
+                </PaddedView>
+                <H4>Save Prayer</H4>
+              </StyledTouchable>
+            </StyledPaddedView>
+            <StyledPaddedView>
+              <StyledTouchable onPress={() => advancePrayer()}>
+                <PaddedView>
+                  <H4>Next Prayer</H4>
+                </PaddedView>
+                <NSIcon name="arrow-down" />
+              </StyledTouchable>
+            </StyledPaddedView>
+          </StyledCardContent>
+        </StyledCard>
+      </>
+    );
+  }
+}
 
 PrayerActionMenuCard.propTypes = {
   exitPrayer: PropTypes.func,
-  savePrayer: PropTypes.func,
+  savePrayerId: PropTypes.func,
   advancePrayer: PropTypes.func,
   expandedHeight: PropTypes.number,
 };

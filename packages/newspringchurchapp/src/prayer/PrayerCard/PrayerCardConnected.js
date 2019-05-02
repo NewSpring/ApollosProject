@@ -9,6 +9,7 @@ const PrayerCardConnected = memo(({ prayerId, ...props }) => (
   <Mutation mutation={incrementRequestPrayed}>
     {(incrementPrayed) => (
       <PrayerCard
+        prayerId={prayerId}
         incrementPrayer={async () => {
           await incrementPrayed({
             variables: {
