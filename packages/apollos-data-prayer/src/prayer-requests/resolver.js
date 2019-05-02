@@ -10,6 +10,25 @@ export default {
       dataSources.PrayerRequest.getFromCurrentPerson(),
     getPrayerRequestsByGroups: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
+    savedPrayers: async (root, args, { dataSources }) => {
+      try {
+        const followings = await dataSources.Followings.getFollowingsForCurrentUser(
+          {
+            type: 'PrayerRequest',
+          }
+        );
+
+        const stuff = await followings.get();
+        const prayerIds = stuff.map((follow) => follow.entityId);
+        const prayers = await dataSources.PrayerRequest.getFromIds(
+          prayerIds
+        ).get();
+
+        return prayers;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
@@ -25,6 +44,28 @@ export default {
     flagRequest: (root, { id }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.flag(parsedId);
+    },
+    savePrayer: async (
+      root,
+      { nodeId },
+      { dataSources, models: { Node } },
+      { schema }
+    ) => {
+      await dataSources.Followings.followNode({
+        nodeId,
+      });
+      return Node.get(nodeId, dataSources, schema);
+    },
+    unSavePrayer: async (
+      root,
+      { nodeId },
+      { dataSources, models: { Node } },
+      { schema }
+    ) => {
+      await dataSources.Followings.unFollowNode({
+        nodeId,
+      });
+      return Node.get(nodeId, dataSources, schema);
     },
   },
   PrayerRequest: {
