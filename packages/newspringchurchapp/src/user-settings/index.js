@@ -17,6 +17,7 @@ import {
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 import AvatarForm from 'newspringchurchapp/src/ui/UserAvatarView/AvatarForm';
+
 import { getLoginState, logout } from '@apollosproject/ui-auth';
 
 const AvatarView = styled({

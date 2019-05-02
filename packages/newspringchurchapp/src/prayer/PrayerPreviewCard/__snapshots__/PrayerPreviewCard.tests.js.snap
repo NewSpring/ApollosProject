@@ -93,7 +93,12 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "marginBottom": 24,
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 20,
+                  "height": 40,
+                  "justifyContent": "flex-end",
+                  "overflow": "hidden",
+                  "width": 40,
                 }
               }
             >

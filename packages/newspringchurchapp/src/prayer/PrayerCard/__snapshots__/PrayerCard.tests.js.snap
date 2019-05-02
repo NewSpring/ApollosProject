@@ -107,7 +107,13 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               onPress={[Function]}
               style={
                 Object {
-                  "color": "#6bac43",
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 20,
+                  "height": 40,
+                  "justifyContent": "flex-end",
+                  "overflow": "hidden",
+                  "width": 40,
                 }
               }
             >
