@@ -8,12 +8,15 @@ const bugsnagLink = onError(({ graphQLErrors, networkError, operation }) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) =>
       bugsnag.notify(new Error(message), (report) => {
+        console.warn(message);
         if (operation.variables && operation.variables.password) {
           // eslint-disable-next-line
           delete operation.variables.password;
         }
-        // eslint-disable-next-line
-        report.context = path.join('/');
+        if (path) {
+          // eslint-disable-next-line
+          report.context = path.join('/');
+        }
         // eslint-disable-next-line
         report.metadata = {
           path,
