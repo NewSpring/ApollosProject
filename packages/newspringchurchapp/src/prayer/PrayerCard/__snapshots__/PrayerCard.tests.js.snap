@@ -119,7 +119,6 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               Object {
                 "alignItems": "center",
                 "marginBottom": 24,
-                "marginTop": 16,
               }
             }
           >

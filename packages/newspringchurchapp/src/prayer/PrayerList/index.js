@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import {
   FeedView,
-  PaddedView,
   ModalView,
   styled,
   FlexedView,
