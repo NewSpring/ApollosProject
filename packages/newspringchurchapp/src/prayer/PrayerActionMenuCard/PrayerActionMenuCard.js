@@ -41,7 +41,7 @@ class PrayerActionMenuCard extends PureComponent {
   render() {
     const {
       exitPrayer,
-      savePrayerId,
+      savePrayer,
       advancePrayer,
       expandedHeight,
     } = this.props;
@@ -60,7 +60,7 @@ class PrayerActionMenuCard extends PureComponent {
           <StyledPaddedView>
             <StyledTouchable
               onPress={() => {
-                savePrayerId();
+                savePrayer();
                 this.handleOnSavePrayer();
               }}
             >
@@ -86,7 +86,7 @@ class PrayerActionMenuCard extends PureComponent {
 
 PrayerActionMenuCard.propTypes = {
   exitPrayer: PropTypes.func,
-  savePrayerId: PropTypes.func,
+  savePrayer: PropTypes.func,
   advancePrayer: PropTypes.func,
   expandedHeight: PropTypes.number,
 };

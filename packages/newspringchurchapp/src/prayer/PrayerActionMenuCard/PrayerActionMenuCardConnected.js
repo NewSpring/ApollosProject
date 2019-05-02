@@ -13,7 +13,7 @@ const PrayerActionMenuCardConnected = memo(
         {(savePrayer) => (
           <PrayerActionMenuCard
             exitPrayer={exitPrayer}
-            savePrayerId={async () => {
+            savePrayer={async () => {
               await savePrayer({
                 variables: {
                   nodeId: prayerId,

@@ -125,8 +125,10 @@ class PrayerCard extends PureComponent {
     ) : (
       <TouchableScale
         onPress={() => {
-          incrementPrayer();
-          this.handleCardPressed();
+          if (incrementPrayer) {
+            incrementPrayer();
+            this.handleCardPressed();
+          }
         }}
       >
         <ExpandedCard expandedHeight={expandedHeight} expanded={expanded}>
