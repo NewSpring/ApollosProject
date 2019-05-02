@@ -5,7 +5,7 @@ import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
 import savedPrayerList from '../data/queries/getSavedPrayers';
-import deleteSavedPrayer from '../data/mutations/deleteSavedPrayer';
+import UnSavePrayer from '../data/mutations/unSavePrayer';
 
 const StyledView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 1.5,
