@@ -4,21 +4,13 @@ import { GradientOverlayImage } from '@apollosproject/ui-kit';
 
 import Providers from 'newspringchurchapp/src/Providers';
 
-import Features from './Features';
+import LandingScreen from '.';
 
-describe('The Onboarding Features component', () => {
+describe('The Onboarding LandingScreen component', () => {
   it('should render', () => {
     const tree = renderer.create(
       <Providers>
-        <Features />
-      </Providers>
-    );
-    expect(tree).toMatchSnapshot();
-  });
-  it('should render a custom first name', () => {
-    const tree = renderer.create(
-      <Providers>
-        <Features firstName={'firstName'} />
+        <LandingScreen />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
@@ -26,7 +18,7 @@ describe('The Onboarding Features component', () => {
   it('should render a custom title', () => {
     const tree = renderer.create(
       <Providers>
-        <Features slideTitle={'Custom title text'} />
+        <LandingScreen slideTitle={'Custom title text'} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
@@ -34,15 +26,23 @@ describe('The Onboarding Features component', () => {
   it('should render a custom description', () => {
     const tree = renderer.create(
       <Providers>
-        <Features description={'Custom description text'} />
+        <LandingScreen description={'Custom description text'} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
   });
-  it('should render a BackgroundComponent', () => {
+  it('should render with a custom text color', () => {
     const tree = renderer.create(
       <Providers>
-        <Features
+        <LandingScreen textColor={'salmon'} />
+      </Providers>
+    );
+    expect(tree).toMatchSnapshot();
+  });
+  it('should render with an ImageComponent', () => {
+    const tree = renderer.create(
+      <Providers>
+        <LandingScreen
           BackgroundComponent={
             <GradientOverlayImage
               source={'https://picsum.photos/375/812/?random'}
@@ -56,7 +56,7 @@ describe('The Onboarding Features component', () => {
   it('should pass additional props to Slide', () => {
     const tree = renderer.create(
       <Providers>
-        <Features onPressPrimary={jest.fn()} />
+        <LandingScreen onPressPrimary={jest.fn()} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();

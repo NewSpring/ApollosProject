@@ -95,6 +95,9 @@ ROCK_MAPPINGS:
     - 23
     - 25
 
+  CAMPAIGN_CHANNEL_IDS:
+    - 11
+
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
     PersonaId: 1300
