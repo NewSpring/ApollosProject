@@ -46,11 +46,10 @@ class PrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = () => console.log('clicked');
 
   // This doesn't work. Just keeping it here for now
-  scrollToNextPrayer = () =>
-    this.scroller.scrollTo({ x: 0, y: 1000, animated: true });
+  scrollToNext = () =>
+    this.scroller.scrollToOffset({ offset: 1000, animated: true });
 
   calculateQuery = () => {
     const { navigation } = this.props;
@@ -126,7 +125,6 @@ class PrayerList extends PureComponent {
                     {(flagPrayer) => (
                       <PrayerCard
                         avatarSize={'medium'}
-                        onPress={this.handleOnPress}
                         options={[
                           {
                             title: 'Flag as Inappropriate',
@@ -157,7 +155,7 @@ class PrayerList extends PureComponent {
                   source: prayer.campus.name || '',
                   name: prayer.firstName,
                 }))}
-                scrollEnabled
+                scrollEnabled={false}
               />
             )}
           </Query>
