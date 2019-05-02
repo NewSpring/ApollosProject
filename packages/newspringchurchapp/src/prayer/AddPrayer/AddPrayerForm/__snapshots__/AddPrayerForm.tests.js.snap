@@ -62,16 +62,17 @@ exports[`The AddPrayerForm component should render 1`] = `
         }
       }
     >
-      <View
-        onLayout={[Function]}
-        pointerEvents="box-none"
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        forceInset={
+          Object {
+            "bottom": "never",
+            "top": "always",
+          }
+        }
         style={
           Object {
             "flex": 1,
-            "paddingBottom": 0,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-            "paddingTop": 20,
           }
         }
       >
@@ -599,7 +600,7 @@ exports[`The AddPrayerForm component should render 1`] = `
             </View>
           </View>
         </View>
-      </View>
+      </RCTSafeAreaView>
       <View
         style={
           Object {
@@ -860,16 +861,17 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
         }
       }
     >
-      <View
-        onLayout={[Function]}
-        pointerEvents="box-none"
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        forceInset={
+          Object {
+            "bottom": "never",
+            "top": "always",
+          }
+        }
         style={
           Object {
             "flex": 1,
-            "paddingBottom": 0,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-            "paddingTop": 20,
           }
         }
       >
@@ -1310,7 +1312,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             </View>
           </View>
         </View>
-      </View>
+      </RCTSafeAreaView>
       <View
         style={
           Object {
@@ -1571,16 +1573,17 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
         }
       }
     >
-      <View
-        onLayout={[Function]}
-        pointerEvents="box-none"
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        forceInset={
+          Object {
+            "bottom": "never",
+            "top": "always",
+          }
+        }
         style={
           Object {
             "flex": 1,
-            "paddingBottom": 0,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-            "paddingTop": 20,
           }
         }
       >
@@ -2108,7 +2111,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             </View>
           </View>
         </View>
-      </View>
+      </RCTSafeAreaView>
       <View
         style={
           Object {
