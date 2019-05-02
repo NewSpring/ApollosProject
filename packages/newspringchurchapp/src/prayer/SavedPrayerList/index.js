@@ -32,7 +32,7 @@ const SavedPrayerList = () => (
             });
           }}
         >
-          {(deletePrayer) => (
+          {(unsavePrayer) => (
             <StyledView>
               {savedPrayers
                 .map((prayer) => (
