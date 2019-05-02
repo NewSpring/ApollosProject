@@ -4759,6 +4759,28 @@ exports[`The Onboarding AboutYou component should render with errors 1`] = `
                 Female
               </Text>
             </View>
+            <View
+              style={
+                Object {
+                  "alignSelf": "stretch",
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#c64f55",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 12,
+                    "lineHeight": 17.28,
+                    "paddingTop": 8,
+                  }
+                }
+              >
+                Gender errors
+              </Text>
+            </View>
           </View>
           <Text
             style={
@@ -5070,6 +5092,19 @@ exports[`The Onboarding AboutYou component should render with errors 1`] = `
                 }
               />
             </View>
+            <Text
+              style={
+                Object {
+                  "color": "#c64f55",
+                  "fontFamily": "Colfax-Bold",
+                  "fontSize": 12,
+                  "lineHeight": 17.28,
+                  "paddingTop": 8,
+                }
+              }
+            >
+              BirthDate errors
+            </Text>
           </View>
         </RCTSafeAreaView>
       </View>
