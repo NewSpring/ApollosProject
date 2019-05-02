@@ -43,10 +43,9 @@ const SavedPrayerList = () => (
                     name={get(prayer, 'firstName')}
                     source={get(prayer, 'campus.name')}
                     key={get(prayer, 'id')}
-                    created={get(prayer, 'enteredDateTime')}
                     prayer={get(prayer, 'text')}
                     anonymous={get(prayer, 'isAnonymous', false)}
-                    showHelp
+                    showHelp={false}
                     header
                     options={[
                       {
