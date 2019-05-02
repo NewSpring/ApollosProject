@@ -125,6 +125,7 @@ class PrayerList extends PureComponent {
                     {(flagPrayer) => (
                       <PrayerCard
                         avatarSize={'medium'}
+                        expanded
                         options={[
                           {
                             title: 'Flag as Inappropriate',

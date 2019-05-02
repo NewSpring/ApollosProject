@@ -34,6 +34,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
     }
   >
     <View
+      expanded={false}
       style={
         Object {
           "backgroundColor": "#ffffff",
