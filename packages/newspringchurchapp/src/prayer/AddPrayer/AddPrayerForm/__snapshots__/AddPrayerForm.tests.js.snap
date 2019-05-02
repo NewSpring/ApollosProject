@@ -105,6 +105,8 @@ exports[`The AddPrayerForm component should render 1`] = `
                   "borderRadius": 40,
                   "height": 80,
                   "justifyContent": "flex-end",
+                  "marginBottom": 20,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }
@@ -324,6 +326,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -373,6 +376,50 @@ exports[`The AddPrayerForm component should render 1`] = `
                         }
                       }
                     />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "right": 0,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "backgroundColor": "#dddddd",
+                          "bottom": -0.5,
+                          "height": 0.5,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "right": 0,
+                          "transform": Array [
+                            Object {
+                              "scaleX": 1,
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <View
+                        hasError={false}
+                        style={
+                          Object {
+                            "backgroundColor": "#6bac43",
+                            "bottom": 0,
+                            "height": 0.5,
+                          }
+                        }
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
@@ -857,6 +904,8 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   "borderRadius": 40,
                   "height": 80,
                   "justifyContent": "flex-end",
+                  "marginBottom": 20,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }
@@ -989,6 +1038,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1038,6 +1088,50 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                         }
                       }
                     />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "right": 0,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "backgroundColor": "#dddddd",
+                          "bottom": -0.5,
+                          "height": 0.5,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "right": 0,
+                          "transform": Array [
+                            Object {
+                              "scaleX": 1,
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <View
+                        hasError={false}
+                        style={
+                          Object {
+                            "backgroundColor": "#6bac43",
+                            "bottom": 0,
+                            "height": 0.5,
+                          }
+                        }
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
@@ -1522,6 +1616,8 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   "borderRadius": 40,
                   "height": 80,
                   "justifyContent": "flex-end",
+                  "marginBottom": 20,
+                  "marginRight": 20,
                   "overflow": "hidden",
                   "width": 80,
                 }
@@ -1741,6 +1837,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                             "height": "100%",
                           }
                         }
+                        underline={false}
                         underlineColorAndroid="transparent"
                         value=""
                       />
@@ -1790,6 +1887,50 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                         }
                       }
                     />
+                  </View>
+                  <View
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "right": 0,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "backgroundColor": "#dddddd",
+                          "bottom": -0.5,
+                          "height": 0.5,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "right": 0,
+                          "transform": Array [
+                            Object {
+                              "scaleX": 1,
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <View
+                        hasError={false}
+                        style={
+                          Object {
+                            "backgroundColor": "#6bac43",
+                            "bottom": 0,
+                            "height": 0.5,
+                          }
+                        }
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
