@@ -165,7 +165,8 @@ PrayerCard.defaultProps = {
   header: true,
   expanded: false,
   avatarSize: 'small',
-  name: 'request',
+  name: 'Request',
+  source: 'Web',
 };
 
 export default PrayerCard;
