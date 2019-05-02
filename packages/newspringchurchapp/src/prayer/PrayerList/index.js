@@ -8,12 +8,10 @@ import {
   ModalView,
   styled,
   FlexedView,
-  PaddedView,
   H6,
 } from '@apollosproject/ui-kit';
 
 import PrayerCard from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCard';
-import PrayerActionMenuCardConnected from 'newspringchurchapp/src/prayer/PrayerActionMenuCard/PrayerActionMenuCardConnected';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import flagPrayerRequest from '../data/mutations/flagPrayerRequest';
@@ -43,10 +41,6 @@ class PrayerList extends PureComponent {
     header: null,
   };
 
-  state = {
-    selectedPrayer: false,
-  };
-
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
@@ -57,9 +51,6 @@ class PrayerList extends PureComponent {
   /** Function that is called when a card in the feed is pressed.
    * Takes the user to the ContentSingle
    */
-  handleOnPress = () => this.setState({ selectedPrayer: true });
-
-  handleResetState = () => this.setState({ selectedPrayer: false });
 
   // This doesn't work. Just keeping it here for now
   scrollToNextPrayer = () =>
@@ -136,38 +127,31 @@ class PrayerList extends PureComponent {
                     });
                   }}
                 >
-                  {(flagPrayer) =>
-                    this.state.selectedPrayer ? (
-                      <PaddedView>
-                        <PrayerActionMenuCardConnected
-                          onAdvancePrayer={
-                            this.scrollToNextPrayer && this.handleResetState
-                          }
-                          navigation={navigation}
-                          {...item}
-                        />
-                      </PaddedView>
-                    ) : (
-                      <PrayerCard
-                        avatarSize={'medium'}
-                        onPress={this.handleOnPress}
-                        options={[
-                          {
-                            title: 'Flag as Inappropriate',
-                            method: async () => {
-                              await flagPrayer({
-                                variables: {
-                                  parsedId: item.id,
-                                },
-                              });
-                            },
-                            destructive: true,
+                  {(flagPrayer) => (
+                    <PrayerCard
+                      avatarSize={'medium'}
+                      navigation={navigation}
+                      actionsEnabled
+                      prayerId={item.id}
+                      onAdvancePrayer={() => {
+                        console.log('Advancing Prayer');
+                      }}
+                      options={[
+                        {
+                          title: 'Flag as Inappropriate',
+                          method: async () => {
+                            await flagPrayer({
+                              variables: {
+                                parsedId: item.id,
+                              },
+                            });
                           },
-                        ]}
-                        {...item}
-                      />
-                    )
-                  }
+                          destructive: true,
+                        },
+                      ]}
+                      {...item}
+                    />
+                  )}
                 </Mutation>
               )}
               ItemSeparatorComponent={() => (
@@ -182,7 +166,7 @@ class PrayerList extends PureComponent {
                 name: prayer.firstName,
               }))}
               isLoading={loading}
-              scrollEnabled
+              scrollEnabled={false}
               error={error}
               refetch={refetch}
               onPressItem={this.handleOnPress}

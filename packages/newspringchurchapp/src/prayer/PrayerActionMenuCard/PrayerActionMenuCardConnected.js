@@ -6,7 +6,7 @@ import savePrayerRequest from '../data/mutations/savePrayerRequest';
 import PrayerActionMenuCard from './PrayerActionMenuCard';
 
 const PrayerActionMenuCardConnected = memo(
-  ({ onAdvancePrayer, navigation, id, ...props }) => {
+  ({ onAdvancePrayer, navigation, prayerId, ...props }) => {
     const exitPrayer = () => navigation.navigate('Prayer');
     return (
       <Mutation mutation={savePrayerRequest}>
@@ -16,7 +16,7 @@ const PrayerActionMenuCardConnected = memo(
             savePrayer={async () => {
               await savePrayer({
                 variables: {
-                  nodeId: id,
+                  nodeId: prayerId,
                 },
               });
             }}
@@ -31,7 +31,7 @@ const PrayerActionMenuCardConnected = memo(
 
 PrayerActionMenuCardConnected.propTypes = {
   onAdvancePrayer: PropTypes.func,
-  id: PropTypes.string,
+  prayerId: PropTypes.string,
 };
 
 export default PrayerActionMenuCardConnected;

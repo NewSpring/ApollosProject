@@ -18,6 +18,7 @@ import {
   ButtonLink,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
+import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
 
 const HeaderView = styled(({ theme }) => ({
   display: 'flex',
@@ -54,13 +55,20 @@ const StyledBodyText = styled(() => ({
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
+  state = {
+    cardPressed: false,
+  };
+
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
 
+  handleCardPressed = () => this.setState({ cardPressed: true });
+
   render() {
     const {
       interactive,
+      actionsEnabled,
       showHelp,
       header,
       avatarSource,
@@ -70,6 +78,8 @@ class PrayerCard extends PureComponent {
       source,
       prayer,
       options,
+      advancePrayer,
+      prayerId,
     } = this.props;
 
     // add a cancel button
@@ -83,8 +93,14 @@ class PrayerCard extends PureComponent {
       buttonMethods[index]();
     };
 
-    return (
-      <Card>
+    return actionsEnabled && this.state.cardPressed ? (
+      <PrayerActionMenuCardConnected
+        navigation={this.props.navigation}
+        prayerId={prayerId}
+        advancePrayer={advancePrayer}
+      />
+    ) : (
+      <Card onPress={this.handleCardPressed}>
         {interactive ? (
           <HeaderView>
             <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
@@ -132,12 +148,16 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
+  navigation: PropTypes.shape({}),
+  actionsEnabled: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
   created: PropTypes.string,
   name: PropTypes.string,
   prayer: PropTypes.string,
   source: PropTypes.string,
+  advancePrayer: PropTypes.func,
+  prayerId: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
