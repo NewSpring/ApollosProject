@@ -194,7 +194,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       locations={
         Array [
           0.25,
-          0.8,
+          0.75,
         ]
       }
       startPoint={
@@ -247,7 +247,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
               "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
-              "bottom": 0,
+              "bottom": 15,
               "elevation": 2,
               "flexDirection": "row",
               "height": 48,

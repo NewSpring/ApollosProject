@@ -33,7 +33,7 @@ const getGradientValues = (overlayColor) => {
     colors,
     start: { x: 0, y: 0 },
     end: { x: 0, y: 1 },
-    locations: [0.25, 0.8],
+    locations: [0.25, 0.75],
   };
 
   return values;
@@ -41,7 +41,7 @@ const getGradientValues = (overlayColor) => {
 
 const StyledButton = styled({
   position: 'absolute',
-  bottom: 0,
+  bottom: 15,
   left: 0,
   right: 0,
 })(Button);
