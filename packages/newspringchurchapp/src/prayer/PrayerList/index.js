@@ -145,6 +145,7 @@ class PrayerList extends PureComponent {
                         },
                       ]}
                       {...item}
+                      navigation={this.props.navigation}
                     />
                   )}
                 </Mutation>
