@@ -56,7 +56,7 @@ const SavedPrayerList = () => (
                             },
                           });
                         },
-                        destructive: true,
+                        destructive: false,
                       },
                     ]}
                   />
