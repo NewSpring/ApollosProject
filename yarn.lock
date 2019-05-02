@@ -212,10 +212,10 @@
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
 
-"@apollosproject/ui-analytics@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.2.tgz#e73effb5229f50e9a5f394c03fce3b8b34da3c9d"
-  integrity sha512-hmQ03Hw1dkZK2e9sjQ+QDh+UZPOUkxWKNDV/LHD8N2SXTA/Zc8Hpl1PuKEGThY9kPfLnc1F4rGjPNyXqBq8MVg==
+"@apollosproject/ui-analytics@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.3.tgz#1464c5556fbc5c2157d7714a9c581efceaf42eca"
+  integrity sha512-HP7G+ORGtYV4v213CnmdBoM1m+uvDynnw2ECgnRgVp96jPrh4OVofnCsvikBRVbf4M/icle9pYquvEDJchIpvg==
   dependencies:
     apollo-client "2.5.1"
     apollo-link-context "1.0.14"
@@ -225,10 +225,10 @@
     react-native-device-info "^1.1.0"
     react-native-keyboard-aware-scroll-view "0.7.0"
 
-"@apollosproject/ui-auth@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.2.tgz#c665a5e12d46f9414222b89e835732d47b27609d"
-  integrity sha512-00aaXcB/yQ/gSRajPNr/zH07dvnM95uO3H2vM9x0Mf8lQJWz3faMMX4tx1WBu98ANsyCSk9C3/LB5hi3uvzYLg==
+"@apollosproject/ui-auth@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.3.tgz#768c2703800a9129e256983ef6064734eec8228e"
+  integrity sha512-g5IpOFcm6tugOu46dIRbPjvuRuARTVLkJuN37tUwnqcaLV+UQ6s6FJltmHSgi/ZAgEO4JngMaGPFXnRBBHgADw==
   dependencies:
     apollo-client "2.5.1"
     apollo-link-context "1.0.14"
@@ -239,18 +239,18 @@
     react-native-keyboard-aware-scroll-view "0.7.0"
     react-navigation "2.11.2"
 
-"@apollosproject/ui-htmlview@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.2.tgz#a5624e9df96a8bcfd28367baf4fe6874f3abf534"
-  integrity sha512-+sFr3Iu7SbntJbbO38fdHscN0nW37YDK+26LM6Qfln8nqaDtM3sGwOPjdqCPdg/wrJjvRilrHcH8TOGRu+0sqg==
+"@apollosproject/ui-htmlview@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.3.tgz#c5a779069a4f6bf85e1238dbcd3e2f8c22dc320a"
+  integrity sha512-SpWDqayQl0VzphwDKi4v7aVQFQ2kv3Ya1WlCcYPx1aVmrrBsrWAcTq8C3ktPYPaTghLHlor659YHq8SEeCwLfQ==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.2"
+    "@apollosproject/ui-kit" "^0.8.3"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.2.tgz#e3cb3e5c7d6edaaec58704620debaa8099709802"
-  integrity sha512-86IaKr3rSkyKxGXsPpSzYC9CCfZyGlI3D7o10y53VYY3rjnrF0ZbF3g40/tZmXxBaJyH6VbssLow2lmL2+9YhQ==
+"@apollosproject/ui-kit@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.3.tgz#7c44a9b29463ff18d0d6251d6312e82cef1ecc23"
+  integrity sha512-PazSsLing1OFSZJg+6NMqdTxvynif3zPzgdEu/uX+XK/k0iFZ/MXwDYStwdMerQRijJb/qYjKnC33EGyFVuqyw==
   dependencies:
     color "^3.1.0"
     lodash "^4.17.11"
@@ -259,12 +259,12 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-passes@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.2.tgz#93b17ad145efa7ee27889d4aa51a64efbf3918e4"
-  integrity sha512-xXFbhpA4kQi1zQjOJXlskThMqPrjeYmPXYZ19RZ8CLZXOx4jaGPRN0u2mOZsIcmT9DMjhediD4TIQwdyptKUBA==
+"@apollosproject/ui-passes@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.3.tgz#e397fc845658e944189488238fe3c7b09d10ff5d"
+  integrity sha512-SrYAEcQsKwhOu02vUuSJkXbRHxt3JkkKbSIVlyZATSdd4eZJWctM33c7hypKUj9Gz5WFEkZgEQ5iExhzFgB0Tw==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.2"
+    "@apollosproject/ui-kit" "^0.8.3"
     graphql-tag "^2.10.1"
     react-apollo "2.5.1"
 
