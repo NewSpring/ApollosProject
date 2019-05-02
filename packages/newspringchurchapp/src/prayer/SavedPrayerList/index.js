@@ -17,7 +17,7 @@ const SavedPrayerList = () => (
     <Query query={savedPrayerList} fetchPolicy="cache-and-network">
       {({ data: { savedPrayers = [] } = {} }) => (
         <Mutation
-          mutation={deleteSavedPrayer}
+          mutation={UnSavePrayer}
           update={async (cache, { data: { unSavePrayer } }) => {
             const currentSavedPrayers = cache.readQuery({
               query: savedPrayerList,
