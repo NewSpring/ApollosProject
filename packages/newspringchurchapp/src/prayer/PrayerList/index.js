@@ -36,6 +36,10 @@ class PrayerList extends PureComponent {
     header: null,
   };
 
+  state = {
+    currentCardIndex: 0,
+  };
+
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
@@ -47,9 +51,15 @@ class PrayerList extends PureComponent {
    * Takes the user to the ContentSingle
    */
 
-  // This doesn't work. Just keeping it here for now
-  scrollToNext = () =>
-    this.scroller.scrollToOffset({ offset: 1000, animated: true });
+  scrollToNext = () => {
+    this.scroller.scrollToIndex({
+      index: this.state.currentCardIndex + 1,
+      animated: true,
+    });
+    this.setState((prevState) => ({
+      currentCardIndex: prevState.currentCardIndex + 1,
+    }));
+  };
 
   calculateQuery = () => {
     const { navigation } = this.props;
@@ -127,6 +137,11 @@ class PrayerList extends PureComponent {
                       <PrayerCard
                         avatarSize={'medium'}
                         expanded
+                        actionsEnabled
+                        navigation={navigation}
+                        cardIndex={item.index}
+                        prayerId={item.item.id}
+                        advancePrayer={this.scrollToNext}
                         options={[
                           {
                             title: 'Flag as Inappropriate',

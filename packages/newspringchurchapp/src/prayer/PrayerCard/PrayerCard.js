@@ -15,6 +15,7 @@ import {
   PaddedView,
   styled,
   Touchable,
+  TouchableScale,
   ButtonLink,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
@@ -105,52 +106,56 @@ class PrayerCard extends PureComponent {
     };
 
     return actionsEnabled && this.state.cardPressed ? (
-      <PrayerActionMenuCardConnected
-        navigation={this.props.navigation}
-        prayerId={prayerId}
-        advancePrayer={advancePrayer}
-      />
+      <PaddedView>
+        <PrayerActionMenuCardConnected
+          navigation={this.props.navigation}
+          prayerId={prayerId}
+          advancePrayer={advancePrayer}
+        />
+      </PaddedView>
     ) : (
-      <ExpandedCard expanded={expanded} onPress={this.handleCardPressed}>
-        {interactive ? (
-          <HeaderView>
-            <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
-            {buttons ? (
-              <ButtonLink onPress={this.handleShowActionSheet}>
-                <GreyH3>...</GreyH3>
-              </ButtonLink>
+      <TouchableScale onPress={this.handleCardPressed}>
+        <ExpandedCard expanded={expanded}>
+          {interactive ? (
+            <HeaderView>
+              <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
+              {buttons ? (
+                <ButtonLink onPress={this.handleShowActionSheet}>
+                  <GreyH3>...</GreyH3>
+                </ButtonLink>
+              ) : null}
+              <ActionSheet
+                ref={(sheet) => {
+                  this.ActionSheet = sheet;
+                }}
+                options={buttons.map((option) => option.title)}
+                cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
+                destructiveButtonIndex={buttons
+                  .map((option) => option.destructive)
+                  .indexOf(true)}
+                onPress={(index) => handleOnPress(index)}
+              />
+            </HeaderView>
+          ) : null}
+          <StyledCardContent>
+            {header ? (
+              <UserHeader>
+                <Avatar source={avatarSource} size={avatarSize} />
+                <H3>Pray For {name}</H3>
+                {source ? <GreyH6>{source}</GreyH6> : null}
+              </UserHeader>
             ) : null}
-            <ActionSheet
-              ref={(sheet) => {
-                this.ActionSheet = sheet;
-              }}
-              options={buttons.map((option) => option.title)}
-              cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
-              destructiveButtonIndex={buttons
-                .map((option) => option.destructive)
-                .indexOf(true)}
-              onPress={(index) => handleOnPress(index)}
-            />
-          </HeaderView>
-        ) : null}
-        <StyledCardContent>
-          {header ? (
-            <UserHeader>
-              <Avatar source={avatarSource} size={avatarSize} />
-              <H3>Pray For {name}</H3>
-              {source ? <GreyH6>{source}</GreyH6> : null}
-            </UserHeader>
-          ) : null}
-          <StyledBodyText>{prayer}</StyledBodyText>
-          {showHelp ? (
-            <PaddedView>
-              <Touchable onPress={() => {}}>
-                <ChannelLabel icon="information" label="How to Pray?" />
-              </Touchable>
-            </PaddedView>
-          ) : null}
-        </StyledCardContent>
-      </ExpandedCard>
+            <StyledBodyText>{prayer}</StyledBodyText>
+            {showHelp ? (
+              <PaddedView>
+                <Touchable onPress={() => {}}>
+                  <ChannelLabel icon="information" label="How to Pray?" />
+                </Touchable>
+              </PaddedView>
+            ) : null}
+          </StyledCardContent>
+        </ExpandedCard>
+      </TouchableScale>
     );
   }
 }
