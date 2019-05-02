@@ -6,19 +6,29 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 
 class PrayerMenuCategory extends ContentItem.dataSource {
   getPrayerMenuCategories = async () => {
-    const allCategories = this.request()
+    const allCategories = await this.request()
       .filter(
         `ContentChannelId eq ${ROCK_MAPPINGS.PRAYER_MENU_CATEGORIES_CHANNEL_ID}`
       )
       .get();
-    // don't show campus category if they don't have one
     const {
-      dataSources: { Auth },
+      dataSources: { Auth, Campus },
     } = this.context;
+
     const currentPerson = await Auth.getCurrentPerson();
-    // TODO: filter on whether they have a campus or group
-    console.log('person', currentPerson);
-    return allCategories;
+    let filteredCategories = allCategories;
+
+    // filter out campus
+    const campus = await Campus.getForPerson({ personId: currentPerson.id });
+    if (campus.name === 'Web')
+      filteredCategories = allCategories.filter(
+        (category) =>
+          category.attributeValues.dependsonCampusMembership.value === 'False'
+      );
+    // filter out groups
+    // TODO: need a GraphQL enpoint that says if I'm in any groups
+    // https://github.com/ApollosProject/apollos-prototype/issues/676
+    return filteredCategories;
   };
 }
 
