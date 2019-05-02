@@ -63,6 +63,7 @@ exports[`renders AddPrayerCardConnected 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "marginTop": 16,
               "paddingHorizontal": 16,
               "paddingVertical": 16,
             }
@@ -215,8 +216,7 @@ exports[`renders AddPrayerCardConnected 1`] = `
           <View
             style={
               Object {
-                "marginBottom": 32,
-                "marginTop": 8,
+                "marginBottom": 16,
               }
             }
           >
@@ -242,6 +242,7 @@ exports[`renders AddPrayerCardConnected 1`] = `
                 "fontFamily": "Colfax-Regular",
                 "fontSize": 16,
                 "lineHeight": 26,
+                "textAlign": "center",
               }
             }
           >
