@@ -48,7 +48,7 @@ const SavedPrayerList = () => (
                     header
                     options={[
                       {
-                        title: 'Remove Prayer',
+                        title: 'Un-save Prayer',
                         method: async () => {
                           await unsavePrayer({
                             variables: {
