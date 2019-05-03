@@ -47,7 +47,7 @@ const StyledButton = styled({
 })(Button);
 
 const PrayerPreviewCard = withNavigation(
-  ({ overlayColor, navigation, route, ...props }) => (
+  ({ overlayColor, route, ...props }) => (
     <>
       <PrayerCard interactive={false} showHelp={false} {...props} />
       <Overlay
@@ -58,7 +58,9 @@ const PrayerPreviewCard = withNavigation(
       />
       <PaddedView>
         <StyledButton
-          onPress={() => navigation.navigate('PrayerList', { list: route })}
+          onPress={() =>
+            props.navigation.navigate('PrayerList', { list: route })
+          }
           title="Start Praying"
         />
       </PaddedView>

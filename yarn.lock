@@ -12,40 +12,15 @@
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.6.tgz#022209e28a2b547dcde15b219f0c50f47aa5beb3"
 
-"@apollosproject/apollo-server-env-mock@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/apollo-server-env-mock/-/apollo-server-env-mock-0.8.2.tgz#be203ae6622d6a95bc55efe734270e2c733e18ab"
-  integrity sha512-lfnQy84sFiQWKB7ECrxcuGyAdJ5wS5B2BYGgexqiO3Qu2WdtzYeGmGd6Z8sBhm1md8Xgf+BH0OToFXbb5o4zYw==
-
 "@apollosproject/apollo-server-env-mock@^0.8.3":
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/@apollosproject/apollo-server-env-mock/-/apollo-server-env-mock-0.8.3.tgz#2b360d63f84c08df5f545fab45fe244a9857a10c"
   integrity sha512-KUASuYLigHRXKe0wrrPSfvdERPK8JRIMgr4qD52r4PGvZ1ukKEhhvICiEeCWTe5EF7Qqr4A43U779Snje+2UDg==
 
-"@apollosproject/babel-preset-apollos@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/babel-preset-apollos/-/babel-preset-apollos-0.8.2.tgz#6cf8479c41566b2fb5b185e408dd0ee83ec4ae68"
-  integrity sha512-RFTWwj0NB8uYUYiv07KVxA7xiN6YWJtVsZ5wZJYl4f+UXxCdgzg4pouzwordCeLkUcNMPanLBiReiegSq5nYIw==
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "7.4.0"
-    "@babel/plugin-proposal-decorators" "7.4.0"
-    "@babel/plugin-proposal-do-expressions" "7.2.0"
-    "@babel/plugin-proposal-export-default-from" "7.2.0"
-    "@babel/plugin-proposal-export-namespace-from" "7.2.0"
-    "@babel/plugin-proposal-function-bind" "7.2.0"
-    "@babel/plugin-proposal-function-sent" "7.2.0"
-    "@babel/plugin-proposal-json-strings" "7.2.0"
-    "@babel/plugin-proposal-logical-assignment-operators" "7.2.0"
-    "@babel/plugin-proposal-nullish-coalescing-operator" "7.2.0"
-    "@babel/plugin-proposal-numeric-separator" "7.2.0"
-    "@babel/plugin-proposal-optional-chaining" "7.2.0"
-    "@babel/plugin-proposal-pipeline-operator" "7.2.0"
-    "@babel/plugin-proposal-throw-expressions" "7.2.0"
-    "@babel/plugin-syntax-dynamic-import" "7.2.0"
-    "@babel/plugin-syntax-import-meta" "7.2.0"
-    "@babel/plugin-transform-runtime" "7.4.0"
-    "@babel/preset-env" "7.4.2"
-    babel-plugin-module-resolver "^3.1.1"
+"@apollosproject/apollo-server-env-mock@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/apollo-server-env-mock/-/apollo-server-env-mock-0.8.4.tgz#37aa38f169cf2dc158ea0ee92028ba916704f385"
+  integrity sha512-HjgmgjYBPyN8IuWxNsbnf+P9EBov7jBG7V0FqPzW5FB9Ee9nMklzWh+68nIlysJijXdWedmxf4P541Jkmy8Q2g==
 
 "@apollosproject/babel-preset-apollos@^0.8.3":
   version "0.8.3"
@@ -72,20 +47,45 @@
     "@babel/preset-env" "7.4.2"
     babel-plugin-module-resolver "^3.1.1"
 
-"@apollosproject/config@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/config/-/config-0.8.2.tgz#cc0859eeb6fbb9647d6bf4607285a48c6bbfdb74"
-  integrity sha512-v9Wlxk6pGQsRYi5RShLkv1xjQcBtTFjG3Q6pBjDC3KOrDGMCLTNsL8p1lzhb4sbRQlVYCCVOtOsxTVTidI12HA==
+"@apollosproject/babel-preset-apollos@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/babel-preset-apollos/-/babel-preset-apollos-0.8.4.tgz#c82372548c2782b401ecb6e3a8f4241a5c448666"
+  integrity sha512-nHXlyUr+xuoNGmCI7SbMmjLgFYHq6Hm3AxpiVigWLA11vuZKiMScy7jqh8gcQXWj5Z7qihERDD+I+rD4k4PZ6Q==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "7.4.0"
+    "@babel/plugin-proposal-decorators" "7.4.0"
+    "@babel/plugin-proposal-do-expressions" "7.2.0"
+    "@babel/plugin-proposal-export-default-from" "7.2.0"
+    "@babel/plugin-proposal-export-namespace-from" "7.2.0"
+    "@babel/plugin-proposal-function-bind" "7.2.0"
+    "@babel/plugin-proposal-function-sent" "7.2.0"
+    "@babel/plugin-proposal-json-strings" "7.2.0"
+    "@babel/plugin-proposal-logical-assignment-operators" "7.2.0"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "7.2.0"
+    "@babel/plugin-proposal-numeric-separator" "7.2.0"
+    "@babel/plugin-proposal-optional-chaining" "7.2.0"
+    "@babel/plugin-proposal-pipeline-operator" "7.2.0"
+    "@babel/plugin-proposal-throw-expressions" "7.2.0"
+    "@babel/plugin-syntax-dynamic-import" "7.2.0"
+    "@babel/plugin-syntax-import-meta" "7.2.0"
+    "@babel/plugin-transform-runtime" "7.4.0"
+    "@babel/preset-env" "7.4.2"
+    babel-plugin-module-resolver "^3.1.1"
+
+"@apollosproject/config@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/config/-/config-0.8.4.tgz#75161b900bcc2c9172f3cdca07ae43bb17ba525d"
+  integrity sha512-JCDZ0Dg8x5WmOCz26SUjpY5YoJZJn9Uq7XaQHO9ci9FpRtQTAmvuTyqtxA3CQ3vHimvIH57FDmCBuwyV/pkS+Q==
   dependencies:
     js-yaml "^3.12.0"
 
-"@apollosproject/data-connector-analytics@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-analytics/-/data-connector-analytics-0.8.2.tgz#a2690247dfe6e3fa55d5c8d83e0177fc1300d2ba"
-  integrity sha512-LSPlJhzDLnbmNdGd+b/45TQv2nMSqCr8H3sbwxhjLDNZOEM3QvabIXL363ilb2RWB7bJg7h78FvmUT0J5Tpfpw==
+"@apollosproject/data-connector-analytics@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-analytics/-/data-connector-analytics-0.8.4.tgz#26f9d0ac3359702319b36f66ceac3ad632e615fe"
+  integrity sha512-9HYv+7jiOG4Rlr5NauVyCO9FDvRa9wUWvJfvCn5g8qCFv8/ixSKHEmDvn1uvWJtB79eYqif0sG7qxSgYOFiDqg==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
-    "@apollosproject/server-core" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
+    "@apollosproject/server-core" "^0.8.4"
     analytics-node "^3.3.0"
     apollo-datasource "^0.2.0"
     apollo-server "^2.1.0"
@@ -94,60 +94,60 @@
     moment "^2.22.2"
     universal-analytics "^0.4.20"
 
-"@apollosproject/data-connector-bible@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-bible/-/data-connector-bible-0.8.2.tgz#515b6848950e0b320b046b6b55f9b5c2e6ac8b4b"
-  integrity sha512-ktWd4x5MHVfApYezWJQVpgSGoVqIs/j6k0iLx8ICW2P+mJ7nErfseWlpGk8GvjRwwmakkozZDeJkUMiaxXlokQ==
+"@apollosproject/data-connector-bible@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-bible/-/data-connector-bible-0.8.4.tgz#aaea29374c1adfb98d769f02e341bf6367166a08"
+  integrity sha512-2zfE4yJQ8+I6+g7lUr9SDP3krMc96wlhmP8rQBPhPUebEwKTGjmiBXBe9JQiWzREqQ3NJJlVSFEPQR9Doimuhw==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-church-online@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.2.tgz#a420fd5b2960903318ddfdc70af3a8e9bdaf9fc2"
-  integrity sha512-8viMB5heVGejGRYPbaoDj4fqbB0ZSfZ1AZCIzaDnt3lNv1FWu3tlHeXoq67mJrA+E5d0/EwakZWu3ZylqVJO5g==
+"@apollosproject/data-connector-church-online@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.4.tgz#bf4584c89b952d66631cddf6efafb0e1198f1921"
+  integrity sha512-jWdD340GYbJLa3LXQbXmabQ2EdRrKTqWUqQl5iCzN7eJQ7EahoiA49BhT7bJaI6la7ijzGFez/h6+58n1wfIRg==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-cloudinary@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-cloudinary/-/data-connector-cloudinary-0.8.2.tgz#c65cd7a69e38fb7efdf837ff52092ab50a8092bc"
-  integrity sha512-XiO6ZUaC/BTvPzcXcNvR/EvtvYFngrvB2zUg0wIMEaPSIZTxlmwb2ybFg7z9d6bGoQD6qqpVreErTjBNFUqdwA==
+"@apollosproject/data-connector-cloudinary@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-cloudinary/-/data-connector-cloudinary-0.8.4.tgz#766022565dab86ada21f008aeeab6fbb7f110d6a"
+  integrity sha512-KMW8dvSvCbkvGLdGOBgYaNYBHykco6d4wkQQuU2XgHaRqwcu+tpd3kxviLAzoG50iB5/TPuV4yI9Rb7ieX0D6Q==
   dependencies:
     cloudinary "^1.13.2"
 
-"@apollosproject/data-connector-onesignal@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-onesignal/-/data-connector-onesignal-0.8.2.tgz#965aad6b589793aa8ab86934c701df6c4f560fb4"
-  integrity sha512-IADl1dnIiAfNMJhNvrBkbq6Udz0UsOYxzvLMZ/VYEEKFMlPhEoOXPRP30EpKh/fYQyy9JKMegZsi7ZwY+dBLsg==
+"@apollosproject/data-connector-onesignal@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-onesignal/-/data-connector-onesignal-0.8.4.tgz#a0beae4373eb1c43bae3aae5806f5dcf1c1c7de5"
+  integrity sha512-SVmmibm7BNiPVcvX2cj61W+ZHf1i6h8nfdy3hMXiiTgMZ2Yf7wIdhqkZl6qiiVmdvMk6wuBeQZPLbaf5NYzPoA==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-passes@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-passes/-/data-connector-passes-0.8.2.tgz#c3f9af140983dbe2b08ad1988b3f3e20f8a98dc0"
-  integrity sha512-deI4vWW4ayn7tiur6IB7KkZmfASqk7Iqd6rFx9hhz030Cp0UGFj/iIj5FTdkgaLDi3QcAqlViW00USnnZaUeOg==
+"@apollosproject/data-connector-passes@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-passes/-/data-connector-passes-0.8.4.tgz#034c731e6d602beb54a511ea06b1c17d1484084f"
+  integrity sha512-ytlxWpT/FJeHWCGQpPlaymzpiyCj3mzopkTs9cofS5jliVqaO7FB7pYJ3s7TWXlAKzxT7IdQjhpahpW//UORbg==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
-    "@apollosproject/server-core" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
+    "@apollosproject/server-core" "^0.8.4"
     datauri "^1.1.0"
     jest "^23.6.0"
     lodash "^4.17.11"
     passkit-generator "^1.5.9"
     qrcode "^1.3.3"
 
-"@apollosproject/data-connector-rock@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.2.tgz#141eaafeefe28f46c8e60c332593e7041ccd603b"
-  integrity sha512-zmLD6Mum3mxO/YYlXp+VhwGjuSjrevjxyXumHBsRU2q3/Uk/bqq+7NTpcn/dHKcr+IK1Cc/pjMFRs23suKmqWw==
+"@apollosproject/data-connector-rock@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.4.tgz#fb0ca793df475f1d4f6ab9cf5cf513882ea57c41"
+  integrity sha512-JQ4Hga/GV8xjp8K2L0rr3/pz4lkvVJFJtxGx+mn1jJ9u2YPbQ/mN+bwBJUFTfmtc1EdnG2CS6tm/4VOUStmynA==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
-    "@apollosproject/server-core" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
+    "@apollosproject/server-core" "^0.8.4"
     awesome-phonenumber "^2.4.2"
     form-data "^2.3.3"
     jest "^23.6.0"
@@ -157,22 +157,15 @@
     natural "^0.6.2"
     sanitize-html "^1.19.3"
 
-"@apollosproject/data-connector-twilio@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-twilio/-/data-connector-twilio-0.8.2.tgz#8e0e48a629f1d40291bc3ed4a90814e52d6e99a9"
-  integrity sha512-gQxVVhLqiozY0fLKDrT2Uto6EHC6J1F/CYuXDEP/9odqVkLYAOo4NFFPjkt4+VBSyD5/88U8hXbU0ewGCp4q8Q==
+"@apollosproject/data-connector-twilio@0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-twilio/-/data-connector-twilio-0.8.4.tgz#f8c32263287e49bf96177848ed8f5dba7e1b1ddb"
+  integrity sha512-xsoGUmNn5zYseMIFkewyrLOw5DeJ7pTd2UsgV3oZg2tQfNPXutt7YnEJuP7g6RmuOzoIdihqC9cumxmmh0w24g==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
+    "@apollosproject/data-schema" "^0.8.4"
     apollo-datasource "^0.2.0"
     lodash "^4.17.11"
     twilio "^3.28.0"
-
-"@apollosproject/data-schema@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.2.tgz#730d174ed1b26a569e5b42279e4b65eb9dd1362f"
-  integrity sha512-VWGIpLwJFQQAKBEZOMloWC4NGGEzFsSSo/OOZa5UYYfh5NY4DtIePPDnKyn8XbD6tg6CBmSH4H8scnYEqcTrjg==
-  dependencies:
-    graphql-tag "^2.10.0"
 
 "@apollosproject/data-schema@^0.8.3":
   version "0.8.3"
@@ -181,26 +174,23 @@
   dependencies:
     graphql-tag "^2.10.0"
 
-"@apollosproject/rock-apollo-data-source@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.2.tgz#e979a62b33741a9ba3d31a6e31691a73000291fd"
-  integrity sha512-cB2i+vKOY94vdVTctftP1CP46PatCfBXLBpaDqG8/VmyobsCvtbBl2MyGZjkxvlE+XcYPjjOO9BFv2nsKS/MHw==
+"@apollosproject/data-schema@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.4.tgz#12cb2b0cedb71db89674d646302de7e9722187b4"
+  integrity sha512-ilcLKtrLzMnqKc6oQ8B1MUkadjR29AKmw4Dhomt2PH9AnOgVrlcb5bYRzKkcQr9vnMzV62FkHYzhpaTzGyyyIQ==
+  dependencies:
+    graphql-tag "^2.10.0"
+
+"@apollosproject/rock-apollo-data-source@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.4.tgz#2e0db120e7651ce383579795eb45dfff0afec48d"
+  integrity sha512-N59tUanfYKZP2+hZzaEgcF2rlE1FNJ1ppuYC0Pr0IXMBsD5hMX+W2Ku1m05jOIPYxkifNKI0hxdz1z0mYNbt3Q==
   dependencies:
     apollo-datasource-rest "^0.1.5"
     crypto "^1.0.1"
     jsonwebtoken "^8.4.0"
     lodash "^4.17.11"
     with-query "^1.1.2"
-
-"@apollosproject/server-core@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.2.tgz#926ffc10472562f4e881885afc67c24683499abb"
-  integrity sha512-mStomSXmyQFNpXeG54xR+felj3AoFhD795hB9sz7XwSvsY673j96BNulbDs3AfuYwRe9UpH4LREJ0wy6VadATg==
-  dependencies:
-    "@apollosproject/data-schema" "^0.8.2"
-    crypto "^1.0.1"
-    graphql-tag "^2.10.0"
-    lodash "^4.17.11"
 
 "@apollosproject/server-core@^0.8.3":
   version "0.8.3"
@@ -212,10 +202,20 @@
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
 
-"@apollosproject/ui-analytics@0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.3.tgz#1464c5556fbc5c2157d7714a9c581efceaf42eca"
-  integrity sha512-HP7G+ORGtYV4v213CnmdBoM1m+uvDynnw2ECgnRgVp96jPrh4OVofnCsvikBRVbf4M/icle9pYquvEDJchIpvg==
+"@apollosproject/server-core@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.4.tgz#57441717690dc2ad5d585c2160276d5fcd375c04"
+  integrity sha512-+qD5Ka9+1PYoUj3ZwOii2TU2uiXEkFmiN9wFS6PeDzi/dozwUVuo/xuHT6gknnQZI8pJ4+ts1eQOnEIm96UHFQ==
+  dependencies:
+    "@apollosproject/data-schema" "^0.8.4"
+    crypto "^1.0.1"
+    graphql-tag "^2.10.0"
+    lodash "^4.17.11"
+
+"@apollosproject/ui-analytics@0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.4.tgz#46ccb4a0d0b0466d88193020f0b7ed14de486999"
+  integrity sha512-tARTAnLC33iygSS6FaRc3v0HlwtKJdowibERUqml4lXwpnyWFiwPahFG6eOyZcDGr5CL52NvxOpdR0yjV1N0dQ==
   dependencies:
     apollo-client "2.5.1"
     apollo-link-context "1.0.14"
@@ -225,10 +225,10 @@
     react-native-device-info "^1.1.0"
     react-native-keyboard-aware-scroll-view "0.7.0"
 
-"@apollosproject/ui-auth@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.3.tgz#768c2703800a9129e256983ef6064734eec8228e"
-  integrity sha512-g5IpOFcm6tugOu46dIRbPjvuRuARTVLkJuN37tUwnqcaLV+UQ6s6FJltmHSgi/ZAgEO4JngMaGPFXnRBBHgADw==
+"@apollosproject/ui-auth@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-0.8.4.tgz#763a3a6e2a3a90b779a582c7073917f517c18126"
+  integrity sha512-SN1h061igSSYbh8yuP2MOeFFnSFdErxafCticC4Jw4ZZeyqmgNf6k8EvnJv9PXte/VJkwAvFN/nmgQj9zWUb1w==
   dependencies:
     apollo-client "2.5.1"
     apollo-link-context "1.0.14"
@@ -239,18 +239,18 @@
     react-native-keyboard-aware-scroll-view "0.7.0"
     react-navigation "2.11.2"
 
-"@apollosproject/ui-htmlview@0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.3.tgz#c5a779069a4f6bf85e1238dbcd3e2f8c22dc320a"
-  integrity sha512-SpWDqayQl0VzphwDKi4v7aVQFQ2kv3Ya1WlCcYPx1aVmrrBsrWAcTq8C3ktPYPaTghLHlor659YHq8SEeCwLfQ==
+"@apollosproject/ui-htmlview@0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-0.8.4.tgz#567574b9fc028b3a4f2c52c5c355f70c15b79300"
+  integrity sha512-eDBlZswCNAEzanbkr0whaM2nd7sNHdQk/KkvDp5woE0zRb/RVIZFoUOvJ1J2YGOX0EuD1uF9PpwtPmG/ehrmqw==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.3"
+    "@apollosproject/ui-kit" "^0.8.4"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.3.tgz#7c44a9b29463ff18d0d6251d6312e82cef1ecc23"
-  integrity sha512-PazSsLing1OFSZJg+6NMqdTxvynif3zPzgdEu/uX+XK/k0iFZ/MXwDYStwdMerQRijJb/qYjKnC33EGyFVuqyw==
+"@apollosproject/ui-kit@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-0.8.4.tgz#4d8e284ef8ba692c99c5a49c570693f10a1861eb"
+  integrity sha512-ST6LfU+v8UvJhNYm6xFz/1r+p0/4YqYXV6eJaNKp829P7FQz8UQax3bpYagiGkjvxHeMu8AQiwENAy9tacIzpQ==
   dependencies:
     color "^3.1.0"
     lodash "^4.17.11"
@@ -259,12 +259,12 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-passes@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.3.tgz#e397fc845658e944189488238fe3c7b09d10ff5d"
-  integrity sha512-SrYAEcQsKwhOu02vUuSJkXbRHxt3JkkKbSIVlyZATSdd4eZJWctM33c7hypKUj9Gz5WFEkZgEQ5iExhzFgB0Tw==
+"@apollosproject/ui-passes@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-0.8.4.tgz#c01547096177ce78d6ab0c27b355eafd9ea9c966"
+  integrity sha512-vmWjcYnWrKv/+3dMPTdxXGZ+vDPeUN6hpWYBinReaiIh2+tYr4rDto6jyS5WZNu2q6TrKX2m5+mbJF26N1rrkw==
   dependencies:
-    "@apollosproject/ui-kit" "^0.8.3"
+    "@apollosproject/ui-kit" "^0.8.4"
     graphql-tag "^2.10.1"
     react-apollo "2.5.1"
 
@@ -5789,6 +5789,14 @@ create-react-class@^15.6.2, create-react-class@^15.6.3:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
+create-react-context@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
+  integrity sha512-KkpaLARMhsTsgp0d2NA/R94F/eDLbhXERdIq3LvX2biCAXcDvHYoOqHfWCHf1+OLj+HKBotLG3KqaOOf+C1C+A==
+  dependencies:
+    fbjs "^0.8.0"
+    gud "^1.0.0"
+
 create-react-context@^0.2.1, create-react-context@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
@@ -9338,9 +9346,10 @@ keycode@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
 
-keymirror@0.1.1:
+keymirror@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/keymirror/-/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
+  integrity sha1-kYiJ6hP40KQufFVyUO7nE63JXDU=
 
 keyv@3.0.0:
   version "3.0.0"
@@ -12004,10 +12013,6 @@ react-native-config@^0.11.7:
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.7.tgz#a2b323f2ecd76a4df88cbb6bc86eaa2ef9febee7"
 
-react-native-custom-tabs@0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/react-native-custom-tabs/-/react-native-custom-tabs-0.1.7.tgz#2dfb4028b0a443610d94792b2019810f68dde525"
-
 react-native-device-info@0.22.5:
   version "0.22.5"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.22.5.tgz#9b1882cbb030f2926cff77336e7cd2e87edf52bf"
@@ -12042,9 +12047,10 @@ react-native-gesture-handler@^1.1.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-react-native-image-picker@0.26.10:
-  version "0.26.10"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.10.tgz#0bb9ab928984948c67aee0b9e64216bee007a9fc"
+react-native-image-picker@0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.28.0.tgz#e3f26df170ea932e9c0404624fbced2f59a300e3"
+  integrity sha512-lQfdOyC1mQ/pvfEaUGdoodO1A1clg9kf6YC1WdbWhA6XK+joBd9GQYf8SaCf6/7vM25U4ib+6ux4yvnrS1pOqQ==
 
 react-native-iphone-x-helper@^1.0.1:
   version "1.2.0"
@@ -12061,9 +12067,10 @@ react-native-linear-gradient@2.5.3:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.3.tgz#d90cf19a13fcccfa8bb32025ac40a15ae1b49e99"
 
-react-native-maps@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.23.0.tgz#edbfdcad0e42190627eb1c8067eaba5965c8f81e"
+react-native-maps@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.24.2.tgz#19974f967cb0c2e24dab74ca879118e0932571b2"
+  integrity sha512-1iNIDikp2dkCG+8DguaEviYZiMSYyvwqYT7pO2YTZvuFRDSc/P9jXMhTUnSh4wNDlEeQ47OJ09l0pwWVBZ7wxg==
 
 react-native-modal-datetime-picker@6.0.0:
   version "6.0.0"
@@ -12079,9 +12086,10 @@ react-native-modal@^6.2.0:
     prop-types "^15.6.1"
     react-native-animatable "^1.2.4"
 
-react-native-music-control@0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.7.3.tgz#6ba41e7339ea4e7afedb8ec4659bebfd66d556d9"
+react-native-music-control@0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.10.2.tgz#e14e4847ed441567aa6cc988d2a19d381abdd0f0"
+  integrity sha512-AGdqqmXxdivMktZNwJqSCFmjKbfBXA9ug2HkXehjtY8cZmYodagSlTlltYOnYxalte5ejI1kmUKMrB/NDacgtg==
 
 react-native-onesignal@3.2.7:
   version "3.2.7"
@@ -12108,6 +12116,13 @@ react-native-safe-area-view@0.13.1:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
+react-native-safe-area-view@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.10.0.tgz#e8e9228d22698c0f82ad1202d24a4e4977260489"
+  integrity sha512-Y70uGBxfB5E+ipf4QInBynSQbuWdCtC1roJqrW9HGwYCTMLy6+ZxyOxMTe07N9jXlPX+FKzxeoEK9k8U2Zi4Sw==
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
@@ -12120,9 +12135,10 @@ react-native-safe-area-view@^0.8.0:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-react-native-screens@1.0.0-alpha.12:
-  version "1.0.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.12.tgz#5953c39c9dbfbe324610005e07d85a416081c48c"
+react-native-screens@1.0.0-alpha.22, react-native-screens@^1.0.0-alpha.8:
+  version "1.0.0-alpha.22"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
+  integrity sha512-kSyAt0AeVU6N7ZonfV6dP6iZF8B7Bce+tk3eujXhzBGsLg0VSLnU7uE9VqJF0xdQrHR91ZjGgVMieo/8df9KTA==
 
 react-native-splash-screen@^3.1.1:
   version "3.2.0"
@@ -12199,12 +12215,14 @@ react-native-video-controls@2.2.3:
   dependencies:
     lodash "^4.16.4"
 
-react-native-video@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-3.2.0.tgz#5f336acb3e3d23c93e1990327a444ac97296b194"
+react-native-video@4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-4.4.1.tgz#12c6a8bfbabfa7641338a52db3d857ac3073a4fd"
+  integrity sha512-gTZKRqa4NkEBx6t6iAzTFlgxDY23IZW/8YClR0hMzhOD0/9I/AzOBBaOXDyFeKj4EQF+uZ/LUS3r+oDnz1ks5w==
   dependencies:
-    keymirror "0.1.1"
+    keymirror "^0.1.1"
     prop-types "^15.5.10"
+    shaka-player "^2.4.4"
 
 react-native-webview@^5.2.0:
   version "5.4.2"
@@ -12283,6 +12301,13 @@ react-navigation-drawer@0.5.0:
   dependencies:
     react-native-drawer-layout-polyfill "^1.3.2"
 
+react-navigation-stack@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-0.4.0.tgz#6e1f0800c086ceedfb38005ae20d50c4877396ef"
+  integrity sha512-qHUUm6bpw/E7YrQVffCKnm0EKE5/E2ecoxTV+SCBNzCeCnHMBxbAYCMm5/NTzIKTqFlPkn/G+CYAjnPhRYOtWg==
+  dependencies:
+    react-native-screens "^1.0.0-alpha.8"
+
 react-navigation-tabs@0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-0.6.0.tgz#2f526194f4360e56c2702e736887449acc2080dc"
@@ -12291,6 +12316,16 @@ react-navigation-tabs@0.6.0:
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
     react-native-safe-area-view "^0.7.0"
+    react-native-tab-view "^1.0.0"
+
+react-navigation-tabs@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-0.7.0.tgz#c89d41e501043f7fdb38550de85814452c3e6104"
+  integrity sha512-tLOUu8kBqjS9jJjxz7Mq89A5C9d4mx2qa1YwTG7QTijQOjMSBLlohc5ZuexBtrZDwviiGz7KdRJR7zxvI7qO6A==
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.6.1"
+    react-lifecycles-compat "^3.0.4"
     react-native-tab-view "^1.0.0"
 
 react-navigation@2.11.2:
@@ -12307,6 +12342,23 @@ react-navigation@2.11.2:
     react-navigation-deprecated-tab-navigator "1.3.0"
     react-navigation-drawer "0.5.0"
     react-navigation-tabs "0.6.0"
+
+react-navigation@2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.14.0.tgz#ed685ec883270b25a3fc317db666c34c7bae564e"
+  integrity sha512-mbuPwJ6Z9toeYl8VSEt+CTXxl0soh9wyliUsWVW6AtKY8rdMTpfVWujOp/zSsN8yLQg7iz3awWW0utgahMvObQ==
+  dependencies:
+    clamp "^1.0.1"
+    create-react-context "0.2.2"
+    hoist-non-react-statics "^2.2.0"
+    path-to-regexp "^1.7.0"
+    query-string "^6.1.0"
+    react-lifecycles-compat "^3"
+    react-native-safe-area-view "^0.10.0"
+    react-navigation-deprecated-tab-navigator "1.3.0"
+    react-navigation-drawer "0.5.0"
+    react-navigation-stack "0.4.0"
+    react-navigation-tabs "0.7.0"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -13147,6 +13199,11 @@ sha.js@^2.4.0, sha.js@^2.4.11, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+shaka-player@^2.4.4:
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-2.4.7.tgz#8532e53ba7d8781b0785b552c7c68681c13c3206"
+  integrity sha512-KXYVB7snrrmcmDvusf2IIGOXZCvrlb6vXkl1q0pXP/QdUkvHm2SsW6jIXKvDz9xsvs9Pt/R7tm8POgfUOzybcQ==
 
 shallowequal@^1.1.0:
   version "1.1.0"

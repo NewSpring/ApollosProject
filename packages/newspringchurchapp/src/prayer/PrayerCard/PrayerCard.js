@@ -15,15 +15,17 @@ import {
   PaddedView,
   styled,
   Touchable,
+  TouchableScale,
   ButtonLink,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
+import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
 
-const ExpandedCard = styled(({ expanded }) => {
+const ExpandedCard = styled(({ expanded, expandedHeight }) => {
   let styles = {};
   styles = expanded
     ? {
-        height: Dimensions.get('window').height * 0.72,
+        height: expandedHeight,
       }
     : {};
   return styles;
@@ -50,8 +52,9 @@ const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
 }))(H6);
 
-const StyledCardContent = styled(() => ({
+const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
+  marginBottom: theme.sizing.baseUnit,
 }))(CardContent);
 
 const UserHeader = styled(({ theme }) => ({
@@ -64,13 +67,24 @@ const StyledBodyText = styled(() => ({
 }))(BodyText);
 
 class PrayerCard extends PureComponent {
+  static navigationOptions = () => ({
+    header: null,
+  });
+
+  state = {
+    cardPressed: false,
+  };
+
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
 
+  handleCardPressed = () => this.setState({ cardPressed: true });
+
   render() {
     const {
       interactive,
+      actionsEnabled,
       showHelp,
       header,
       expanded,
@@ -81,7 +95,14 @@ class PrayerCard extends PureComponent {
       source,
       prayer,
       options,
+      incrementPrayer,
+      advancePrayer,
+      prayerId,
+      navigation,
+      anonymous,
     } = this.props;
+
+    const expandedHeight = Dimensions.get('window').height * 0.72;
 
     // add a cancel button
     const buttons = options || [];
@@ -94,47 +115,82 @@ class PrayerCard extends PureComponent {
       buttonMethods[index]();
     };
 
-    return (
-      <ExpandedCard expanded={expanded}>
-        {interactive ? (
-          <HeaderView>
-            <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
-            {buttons ? (
-              <ButtonLink onPress={this.handleShowActionSheet}>
-                <GreyH3>...</GreyH3>
-              </ButtonLink>
+    return actionsEnabled && this.state.cardPressed ? (
+      <PaddedView>
+        <PrayerActionMenuCardConnected
+          expandedHeight={expandedHeight}
+          navigation={this.props.navigation}
+          prayerId={prayerId}
+          advancePrayer={advancePrayer}
+        />
+      </PaddedView>
+    ) : (
+      <TouchableScale
+        onPress={() => {
+          if (incrementPrayer) {
+            incrementPrayer();
+            this.handleCardPressed();
+          }
+        }}
+      >
+        <ExpandedCard expandedHeight={expandedHeight} expanded={expanded}>
+          {interactive ? (
+            <HeaderView>
+              <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
+              {buttons ? (
+                <ButtonLink onPress={this.handleShowActionSheet}>
+                  <GreyH3>...</GreyH3>
+                </ButtonLink>
+              ) : null}
+              <ActionSheet
+                ref={(sheet) => {
+                  this.ActionSheet = sheet;
+                }}
+                options={buttons.map((option) => option.title)}
+                cancelButtonIndex={buttons.length}
+                destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
+                  .map((option) => option.destructive)
+                  .indexOf(true)}
+                onPress={(index) => handleOnPress(index)}
+              />
+            </HeaderView>
+          ) : null}
+          <StyledCardContent>
+            {header ? (
+              <UserHeader>
+                {anonymous ? (
+                  <>
+                    <Avatar size={avatarSize} />
+                    <H3>Pray For Request</H3>
+                  </>
+                ) : (
+                  <>
+                    <Avatar source={avatarSource} size={avatarSize} />
+                    <H3>Pray For {name}</H3>
+                    {source ? <GreyH6>{source}</GreyH6> : null}
+                  </>
+                )}
+              </UserHeader>
             ) : null}
-            <ActionSheet
-              ref={(sheet) => {
-                this.ActionSheet = sheet;
-              }}
-              options={buttons.map((option) => option.title)}
-              cancelButtonIndex={buttons.length} // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
-              destructiveButtonIndex={buttons
-                .map((option) => option.destructive)
-                .indexOf(true)}
-              onPress={(index) => handleOnPress(index)}
-            />
-          </HeaderView>
-        ) : null}
-        <StyledCardContent>
-          {header ? (
-            <UserHeader>
-              <Avatar source={avatarSource} size={avatarSize} />
-              <H3>Pray For {name}</H3>
-              {source ? <GreyH6>{source}</GreyH6> : null}
-            </UserHeader>
-          ) : null}
-          <StyledBodyText>{prayer}</StyledBodyText>
-          {showHelp ? (
-            <PaddedView>
-              <Touchable onPress={() => {}}>
-                <ChannelLabel icon="information" label="How to Pray?" />
-              </Touchable>
-            </PaddedView>
-          ) : null}
-        </StyledCardContent>
-      </ExpandedCard>
+            <StyledBodyText>{prayer}</StyledBodyText>
+            {showHelp ? (
+              <PaddedView>
+                <Touchable
+                  onPress={() => {
+                    navigation.navigate('ContentSingle', {
+                      itemId:
+                        'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                      itemTitle: 'Learning how to pray like Jesus',
+                    });
+                  }}
+                >
+                  <ChannelLabel icon="information" label="How to Pray?" />
+                </Touchable>
+              </PaddedView>
+            ) : null}
+          </StyledCardContent>
+        </ExpandedCard>
+      </TouchableScale>
     );
   }
 }
@@ -143,6 +199,7 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
+  actionsEnabled: PropTypes.bool,
   expanded: PropTypes.bool,
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
@@ -150,6 +207,9 @@ PrayerCard.propTypes = {
   name: PropTypes.string,
   prayer: PropTypes.string,
   source: PropTypes.string,
+  advancePrayer: PropTypes.func,
+  incrementPrayer: PropTypes.func,
+  prayerId: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -157,6 +217,10 @@ PrayerCard.propTypes = {
       destructive: PropTypes.bool,
     })
   ),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
+  anonymous: PropTypes.bool,
 };
 
 PrayerCard.defaultProps = {
@@ -167,6 +231,7 @@ PrayerCard.defaultProps = {
   avatarSize: 'small',
   name: 'Request',
   source: 'Web',
+  anonymous: false,
 };
 
 export default PrayerCard;
