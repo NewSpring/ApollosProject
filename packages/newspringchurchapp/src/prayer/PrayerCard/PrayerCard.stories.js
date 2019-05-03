@@ -5,6 +5,7 @@ import { PaddedView } from '@apollosproject/ui-kit';
 import PrayerCard from './PrayerCard';
 
 const cardData = {
+  id: 'PrayerRequest:519df72a48836aa524655df9cceb6989',
   imageSource: {
     uri: 'https://fillmurray.com/400/600',
   },
@@ -17,6 +18,20 @@ const cardData = {
 storiesOf('PrayerCard', module).add('Example', () => (
   <PaddedView>
     <PrayerCard
+      actionsEnabled={false}
+      imageSource={cardData.imageSource}
+      name={cardData.name}
+      text={cardData.text}
+      source={cardData.source}
+    />
+  </PaddedView>
+));
+
+storiesOf('PrayerCard', module).add('actionsEnabled', () => (
+  <PaddedView>
+    <PrayerCard
+      actionsEnabled
+      id={cardData.id}
       imageSource={cardData.imageSource}
       name={cardData.name}
       text={cardData.text}

@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.sudoplz.reactnativeamplitudeanalytics.RNAmplitudeSDKPackage;
-import com.mybdesign.RNPassKit.RNPassKitPackage;
 import com.bugsnag.BugsnagReactNative;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -14,13 +13,12 @@ import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.horcrux.svg.SvgPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import com.swmansion.rnscreens.RNScreenPackage;
+import com.swmansion.rnscreens.RNScreensPackage;
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.tanguyantoine.react.MusicControl;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
-import com.github.droibit.android.reactnative.customtabs.CustomTabsPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -43,7 +41,6 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNAmplitudeSDKPackage(MainApplication.this),
-            new RNPassKitPackage(),
             BugsnagReactNative.getPackage(),
             new RNGestureHandlerPackage(),
             new ReanimatedPackage(),
@@ -53,13 +50,12 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactVideoPackage(),
             new SvgPackage(),
             new SplashScreenReactPackage(),
-            new RNScreenPackage(),
+            new RNScreensPackage(),
             new ReactNativeOneSignalPackage(),
             new MusicControl(),
             new LinearGradientPackage(),
             new ImagePickerPackage(),
             new RNDeviceInfo(),
-            new CustomTabsPackage(),
             new ReactNativeConfigPackage()
       );
     }

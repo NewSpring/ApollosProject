@@ -77,8 +77,6 @@ exports[`The AddPrayerCard component should render 1`] = `
                 "borderRadius": 40,
                 "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 20,
-                "marginRight": 20,
                 "overflow": "hidden",
                 "width": 80,
               }
@@ -391,8 +389,6 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
                 "borderRadius": 40,
                 "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 20,
-                "marginRight": 20,
                 "overflow": "hidden",
                 "width": 80,
               }
@@ -618,8 +614,6 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 "borderRadius": 40,
                 "height": 80,
                 "justifyContent": "flex-end",
-                "marginBottom": 20,
-                "marginRight": 20,
                 "overflow": "hidden",
                 "width": 80,
               }
