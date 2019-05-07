@@ -55,7 +55,6 @@ const GreyH6 = styled(({ theme }) => ({
 const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
   marginBottom: theme.sizing.baseUnit,
-  paddingVertical: 0,
 }))(CardContent);
 
 const UserHeader = styled(({ theme }) => ({

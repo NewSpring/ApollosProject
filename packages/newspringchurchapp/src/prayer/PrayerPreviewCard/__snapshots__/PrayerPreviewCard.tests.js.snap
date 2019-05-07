@@ -85,7 +85,7 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
                 "alignItems": "center",
                 "marginBottom": 16,
                 "paddingHorizontal": 16,
-                "paddingVertical": 0,
+                "paddingVertical": 16,
               }
             }
           >
