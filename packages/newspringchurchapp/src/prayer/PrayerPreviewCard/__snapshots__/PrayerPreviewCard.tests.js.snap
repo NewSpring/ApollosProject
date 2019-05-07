@@ -235,8 +235,11 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
     <View
       style={
         Object {
-          "paddingHorizontal": 16,
-          "paddingVertical": 16,
+          "bottom": 15,
+          "left": 0,
+          "marginHorizontal": 16,
+          "position": "absolute",
+          "right": 0,
         }
       }
     >
@@ -266,17 +269,13 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
               "borderColor": "#6bac43",
               "borderRadius": 48,
               "borderWidth": 2,
-              "bottom": 15,
               "elevation": 2,
               "flexDirection": "row",
               "height": 48,
               "justifyContent": "center",
-              "left": 0,
               "opacity": 1,
               "overflow": "hidden",
               "paddingHorizontal": 16,
-              "position": "absolute",
-              "right": 0,
             }
           }
         >

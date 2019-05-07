@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import Color from 'color';
-import { Button, PaddedView, styled } from '@apollosproject/ui-kit';
+import { Button, PaddedView, FlexedView, styled } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PrayerCard from '../PrayerCard';
 // TODO: Borrowed `Overlay` and `getGradientValues` from <GradientOverlayImage />
@@ -39,12 +39,13 @@ const getGradientValues = (overlayColor) => {
   return values;
 };
 
-const StyledButton = styled({
+const BottomView = styled(({ theme }) => ({
   position: 'absolute',
   bottom: 15,
   left: 0,
   right: 0,
-})(Button);
+  marginHorizontal: theme.sizing.baseUnit,
+}))(View);
 
 const PrayerPreviewCard = withNavigation(
   ({ overlayColor, route, ...props }) => (
@@ -56,14 +57,14 @@ const PrayerPreviewCard = withNavigation(
         end={getGradientValues(overlayColor).end}
         locations={getGradientValues(overlayColor).locations}
       />
-      <PaddedView>
-        <StyledButton
+      <BottomView>
+        <Button
           onPress={() =>
             props.navigation.navigate('PrayerList', { list: route })
           }
           title="Start Praying"
         />
-      </PaddedView>
+      </BottomView>
     </>
   )
 );
