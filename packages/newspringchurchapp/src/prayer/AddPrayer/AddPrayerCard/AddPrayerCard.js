@@ -25,11 +25,17 @@ const StyledBodyText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
 
+const StyledAvatarView = styled(({ theme }) => ({
+  marginBottom: theme.sizing.baseUnit,
+}))(View);
+
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <Card>
     <StyledCardContent>
       {/* TODO: margin will be fixed pending core #667 */}
-      <Avatar source={avatarSource} size={'medium'} />
+      <StyledAvatarView>
+        <Avatar source={avatarSource} size={'medium'} />
+      </StyledAvatarView>
       <TitleView>
         <H3>{title}</H3>
       </TitleView>

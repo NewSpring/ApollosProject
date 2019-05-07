@@ -100,56 +100,65 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 20,
-                    "height": 40,
-                    "justifyContent": "flex-end",
-                    "overflow": "hidden",
-                    "width": 40,
+                    "marginBottom": 8,
+                    "marginTop": 24,
                   }
                 }
-                themeSize={40}
               >
                 <View
-                  animate={null}
-                  customAnimate={null}
-                  onReady={false}
                   style={
                     Object {
-                      "aspectRatio": 1,
-                      "backgroundColor": "#dddddd",
-                      "width": "100%",
+                      "alignItems": "center",
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 20,
+                      "height": 40,
+                      "justifyContent": "flex-end",
+                      "overflow": "hidden",
+                      "width": 40,
                     }
                   }
+                  themeSize={40}
                 >
-                  <Image
-                    onLoad={[Function]}
-                    size="small"
-                    source={
-                      Array [
-                        Object {
-                          "cache": "force-cache",
-                          "uri": "https://fillmurray.com/400/600",
-                        },
-                      ]
-                    }
+                  <View
+                    animate={null}
+                    customAnimate={null}
+                    onReady={false}
                     style={
                       Object {
+                        "aspectRatio": 1,
                         "backgroundColor": "#dddddd",
-                        "borderRadius": 20,
-                        "bottom": 0,
-                        "height": "100%",
-                        "left": 0,
-                        "opacity": 0,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 0,
                         "width": "100%",
                       }
                     }
-                    themeSize={40}
-                  />
+                  >
+                    <Image
+                      onLoad={[Function]}
+                      size="small"
+                      source={
+                        Array [
+                          Object {
+                            "cache": "force-cache",
+                            "uri": "https://fillmurray.com/400/600",
+                          },
+                        ]
+                      }
+                      style={
+                        Object {
+                          "backgroundColor": "#dddddd",
+                          "borderRadius": 20,
+                          "bottom": 0,
+                          "height": "100%",
+                          "left": 0,
+                          "opacity": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                          "width": "100%",
+                        }
+                      }
+                      themeSize={40}
+                    />
+                  </View>
                 </View>
               </View>
               <Text
