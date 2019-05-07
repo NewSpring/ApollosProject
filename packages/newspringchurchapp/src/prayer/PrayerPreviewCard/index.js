@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import Color from 'color';
-import { Button, PaddedView, FlexedView, styled } from '@apollosproject/ui-kit';
+import { Button, styled } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PrayerCard from '../PrayerCard';
 // TODO: Borrowed `Overlay` and `getGradientValues` from <GradientOverlayImage />
