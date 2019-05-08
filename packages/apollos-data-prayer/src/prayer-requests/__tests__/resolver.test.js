@@ -24,6 +24,7 @@ ApollosConfig.loadJs({
     API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
     IMAGE_URL: 'https://apollosrock.newspring.cc/GetImage.ashx',
+    TIMEZONE: 'America/New_York',
   },
   ROCK_MAPPINGS: {
     PRAYER_GROUP_TYPE_IDS: [10, 23, 25],
