@@ -377,77 +377,18 @@ exports[`the Devotional component renders a devotional 1`] = `
                           </Text>
                         </Text>
                         <View
+                          lineNumber={8}
+                          onReady={true}
                           style={
                             Object {
-                              "backgroundColor": "#ffffff",
-                              "borderRadius": 16,
-                              "marginHorizontal": 16,
-                              "marginVertical": 12,
-                              "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
-                              "shadowOffset": Object {
-                                "height": 1,
-                                "width": 0,
-                              },
-                              "shadowOpacity": 1,
-                              "shadowRadius": 6,
+                              "paddingBottom": 17.28,
                             }
                           }
                         >
-                          <View
-                            style={
-                              Object {
-                                "aspectRatio": undefined,
-                                "borderRadius": 16,
-                                "overflow": "hidden",
-                              }
-                            }
-                          >
-                            <View
-                              style={
-                                Object {
-                                  "paddingHorizontal": 16,
-                                  "paddingVertical": 16,
-                                }
-                              }
-                            >
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#303030",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 16,
-                                    "lineHeight": 23.04,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Uh oh!
-                              </Text>
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#505050",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 12,
-                                    "lineHeight": 17.28,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Network error: No more mocked responses for the query: query getContentItemHTML($contentId: ID!) {
-  node(id: $contentId) {
-    ... on ContentItem {
-      id
-      htmlContent
-      summary
-      __typename
-    }
-    __typename
-  }
-}
-, variables: {"contentId":"1"}
-                              </Text>
-                            </View>
+                          <View>
+                            <Text>
+                              Some content!
+                            </Text>
                           </View>
                         </View>
                       </View>
@@ -1337,77 +1278,18 @@ exports[`the Devotional component renders a loading state 1`] = `
                           </Text>
                         </Text>
                         <View
+                          lineNumber={8}
+                          onReady={true}
                           style={
                             Object {
-                              "backgroundColor": "#ffffff",
-                              "borderRadius": 16,
-                              "marginHorizontal": 16,
-                              "marginVertical": 12,
-                              "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
-                              "shadowOffset": Object {
-                                "height": 1,
-                                "width": 0,
-                              },
-                              "shadowOpacity": 1,
-                              "shadowRadius": 6,
+                              "paddingBottom": 17.28,
                             }
                           }
                         >
-                          <View
-                            style={
-                              Object {
-                                "aspectRatio": undefined,
-                                "borderRadius": 16,
-                                "overflow": "hidden",
-                              }
-                            }
-                          >
-                            <View
-                              style={
-                                Object {
-                                  "paddingHorizontal": 16,
-                                  "paddingVertical": 16,
-                                }
-                              }
-                            >
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#303030",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 16,
-                                    "lineHeight": 23.04,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Uh oh!
-                              </Text>
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#505050",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 12,
-                                    "lineHeight": 17.28,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Network error: No more mocked responses for the query: query getContentItemHTML($contentId: ID!) {
-  node(id: $contentId) {
-    ... on ContentItem {
-      id
-      htmlContent
-      summary
-      __typename
-    }
-    __typename
-  }
-}
-, variables: {"contentId":"1"}
-                              </Text>
-                            </View>
+                          <View>
+                            <Text>
+                              Some content!
+                            </Text>
                           </View>
                         </View>
                       </View>
@@ -1949,77 +1831,18 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           </Text>
                         </Text>
                         <View
+                          lineNumber={8}
+                          onReady={true}
                           style={
                             Object {
-                              "backgroundColor": "#ffffff",
-                              "borderRadius": 16,
-                              "marginHorizontal": 16,
-                              "marginVertical": 12,
-                              "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
-                              "shadowOffset": Object {
-                                "height": 1,
-                                "width": 0,
-                              },
-                              "shadowOpacity": 1,
-                              "shadowRadius": 6,
+                              "paddingBottom": 17.28,
                             }
                           }
                         >
-                          <View
-                            style={
-                              Object {
-                                "aspectRatio": undefined,
-                                "borderRadius": 16,
-                                "overflow": "hidden",
-                              }
-                            }
-                          >
-                            <View
-                              style={
-                                Object {
-                                  "paddingHorizontal": 16,
-                                  "paddingVertical": 16,
-                                }
-                              }
-                            >
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#303030",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 16,
-                                    "lineHeight": 23.04,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Uh oh!
-                              </Text>
-                              <Text
-                                style={
-                                  Object {
-                                    "color": "#505050",
-                                    "fontFamily": "Colfax-Bold",
-                                    "fontSize": 12,
-                                    "lineHeight": 17.28,
-                                    "textAlign": "center",
-                                  }
-                                }
-                              >
-                                Network error: No more mocked responses for the query: query getContentItemHTML($contentId: ID!) {
-  node(id: $contentId) {
-    ... on ContentItem {
-      id
-      htmlContent
-      summary
-      __typename
-    }
-    __typename
-  }
-}
-, variables: {"contentId":"1"}
-                              </Text>
-                            </View>
+                          <View>
+                            <Text>
+                              Some content!
+                            </Text>
                           </View>
                         </View>
                       </View>
