@@ -135,7 +135,7 @@ const StyledPaddedView = styled(({ theme }) => ({
 const StyledView = styled(({ theme }) => ({
   height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
@@ -147,11 +147,11 @@ const StyledContainer = styled(({ theme }) => ({
   alignItems: 'center',
   marginTop: theme.sizing.baseUnit,
   marginBottom: theme.sizing.baseUnit,
-}))(Animated.View);
+}))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
-}))(Animated.View);
+  marginTop: theme.sizing.baseUnit,
+}))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
