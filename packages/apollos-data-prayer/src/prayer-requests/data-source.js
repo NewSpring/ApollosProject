@@ -1,8 +1,9 @@
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 import ApollosConfig from '@apollosproject/config';
+import moment from 'moment-timezone';
 import { parseGlobalId } from '@apollosproject/server-core';
 
-const { ROCK_MAPPINGS } = ApollosConfig;
+const { ROCK, ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
   resource = 'PrayerRequests';
 
@@ -111,7 +112,9 @@ export default class PrayerRequest extends RockApolloDataSource {
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
         IsApproved: true,
-        EnteredDateTime: new Date().toJSON(), // Required by Rock
+        EnteredDateTime: moment()
+          .tz(ROCK.TIMEZONE)
+          .format(), // Required by Rock
       });
       // Sets the attribute value "IsAnonymous" on newly created prayer request
       // TODO: we should combine this so network doesn't die and someone's prayer is left un-anonymous

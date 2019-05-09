@@ -23,6 +23,7 @@
     "@apollosproject/data-schema": "^0.8.3",
     "@apollosproject/server-core": "^0.8.3",
     "lodash": "^4.17.11",
+    "moment-timezone": "^0.5.25",
     "natural": "^0.6.2",
     "sanitize-html": "^1.19.3"
   },
