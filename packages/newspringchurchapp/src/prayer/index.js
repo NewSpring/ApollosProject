@@ -209,6 +209,14 @@ class PrayerMenu extends PureComponent {
     animatedValue: new Animated.Value(0),
   };
 
+  animate = (toValue) =>
+    Animated.spring(this.state.animatedValue, {
+      toValue,
+      useNativeDriver: true,
+      tension: 30,
+      friction: 7,
+    }).start();
+
   tabRoute = (index) => () => (
     <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
   );
@@ -223,12 +231,8 @@ class PrayerMenu extends PureComponent {
           key={item.key}
           onPress={() => {
             if (this.state.showAddPrayerCard) {
-              Animated.spring(this.state.animatedValue, {
-                toValue: 1,
-                useNativeDriver: true,
-                tension: 30,
-                friction: 7,
-              }).start();
+              this.animate(1);
+
               this.setState({
                 showAddPrayerCard: false,
               });
@@ -279,6 +283,8 @@ class PrayerMenu extends PureComponent {
             <StyledContainer>
               <NSIcon
                 onPress={() => {
+                  this.animate(0);
+
                   this.setState({
                     showAddPrayerCard: true,
                     prayerMenuItemSelected: 1,
@@ -290,12 +296,7 @@ class PrayerMenu extends PureComponent {
               />
               <StyledButtonLink
                 onPress={() => {
-                  Animated.spring(this.state.animatedValue, {
-                    toValue: 0,
-                    useNativeDriver: true,
-                    tension: 30,
-                    friction: 7,
-                  }).start();
+                  this.animate(0);
 
                   this.setState({
                     showAddPrayerCard: true,
