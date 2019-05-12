@@ -96,7 +96,7 @@ class UserSettings extends PureComponent {
                     <TableView>
                       <Touchable
                         onPress={() =>
-                          openUrl('https://apollosrock.newspring.cc/')
+                          openUrl('https://forms.gle/qzYecHmKLci6b4y38')
                         }
                       >
                         <Cell>
@@ -107,9 +107,7 @@ class UserSettings extends PureComponent {
                     </TableView>
                     <TableView>
                       <Touchable
-                        onPress={() =>
-                          openUrl('https://apollosrock.newspring.cc/')
-                        }
+                        onPress={() => openUrl('https://newspring.cc/privacy')}
                       >
                         <Cell>
                           <CellText>Privacy Policy</CellText>
@@ -118,9 +116,7 @@ class UserSettings extends PureComponent {
                       </Touchable>
                       <Divider />
                       <Touchable
-                        onPress={() =>
-                          openUrl('https://apollosrock.newspring.cc/')
-                        }
+                        onPress={() => openUrl('https://newspring.cc/terms')}
                       >
                         <Cell>
                           <CellText>Terms of Use</CellText>
