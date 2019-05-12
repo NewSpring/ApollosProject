@@ -152,7 +152,7 @@ class PrayerCard extends PureComponent {
                   this.ActionSheet = sheet;
                 }}
                 options={buttons.map((option) => option.title)}
-                cancelButtonIndex={buttons.length}
+                cancelButtonIndex={buttons.length - 1}
                 destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
                   .map((option) => option.destructive)
                   .indexOf(true)}
