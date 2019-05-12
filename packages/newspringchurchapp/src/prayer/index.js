@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, Animated } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
@@ -135,7 +135,7 @@ const StyledPaddedView = styled(({ theme }) => ({
 const StyledView = styled(({ theme }) => ({
   height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
 }))(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
@@ -150,7 +150,7 @@ const StyledContainer = styled(({ theme }) => ({
 }))(View);
 
 const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 2,
+  marginTop: theme.sizing.baseUnit,
 }))(View);
 
 const Tab = ({ index, showAddPrayerCard }) => {
@@ -206,7 +206,16 @@ class PrayerMenu extends PureComponent {
     ],
     prayerMenuItemSelected: 1,
     showAddPrayerCard: true,
+    animatedValue: new Animated.Value(0),
   };
+
+  animate = (toValue) =>
+    Animated.spring(this.state.animatedValue, {
+      toValue,
+      useNativeDriver: true,
+      tension: 30,
+      friction: 7,
+    }).start();
 
   tabRoute = (index) => () => (
     <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
@@ -221,10 +230,16 @@ class PrayerMenu extends PureComponent {
         <TouchableScale
           key={item.key}
           onPress={() => {
-            this.setState({
-              prayerMenuItemSelected: item.key,
-              showAddPrayerCard: false,
-            });
+            if (this.state.showAddPrayerCard) {
+              this.animate(1);
+
+              this.setState({
+                showAddPrayerCard: false,
+              });
+            }
+
+            this.setState({ prayerMenuItemSelected: item.key });
+
             props.jumpTo(item.key);
           }}
         >
@@ -242,63 +257,79 @@ class PrayerMenu extends PureComponent {
 
   render() {
     return (
-      <SafeAreaView>
-        {this.state.showAddPrayerCard ? (
-          <StyledAddPrayerContainer>
-            <AddPrayerCardConnected
-              description={
-                'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
-              }
-              {...this.props}
-            />
-          </StyledAddPrayerContainer>
-        ) : null}
-        {!this.state.showAddPrayerCard ? (
-          <StyledContainer>
-            <NSIcon
-              onPress={() => {
-                this.setState({
-                  showAddPrayerCard: true,
-                  prayerMenuItemSelected: 1,
-                });
-              }}
-              name={'arrow-up'}
-              fill={this.props.tint}
-              size={24}
-            />
-            <StyledButtonLink
-              onPress={() => {
-                this.setState({
-                  showAddPrayerCard: true,
-                  prayerMenuItemSelected: 1,
-                });
-              }}
-            >
-              Add your prayer
-            </StyledButtonLink>
-          </StyledContainer>
-        ) : null}
-        <RowHeader>
-          <H3>Pray for Others</H3>
-        </RowHeader>
-        <TabView
-          initialLayout={{
-            height: Dimensions.get('window').height,
-            width: Dimensions.get('window').width,
-          }}
-          navigationState={{ ...this.state }}
-          renderScene={SceneMap({
-            saved: this.tabRoute(1),
-            church: this.tabRoute(2),
-            campus: this.tabRoute(3),
-            community: this.tabRoute(4),
-            prayers: this.tabRoute(5),
-          })}
-          renderTabBar={this.renderTabBar}
-          onIndexChange={this.handleIndexChange}
-          swipeEnabled={false}
-        />
-      </SafeAreaView>
+      <Animated.View
+        style={{
+          transform: [
+            {
+              translateY: this.state.animatedValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, -(350 * this.state.showAddPrayerCard)],
+              }),
+            },
+          ],
+        }}
+      >
+        <SafeAreaView>
+          {this.state.showAddPrayerCard ? (
+            <StyledAddPrayerContainer>
+              <AddPrayerCardConnected
+                description={
+                  'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
+                }
+                {...this.props}
+              />
+            </StyledAddPrayerContainer>
+          ) : (
+            <StyledContainer>
+              <NSIcon
+                onPress={() => {
+                  this.animate(0);
+
+                  this.setState({
+                    showAddPrayerCard: true,
+                    prayerMenuItemSelected: 1,
+                  });
+                }}
+                name={'arrow-up'}
+                fill={this.props.tint}
+                size={24}
+              />
+              <StyledButtonLink
+                onPress={() => {
+                  this.animate(0);
+
+                  this.setState({
+                    showAddPrayerCard: true,
+                    prayerMenuItemSelected: 1,
+                  });
+                }}
+              >
+                Add your prayer
+              </StyledButtonLink>
+            </StyledContainer>
+          )}
+          <RowHeader>
+            <H3>Pray for Others</H3>
+          </RowHeader>
+          <TabView
+            initialLayout={{
+              height: Dimensions.get('window').height,
+              width: Dimensions.get('window').width,
+            }}
+            navigationState={{ ...this.state }}
+            renderScene={SceneMap({
+              saved: this.tabRoute(1),
+              church: this.tabRoute(2),
+              campus: this.tabRoute(3),
+              community: this.tabRoute(4),
+              prayers: this.tabRoute(5),
+            })}
+            renderTabBar={this.renderTabBar}
+            onIndexChange={this.handleIndexChange}
+            swipeEnabled={false}
+          />
+        </SafeAreaView>
+      </Animated.View>
     );
   }
 }
