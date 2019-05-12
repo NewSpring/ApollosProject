@@ -14,7 +14,7 @@ const resolver = {
     }) => ({
       type: () => 'LIGHT',
       colors: () => ({
-        primary: `${value || 'fff'}`,
+        primary: `${value || '#fff'}`,
         secondary: '#6bac43',
         screen: '#F8F7F4',
         paper: `#fff`,
