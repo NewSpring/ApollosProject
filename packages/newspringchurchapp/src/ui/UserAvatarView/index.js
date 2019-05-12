@@ -14,7 +14,6 @@ import {
 import AvatarForm from './AvatarForm';
 
 const Container = styled(({ theme }) => ({
-  backgroundColor: theme.colors.background.paper,
   flexDirection: 'row',
 }))(View);
 
