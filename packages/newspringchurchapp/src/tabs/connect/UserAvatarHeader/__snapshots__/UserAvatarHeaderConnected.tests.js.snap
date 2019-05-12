@@ -55,7 +55,6 @@ exports[`user avatar header connect renders user avatar header if logged in 1`] 
         <View
           style={
             Object {
-              "backgroundColor": "#ffffff",
               "flexDirection": "row",
             }
           }
