@@ -61,11 +61,6 @@
 		82A2FF1E6E114D3D962D533D /* libRNPassKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		834122CBBA8E476A8652994F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE039A0F55BB4B989835F759 /* libRNCWebView.a */; };
-		855CD6DC2288B4C100FB1344 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 855CD6DB2288B4C100FB1344 /* NotificationService.m */; };
-		855CD6E02288B4C100FB1344 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 855CD6D82288B4C000FB1344 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		855CD6E62288B55E00FB1344 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CD6E52288B55E00FB1344 /* UIKit.framework */; };
-		855CD6E82288B56900FB1344 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CD6E72288B56900FB1344 /* SystemConfiguration.framework */; };
-		855CD6E92288B60E00FB1344 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CEBFE7223011FE00D8F685 /* libRCTOneSignal.a */; };
 		85FEE849558643629FE5F486 /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F910883757A847398A2A8308 /* Colfax-Black.otf */; };
 		894732A70B4740678E85B593 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */; };
 		8F4E1AB900E746DB86031C3D /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B83F63C4DE14443BC6C34CF /* libRNReanimated.a */; };
@@ -501,13 +496,6 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
 		};
-		855CD6DE2288B4C100FB1344 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 855CD6D72288B4C000FB1344;
-			remoteInfo = OneSignalNotificationServiceExtension;
-		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -573,7 +561,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				855CD6E02288B4C100FB1344 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,7 +635,6 @@
 		7A505BEDA0674A7F9DD875ED /* libRNDeviceInfo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNDeviceInfo-tvOS.a"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		855CD6D32288B3EA00FB1344 /* newspringchurchapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = newspringchurchapp.entitlements; path = newspringchurchapp/newspringchurchapp.entitlements; sourceTree = "<group>"; };
-		855CD6D82288B4C000FB1344 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		855CD6DA2288B4C100FB1344 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		855CD6DB2288B4C100FB1344 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		855CD6DD2288B4C100FB1344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -765,16 +751,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		855CD6D52288B4C000FB1344 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				855CD6E92288B60E00FB1344 /* libRCTOneSignal.a in Frameworks */,
-				855CD6E82288B56900FB1344 /* SystemConfiguration.framework in Frameworks */,
-				855CD6E62288B55E00FB1344 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1189,7 +1165,6 @@
 				00E356EE1AD99517003FC87E /* newspringchurchappTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* newspringchurchapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* newspringchurchapp-tvOSTests.xctest */,
-				855CD6D82288B4C000FB1344 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1299,7 +1274,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				855CD6DF2288B4C100FB1344 /* PBXTargetDependency */,
 			);
 			name = newspringchurchapp;
 			productName = "Hello World";
@@ -1342,23 +1316,6 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* newspringchurchapp-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		855CD6D72288B4C000FB1344 /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 855CD6E12288B4C100FB1344 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
-			buildPhases = (
-				855CD6D42288B4C000FB1344 /* Sources */,
-				855CD6D52288B4C000FB1344 /* Frameworks */,
-				855CD6D62288B4C000FB1344 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OneSignalNotificationServiceExtension;
-			productName = OneSignalNotificationServiceExtension;
-			productReference = 855CD6D82288B4C000FB1344 /* OneSignalNotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1395,16 +1352,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
-					};
-					855CD6D72288B4C000FB1344 = {
-						CreatedOnToolsVersion = 10.2.1;
-						DevelopmentTeam = 7TM8C6252Z;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
 					};
 				};
 			};
@@ -1556,7 +1503,6 @@
 				00E356ED1AD99517003FC87E /* newspringchurchappTests */,
 				2D02E47A1E0B4A5D006451C7 /* newspringchurchapp-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* newspringchurchapp-tvOSTests */,
-				855CD6D72288B4C000FB1344 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -2064,13 +2010,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		855CD6D62288B4C000FB1344 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2189,14 +2128,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		855CD6D42288B4C000FB1344 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				855CD6DC2288B4C100FB1344 /* NotificationService.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2209,11 +2140,6 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* newspringchurchapp-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
-		};
-		855CD6DF2288B4C100FB1344 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 855CD6D72288B4C000FB1344 /* OneSignalNotificationServiceExtension */;
-			targetProxy = 855CD6DE2288B4C100FB1344 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2761,60 +2687,6 @@
 			};
 			name = Release;
 		};
-		855CD6E22288B4C100FB1344 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7TM8C6252Z;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church.OneSignalNotificationServiceExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		855CD6E32288B4C100FB1344 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7TM8C6252Z;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.subsplashstudio31.NewSpring-Church.OneSignalNotificationServiceExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2859,15 +2731,6 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		855CD6E12288B4C100FB1344 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				855CD6E22288B4C100FB1344 /* Debug */,
-				855CD6E32288B4C100FB1344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
