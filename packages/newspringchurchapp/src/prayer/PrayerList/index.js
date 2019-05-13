@@ -10,6 +10,7 @@ import {
   H3,
   H6,
   ModalView,
+  PaddedView,
   styled,
 } from '@apollosproject/ui-kit';
 
@@ -36,8 +37,8 @@ const DividerView = styled(({ theme }) => ({
 
 const StyledView = styled(({ theme }) => ({
   alignItems: 'center',
-  marginVertical: theme.sizing.baseUnit * 2,
-}))(View);
+  marginTop: theme.sizing.baseUnit * 2,
+}))(PaddedView);
 
 const StyledH3View = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
