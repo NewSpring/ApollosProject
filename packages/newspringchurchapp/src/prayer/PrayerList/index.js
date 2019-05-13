@@ -4,7 +4,14 @@ import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
-import { ModalView, styled, FlexedView, H6 } from '@apollosproject/ui-kit';
+import {
+  BodyText,
+  FlexedView,
+  H3,
+  H6,
+  ModalView,
+  styled,
+} from '@apollosproject/ui-kit';
 
 import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
 import cache from '../../client/cache';
@@ -26,6 +33,16 @@ const DividerView = styled(({ theme }) => ({
   alignItems: 'center',
   marginBottom: theme.sizing.baseUnit,
 }))(FlexedView);
+
+const StyledView = styled(({ theme }) => ({
+  alignItems: 'center',
+  marginVertical: theme.sizing.baseUnit * 2,
+}))(View);
+
+const StyledH3View = styled(({ theme }) => ({
+  marginBottom: theme.sizing.baseUnit,
+}))(View);
+
 /**
  * This is where the component description lives
  * A FeedView wrapped in a query to pull content data.s
@@ -67,16 +84,19 @@ class PrayerList extends PureComponent {
 
     let query;
     let prayers;
+    let type;
     let variables;
 
     switch (list) {
       case 'GroupPrayerList':
         query = getGroupPrayerRequests;
         prayers = 'getPrayerRequestsByGroups';
+        type = 'community';
         break;
       case 'ChurchPrayerList':
         query = getPublicPrayerRequests;
         prayers = 'getPublicPrayerRequests';
+        type = 'church';
         break;
       case 'CampusPrayerList': {
         const {
@@ -86,20 +106,23 @@ class PrayerList extends PureComponent {
         });
         query = getPublicPrayerRequestsByCampus;
         prayers = 'getPublicPrayerRequestsByCampus';
+        type = 'campus';
         variables = { campusId: id };
         break;
       }
       default:
         query = getPublicPrayerRequests;
         prayers = 'getPublicPrayerRequests';
+        type = 'church';
         break;
     }
-    return { query, prayers, variables };
+    return { query, prayers, type, variables };
   };
 
   render() {
-    const { query, prayers, variables } = this.calculateQuery();
+    const { query, prayers, type, variables } = this.calculateQuery();
     const { navigation } = this.props;
+    const noPrayerText = `There are currently no prayers for your ${type}. Go back and add one!`;
 
     return (
       <ModalView>
@@ -109,72 +132,82 @@ class PrayerList extends PureComponent {
             variables={variables}
             fetchPolicy="cache-and-network"
           >
-            {({ data }) => (
-              <FlatList
-                ref={(scroller) => {
-                  this.scroller = scroller;
-                }}
-                renderItem={(item) => (
-                  <Mutation
-                    mutation={flagPrayerRequest}
-                    update={async () => {
-                      const prayerRequests = cache.readQuery({
-                        query,
-                      });
-                      const newPrayersList = prayerRequests[prayers].filter(
-                        (prayer) => prayer.id !== item.item.id
-                      );
-                      const newPrayerObject = {
-                        [`${prayers}`]: newPrayersList,
-                      };
-                      await cache.writeQuery({
-                        query,
-                        data: newPrayerObject,
-                      });
-                    }}
-                  >
-                    {(flagPrayer) => (
-                      <PrayerCardConnected
-                        avatarSize={'medium'}
-                        expanded
-                        actionsEnabled
-                        navigation={navigation}
-                        cardIndex={item.index}
-                        prayerId={item.item.id}
-                        advancePrayer={this.scrollToNext}
-                        options={[
-                          {
-                            title: 'Flag as Inappropriate',
-                            method: async () => {
-                              await flagPrayer({
-                                variables: {
-                                  parsedId: item.item.id,
-                                },
-                              });
+            {({ data }) => {
+              const prayerData = get(data, prayers, []);
+              return prayerData.length > 0 ? (
+                <FlatList
+                  ref={(scroller) => {
+                    this.scroller = scroller;
+                  }}
+                  renderItem={(item) => (
+                    <Mutation
+                      mutation={flagPrayerRequest}
+                      update={async () => {
+                        const prayerRequests = cache.readQuery({
+                          query,
+                        });
+                        const newPrayersList = prayerRequests[prayers].filter(
+                          (prayer) => prayer.id !== item.item.id
+                        );
+                        const newPrayerObject = {
+                          [`${prayers}`]: newPrayersList,
+                        };
+                        await cache.writeQuery({
+                          query,
+                          data: newPrayerObject,
+                        });
+                      }}
+                    >
+                      {(flagPrayer) => (
+                        <PrayerCardConnected
+                          avatarSize={'medium'}
+                          expanded
+                          actionsEnabled
+                          navigation={navigation}
+                          cardIndex={item.index}
+                          prayerId={item.item.id}
+                          advancePrayer={this.scrollToNext}
+                          options={[
+                            {
+                              title: 'Flag as Inappropriate',
+                              method: async () => {
+                                await flagPrayer({
+                                  variables: {
+                                    parsedId: item.item.id,
+                                  },
+                                });
+                              },
+                              destructive: true,
                             },
-                            destructive: true,
-                          },
-                        ]}
-                        {...item.item}
-                      />
-                    )}
-                  </Mutation>
-                )}
-                ItemSeparatorComponent={() => (
-                  <DividerView>
-                    <GreyH6>Press down on card to pray</GreyH6>
-                  </DividerView>
-                )}
-                data={get(data, prayers, []).map((prayer) => ({
-                  key: prayer.id,
-                  id: prayer.id,
-                  prayer: prayer.text,
-                  source: prayer.campus.name || '',
-                  name: prayer.firstName,
-                }))}
-                scrollEnabled={false}
-              />
-            )}
+                          ]}
+                          {...item.item}
+                        />
+                      )}
+                    </Mutation>
+                  )}
+                  ItemSeparatorComponent={() => (
+                    <DividerView>
+                      <GreyH6>Press down on card to pray</GreyH6>
+                    </DividerView>
+                  )}
+                  data={get(data, prayers, []).map((prayer) => ({
+                    key: prayer.id,
+                    id: prayer.id,
+                    prayer: prayer.text,
+                    source: prayer.campus.name || '',
+                    name: prayer.firstName,
+                  }))}
+                  scrollEnabled={false}
+                />
+              ) : (
+                <StyledView>
+                  <StyledH3View>
+                    <H3>No Prayers!</H3>
+                  </StyledH3View>
+                  <BodyText>{noPrayerText}</BodyText>
+                </StyledView>
+              );
+            }}
           </Query>
         </PaddedFeedView>
       </ModalView>
