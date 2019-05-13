@@ -33,6 +33,28 @@ const loadingStateObject = {
   },
 };
 
+const getPrayerList = (key) => {
+  switch (key) {
+    case 'church':
+      return 'ChurchPrayerList';
+    case 'campus':
+      return 'CampusPrayerList';
+    case 'community':
+      return 'GroupPrayerList';
+    default:
+      return null;
+  }
+};
+
+const getCategoryComponent = (key) => {
+  switch (key) {
+    case 'saved':
+      return <SavedPrayerList />;
+    default:
+      return null;
+  }
+};
+
 // TODO: this needs to be dynamic at some point
 const prayerMenuData = [
   {
