@@ -123,7 +123,6 @@ class PrayerList extends PureComponent {
   render() {
     const { query, prayers, type, variables } = this.calculateQuery();
     const { navigation } = this.props;
-    const noPrayerText = `There are currently no prayers for your ${type}. Go back and add one!`;
 
     return (
       <ModalView>
@@ -205,7 +204,9 @@ class PrayerList extends PureComponent {
                   <StyledH3View>
                     <H3>No Prayers!</H3>
                   </StyledH3View>
-                  <BodyText>{noPrayerText}</BodyText>
+                  <BodyText>
+                    {`There are currently no prayers for your ${type}. Go back and add one!`}
+                  </BodyText>
                 </StyledView>
               );
             }}
