@@ -19,7 +19,7 @@ const IconWrapper = styled(({ theme }) => ({
 const BrandIcon = withTheme(({ theme, nsicon }) => ({
   name: typeof nsicon === 'string' ? nsicon : 'leaf-logo',
   fill: theme.colors.primary,
-  size: theme.sizing.baseUnit * 3,
+  size: theme.sizing.baseUnit * 6,
 }))(NSIcon);
 
 const TitleWrapper = styled(({ theme }) => ({
