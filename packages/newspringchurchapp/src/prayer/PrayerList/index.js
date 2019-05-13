@@ -118,9 +118,7 @@ class PrayerList extends PureComponent {
                   <Mutation
                     mutation={flagPrayerRequest}
                     update={async () => {
-                      const prayerRequests = cache.readQuery({
-                        query,
-                      });
+                      const prayerRequests = cache.readQuery({ query });
                       const newPrayersList = prayerRequests[prayers].filter(
                         (prayer) => prayer.id !== item.item.id
                       );
@@ -171,6 +169,7 @@ class PrayerList extends PureComponent {
                   prayer: prayer.text,
                   source: prayer.campus.name || '',
                   name: prayer.firstName,
+                  anonymous: prayer.isAnonymous,
                 }))}
                 scrollEnabled={false}
               />
