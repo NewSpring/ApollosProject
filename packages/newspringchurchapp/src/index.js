@@ -22,11 +22,21 @@ import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+import NSIcon from './ui/NSIcon';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
   backgroundColor: theme.colors.paper,
 }))(StatusBar);
+
+const BrandIcon = withTheme(({ theme }) => ({
+  name: 'leaf-logo',
+  fill: theme.colors.secondary,
+  size: theme.sizing.baseUnit * 6,
+  style: {
+    marginBottom: theme.sizing.baseUnit,
+  },
+}))(NSIcon);
 
 const ProtectedRouteWithSplashScreen = (props) => {
   const handleOnRouteChange = () => SplashScreen.hide();
@@ -69,6 +79,10 @@ function getActiveRouteName(navigationState) {
   return route.routeName;
 }
 
+AppNavigator.navigationOptions = {
+  brand: <BrandIcon />,
+};
+
 const App = () => (
   <Providers>
     <BackgroundView>
@@ -89,6 +103,7 @@ const App = () => (
                 track({ eventName: `Viewed ${currentScreen}` });
               }
             }}
+            screenProps={{ brand: <BrandIcon /> }}
           />
         )}
       </AnalyticsConsumer>
