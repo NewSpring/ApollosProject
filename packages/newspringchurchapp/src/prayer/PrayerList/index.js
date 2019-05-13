@@ -196,6 +196,7 @@ class PrayerList extends PureComponent {
                     prayer: prayer.text,
                     source: prayer.campus.name || '',
                     name: prayer.firstName,
+                    anonymous: prayer.isAnonymous,
                   }))}
                   scrollEnabled={false}
                 />
