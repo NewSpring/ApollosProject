@@ -81,9 +81,9 @@ exports[`The Onboarding AskName component should accept a firstName 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -98,14 +98,14 @@ exports[`The Onboarding AskName component should accept a firstName 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -642,9 +642,9 @@ exports[`The Onboarding AskName component should accept a lastName 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -659,14 +659,14 @@ exports[`The Onboarding AskName component should accept a lastName 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -1203,9 +1203,9 @@ exports[`The Onboarding AskName component should pass additional props to Slide 
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -1220,14 +1220,14 @@ exports[`The Onboarding AskName component should pass additional props to Slide 
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -1972,9 +1972,9 @@ exports[`The Onboarding AskName component should render 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -1989,14 +1989,14 @@ exports[`The Onboarding AskName component should render 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -2532,9 +2532,9 @@ exports[`The Onboarding AskName component should render a custom description 1`]
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -2549,14 +2549,14 @@ exports[`The Onboarding AskName component should render a custom description 1`]
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -3092,9 +3092,9 @@ exports[`The Onboarding AskName component should render a custom title 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -3109,14 +3109,14 @@ exports[`The Onboarding AskName component should render a custom title 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -3652,9 +3652,9 @@ exports[`The Onboarding AskName component should render a loading state 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -3669,14 +3669,14 @@ exports[`The Onboarding AskName component should render a loading state 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={

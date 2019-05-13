@@ -58,9 +58,9 @@ exports[`The Onboarding Slide component should render a custom icon 1`] = `
         >
           <RNSVGSvgView
             align="xMidYMid"
-            bbHeight={48}
-            bbWidth={48}
-            height={48}
+            bbHeight={96}
+            bbWidth={96}
+            height={96}
             icon="umbrella"
             meetOrSlice={0}
             minX={0}
@@ -75,14 +75,14 @@ exports[`The Onboarding Slide component should render a custom icon 1`] = `
                 null,
                 Object {
                   "flex": 0,
-                  "height": 48,
-                  "width": 48,
+                  "height": 96,
+                  "width": 96,
                 },
               ]
             }
             vbHeight={24}
             vbWidth={24}
-            width={48}
+            width={96}
           >
             <RNSVGGroup
               fill={
@@ -365,8 +365,8 @@ exports[`The Onboarding Slide component should render a loading state 1`] = `
               Object {
                 "backgroundColor": "#dddddd",
                 "borderRadius": 16,
-                "height": 48,
-                "width": 48,
+                "height": 96,
+                "width": 96,
               }
             }
           />
@@ -640,9 +640,9 @@ exports[`The Onboarding Slide component should render an icon 1`] = `
         >
           <RNSVGSvgView
             align="xMidYMid"
-            bbHeight={48}
-            bbWidth={48}
-            height={48}
+            bbHeight={96}
+            bbWidth={96}
+            height={96}
             icon={true}
             meetOrSlice={0}
             minX={0}
@@ -657,14 +657,14 @@ exports[`The Onboarding Slide component should render an icon 1`] = `
                 null,
                 Object {
                   "flex": 0,
-                  "height": 48,
-                  "width": 48,
+                  "height": 96,
+                  "width": 96,
                 },
               ]
             }
             vbHeight={24}
             vbWidth={24}
-            width={48}
+            width={96}
           >
             <RNSVGGroup
               fill={
