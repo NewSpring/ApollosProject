@@ -14,12 +14,14 @@ import {
   withTheme,
 } from '@apollosproject/ui-kit';
 import { TabView, SceneMap } from 'react-native-tab-view';
+import { Query } from 'react-apollo';
 import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayerList';
 import PrayerPreviewCard from './PrayerPreviewCard';
 import SavedPrayerList from './SavedPrayerList';
+import PRAYER_MENU_CATEGORIES from './data/queries/getPrayerMenuCategories';
 
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
@@ -246,35 +248,41 @@ class PrayerMenu extends PureComponent {
   handleIndexChange = (index) => this.setState({ index });
 
   renderTabBar = (props) => (
-    <StyledFeed
-      content={prayerMenuData}
-      renderItem={({ item }) => (
-        <TouchableScale
-          key={item.key}
-          onPress={() => {
-            if (this.state.showAddPrayerCard) {
-              this.animate(1);
+    <Query query={PRAYER_MENU_CATEGORIES}>
+      {({ data: prayerMenuCategories }) =>
+        console.log(prayerMenuCategories) || (
+          <StyledFeed
+            content={prayerMenuData}
+            renderItem={({ item }) => (
+              <TouchableScale
+                key={item.key}
+                onPress={() => {
+                  if (this.state.showAddPrayerCard) {
+                    this.animate(1);
 
-              this.setState({
-                showAddPrayerCard: false,
-              });
-            }
+                    this.setState({
+                      showAddPrayerCard: false,
+                    });
+                  }
 
-            this.setState({ prayerMenuItemSelected: item.key });
+                  this.setState({ prayerMenuItemSelected: item.key });
 
-            props.jumpTo(item.key);
-          }}
-        >
-          <PrayerMenuCard
-            image={item.image}
-            overlayColor={item.overlayColor}
-            title={item.title}
-            selected={this.state.prayerMenuItemSelected === item.key}
+                  props.jumpTo(item.key);
+                }}
+              >
+                <PrayerMenuCard
+                  image={item.image}
+                  overlayColor={item.overlayColor}
+                  title={item.title}
+                  selected={this.state.prayerMenuItemSelected === item.key}
+                />
+              </TouchableScale>
+            )}
+            loadingStateObject={loadingStateObject}
           />
-        </TouchableScale>
-      )}
-      loadingStateObject={loadingStateObject}
-    />
+        )
+      }
+    </Query>
   );
 
   render() {

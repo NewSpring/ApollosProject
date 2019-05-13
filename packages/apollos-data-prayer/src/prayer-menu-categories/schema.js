@@ -6,6 +6,7 @@ const prayerMenuCategorySchema = gql`
   }
   type PrayerMenuCategory implements Node {
     id: ID!
+    key: String!
     title: String!
     subtitle: String
     imageURL: String
