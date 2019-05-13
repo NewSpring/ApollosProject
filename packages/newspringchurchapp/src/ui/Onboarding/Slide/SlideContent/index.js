@@ -16,8 +16,8 @@ const IconWrapper = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit, // wrapper is used to padd placeholder as well.
 }))(View);
 
-const BrandIcon = withTheme(({ theme, icon }) => ({
-  name: typeof icon === 'string' ? icon : 'leaf-logo',
+const BrandIcon = withTheme(({ theme, nsicon }) => ({
+  name: typeof nsicon === 'string' ? nsicon : 'leaf-logo',
   fill: theme.colors.primary,
   size: theme.sizing.baseUnit * 3,
 }))(NSIcon);
