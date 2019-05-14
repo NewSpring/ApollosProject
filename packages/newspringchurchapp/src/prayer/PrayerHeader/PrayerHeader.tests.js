@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Providers from 'newspringchurchapp/src/Providers';
 
-import PrayerHeader from './';
+import PrayerHeader from '.';
 
 const headerData = {
   imageSource: {
@@ -32,7 +32,7 @@ describe('the PrayerHeader component', () => {
     const tree = renderer.create(
       <Providers>
         <PrayerHeader
-          anonymous={true}
+          anonymous
           avatarSize={'medium'}
           avatarSource={headerData.imageSource}
           name={`Pray For ${headerData.name}`}

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { PaddedView } from '@apollosproject/ui-kit';
 
-import PrayerHeader from './';
+import PrayerHeader from '.';
 
 const headerData = {
   imageSource: {
@@ -15,7 +15,7 @@ const headerData = {
 storiesOf('PrayerHeader', module).add('Anonymous', () => (
   <PaddedView>
     <PrayerHeader
-      anonymous={true}
+      anonymous
       avatarSize={'medium'}
       avatarSource={headerData.imageSource}
       name={`Pray For ${headerData.name}`}
