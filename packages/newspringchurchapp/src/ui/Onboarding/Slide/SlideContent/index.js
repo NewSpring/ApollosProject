@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import {
   styled,
   withTheme,
-  Icon,
   H2,
   H5,
   withIsLoading,
@@ -11,16 +10,17 @@ import {
 import PropTypes from 'prop-types';
 
 import { SafeAreaView } from 'react-navigation';
+import NSIcon from '../../../NSIcon';
 
 const IconWrapper = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit, // wrapper is used to padd placeholder as well.
 }))(View);
 
-const BrandIcon = withTheme(({ theme, icon }) => ({
-  name: typeof icon === 'string' ? icon : 'brand-icon',
+const BrandIcon = withTheme(({ theme, nsicon }) => ({
+  name: typeof nsicon === 'string' ? nsicon : 'leaf-logo',
   fill: theme.colors.primary,
-  size: theme.sizing.baseUnit * 3,
-}))(Icon);
+  size: theme.sizing.baseUnit * 6,
+}))(NSIcon);
 
 const TitleWrapper = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 0.5, // wrapper is used to padd placeholder as well.
