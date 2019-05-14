@@ -35,17 +35,11 @@ const loadingStateObject = {
   },
 };
 
-const getPrayerList = (key) => {
-  switch (key) {
-    case 'my-church':
-      return 'ChurchPrayerList';
-    case 'my-campus':
-      return 'CampusPrayerList';
-    case 'my-community':
-      return 'GroupPrayerList';
-    default:
-      return null;
-  }
+// used by PrayerList.js to determine what list shows when "Start Praying" is clicked
+const prayerLists = {
+  'my-church': 'ChurchPrayerList',
+  'my-campus': 'CampusPrayerList',
+  'my-community': 'GroupPrayerList',
 };
 
 // TODO: prayer preview cards should use the first one in the list
@@ -66,7 +60,7 @@ const getCategoryComponent = (key) => {
             'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
           }
           source={'Anderson'}
-          route={getPrayerList(key)}
+          route={prayerLists[key]}
         />
       );
     case 'my-campus':
@@ -82,7 +76,7 @@ const getCategoryComponent = (key) => {
             'Pray that God will do big things at our Connect table this month.'
           }
           source={'Anderson'}
-          route={getPrayerList(key)}
+          route={prayerLists[key]}
         />
       );
     case 'my-community':
@@ -98,7 +92,7 @@ const getCategoryComponent = (key) => {
             'Please pray for Fuse! FSKO is coming and we want God to show up big.'
           }
           source={'Greenwood'}
-          route={getPrayerList(key)}
+          route={prayerLists[key]}
         />
       );
     case 'my-prayers':
@@ -107,97 +101,6 @@ const getCategoryComponent = (key) => {
       return null;
   }
 };
-
-// TODO: this needs to be dynamic at some point
-const prayerMenuData = [
-  {
-    id: '1',
-    description: 'Pray for the prayers you haved saved',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Saved Prayers',
-    key: 'saved',
-    component: <SavedPrayerList />,
-  },
-  {
-    id: '2',
-    description: 'Pray for the people in our church',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Church',
-    key: 'church',
-    component: (
-      <PrayerPreviewCard
-        avatarSource={{
-          uri: 'https://rock.newspring.cc/GetImage.ashx?id=564401',
-        }}
-        avatarSize={'medium'}
-        name={'Dan'}
-        overlayColor={['#FFF', '#FFF']}
-        prayer={
-          'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
-        }
-        source={'Anderson'}
-        route={'ChurchPrayerList'}
-      />
-    ),
-  },
-  {
-    id: '3',
-    description: 'Pray for the people at your campus',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Campus',
-    key: 'campus',
-    component: (
-      <PrayerPreviewCard
-        avatarSource={{
-          uri: 'https://rock.newspring.cc/GetImage.ashx?id=564499',
-        }}
-        avatarSize={'medium'}
-        name={'Morgan'}
-        overlayColor={['#FFF', '#FFF']}
-        prayer={
-          'Pray that God will do big things at our Connect table this month.'
-        }
-        source={'Anderson'}
-        route={'CampusPrayerList'}
-      />
-    ),
-  },
-  {
-    id: '4',
-    description: 'Pray for those people in your community',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Community',
-    key: 'community',
-    component: (
-      <PrayerPreviewCard
-        avatarSource={{
-          uri: 'https://rock.newspring.cc/GetImage.ashx?id=576112',
-        }}
-        avatarSize={'medium'}
-        name={'Devin'}
-        overlayColor={['#FFF', '#FFF']}
-        prayer={
-          'Please pray for Fuse! FSKO is coming and we want God to show up big.'
-        }
-        source={'Greenwood'}
-        route={'GroupPrayerList'}
-      />
-    ),
-  },
-  {
-    id: '5',
-    description: 'Revisit your prayers',
-    image: 'https://picsum.photos/600/400/?random',
-    overlayColor: ['#6BAC43', '#6BAC43'],
-    title: 'My Prayers',
-    key: 'prayers',
-    component: <UserPrayerList />,
-  },
-];
 
 const StyledFeed = styled(({ theme }) => ({
   paddingLeft: theme.sizing.baseUnit,
@@ -228,20 +131,18 @@ const StyledAddPrayerContainer = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit,
 }))(View);
 
-const Tab = ({ index, showAddPrayerCard }) => {
-  const data = prayerMenuData[index - 1];
-  return (
-    <>
-      <StyledPaddedView>
-        <BodyText>{data.description}</BodyText>
-      </StyledPaddedView>
-      {!showAddPrayerCard ? <StyledView>{data.component}</StyledView> : null}
-    </>
-  );
-};
+const Tab = ({ description, component, showAddPrayerCard }) => (
+  <>
+    <StyledPaddedView>
+      <BodyText>{description}</BodyText>
+    </StyledPaddedView>
+    {!showAddPrayerCard ? <StyledView>{component}</StyledView> : null}
+  </>
+);
 
 Tab.propTypes = {
-  index: PropTypes.number,
+  description: PropTypes.string,
+  component: PropTypes.func,
   showAddPrayerCard: PropTypes.bool,
 };
 
@@ -259,26 +160,22 @@ class PrayerMenu extends PureComponent {
     index: 0,
     routes: [
       {
-        title: 'My Saved Prayers',
-        key: 'saved',
+        key: 'my-saved-prayers',
       },
       {
-        title: 'My Church',
-        key: 'church',
+        key: 'my-church',
       },
       {
-        title: 'My Campus',
-        key: 'campus',
+        key: 'my-campus',
       },
       {
-        title: 'My Community',
-        key: 'community',
+        key: 'my-community',
       },
       {
-        title: 'My Prayers',
-        key: 'prayers',
+        key: 'my-prayers',
       },
     ],
+    categories: [],
     prayerMenuItemSelected: 1,
     showAddPrayerCard: true,
     animatedValue: new Animated.Value(0),
@@ -292,28 +189,23 @@ class PrayerMenu extends PureComponent {
       friction: 7,
     }).start();
 
-  tabRoute = (index) => () => (
-    <Tab index={index} showAddPrayerCard={this.state.showAddPrayerCard} />
-  );
-
   handleIndexChange = (index) => this.setState({ index });
 
   renderTabBar = (props) => (
     <Query query={PRAYER_MENU_CATEGORIES}>
-      {({ loading, error, data }) => {
-        if (loading) return null;
-        if (error) return `Error! ${error}`;
+      {({ data }) => {
+        const categories = data.prayerMenuCategories.map((category) => ({
+          id: category.id,
+          description: category.subtitle,
+          image: category.imageURL,
+          overlayColor: [category.overlayColor, category.overlayColor],
+          title: category.title,
+          key: category.key,
+          component: getCategoryComponent(category.key),
+        }));
         return (
           <StyledFeed
-            content={data.prayerMenuCategories.map((category) => ({
-              id: category.id,
-              description: category.subtitle,
-              image: category.imageURL,
-              overlayColor: [category.overlayColor, category.overlayColor],
-              title: category.title,
-              key: category.key,
-              component: getCategoryComponent(category.key),
-            }))}
+            content={categories}
             renderItem={({ item }) => (
               <TouchableScale
                 key={item.key}
@@ -407,14 +299,49 @@ class PrayerMenu extends PureComponent {
               height: Dimensions.get('window').height,
               width: Dimensions.get('window').width,
             }}
+            // TODO: routes: categories.keys needs to be passed so we don't need state.routes
             navigationState={{ ...this.state }}
-            renderScene={SceneMap({
-              saved: this.tabRoute(1),
-              church: this.tabRoute(2),
-              campus: this.tabRoute(3),
-              community: this.tabRoute(4),
-              prayers: this.tabRoute(5),
-            })}
+            renderScene={({ route }) => {
+              const scenes = {
+                // TODO: this needs to come fromt the data call
+                'my-saved-prayers': (
+                  <Tab
+                    description={'saved prayers'}
+                    showAddPrayerCard={this.state.showAddPrayerCard}
+                    component={getCategoryComponent('my-saved-prayers')}
+                  />
+                ),
+                'my-church': (
+                  <Tab
+                    description={'church prayers'}
+                    showAddPrayerCard={this.state.showAddPrayerCard}
+                    component={getCategoryComponent('my-church')}
+                  />
+                ),
+                'my-campus': (
+                  <Tab
+                    description={'campus prayers'}
+                    showAddPrayerCard={this.state.showAddPrayerCard}
+                    component={getCategoryComponent('my-campus')}
+                  />
+                ),
+                'my-community': (
+                  <Tab
+                    description={'community prayers'}
+                    showAddPrayerCard={this.state.showAddPrayerCard}
+                    component={getCategoryComponent('my-community')}
+                  />
+                ),
+                'my-prayers': (
+                  <Tab
+                    description={'my prayers'}
+                    showAddPrayerCard={this.state.showAddPrayerCard}
+                    component={getCategoryComponent('my-prayers')}
+                  />
+                ),
+              };
+              return scenes[route.key];
+            }}
             renderTabBar={this.renderTabBar}
             onIndexChange={this.handleIndexChange}
             swipeEnabled={false}
