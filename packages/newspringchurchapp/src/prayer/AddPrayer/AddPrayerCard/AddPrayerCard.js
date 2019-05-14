@@ -8,37 +8,32 @@ import {
   Card,
   CardContent,
   PaddedView,
-  Avatar,
-  H3,
 } from '@apollosproject/ui-kit';
+import PrayerHeader from '../../PrayerHeader';
 
 const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
   marginTop: theme.sizing.baseUnit,
 }))(CardContent);
 
-const TitleView = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit,
-}))(View);
-
 const StyledBodyText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
 
-const StyledAvatarView = styled(({ theme }) => ({
+const StyledPrayerHeaderView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <Card>
     <StyledCardContent>
-      {/* TODO: margin will be fixed pending core #667 */}
-      <StyledAvatarView>
-        <Avatar source={avatarSource} size={'medium'} />
-      </StyledAvatarView>
-      <TitleView>
-        <H3>{title}</H3>
-      </TitleView>
+      <StyledPrayerHeaderView>
+        <PrayerHeader
+          avatarSource={avatarSource}
+          avatarSize={'medium'}
+          name={title}
+        />
+      </StyledPrayerHeaderView>
       <StyledBodyText>{description}</StyledBodyText>
     </StyledCardContent>
     <PaddedView>
