@@ -303,7 +303,7 @@ class PrayerMenu extends PureComponent {
             navigationState={{ ...this.state }}
             renderScene={({ route }) => {
               const scenes = {
-                // TODO: this needs to come fromt the data call
+                // TODO: this needs to come from the data call
                 'my-saved-prayers': (
                   <Tab
                     description={'saved prayers'}
