@@ -37,21 +37,72 @@ const loadingStateObject = {
 
 const getPrayerList = (key) => {
   switch (key) {
-    case 'church':
+    case 'my-church':
       return 'ChurchPrayerList';
-    case 'campus':
+    case 'my-campus':
       return 'CampusPrayerList';
-    case 'community':
+    case 'my-community':
       return 'GroupPrayerList';
     default:
       return null;
   }
 };
 
+// TODO: prayer preview cards should use the first one in the list
 const getCategoryComponent = (key) => {
   switch (key) {
-    case 'saved':
+    case 'my-saved-prayers':
       return <SavedPrayerList />;
+    case 'my-church':
+      return (
+        <PrayerPreviewCard
+          avatarSource={{
+            uri: 'https://rock.newspring.cc/GetImage.ashx?id=564401',
+          }}
+          avatarSize={'medium'}
+          name={'Dan'}
+          overlayColor={['#FFF', '#FFF']}
+          prayer={
+            'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
+          }
+          source={'Anderson'}
+          route={getPrayerList(key)}
+        />
+      );
+    case 'my-campus':
+      return (
+        <PrayerPreviewCard
+          avatarSource={{
+            uri: 'https://rock.newspring.cc/GetImage.ashx?id=564499',
+          }}
+          avatarSize={'medium'}
+          name={'Morgan'}
+          overlayColor={['#FFF', '#FFF']}
+          prayer={
+            'Pray that God will do big things at our Connect table this month.'
+          }
+          source={'Anderson'}
+          route={getPrayerList(key)}
+        />
+      );
+    case 'my-community':
+      return (
+        <PrayerPreviewCard
+          avatarSource={{
+            uri: 'https://rock.newspring.cc/GetImage.ashx?id=576112',
+          }}
+          avatarSize={'medium'}
+          name={'Devin'}
+          overlayColor={['#FFF', '#FFF']}
+          prayer={
+            'Please pray for Fuse! FSKO is coming and we want God to show up big.'
+          }
+          source={'Greenwood'}
+          route={getPrayerList(key)}
+        />
+      );
+    case 'my-prayers':
+      return <UserPrayerList />;
     default:
       return null;
   }
@@ -249,10 +300,20 @@ class PrayerMenu extends PureComponent {
 
   renderTabBar = (props) => (
     <Query query={PRAYER_MENU_CATEGORIES}>
-      {({ data: prayerMenuCategories }) =>
-        console.log(prayerMenuCategories) || (
+      {({ loading, error, data }) => {
+        if (loading) return null;
+        if (error) return `Error! ${error}`;
+        return (
           <StyledFeed
-            content={prayerMenuData}
+            content={data.prayerMenuCategories.map((category) => ({
+              id: category.id,
+              description: category.subtitle,
+              image: category.imageURL,
+              overlayColor: [category.overlayColor, category.overlayColor],
+              title: category.title,
+              key: category.key,
+              component: getCategoryComponent(category.key),
+            }))}
             renderItem={({ item }) => (
               <TouchableScale
                 key={item.key}
@@ -280,8 +341,8 @@ class PrayerMenu extends PureComponent {
             )}
             loadingStateObject={loadingStateObject}
           />
-        )
-      }
+        );
+      }}
     </Query>
   );
 
