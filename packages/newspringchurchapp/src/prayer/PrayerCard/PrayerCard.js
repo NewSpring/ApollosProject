@@ -15,11 +15,11 @@ import {
   PaddedView,
   styled,
   Touchable,
-  TouchableScale,
   ButtonLink,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
 import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
+import TouchableScale from './TouchableScale';
 
 const ExpandedCard = styled(({ expanded, expandedHeight }) => {
   let styles = {};
