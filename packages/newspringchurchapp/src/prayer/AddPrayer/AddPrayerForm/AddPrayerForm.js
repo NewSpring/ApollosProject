@@ -11,9 +11,8 @@ import {
   styled,
   FlexedView,
   PaddedView,
-  H3,
-  Avatar,
 } from '@apollosproject/ui-kit';
+import PrayerHeader from '../../PrayerHeader';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -23,15 +22,6 @@ const ShrinkingView = styled(({ theme }) => ({
   flex: 1,
   paddingTop: theme.sizing.baseUnit,
 }))(KeyboardAvoidingView);
-
-const HeaderView = styled({
-  alignItems: 'center',
-})(View);
-
-const TitleView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 0.5,
-  marginBottom: theme.sizing.baseUnit * 2,
-}))(View);
 
 const StyledTextInput = styled({
   height: '100%',
@@ -51,6 +41,10 @@ const SwitchContainer = styled({
   justifyContent: 'center',
 })(PaddedView);
 
+const StyledPrayerHeaderView = styled(({ theme }) => ({
+  marginBottom: theme.sizing.baseUnit,
+}))(View);
+
 const AddPrayerForm = memo(
   ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
     <Formik
@@ -61,16 +55,13 @@ const AddPrayerForm = memo(
         <ModalView {...props}>
           <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
             <ShrinkingView behavior={'padding'}>
-              <HeaderView>
-                {/* TODO: margin will be fixed pending core #667 */}
-                <Avatar
-                  source={values.anonymous ? null : avatarSource}
-                  size={'medium'}
+              <StyledPrayerHeaderView>
+                <PrayerHeader
+                  avatarSource={values.anonymous ? null : avatarSource}
+                  avatarSize={'medium'}
+                  name={title}
                 />
-                <TitleView>
-                  <H3>{title}</H3>
-                </TitleView>
-              </HeaderView>
+              </StyledPrayerHeaderView>
               <FlexedView>
                 <PaddedView>
                   <StyledTextInput
