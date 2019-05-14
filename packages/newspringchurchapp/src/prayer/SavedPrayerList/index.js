@@ -14,7 +14,7 @@ const StyledView = styled(({ theme }) => ({
 }))(View);
 
 const SavedPrayerList = () => (
-  <ScrollView>
+  <ScrollView nestedScrollEnabled>
     <Query query={savedPrayerList} fetchPolicy="cache-and-network">
       {({ data: { savedPrayers = [] } = {} }) => (
         <Mutation
