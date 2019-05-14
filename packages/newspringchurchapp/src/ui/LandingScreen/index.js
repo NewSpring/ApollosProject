@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import {
   styled,
   withTheme,
-  Icon,
   H1,
   H4,
   PaddedView,
   BackgroundView,
 } from '@apollosproject/ui-kit';
+import NSIcon from '../NSIcon';
 
 import Slide from '../Onboarding/Slide';
 
@@ -19,13 +19,13 @@ const Content = styled({
 })(PaddedView);
 
 const BrandIcon = withTheme(({ theme, color }) => ({
-  name: 'brand-icon',
-  size: theme.sizing.baseUnit * 3,
+  name: 'leaf-logo',
+  size: theme.sizing.baseUnit * 6,
   ...(color ? { fill: color } : {}),
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
-}))(Icon);
+}))(NSIcon);
 
 const Title = styled(({ theme, color }) => ({
   marginBottom: theme.sizing.baseUnit * 2,

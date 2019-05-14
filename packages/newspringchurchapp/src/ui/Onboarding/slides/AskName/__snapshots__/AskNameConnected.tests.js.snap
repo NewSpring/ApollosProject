@@ -81,9 +81,9 @@ exports[`The AskNameConnected component renders User Name when logged in 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -98,14 +98,14 @@ exports[`The AskNameConnected component renders User Name when logged in 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -162,7 +162,7 @@ exports[`The AskNameConnected component renders User Name when logged in 1`] = `
                     y={0}
                   >
                     <RNSVGPath
-                      d="M8.84799129,0 L13.7577354,0 L22.6057267,24 L0,24 L8.84799129,0 Z M6.52559608,19.4398694 L16.0921502,19.4398694 L11.4494502,5.83629831 L11.1682961,5.83629831 L6.52559608,19.4398694 Z"
+                      d="M12 22C5.2 22 2 17.52 2 12S6.48 2 12 2s10 3.33 10 10v10H12zM7.84 8v9.08h3.12V12.3c0-1.14.6-1.8 1.63-1.8.53 0 1.03.27 1.23.68.17.33.2.5.2 1.4v4.5h3.1v-5.65c0-1.2-.2-1.82-.8-2.45C15.7 8.33 14.86 8 13.8 8H7.84z"
                       fill={
                         Array [
                           0,
@@ -852,9 +852,9 @@ exports[`The AskNameConnected component renders in a default state 1`] = `
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -869,14 +869,14 @@ exports[`The AskNameConnected component renders in a default state 1`] = `
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -933,7 +933,7 @@ exports[`The AskNameConnected component renders in a default state 1`] = `
                     y={0}
                   >
                     <RNSVGPath
-                      d="M8.84799129,0 L13.7577354,0 L22.6057267,24 L0,24 L8.84799129,0 Z M6.52559608,19.4398694 L16.0921502,19.4398694 L11.4494502,5.83629831 L11.1682961,5.83629831 L6.52559608,19.4398694 Z"
+                      d="M12 22C5.2 22 2 17.52 2 12S6.48 2 12 2s10 3.33 10 10v10H12zM7.84 8v9.08h3.12V12.3c0-1.14.6-1.8 1.63-1.8.53 0 1.03.27 1.23.68.17.33.2.5.2 1.4v4.5h3.1v-5.65c0-1.2-.2-1.82-.8-2.45C15.7 8.33 14.86 8 13.8 8H7.84z"
                       fill={
                         Array [
                           0,
@@ -1500,9 +1500,9 @@ exports[`The AskNameConnected component renders loading state when fetching data
               >
                 <RNSVGSvgView
                   align="xMidYMid"
-                  bbHeight={48}
-                  bbWidth={48}
-                  height={48}
+                  bbHeight={96}
+                  bbWidth={96}
+                  height={96}
                   icon={true}
                   meetOrSlice={0}
                   minX={0}
@@ -1517,14 +1517,14 @@ exports[`The AskNameConnected component renders loading state when fetching data
                       null,
                       Object {
                         "flex": 0,
-                        "height": 48,
-                        "width": 48,
+                        "height": 96,
+                        "width": 96,
                       },
                     ]
                   }
                   vbHeight={24}
                   vbWidth={24}
-                  width={48}
+                  width={96}
                 >
                   <RNSVGGroup
                     fill={
@@ -1581,7 +1581,7 @@ exports[`The AskNameConnected component renders loading state when fetching data
                     y={0}
                   >
                     <RNSVGPath
-                      d="M8.84799129,0 L13.7577354,0 L22.6057267,24 L0,24 L8.84799129,0 Z M6.52559608,19.4398694 L16.0921502,19.4398694 L11.4494502,5.83629831 L11.1682961,5.83629831 L6.52559608,19.4398694 Z"
+                      d="M12 22C5.2 22 2 17.52 2 12S6.48 2 12 2s10 3.33 10 10v10H12zM7.84 8v9.08h3.12V12.3c0-1.14.6-1.8 1.63-1.8.53 0 1.03.27 1.23.68.17.33.2.5.2 1.4v4.5h3.1v-5.65c0-1.2-.2-1.82-.8-2.45C15.7 8.33 14.86 8 13.8 8H7.84z"
                       fill={
                         Array [
                           0,
