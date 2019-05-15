@@ -23,9 +23,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
         .get();
     } catch (err) {
-      if (err instanceof AuthenticationError)
-        throw new AuthenticationError('You must be logged in to get prayers.');
-      else throw new Error(err);
+      throw new Error(err);
     }
   };
 
@@ -46,9 +44,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         )
         .get();
     } catch (err) {
-      if (err instanceof AuthenticationError)
-        throw new AuthenticationError('You must be logged in to get prayers.');
-      else throw new Error(err);
+      throw new Error(err);
     }
   };
 
@@ -65,9 +61,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
         .get();
     } catch (err) {
-      if (err instanceof AuthenticationError)
-        throw new AuthenticationError('You must be logged in to get prayers.');
-      else throw new Error(err);
+      throw new Error(err);
     }
   };
 
