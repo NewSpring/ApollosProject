@@ -96,11 +96,12 @@
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-church-online@^0.8.4":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.4.tgz#bf4584c89b952d66631cddf6efafb0e1198f1921"
+"@apollosproject/data-connector-church-online@^0.8.7-alpha.1":
+  version "0.8.7-alpha.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.7-alpha.1.tgz#63ee0a7c0cbc3f1be2a0eca6abe202fabaf7eb60"
+  integrity sha512-SgiKekX+26yXnQ7EIyvy6Fau2NwWEFrvaWf+X1ulomRmdRxdvAWeBUpA4Qv9QiQJT/YIqvzTpKJohLodPgAwoQ==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.4"
+    "@apollosproject/data-schema" "^0.8.5"
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
@@ -163,6 +164,13 @@
 "@apollosproject/data-schema@^0.8.4":
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.4.tgz#12cb2b0cedb71db89674d646302de7e9722187b4"
+  dependencies:
+    graphql-tag "^2.10.0"
+
+"@apollosproject/data-schema@^0.8.5":
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.5.tgz#99861f4f488ea2514682271cd89eaa675ab7b199"
+  integrity sha512-j74ppkaygJEps1poe33wV+1Lo1+jFqYcEKtNwr678nnELQMV9WcWgmWA9/9yh4x6C/pPP5/ZB+M0VhepZFAPtA==
   dependencies:
     graphql-tag "^2.10.0"
 
