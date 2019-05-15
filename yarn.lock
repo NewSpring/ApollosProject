@@ -178,7 +178,7 @@
   dependencies:
     graphql-tag "^2.10.0"
 
-"@apollosproject/rock-apollo-data-source@^0.8.6":
+"@apollosproject/rock-apollo-data-source@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.5.tgz#71f7b11d38cb3c1b154f4ba7dc611248be42ccc3"
   integrity sha512-Ww74Vj5YwY/JkeQA3MgVQTNmhEr5NpnmzwLi2u9YseqEBJH60UuxZpO+t8qUUrnU842S4wxm6S+SmbusIWUkqg==
@@ -198,7 +198,7 @@
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
 
-"@apollosproject/server-core@^0.8.5", "@apollosproject/server-core@^0.8.6":
+"@apollosproject/server-core@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.5.tgz#7d0c9e56470d2d9171eef4b32243ea1323823f7e"
   integrity sha512-ZUGVHFXN7UN56RhcKAnKPBnJYV8/nJCs6WeyUSb2KFbboHFaXN6B/I8e11ZGJwXW4WleVYXW+NgjgHa18uSaJg==
