@@ -153,10 +153,6 @@ const StyledAddPrayerContainer = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit,
 }))(View);
 
-const StyledTabView = styled(({ theme }) => ({
-  paddingBottom: theme.sizing.baseUnit * 1.5,
-}))(TabView);
-
 const Tab = ({ index, showAddPrayerCard }) => {
   const data = prayerMenuData[index - 1];
   return (
@@ -315,7 +311,7 @@ class PrayerMenu extends PureComponent {
           <RowHeader>
             <H3>Pray for Others</H3>
           </RowHeader>
-          <StyledTabView
+          <TabView
             initialLayout={{
               height: Dimensions.get('window').height,
               width: Dimensions.get('window').width,
