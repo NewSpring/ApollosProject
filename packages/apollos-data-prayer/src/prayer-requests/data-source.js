@@ -2,7 +2,6 @@ import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 import ApollosConfig from '@apollosproject/config';
 import moment from 'moment-timezone';
 import { parseGlobalId } from '@apollosproject/server-core';
-import { AuthenticationError } from 'apollo-server-errors';
 
 const { ROCK, ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
