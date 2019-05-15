@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { styled, withTheme, H1, H4, PaddedView } from '@apollosproject/ui-kit';
 import NSIcon from '../NSIcon';
 
-import Slide from '../Onboarding/Slide';
+import Slide from '../Onboarding/Slide/SlideContent';
 
 const Content = styled({
   flex: 1,
