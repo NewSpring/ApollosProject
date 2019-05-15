@@ -2,6 +2,7 @@ import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 import ApollosConfig from '@apollosproject/config';
 import moment from 'moment-timezone';
 import { parseGlobalId } from '@apollosproject/server-core';
+import { AuthenticationError } from 'apollo-server-errors';
 
 const { ROCK, ROCK_MAPPINGS } = ApollosConfig;
 export default class PrayerRequest extends RockApolloDataSource {
@@ -11,45 +12,63 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   // QUERY ALL PrayerRequests
   getAll = async () => {
-    const {
-      dataSources: { Auth },
-    } = this.context;
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+      const { primaryAliasId } = await Auth.getCurrentPerson();
 
-    return this.request('PrayerRequests/Public')
-      .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
-      .get();
+      return await this.request('PrayerRequests/Public')
+        .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
+        .get();
+    } catch (err) {
+      if (err instanceof AuthenticationError)
+        throw new AuthenticationError('You must be logged in to get prayers.');
+      else throw new Error(err);
+    }
   };
 
   // QUERY PrayerRequests by Campus
   getAllByCampus = async (campusId) => {
-    const {
-      dataSources: { Auth },
-    } = this.context;
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+      const { primaryAliasId } = await Auth.getCurrentPerson();
 
-    return this.request('PrayerRequests/Public')
-      .filter(
-        `(CampusId eq ${
-          parseGlobalId(campusId).id
-        }) and (RequestedByPersonAliasId ne ${primaryAliasId})`
-      )
-      .get();
+      return this.request('PrayerRequests/Public')
+        .filter(
+          `(CampusId eq ${
+            parseGlobalId(campusId).id
+          }) and (RequestedByPersonAliasId ne ${primaryAliasId})`
+        )
+        .get();
+    } catch (err) {
+      if (err instanceof AuthenticationError)
+        throw new AuthenticationError('You must be logged in to get prayers.');
+      else throw new Error(err);
+    }
   };
 
   // QUERY PrayerRequests from Current Person
   getFromCurrentPerson = async () => {
-    const {
-      dataSources: { Auth },
-    } = this.context;
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+      const { primaryAliasId } = await Auth.getCurrentPerson();
 
-    return this.request('PrayerRequests/Public')
-      .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
-      .get();
+      return this.request('PrayerRequests/Public')
+        .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
+        .get();
+    } catch (err) {
+      if (err instanceof AuthenticationError)
+        throw new AuthenticationError('You must be logged in to get prayers.');
+      else throw new Error(err);
+    }
   };
 
   // QUERY PrayerRequests from groups
