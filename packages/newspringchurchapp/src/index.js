@@ -16,8 +16,6 @@ import Tabs from './tabs';
 import PersonalDetails from './user-settings/PersonalDetails';
 import ChangePassword from './user-settings/ChangePassword';
 import Location from './user-settings/Locations';
-import { LocationFinderMapView } from './ui/Onboarding/slides/LocationFinder';
-
 import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
@@ -53,11 +51,10 @@ const AppNavigator = createStackNavigator(
     PersonalDetails,
     ChangePassword,
     Location,
-    LocationFinderMapView,
-    Passes,
     UserWebBrowser,
     Onboarding,
     Prayer,
+    Passes,
     LandingScreen,
   },
   {
