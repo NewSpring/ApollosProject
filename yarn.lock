@@ -70,14 +70,14 @@
     "@babel/preset-env" "7.4.2"
     babel-plugin-module-resolver "^3.1.1"
 
-"@apollosproject/config@^0.8.6":
+"@apollosproject/config@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/config/-/config-0.8.5.tgz#cfbbc48c952d2ddacbe7610b71a8c06eb311b709"
   integrity sha512-8SIfmeJRm79Cvbvxt6GxZzGio+fg+W3025LaHtKftYV3dI6PfjRVfV1yMHUTkV8CviLoEZX1Jy9AIzyNESsrEQ==
   dependencies:
     js-yaml "^3.12.0"
 
-"@apollosproject/data-connector-analytics@^0.8.6":
+"@apollosproject/data-connector-analytics@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-analytics/-/data-connector-analytics-0.8.5.tgz#b4720dc87351efe2f9e280022cb1430dbb0f4190"
   integrity sha512-uwAJifI+BjLUrkKErR++XtSMb6Yfe4TnJo5BZPyHtqqLcZg8j0a3aJ8t6zILRtD+4getxD1+dacZfhdPbHROtw==
@@ -101,10 +101,10 @@
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-church-online@^0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.6.tgz#b4d20b95d9da27458241d89d491d2d2eb37e407b"
-  integrity sha512-zLibVM6dUQr1ScaomJK1nVOWjHVKOhAkRocYGhLV8p+tzE8FDO2oqxxIIPkwV3iQ+XqZP9XcOH87F2KjkMjkow==
+"@apollosproject/data-connector-church-online@^0.8.7-alpha.1":
+  version "0.8.7-alpha.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.7-alpha.1.tgz#63ee0a7c0cbc3f1be2a0eca6abe202fabaf7eb60"
+  integrity sha512-SgiKekX+26yXnQ7EIyvy6Fau2NwWEFrvaWf+X1ulomRmdRxdvAWeBUpA4Qv9QiQJT/YIqvzTpKJohLodPgAwoQ==
   dependencies:
     "@apollosproject/data-schema" "^0.8.5"
     apollo-datasource-rest "^0.2.0"

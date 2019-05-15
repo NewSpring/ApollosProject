@@ -31,7 +31,7 @@ const LiveNowButton = () => (
         <WebBrowserConsumer>
           {(openUrl) => (
             <TouchableScale
-              onPress={() => openUrl('https://apollos.churchonline.org/')}
+              onPress={() => openUrl('https://live.newspring.cc/')}
             >
               <LiveCard isLoading={loading}>
                 <CardContent>
