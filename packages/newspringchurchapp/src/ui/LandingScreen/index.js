@@ -9,9 +9,8 @@ import {
   PaddedView,
   BackgroundView,
 } from '@apollosproject/ui-kit';
+import { Slide } from '@apollosproject/ui-onboarding';
 import NSIcon from '../NSIcon';
-
-import Slide from '../Onboarding/Slide';
 
 const Content = styled({
   flex: 1,

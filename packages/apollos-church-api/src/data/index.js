@@ -22,6 +22,7 @@ import {
   PersonalDevice,
   Template,
   AuthSms,
+  BinaryFiles,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ContentItem from './content-items';
@@ -53,6 +54,7 @@ const data = {
   Pass,
   Template,
   Campus,
+  BinaryFiles,
 };
 
 const {
