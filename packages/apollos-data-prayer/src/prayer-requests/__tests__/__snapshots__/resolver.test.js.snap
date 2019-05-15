@@ -180,7 +180,7 @@ Object {
 exports[`PrayerRequest gets all public prayer requests 2`] = `
 Array [
   Array [
-    "PrayerRequests/Public?loadAttributes=expanded",
+    "PrayerRequests/Public?loadAttributes=expanded&%24filter=RequestedByPersonAliasId%20ne%20123",
     Object {},
     Object {},
   ],
@@ -219,7 +219,7 @@ Object {
 exports[`PrayerRequest gets all public prayer requests by campus 2`] = `
 Array [
   Array [
-    "PrayerRequests/Public?loadAttributes=expanded&%24filter=CampusId%20eq%203",
+    "PrayerRequests/Public?loadAttributes=expanded&%24filter=%28CampusId%20eq%203%29%20and%20%28RequestedByPersonAliasId%20ne%20123%29",
     Object {},
     Object {},
   ],
