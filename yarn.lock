@@ -139,13 +139,13 @@
     passkit-generator "^1.5.9"
     qrcode "^1.3.3"
 
-"@apollosproject/data-connector-rock@^0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.6.tgz#eacebd09862ee133117a4a4ebc2f448269c199f6"
-  integrity sha512-3FVW1pJ2LzBaNE2PSRFXeEeVzuUFUQ5iuBm2VemkVXM07DtM+BdtrZlaUSjnkqztzEACB6TG/rFhNGOSSWWksQ==
+"@apollosproject/data-connector-rock@^0.8.7-alpha.4":
+  version "0.8.7-alpha.8"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.7-alpha.8.tgz#be8589670570709d662c537fbc549e0419a1e160"
+  integrity sha512-gZcXVHShai0nhxpz36Pgvj2gwNutv+FhynGkkpb08Cqh+5K52voBXLertbuJEkv/7evIrD48s3U7MEED2vL0Lw==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.5"
-    "@apollosproject/server-core" "^0.8.5"
+    "@apollosproject/data-schema" "^0.8.6"
+    "@apollosproject/server-core" "^0.8.7-alpha.8+a04c136d"
     awesome-phonenumber "^2.4.2"
     form-data "^2.3.3"
     jest "^23.6.0"
@@ -178,6 +178,13 @@
   dependencies:
     graphql-tag "^2.10.0"
 
+"@apollosproject/data-schema@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.6.tgz#77f297c94ceeaddc4d33256517bf152c35dd3065"
+  integrity sha512-trQRyOqB8RRAbINh129I9JvK1H7Qc/4RIV/YqPB0Ex/HnOvSIKlOBsil+OR0N3PXkfuswN64tzRfHS+54oKpAw==
+  dependencies:
+    graphql-tag "^2.10.0"
+
 "@apollosproject/rock-apollo-data-source@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.5.tgz#71f7b11d38cb3c1b154f4ba7dc611248be42ccc3"
@@ -204,6 +211,16 @@
   integrity sha512-ZUGVHFXN7UN56RhcKAnKPBnJYV8/nJCs6WeyUSb2KFbboHFaXN6B/I8e11ZGJwXW4WleVYXW+NgjgHa18uSaJg==
   dependencies:
     "@apollosproject/data-schema" "^0.8.5"
+    crypto "^1.0.1"
+    graphql-tag "^2.10.0"
+    lodash "^4.17.11"
+
+"@apollosproject/server-core@^0.8.7-alpha.8+a04c136d":
+  version "0.8.7-alpha.8"
+  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.7-alpha.8.tgz#a998f792ce79796698fb990da592706fe28e532c"
+  integrity sha512-qBz8MLTkUM13xICah02ad+eVrbRASVkSSlffrJ6qzP9NFMlk1VuvMyrXgRSSYAeU56qQCi0Si1kl6zq+cEDpjQ==
+  dependencies:
+    "@apollosproject/data-schema" "^0.8.6"
     crypto "^1.0.1"
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
