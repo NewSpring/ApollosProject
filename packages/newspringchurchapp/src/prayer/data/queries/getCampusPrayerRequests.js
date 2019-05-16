@@ -7,6 +7,11 @@ export default gql`
       firstName
       lastName
       isAnonymous
+      person {
+        photo {
+          uri
+        }
+      }
       text
       flagCount
       campus {
