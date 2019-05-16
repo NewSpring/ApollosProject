@@ -101,7 +101,7 @@
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
-"@apollosproject/data-connector-church-online@^0.8.7-alpha.1":
+"@apollosproject/data-connector-church-online@0.8.7-alpha.1":
   version "0.8.7-alpha.1"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-church-online/-/data-connector-church-online-0.8.7-alpha.1.tgz#63ee0a7c0cbc3f1be2a0eca6abe202fabaf7eb60"
   integrity sha512-SgiKekX+26yXnQ7EIyvy6Fau2NwWEFrvaWf+X1ulomRmdRxdvAWeBUpA4Qv9QiQJT/YIqvzTpKJohLodPgAwoQ==
@@ -139,13 +139,13 @@
     passkit-generator "^1.5.9"
     qrcode "^1.3.3"
 
-"@apollosproject/data-connector-rock@^0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.6.tgz#eacebd09862ee133117a4a4ebc2f448269c199f6"
-  integrity sha512-3FVW1pJ2LzBaNE2PSRFXeEeVzuUFUQ5iuBm2VemkVXM07DtM+BdtrZlaUSjnkqztzEACB6TG/rFhNGOSSWWksQ==
+"@apollosproject/data-connector-rock@0.8.7-alpha.4":
+  version "0.8.7-alpha.4"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-0.8.7-alpha.4.tgz#61e4da8fa33e717989f64a4a415160c6495d5c8b"
+  integrity sha512-CFK6pY4Ol8Vd8eXY9FT08gu0MsRIX+8u5mC7kDsvCxusS0ZP5yAF32GmcT41tb8e6xZXNdjnbsuY9P4nZJ+O7Q==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.5"
-    "@apollosproject/server-core" "^0.8.5"
+    "@apollosproject/data-schema" "^0.8.6"
+    "@apollosproject/server-core" "^0.8.6"
     awesome-phonenumber "^2.4.2"
     form-data "^2.3.3"
     jest "^23.6.0"
@@ -178,6 +178,13 @@
   dependencies:
     graphql-tag "^2.10.0"
 
+"@apollosproject/data-schema@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.6.tgz#77f297c94ceeaddc4d33256517bf152c35dd3065"
+  integrity sha512-trQRyOqB8RRAbINh129I9JvK1H7Qc/4RIV/YqPB0Ex/HnOvSIKlOBsil+OR0N3PXkfuswN64tzRfHS+54oKpAw==
+  dependencies:
+    graphql-tag "^2.10.0"
+
 "@apollosproject/rock-apollo-data-source@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.5.tgz#71f7b11d38cb3c1b154f4ba7dc611248be42ccc3"
@@ -202,6 +209,16 @@
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.5.tgz#7d0c9e56470d2d9171eef4b32243ea1323823f7e"
   integrity sha512-ZUGVHFXN7UN56RhcKAnKPBnJYV8/nJCs6WeyUSb2KFbboHFaXN6B/I8e11ZGJwXW4WleVYXW+NgjgHa18uSaJg==
+  dependencies:
+    "@apollosproject/data-schema" "^0.8.5"
+    crypto "^1.0.1"
+    graphql-tag "^2.10.0"
+    lodash "^4.17.11"
+
+"@apollosproject/server-core@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.6.tgz#13e690088e29dfd00a20bd440e5b17729760eabd"
+  integrity sha512-Sm9TSE3Ao8fyf3jtsTPDtLnWnM+W2X63ZOKyMjAh+DBdT+wdinicNEk/Sg7B3K+vc1nkhh14HAjyMMTI40nvow==
   dependencies:
     "@apollosproject/data-schema" "^0.8.5"
     crypto "^1.0.1"

@@ -6,6 +6,11 @@ export default gql`
       id
       firstName
       lastName
+      person {
+        photo {
+          uri
+        }
+      }
       isAnonymous
       text
       flagCount
