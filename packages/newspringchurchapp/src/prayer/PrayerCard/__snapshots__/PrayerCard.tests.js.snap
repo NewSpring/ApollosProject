@@ -340,25 +340,26 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               }
             />
             <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "paddingHorizontal": 16,
-                  "paddingVertical": 16,
+                  "opacity": 1,
+                  "zIndex": 2,
                 }
               }
             >
               <View
-                accessible={true}
-                isTVSelectable={true}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "opacity": 1,
+                    "paddingHorizontal": 16,
+                    "paddingVertical": 16,
                   }
                 }
               >
