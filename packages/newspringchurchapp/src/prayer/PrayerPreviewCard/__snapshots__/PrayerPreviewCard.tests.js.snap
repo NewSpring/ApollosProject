@@ -33,11 +33,18 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       }
     }
   >
-    <View>
+    <View
+      style={
+        Object {
+          "justifyContent": "flex-end",
+        }
+      }
+    >
       <View
         style={
           Object {
-            "height": "100%",
+            "height": "80%",
+            "overflow": "hidden",
           }
         }
       >
@@ -223,8 +230,8 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
         <BVLinearGradient
           colors={
             Array [
-              1728053247,
-              4294967295,
+              0,
+              undefined,
             ]
           }
           endPoint={
@@ -235,8 +242,8 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
           }
           locations={
             Array [
-              0.25,
-              0.75,
+              0.1,
+              1,
             ]
           }
           startPoint={
@@ -259,12 +266,8 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       <View
         style={
           Object {
-            "bottom": 0,
-            "left": 0,
             "paddingHorizontal": 16,
             "paddingVertical": 16,
-            "position": "absolute",
-            "right": 0,
           }
         }
       >
