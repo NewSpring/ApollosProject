@@ -13,7 +13,7 @@ import {
   ButtonLink,
   withTheme,
 } from '@apollosproject/ui-kit';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView } from 'react-native-tab-view';
 import { Query } from 'react-apollo';
 import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
@@ -26,14 +26,6 @@ import PRAYER_MENU_CATEGORIES from './data/queries/getPrayerMenuCategories';
 const RowHeader = styled(() => ({
   zIndex: 2, // UX hack to improve tapability. Positions RowHeader above StyledHorizontalTileFeed
 }))(PaddedView);
-
-const loadingStateObject = {
-  node: {
-    id: 'fakeId0',
-    title: '',
-    isLoading: true,
-  },
-};
 
 // used by PrayerList.js to determine what list shows when "Start Praying" is clicked
 const prayerLists = {
@@ -175,11 +167,14 @@ class PrayerMenu extends PureComponent {
         key: 'my-prayers',
       },
     ],
-    categories: [],
     prayerMenuItemSelected: 1,
     showAddPrayerCard: true,
     animatedValue: new Animated.Value(0),
   };
+
+  categories = [];
+
+  handleIndexChange = (index) => this.setState({ index });
 
   animate = (toValue) =>
     Animated.spring(this.state.animatedValue, {
@@ -188,55 +183,6 @@ class PrayerMenu extends PureComponent {
       tension: 30,
       friction: 7,
     }).start();
-
-  handleIndexChange = (index) => this.setState({ index });
-
-  renderTabBar = (props) => (
-    <Query query={PRAYER_MENU_CATEGORIES}>
-      {({ data }) => {
-        const categories = data.prayerMenuCategories.map((category) => ({
-          id: category.id,
-          description: category.subtitle,
-          image: category.imageURL,
-          overlayColor: [category.overlayColor, category.overlayColor],
-          title: category.title,
-          key: category.key,
-          component: getCategoryComponent(category.key),
-        }));
-        return (
-          <StyledFeed
-            content={categories}
-            renderItem={({ item }) => (
-              <TouchableScale
-                key={item.key}
-                onPress={() => {
-                  if (this.state.showAddPrayerCard) {
-                    this.animate(1);
-
-                    this.setState({
-                      showAddPrayerCard: false,
-                    });
-                  }
-
-                  this.setState({ prayerMenuItemSelected: item.key });
-
-                  props.jumpTo(item.key);
-                }}
-              >
-                <PrayerMenuCard
-                  image={item.image}
-                  overlayColor={item.overlayColor}
-                  title={item.title}
-                  selected={this.state.prayerMenuItemSelected === item.key}
-                />
-              </TouchableScale>
-            )}
-            loadingStateObject={loadingStateObject}
-          />
-        );
-      }}
-    </Query>
-  );
 
   render() {
     return (
@@ -267,7 +213,6 @@ class PrayerMenu extends PureComponent {
               <NSIcon
                 onPress={() => {
                   this.animate(0);
-
                   this.setState({
                     showAddPrayerCard: true,
                     prayerMenuItemSelected: 1,
@@ -280,7 +225,6 @@ class PrayerMenu extends PureComponent {
               <StyledButtonLink
                 onPress={() => {
                   this.animate(0);
-
                   this.setState({
                     showAddPrayerCard: true,
                     prayerMenuItemSelected: 1,
@@ -294,58 +238,79 @@ class PrayerMenu extends PureComponent {
           <RowHeader>
             <H3>Pray for Others</H3>
           </RowHeader>
-          <TabView
-            initialLayout={{
-              height: Dimensions.get('window').height,
-              width: Dimensions.get('window').width,
+          <Query query={PRAYER_MENU_CATEGORIES}>
+            {({ loading, data: { prayerMenuCategories } }) => {
+              if (loading) return null;
+              this.categories = prayerMenuCategories.map((category) => ({
+                id: category.id,
+                description: category.subtitle,
+                image: category.imageURL,
+                overlayColor: [category.overlayColor, category.overlayColor],
+                title: category.title,
+                key: category.key,
+                component: getCategoryComponent(category.key),
+              }));
+              return (
+                <TabView
+                  initialLayout={{
+                    height: Dimensions.get('window').height,
+                    width: Dimensions.get('window').width,
+                  }}
+                  navigationState={{ ...this.state }}
+                  renderScene={({ route }) => {
+                    const scenes = {};
+                    prayerMenuCategories.forEach((category) => {
+                      scenes[category.key] = (
+                        <Tab
+                          description={category.subtitle}
+                          showAddPrayerCard={this.state.showAddPrayerCard}
+                          component={getCategoryComponent(category.key)}
+                        />
+                      );
+                    });
+                    return scenes[route.key];
+                  }}
+                  renderTabBar={(props) => (
+                    <StyledFeed
+                      content={this.categories}
+                      renderItem={({ item }) => (
+                        <TouchableScale
+                          key={item.key}
+                          onPress={() => {
+                            if (this.state.showAddPrayerCard) {
+                              this.animate(1);
+                              this.setState({
+                                showAddPrayerCard: false,
+                              });
+                            }
+                            this.setState({ prayerMenuItemSelected: item.key });
+                            props.jumpTo(item.key);
+                          }}
+                        >
+                          <PrayerMenuCard
+                            image={item.image}
+                            overlayColor={item.overlayColor}
+                            title={item.title}
+                            selected={
+                              this.state.prayerMenuItemSelected === item.key
+                            }
+                          />
+                        </TouchableScale>
+                      )}
+                      loadingStateObject={{
+                        node: {
+                          id: 'fakeId0',
+                          isLoading: true,
+                        },
+                      }}
+                    />
+                  )}
+                  onIndexChange={this.handleIndexChange}
+                  swipeEnabled={false}
+                />
+              );
             }}
-            // TODO: routes: categories.keys needs to be passed so we don't need state.routes
-            navigationState={{ ...this.state }}
-            renderScene={({ route }) => {
-              const scenes = {
-                // TODO: this needs to come from the data call
-                'my-saved-prayers': (
-                  <Tab
-                    description={'saved prayers'}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent('my-saved-prayers')}
-                  />
-                ),
-                'my-church': (
-                  <Tab
-                    description={'church prayers'}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent('my-church')}
-                  />
-                ),
-                'my-campus': (
-                  <Tab
-                    description={'campus prayers'}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent('my-campus')}
-                  />
-                ),
-                'my-community': (
-                  <Tab
-                    description={'community prayers'}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent('my-community')}
-                  />
-                ),
-                'my-prayers': (
-                  <Tab
-                    description={'my prayers'}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent('my-prayers')}
-                  />
-                ),
-              };
-              return scenes[route.key];
-            }}
-            renderTabBar={this.renderTabBar}
-            onIndexChange={this.handleIndexChange}
-            swipeEnabled={false}
-          />
+          </Query>
         </SafeAreaView>
       </Animated.View>
     );
