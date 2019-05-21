@@ -61,6 +61,10 @@ const StyledPrayerHeaderView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit * 0.5,
 }))(View);
 
+const StyledTouchable = styled({
+  zIndex: 2,
+})(Touchable);
+
 class PrayerCard extends PureComponent {
   static navigationOptions = () => ({
     header: null,
@@ -164,19 +168,18 @@ class PrayerCard extends PureComponent {
             ) : null}
             <StyledBodyText>{prayer}</StyledBodyText>
             {showHelp ? (
-              <PaddedView>
-                <Touchable
-                  onPress={() => {
-                    navigation.navigate('ContentSingle', {
-                      itemId:
-                        'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
-                      itemTitle: 'Learning how to pray like Jesus',
-                    });
-                  }}
-                >
+              <StyledTouchable
+                onPress={() => {
+                  navigation.navigate('ContentSingle', {
+                    itemId: 'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                    itemTitle: 'Learning how to pray like Jesus',
+                  });
+                }}
+              >
+                <PaddedView>
                   <ChannelLabel icon="information" label="How to Pray?" />
-                </Touchable>
-              </PaddedView>
+                </PaddedView>
+              </StyledTouchable>
             ) : null}
           </StyledCardContent>
         </ExpandedCard>
