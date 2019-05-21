@@ -58,7 +58,7 @@ const prayerMenuData = [
         }}
         avatarSize={'medium'}
         name={'Dan'}
-        overlayColor={['#FFF', '#FFF']}
+        overlayColor={'#FFF'}
         prayer={
           'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
         }
@@ -81,7 +81,7 @@ const prayerMenuData = [
         }}
         avatarSize={'medium'}
         name={'Morgan'}
-        overlayColor={['#FFF', '#FFF']}
+        overlayColor={'#FFF'}
         prayer={
           'Pray that God will do big things at our Connect table this month.'
         }
@@ -104,7 +104,7 @@ const prayerMenuData = [
         }}
         avatarSize={'medium'}
         name={'Devin'}
-        overlayColor={['#FFF', '#FFF']}
+        overlayColor={'#FFF'}
         prayer={
           'Please pray for Fuse! FSKO is coming and we want God to show up big.'
         }
