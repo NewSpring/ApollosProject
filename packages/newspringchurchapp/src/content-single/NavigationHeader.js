@@ -4,7 +4,11 @@ import { ModalViewHeader } from '@apollosproject/ui-kit';
 
 const NavigationHeader = ({ scene, navigation }) => {
   let onBack = null;
-  if (scene.index > 0) onBack = () => navigation.pop();
+  // The isolated prop is for a situation where a content single is navigated to from a separate navigator.
+  // This will only ever be true if that content single cannot navigate to another screen and we need to
+  // navigate back to the previous route.
+  if (scene.index > 0 || navigation.state.params.isolated)
+    onBack = () => navigation.pop();
 
   const onClose = () => {
     // Since we're dealing with nested navigators, we have to trigger two actions:
@@ -20,7 +24,12 @@ const NavigationHeader = ({ scene, navigation }) => {
     navigation.pop();
   };
 
-  return <ModalViewHeader onClose={onClose} onBack={onBack} />;
+  return (
+    <ModalViewHeader
+      onClose={navigation.state.params.isolated ? null : onClose}
+      onBack={onBack}
+    />
+  );
 };
 
 NavigationHeader.propTypes = {
