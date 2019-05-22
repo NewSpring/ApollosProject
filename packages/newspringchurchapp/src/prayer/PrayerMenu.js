@@ -151,6 +151,10 @@ class PrayerMenu extends PureComponent {
     ),
   };
 
+  static defaultProps = {
+    categories: [],
+  };
+
   state = {
     index: 0,
     routes: this.props.categories.map((category) => ({
