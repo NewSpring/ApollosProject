@@ -55,18 +55,21 @@ class PrayerActionMenuCard extends PureComponent {
     // TO-DO: Once we get a more cohesive icon system, we can refactor this.
     const Actions = [
       {
+        key: 1,
         handleOnPressAction: exitPrayer,
         iconName: 'arrow-up',
         actionText: 'Done Praying',
         nsIcon: true,
       },
       {
+        key: 2,
         handleOnPressAction: savePrayerAction,
         iconName: savePrayerIcon,
         actionText: 'Save Prayer',
         nsIcon: false,
       },
       {
+        key: 3,
         handleOnPressAction: advancePrayer,
         iconName: 'arrow-down',
         actionText: 'Next Prayer',
@@ -91,7 +94,7 @@ class PrayerActionMenuCard extends PureComponent {
         <StyledCardContent>
           {Actions.map((action) => (
             <ActionButton
-              key={action.id}
+              key={action.key}
               onPressAction={action.handleOnPressAction}
               iconName={action.iconName}
               actionText={action.actionText}
