@@ -10,7 +10,6 @@ import PrayerCard from '../PrayerCard';
 const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
 
 const Container = styled(({ theme }) => ({
-  // justifyContent: 'flex-end',
   height: '100%',
   paddingBottom: theme.sizing.baseUnit,
 }))(View);
