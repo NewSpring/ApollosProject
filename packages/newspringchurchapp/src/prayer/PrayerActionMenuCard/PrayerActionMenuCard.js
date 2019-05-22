@@ -26,10 +26,9 @@ const StyledPaddedView = styled(() => ({
   alignItems: 'center',
 }))(PaddedView);
 
-const StyledTouchable = styled(({ theme }) => ({
+const StyledTouchableView = styled({
   alignItems: 'center',
-  padding: theme.sizing.baseUnit * 1.5,
-}))(Touchable);
+})(PaddedView);
 
 class PrayerActionMenuCard extends PureComponent {
   state = {
@@ -45,39 +44,63 @@ class PrayerActionMenuCard extends PureComponent {
       advancePrayer,
       expandedHeight,
     } = this.props;
+
+    const savePrayerAction = () => {
+      savePrayer();
+      this.handleOnSavePrayer();
+    };
+
+    const savePrayerIcon = this.state.hasSavedPrayer ? 'like-solid' : 'like';
+
+    // TO-DO: Once we get a more cohesive icon system, we can refactor this.
+    const Actions = [
+      {
+        key: 1,
+        handleOnPressAction: exitPrayer,
+        iconName: 'arrow-up',
+        actionText: 'Done Praying',
+        nsIcon: true,
+      },
+      {
+        key: 2,
+        handleOnPressAction: savePrayerAction,
+        iconName: savePrayerIcon,
+        actionText: 'Save Prayer',
+        nsIcon: false,
+      },
+      {
+        key: 3,
+        handleOnPressAction: advancePrayer,
+        iconName: 'arrow-down',
+        actionText: 'Next Prayer',
+        nsIcon: true,
+      },
+    ];
+
+    const ActionButton = ({ onPressAction, iconName, actionText, nsIcon }) => (
+      <StyledPaddedView>
+        <Touchable onPress={() => onPressAction()}>
+          <StyledTouchableView>
+            <PaddedView>
+              {nsIcon ? <NSIcon name={iconName} /> : <Icon name={iconName} />}
+            </PaddedView>
+            <H4>{actionText}</H4>
+          </StyledTouchableView>
+        </Touchable>
+      </StyledPaddedView>
+    );
     return (
       <StyledCard expandedHeight={expandedHeight}>
         <StyledCardContent>
-          <StyledPaddedView>
-            {/* TODO: Practice good DRY methods by combing these three touchables into a reusable component */}
-            <StyledTouchable onPress={() => exitPrayer()}>
-              <PaddedView>
-                <NSIcon name="arrow-up" />
-              </PaddedView>
-              <H4>Done Praying</H4>
-            </StyledTouchable>
-          </StyledPaddedView>
-          <StyledPaddedView>
-            <StyledTouchable
-              onPress={() => {
-                savePrayer();
-                this.handleOnSavePrayer();
-              }}
-            >
-              <PaddedView>
-                <Icon name={this.state.hasSavedPrayer ? 'LikeSolid' : 'Like'} />
-              </PaddedView>
-              <H4>Save Prayer</H4>
-            </StyledTouchable>
-          </StyledPaddedView>
-          <StyledPaddedView>
-            <StyledTouchable onPress={() => advancePrayer()}>
-              <PaddedView>
-                <H4>Next Prayer</H4>
-              </PaddedView>
-              <NSIcon name="arrow-down" />
-            </StyledTouchable>
-          </StyledPaddedView>
+          {Actions.map((action) => (
+            <ActionButton
+              key={action.key}
+              onPressAction={action.handleOnPressAction}
+              iconName={action.iconName}
+              actionText={action.actionText}
+              nsIcon={action.nsIcon}
+            />
+          ))}
         </StyledCardContent>
       </StyledCard>
     );

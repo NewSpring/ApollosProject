@@ -5,13 +5,11 @@ import moment from 'moment';
 
 import ActionSheet from 'react-native-actionsheet';
 import {
-  Avatar,
   BodyText,
   Card,
   CardContent,
   H3,
   H5,
-  H6,
   PaddedView,
   styled,
   Touchable,
@@ -20,6 +18,7 @@ import {
   ChannelLabel,
 } from '@apollosproject/ui-kit';
 import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
+import PrayerHeader from '../PrayerHeader';
 
 const ExpandedCard = styled(({ expanded, expandedHeight }) => {
   let styles = {};
@@ -48,28 +47,23 @@ const GreyH5 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
 }))(H5);
 
-const GreyH6 = styled(({ theme }) => ({
-  color: theme.colors.text.tertiary,
-}))(H6);
-
 const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
   marginBottom: theme.sizing.baseUnit,
 }))(CardContent);
 
-const UserHeader = styled(({ theme }) => ({
-  alignItems: 'center',
-  marginBottom: theme.sizing.baseUnit * 1.5,
-}))(View);
-
 const StyledBodyText = styled(() => ({
   textAlign: 'center',
 }))(BodyText);
 
-const StyledAvatarView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
-  marginBottom: theme.sizing.baseUnit * 0.5,
+const StyledPrayerHeaderView = styled(({ theme }) => ({
+  marginBottom: theme.sizing.baseUnit * 1.5,
+  marginTop: theme.sizing.baseUnit * 0.5,
 }))(View);
+
+const StyledTouchable = styled({
+  zIndex: 2,
+})(Touchable);
 
 class PrayerCard extends PureComponent {
   static navigationOptions = () => ({
@@ -152,7 +146,7 @@ class PrayerCard extends PureComponent {
                   this.ActionSheet = sheet;
                 }}
                 options={buttons.map((option) => option.title)}
-                cancelButtonIndex={buttons.length}
+                cancelButtonIndex={buttons.length - 1}
                 destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
                   .map((option) => option.destructive)
                   .indexOf(true)}
@@ -162,40 +156,31 @@ class PrayerCard extends PureComponent {
           ) : null}
           <StyledCardContent>
             {header ? (
-              <UserHeader>
-                {anonymous ? (
-                  <>
-                    <StyledAvatarView>
-                      <Avatar size={avatarSize} />
-                    </StyledAvatarView>
-                    <H3>Pray For Request</H3>
-                  </>
-                ) : (
-                  <>
-                    <StyledAvatarView>
-                      <Avatar source={avatarSource} size={avatarSize} />
-                    </StyledAvatarView>
-                    <H3>Pray For {name}</H3>
-                    {source ? <GreyH6>{source}</GreyH6> : null}
-                  </>
-                )}
-              </UserHeader>
+              <StyledPrayerHeaderView>
+                <PrayerHeader
+                  anonymous={anonymous}
+                  avatarSize={avatarSize}
+                  avatarSource={avatarSource}
+                  name={`Pray For ${name}`}
+                  source={source}
+                />
+              </StyledPrayerHeaderView>
             ) : null}
             <StyledBodyText>{prayer}</StyledBodyText>
             {showHelp ? (
-              <PaddedView>
-                <Touchable
-                  onPress={() => {
-                    navigation.navigate('ContentSingle', {
-                      itemId:
-                        'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
-                      itemTitle: 'Learning how to pray like Jesus',
-                    });
-                  }}
-                >
+              <StyledTouchable
+                onPress={() => {
+                  navigation.navigate('ContentSingle', {
+                    itemId: 'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
+                    itemTitle: 'Learning how to pray like Jesus',
+                    isolated: true,
+                  });
+                }}
+              >
+                <PaddedView>
                   <ChannelLabel icon="information" label="How to Pray?" />
-                </Touchable>
-              </PaddedView>
+                </PaddedView>
+              </StyledTouchable>
             ) : null}
           </StyledCardContent>
         </ExpandedCard>

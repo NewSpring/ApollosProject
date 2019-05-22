@@ -15,7 +15,7 @@ const StyledView = styled(({ theme }) => ({
 }))(View);
 
 const UserPrayerList = () => (
-  <ScrollView>
+  <ScrollView nestedScrollEnabled>
     <Query query={getUserPrayers} fetchPolicy="cache-and-network">
       {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
         <Mutation

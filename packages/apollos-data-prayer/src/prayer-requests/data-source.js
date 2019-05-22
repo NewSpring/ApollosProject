@@ -10,25 +10,58 @@ export default class PrayerRequest extends RockApolloDataSource {
   expanded = true;
 
   // QUERY ALL PrayerRequests
-  getAll = () => this.request('PrayerRequests/Public').get();
+  getAll = async () => {
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
+
+      const { primaryAliasId } = await Auth.getCurrentPerson();
+
+      return await this.request('PrayerRequests/Public')
+        .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
+        .get();
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
 
   // QUERY PrayerRequests by Campus
-  getAllByCampus = (campusId) =>
-    this.request('PrayerRequests/Public')
-      .filter(`CampusId eq ${parseGlobalId(campusId).id}`)
-      .get();
+  getAllByCampus = async (campusId) => {
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
+
+      const { primaryAliasId } = await Auth.getCurrentPerson();
+
+      return this.request('PrayerRequests/Public')
+        .filter(
+          `(CampusId eq ${
+            parseGlobalId(campusId).id
+          }) and (RequestedByPersonAliasId ne ${primaryAliasId})`
+        )
+        .get();
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
 
   // QUERY PrayerRequests from Current Person
   getFromCurrentPerson = async () => {
-    const {
-      dataSources: { Auth },
-    } = this.context;
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+      const { primaryAliasId } = await Auth.getCurrentPerson();
 
-    return this.request('PrayerRequests/Public')
-      .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
-      .get();
+      return this.request('PrayerRequests/Public')
+        .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
+        .get();
+    } catch (err) {
+      throw new Error(err);
+    }
   };
 
   // QUERY PrayerRequests from groups

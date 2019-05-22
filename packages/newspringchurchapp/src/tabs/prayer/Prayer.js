@@ -5,7 +5,12 @@ import PrayerMenu from '../../prayer';
 
 const Header = styled(({ theme }) => ({
   backgroundColor: theme.colors.background.paper,
+  flex: 1,
 }))(ScrollView);
+
+const StyledSafeAreaView = styled({
+  flex: 1,
+})(SafeAreaView);
 
 class Prayer extends PureComponent {
   static navigationOptions = () => ({
@@ -15,11 +20,11 @@ class Prayer extends PureComponent {
   render() {
     return (
       <BackgroundView>
-        <SafeAreaView>
+        <StyledSafeAreaView>
           <Header>
             <PrayerMenu {...this.props} />
           </Header>
-        </SafeAreaView>
+        </StyledSafeAreaView>
       </BackgroundView>
     );
   }

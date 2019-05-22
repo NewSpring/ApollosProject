@@ -1,12 +1,13 @@
 {
-  "description": "Apollos Church",
+  "description": "NewSpring Church",
   "formatVersion": 1,
-  "organizationName": "Apollos Church",
-  "passTypeIdentifier": "pass.com.apollos.testing",
+  "organizationName": "NewSpring Church",
+  "passTypeIdentifier": "pass.com.newspringchurch.testing",
   "teamIdentifier": "7TM8C6252Z",
-  "logoText": "Apollos Church",
-  "backgroundColor": "rgb(0,103,109)",
+  "logoText": "NewSpring Church",
+  "backgroundColor": "rgb(107,172,67)",
   "foregroundColor": "rgb(248,247,244)",
+  "labelColor": "rgb(255,255,255)",
   "serialNumber": "checkinpass-{{ person | GetPersonAlternateId }}",
   "thumbnail": {
     "uri": "{{ person.Photo.Url }}&format=png&height=200"
@@ -41,12 +42,12 @@
     "secondaryFields": [
       {
         "key": "home",
-        "label": "home",
+        "label": "Home",
         "value": "{{ person | Address:'Home','[[City]], [[State]]' }}"
       },
       {
         "key": "campus",
-        "label": "campus",
+        "label": "Campus",
         "textAlignment": "PKTextAlignmentRight",
         "value":
           "{% assign personCampus = person | Campus %}{{ personCampus.Name  }}"

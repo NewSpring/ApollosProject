@@ -47,7 +47,7 @@ const getCategoryComponent = (key) => {
           }}
           avatarSize={'medium'}
           name={'Dan'}
-          overlayColor={['#FFF', '#FFF']}
+          overlayColor={'#FFF'}
           prayer={
             'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
           }
@@ -63,7 +63,7 @@ const getCategoryComponent = (key) => {
           }}
           avatarSize={'medium'}
           name={'Morgan'}
-          overlayColor={['#FFF', '#FFF']}
+          overlayColor={'#FFF'}
           prayer={
             'Pray that God will do big things at our Connect table this month.'
           }
@@ -79,7 +79,7 @@ const getCategoryComponent = (key) => {
           }}
           avatarSize={'medium'}
           name={'Devin'}
-          overlayColor={['#FFF', '#FFF']}
+          overlayColor={'#FFF'}
           prayer={
             'Please pray for Fuse! FSKO is coming and we want God to show up big.'
           }
@@ -245,7 +245,7 @@ class PrayerMenu extends PureComponent {
                 id: category.id,
                 description: category.subtitle,
                 image: category.imageURL,
-                overlayColor: [category.overlayColor, category.overlayColor],
+                overlayColor: category.overlayColor,
                 title: category.title,
                 key: category.key,
                 component: getCategoryComponent(category.key),

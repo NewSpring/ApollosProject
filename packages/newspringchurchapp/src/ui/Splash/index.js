@@ -2,16 +2,10 @@ import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import {
-  styled,
-  withTheme,
-  Icon,
-  H1,
-  H4,
-  PaddedView,
-} from '@apollosproject/ui-kit';
+import { styled, withTheme, H1, H4, PaddedView } from '@apollosproject/ui-kit';
+import NSIcon from '../NSIcon';
 
-import Slide from '../Onboarding/Slide';
+import Slide from '../Onboarding/Slide/SlideContent';
 
 const Content = styled({
   flex: 1,
@@ -19,13 +13,13 @@ const Content = styled({
 })(PaddedView);
 
 const BrandIcon = withTheme(({ theme, isLight }) => ({
-  name: 'brand-icon',
+  name: 'leaf-logo',
   size: theme.sizing.baseUnit * 3.0,
   fill: isLight ? theme.colors.text.primary : theme.colors.white,
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
-}))(Icon);
+}))(NSIcon);
 
 const Title = styled(({ theme, isLight }) => ({
   color: isLight ? theme.colors.text.primary : theme.colors.white,
