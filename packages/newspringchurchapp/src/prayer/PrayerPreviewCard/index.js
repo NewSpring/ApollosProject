@@ -9,9 +9,11 @@ import PrayerCard from '../PrayerCard';
 
 const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
 
-const Container = styled({
-  justifyContent: 'flex-end',
-})(View);
+const Container = styled(({ theme }) => ({
+  // justifyContent: 'flex-end',
+  height: '100%',
+  paddingBottom: theme.sizing.baseUnit,
+}))(View);
 
 const Preview = styled({
   height: '80%',

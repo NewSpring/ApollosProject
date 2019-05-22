@@ -10,7 +10,6 @@ import deleteUserPrayer from '../data/mutations/deleteUserPrayer';
 import getUserPrayers from '../data/queries/getUserPrayers';
 
 const StyledView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
   marginBottom: theme.sizing.baseUnit * 4,
 }))(View);
 
