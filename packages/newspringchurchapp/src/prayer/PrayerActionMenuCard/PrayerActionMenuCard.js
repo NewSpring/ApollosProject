@@ -50,7 +50,7 @@ class PrayerActionMenuCard extends PureComponent {
       this.handleOnSavePrayer();
     };
 
-    const savePrayerIcon = this.state.hasSavedPrayer ? 'LikeSolid' : 'Like';
+    const savePrayerIcon = this.state.hasSavedPrayer ? 'like-solid' : 'like';
 
     // TO-DO: Once we get a more cohesive icon system, we can refactor this.
     const Actions = [
