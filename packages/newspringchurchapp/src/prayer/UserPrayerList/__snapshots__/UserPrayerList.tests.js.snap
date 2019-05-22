@@ -41,7 +41,6 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
           style={
             Object {
               "marginBottom": 64,
-              "marginTop": 24,
             }
           }
         />
