@@ -92,12 +92,12 @@
     moment "^2.22.2"
     universal-analytics "^0.4.20"
 
-"@apollosproject/data-connector-bible@^0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-bible/-/data-connector-bible-0.8.6.tgz#0a5b5219f9bd101c5bdaabe25934e510d04b5367"
-  integrity sha512-8VwR0zpgQM53sx+4sSCQleneCPPAnxLXmiTlTGr5V1wIpexc823nCc/Iw/vKtIjEGPJ5RX+D9lCey4Ab4IfSug==
+"@apollosproject/data-connector-bible@0.8.7-alpha.13":
+  version "0.8.7-alpha.13"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-bible/-/data-connector-bible-0.8.7-alpha.13.tgz#8a40b6710b554b1923c22274eb1226abfd5303b4"
+  integrity sha512-/0jj8Y/Rpf6y8o4vvYcBQgOvWSCKIkUTiBnzxj6K37xvh8tMyeiefWYCWTE5ovv9cUDl1aXVOe0zl7cKYumIxQ==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.5"
+    "@apollosproject/data-schema" "^0.8.6"
     apollo-datasource-rest "^0.2.0"
     lodash "^4.17.11"
 
