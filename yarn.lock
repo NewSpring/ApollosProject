@@ -225,10 +225,10 @@
     graphql-tag "^2.10.0"
     lodash "^4.17.11"
 
-"@apollosproject/ui-analytics@0.8.7-alpha.1":
-  version "0.8.7-alpha.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.7-alpha.1.tgz#f54687ba02c1e452c646a21ed4287ea6ec516e3f"
-  integrity sha512-xGrg676xykrIr/TXlbUGruSUnej7kp83fyl17mVEek/r+AXrbpy7JZV9BY3o+ihmdQY7FO5gKHyD1l511G+S4A==
+"@apollosproject/ui-analytics@0.8.7-alpha.9":
+  version "0.8.7-alpha.9"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-0.8.7-alpha.9.tgz#792df877d8be3b250be0647e8e2ada2b2abc4335"
+  integrity sha512-AdCh9l32kdkEGSdRja4qKU8DWU3EOZYwA5ClcP+3KrAAIf2hUN5+CCrolKLARfWKhMzeA/fuHDnmIVGFldb8QQ==
   dependencies:
     apollo-link-context "1.0.14"
     graphql-tag "2.9.2"
