@@ -73,7 +73,7 @@
     "@apollosproject/ui-auth": "0.8.7-alpha.1",
     "@apollosproject/ui-htmlview": "0.8.7-alpha.1",
     "@apollosproject/ui-kit": "0.8.7-alpha.1",
-    "@apollosproject/ui-onboarding": "0.8.7-alpha.1",
+    "@apollosproject/ui-onboarding": "0.8.7-alpha.9",
     "@apollosproject/ui-passes": "0.8.7-alpha.1",
     "@apollosproject/ui-storybook": "0.8.6",
     "apollo-cache-inmemory": "1.5.1",
