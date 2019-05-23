@@ -95,11 +95,10 @@ const StyledPaddedView = styled(({ theme }) => ({
   marginTop: theme.sizing.baseUnit,
 }))(PaddedView);
 
-const StyledView = styled(({ theme }) => ({
+const StyledView = styled({
   height: Dimensions.get('window').height * 0.4,
   justifyContent: 'flex-end',
-  marginTop: theme.sizing.baseUnit,
-}))(View);
+})(View);
 
 const StyledButtonLink = styled(({ theme }) => ({
   textAlign: 'center',
