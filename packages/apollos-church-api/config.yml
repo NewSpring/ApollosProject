@@ -54,8 +54,9 @@ ROCK_MAPPINGS:
   INTERACTIONS:
     # Name of the InteractionChannel that will be created
     CHANNEL_NAME: Apollos NewSpring App
-    # Name of the InteractionComponent that will be created for Content Items
+    # Name of the InteractionComponent that will be created for Content Items or Prayer Requests
     COMPONENT_NAME: Apollos NewSpring Content Item
+    COMPONENT_NAME_PRAYER_REQUEST: Apollos NewSpring Prayer Request
     # 512 is "Mobile App"
     CHANNEL_MEDIUM_TYPE_ID: 512
 
@@ -74,6 +75,8 @@ ROCK_MAPPINGS:
       EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
+
+  PRAYER_REQUEST_TYPE: PrayerRequest
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:

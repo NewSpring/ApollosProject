@@ -68,6 +68,16 @@ export default {
       });
       return Node.get(nodeId, dataSources, schema);
     },
+    createPrayerInteraction: async (
+      root,
+      { prayerId, operationName, prayerTitle },
+      { dataSources }
+    ) =>
+      dataSources.Interactions.createPrayerRequestInteraction({
+        prayerId,
+        operationName,
+        prayerTitle,
+      }),
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
