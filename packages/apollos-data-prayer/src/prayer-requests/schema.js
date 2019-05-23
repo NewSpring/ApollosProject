@@ -22,11 +22,6 @@ const prayerRequestSchema = gql`
     flagRequest(id: String!): PrayerRequest
     savePrayer(nodeId: String!): PrayerRequest
     unSavePrayer(nodeId: String!): PrayerRequest
-    createPrayerInteraction(
-      prayerId: String!
-      operationName: String!
-      prayerTitle: String
-    ): PrayerRequest
   }
   type PrayerRequest implements Node {
     id: ID!
