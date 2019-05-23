@@ -1,6 +1,6 @@
-import { Campus } from '@apollosproject/data-connector-rock';
+import { Campus as apollosCampus } from '@apollosproject/data-connector-rock';
 
-export default class PublicCampus extends Campus.dataSource {
+export default class PublicCampus extends apollosCampus.dataSource {
   getPublicByLocation = async (location) => {
     const allCampuses = await this.getByLocation(location);
     const publicCampuses = allCampuses.filter(
