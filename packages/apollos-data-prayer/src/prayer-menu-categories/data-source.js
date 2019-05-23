@@ -15,11 +15,11 @@ class PrayerMenuCategory extends ContentItem.dataSource {
       dataSources: { Auth, Campus },
     } = this.context;
 
-    const currentPerson = await Auth.getCurrentPerson();
+    const { id } = await Auth.getCurrentPerson();
     let filteredCategories = allCategories;
 
     // filter out campus
-    const campus = await Campus.getForPerson({ personId: currentPerson.id });
+    const campus = await Campus.getForPerson({ personId: id });
     if (campus.name === 'Web')
       filteredCategories = allCategories.filter(
         (category) =>
