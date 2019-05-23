@@ -10,12 +10,12 @@ const mapNewSpringNameToRockName = (name) => {
   throw new Error(`${name} is not the correct Prayer Request Rock type!`);
 };
 
-export default class RockConstants extends apollosRockConstants.dataSource {
+class RockConstants extends apollosRockConstants.dataSource {
   async prayerRequestInteractionComponent({
     prayerRequestId,
     prayerName = null,
   }) {
-    const channel = await this.PrayerRequestInteractionChannel();
+    const channel = await this.prayerRequestInteractionChannel();
     return this.createOrFindInteractionComponent({
       componentName: `${
         ROCK_MAPPINGS.INTERACTIONS.COMPONENT_NAME_PRAYER_REQUEST
@@ -47,3 +47,6 @@ export default class RockConstants extends apollosRockConstants.dataSource {
     return null;
   }
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export { RockConstants as dataSource };
