@@ -9,7 +9,7 @@ import * as OneSignal from '@apollosproject/data-connector-onesignal';
 import * as Pass from '@apollosproject/data-connector-passes';
 import * as Sms from '@apollosproject/data-connector-twilio';
 
-import { PrayerRequest } from 'apollos-data-prayer';
+import { PrayerRequest, PrayerMenuCategory } from 'apollos-data-prayer';
 
 import {
   Followings,
@@ -41,6 +41,7 @@ const data = {
   AuthSms,
   Sms,
   PrayerRequest,
+  PrayerMenuCategory,
   LiveStream,
   Theme,
   Scripture,

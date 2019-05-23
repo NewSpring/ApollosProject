@@ -47,4 +47,8 @@ PrayerMenuCard.propTypes = {
   title: PropTypes.string,
 };
 
+PrayerMenuCard.defaultProps = {
+  overlayColor: ['#fff', '#fff'],
+};
+
 export default PrayerMenuCard;
