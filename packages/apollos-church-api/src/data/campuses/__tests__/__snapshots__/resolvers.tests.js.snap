@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Campus gets campuses 1`] = `
+Object {
+  "data": Object {
+    "campuses": null,
+  },
+  "errors": Array [
+    [GraphQLError: Cannot read property 'value' of undefined],
+  ],
+}
+`;

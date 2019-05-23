@@ -8,14 +8,8 @@ const resolver = {
       dataSources.Campus.getPublicByLocation(location),
   },
   Campus: {
-    latitude: ({ location }) =>
-      (typeof location.latitude === 'number' && location.latitude) || 0,
-    longitude: ({ location }) =>
-      (typeof location.longitude === 'number' && location.longitude) || 0,
     image: ({ location }) => ({
       uri: createAssetUrl(location.image),
-      width: location.image.width,
-      height: location.image.height,
     }),
   },
 };
