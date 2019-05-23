@@ -23,7 +23,7 @@ class PrayerMenuCategory extends ContentItem.dataSource {
     if (campus.name === 'Web')
       filteredCategories = allCategories.filter(
         (category) =>
-          category.attributeValues.dependsonCampusMembership.value === 'False'
+          category.attributeValues.requiresCampusMembership.value === 'False'
       );
     // filter out groups
     // TODO: need a GraphQL enpoint that says if I'm in any groups
