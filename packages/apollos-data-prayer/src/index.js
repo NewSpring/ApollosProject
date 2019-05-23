@@ -1,4 +1,4 @@
 import * as PrayerRequest from './prayer-requests';
+import * as PrayerMenuCategory from './prayer-menu-categories';
 
-// eslint-disable-next-line
-export { PrayerRequest };
+export { PrayerRequest, PrayerMenuCategory };

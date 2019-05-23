@@ -13,7 +13,7 @@ APP:
   DEEP_LINK_HOST: newspringchurchapp
   ROOT_API_URL: ${ROOT_URL}
 ROCK:
-  API_URL: https://alpha-rock.newspring.cc/api
+  API_URL: ${ROCK_API}
   API_TOKEN: ${ROCK_TOKEN}
   IMAGE_URL: https://s3.amazonaws.com
   # This should match the timezone of the Rock server
@@ -109,6 +109,8 @@ ROCK_MAPPINGS:
     '7': ns.downloads
     '8': ns.images
     '9': ns.videos
+
+  PRAYER_MENU_CATEGORIES_CHANNEL_ID: 40
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
