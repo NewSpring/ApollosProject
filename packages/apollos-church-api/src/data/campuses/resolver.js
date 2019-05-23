@@ -3,6 +3,10 @@ import { schemaMerge } from '@apollosproject/server-core';
 import { createAssetUrl } from '../utils';
 
 const resolver = {
+  Query: {
+    campuses: (root, { location }, { dataSources }) =>
+      dataSources.Campus.getPublicByLocation(location),
+  },
   Campus: {
     latitude: ({ location }) =>
       (typeof location.latitude === 'number' && location.latitude) || 0,
