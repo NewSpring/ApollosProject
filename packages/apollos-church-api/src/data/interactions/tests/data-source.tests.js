@@ -20,8 +20,8 @@ const ds = new Interactions();
 const context = {
   dataSources: {
     RockConstants: {
-      modelType: buildGetMock({ Id: 123 }, ds),
-      contentItemInteractionComponent: buildGetMock({ Id: 789 }, ds),
+      prayerModelType: buildGetMock({ Id: 123 }, ds),
+      prayerRequestInteractionComponent: buildGetMock({ Id: 789 }, ds),
     },
     Auth: {
       getCurrentPerson: buildGetMock({ Id: 456, PrimaryAliasId: 456 }, ds),
