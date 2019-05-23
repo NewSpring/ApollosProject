@@ -3,13 +3,6 @@ import ApollosConfig from '@apollosproject/config';
 
 const { ROCK_MAPPINGS } = ApollosConfig;
 
-const mapNewSpringNameToRockName = (name) => {
-  if (ROCK_MAPPINGS.PRAYER_REQUEST_TYPE.includes(name)) {
-    return 'PrayerRequest';
-  }
-  throw new Error(`${name} is not the correct Prayer Request Rock type!`);
-};
-
 class RockConstants extends apollosRockConstants.dataSource {
   async prayerRequestInteractionComponent({
     prayerRequestId,
@@ -18,7 +11,7 @@ class RockConstants extends apollosRockConstants.dataSource {
     const channel = await this.prayerRequestInteractionChannel();
     return this.createOrFindInteractionComponent({
       componentName: `${
-        ROCK_MAPPINGS.INTERACTIONS.COMPONENT_NAME_PRAYER_REQUEST
+        ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
       } - ${prayerName || prayerRequestId}`,
       channelId: channel.id,
       entityId: parseInt(prayerRequestId, 10),
@@ -33,11 +26,9 @@ class RockConstants extends apollosRockConstants.dataSource {
     });
   }
 
-  async prayerModelType(nameInput) {
-    const name = mapNewSpringNameToRockName(nameInput);
-
+  async prayerModelType() {
     const types = await this.request('EntityTypes')
-      .filter(`Name eq 'Rock.Model.${name}'`)
+      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
       .cache({ ttl: 86400 })
       .get();
     if (types.length) {

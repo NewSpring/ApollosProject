@@ -56,7 +56,7 @@ ROCK_MAPPINGS:
     CHANNEL_NAME: Apollos NewSpring App
     # Name of the InteractionComponent that will be created for Content Items or Prayer Requests
     COMPONENT_NAME: Apollos NewSpring Content Item
-    COMPONENT_NAME_PRAYER_REQUEST: Apollos NewSpring Prayer Request
+    PRAYER_REQUEST: Apollos NewSpring Prayer Request
     # 512 is "Mobile App"
     CHANNEL_MEDIUM_TYPE_ID: 512
 
