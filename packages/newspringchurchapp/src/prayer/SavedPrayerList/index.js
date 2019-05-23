@@ -9,7 +9,6 @@ import savedPrayerList from '../data/queries/getSavedPrayers';
 import unSavePrayer from '../data/mutations/unSavePrayer';
 
 const StyledView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit * 1.5,
   marginBottom: theme.sizing.baseUnit * 4,
 }))(View);
 
