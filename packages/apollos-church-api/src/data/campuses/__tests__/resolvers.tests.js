@@ -1,13 +1,18 @@
 import { graphql } from 'graphql';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
-import { campusSchema, peopleSchema } from '@apollosproject/data-schema';
+import { peopleSchema } from '@apollosproject/data-schema';
 import * as Campus from '../index';
 
 const { getSchema, getContext } = createTestHelpers({ Campus });
 
 describe('Campus', () => {
   const context = getContext();
-  const schema = getSchema([campusSchema, peopleSchema]);
+  context.dataSources.Campus.getPublicByLocation = jest.fn(() =>
+    Promise.resolve([
+      { location: { image: { path: 'https://fake-image-url.com' } } },
+    ])
+  );
+  const schema = getSchema([peopleSchema]);
   it('gets campuses', async () => {
     const query = `
       query {

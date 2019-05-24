@@ -3,10 +3,13 @@
 exports[`Campus gets campuses 1`] = `
 Object {
   "data": Object {
-    "campuses": null,
+    "campuses": Array [
+      Object {
+        "image": Object {
+          "uri": "https://fake-image-url.com",
+        },
+      },
+    ],
   },
-  "errors": Array [
-    [GraphQLError: Cannot read property 'value' of undefined],
-  ],
 }
 `;
