@@ -40,6 +40,9 @@ const context = {
     Auth: {
       getCurrentPerson: buildGetMock({ Id: 456, PrimaryAliasId: 456 }, ds),
     },
+    PrayerRequest: {
+      getFromId: buildGetMock({ requestedByPersonAliasId: 456 }, ds),
+    },
   },
 };
 

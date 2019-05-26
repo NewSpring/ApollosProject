@@ -1,10 +1,9 @@
 import { Interactions as apollosInteractions } from '@apollosproject/data-connector-rock';
-import ApollosConfig from '@apollosproject/config';
 
 export default class Interactions extends apollosInteractions.dataSource {
   async createPrayerRequestInteraction({ prayerId, operationName }) {
     const {
-      dataSources: { RockConstants, Auth },
+      dataSources: { RockConstants, Auth, PrayerRequest },
     } = this.context;
 
     const interactionComponent = await RockConstants.prayerRequestInteractionComponent(
@@ -15,6 +14,9 @@ export default class Interactions extends apollosInteractions.dataSource {
     );
 
     const currentUser = await Auth.getCurrentPerson();
+    const { requestedByPersonAliasId } = await PrayerRequest.getFromId(
+      prayerId
+    );
 
     const interactionId = await this.post('/Interactions', {
       PersonAliasId: currentUser.primaryAliasId,
@@ -23,9 +25,7 @@ export default class Interactions extends apollosInteractions.dataSource {
       Operation: operationName,
       InteractionDateTime: new Date().toJSON(),
       InteractionSummary: `${operationName}`,
-      InteractionData: `${
-        ApollosConfig.APP.DEEP_LINK_HOST
-      }://Interactions/PrayerRequest?itemId=${prayerId}`,
+      InteractionData: `${requestedByPersonAliasId}`,
     });
 
     return this.get(`/Interactions/${interactionId}`);
