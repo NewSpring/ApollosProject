@@ -38,8 +38,15 @@ export default {
       const { id: parsedId } = parseGlobalId(id);
       return dataSources.PrayerRequest.deletePrayer(parsedId);
     },
-    incrementPrayed: (root, { id }, { dataSources }) => {
+    incrementPrayed: async (root, { id }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(id);
+      const operationName = 'Pray';
+
+      await dataSources.Interactions.createPrayerRequestInteraction({
+        prayerId: parsedId,
+        operationName,
+      });
+
       return dataSources.PrayerRequest.incrementPrayed(parsedId);
     },
     flagRequest: (root, { id }, { dataSources }) => {

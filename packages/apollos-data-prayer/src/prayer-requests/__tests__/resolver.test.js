@@ -10,9 +10,11 @@ import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
 import campusMock from '../../campusMock';
 import followingsMock from '../../followingsMock';
+import interactionsMock from '../../interactionsMock';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
+  Interactions: { dataSource: interactionsMock },
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
   Campus: { dataSource: campusMock },
@@ -463,6 +465,7 @@ describe('PrayerRequest', () => {
         lastName: 'Hardy',
       })
     );
+    context.dataSources.Interactions.post = responseMock;
 
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
