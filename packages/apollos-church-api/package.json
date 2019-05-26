@@ -55,7 +55,7 @@
   "devDependencies": {
     "@apollosproject/apollo-server-env-mock": "^0.8.6",
     "@apollosproject/babel-preset-apollos": "^0.8.5",
-    "@babel/cli": "7.1.5",
+    "@babel/cli": "7.4.4",
     "@babel/core": "7.1.6",
     "codecov": "3.5.0",
     "nodemon": "1.18.7"
