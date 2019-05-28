@@ -1,6 +1,6 @@
 import { ROCK, ROCK_MAPPINGS } from '@apollosproject/config';
 
-export const createAssetUrl = (value) => {
+const createAssetUrl = (value) => {
   if (value.path) {
     return value.path;
   }
