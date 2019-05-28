@@ -113,7 +113,7 @@ ROCK_MAPPINGS:
     '8': ns.images
     '9': ns.videos
 
-  PRAYER_MENU_CATEGORIES_CHANNEL_ID: 40
+  PRAYER_MENU_CATEGORIES_CHANNEL_ID: ${PRAYER_MENU_CATEGORIES_CHANNEL_ID}
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
