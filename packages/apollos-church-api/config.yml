@@ -105,7 +105,7 @@ ROCK_MAPPINGS:
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
-    PersonaId: 1300
+    PersonaId: ${DATAVIEW_CATEGORIES_PERSONAID}
 
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
