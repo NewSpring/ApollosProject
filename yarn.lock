@@ -12,18 +12,15 @@
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.6.tgz#022209e28a2b547dcde15b219f0c50f47aa5beb3"
 
-"@apollosproject/apollo-server-env-mock@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/apollo-server-env-mock/-/apollo-server-env-mock-0.8.3.tgz#2b360d63f84c08df5f545fab45fe244a9857a10c"
-
 "@apollosproject/apollo-server-env-mock@^0.8.6":
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/@apollosproject/apollo-server-env-mock/-/apollo-server-env-mock-0.8.6.tgz#1dfb9efa6ef50e0a3f1efe7906535a461e068509"
   integrity sha512-vmhqnSyrBZKeMg+HeI077oL9SDxftpEaKKH6vAbQpk/tADaYNFMERbyzoLPrYY+zYPvMunutuN6xcY8zw7I02w==
 
-"@apollosproject/babel-preset-apollos@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/babel-preset-apollos/-/babel-preset-apollos-0.8.3.tgz#a961141fe8304c8fa2e26116742e616001bc4442"
+"@apollosproject/babel-preset-apollos@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/babel-preset-apollos/-/babel-preset-apollos-0.8.6.tgz#f84eb4c3c38fef3ba3e72a4a53c645ac0b2f5591"
+  integrity sha512-keG9jsLXWyrgRKulsOkEasksf5k+YZdBGLyN/2BaEdxy/LY0WhwAFQEBHPof2p8LGdu1DBsGdzO+1dvPPvA9Cw==
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.4.0"
     "@babel/plugin-proposal-decorators" "7.4.0"
@@ -45,45 +42,20 @@
     "@babel/preset-env" "7.4.2"
     babel-plugin-module-resolver "^3.1.1"
 
-"@apollosproject/babel-preset-apollos@^0.8.5":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@apollosproject/babel-preset-apollos/-/babel-preset-apollos-0.8.5.tgz#a9d029e68819c2553da375285a081a500c448358"
-  integrity sha512-SZ6h3DNFylul557EoJJUXhvboI+Ux7oYwlaLMuNgQrklI8B5Dm4nW347FWCGvxgvDO28SMjx3Pw/eOOG8WHhlw==
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "7.4.0"
-    "@babel/plugin-proposal-decorators" "7.4.0"
-    "@babel/plugin-proposal-do-expressions" "7.2.0"
-    "@babel/plugin-proposal-export-default-from" "7.2.0"
-    "@babel/plugin-proposal-export-namespace-from" "7.2.0"
-    "@babel/plugin-proposal-function-bind" "7.2.0"
-    "@babel/plugin-proposal-function-sent" "7.2.0"
-    "@babel/plugin-proposal-json-strings" "7.2.0"
-    "@babel/plugin-proposal-logical-assignment-operators" "7.2.0"
-    "@babel/plugin-proposal-nullish-coalescing-operator" "7.2.0"
-    "@babel/plugin-proposal-numeric-separator" "7.2.0"
-    "@babel/plugin-proposal-optional-chaining" "7.2.0"
-    "@babel/plugin-proposal-pipeline-operator" "7.2.0"
-    "@babel/plugin-proposal-throw-expressions" "7.2.0"
-    "@babel/plugin-syntax-dynamic-import" "7.2.0"
-    "@babel/plugin-syntax-import-meta" "7.2.0"
-    "@babel/plugin-transform-runtime" "7.4.0"
-    "@babel/preset-env" "7.4.2"
-    babel-plugin-module-resolver "^3.1.1"
-
-"@apollosproject/config@^0.8.5":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@apollosproject/config/-/config-0.8.5.tgz#cfbbc48c952d2ddacbe7610b71a8c06eb311b709"
-  integrity sha512-8SIfmeJRm79Cvbvxt6GxZzGio+fg+W3025LaHtKftYV3dI6PfjRVfV1yMHUTkV8CviLoEZX1Jy9AIzyNESsrEQ==
+"@apollosproject/config@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/config/-/config-0.8.6.tgz#b65a25dfaaf4e2ebea0b77f5681b48d1b63f3b3f"
+  integrity sha512-W77IeHiMQIr8TSE2oDcQQBzKl0n5tfVEGQ/o86fhlF/A8g9gZb0if77FCKdsidwiTFV2/4+tJabdaWBzuhe4QQ==
   dependencies:
     js-yaml "^3.12.0"
 
-"@apollosproject/data-connector-analytics@^0.8.5":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-analytics/-/data-connector-analytics-0.8.5.tgz#b4720dc87351efe2f9e280022cb1430dbb0f4190"
-  integrity sha512-uwAJifI+BjLUrkKErR++XtSMb6Yfe4TnJo5BZPyHtqqLcZg8j0a3aJ8t6zILRtD+4getxD1+dacZfhdPbHROtw==
+"@apollosproject/data-connector-analytics@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-analytics/-/data-connector-analytics-0.8.6.tgz#2574b55457a508a798e3efc15d6009f0de0c3d24"
+  integrity sha512-SjKXjO7/UTygyLlyb5z35NF79Y7QqYeASBRZp0uMJBh6BjNNioqZZYwiTAoHvZG2NhVsLPZ5mByTr33kLWtJ+A==
   dependencies:
-    "@apollosproject/data-schema" "^0.8.5"
-    "@apollosproject/server-core" "^0.8.5"
+    "@apollosproject/data-schema" "^0.8.6"
+    "@apollosproject/server-core" "^0.8.6"
     analytics-node "^3.3.0"
     apollo-datasource "^0.2.0"
     apollo-server "^2.1.0"
@@ -165,12 +137,6 @@
     lodash "^4.17.11"
     twilio "^3.28.0"
 
-"@apollosproject/data-schema@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.3.tgz#f2014bb5375ec9b3df2a4d4dd515da5612815eca"
-  dependencies:
-    graphql-tag "^2.10.0"
-
 "@apollosproject/data-schema@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-0.8.5.tgz#99861f4f488ea2514682271cd89eaa675ab7b199"
@@ -185,25 +151,16 @@
   dependencies:
     graphql-tag "^2.10.0"
 
-"@apollosproject/rock-apollo-data-source@^0.8.5":
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.5.tgz#71f7b11d38cb3c1b154f4ba7dc611248be42ccc3"
-  integrity sha512-Ww74Vj5YwY/JkeQA3MgVQTNmhEr5NpnmzwLi2u9YseqEBJH60UuxZpO+t8qUUrnU842S4wxm6S+SmbusIWUkqg==
+"@apollosproject/rock-apollo-data-source@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/rock-apollo-data-source/-/rock-apollo-data-source-0.8.6.tgz#d9d40c21500b07a668abd6dda023bbf610ea055d"
+  integrity sha512-mzqv35qepRBL0jdRiPvafJWXOYU7NtefztJJIQRRfiFKqSQQCaZ39gI8Ndz2Bmb/NHU9UAoFU26DEzbyAkNDaw==
   dependencies:
     apollo-datasource-rest "^0.1.5"
     crypto "^1.0.1"
     jsonwebtoken "^8.4.0"
     lodash "^4.17.11"
     with-query "^1.1.2"
-
-"@apollosproject/server-core@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-0.8.3.tgz#71fcecd3b278c8d35a4ff18b98488222f1065e11"
-  dependencies:
-    "@apollosproject/data-schema" "^0.8.3"
-    crypto "^1.0.1"
-    graphql-tag "^2.10.0"
-    lodash "^4.17.11"
 
 "@apollosproject/server-core@^0.8.5":
   version "0.8.5"

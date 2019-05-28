@@ -4,13 +4,11 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "start":
-      "if test \"$NOW_ENV\" = \"true\" ; then yarn start:now ; else yarn start:dev ; fi",
+    "start": "if test \"$NOW_ENV\" = \"true\" ; then yarn start:now ; else yarn start:dev ; fi",
     "start:dev": "nodemon ./src/index.js --exec babel-node --delay 2",
     "start:now": "babel-node ./src/index.js",
     "start:prod": "NODE_ENV=production node ./lib/index.js",
-    "build":
-      "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
+    "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
     "test": "jest",
     "test:watch": "jest --maxWorkers=2 --watch",
     "lint": "eslint ./src --ext .js",
@@ -32,8 +30,8 @@
     "reporters": ["<rootDir>/../../scripts/fingers-crossed-reporter.js"]
   },
   "dependencies": {
-    "@apollosproject/config": "^0.8.5",
-    "@apollosproject/data-connector-analytics": "^0.8.5",
+    "@apollosproject/config": "^0.8.6",
+    "@apollosproject/data-connector-analytics": "^0.8.6",
     "@apollosproject/data-connector-bible": "0.8.7-alpha.13",
     "@apollosproject/data-connector-church-online": "0.8.7-alpha.1",
     "@apollosproject/data-connector-cloudinary": "^0.8.6",
@@ -41,8 +39,8 @@
     "@apollosproject/data-connector-passes": "^0.8.6",
     "@apollosproject/data-connector-rock": "0.8.7-alpha.10",
     "@apollosproject/data-connector-twilio": "0.8.6",
-    "@apollosproject/rock-apollo-data-source": "^0.8.5",
-    "@apollosproject/server-core": "^0.8.5",
+    "@apollosproject/rock-apollo-data-source": "^0.8.6",
+    "@apollosproject/server-core": "^0.8.6",
     "@bugsnag/js": "^6.2.0",
     "@bugsnag/plugin-express": "^6.2.0",
     "apollo-server": "^2.0.5",
@@ -54,7 +52,7 @@
   },
   "devDependencies": {
     "@apollosproject/apollo-server-env-mock": "^0.8.6",
-    "@apollosproject/babel-preset-apollos": "^0.8.5",
+    "@apollosproject/babel-preset-apollos": "^0.8.6",
     "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
     "codecov": "3.5.0",
