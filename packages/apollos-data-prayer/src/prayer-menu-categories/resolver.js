@@ -1,4 +1,16 @@
-import { createAssetUrl } from 'apollos-church-api/src/data/utils';
+import { ROCK, ROCK_MAPPINGS } from '@apollosproject/config';
+
+export const createAssetUrl = (value) => {
+  if (value.path) {
+    return value.path;
+  }
+  if (value.Key && value.AssetStorageProviderId) {
+    return `${ROCK.IMAGE_URL}/${
+      ROCK_MAPPINGS.ASSET_STORAGE_PROVIDERS[`${value.AssetStorageProviderId}`]
+    }/${value.Key}`;
+  }
+  return '';
+};
 
 const resolver = {
   Query: {
