@@ -64,7 +64,7 @@ const ActionTable = ({ token }) => (
           <Touchable
             onPress={() =>
               openUrl(
-                `https://rock.newspring.cc/workflows/530?rckipid=${token}&Source=3`
+                `https://beta-rock.newspring.cc/workflows/530?rckipid=${token}&Source=3`
               )
             }
           >
