@@ -20,6 +20,7 @@ import Toolbar from './Toolbar';
 import { UserAvatarHeaderConnected } from './UserAvatarHeader';
 import { RecentlyLikedTileFeedConnected } from './RecentlyLikedTileFeed';
 import getLoginState from './getLoginState';
+import getUserProfile from './getUserProfile';
 
 const Title = styled(({ theme }) => ({
   color: theme.colors.primary,
@@ -72,7 +73,17 @@ class Connect extends PureComponent {
                     <UserAvatarHeaderConnected key="UserAvatarHeaderConnected" />
                     <RecentlyLikedTileFeedConnected key="RecentlyLikedTileFeedConnected" />
                     <Toolbar />
-                    <ActionTable />
+                    <Query query={getUserProfile}>
+                      {({ data: personData }) => (
+                        <ActionTable
+                          token={get(
+                            personData,
+                            'currentUser.profile.impersonationParameter',
+                            ''
+                          )}
+                        />
+                      )}
+                    </Query>
                   </StyledScrollView>
                 </SafeAreaView>
               );
