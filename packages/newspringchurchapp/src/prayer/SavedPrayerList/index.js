@@ -37,7 +37,7 @@ const SavedPrayerList = () => (
               {savedPrayers
                 .map((prayer) => (
                   <PrayerCard
-                    avatarSource={get(prayer, 'person.photo.uri')}
+                    avatarSource={get(prayer, 'person.photo')}
                     avatarSize={'medium'}
                     name={get(prayer, 'firstName')}
                     source={get(prayer, 'campus.name')}
