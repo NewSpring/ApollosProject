@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
 import {
   TableView,
@@ -26,7 +27,7 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
-const ActionTable = () => (
+const ActionTable = ({ token }) => (
   <WebBrowserConsumer>
     {(openUrl) => (
       <View>
@@ -59,6 +60,20 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
         </TableView>
+        <TableView>
+          <Touchable
+            onPress={() =>
+              openUrl(
+                `https://rock.newspring.cc/workflows/530?rckipid=${token}&Source=3`
+              )
+            }
+          >
+            <Cell>
+              <CellIcon name="settings" />
+              <CellText>Bug Report!</CellText>
+            </Cell>
+          </Touchable>
+        </TableView>
         {process.env.NODE_ENV !== 'production' ? (
           <TableView>
             <Touchable
@@ -75,6 +90,10 @@ const ActionTable = () => (
     )}
   </WebBrowserConsumer>
 );
+
+ActionTable.propTypes = {
+  token: PropTypes.string,
+};
 
 const StyledActionTable = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 100,

@@ -7,6 +7,7 @@ export default gql`
       id
       profile {
         id
+        impersonationParameter
         firstName
         lastName
         campus {
