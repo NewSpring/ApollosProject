@@ -5,7 +5,7 @@ export default class Person extends originalPerson.dataSource {
     try {
       const request = await this.post(
         'Lava/RenderTemplate',
-        `{{ ${id} | PersonById | PersonTokenCreate:1440,null,512 }}`
+        `{{ ${id} | PersonById | PersonTokenCreate }}`
       );
       return request;
     } catch (err) {
