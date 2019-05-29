@@ -13,10 +13,10 @@ import { PrayerRequest, PrayerMenuCategory } from 'apollos-data-prayer';
 
 import {
   Followings,
-  Person,
   ContentChannel,
   Sharable,
   Auth,
+  Person,
   PersonalDevice,
   Template,
   AuthSms,
@@ -27,6 +27,7 @@ import * as ContentItem from './content-items';
 import * as Campus from './campuses';
 import * as Interactions from './interactions';
 import * as RockConstants from './rock-constants';
+import * as ExtendedPerson from './people';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -37,6 +38,7 @@ const data = {
   ContentChannel,
   ContentItem,
   Person,
+  ExtendedPerson,
   Auth,
   AuthSms,
   Sms,
