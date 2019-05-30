@@ -87,3 +87,6 @@ storyLoader.js
 **/lib
 
 .watchmanconfig
+
+# android
+*.keystore
