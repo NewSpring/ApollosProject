@@ -95,18 +95,6 @@ class UserSettings extends PureComponent {
                     </TableView>
                     <TableView>
                       <Touchable
-                        onPress={() =>
-                          openUrl('https://forms.gle/qzYecHmKLci6b4y38')
-                        }
-                      >
-                        <Cell>
-                          <CellText>Give Feedback</CellText>
-                          <CellIcon name="arrow-next" />
-                        </Cell>
-                      </Touchable>
-                    </TableView>
-                    <TableView>
-                      <Touchable
                         onPress={() => openUrl('https://newspring.cc/privacy')}
                       >
                         <Cell>
