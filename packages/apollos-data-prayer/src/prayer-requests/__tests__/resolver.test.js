@@ -36,7 +36,7 @@ ApollosConfig.loadJs({
   },
 });
 
-describe('PrayerRequest', () => {
+describe('PrayerRequest resolvers', () => {
   let schema;
   let context;
   beforeEach(() => {
