@@ -79,8 +79,12 @@ export default class PrayerRequest extends RockApolloDataSource {
     ).get();
   };
 
-  getPrayerHelpContentID = () =>
-    parseGlobalId(ROCK_MAPPINGS.PRAYER_HELP_CONTENT_ID);
+  getPrayerHelpContent = async () => {
+    const {
+      dataSources: { ContentItem },
+    } = this.context;
+    return ContentItem.getFromId(ROCK_MAPPINGS.PRAYER_HELP_CONTENT_ID);
+  };
 
   // QUERY PrayRequest by ID
   getFromId = (id) =>
