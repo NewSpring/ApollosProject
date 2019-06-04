@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrayerRequest creates a new prayer 1`] = `
+exports[`PrayerRequest resolvers creates a new prayer 1`] = `
 Object {
   "data": Object {
     "addPublicPrayerRequest": Object {
@@ -27,7 +27,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest flags a prayer request 1`] = `
+exports[`PrayerRequest resolvers flags a prayer request 1`] = `
 Object {
   "data": Object {
     "flagRequest": Object {
@@ -54,7 +54,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets all prayers from current person 1`] = `
+exports[`PrayerRequest resolvers gets all prayers from current person 1`] = `
 Object {
   "data": Object {
     "getCurrentPersonPrayerRequests": Array [
@@ -83,7 +83,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets all prayers from current person 2`] = `
+exports[`PrayerRequest resolvers gets all prayers from current person 2`] = `
 Array [
   Array [
     "PrayerRequests/Public?loadAttributes=expanded&%24filter=RequestedByPersonAliasId%20eq%20123",
@@ -93,7 +93,7 @@ Array [
 ]
 `;
 
-exports[`PrayerRequest gets all prayers from groups 1`] = `
+exports[`PrayerRequest resolvers gets all prayers from groups 1`] = `
 Object {
   "data": Object {
     "getPrayerRequestsByGroups": Array [
@@ -118,7 +118,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets all prayers from groups 2`] = `
+exports[`PrayerRequest resolvers gets all prayers from groups 2`] = `
 Array [
   Array [
     "PrayerRequests/GetForGroupMembersOfPersonInGroupTypes/51?groupTypeIds=10%2C23%2C25&excludePerson=true&loadAttributes=expanded",
@@ -128,7 +128,7 @@ Array [
 ]
 `;
 
-exports[`PrayerRequest gets all public prayer requests 1`] = `
+exports[`PrayerRequest resolvers gets all public prayer requests 1`] = `
 Object {
   "data": Object {
     "getPublicPrayerRequests": Array [
@@ -177,7 +177,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets all public prayer requests 2`] = `
+exports[`PrayerRequest resolvers gets all public prayer requests 2`] = `
 Array [
   Array [
     "PrayerRequests/Public?loadAttributes=expanded&%24filter=RequestedByPersonAliasId%20ne%20123",
@@ -187,7 +187,7 @@ Array [
 ]
 `;
 
-exports[`PrayerRequest gets all public prayer requests by campus 1`] = `
+exports[`PrayerRequest resolvers gets all public prayer requests by campus 1`] = `
 Object {
   "data": Object {
     "getPublicPrayerRequestsByCampus": Array [
@@ -216,7 +216,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets all public prayer requests by campus 2`] = `
+exports[`PrayerRequest resolvers gets all public prayer requests by campus 2`] = `
 Array [
   Array [
     "PrayerRequests/Public?loadAttributes=expanded&%24filter=%28CampusId%20eq%203%29%20and%20%28RequestedByPersonAliasId%20ne%20123%29",
@@ -226,7 +226,7 @@ Array [
 ]
 `;
 
-exports[`PrayerRequest gets all saved prayer requests 1`] = `
+exports[`PrayerRequest resolvers gets all saved prayer requests 1`] = `
 Object {
   "data": Object {
     "savedPrayers": Array [
@@ -275,7 +275,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets prayer request by id 1`] = `
+exports[`PrayerRequest resolvers gets prayer request by id 1`] = `
 Object {
   "data": Object {
     "node": Object {
@@ -303,7 +303,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest gets prayer request by id 2`] = `
+exports[`PrayerRequest resolvers gets prayer request by id 2`] = `
 Array [
   Array [
     "PrayerRequests/10?loadAttributes=expanded",
@@ -313,7 +313,7 @@ Array [
 ]
 `;
 
-exports[`PrayerRequest increments prayed for a request 1`] = `
+exports[`PrayerRequest resolvers increments prayed for a request 1`] = `
 Object {
   "data": Object {
     "incrementPrayed": Object {
@@ -340,7 +340,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest save a prayer request 1`] = `
+exports[`PrayerRequest resolvers save a prayer request 1`] = `
 Object {
   "data": Object {
     "savePrayer": null,
@@ -351,7 +351,7 @@ Object {
 }
 `;
 
-exports[`PrayerRequest unsave a prayer request 1`] = `
+exports[`PrayerRequest resolvers unsave a prayer request 1`] = `
 Object {
   "data": Object {
     "unSavePrayer": null,
