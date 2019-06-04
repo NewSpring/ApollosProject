@@ -9,6 +9,19 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   expanded = true;
 
+  sortPrayers = (prayers) => {
+    const sortByDate = (a, b) =>
+      moment(a.createdDateTime) > moment(b.createdDateTime) ? 1 : -1;
+
+    const secondarySort = (a, b) =>
+      a.prayerCount === b.prayerCount ? sortByDate(a, b) : -1;
+
+    const sortedPrayers = prayers.sort((a, b) =>
+      a.prayerCount > b.prayerCount ? 1 : secondarySort(a, b)
+    );
+    return sortedPrayers;
+  };
+
   // QUERY ALL PrayerRequests
   getAll = async () => {
     try {
@@ -18,9 +31,10 @@ export default class PrayerRequest extends RockApolloDataSource {
 
       const { primaryAliasId } = await Auth.getCurrentPerson();
 
-      return await this.request('PrayerRequests/Public')
+      const prayers = await this.request('PrayerRequests/Public')
         .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
         .get();
+      return this.sortPrayers(prayers);
     } catch (err) {
       throw new Error(err);
     }
@@ -35,13 +49,14 @@ export default class PrayerRequest extends RockApolloDataSource {
 
       const { primaryAliasId } = await Auth.getCurrentPerson();
 
-      return this.request('PrayerRequests/Public')
+      const prayers = await this.request('PrayerRequests/Public')
         .filter(
           `(CampusId eq ${
             parseGlobalId(campusId).id
           }) and (RequestedByPersonAliasId ne ${primaryAliasId})`
         )
         .get();
+      return this.sortPrayers(prayers);
     } catch (err) {
       throw new Error(err);
     }
@@ -56,9 +71,10 @@ export default class PrayerRequest extends RockApolloDataSource {
 
       const { primaryAliasId } = await Auth.getCurrentPerson();
 
-      return this.request('PrayerRequests/Public')
+      const prayers = await this.request('PrayerRequests/Public')
         .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
         .get();
+      return this.sortPrayers(prayers);
     } catch (err) {
       throw new Error(err);
     }
@@ -74,9 +90,10 @@ export default class PrayerRequest extends RockApolloDataSource {
 
     const { id } = await Auth.getCurrentPerson();
 
-    return this.request(
+    const prayers = await this.request(
       `PrayerRequests/GetForGroupMembersOfPersonInGroupTypes/${id}?groupTypeIds=${groupTypeIds}&excludePerson=true`
     ).get();
+    return this.sortPrayers(prayers);
   };
 
   // QUERY PrayRequest by ID
