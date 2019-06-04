@@ -115,6 +115,8 @@ ROCK_MAPPINGS:
 
   PRAYER_MENU_CATEGORIES_CHANNEL_ID: ${PRAYER_MENU_CATEGORIES_CHANNEL_ID}
 
+  PRAYER_HELP_CONTENT_ID: 26447
+
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
   TEXT: 1

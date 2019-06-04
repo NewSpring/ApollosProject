@@ -97,5 +97,7 @@ export default {
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    prayerHelpContentID: (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.getPrayerHelpContentID(),
   },
 };

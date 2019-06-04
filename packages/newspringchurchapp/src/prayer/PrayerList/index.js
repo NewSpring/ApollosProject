@@ -198,6 +198,7 @@ class PrayerList extends PureComponent {
                     name: prayer.firstName,
                     avatarSource: prayer.person.photo,
                     anonymous: prayer.isAnonymous,
+                    tutorial: prayer.prayerHelpContentID,
                   }))}
                   scrollEnabled={false}
                 />
