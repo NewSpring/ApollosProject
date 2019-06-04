@@ -30,6 +30,7 @@ ApollosConfig.loadJs({
   },
   ROCK_MAPPINGS: {
     PRAYER_GROUP_TYPE_IDS: [10, 23, 25],
+    PRAYER_HELP_CONTENT_ID: 26447,
   },
   APP: {
     DEEP_LINK_HOST: 'apolloschurch',
@@ -67,6 +68,10 @@ describe('PrayerRequest resolvers', () => {
             id
             firstName
             lastName
+          }
+          prayerHelpContent {
+            id
+            title
           }
         }
       }

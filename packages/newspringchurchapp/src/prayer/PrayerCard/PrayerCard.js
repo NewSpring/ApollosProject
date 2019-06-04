@@ -99,6 +99,7 @@ class PrayerCard extends PureComponent {
       prayerId,
       navigation,
       anonymous,
+      prayerHelpContent,
     } = this.props;
 
     const expandedHeight = Dimensions.get('window').height * 0.72;
@@ -171,8 +172,8 @@ class PrayerCard extends PureComponent {
               <StyledTouchable
                 onPress={() => {
                   navigation.navigate('ContentSingle', {
-                    itemId: 'MediaContentItem:b277f039ce974b99753ad8e6805552c2',
-                    itemTitle: 'Learning how to pray like Jesus',
+                    itemId: prayerHelpContent.id,
+                    itemTitle: prayerHelpContent.title,
                     isolated: true,
                   });
                 }}
@@ -199,6 +200,10 @@ PrayerCard.propTypes = {
   avatarSize: PropTypes.string,
   created: PropTypes.string,
   name: PropTypes.string,
+  prayerHelpContent: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+  }),
   prayer: PropTypes.string,
   source: PropTypes.string,
   advancePrayer: PropTypes.func,

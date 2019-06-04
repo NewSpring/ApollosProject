@@ -13,6 +13,10 @@ const cardData = {
   text:
     'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?',
   source: 'Anderson',
+  prayerHelpContent: {
+    id: 'MediaContentItem:ebb48774ff5a859981a32c1e38f7c2ec',
+    title: 'Learning how to pray like Jesus',
+  },
 };
 
 storiesOf('PrayerCard', module).add('Example', () => (
@@ -23,6 +27,7 @@ storiesOf('PrayerCard', module).add('Example', () => (
       name={cardData.name}
       text={cardData.text}
       source={cardData.source}
+      prayerHelpContent={cardData.prayerHelpContent}
     />
   </PaddedView>
 ));

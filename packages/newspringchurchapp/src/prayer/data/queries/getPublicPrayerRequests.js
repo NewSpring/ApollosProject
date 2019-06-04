@@ -18,7 +18,10 @@ export default gql`
         id
         name
       }
-      prayerHelpContentID
+      prayerHelpContent {
+        id
+        title
+      }
     }
   }
 `;
