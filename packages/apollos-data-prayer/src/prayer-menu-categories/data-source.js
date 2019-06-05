@@ -20,7 +20,7 @@ class PrayerMenuCategory extends ContentItem.dataSource {
 
     // filter out campus
     const campus = await Campus.getForPerson({ personId: id });
-    if (campus.name === 'Web')
+    if (campus && campus.name === 'Web')
       filteredCategories = allCategories.filter(
         (category) =>
           category.attributeValues.requiresCampusMembership.value === 'False'
