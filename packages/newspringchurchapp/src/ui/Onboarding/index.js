@@ -12,7 +12,7 @@ import {
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
 
-import { requestPushPermissions } from 'newspringchurchapp/src/notifications';
+import { requestPushPermissions } from '@apollosproject/ui-notifications';
 
 function Onboarding({ navigation }) {
   return (
@@ -52,7 +52,7 @@ function Onboarding({ navigation }) {
           <ApolloConsumer>
             {(client) => (
               <AskNotificationsConnected
-                onPressPrimary={() => navigation.navigate('Tabs')}
+                onPressPrimary={() => navigation.replace('Tabs')}
                 onRequestPushPermissions={() =>
                   requestPushPermissions({ client })
                 }

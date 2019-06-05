@@ -4,7 +4,7 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "start": "if test \"$NOW_ENV\" = \"true\" ; then yarn start:now ; else yarn start:dev ; fi",
+    "start": "yarn start:dev",
     "start:dev": "nodemon ./src/index.js --exec babel-node --delay 2",
     "start:now": "babel-node ./src/index.js",
     "start:prod": "NODE_ENV=production node ./lib/index.js",
@@ -26,21 +26,20 @@
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test|tests).{js,jsx,mjs}"
     ],
-    "testEnvironment": "node",
-    "reporters": ["<rootDir>/../../scripts/fingers-crossed-reporter.js"]
+    "testEnvironment": "node"
   },
   "dependencies": {
-    "@apollosproject/config": "^0.8.6",
-    "@apollosproject/data-connector-analytics": "^0.8.6",
-    "@apollosproject/data-connector-bible": "0.8.7-alpha.13",
-    "@apollosproject/data-connector-church-online": "0.8.7-alpha.1",
-    "@apollosproject/data-connector-cloudinary": "^0.8.6",
-    "@apollosproject/data-connector-onesignal": "^0.8.6",
-    "@apollosproject/data-connector-passes": "^0.8.6",
-    "@apollosproject/data-connector-rock": "0.8.7-alpha.10",
-    "@apollosproject/data-connector-twilio": "0.8.6",
-    "@apollosproject/rock-apollo-data-source": "^0.8.6",
-    "@apollosproject/server-core": "^0.8.6",
+    "@apollosproject/config": "0.8.7",
+    "@apollosproject/data-connector-analytics": "0.8.7",
+    "@apollosproject/data-connector-bible": "0.8.7",
+    "@apollosproject/data-connector-church-online": "0.8.7",
+    "@apollosproject/data-connector-cloudinary": "0.8.7",
+    "@apollosproject/data-connector-onesignal": "0.8.7",
+    "@apollosproject/data-connector-passes": "0.8.7",
+    "@apollosproject/data-connector-rock": "0.8.7",
+    "@apollosproject/data-connector-twilio": "0.8.7",
+    "@apollosproject/rock-apollo-data-source": "0.8.7",
+    "@apollosproject/server-core": "0.8.7",
     "@bugsnag/js": "^6.2.0",
     "@bugsnag/plugin-express": "^6.2.0",
     "apollo-server": "^2.0.5",
@@ -51,8 +50,8 @@
     "randomcolor": "0.5.3"
   },
   "devDependencies": {
-    "@apollosproject/apollo-server-env-mock": "^0.8.6",
-    "@apollosproject/babel-preset-apollos": "^0.8.6",
+    "@apollosproject/apollo-server-env-mock": "0.8.7",
+    "@apollosproject/babel-preset-apollos": "0.8.7",
     "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
     "codecov": "3.5.0",

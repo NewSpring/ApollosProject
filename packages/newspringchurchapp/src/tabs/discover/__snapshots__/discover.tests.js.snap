@@ -59,6 +59,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
             Object {
               "flex": 1,
               "flexDirection": "column-reverse",
+              "overflow": "hidden",
             },
             Object {
               "backgroundColor": "#000",
@@ -81,8 +82,8 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                 "backgroundColor": "#E9E9EF",
                 "bottom": 0,
                 "left": 0,
-                "marginTop": 0,
                 "opacity": 1,
+                "paddingTop": 64,
                 "position": "absolute",
                 "right": 0,
                 "shadowColor": "black",
@@ -221,6 +222,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                   />
                 }
                 refreshing={true}
+                removeClippedSubviews={false}
                 renderItem={[Function]}
                 scrollEventThrottle={50}
                 stickyHeaderIndices={Array []}
@@ -367,6 +369,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -1534,6 +1537,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -2701,6 +2705,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -3868,6 +3873,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -5035,6 +5041,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -6202,6 +6209,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -7369,6 +7377,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -8536,6 +8545,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -9703,6 +9713,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -10870,6 +10881,7 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
                       onScrollBeginDrag={[Function]}
                       onScrollEndDrag={[Function]}
                       refreshing={true}
+                      removeClippedSubviews={false}
                       renderItem={[Function]}
                       scrollEventThrottle={50}
                       showsHorizontalScrollIndicator={false}
@@ -11908,6 +11920,14 @@ exports[`Test the Discover Component Query Should retrieve the Content Channel F
         <View
           onLayout={[Function]}
           pointerEvents="box-none"
+          style={
+            Object {
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
         >
           <View
             style={
