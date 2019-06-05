@@ -2,6 +2,8 @@
 
 ### What does this PR do, or why is it needed?
 
+### Was anything changed? Why?
+
 ### How do I test this PR?
 
 ---
@@ -17,20 +19,13 @@
 
 ## REVIEW
 
+- [ ] Test the fix/feature
+- [ ] Review code through the lens of being concise, simple, and well-documented
+
 **Manual QA**
 
 - [ ] Manual QA on iOS and ensure it looks/behaves as expected
 - [ ] Manual QA on Android and ensure it looks/behaves as expected
-
-**Code Review: Questions to consider**
-
-- [ ] Read through the "Files changed" tab _very carefully_
-- [ ] Edge cases: what assumptions are made about input?
-- [ ] What kind of tests could be written?
-- [ ] How might we make this easier for someone else to understand?
-- [ ] Could the code be simpler?
-- [ ] Will the code be easy to modify in the future?
-- [ ] What's one part of these changes that makes you excited to merge it?
 
 ---
 
