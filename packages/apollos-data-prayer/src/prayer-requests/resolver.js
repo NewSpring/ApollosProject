@@ -30,6 +30,8 @@ export default {
         throw new Error(err);
       }
     },
+    getPrayerRequestById: (root, { prayerId }, { dataSources }) =>
+      dataSources.PrayerRequest.getFromId(prayerId),
   },
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>

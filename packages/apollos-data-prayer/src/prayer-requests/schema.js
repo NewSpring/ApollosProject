@@ -4,6 +4,7 @@ const prayerRequestSchema = gql`
   extend type Query {
     getPublicPrayerRequests: [PrayerRequest]
     getPublicPrayerRequestsByCampus(campusId: String!): [PrayerRequest]
+    getPrayerRequestById(prayerId: String!): [PrayerRequest]
     getCurrentPersonPrayerRequests: [PrayerRequest] @cacheControl(maxAge: 0)
     getPrayerRequestsByGroups: [PrayerRequest]
     savedPrayers: [PrayerRequest]
