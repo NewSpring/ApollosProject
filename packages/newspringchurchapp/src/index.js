@@ -5,10 +5,12 @@ import SplashScreen from 'react-native-splash-screen';
 
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
-import MediaPlayer from 'newspringchurchapp/src/ui/MediaPlayer';
+
+import { MediaPlayer } from '@apollosproject/ui-media-player';
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
 import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
+
 import Providers from './Providers';
 import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
@@ -16,6 +18,7 @@ import Tabs from './tabs';
 import PersonalDetails from './user-settings/PersonalDetails';
 import ChangePassword from './user-settings/ChangePassword';
 import Location from './user-settings/Locations';
+
 import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
@@ -51,11 +54,11 @@ const AppNavigator = createStackNavigator(
     PersonalDetails,
     ChangePassword,
     Location,
+    Passes,
     UserWebBrowser,
     Onboarding,
-    Prayer,
-    Passes,
     LandingScreen,
+    Prayer,
   },
   {
     initialRouteName: 'ProtectedRoute',

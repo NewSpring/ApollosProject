@@ -50,6 +50,7 @@ class AddPrayerFormConnected extends React.Component {
                   uri: null,
                 })}
                 {...this.props}
+                onClose={() => this.props.navigation.pop()}
               />
             )}
           </Mutation>

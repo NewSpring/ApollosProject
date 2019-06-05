@@ -20,7 +20,12 @@ const NavigationHeader = ({ scene, navigation }) => {
     // handling for calling `.pop()` at the top of a nested navigators stack.
     //
     // Because react (or redux?) chains renders, this still results in only one clean animation!
-    navigation.popToTop();
+    //
+    // This "double pop" is only needed when we are already deep in a navigation stack.
+    // In ReactNavigation, we could look at using "goBack('ContentSingle')"
+    if (scene.index > 0) {
+      navigation.popToTop();
+    }
     navigation.pop();
   };
 
