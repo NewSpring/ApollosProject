@@ -61,7 +61,10 @@ class Location extends PureComponent {
   });
 
   state = {
-    region: this.props.initialRegion,
+    userLocation: {
+      latitude: 34.59778,
+      longitude: -82.62259,
+    },
   };
 
   componentDidMount() {
@@ -89,8 +92,8 @@ class Location extends PureComponent {
       <Query
         query={getAllCampuses}
         variables={{
-          latitude: this.state.region.latitude,
-          longitude: this.state.region.longitude,
+          latitude: this.state.userLocation.latitude,
+          longitude: this.state.userLocation.longitude,
         }}
         fetchPolicy="cache-and-network"
       >
