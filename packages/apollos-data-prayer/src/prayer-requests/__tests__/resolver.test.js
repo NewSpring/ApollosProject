@@ -3,7 +3,14 @@ import { fetch } from 'apollo-server-env';
 import ApollosConfig from '@apollosproject/config';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
-import { peopleSchema, campusSchema } from '@apollosproject/data-schema';
+import {
+  peopleSchema,
+  campusSchema,
+  contentItemSchema,
+  contentChannelSchema,
+  themeSchema,
+  scriptureSchema,
+} from '@apollosproject/data-schema';
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
@@ -25,6 +32,7 @@ const { getSchema, getContext } = createTestHelpers({
   Person: { dataSource: AuthMock },
   Campus: { dataSource: CampusMock },
   Followings: { dataSource: FollowingsMock },
+  ContentItem: { dataSource: class {} },
 });
 
 ApollosConfig.loadJs({
@@ -49,7 +57,15 @@ describe('PrayerRequest resolvers', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([prayerRequestSchema, peopleSchema, campusSchema]);
+    schema = getSchema([
+      prayerRequestSchema,
+      peopleSchema,
+      campusSchema,
+      contentItemSchema,
+      contentChannelSchema,
+      themeSchema,
+      scriptureSchema,
+    ]);
     context = getContext();
   });
 
@@ -74,6 +90,11 @@ describe('PrayerRequest resolvers', () => {
             id
             firstName
             lastName
+          }
+          prayerHelpContent {
+            __typename
+            id
+            title
           }
         }
       }
@@ -115,6 +136,13 @@ describe('PrayerRequest resolvers', () => {
       ])
     );
 
+    context.dataSources.ContentItem.getFromId = jest.fn(() =>
+      Promise.resolve({
+        __typename: 'MediaContentItem',
+        id: 'Content:123FakeID',
+        title: 'Fake title',
+      })
+    );
     context.dataSources.PrayerRequest.get = responseMock;
     context.dataSources.Person.getFromAliasId = jest.fn(() =>
       Promise.resolve({

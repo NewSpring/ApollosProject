@@ -149,6 +149,11 @@ Object {
           "lastName": "Hardy",
         },
         "prayerCount": 4,
+        "prayerHelpContent": Object {
+          "__typename": "MediaContentItem",
+          "id": "Content:123FakeID",
+          "title": "Fake title",
+        },
         "requestedByPersonAliasId": 447217,
         "text": "Pray this works.",
       },
@@ -169,6 +174,11 @@ Object {
           "lastName": "Hardy",
         },
         "prayerCount": 4,
+        "prayerHelpContent": Object {
+          "__typename": "MediaContentItem",
+          "id": "Content:123FakeID",
+          "title": "Fake title",
+        },
         "requestedByPersonAliasId": 447217,
         "text": "Help me",
       },
