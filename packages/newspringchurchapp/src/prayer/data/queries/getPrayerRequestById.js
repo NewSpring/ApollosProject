@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query getPrayerRequestById($prayerId: String!) {
-    getPrayerRequestById(prayerId: $prayerId) {
+  query getPrayerRequestById($parsedId: String!) {
+    getPrayerRequestById(id: $parsedId) {
       id
       firstName
       lastName

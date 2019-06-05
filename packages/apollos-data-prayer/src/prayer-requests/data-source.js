@@ -62,6 +62,25 @@ export default class PrayerRequest extends RockApolloDataSource {
     }
   };
 
+  getById = async (parsedId) => {
+    try {
+      const {
+        dataSources: { Auth },
+      } = this.context;
+
+      const { primaryAliasId } = await Auth.getCurrentPerson();
+
+      const prayer = await this.request('PrayerRequests/Public')
+        .filter(
+          `(Id eq ${parsedId}) and (RequestedByPersonAliasId ne ${primaryAliasId})`
+        )
+        .get();
+      return prayer[0];
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
   // QUERY PrayerRequests from Current Person
   getFromCurrentPerson = async () => {
     try {

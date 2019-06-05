@@ -30,8 +30,15 @@ export default {
         throw new Error(err);
       }
     },
-    getPrayerRequestById: (root, { prayerId }, { dataSources }) =>
-      dataSources.PrayerRequest.getFromId(prayerId),
+    getPrayerRequestById: async (root, { id }, { dataSources }) => {
+      try {
+        const { id: parsedId } = parseGlobalId(id);
+        const prayerRequest = await dataSources.PrayerRequest.getById(parsedId);
+        return prayerRequest;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
   Mutation: {
     addPublicPrayerRequest: (root, args, { dataSources }) =>
