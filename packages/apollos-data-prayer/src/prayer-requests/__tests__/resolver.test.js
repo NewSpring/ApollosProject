@@ -7,18 +7,24 @@ import { peopleSchema, campusSchema } from '@apollosproject/data-schema';
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
-import authMock from '../../authMock';
-import campusMock from '../../campusMock';
-import followingsMock from '../../followingsMock';
-import interactionsMock from '../../interactionsMock';
+// import authMock from '../../authMock';
+// import campusMock from '../../campusMock';
+// import followingsMock from '../../followingsMock';
+// import interactionsMock from '../../interactionsMock';
+import {
+  AuthMock,
+  CampusMock,
+  FollowingsMock,
+  InteractionsMock,
+} from '../../testMocks';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
-  Interactions: { dataSource: interactionsMock },
-  Auth: { dataSource: authMock },
-  Person: { dataSource: authMock },
-  Campus: { dataSource: campusMock },
-  Followings: { dataSource: followingsMock },
+  Interactions: { dataSource: InteractionsMock },
+  Auth: { dataSource: AuthMock },
+  Person: { dataSource: AuthMock },
+  Campus: { dataSource: CampusMock },
+  Followings: { dataSource: FollowingsMock },
 });
 
 ApollosConfig.loadJs({
@@ -68,10 +74,6 @@ describe('PrayerRequest resolvers', () => {
             id
             firstName
             lastName
-          }
-          prayerHelpContent {
-            id
-            title
           }
         }
       }
