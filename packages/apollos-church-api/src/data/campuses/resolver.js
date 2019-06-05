@@ -1,5 +1,5 @@
 import { Campus as originalCampus } from '@apollosproject/data-connector-rock';
-import { schemaMerge } from '@apollosproject/server-core';
+import { resolverMerge } from '@apollosproject/server-core';
 import { createAssetUrl } from '../utils';
 
 const resolver = {
@@ -14,4 +14,4 @@ const resolver = {
   },
 };
 
-export default schemaMerge(resolver, originalCampus);
+export default resolverMerge(resolver, originalCampus);

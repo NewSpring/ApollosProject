@@ -4,8 +4,11 @@ import { contentItemFragment } from 'newspringchurchapp/src/content-single/getCo
 import { largeCardFragment } from 'newspringchurchapp/src/ui/ContentCardConnected';
 
 export default gql`
-  query getUserFeed {
-    userFeed {
+  query getUserFeed($first: Int, $after: String) {
+    userFeed(first: $first, after: $after) {
+      pageInfo {
+        endCursor
+      }
       edges {
         node {
           ...largeCardFragment
