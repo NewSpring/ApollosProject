@@ -80,6 +80,10 @@ describe('Display Native Map with Locations', () => {
     latitudeDelta: 100,
     longitudeDelta: 10,
   };
+  const userLocation = {
+    latitude: 34.59778,
+    longitude: -82.62259,
+  };
   it('Render a native map view', async () => {
     const navigation = {
       navigate: jest.fn(),
@@ -91,8 +95,8 @@ describe('Display Native Map with Locations', () => {
       request: {
         query: getCampusLocations,
         variables: {
-          latitude: initialRegion.latitude,
-          longitude: initialRegion.longitude,
+          latitude: userLocation.latitude,
+          longitude: userLocation.longitude,
         },
       },
       result: {
