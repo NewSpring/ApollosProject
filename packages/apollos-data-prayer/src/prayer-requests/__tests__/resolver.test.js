@@ -14,10 +14,6 @@ import {
 import * as PrayerRequest from '../index';
 
 import prayerRequestSchema from '../schema';
-// import authMock from '../../authMock';
-// import campusMock from '../../campusMock';
-// import followingsMock from '../../followingsMock';
-// import interactionsMock from '../../interactionsMock';
 import {
   AuthMock,
   CampusMock,
