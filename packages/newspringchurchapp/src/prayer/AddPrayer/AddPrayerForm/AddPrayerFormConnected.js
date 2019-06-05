@@ -3,7 +3,7 @@ import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import getPrayers from 'newspringchurchapp/src/prayer/data/queries/getUserPrayers';
-import addPrayer from './addPrayer';
+import addPrayer from '../../data/mutations/addPrayer';
 import AddPrayerForm from './AddPrayerForm';
 
 class AddPrayerFormConnected extends React.Component {
