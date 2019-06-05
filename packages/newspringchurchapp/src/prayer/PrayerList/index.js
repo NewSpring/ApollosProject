@@ -91,12 +91,12 @@ class PrayerList extends PureComponent {
     switch (list) {
       case 'GroupPrayerList':
         query = GET_GROUP_PRAYERS;
-        queryName = 'getGroupPrayers';
+        queryName = 'groupPrayers';
         type = 'community';
         break;
       case 'ChurchPrayerList':
         query = GET_PRAYERS;
-        queryName = 'getPrayers';
+        queryName = 'prayers';
         type = 'church';
         break;
       case 'CampusPrayerList': {
@@ -106,7 +106,7 @@ class PrayerList extends PureComponent {
           query: getUserProfile,
         });
         query = GET_CAMPUS_PRAYERS;
-        queryName = 'getCampusPrayers';
+        queryName = 'campusPrayers';
         type = 'campus';
         variables = { campusId: id };
         break;

@@ -5,8 +5,8 @@ export default {
   Query: {
     prayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
-    campusPrayers: (root, { campusID }, { dataSources }) =>
-      dataSources.PrayerRequest.getAllByCampus(campusID),
+    campusPrayers: (root, { campusId }, { dataSources }) =>
+      dataSources.PrayerRequest.getAllByCampus(campusId),
     userPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
     groupPrayers: (root, args, { dataSources }) =>
@@ -85,5 +85,9 @@ export default {
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    flagCount: ({ flagCount }) =>
+      (typeof flagCount === 'number' && flagCount) || 0,
+    prayerCount: ({ prayerCount }) =>
+      (typeof prayerCount === 'number' && prayerCount) || 0,
   },
 };

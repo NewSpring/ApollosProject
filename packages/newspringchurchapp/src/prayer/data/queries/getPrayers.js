@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query GetPrayers {
-    getPrayers {
+  query Prayers {
+    prayers {
       id
       firstName
       lastName
