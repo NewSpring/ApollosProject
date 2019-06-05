@@ -23,7 +23,9 @@ const NavigationHeader = ({ scene, navigation }) => {
     //
     // This "double pop" is only needed when we are already deep in a navigation stack.
     // In ReactNavigation, we could look at using "goBack('ContentSingle')"
-    navigation.popToTop();
+    if (scene.index > 0) {
+      navigation.popToTop();
+    }
     navigation.pop();
   };
 
