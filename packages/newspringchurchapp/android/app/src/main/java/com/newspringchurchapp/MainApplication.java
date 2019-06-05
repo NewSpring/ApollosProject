@@ -13,7 +13,7 @@ import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.horcrux.svg.SvgPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import com.swmansion.rnscreens.RNScreensPackage;
+import com.swmansion.rnscreens.RNScreenPackage;
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.tanguyantoine.react.MusicControl;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -50,7 +50,7 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactVideoPackage(),
             new SvgPackage(),
             new SplashScreenReactPackage(),
-            new RNScreensPackage(),
+            new RNScreenPackage(),
             new ReactNativeOneSignalPackage(),
             new MusicControl(),
             new LinearGradientPackage(),
