@@ -1,5 +1,5 @@
 import { ContentItem as originalContentItem } from '@apollosproject/data-connector-rock';
-import { schemaMerge } from '@apollosproject/server-core';
+import { resolverMerge } from '@apollosproject/server-core';
 
 import ApollosConfig from '@apollosproject/config';
 
@@ -64,4 +64,4 @@ const resolver = {
   },
 };
 
-export default schemaMerge(resolver, originalContentItem);
+export default resolverMerge(resolver, originalContentItem);
