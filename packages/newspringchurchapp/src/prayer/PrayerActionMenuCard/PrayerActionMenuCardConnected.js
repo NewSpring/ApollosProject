@@ -7,17 +7,17 @@ import savedPrayerList from '../data/queries/getSavedPrayers';
 import PrayerActionMenuCard from './PrayerActionMenuCard';
 
 const PrayerActionMenuCardConnected = memo(
-  ({ onAdvancePrayer, navigation, prayerId, prayerRequest, ...props }) => {
+  ({ onAdvancePrayer, navigation, ...props }) => {
     const exitPrayer = () => navigation.navigate('Prayer');
     return (
       <Mutation
         mutation={savePrayerRequest}
         update={async (cache) => {
-          const currentSavedPrayers = cache.readQuery({
+          const { savedPrayers } = cache.readQuery({
             query: savedPrayerList,
           });
-          const newPrayersList = currentSavedPrayers.savedPrayers;
-          newPrayersList.push(prayerRequest.prayer);
+          const newPrayersList = savedPrayers;
+          newPrayersList.push(props.prayerRequest);
           await cache.writeQuery({
             query: savedPrayerList,
             data: { savedPrayers: newPrayersList },
@@ -30,7 +30,7 @@ const PrayerActionMenuCardConnected = memo(
             savePrayer={async () => {
               await savePrayer({
                 variables: {
-                  nodeId: prayerId,
+                  nodeId: props.prayerRequest.id,
                 },
               });
             }}
@@ -45,8 +45,9 @@ const PrayerActionMenuCardConnected = memo(
 
 PrayerActionMenuCardConnected.propTypes = {
   onAdvancePrayer: PropTypes.func,
-  prayerId: PropTypes.string,
-  prayerRequest: PropTypes.shape({}),
+  prayerRequest: PropTypes.shape({
+    id: PropTypes.string,
+  }),
 };
 
 export default PrayerActionMenuCardConnected;
