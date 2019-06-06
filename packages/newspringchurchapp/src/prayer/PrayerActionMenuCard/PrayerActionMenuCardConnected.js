@@ -8,7 +8,7 @@ import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import PrayerActionMenuCard from './PrayerActionMenuCard';
 
 const PrayerActionMenuCardConnected = memo(
-  ({ onAdvancePrayer, navigation, ...props }) => {
+  ({ onAdvancePrayer, navigation, prayerRequest, ...props }) => {
     const exitPrayer = () => navigation.navigate('Prayer');
     return (
       <Mutation
@@ -21,7 +21,7 @@ const PrayerActionMenuCardConnected = memo(
           // the array and if it's not in the array, it adds it.
           const newPrayersList = unionBy(
             savedPrayers,
-            [props.prayerRequest],
+            [prayerRequest],
             (prayer) => prayer.id
           );
           await cache.writeQuery({
@@ -36,7 +36,7 @@ const PrayerActionMenuCardConnected = memo(
             savePrayer={async () => {
               await savePrayer({
                 variables: {
-                  nodeId: props.prayerRequest.id,
+                  nodeId: prayerRequest.id,
                 },
               });
             }}

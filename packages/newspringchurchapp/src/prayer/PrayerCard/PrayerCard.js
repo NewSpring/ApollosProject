@@ -98,6 +98,7 @@ class PrayerCard extends PureComponent {
       advancePrayer,
       navigation,
       anonymous,
+      prayerRequest,
     } = this.props;
 
     const expandedHeight = Dimensions.get('window').height * 0.72;
@@ -119,7 +120,7 @@ class PrayerCard extends PureComponent {
           expandedHeight={expandedHeight}
           navigation={this.props.navigation}
           advancePrayer={advancePrayer}
-          {...this.props}
+          prayerRequest={prayerRequest}
         />
       </PaddedView>
     ) : (
