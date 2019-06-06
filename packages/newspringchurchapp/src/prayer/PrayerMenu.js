@@ -12,8 +12,8 @@ import {
   ButtonLink,
   H3,
   withTheme,
+  Icon,
 } from '@apollosproject/ui-kit';
-import NSIcon from '../ui/NSIcon';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayerList';
@@ -134,7 +134,7 @@ const ArrowIcon = withTheme(({ theme }) => ({
   name: 'arrow-up',
   fill: theme.colors.text.tertiary,
   size: theme.sizing.baseUnit * 1.5,
-}))(NSIcon);
+}))(Icon);
 
 class PrayerMenu extends PureComponent {
   static propTypes = {
