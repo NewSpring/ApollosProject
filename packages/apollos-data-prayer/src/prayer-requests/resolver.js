@@ -3,13 +3,13 @@ import { uniq } from 'lodash';
 
 export default {
   Query: {
-    getPublicPrayerRequests: (root, args, { dataSources }) =>
+    prayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
-    getPublicPrayerRequestsByCampus: (root, { campusId }, { dataSources }) =>
+    campusPrayers: (root, { campusId }, { dataSources }) =>
       dataSources.PrayerRequest.getAllByCampus(campusId),
-    getCurrentPersonPrayerRequests: (root, args, { dataSources }) =>
+    userPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
-    getPrayerRequestsByGroups: (root, args, { dataSources }) =>
+    groupPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
     savedPrayers: async (root, args, { dataSources }) => {
       try {
@@ -32,14 +32,14 @@ export default {
     },
   },
   Mutation: {
-    addPublicPrayerRequest: (root, args, { dataSources }) =>
+    addPrayer: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.add(args),
-    deletePublicPrayerRequest: (root, { id }, { dataSources }) => {
-      const { id: parsedId } = parseGlobalId(id);
+    deletePrayer: (root, { nodeId }, { dataSources }) => {
+      const { id: parsedId } = parseGlobalId(nodeId);
       return dataSources.PrayerRequest.deletePrayer(parsedId);
     },
-    incrementPrayed: async (root, { id }, { dataSources }) => {
-      const { id: parsedId } = parseGlobalId(id);
+    incrementPrayerCount: async (root, { nodeId }, { dataSources }) => {
+      const { id: parsedId } = parseGlobalId(nodeId);
       const operationName = 'Pray';
 
       await dataSources.Interactions.createPrayerRequestInteraction({
@@ -49,8 +49,8 @@ export default {
 
       return dataSources.PrayerRequest.incrementPrayed(parsedId);
     },
-    flagRequest: (root, { id }, { dataSources }) => {
-      const { id: parsedId } = parseGlobalId(id);
+    flagPrayer: (root, { nodeId }, { dataSources }) => {
+      const { id: parsedId } = parseGlobalId(nodeId);
       return dataSources.PrayerRequest.flag(parsedId);
     },
     savePrayer: async (
@@ -80,22 +80,14 @@ export default {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
     campus: ({ campusId }, args, { dataSources }) =>
-      (typeof campusId === 'number' &&
-        dataSources.Campus.getFromId(campusId)) ||
-      null,
-    categoryId: ({ categoryId }) =>
-      (typeof categoryId === 'number' && categoryId) || 0,
-    flagCount: ({ flagCount }) =>
-      (typeof flagCount === 'number' && flagCount) || 0,
-    prayerCount: ({ prayerCount }) =>
-      (typeof prayerCount === 'number' && prayerCount) || 0,
-    requestedByPersonAliasId: ({ requestedByPersonAliasId }) =>
-      (typeof requestedByPersonAliasId === 'number' &&
-        requestedByPersonAliasId) ||
-      0,
+      dataSources.Campus.getFromId(campusId),
     isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    flagCount: ({ flagCount }) =>
+      (typeof flagCount === 'number' && flagCount) || 0,
+    prayerCount: ({ prayerCount }) =>
+      (typeof prayerCount === 'number' && prayerCount) || 0,
   },
 };

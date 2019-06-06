@@ -2,7 +2,7 @@ import React from 'react';
 
 import Providers from 'newspringchurchapp/src/Providers';
 import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
-import savePrayerRequest from '../data/mutations/savePrayerRequest';
+import SAVE_PRAYER from '../data/mutations/savePrayer';
 import PrayerActionMenuCardConnected from './PrayerActionMenuCardConnected';
 
 it('renders PrayerActionMenuCardConnected', async () => {
@@ -18,7 +18,7 @@ it('renders PrayerActionMenuCardConnected when liking a prayer', async () => {
   const mocks = [
     {
       request: {
-        query: savePrayerRequest,
+        query: SAVE_PRAYER,
         variables: { nodeId: 'PrayerRequest:ab914f6fe3271e951cde1ef1deb1736d' },
       },
       result: {

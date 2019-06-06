@@ -99,6 +99,8 @@ ROCK_MAPPINGS:
     - 10
     - 23
     - 25
+    - 60
+    - 141
 
   CAMPAIGN_CHANNEL_IDS:
     - ${CAMPAIGN_CHANNEL_ID}
