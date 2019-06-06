@@ -17,10 +17,10 @@ import {
 import PrayerCardConnected from 'newspringchurchapp/src/prayer/PrayerCard/PrayerCardConnected';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
-import flagPrayerRequest from '../data/mutations/flagPrayerRequest';
-import getGroupPrayerRequests from '../data/queries/getGroupPrayerRequests';
-import getPublicPrayerRequests from '../data/queries/getPublicPrayerRequests';
-import getPublicPrayerRequestsByCampus from '../data/queries/getCampusPrayerRequests';
+import FLAG_PRAYER from '../data/mutations/flagPrayer';
+import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
+import GET_PRAYERS from '../data/queries/getPrayers';
+import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 
 const PaddedFeedView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 5,
@@ -84,19 +84,19 @@ class PrayerList extends PureComponent {
     const list = navigation.getParam('list', '');
 
     let query;
-    let prayers;
+    let queryName;
     let type;
     let variables;
 
     switch (list) {
       case 'GroupPrayerList':
-        query = getGroupPrayerRequests;
-        prayers = 'getPrayerRequestsByGroups';
+        query = GET_GROUP_PRAYERS;
+        queryName = 'groupPrayers';
         type = 'community';
         break;
       case 'ChurchPrayerList':
-        query = getPublicPrayerRequests;
-        prayers = 'getPublicPrayerRequests';
+        query = GET_PRAYERS;
+        queryName = 'prayers';
         type = 'church';
         break;
       case 'CampusPrayerList': {
@@ -105,23 +105,23 @@ class PrayerList extends PureComponent {
         } = cache.readQuery({
           query: getUserProfile,
         });
-        query = getPublicPrayerRequestsByCampus;
-        prayers = 'getPublicPrayerRequestsByCampus';
+        query = GET_CAMPUS_PRAYERS;
+        queryName = 'campusPrayers';
         type = 'campus';
         variables = { campusId: id };
         break;
       }
       default:
-        query = getPublicPrayerRequests;
-        prayers = 'getPublicPrayerRequests';
+        query = GET_PRAYERS;
+        queryName = 'getPrayers';
         type = 'church';
         break;
     }
-    return { query, prayers, type, variables };
+    return { query, queryName, type, variables };
   };
 
   render() {
-    const { query, prayers, type, variables } = this.calculateQuery();
+    const { query, queryName, type, variables } = this.calculateQuery();
     const { navigation } = this.props;
 
     return (
@@ -133,20 +133,17 @@ class PrayerList extends PureComponent {
             fetchPolicy="cache-and-network"
           >
             {({ data }) => {
-              const prayerData = get(data, prayers, []);
-              return prayerData.length > 0 ? (
+              const prayers = get(data, queryName, []);
+              return prayers.length > 0 ? (
                 <FlatList
                   ref={(scroller) => {
                     this.scroller = scroller;
                   }}
                   renderItem={(item) => (
                     <Mutation
-                      mutation={flagPrayerRequest}
+                      mutation={FLAG_PRAYER}
                       update={async () => {
-                        const prayerRequests = cache.readQuery({
-                          query,
-                        });
-                        const newPrayersList = prayerRequests[prayers].filter(
+                        const newPrayersList = prayers[queryName].filter(
                           (prayer) => prayer.id !== item.item.id
                         );
                         const newPrayerObject = {
@@ -190,12 +187,12 @@ class PrayerList extends PureComponent {
                       <GreyH6>Press down on card to pray</GreyH6>
                     </DividerView>
                   )}
-                  data={get(data, prayers, []).map((prayer) => ({
+                  data={get(data, queryName, []).map((prayer) => ({
                     prayerRequest: prayer,
                     key: prayer.id,
                     id: prayer.id,
                     prayer: prayer.text,
-                    source: prayer.campus.name || '',
+                    source: get(prayer, 'campus.name', ''),
                     name: prayer.firstName,
                     avatarSource: prayer.person.photo,
                     anonymous: prayer.isAnonymous,

@@ -139,12 +139,12 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   // MUTATION add public prayer request
   add = async ({
-    CampusId,
-    CategoryId,
-    Text,
-    FirstName,
-    LastName,
-    IsAnonymous,
+    campusId,
+    categoryId,
+    text,
+    firstName,
+    lastName,
+    isAnonymous,
   }) => {
     const {
       dataSources: { Auth },
@@ -153,11 +153,11 @@ export default class PrayerRequest extends RockApolloDataSource {
       const { primaryAliasId } = await Auth.getCurrentPerson();
 
       const newPrayerRequest = await this.post('/PrayerRequests', {
-        FirstName, // Required by Rock
-        LastName,
-        Text, // Required by Rock
-        CategoryId,
-        CampusId: parseInt(parseGlobalId(CampusId).id, 10),
+        FirstName: firstName, // Required by Rock
+        LastName: lastName,
+        Text: text, // Required by Rock
+        CategoryId: categoryId,
+        CampusId: parseInt(parseGlobalId(campusId).id, 10),
         IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
@@ -170,7 +170,7 @@ export default class PrayerRequest extends RockApolloDataSource {
       // TODO: we should combine this so network doesn't die and someone's prayer is left un-anonymous
       await this.post(
         `/PrayerRequests/AttributeValue/${newPrayerRequest}?attributeKey=IsAnonymous&attributeValue=${
-          IsAnonymous ? 'True' : 'False'
+          isAnonymous ? 'True' : 'False'
         }`
       );
       return this.getFromId(newPrayerRequest);

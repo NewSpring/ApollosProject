@@ -3,7 +3,7 @@
 exports[`PrayerRequest resolvers creates a new prayer 1`] = `
 Object {
   "data": Object {
-    "addPublicPrayerRequest": Object {
+    "addPrayer": Object {
       "campus": Object {
         "id": "16",
         "name": "Anderson",
@@ -30,7 +30,7 @@ Object {
 exports[`PrayerRequest resolvers flags a prayer request 1`] = `
 Object {
   "data": Object {
-    "flagRequest": Object {
+    "flagPrayer": Object {
       "campus": Object {
         "id": "16",
         "name": "Anderson",
@@ -57,7 +57,7 @@ Object {
 exports[`PrayerRequest resolvers gets all prayers from current person 1`] = `
 Object {
   "data": Object {
-    "getCurrentPersonPrayerRequests": Array [
+    "userPrayers": Array [
       Object {
         "campus": Object {
           "id": "16",
@@ -96,7 +96,7 @@ Array [
 exports[`PrayerRequest resolvers gets all prayers from groups 1`] = `
 Object {
   "data": Object {
-    "getPrayerRequestsByGroups": Array [
+    "groupPrayers": Array [
       Object {
         "campus": Object {
           "id": "16",
@@ -131,7 +131,7 @@ Array [
 exports[`PrayerRequest resolvers gets all public prayer requests 1`] = `
 Object {
   "data": Object {
-    "getPublicPrayerRequests": Array [
+    "prayers": Array [
       Object {
         "campus": Object {
           "id": "16",
@@ -190,7 +190,7 @@ Array [
 exports[`PrayerRequest resolvers gets all public prayer requests by campus 1`] = `
 Object {
   "data": Object {
-    "getPublicPrayerRequestsByCampus": Array [
+    "campusPrayers": Array [
       Object {
         "campus": Object {
           "id": "16",
@@ -316,7 +316,7 @@ Array [
 exports[`PrayerRequest resolvers increments prayed for a request 1`] = `
 Object {
   "data": Object {
-    "incrementPrayed": Object {
+    "incrementPrayerCount": Object {
       "campus": Object {
         "id": "16",
         "name": "Anderson",

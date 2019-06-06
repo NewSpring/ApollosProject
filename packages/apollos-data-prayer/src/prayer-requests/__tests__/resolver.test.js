@@ -49,7 +49,7 @@ describe('PrayerRequest resolvers', () => {
   it('gets all public prayer requests', async () => {
     const query = `
       query {
-        getPublicPrayerRequests {
+        prayers {
           id
           firstName
           lastName
@@ -126,7 +126,7 @@ describe('PrayerRequest resolvers', () => {
   it('gets all public prayer requests by campus', async () => {
     const query = `
       query {
-        getPublicPrayerRequestsByCampus(campusId: "Campus:4f68015ba18662a7409d1219a4ce013e") {
+        campusPrayers(campusId: "Campus:4f68015ba18662a7409d1219a4ce013e") {
           id
           firstName
           lastName
@@ -247,7 +247,7 @@ describe('PrayerRequest resolvers', () => {
   it('gets all prayers from current person', async () => {
     const query = `
       query {
-        getCurrentPersonPrayerRequests {
+        userPrayers {
           id
           firstName
           lastName
@@ -308,7 +308,7 @@ describe('PrayerRequest resolvers', () => {
   it('gets all prayers from groups', async () => {
     const query = `
       query {
-        getPrayerRequestsByGroups {
+        groupPrayers {
           id
           firstName
           lastName
@@ -359,7 +359,7 @@ describe('PrayerRequest resolvers', () => {
   it('creates a new prayer', async () => {
     const query = `
       mutation {
-        addPublicPrayerRequest(FirstName: "Test", LastName: "Bro", Text: "Jesus Rocks", CampusId: "Campus:4f68015ba18662a7409d1219a4ce013e", CategoryId: 1, IsAnonymous: true) {
+        addPrayer(firstName: "Test", lastName: "Bro", text: "Jesus Rocks", campusId: "Campus:4f68015ba18662a7409d1219a4ce013e", categoryId: 1, isAnonymous: true) {
           id
           firstName
           lastName
@@ -416,7 +416,7 @@ describe('PrayerRequest resolvers', () => {
   it('increments prayed for a request', async () => {
     const query = `
       mutation {
-        incrementPrayed(id: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
+        incrementPrayerCount(nodeId: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
           id
           firstName
           lastName
@@ -475,7 +475,7 @@ describe('PrayerRequest resolvers', () => {
   it('flags a prayer request', async () => {
     const query = `
       mutation {
-        flagRequest(id: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
+        flagPrayer(nodeId: "PrayerRequest:b36e55d803443431e96bb4b5068147ec") {
           id
           firstName
           lastName

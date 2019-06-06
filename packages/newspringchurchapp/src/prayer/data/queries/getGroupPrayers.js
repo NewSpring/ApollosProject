@@ -1,17 +1,17 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query getCampusPrayerRequests($campusId: String!) {
-    getPublicPrayerRequestsByCampus(campusId: $campusId) {
+  query GroupPrayers {
+    groupPrayers {
       id
       firstName
       lastName
-      isAnonymous
       person {
         photo {
           uri
         }
       }
+      isAnonymous
       text
       flagCount
       campus {

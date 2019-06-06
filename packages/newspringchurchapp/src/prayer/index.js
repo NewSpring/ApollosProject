@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
-import getPrayerMenuCategories from './data/queries/getPrayerMenuCategories';
+import GET_PRAYER_MENU_CATEGORIES from './data/queries/getPrayerMenuCategories';
 import PrayerMenu from './PrayerMenu';
 
 class PrayerMenuConnected extends PureComponent {
@@ -11,7 +11,7 @@ class PrayerMenuConnected extends PureComponent {
 
   render() {
     return (
-      <Query query={getPrayerMenuCategories}>
+      <Query query={GET_PRAYER_MENU_CATEGORIES}>
         {({ loading, data: { prayerMenuCategories } }) => {
           if (loading) return null;
           const categories = prayerMenuCategories.map((category) => ({

@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 
-import savePrayerRequest from '../data/mutations/savePrayerRequest';
-import savedPrayerList from '../data/queries/getSavedPrayers';
+import SAVE_PRAYER from '../data/mutations/savePrayer';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import PrayerActionMenuCard from './PrayerActionMenuCard';
 
 const PrayerActionMenuCardConnected = memo(
@@ -11,15 +11,15 @@ const PrayerActionMenuCardConnected = memo(
     const exitPrayer = () => navigation.navigate('Prayer');
     return (
       <Mutation
-        mutation={savePrayerRequest}
+        mutation={SAVE_PRAYER}
         update={async (cache) => {
           const { savedPrayers } = cache.readQuery({
-            query: savedPrayerList,
+            query: GET_SAVED_PRAYERS,
           });
           const newPrayersList = savedPrayers;
           newPrayersList.push(props.prayerRequest);
           await cache.writeQuery({
-            query: savedPrayerList,
+            query: GET_SAVED_PRAYERS,
             data: { savedPrayers: newPrayersList },
           });
         }}

@@ -2,16 +2,16 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 
-import incrementRequestPrayed from '../data/mutations/incrementRequestPrayed';
+import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
 import PrayerCard from './PrayerCard';
 
 const PrayerCardConnected = memo(({ prayerId, ...props }) => (
-  <Mutation mutation={incrementRequestPrayed}>
-    {(incrementPrayed) => (
+  <Mutation mutation={INCREMENT_PRAYER_COUNT}>
+    {(incrementPrayerCount) => (
       <PrayerCard
         prayerId={prayerId}
         incrementPrayer={async () => {
-          await incrementPrayed({
+          await incrementPrayerCount({
             variables: {
               parsedId: prayerId,
             },
