@@ -188,6 +188,7 @@ class PrayerList extends PureComponent {
                     </DividerView>
                   )}
                   data={get(data, queryName, []).map((prayer) => ({
+                    prayerRequest: prayer,
                     key: prayer.id,
                     id: prayer.id,
                     prayer: prayer.text,
