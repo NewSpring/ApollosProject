@@ -5,8 +5,8 @@ import { get } from 'lodash';
 import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
-import savedPrayerList from '../data/queries/getSavedPrayers';
-import unSavePrayer from '../data/mutations/unSavePrayer';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
+import UNSAVE_PRAYER from '../data/mutations/unSavePrayer';
 
 const StyledView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit * 4,
@@ -14,21 +14,21 @@ const StyledView = styled(({ theme }) => ({
 
 const SavedPrayerList = () => (
   <ScrollView nestedScrollEnabled>
-    <Query query={savedPrayerList} fetchPolicy="cache-and-network">
+    <Query query={GET_SAVED_PRAYERS} fetchPolicy="cache-and-network">
       {({ data: { savedPrayers = [] } = {} }) => (
         <Mutation
-          mutation={unSavePrayer}
-          update={async (cache, { data: { unSavePrayer: returnedPrayer } }) => {
-            const currentSavedPrayers = cache.readQuery({
-              query: savedPrayerList,
+          mutation={UNSAVE_PRAYER}
+          update={async (cache, { data: { unSavePrayer } }) => {
+            const prayers = cache.readQuery({
+              query: GET_SAVED_PRAYERS,
             });
-            const { id } = returnedPrayer;
-            const newPrayersList = currentSavedPrayers.savedPrayers.filter(
+            const { id } = unSavePrayer;
+            const updatedPrayers = prayers.savedPrayers.filter(
               (prayer) => prayer.id !== id
             );
             await cache.writeQuery({
-              query: savedPrayerList,
-              data: { savedPrayers: newPrayersList },
+              query: GET_SAVED_PRAYERS,
+              data: { savedPrayers: updatedPrayers },
             });
           }}
         >

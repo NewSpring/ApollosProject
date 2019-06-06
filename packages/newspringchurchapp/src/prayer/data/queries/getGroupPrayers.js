@@ -1,18 +1,18 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query getPublicPrayerRequests {
-    getPublicPrayerRequests {
+  query GroupPrayers {
+    groupPrayers {
       id
       firstName
       lastName
-      isAnonymous
-      text
       person {
         photo {
           uri
         }
       }
+      isAnonymous
+      text
       flagCount
       campus {
         id

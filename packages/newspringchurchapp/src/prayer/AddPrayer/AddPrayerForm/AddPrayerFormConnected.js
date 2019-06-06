@@ -2,8 +2,8 @@ import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import { get } from 'lodash';
 import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
-import getPrayers from 'newspringchurchapp/src/prayer/data/queries/getUserPrayers';
-import addPrayer from './addPrayer';
+import GET_USER_PRAYERS from 'newspringchurchapp/src/prayer/data/queries/getUserPrayers';
+import ADD_PRAYER from '../../data/mutations/addPrayer';
 import AddPrayerForm from './AddPrayerForm';
 
 class AddPrayerFormConnected extends React.Component {
@@ -16,29 +16,27 @@ class AddPrayerFormConnected extends React.Component {
       <Query query={getUserProfile} fetchPolicy={'cache-only'}>
         {({ data: userData }) => (
           <Mutation
-            mutation={addPrayer}
-            update={(cache, { data: { addPublicPrayerRequest } }) => {
-              const { getCurrentPersonPrayerRequests } = cache.readQuery({
-                query: getPrayers,
+            mutation={ADD_PRAYER}
+            update={(cache, { data: { addPrayer } }) => {
+              const { userPrayers } = cache.readQuery({
+                query: GET_USER_PRAYERS,
               });
               cache.writeQuery({
-                query: getPrayers,
+                query: GET_USER_PRAYERS,
                 data: {
-                  getCurrentPersonPrayerRequests: getCurrentPersonPrayerRequests.concat(
-                    [addPublicPrayerRequest]
-                  ),
+                  userPrayers: userPrayers.concat([addPrayer]),
                 },
               });
             }}
           >
-            {(createPrayer) => (
+            {(addPrayer) => (
               <AddPrayerForm
                 onSubmit={(values) => {
-                  createPrayer({
+                  addPrayer({
                     variables: {
-                      campusID: get(userData, 'currentUser.profile.campus.id'),
+                      campusId: get(userData, 'currentUser.profile.campus.id'),
                       // TODO: make this dynamic
-                      categoryID: 2,
+                      categoryId: 2,
                       text: values.prayer,
                       firstName: get(userData, 'currentUser.profile.firstName'),
                       lastName: get(userData, 'currentUser.profile.lastName'),

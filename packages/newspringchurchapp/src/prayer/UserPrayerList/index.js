@@ -6,8 +6,8 @@ import { styled } from '@apollosproject/ui-kit';
 
 import PrayerCard from '../PrayerCard';
 
-import deleteUserPrayer from '../data/mutations/deleteUserPrayer';
-import getUserPrayers from '../data/queries/getUserPrayers';
+import DELETE_PRAYER from '../data/mutations/deletePrayer';
+import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
 
 const StyledView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit * 4,
@@ -15,27 +15,27 @@ const StyledView = styled(({ theme }) => ({
 
 const UserPrayerList = () => (
   <ScrollView nestedScrollEnabled>
-    <Query query={getUserPrayers} fetchPolicy="cache-and-network">
-      {({ data: { getCurrentPersonPrayerRequests = [] } = {} }) => (
+    <Query query={GET_USER_PRAYERS} fetchPolicy="cache-and-network">
+      {({ data: { userPrayers = [] } = {} }) => (
         <Mutation
-          mutation={deleteUserPrayer}
-          update={async (cache, { data: { deletePublicPrayerRequest } }) => {
-            const currentCurrentPersonPrayerRequests = cache.readQuery({
-              query: getUserPrayers,
+          mutation={DELETE_PRAYER}
+          update={async (cache, { data: { deletePrayer } }) => {
+            const data = cache.readQuery({
+              query: GET_USER_PRAYERS,
             });
-            const { id } = deletePublicPrayerRequest;
-            const newPrayersList = currentCurrentPersonPrayerRequests.getCurrentPersonPrayerRequests.filter(
+            const { id } = deletePrayer;
+            const updatedPrayers = data.userPrayers.filter(
               (prayer) => prayer.id !== id
             );
             await cache.writeQuery({
-              query: getUserPrayers,
-              data: { getCurrentPersonPrayerRequests: newPrayersList },
+              query: GET_USER_PRAYERS,
+              data: { userPrayers: updatedPrayers },
             });
           }}
         >
           {(deletePrayer) => (
             <StyledView>
-              {getCurrentPersonPrayerRequests
+              {userPrayers
                 .map((prayer) => (
                   <PrayerCard
                     key={prayer.id}
