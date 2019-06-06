@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 
-import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
+import { BackgroundView, withTheme, Icon } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
 
 import { MediaPlayer } from '@apollosproject/ui-media-player';
@@ -23,7 +23,6 @@ import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
-import NSIcon from './ui/NSIcon';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -37,7 +36,7 @@ const BrandIcon = withTheme(({ theme }) => ({
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
-}))(NSIcon);
+}))(Icon);
 
 const ProtectedRouteWithSplashScreen = (props) => {
   const handleOnRouteChange = () => SplashScreen.hide();
