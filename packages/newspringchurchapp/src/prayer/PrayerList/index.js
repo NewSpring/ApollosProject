@@ -194,7 +194,7 @@ class PrayerList extends PureComponent {
                     key: prayer.id,
                     id: prayer.id,
                     prayer: prayer.text,
-                    source: prayer.campus.name || '',
+                    source: get(prayer, 'campus.name', ''),
                     name: prayer.firstName,
                     avatarSource: prayer.person.photo,
                     anonymous: prayer.isAnonymous,
