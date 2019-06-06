@@ -5,4 +5,4 @@ export Pray from './Pray';
 export LeafOutline from './LeafOutline';
 export LeafSolid from './LeafSolid';
 export LeafLined from './LeafLined';
-export LeafLogo from './LeafLogo';
+export LeafLogo, { default as BrandIcon } from './LeafLogo';
