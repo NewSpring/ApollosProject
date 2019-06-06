@@ -8,9 +8,9 @@ import {
   H4,
   PaddedView,
   BackgroundView,
+  Icon,
 } from '@apollosproject/ui-kit';
 import { Slide } from '@apollosproject/ui-onboarding';
-import NSIcon from '../NSIcon';
 
 const Content = styled({
   flex: 1,
@@ -24,7 +24,7 @@ const BrandIcon = withTheme(({ theme, color }) => ({
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
-}))(NSIcon);
+}))(Icon);
 
 const Title = styled(({ theme, color }) => ({
   marginBottom: theme.sizing.baseUnit * 2,
