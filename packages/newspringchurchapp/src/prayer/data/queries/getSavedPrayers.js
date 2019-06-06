@@ -4,20 +4,21 @@ export default gql`
   query SavedPrayers {
     savedPrayers {
       id
-      campus {
-        id
-        name
-      }
       firstName
       lastName
+      isAnonymous
       text
-      enteredDateTime
       person {
         photo {
           uri
         }
       }
-      isAnonymous
+      flagCount
+      campus {
+        id
+        name
+      }
+      enteredDateTime
     }
   }
 `;

@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import { unionBy } from 'lodash';
 import { Mutation } from 'react-apollo';
 
 import SAVE_PRAYER from '../data/mutations/savePrayer';
@@ -16,8 +17,13 @@ const PrayerActionMenuCardConnected = memo(
           const { savedPrayers } = cache.readQuery({
             query: GET_SAVED_PRAYERS,
           });
-          const newPrayersList = savedPrayers;
-          newPrayersList.push(props.prayerRequest);
+          // This methods compares the incoming prayer by id to the items in
+          // the array and if it's not in the array, it adds it.
+          const newPrayersList = unionBy(
+            savedPrayers,
+            [props.prayerRequest],
+            (prayer) => prayer.id
+          );
           await cache.writeQuery({
             query: GET_SAVED_PRAYERS,
             data: { savedPrayers: newPrayersList },
