@@ -19,7 +19,7 @@
 
 ## REVIEW
 
-- [ ] Test the fix/feature
+- [ ] Review updates to test coverage and snapshots
 - [ ] Review code through the lens of being concise, simple, and well-documented
 
 **Manual QA**
