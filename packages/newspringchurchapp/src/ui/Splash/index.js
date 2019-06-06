@@ -2,8 +2,14 @@ import React, { memo } from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { styled, withTheme, H1, H4, PaddedView } from '@apollosproject/ui-kit';
-import NSIcon from '../NSIcon';
+import {
+  styled,
+  withTheme,
+  H1,
+  H4,
+  PaddedView,
+  Icon,
+} from '@apollosproject/ui-kit';
 
 import Slide from '../Onboarding/Slide/SlideContent';
 
@@ -19,7 +25,7 @@ const BrandIcon = withTheme(({ theme, isLight }) => ({
   style: {
     marginBottom: theme.sizing.baseUnit,
   },
-}))(NSIcon);
+}))(Icon);
 
 const Title = styled(({ theme, isLight }) => ({
   color: isLight ? theme.colors.text.primary : theme.colors.white,
