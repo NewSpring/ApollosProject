@@ -33,6 +33,7 @@ const NavigationHeader = ({ scene, navigation }) => {
     <ModalViewHeader
       onClose={navigation.state.params.isolated ? null : onClose}
       onBack={onBack}
+      navigationHeader
     />
   );
 };
