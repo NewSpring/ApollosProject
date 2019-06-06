@@ -2,8 +2,6 @@
 
 ### What does this PR do, or why is it needed?
 
-### Was anything changed? Why?
-
 ### How do I test this PR?
 
 ---
