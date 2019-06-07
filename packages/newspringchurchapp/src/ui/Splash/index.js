@@ -11,7 +11,7 @@ import {
   Icon,
 } from '@apollosproject/ui-kit';
 
-import Slide from '../Onboarding/Slide/SlideContent';
+import { Slide } from '@apollosproject/ui-onboarding';
 
 const Content = styled({
   flex: 1,
