@@ -18,7 +18,7 @@ const Content = styled({
 })(PaddedView);
 
 const BrandIcon = withTheme(({ theme, color }) => ({
-  name: 'leaf-logo',
+  name: 'brand-icon',
   size: theme.sizing.baseUnit * 6,
   ...(color ? { fill: color } : {}),
   style: {

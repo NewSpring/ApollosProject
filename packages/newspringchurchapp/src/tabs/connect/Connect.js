@@ -28,7 +28,7 @@ const Title = styled(({ theme }) => ({
 }))(H1);
 
 const BrandIcon = withTheme(({ theme }) => ({
-  name: 'leaf-logo',
+  name: 'brand-icon',
   size: theme.sizing.baseUnit * 6,
   marginBottom: theme.sizing.baseUnit,
   fill: theme.colors.primary,
