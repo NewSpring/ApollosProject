@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 
-import { BackgroundView, withTheme, Icon } from '@apollosproject/ui-kit';
+import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
 
 import { MediaPlayer } from '@apollosproject/ui-media-player';
@@ -28,15 +28,6 @@ const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
   backgroundColor: theme.colors.paper,
 }))(StatusBar);
-
-const BrandIcon = withTheme(({ theme }) => ({
-  name: 'leaf-logo',
-  fill: theme.colors.secondary,
-  size: theme.sizing.baseUnit * 6,
-  style: {
-    marginBottom: theme.sizing.baseUnit,
-  },
-}))(Icon);
 
 const ProtectedRouteWithSplashScreen = (props) => {
   const handleOnRouteChange = () => SplashScreen.hide();
@@ -78,10 +69,6 @@ function getActiveRouteName(navigationState) {
   return route.routeName;
 }
 
-AppNavigator.navigationOptions = {
-  brand: <BrandIcon />,
-};
-
 const App = () => (
   <Providers>
     <BackgroundView>
@@ -102,7 +89,6 @@ const App = () => (
                 track({ eventName: `Viewed ${currentScreen}` });
               }
             }}
-            screenProps={{ brand: <BrandIcon /> }}
           />
         )}
       </AnalyticsConsumer>
