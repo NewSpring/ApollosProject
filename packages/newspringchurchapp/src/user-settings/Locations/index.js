@@ -43,10 +43,10 @@ class Location extends PureComponent {
   static defaultProps = {
     initialRegion: {
       // roughly show the entire USA by default
-      latitude: 39.809734,
-      longitude: -98.555618,
-      latitudeDelta: 100,
-      longitudeDelta: 100 * ASPECT_RATIO,
+      latitude: 32.916107,
+      longitude: -80.974731,
+      latitudeDelta: 8,
+      longitudeDelta: 5 * ASPECT_RATIO,
     },
   };
 
