@@ -10,8 +10,6 @@ import {
   PaddedView,
 } from '@apollosproject/ui-kit';
 
-import NSIcon from 'newspringchurchapp/src/ui/NSIcon';
-
 const StyledCard = styled(({ expandedHeight }) => ({
   marginHorizontal: 0,
   marginVertical: 0,
@@ -59,30 +57,27 @@ class PrayerActionMenuCard extends PureComponent {
         handleOnPressAction: exitPrayer,
         iconName: 'arrow-up',
         actionText: 'Done Praying',
-        nsIcon: true,
       },
       {
         key: 2,
         handleOnPressAction: savePrayerAction,
         iconName: savePrayerIcon,
         actionText: 'Save Prayer',
-        nsIcon: false,
       },
       {
         key: 3,
         handleOnPressAction: advancePrayer,
         iconName: 'arrow-down',
         actionText: 'Next Prayer',
-        nsIcon: true,
       },
     ];
 
-    const ActionButton = ({ onPressAction, iconName, actionText, nsIcon }) => (
+    const ActionButton = ({ onPressAction, iconName, actionText }) => (
       <StyledPaddedView>
         <Touchable onPress={() => onPressAction()}>
           <StyledTouchableView>
             <PaddedView>
-              {nsIcon ? <NSIcon name={iconName} /> : <Icon name={iconName} />}
+              <Icon name={iconName} />
             </PaddedView>
             <H4>{actionText}</H4>
           </StyledTouchableView>
@@ -98,7 +93,6 @@ class PrayerActionMenuCard extends PureComponent {
               onPressAction={action.handleOnPressAction}
               iconName={action.iconName}
               actionText={action.actionText}
-              nsIcon={action.nsIcon}
             />
           ))}
         </StyledCardContent>

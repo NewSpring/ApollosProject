@@ -13,8 +13,8 @@ import {
   withTheme,
   styled,
   PaddedView,
+  Icon,
 } from '@apollosproject/ui-kit';
-import NSIcon from '../../ui/NSIcon';
 import ActionTable from './ActionTable';
 import Toolbar from './Toolbar';
 import { UserAvatarHeaderConnected } from './UserAvatarHeader';
@@ -28,11 +28,11 @@ const Title = styled(({ theme }) => ({
 }))(H1);
 
 const BrandIcon = withTheme(({ theme }) => ({
-  name: 'leaf-logo',
+  name: 'brand-icon',
   size: theme.sizing.baseUnit * 6,
   marginBottom: theme.sizing.baseUnit,
   fill: theme.colors.primary,
-}))(NSIcon);
+}))(Icon);
 
 const Header = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit * 1.5,
