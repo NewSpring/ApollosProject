@@ -14,7 +14,7 @@ import {
   withTheme,
   Icon,
 } from '@apollosproject/ui-kit';
-import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
+import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayerList';
 import PrayerPreviewCard from './PrayerPreviewCard';
@@ -191,7 +191,7 @@ class PrayerMenu extends PureComponent {
         <SafeAreaView>
           {this.state.showAddPrayerCard ? (
             <StyledAddPrayerContainer>
-              <AddPrayerCardConnected
+              <AddPrayerCard
                 description={
                   'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
                 }
