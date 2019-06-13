@@ -6,9 +6,9 @@ const { ROCK } = ApollosConfig;
 export default class ContentChannelItemSlug extends RockApolloDataSource {
   resource = 'ContentChannelItemSlugs';
 
-  getShareURL = async (id, contentChannelId, dataSources) => {
+  getShareURL = async (id, contentChannelId) => {
     try {
-      const contentChannel = await dataSources.ContentChannel.getFromId(
+      const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
         contentChannelId
       );
       const slug = await this.request('ContentChannelItemSlugs')
