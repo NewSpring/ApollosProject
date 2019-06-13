@@ -1,8 +1,10 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { View, KeyboardAvoidingView } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView, withNavigation } from 'react-navigation';
 import { Formik } from 'formik';
+import { get } from 'lodash';
+
 import {
   ModalView,
   Switch,
@@ -12,7 +14,14 @@ import {
   FlexedView,
   PaddedView,
 } from '@apollosproject/ui-kit';
-import PrayerHeader from '../../PrayerHeader';
+
+import { useQuery, useMutation } from 'react-apollo-hooks';
+
+import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
+import GET_USER_PRAYERS from 'newspringchurchapp/src/prayer/data/queries/getUserPrayers';
+import ADD_PRAYER from 'newspringchurchapp/src/prayer/data/mutations/addPrayer';
+
+import PrayerHeader from '../PrayerHeader';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -45,11 +54,45 @@ const StyledPrayerHeaderView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(View);
 
-const AddPrayerForm = memo(
-  ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
+const AddPrayerForm = memo(({ title, btnLabel, navigation, ...props }) => {
+  const userData = useQuery(GET_USER_PROFILE);
+
+  const addPrayerMutation = useMutation(ADD_PRAYER, {
+    update: (cache, { data: { addPrayer } }) => {
+      const { userPrayers } = cache.readQuery({
+        query: GET_USER_PRAYERS,
+      });
+      cache.writeQuery({
+        query: GET_USER_PRAYERS,
+        data: {
+          userPrayers: userPrayers.concat([addPrayer]),
+        },
+      });
+    },
+  });
+
+  const avatarSource = get(userData, 'currentUser.profile.photo', {
+    uri: null,
+  });
+
+  return (
     <Formik
       initialValues={{ prayer: '', anonymous: false }}
-      onSubmit={onSubmit}
+      onSubmit={({ prayer, anonymous }) => {
+        addPrayerMutation({
+          variables: {
+            campusId: get(userData, 'data.currentUser.profile.campus.id'),
+            // TODO: make this dynamic
+            categoryId: 2,
+            text: prayer,
+            firstName: get(userData, 'data.currentUser.profile.firstName'),
+            lastName: get(userData, 'data.currentUser.profile.lastName'),
+            isAnonymous: anonymous,
+          },
+        });
+
+        navigation.pop();
+      }}
     >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
         <ModalView {...props}>
@@ -90,14 +133,10 @@ const AddPrayerForm = memo(
         </ModalView>
       )}
     </Formik>
-  )
-);
+  );
+});
 
 AddPrayerForm.propTypes = {
-  onSubmit: PropTypes.func,
-  avatarSource: PropTypes.shape({
-    uri: PropTypes.string,
-  }),
   title: PropTypes.string,
   btnLabel: PropTypes.string,
 };
@@ -109,4 +148,4 @@ AddPrayerForm.defaultProps = {
 
 AddPrayerForm.displayName = 'AddPrayerForm';
 
-export default AddPrayerForm;
+export default withNavigation(AddPrayerForm);

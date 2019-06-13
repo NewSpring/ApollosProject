@@ -13,8 +13,8 @@ import {
 } from '@apollosproject/ui-kit';
 
 import { useQuery } from 'react-apollo-hooks';
-import getUserProfile from 'newspringchurchapp/src/tabs/connect/getUserProfile';
-import PrayerHeader from '../../PrayerHeader';
+import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
+import PrayerHeader from '../PrayerHeader';
 
 const StyledCardContent = styled(({ theme }) => ({
   alignItems: 'center',
@@ -30,7 +30,7 @@ const StyledPrayerHeaderView = styled(({ theme }) => ({
 }))(View);
 
 const AddPrayerCard = memo(({ title, description, ...props }) => {
-  const { data, loading } = useQuery(getUserProfile);
+  const { data, loading } = useQuery(GET_USER_PROFILE);
 
   if (loading) return null;
 

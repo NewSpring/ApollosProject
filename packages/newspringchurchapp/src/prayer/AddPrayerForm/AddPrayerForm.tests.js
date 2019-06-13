@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Providers from 'newspringchurchapp/src/Providers';
 
-import AddPrayerForm from './AddPrayerForm';
+import AddPrayerForm from '.';
 
 describe('The AddPrayerForm component', () => {
   it('should render', () => {

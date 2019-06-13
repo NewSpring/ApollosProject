@@ -3,6 +3,7 @@ import { Dimensions, View, Animated } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { TabView } from 'react-native-tab-view';
+
 import {
   TouchableScale,
   HorizontalTileFeed,
@@ -14,7 +15,8 @@ import {
   withTheme,
   Icon,
 } from '@apollosproject/ui-kit';
-import AddPrayerCard from './AddPrayer/AddPrayerCard';
+
+import AddPrayerCard from './AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 import UserPrayerList from './UserPrayerList';
 import PrayerPreviewCard from './PrayerPreviewCard';

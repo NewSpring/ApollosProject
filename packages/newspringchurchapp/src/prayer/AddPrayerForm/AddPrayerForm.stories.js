@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
-import AddPrayerForm from './AddPrayerForm';
+import AddPrayerForm from '.';
 
 storiesOf('prayer/AddPrayer/AddPrayerForm', module)
   .add('default', () => <AddPrayerForm navigation={{ pop: () => {} }} />)
