@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { View, KeyboardAvoidingView } from 'react-native';
-import { SafeAreaView, withNavigation } from 'react-navigation';
+import { SafeAreaView } from 'react-navigation';
 import { Formik } from 'formik';
 import { get } from 'lodash';
 
@@ -148,4 +148,4 @@ AddPrayerForm.defaultProps = {
 
 AddPrayerForm.displayName = 'AddPrayerForm';
 
-export default withNavigation(AddPrayerForm);
+export default AddPrayerForm;

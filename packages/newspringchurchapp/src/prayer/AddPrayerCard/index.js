@@ -29,7 +29,7 @@ const StyledPrayerHeaderView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit,
 }))(View);
 
-const AddPrayerCard = memo(({ title, description, ...props }) => {
+const AddPrayerCard = memo(({ title, description, navigation }) => {
   const { data, loading } = useQuery(GET_USER_PROFILE);
 
   if (loading) return null;
@@ -51,7 +51,7 @@ const AddPrayerCard = memo(({ title, description, ...props }) => {
       <PaddedView>
         <Button
           title={'Add Prayer'}
-          onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
+          onPress={() => navigation.navigate('AddPrayerForm')}
         />
       </PaddedView>
     </Card>
