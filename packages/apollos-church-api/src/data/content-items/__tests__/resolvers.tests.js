@@ -19,6 +19,7 @@ import {
 } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
+import * as ContentChannelItemSlug from '../../content-item-slugs/index';
 
 class Scripture {
   // eslint-disable-next-line class-methods-use-this
@@ -48,6 +49,9 @@ const { getSchema, getContext } = createTestHelpers({
     dataSource: Scripture,
   },
   RockConstants,
+  ContentChannelItemSlug: {
+    dataSource: ContentChannelItemSlug.dataSource,
+  },
 });
 // we import the root-level schema and resolver so we test the entire integration:
 
@@ -56,6 +60,7 @@ ApollosConfig.loadJs({
     API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
     IMAGE_URL: 'https://s3.amazonaws.com',
+    SHARE_URL: 'https://newspring.cc',
     TIMEZONE: 'America/New_York',
   },
   ROCK_CONSTANTS: {
@@ -175,6 +180,7 @@ describe('UniversalContentItem', () => {
       }
       ${contentItemFragment}
     `;
+
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
