@@ -1,8 +1,7 @@
 import React from 'react';
-import { ApolloProvider } from 'react-apollo-hooks';
+import Providers from 'newspringchurchapp/src/Providers';
 import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
-import { cleanup, render } from '@testing-library/react';
-import mockApolloClient from '../test.utils';
+import renderer from 'react-test-renderer';
 import AddPrayerCard from '.';
 
 const mocks = [
@@ -18,39 +17,36 @@ const mocks = [
   },
 ];
 
-const client = mockApolloClient(mocks);
-
 describe('The AddPrayerCard component', () => {
-  afterEach(cleanup);
   it('should render', async () => {
-    const { baseElement } = render(
-      <ApolloProvider client={client}>
+    const tree = renderer.create(
+      <Providers mocks={mocks}>
         <AddPrayerCard />
-      </ApolloProvider>
+      </Providers>
     );
 
-    expect(baseElement).toBeTruthy();
+    expect(tree).toMatchSnapshot();
   });
   it('should render a custom avatar', async () => {
-    const { baseElement } = render(
-      <ApolloProvider client={client}>
+    const tree = renderer.create(
+      <Providers mocks={mocks}>
         <AddPrayerCard
           avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
         />
-      </ApolloProvider>
+      </Providers>
     );
 
-    expect(baseElement).toBeTruthy();
+    expect(tree).toMatchSnapshot();
   });
   it('should render a custom title', async () => {
-    const { baseElement } = render(
-      <ApolloProvider client={client}>
+    const tree = renderer.create(
+      <Providers mocks={mocks}>
         <AddPrayerCard
           description={'this is a custom description for the card.'}
         />
-      </ApolloProvider>
+      </Providers>
     );
 
-    expect(baseElement).toBeTruthy();
+    expect(tree).toMatchSnapshot();
   });
 });
