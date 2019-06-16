@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { ApolloClient } from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
 import SplashScreen from 'react-native-splash-screen';
@@ -50,11 +49,7 @@ class ClientProvider extends PureComponent {
   }
 
   render() {
-    return (
-      <ApolloProvider {...this.props} client={client}>
-        <ApolloHooksProvider {...this.props} client={client} />
-      </ApolloProvider>
-    );
+    return <ApolloProvider {...this.props} client={client} />;
   }
 }
 

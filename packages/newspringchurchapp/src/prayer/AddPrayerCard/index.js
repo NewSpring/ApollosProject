@@ -12,7 +12,7 @@ import {
   PaddedView,
 } from '@apollosproject/ui-kit';
 
-import { useQuery } from 'react-apollo-hooks';
+import { useQuery } from 'react-apollo';
 import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import PrayerHeader from '../PrayerHeader';
 

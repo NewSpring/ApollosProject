@@ -3,6 +3,7 @@
   "version": "0.8.1",
   "private": true,
   "devDependencies": {
+    "@apollo/react-testing": "0.1.0-beta.2",
     "@storybook/addon-actions": "4.1.16",
     "@storybook/addon-links": "4.1.16",
     "@storybook/addons": "4.1.16",
@@ -102,8 +103,7 @@
     "moment": "2.22.2",
     "node-fetch": "2.6.0",
     "react": "16.8.3",
-    "react-apollo": "2.5.5",
-    "react-apollo-hooks": "0.4.5",
+    "react-apollo": "3.0.0-beta.1",
     "react-native": "0.59.8",
     "react-native-actionsheet": "^2.4.2",
     "react-native-airplay-btn": "^1.0.6",

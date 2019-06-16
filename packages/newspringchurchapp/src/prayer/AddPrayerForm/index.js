@@ -15,7 +15,7 @@ import {
   PaddedView,
 } from '@apollosproject/ui-kit';
 
-import { useQuery, useMutation } from 'react-apollo-hooks';
+import { useQuery, useMutation } from 'react-apollo';
 
 import GET_USER_PROFILE from 'newspringchurchapp/src/tabs/connect/getUserProfile';
 import GET_USER_PRAYERS from 'newspringchurchapp/src/prayer/data/queries/getUserPrayers';
@@ -57,15 +57,15 @@ const StyledPrayerHeaderView = styled(({ theme }) => ({
 const AddPrayerForm = memo(({ title, btnLabel, navigation, ...props }) => {
   const userData = useQuery(GET_USER_PROFILE);
 
-  const addPrayerMutation = useMutation(ADD_PRAYER, {
-    update: (cache, { data: { addPrayer } }) => {
+  const [addPrayer] = useMutation(ADD_PRAYER, {
+    update: (cache, { data: { addPrayer: addedPrayer } }) => {
       const { userPrayers } = cache.readQuery({
         query: GET_USER_PRAYERS,
       });
       cache.writeQuery({
         query: GET_USER_PRAYERS,
         data: {
-          userPrayers: userPrayers.concat([addPrayer]),
+          userPrayers: userPrayers.concat([addedPrayer]),
         },
       });
     },
@@ -79,7 +79,7 @@ const AddPrayerForm = memo(({ title, btnLabel, navigation, ...props }) => {
     <Formik
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={({ prayer, anonymous }) => {
-        addPrayerMutation({
+        addPrayer({
           variables: {
             campusId: get(userData, 'data.currentUser.profile.campus.id'),
             // TODO: make this dynamic
