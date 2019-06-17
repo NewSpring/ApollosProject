@@ -169,6 +169,9 @@ describe('UniversalContentItem', () => {
     fetch.mockRockDataSourceAPI();
     schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
     context = getContext();
+    context.dataSources.ContentChannelItemSlug.getShareURL = jest.fn(
+      () => 'https://newspring.cc/whatever'
+    );
   });
 
   it('gets a newspring content item', async () => {
