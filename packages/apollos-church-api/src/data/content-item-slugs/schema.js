@@ -7,3 +7,5 @@ export const slugSchema = gql`
     slug: String
   }
 `;
+
+export default slugSchema;
