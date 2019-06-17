@@ -16,6 +16,7 @@ export default class ContentChannelItemSlug extends RockApolloDataSource {
         .first();
       return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
     } catch (error) {
+      console.error(error);
       return '';
     }
   };
