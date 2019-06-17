@@ -7,7 +7,7 @@ import { createAssetUrl } from '../utils';
 
 import getScripturesFromTemplate from './getScripturesFromTemplate';
 
-const { ROCK_CONSTANTS } = ApollosConfig;
+const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
   getContentItemScriptures = async (id) => {
@@ -208,4 +208,20 @@ export default class ContentItem extends oldContentItem.dataSource {
 
     return null;
   }
+
+  getShareURL = async (id, contentChannelId) => {
+    try {
+      console.log('content item');
+      const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
+        contentChannelId
+      );
+      const slug = await this.request('ContentChannelItemSlugs')
+        .filter(`ContentChannelItemId eq ${id}`)
+        .first();
+      return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
+    } catch (error) {
+      console.error(error);
+      return '';
+    }
+  };
 }

@@ -5,6 +5,7 @@ ApolloServer.loadJs({
     API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
     IMAGE_URL: 'https://apollosrock.newspring.cc/GetImage.ashx',
+    SHARE_URL: 'https://newspring.cc',
     TIMEZONE: 'America/New_York',
   },
   ROCK_CONSTANTS: {

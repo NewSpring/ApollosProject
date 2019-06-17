@@ -62,6 +62,12 @@ const resolver = {
       return 'UniversalContentItem';
     },
   },
+  SharableContentItem: {
+    url: ({ id, contentChannelId }, args, { dataSources }) =>
+      dataSources.ContentItem.getShareURL(id, contentChannelId),
+    title: ({ title }) => title,
+    message: () => '',
+  },
 };
 
 export default resolverMerge(resolver, originalContentItem);

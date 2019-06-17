@@ -56,6 +56,7 @@ ApollosConfig.loadJs({
     API_URL: 'https://apollosrock.newspring.cc/api',
     API_TOKEN: 'some-rock-token',
     IMAGE_URL: 'https://s3.amazonaws.com',
+    SHARE_URL: 'https://newspring.cc',
     TIMEZONE: 'America/New_York',
   },
   ROCK_CONSTANTS: {
@@ -164,6 +165,9 @@ describe('UniversalContentItem', () => {
     fetch.mockRockDataSourceAPI();
     schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
     context = getContext();
+    context.dataSources.ContentItem.getShareURL = jest.fn(
+      () => 'https://newspring.cc/whatever'
+    );
   });
 
   it('gets a newspring content item', async () => {
@@ -175,6 +179,7 @@ describe('UniversalContentItem', () => {
       }
       ${contentItemFragment}
     `;
+
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
