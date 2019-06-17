@@ -19,7 +19,6 @@ import {
 } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
-import * as ContentChannelItemSlug from '../../content-item-slugs/index';
 
 class Scripture {
   // eslint-disable-next-line class-methods-use-this
@@ -49,9 +48,6 @@ const { getSchema, getContext } = createTestHelpers({
     dataSource: Scripture,
   },
   RockConstants,
-  ContentChannelItemSlug: {
-    dataSource: ContentChannelItemSlug.dataSource,
-  },
 });
 // we import the root-level schema and resolver so we test the entire integration:
 
@@ -169,7 +165,7 @@ describe('UniversalContentItem', () => {
     fetch.mockRockDataSourceAPI();
     schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
     context = getContext();
-    context.dataSources.ContentChannelItemSlug.getShareURL = jest.fn(
+    context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
   });

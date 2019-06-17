@@ -28,7 +28,6 @@ import * as Campus from './campuses';
 import * as Interactions from './interactions';
 import * as RockConstants from './rock-constants';
 import * as ExtendedPerson from './people';
-import * as ContentChannelItemSlug from './content-item-slugs';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -59,7 +58,6 @@ const data = {
   Template,
   Campus,
   BinaryFiles,
-  ContentChannelItemSlug,
 };
 
 const {
