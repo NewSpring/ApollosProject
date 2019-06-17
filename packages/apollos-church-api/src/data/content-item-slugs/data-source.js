@@ -8,17 +8,13 @@ export default class ContentChannelItemSlug extends RockApolloDataSource {
 
   getShareURL = async (id, contentChannelId) => {
     try {
-      console.log('id = ', id);
-      console.log('contentChannelId = ', contentChannelId);
       const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
         contentChannelId
       );
-      console.log('contentChannel = ', contentChannel);
       const slug = await this.request('ContentChannelItemSlugs')
         .filter(`ContentChannelItemId eq ${id}`)
-        .get();
-      console.log('slug');
-      return ROCK.SHARE_URL + contentChannel.channelUrl + '/' + slug[0].slug;
+        .first();
+      return ROCK.SHARE_URL + contentChannel.channelUrl + '/' + slug.slug;
     } catch (error) {
       return '';
     }
