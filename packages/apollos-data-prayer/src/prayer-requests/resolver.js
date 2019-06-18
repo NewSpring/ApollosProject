@@ -1,5 +1,5 @@
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
-import { uniq } from 'lodash';
+import { uniq, isNumber } from 'lodash';
 
 export default {
   Query: {
@@ -79,8 +79,9 @@ export default {
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
-    campus: ({ campusId }, args, { dataSources }) =>
-      dataSources.Campus.getFromId(campusId),
+    campus: ({ campusId }, args, { dataSources }) => {
+      return isNumber(campusId) ? dataSources.Campus.getFromId(campusId) : null;
+    },
     isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
