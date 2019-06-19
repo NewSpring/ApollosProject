@@ -16,8 +16,12 @@ export default class PrayerRequest extends RockApolloDataSource {
     const secondarySort = (a, b) =>
       a.prayerCount === b.prayerCount ? sortByDate(a, b) : -1;
 
+    // if prayerCount is 0, Rock returns an empty object 🙄
+    const sortByPrayerCount = (a, b) =>
+      typeof b.prayerCount === 'object' || a.prayerCount > b.prayerCount;
+
     const sortedPrayers = prayers.sort((a, b) =>
-      a.prayerCount > b.prayerCount ? 1 : secondarySort(a, b)
+      sortByPrayerCount(a, b) ? 1 : secondarySort(a, b)
     );
     return sortedPrayers;
   };
