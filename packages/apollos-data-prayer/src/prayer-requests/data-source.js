@@ -9,18 +9,15 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   expanded = true;
 
-  sortPrayers = (prayers) => {
-    const sortByDate = (a, b) =>
-      moment(a.createdDateTime) > moment(b.createdDateTime) ? 1 : -1;
-
-    const secondarySort = (a, b) =>
-      a.prayerCount === b.prayerCount ? sortByDate(a, b) : -1;
-
-    const sortedPrayers = prayers.sort((a, b) =>
-      a.prayerCount > b.prayerCount ? 1 : secondarySort(a, b)
-    );
-    return sortedPrayers;
-  };
+  sortPrayers = (prayers) =>
+    prayers.sort((a, b) => {
+      // if prayerCount is 0, Rock returns an empty object 🙄
+      if (typeof b.prayerCount === 'object' || a.prayerCount > b.prayerCount)
+        return 1;
+      if (a.prayerCount === b.prayerCount)
+        return moment(a.createdDateTime) > moment(b.createdDateTime) ? 1 : -1;
+      return -1;
+    });
 
   // QUERY ALL PrayerRequests
   getAll = async () => {
