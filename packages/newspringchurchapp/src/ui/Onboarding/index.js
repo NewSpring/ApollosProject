@@ -1,6 +1,6 @@
 import React from 'react';
+import { Image } from 'react-native';
 
-import { GradientOverlayImage } from '@apollosproject/ui-kit';
 import { ApolloConsumer } from 'react-apollo';
 
 import {
@@ -22,19 +22,11 @@ function Onboarding({ navigation }) {
           <AskNameConnected onPressPrimary={swipeForward} />
           <FeaturesConnected
             onPressPrimary={swipeForward}
-            BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
-            }
+            BackgroundComponent={<Image source={require('./img/slide1.png')} />}
           />
           <AboutYouConnected
             onPressPrimary={swipeForward}
-            BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
-            }
+            BackgroundComponent={<Image source={require('./img/slide2.png')} />}
           />
           <LocationFinderConnected
             onPressPrimary={swipeForward}
@@ -43,11 +35,7 @@ function Onboarding({ navigation }) {
                 onFinished: swipeForward,
               });
             }}
-            BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
-            }
+            BackgroundComponent={<Image source={require('./img/slide3.png')} />}
           />
           <ApolloConsumer>
             {(client) => (
@@ -58,9 +46,7 @@ function Onboarding({ navigation }) {
                 }
                 primaryNavText={'Finish'}
                 BackgroundComponent={
-                  <GradientOverlayImage
-                    source={'https://picsum.photos/640/640/?random'}
-                  />
+                  <Image source={require('./img/slide4.png')} />
                 }
               />
             )}
