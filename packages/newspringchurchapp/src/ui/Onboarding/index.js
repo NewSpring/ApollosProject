@@ -1,7 +1,9 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 
 import { ApolloConsumer } from 'react-apollo';
+
+import { styled } from '@apollosproject/ui-kit';
 
 import {
   AskNotificationsConnected,
@@ -14,6 +16,16 @@ import {
 
 import { requestPushPermissions } from '@apollosproject/ui-notifications';
 
+const ImageContainer = styled({
+  justifyContent: 'center',
+})(View);
+
+const StyledImage = styled({
+  width: '100%',
+  height: '50%',
+  resizeMode: 'contain',
+})(Image);
+
 function Onboarding({ navigation }) {
   return (
     <OnboardingSwiper>
@@ -22,11 +34,19 @@ function Onboarding({ navigation }) {
           <AskNameConnected onPressPrimary={swipeForward} />
           <FeaturesConnected
             onPressPrimary={swipeForward}
-            BackgroundComponent={<Image source={require('./img/slide1.png')} />}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen1.png')} />
+              </ImageContainer>
+            }
           />
           <AboutYouConnected
             onPressPrimary={swipeForward}
-            BackgroundComponent={<Image source={require('./img/slide2.png')} />}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen2.png')} />
+              </ImageContainer>
+            }
           />
           <LocationFinderConnected
             onPressPrimary={swipeForward}
@@ -35,7 +55,11 @@ function Onboarding({ navigation }) {
                 onFinished: swipeForward,
               });
             }}
-            BackgroundComponent={<Image source={require('./img/slide3.png')} />}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen3.png')} />
+              </ImageContainer>
+            }
           />
           <ApolloConsumer>
             {(client) => (
@@ -46,7 +70,9 @@ function Onboarding({ navigation }) {
                 }
                 primaryNavText={'Finish'}
                 BackgroundComponent={
-                  <Image source={require('./img/slide4.png')} />
+                  <ImageContainer>
+                    <StyledImage source={require('./img/screen4.png')} />
+                  </ImageContainer>
                 }
               />
             )}
