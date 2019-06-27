@@ -1,7 +1,9 @@
 import React from 'react';
+import { Image, View } from 'react-native';
 
-import { GradientOverlayImage } from '@apollosproject/ui-kit';
 import { ApolloConsumer } from 'react-apollo';
+
+import { styled } from '@apollosproject/ui-kit';
 
 import {
   AskNotificationsConnected,
@@ -14,6 +16,17 @@ import {
 
 import { requestPushPermissions } from '@apollosproject/ui-notifications';
 
+const ImageContainer = styled({
+  justifyContent: 'flex-end',
+  height: '50%',
+})(View);
+
+const StyledImage = styled({
+  resizeMode: 'contain',
+  height: '100%',
+  width: '100%',
+})(Image);
+
 function Onboarding({ navigation }) {
   return (
     <OnboardingSwiper>
@@ -23,17 +36,17 @@ function Onboarding({ navigation }) {
           <FeaturesConnected
             onPressPrimary={swipeForward}
             BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
+              <ImageContainer>
+                <StyledImage source={require('./img/screen1.png')} />
+              </ImageContainer>
             }
           />
           <AboutYouConnected
             onPressPrimary={swipeForward}
             BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
+              <ImageContainer>
+                <StyledImage source={require('./img/screen2.png')} />
+              </ImageContainer>
             }
           />
           <LocationFinderConnected
@@ -44,9 +57,9 @@ function Onboarding({ navigation }) {
               });
             }}
             BackgroundComponent={
-              <GradientOverlayImage
-                source={'https://picsum.photos/640/640/?random'}
-              />
+              <ImageContainer>
+                <StyledImage source={require('./img/screen3.png')} />
+              </ImageContainer>
             }
           />
           <ApolloConsumer>
@@ -58,9 +71,9 @@ function Onboarding({ navigation }) {
                 }
                 primaryNavText={'Finish'}
                 BackgroundComponent={
-                  <GradientOverlayImage
-                    source={'https://picsum.photos/640/640/?random'}
-                  />
+                  <ImageContainer>
+                    <StyledImage source={require('./img/screen4.png')} />
+                  </ImageContainer>
                 }
               />
             )}
