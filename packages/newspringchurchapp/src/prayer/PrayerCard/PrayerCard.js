@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Dimensions } from 'react-native';
 import moment from 'moment';
-import Config from 'react-native-config';
 import ActionSheet from 'react-native-actionsheet';
 import {
   BodyText,
