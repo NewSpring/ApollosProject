@@ -104,11 +104,11 @@ ROCK_MAPPINGS:
     - 141
 
   CAMPAIGN_CHANNEL_IDS:
-    - ${CAMPAIGN_CHANNEL_ID}
+    - 439
 
   DATAVIEW_CATEGORIES:
     # Id of the category used to store all persona dataviews
-    PersonaId: ${DATAVIEW_CATEGORIES_PERSONAID}
+    PersonaId: 1349
 
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
@@ -116,7 +116,7 @@ ROCK_MAPPINGS:
     '8': ns.images
     '9': ns.videos
 
-  PRAYER_MENU_CATEGORIES_CHANNEL_ID: ${PRAYER_MENU_CATEGORIES_CHANNEL_ID}
+  PRAYER_MENU_CATEGORIES_CHANNEL_ID: 440
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Dimensions } from 'react-native';
 import moment from 'moment';
-import Config from 'react-native-config';
 import ActionSheet from 'react-native-actionsheet';
 import {
   BodyText,
@@ -171,7 +170,8 @@ class PrayerCard extends PureComponent {
               <StyledTouchable
                 onPress={() => {
                   navigation.navigate('ContentSingle', {
-                    itemId: Config.PRAYER_CONTENT_ID,
+                    // TODO: this should come from a content channel
+                    itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
                     itemTitle: 'Learning how to pray like Jesus',
                     isolated: true,
                   });
