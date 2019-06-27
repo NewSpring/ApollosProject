@@ -17,13 +17,14 @@ import {
 import { requestPushPermissions } from '@apollosproject/ui-notifications';
 
 const ImageContainer = styled({
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
+  height: '50%',
 })(View);
 
 const StyledImage = styled({
-  width: '100%',
-  height: '50%',
   resizeMode: 'contain',
+  height: '100%',
+  width: '100%',
 })(Image);
 
 function Onboarding({ navigation }) {
