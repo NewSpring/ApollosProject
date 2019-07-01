@@ -3,8 +3,8 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar, H3, H6, styled } from '@apollosproject/ui-kit';
 
-const StyledView = styled(() => ({
-  alignItems: 'center',
+const StyledView = styled(({ theme }) => ({
+  padding: theme.sizing.baseUnit * 1.5,
 }))(View);
 
 const StyledAvatarView = styled(({ theme }) => ({
