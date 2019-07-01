@@ -6,16 +6,16 @@ import { styled } from '@apollosproject/ui-kit';
 import TileImage from '../../ui/TileImage';
 
 const Square = styled(({ theme, ...props }) => ({
-  marginRight: theme.sizing.baseUnit * 0.75,
+  marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
-  height: 120,
+  height: 90,
   transform: props.transform,
 }))(View);
 
 const PrayerMenuCard = ({ image, link, overlayColor, selected, title }) => {
   // darken the overlay color if the tile is "selected"
-  const newOverlayColor = !selected
+  const newOverlayColor = selected
     ? overlayColor.map((color) =>
         Color(color)
           .lighten(0.4)

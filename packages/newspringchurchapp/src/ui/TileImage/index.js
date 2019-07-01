@@ -11,7 +11,7 @@ const CardView = styled(
     overflow: 'hidden',
     width: '100%',
     height: '100%',
-    aspectRatio: 1,
+    aspectRatio: 1.75,
   }),
   'TileImage'
 )(View);
