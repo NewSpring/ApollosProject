@@ -111,24 +111,22 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     defaultConfig {
         applicationId "cc.newspring.newspringapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 11
-        versionName "7.0.3"
+        versionCode 14
+        versionName "7.2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
         resValue "string", "build_config_package", "com.newspringchurchapp"
-        multiDexEnabled true
-
     }
     splits {
         abi {
@@ -161,7 +159,6 @@ android {
 
 dependencies {
        // added this and the two google play packages below when upgraded rn-maps to 0.24.2
-    implementation 'com.android.support:multidex:1.0.3'
     implementation(project(':react-native-maps')){
       exclude group: 'com.google.android.gms', module: 'play-services-base'
       exclude group: 'com.google.android.gms', module: 'play-services-maps'
