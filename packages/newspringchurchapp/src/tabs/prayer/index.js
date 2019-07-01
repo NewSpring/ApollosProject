@@ -19,8 +19,16 @@ const PrayerNavigator = createStackNavigator(
 );
 
 // TODO: Go back and use the TAP core icon when we get an updated ui-kit
-PrayerNavigator.navigationOptions = {
-  tabBarIcon: tabBarIcon('pray'),
+PrayerNavigator.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+    tabBarIcon: tabBarIcon('pray'),
+  };
 };
 
 export default PrayerNavigator;
