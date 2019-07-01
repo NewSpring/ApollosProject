@@ -1,7 +1,5 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
-import natural from 'natural';
-import sanitizeHtmlNode from 'sanitize-html';
-import { get } from 'lodash';
+import { get, flatten } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import { createAssetUrl } from '../utils';
 
@@ -42,25 +40,6 @@ export default class ContentItem extends oldContentItem.dataSource {
     } catch (error) {
       return '';
     }
-  };
-
-  createSummary = ({ content, attributeValues: { summary = {} } }) => {
-    let htmlNode = content;
-
-    if (summary.value) {
-      htmlNode = summary.value;
-    }
-    if (!htmlNode || typeof htmlNode !== 'string') return '';
-    // Protect against 0 length sentences (tokenizer will throw an error)
-    if (htmlNode.split(' ').length === 1) return '';
-
-    const tokenizer = new natural.SentenceTokenizer();
-    return tokenizer.tokenize(
-      sanitizeHtmlNode(htmlNode, {
-        allowedTags: [],
-        allowedAttributes: [],
-      })
-    )[0];
   };
 
   attributeIsVideo = ({ key, attributes }) =>
@@ -107,15 +86,8 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'ImageMedia',
       key,
       name: attributes[key].name,
-      sources: Object.keys(attributeValues[key].value).length
-        ? [
-            {
-              uri:
-                typeof attributeValues[key].value === 'string'
-                  ? createAssetUrl(JSON.parse(attributeValues[key].value))
-                  : createAssetUrl(attributeValues[key].value),
-            },
-          ]
+      sources: attributeValues[key].value
+        ? [{ uri: createAssetUrl(attributeValues[key].value) }]
         : [],
     }));
   };
@@ -170,9 +142,42 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
+  async getCoverImage(root) {
+    const pickBestImage = (images) => {
+      // TODO: there's probably a _much_ more explicit and better way to handle this
+      const squareImage = images.find((image) =>
+        image.key.toLowerCase().includes('square')
+      );
+      if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
+      return { ...images[0], __typename: 'ImageMedia' };
+    };
+
+    const withSources = (image) => image.sources.length;
+
+    // filter images w/o URLs
+    const ourImages = this.getImages(root).filter(withSources);
+
+    if (ourImages.length) return pickBestImage(ourImages);
+
+    // If no image, check parent for image:
+    const parentItemsCursor = await this.getCursorByChildContentItemId(root.id);
+    if (!parentItemsCursor) return null;
+
+    const parentItems = await parentItemsCursor.get();
+
+    if (parentItems.length) {
+      const parentImages = flatten(parentItems.map(this.getImages));
+      const validParentImages = parentImages.filter(withSources);
+
+      if (validParentImages && validParentImages.length)
+        return pickBestImage(validParentImages);
+    }
+
+    return null;
+  }
+
   getShareURL = async (id, contentChannelId) => {
     try {
-      console.log('content item');
       const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
         contentChannelId
       );

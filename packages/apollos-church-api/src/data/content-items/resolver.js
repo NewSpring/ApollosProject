@@ -21,8 +21,6 @@ const resolver = {
         paper: `#fff`,
       }),
     }),
-    htmlContent: (root, args, { dataSources }) =>
-      dataSources.ContentItem.createSummary(root),
   },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
