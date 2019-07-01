@@ -170,45 +170,6 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
-  async getCoverImage(root) {
-    const pickBestImage = (images) => {
-      // TODO: there's probably a _much_ more explicit and better way to handle this
-      const squareImage = images.find((image) =>
-        image.key.toLowerCase().includes('square')
-      );
-      if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
-      return { ...images[0], __typename: 'ImageMedia' };
-    };
-
-    const ourImages = this.getImages(root).filter(
-      (image) => image.sources.length
-    ); // filter images w/o URLs
-    if (ourImages.length) return pickBestImage(ourImages);
-
-    // If no image, check parent for image:
-    const parentItemsCursor = await this.getCursorByChildContentItemId(root.id);
-    if (!parentItemsCursor) return null;
-
-    const parentItems = await parentItemsCursor.get();
-
-    if (parentItems.length) {
-      const parentImages = parentItems
-        .map(this.getImages)
-        .find((images) => images.length);
-
-      if (!parentImages) return null;
-
-      const validParentImages = parentImages.filter(
-        (image) => image.sources.length
-      );
-
-      if (validParentImages && validParentImages.length)
-        return pickBestImage(validParentImages);
-    }
-
-    return null;
-  }
-
   getShareURL = async (id, contentChannelId) => {
     try {
       console.log('content item');
