@@ -10,7 +10,6 @@ import {
   Button,
   styled,
   FlexedView,
-  PaddedView,
 } from '@apollosproject/ui-kit';
 import PrayerHeader from '../../PrayerHeader';
 
@@ -33,15 +32,18 @@ const StyledTextInput = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit,
 }))(TextInput);
 
-const BottomView = styled({
+const BottomView = styled(({ theme }) => ({
   justifyContent: 'flex-end',
-})(FlexedView);
+  padding: theme.sizing.baseUnit,
+}))(FlexedView);
 
 const InputPaddedView = styled(({ theme }) => ({
+  flex: 4,
   paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
 const SwitchContainer = styled(({ theme }) => ({
+  flex: 1,
   paddingHorizontal: theme.sizing.baseUnit,
   width: '70%',
 }))(View);
@@ -63,19 +65,17 @@ const AddPrayerForm = memo(
                   name={title}
                 />
               </View>
-              <FlexedView>
-                <InputPaddedView>
-                  <StyledTextInput
-                    editable
-                    multiline
-                    placeholder="Start typing your prayer..."
-                    onChangeText={handleChange('prayer')}
-                    onBlur={handleBlur('prayer')}
-                    value={values.prayer}
-                    underline={false}
-                  />
-                </InputPaddedView>
-              </FlexedView>
+              <InputPaddedView>
+                <StyledTextInput
+                  editable
+                  multiline
+                  placeholder="Start typing your prayer..."
+                  onChangeText={handleChange('prayer')}
+                  onBlur={handleBlur('prayer')}
+                  value={values.prayer}
+                  underline={false}
+                />
+              </InputPaddedView>
               <SwitchContainer>
                 <Switch
                   value={values.anonymous}
@@ -84,9 +84,7 @@ const AddPrayerForm = memo(
                 />
               </SwitchContainer>
               <BottomView>
-                <PaddedView>
-                  <Button title={btnLabel} onPress={handleSubmit} />
-                </PaddedView>
+                <Button title={btnLabel} onPress={handleSubmit} />
               </BottomView>
             </ShrinkingView>
           </FlexedSafeAreaView>
