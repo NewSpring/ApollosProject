@@ -105,7 +105,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'VideoMedia',
       key,
       name: attributes[key].name,
-      embedHtml: get(attributeValues, 'videoEmbed.value', null), // TODO: this assumes that the key `VideoEmebed` is always used on Rock
+      embedHtml: get(attributeValues, 'videoEmbed.value', null),
       sources: attributeValues[key].value
         ? [
             {
