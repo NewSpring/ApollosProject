@@ -146,7 +146,7 @@ exports[`the PrayerCard component renders a prayer card 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "center",
+                    "padding": 24,
                   }
                 }
               >
