@@ -100,7 +100,7 @@ exports[`renders prayer menu 1`] = `
                   <View
                     style={
                       Object {
-                        "padding": 24,
+                        "alignItems": "center",
                       }
                     }
                   >
@@ -559,7 +559,7 @@ exports[`renders prayer menu with categories 1`] = `
                   <View
                     style={
                       Object {
-                        "padding": 24,
+                        "alignItems": "center",
                       }
                     }
                   >

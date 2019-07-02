@@ -36,7 +36,7 @@ exports[`the PrayerHeader component renders an anonymous prayer header 1`] = `
     <View
       style={
         Object {
-          "padding": 24,
+          "alignItems": "center",
         }
       }
     >
@@ -231,7 +231,7 @@ exports[`the PrayerHeader component renders the prayer header 1`] = `
     <View
       style={
         Object {
-          "padding": 24,
+          "alignItems": "center",
         }
       }
     >

@@ -100,7 +100,7 @@ exports[`The AddPrayerForm component should render 1`] = `
             <View
               style={
                 Object {
-                  "padding": 24,
+                  "alignItems": "center",
                 }
               }
             >
@@ -827,7 +827,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             <View
               style={
                 Object {
-                  "padding": 24,
+                  "alignItems": "center",
                 }
               }
             >
@@ -1479,7 +1479,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             <View
               style={
                 Object {
-                  "padding": 24,
+                  "alignItems": "center",
                 }
               }
             >
