@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import { ContentItem as originalContentItem } from '@apollosproject/data-connector-rock';
 import { resolverMerge } from '@apollosproject/server-core';
 
@@ -7,21 +8,19 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 
 const resolver = {
   ContentSeriesContentItem: {
-    theme: ({
-      attributeValues: {
-        backgroundColor: { value },
-      },
-    }) => ({
+    theme: (contentItem) => ({
       type: () => 'LIGHT',
       colors: () => ({
-        primary: `${value || '#fff'}`,
+        primary: `${get(
+          contentItem,
+          'attributeValues.backgroundColor.value',
+          '#fff'
+        )}`,
         secondary: '#6bac43',
         screen: '#F8F7F4',
         paper: `#fff`,
       }),
     }),
-    htmlContent: (root, args, { dataSources }) =>
-      dataSources.ContentItem.createSummary(root),
   },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
@@ -65,8 +64,6 @@ const resolver = {
   SharableContentItem: {
     url: ({ id, contentChannelId }, args, { dataSources }) =>
       dataSources.ContentItem.getShareURL(id, contentChannelId),
-    title: ({ title }) => title,
-    message: () => '',
   },
 };
 

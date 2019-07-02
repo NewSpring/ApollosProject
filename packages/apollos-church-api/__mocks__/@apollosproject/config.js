@@ -34,6 +34,9 @@ ApolloServer.loadJs({
       ContentItem: {
         EntityType: 'ContentChannelItem',
       },
+      WeekendContentItem: {
+        EntityType: 'ContentChannelItem',
+      },
     },
   },
 });
