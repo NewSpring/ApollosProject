@@ -64,8 +64,6 @@ const resolver = {
   SharableContentItem: {
     url: ({ id, contentChannelId }, args, { dataSources }) =>
       dataSources.ContentItem.getShareURL(id, contentChannelId),
-    title: ({ title }) => title,
-    message: () => '',
   },
 };
 
