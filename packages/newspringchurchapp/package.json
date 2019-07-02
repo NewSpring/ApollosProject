@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.2.0",
+  "version": "7.1.0",
   "private": true,
   "devDependencies": {
     "@storybook/addon-actions": "4.1.16",
