@@ -1,5 +1,5 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
-import { get, flatten } from 'lodash';
+import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import { createAssetUrl } from '../utils';
 
