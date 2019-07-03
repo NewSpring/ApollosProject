@@ -7,12 +7,12 @@ import TileImage from '../../ui/TileImage';
 
 const enhance = compose(withTheme());
 
-const Tile = styled(({ theme, ...props }) => ({
+const Tile = styled(({ theme, transform }) => ({
   marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
   height: 90,
-  transform: props.transform,
+  transform: transform,
 }))(View);
 
 const PrayerMenuCard = enhance(
