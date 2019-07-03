@@ -10,7 +10,6 @@ import {
   Button,
   styled,
   FlexedView,
-  PaddedView,
 } from '@apollosproject/ui-kit';
 import PrayerHeader from '../../PrayerHeader';
 
@@ -23,26 +22,30 @@ const ShrinkingView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit,
 }))(KeyboardAvoidingView);
 
-const StyledTextInput = styled({
+const StyledTextInput = styled(({ theme }) => ({
   height: '100%',
-})(TextInput);
+  borderRadius: theme.sizing.baseUnit / 2,
+  borderWidth: 0.5,
+  borderColor: theme.colors.shadows.default,
+  paddingHorizontal: theme.sizing.baseUnit,
+  paddingTop: theme.sizing.baseUnit,
+  paddingBottom: theme.sizing.baseUnit,
+}))(TextInput);
 
-const StyledButton = styled({
-  borderRadius: 0,
-})(Button);
-
-const BottomView = styled({
+const BottomView = styled(({ theme }) => ({
   justifyContent: 'flex-end',
-})(FlexedView);
+  padding: theme.sizing.baseUnit,
+}))(FlexedView);
 
-const SwitchContainer = styled({
+const InputPaddedView = styled(({ theme }) => ({
+  flex: 4,
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(View);
+
+const SwitchContainer = styled(({ theme }) => ({
+  flex: 1,
+  paddingHorizontal: theme.sizing.baseUnit,
   width: '70%',
-  alignSelf: 'center',
-  justifyContent: 'center',
-})(PaddedView);
-
-const StyledPrayerHeaderView = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit,
 }))(View);
 
 const AddPrayerForm = memo(
@@ -53,37 +56,35 @@ const AddPrayerForm = memo(
     >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
         <ModalView {...props}>
-          <FlexedSafeAreaView forceInset={{ top: 'always', bottom: 'never' }}>
+          <FlexedSafeAreaView forceInset={{ top: 'always' }}>
             <ShrinkingView behavior={'padding'}>
-              <StyledPrayerHeaderView>
+              <View>
                 <PrayerHeader
                   avatarSource={values.anonymous ? null : avatarSource}
                   avatarSize={'medium'}
                   name={title}
                 />
-              </StyledPrayerHeaderView>
-              <FlexedView>
-                <PaddedView>
-                  <StyledTextInput
-                    editable
-                    multiline
-                    placeholder="Start typing your prayer..."
-                    onChangeText={handleChange('prayer')}
-                    onBlur={handleBlur('prayer')}
-                    value={values.prayer}
-                    underline={false}
-                  />
-                </PaddedView>
-              </FlexedView>
+              </View>
+              <InputPaddedView>
+                <StyledTextInput
+                  editable
+                  multiline
+                  placeholder="Start typing your prayer..."
+                  onChangeText={handleChange('prayer')}
+                  onBlur={handleBlur('prayer')}
+                  value={values.prayer}
+                  underline={false}
+                />
+              </InputPaddedView>
+              <SwitchContainer>
+                <Switch
+                  value={values.anonymous}
+                  onValueChange={handleChange('anonymous')}
+                  label={'Share Anonymously'}
+                />
+              </SwitchContainer>
               <BottomView>
-                <SwitchContainer>
-                  <Switch
-                    value={values.anonymous}
-                    onValueChange={handleChange('anonymous')}
-                    label={'Share Anonymously'}
-                  />
-                </SwitchContainer>
-                <StyledButton title={btnLabel} onPress={handleSubmit} />
+                <Button title={btnLabel} onPress={handleSubmit} />
               </BottomView>
             </ShrinkingView>
           </FlexedSafeAreaView>
