@@ -116,11 +116,19 @@ Object {
   "data": Object {
     "campusPrayers": Array [
       Object {
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "firstName": "Isaac",
         "id": "PrayerRequest:4ca828e6155e88cd21a8b67865472a9301e9f68a0e3823859d5a383958bc6c5b843f7453855c22c6f07f5955b5ca0bd1",
         "text": "Pray this works.",
       },
       Object {
+        "campus": Object {
+          "id": "16",
+          "name": "Anderson",
+        },
         "firstName": "Rich",
         "id": "PrayerRequest:04fbd6bf8d5ee1a6493f42615e65ea05bb9ce2844192b00af611268daee3297d6e00b42b4ceebbb632956536f1cb00f3",
         "text": "Help me",

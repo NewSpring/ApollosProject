@@ -86,12 +86,14 @@ const twoPrayerResMock = jest.fn(() =>
 describe('PrayerRequest resolver', () => {
   let schema;
   let context;
+  let rootValue;
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
     schema = getSchema([prayerRequestSchema, peopleSchema, campusSchema]);
     context = getContext();
     context.dataSources.Person.getFromAliasId = currentPersonResMock;
+    rootValue = {};
   });
 
   it('gets all public prayer requests', async () => {
@@ -121,7 +123,7 @@ describe('PrayerRequest resolver', () => {
     `;
 
     context.dataSources.PrayerRequest.getAll = twoPrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -132,11 +134,15 @@ describe('PrayerRequest resolver', () => {
           id
           firstName
           text
+          campus {
+            id
+            name
+          }
         }
       }
     `;
     context.dataSources.PrayerRequest.getAllByCampus = twoPrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -152,7 +158,7 @@ describe('PrayerRequest resolver', () => {
     `;
 
     context.dataSources.PrayerRequest.getFromCurrentPerson = twoPrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -168,7 +174,7 @@ describe('PrayerRequest resolver', () => {
     `;
 
     context.dataSources.PrayerRequest.getFromGroups = twoPrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -190,7 +196,7 @@ describe('PrayerRequest resolver', () => {
       }
     `;
     context.dataSources.PrayerRequest.add = onePrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -208,7 +214,7 @@ describe('PrayerRequest resolver', () => {
     `;
     context.dataSources.PrayerRequest.incrementPrayed = onePrayerResMock;
 
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 
@@ -223,7 +229,7 @@ describe('PrayerRequest resolver', () => {
       }
     `;
     context.dataSources.PrayerRequest.flag = onePrayerResMock;
-    const result = await graphql(schema, query, {}, context);
+    const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
 });
