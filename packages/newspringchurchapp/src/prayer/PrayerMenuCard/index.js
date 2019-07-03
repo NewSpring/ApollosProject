@@ -12,7 +12,7 @@ const Tile = styled(({ theme, transform }) => ({
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
   height: 90,
-  transform: transform,
+  transform,
 }))(View);
 
 const PrayerMenuCard = enhance(
