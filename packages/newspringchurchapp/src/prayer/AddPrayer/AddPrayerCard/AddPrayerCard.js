@@ -1,48 +1,46 @@
 import React, { memo } from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
-  BodyText,
+  UIText,
   styled,
   Button,
-  Card,
   CardContent,
-  PaddedView,
+  FlexedView,
+  H3,
 } from '@apollosproject/ui-kit';
-import PrayerHeader from '../../PrayerHeader';
+
+const StyledView = styled(({ theme }) => ({
+  height: '60%',
+  padding: theme.sizing.baseUnit,
+  borderBottomLeftRadius: theme.sizing.baseUnit,
+}))(FlexedView);
+
+const StyledUIText = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit,
+}))(UIText);
 
 const StyledCardContent = styled(({ theme }) => ({
-  alignItems: 'center',
-  marginTop: theme.sizing.baseUnit,
+  paddingVertical: theme.sizing.baseUnit,
+  flex: 1,
 }))(CardContent);
 
-const StyledBodyText = styled(() => ({
-  textAlign: 'center',
-}))(BodyText);
-
-const StyledPrayerHeaderView = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit,
-}))(View);
+const StyledFlexedView = styled(({ theme }) => ({
+  padding: theme.sizing.baseUnit,
+}))(FlexedView);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
-  <Card>
+  <StyledView>
     <StyledCardContent>
-      <StyledPrayerHeaderView>
-        <PrayerHeader
-          avatarSource={avatarSource}
-          avatarSize={'medium'}
-          name={title}
-        />
-      </StyledPrayerHeaderView>
-      <StyledBodyText>{description}</StyledBodyText>
+      <H3>{title}</H3>
+      <StyledUIText>{description}</StyledUIText>
     </StyledCardContent>
-    <PaddedView>
+    <StyledFlexedView>
       <Button
-        title={'Add Prayer'}
+        title={'Add Prayer Request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
-    </PaddedView>
-  </Card>
+    </StyledFlexedView>
+  </StyledView>
 ));
 
 AddPrayerCard.propTypes = {
