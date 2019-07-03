@@ -79,14 +79,14 @@ exports[`renders AddPrayerCardConnected 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "center",
+                  "paddingHorizontal": 16,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "marginBottom": 8,
+                    "paddingBottom": 8,
                   }
                 }
               >

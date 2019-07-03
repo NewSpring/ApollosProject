@@ -79,14 +79,14 @@ exports[`The AddPrayerCard component should render 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "center",
+                  "paddingHorizontal": 16,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "marginBottom": 8,
+                    "paddingBottom": 8,
                   }
                 }
               >
@@ -395,14 +395,14 @@ exports[`The AddPrayerCard component should render a custom avatar 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "center",
+                  "paddingHorizontal": 16,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "marginBottom": 8,
+                    "paddingBottom": 8,
                   }
                 }
               >
@@ -636,14 +636,14 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
             <View
               style={
                 Object {
-                  "alignItems": "center",
+                  "paddingHorizontal": 16,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "marginBottom": 8,
+                    "paddingBottom": 8,
                   }
                 }
               >
