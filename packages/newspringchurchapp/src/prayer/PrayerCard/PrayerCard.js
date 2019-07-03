@@ -61,11 +61,10 @@ class PrayerCard extends PureComponent {
       showHelp,
       header,
       avatarSize,
-      created,
       prayer,
       options,
-      incrementPrayer, // TODO: use this function to increment prayer
-      advancePrayer, // TODO: use this function to go to next prayer
+      // incrementPrayer, // TODO: use this function to increment prayer
+      // advancePrayer, // TODO: use this function to go to next prayer
       navigation,
     } = this.props;
 
@@ -84,7 +83,11 @@ class PrayerCard extends PureComponent {
       <Card>
         {interactive ? (
           <HeaderView>
-            <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
+            <GreyH5>
+              {prayer.enteredDateTime
+                ? moment(prayer.enteredDateTime).fromNow()
+                : ''}
+            </GreyH5>
           </HeaderView>
         ) : null}
         <StyledCardContent>
@@ -140,8 +143,8 @@ PrayerCard.propTypes = {
   header: PropTypes.bool,
   avatarSize: PropTypes.string,
   prayer: PropTypes.shape({}), // TODO: fill this out
-  advancePrayer: PropTypes.func,
-  incrementPrayer: PropTypes.func,
+  // advancePrayer: PropTypes.func,
+  // incrementPrayer: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
