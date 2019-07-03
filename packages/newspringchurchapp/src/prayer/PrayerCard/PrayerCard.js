@@ -138,13 +138,10 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
-  avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
-  created: PropTypes.string,
-  prayer: PropTypes.string,
+  prayer: PropTypes.shape({}), // TODO: fill this out
   advancePrayer: PropTypes.func,
   incrementPrayer: PropTypes.func,
-  prayerRequest: PropTypes.shape({}),
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -163,6 +160,7 @@ PrayerCard.defaultProps = {
     firstName: 'Request',
     campus: { name: 'Web' },
     isAnonymous: false,
+    person: { photo: { uri: '' } },
   },
 };
 
