@@ -934,9 +934,9 @@ exports[`renders prayer menu with categories 1`] = `
                   <View
                     style={
                       Object {
-                        "height": 120,
+                        "height": 90,
                         "marginBottom": 8,
-                        "marginRight": 12,
+                        "marginRight": 4,
                         "marginTop": 8,
                         "transform": Array [
                           Object {
@@ -962,7 +962,7 @@ exports[`renders prayer menu with categories 1`] = `
                     <View
                       style={
                         Object {
-                          "aspectRatio": 1,
+                          "aspectRatio": 1.75,
                           "borderRadius": 16,
                           "height": "100%",
                           "overflow": "hidden",
@@ -1103,9 +1103,9 @@ exports[`renders prayer menu with categories 1`] = `
                   <View
                     style={
                       Object {
-                        "height": 120,
+                        "height": 90,
                         "marginBottom": 8,
-                        "marginRight": 12,
+                        "marginRight": 4,
                         "marginTop": 8,
                         "transform": Array [
                           Object {
@@ -1131,7 +1131,7 @@ exports[`renders prayer menu with categories 1`] = `
                     <View
                       style={
                         Object {
-                          "aspectRatio": 1,
+                          "aspectRatio": 1.75,
                           "borderRadius": 16,
                           "height": "100%",
                           "overflow": "hidden",
