@@ -7,7 +7,7 @@ import TileImage from '../../ui/TileImage';
 
 const enhance = compose(withTheme());
 
-const Square = styled(({ theme, ...props }) => ({
+const Tile = styled(({ theme, ...props }) => ({
   marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
@@ -25,7 +25,7 @@ const PrayerMenuCard = enhance(
       : [{ scaleX: 0.95 }, { scaleY: 1 }];
 
     return (
-      <Square transform={newTransform}>
+      <Tile transform={newTransform}>
         <TileImage
           image={image}
           isLoading
@@ -33,7 +33,7 @@ const PrayerMenuCard = enhance(
           overlayColor={newOverlayColor}
           text={title}
         />
-      </Square>
+      </Tile>
     );
   }
 );
