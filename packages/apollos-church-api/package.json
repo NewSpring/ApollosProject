@@ -1,6 +1,6 @@
 {
   "name": "apollos-church-api",
-  "version": "7.0.3",
+  "version": "7.1.0",
   "private": true,
   "main": "lib/index.js",
   "scripts": {
@@ -30,17 +30,16 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@apollosproject/config": "0.8.7",
-    "@apollosproject/data-connector-analytics": "0.8.7",
-    "@apollosproject/data-connector-bible": "0.8.7",
-    "@apollosproject/data-connector-church-online": "0.8.7",
-    "@apollosproject/data-connector-cloudinary": "0.8.7",
-    "@apollosproject/data-connector-onesignal": "0.8.7",
-    "@apollosproject/data-connector-passes": "0.8.7",
-    "@apollosproject/data-connector-rock": "0.8.7",
-    "@apollosproject/data-connector-twilio": "0.8.7",
-    "@apollosproject/rock-apollo-data-source": "0.8.7",
-    "@apollosproject/server-core": "0.8.7",
+    "@apollosproject/config": "^1.0.0",
+    "@apollosproject/data-connector-analytics": "^1.0.0",
+    "@apollosproject/data-connector-bible": "^1.0.0",
+    "@apollosproject/data-connector-church-online": "^1.0.0",
+    "@apollosproject/data-connector-onesignal": "^1.0.0",
+    "@apollosproject/data-connector-passes": "^1.0.0",
+    "@apollosproject/data-connector-rock": "^1.0.0",
+    "@apollosproject/data-connector-twilio": "^1.0.0",
+    "@apollosproject/rock-apollo-data-source": "^1.0.0",
+    "@apollosproject/server-core": "^1.0.0",
     "@bugsnag/js": "^6.2.0",
     "@bugsnag/plugin-express": "^6.2.0",
     "apollo-server": "^2.0.5",
@@ -48,14 +47,19 @@
     "dotenv": "6.0.0",
     "graphql": "0.13.2",
     "prettier": "1.12.1",
-    "randomcolor": "0.5.3"
+    "randomcolor": "0.5.3",
+    "apollo-server-express": "2.4.8",
+    "express": "^4.17.0"
   },
   "devDependencies": {
-    "@apollosproject/apollo-server-env-mock": "0.8.7",
-    "@apollosproject/babel-preset-apollos": "0.8.7",
+    "@apollosproject/apollo-server-env-mock": "^1.0.0",
+    "@apollosproject/babel-preset-apollos": "^1.0.0",
     "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
-    "codecov": "3.5.0",
-    "nodemon": "1.18.7"
+    "codecov": "3.0.2",
+    "nodemon": "1.18.7",
+    "@entria/graphql-findbreakingchanges": "^1.0.1",
+    "get-graphql-schema": "^2.1.2",
+    "graphql-schema-linter": "^0.2.0"
   }
 }

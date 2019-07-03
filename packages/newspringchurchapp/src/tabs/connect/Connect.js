@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
-import { LoginButton } from '@apollosproject/ui-auth';
+import { LoginButton, GET_LOGIN_STATE } from '@apollosproject/ui-auth';
 import {
   H1,
   BodyText,
@@ -19,8 +19,7 @@ import ActionTable from './ActionTable';
 import Toolbar from './Toolbar';
 import { UserAvatarHeaderConnected } from './UserAvatarHeader';
 import { RecentlyLikedTileFeedConnected } from './RecentlyLikedTileFeed';
-import getLoginState from './getLoginState';
-import getUserProfile from './getUserProfile';
+import GET_USER_PROFILE from './getUserProfile';
 
 const Title = styled(({ theme }) => ({
   color: theme.colors.primary,
@@ -64,7 +63,7 @@ class Connect extends PureComponent {
   render() {
     return (
       <BackgroundView>
-        <Query query={getLoginState}>
+        <Query query={GET_LOGIN_STATE}>
           {({ data }) => {
             if (get(data, 'isLoggedIn', false))
               return (
@@ -73,7 +72,7 @@ class Connect extends PureComponent {
                     <UserAvatarHeaderConnected key="UserAvatarHeaderConnected" />
                     <RecentlyLikedTileFeedConnected key="RecentlyLikedTileFeedConnected" />
                     <Toolbar />
-                    <Query query={getUserProfile}>
+                    <Query query={GET_USER_PROFILE}>
                       {({ data: personData }) => (
                         <ActionTable
                           token={get(
