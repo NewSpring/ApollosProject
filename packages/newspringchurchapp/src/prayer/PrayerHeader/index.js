@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Avatar, H3, H6, styled } from '@apollosproject/ui-kit';
 
 const StyledHorizontalView = styled(({ theme }) => ({
-  paddingHorizontal: theme.sizing.baseUnit * 1,
+  paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
 const StyledVerticalView = styled(({ theme }) => ({
