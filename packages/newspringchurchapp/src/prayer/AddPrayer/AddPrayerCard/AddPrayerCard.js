@@ -6,13 +6,17 @@ import {
   Button,
   CardContent,
   FlexedView,
+  SideBySideView,
+  Chip,
+  Touchable,
   H3,
 } from '@apollosproject/ui-kit';
 
 const StyledView = styled(({ theme }) => ({
-  height: '60%',
-  padding: theme.sizing.baseUnit,
+  paddingHorizontal: theme.sizing.baseUnit,
+  paddingVertical: theme.sizing.baseUnit * 4,
   borderBottomLeftRadius: theme.sizing.baseUnit,
+  backgroundColor: theme.colors.paper,
 }))(FlexedView);
 
 const StyledUIText = styled(({ theme }) => ({
@@ -31,12 +35,17 @@ const StyledFlexedView = styled(({ theme }) => ({
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <StyledView>
     <StyledCardContent>
-      <H3>{title}</H3>
+      <SideBySideView>
+        <H3>{title}</H3>
+        <Touchable onPress={() => ''}>
+          <Chip title={'My Prayers'} />
+        </Touchable>
+      </SideBySideView>
       <StyledUIText>{description}</StyledUIText>
     </StyledCardContent>
     <StyledFlexedView>
       <Button
-        title={'Add Prayer Request'}
+        title={'Add a Prayer Request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
     </StyledFlexedView>

@@ -9,10 +9,7 @@ import {
   PaddedView,
   styled,
   BodyText,
-  ButtonLink,
   H3,
-  withTheme,
-  Icon,
 } from '@apollosproject/ui-kit';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
@@ -100,21 +97,6 @@ const StyledView = styled({
   justifyContent: 'flex-end',
 })(View);
 
-const StyledButtonLink = styled(({ theme }) => ({
-  textAlign: 'center',
-  color: theme.colors.text.tertiary,
-}))(ButtonLink);
-
-const StyledContainer = styled(({ theme }) => ({
-  alignItems: 'center',
-  marginTop: theme.sizing.baseUnit,
-  marginBottom: theme.sizing.baseUnit,
-}))(View);
-
-const StyledAddPrayerContainer = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit,
-}))(View);
-
 const Tab = ({ description, component, showAddPrayerCard }) => (
   <>
     <StyledPaddedView>
@@ -129,12 +111,6 @@ Tab.propTypes = {
   component: PropTypes.func,
   showAddPrayerCard: PropTypes.bool,
 };
-
-const ArrowIcon = withTheme(({ theme }) => ({
-  name: 'arrow-up',
-  fill: theme.colors.text.tertiary,
-  size: theme.sizing.baseUnit * 1.5,
-}))(Icon);
 
 class PrayerMenu extends PureComponent {
   static propTypes = {
@@ -176,112 +152,72 @@ class PrayerMenu extends PureComponent {
 
   render() {
     return (
-      <Animated.View
-        style={{
-          transform: [
-            {
-              translateY: this.state.animatedValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, -(350 * this.state.showAddPrayerCard)],
-              }),
-            },
-          ],
-        }}
-      >
-        <SafeAreaView>
-          {this.state.showAddPrayerCard ? (
-            <StyledAddPrayerContainer>
-              <AddPrayerCardConnected
-                description={
-                  'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
-                }
-                {...this.props}
-              />
-            </StyledAddPrayerContainer>
-          ) : (
-            <StyledContainer>
-              <ArrowIcon
-                onPress={() => {
-                  this.animate(0);
-                  this.setState({
-                    showAddPrayerCard: true,
-                    prayerMenuItemSelected: 1,
-                  });
-                }}
-              />
-              <StyledButtonLink
-                onPress={() => {
-                  this.animate(0);
-                  this.setState({
-                    showAddPrayerCard: true,
-                    prayerMenuItemSelected: 1,
-                  });
-                }}
-              >
-                Add your prayer
-              </StyledButtonLink>
-            </StyledContainer>
-          )}
-          <PaddedView>
-            <H3>Pray for Others</H3>
-          </PaddedView>
-          <TabView
-            initialLayout={{
-              height: Dimensions.get('window').height,
-              width: Dimensions.get('window').width,
-            }}
-            navigationState={{ ...this.state }}
-            renderScene={({ route }) => {
-              const scenes = {};
-              this.props.categories.forEach((category) => {
-                scenes[category.key] = (
-                  <Tab
-                    description={category.description}
-                    showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent(category.key)}
+      <SafeAreaView>
+        <AddPrayerCardConnected
+          description={
+            'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
+          }
+          {...this.props}
+        />
+        <PaddedView>
+          <H3>Pray for Others</H3>
+        </PaddedView>
+        <TabView
+          initialLayout={{
+            height: Dimensions.get('window').height,
+            width: Dimensions.get('window').width,
+          }}
+          navigationState={{ ...this.state }}
+          renderScene={({ route }) => {
+            const scenes = {};
+            this.props.categories.forEach((category) => {
+              scenes[category.key] = (
+                <Tab
+                  description={category.description}
+                  showAddPrayerCard={this.state.showAddPrayerCard}
+                  component={getCategoryComponent(category.key)}
+                />
+              );
+            });
+            return scenes[route.key];
+          }}
+          renderTabBar={(props) => (
+            <StyledFeed
+              content={this.props.categories}
+              renderItem={({ item }) => (
+                <TouchableScale
+                  key={item.key}
+                  onPress={() => {
+                    if (this.state.showAddPrayerCard) {
+                      this.animate(1);
+                      this.setState({
+                        showAddPrayerCard: false,
+                      });
+                    }
+                    this.setState({ prayerMenuItemSelected: item.key });
+                    props.jumpTo(item.key);
+                  }}
+                >
+                  <PrayerMenuCard
+                    image={item.image}
+                    overlayColor={item.overlayColor}
+                    title={item.title}
+                    selected={this.state.prayerMenuItemSelected === item.key}
                   />
-                );
-              });
-              return scenes[route.key];
-            }}
-            renderTabBar={(props) => (
-              <StyledFeed
-                content={this.props.categories}
-                renderItem={({ item }) => (
-                  <TouchableScale
-                    key={item.key}
-                    onPress={() => {
-                      if (this.state.showAddPrayerCard) {
-                        this.animate(1);
-                        this.setState({
-                          showAddPrayerCard: false,
-                        });
-                      }
-                      this.setState({ prayerMenuItemSelected: item.key });
-                      props.jumpTo(item.key);
-                    }}
-                  >
-                    <PrayerMenuCard
-                      image={item.image}
-                      overlayColor={item.overlayColor}
-                      title={item.title}
-                      selected={this.state.prayerMenuItemSelected === item.key}
-                    />
-                  </TouchableScale>
-                )}
-                loadingStateObject={{
-                  node: {
-                    id: 'fakeId0',
-                    isLoading: true,
-                  },
-                }}
-              />
-            )}
-            onIndexChange={this.handleIndexChange}
-            swipeEnabled={false}
-          />
-        </SafeAreaView>
-      </Animated.View>
+                </TouchableScale>
+              )}
+              loadingStateObject={{
+                node: {
+                  id: 'fakeId0',
+                  isLoading: true,
+                },
+              }}
+            />
+          )}
+          onIndexChange={this.handleIndexChange}
+          swipeEnabled={false}
+        />
+      </SafeAreaView>
     );
   }
 }
