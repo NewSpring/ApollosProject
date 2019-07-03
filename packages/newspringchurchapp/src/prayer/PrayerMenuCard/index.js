@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 import { styled, withTheme } from '@apollosproject/ui-kit';
-import TileImage from '../../ui/TileImage';
+import PrayerMenuTileImage from '../PrayerMenuTileImage';
 
 const enhance = compose(withTheme());
 
@@ -12,7 +12,7 @@ const Tile = styled(({ theme, transform }) => ({
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
   height: 90,
-  transform,
+  transform: transform,
 }))(View);
 
 const PrayerMenuCard = enhance(
@@ -26,7 +26,7 @@ const PrayerMenuCard = enhance(
 
     return (
       <Tile transform={newTransform}>
-        <TileImage
+        <PrayerMenuTileImage
           image={image}
           isLoading
           link={link}
