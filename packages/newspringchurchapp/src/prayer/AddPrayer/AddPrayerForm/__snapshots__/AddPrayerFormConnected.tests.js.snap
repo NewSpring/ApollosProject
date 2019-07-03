@@ -93,7 +93,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
             <View
               style={
                 Object {
-                  "padding": 24,
+                  "alignItems": "center",
                 }
               }
             >

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -489,13 +488,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNReanimated;
 		};
-		841BED672278B92D008D9707 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
-			remoteInfo = AirMaps;
-		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -537,6 +529,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
+		};
+		BF08F44922429D0700FFB1DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C0ED1C4FB474DC8A829950D /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
 		};
 		BF08F5182242B97A00FFB1DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -934,6 +933,7 @@
 			children = (
 				0BE434FF7E9549F392208DEF /* libRNAirplay.a */,
 				CF3175A44C4B4612AD79C04E /* libReactNativeConfig.a */,
+				9DA3750D49B0422F9A4B45BE /* libDBCustomTabs.a */,
 				0F155E84A5784CBE8D95A974 /* libRNDeviceInfo.a */,
 				605AEFB6B1BB4611BDCFE95C /* libRNImagePicker.a */,
 				9F0EC3F23A3F4FFBBBC6583A /* libBVLinearGradient.a */,
@@ -1198,10 +1198,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF065B05227757BD0080037B /* Products */ = {
+		BF08F44622429D0700FFB1DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF065B0D227757BD0080037B /* libBugsnagReactNative.a */,
+				BF08F44A22429D0700FFB1DC /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2251,7 +2251,7 @@
 				CODE_SIGN_ENTITLEMENTS = newspringchurchapp/newspringchurchapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
@@ -2301,7 +2301,7 @@
 				CODE_SIGN_ENTITLEMENTS = newspringchurchapp/newspringchurchapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
