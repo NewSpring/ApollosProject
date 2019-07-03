@@ -13,16 +13,6 @@ describe('The AddPrayerCard component', () => {
     );
     expect(tree).toMatchSnapshot();
   });
-  it('should render a custom avatar', () => {
-    const tree = renderer.create(
-      <Providers>
-        <AddPrayerCard
-          avatarSource={{ uri: 'https://picsum.photos/55/55?random' }}
-        />
-      </Providers>
-    );
-    expect(tree).toMatchSnapshot();
-  });
   it('should render a custom title', () => {
     const tree = renderer.create(
       <Providers>
