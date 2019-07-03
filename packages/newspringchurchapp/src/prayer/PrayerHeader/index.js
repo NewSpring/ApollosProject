@@ -3,12 +3,12 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar, H3, H6, styled } from '@apollosproject/ui-kit';
 
-const StyledView = styled(() => ({
-  alignItems: 'center',
+const StyledHorizontalView = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit * 1,
 }))(View);
 
-const StyledAvatarView = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit * 0.5,
+const StyledVerticalView = styled(({ theme }) => ({
+  paddingBottom: theme.sizing.baseUnit * 0.5,
 }))(View);
 
 const GreyH6 = styled(({ theme }) => ({
@@ -16,24 +16,24 @@ const GreyH6 = styled(({ theme }) => ({
 }))(H6);
 
 const PrayerHeader = (props) => (
-  <StyledView>
+  <StyledHorizontalView>
     {props.anonymous ? (
       <>
-        <StyledAvatarView>
+        <StyledVerticalView>
           <Avatar size={props.avatarSize} />
-        </StyledAvatarView>
+        </StyledVerticalView>
         <H3>Pray For Request</H3>
       </>
     ) : (
       <>
-        <StyledAvatarView>
+        <StyledVerticalView>
           <Avatar source={props.avatarSource} size={props.avatarSize} />
-        </StyledAvatarView>
+        </StyledVerticalView>
         <H3>{props.name}</H3>
         {props.source ? <GreyH6>{props.source}</GreyH6> : null}
       </>
     )}
-  </StyledView>
+  </StyledHorizontalView>
 );
 
 PrayerHeader.propTypes = {
