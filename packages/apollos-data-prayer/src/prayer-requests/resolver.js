@@ -20,7 +20,6 @@ export default {
         );
 
         const stuff = await followings.get();
-        console.log(stuff);
         const prayerIds = stuff.map((follow) => follow.entityId);
         const prayers = await dataSources.PrayerRequest.getFromIds(
           uniq(prayerIds)
