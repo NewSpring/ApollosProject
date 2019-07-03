@@ -158,8 +158,6 @@ class PrayerList extends PureComponent {
                       {(flagPrayer) => (
                         <PrayerCardConnected
                           avatarSize={'medium'}
-                          expanded
-                          actionsEnabled
                           navigation={navigation}
                           cardIndex={item.index}
                           prayerId={item.item.id}
@@ -188,14 +186,9 @@ class PrayerList extends PureComponent {
                     </DividerView>
                   )}
                   data={get(data, queryName, []).map((prayer) => ({
-                    prayerRequest: prayer,
+                    prayer,
                     key: prayer.id,
                     id: prayer.id,
-                    prayer: prayer.text,
-                    source: get(prayer, 'campus.name', ''),
-                    name: prayer.firstName,
-                    avatarSource: prayer.person.photo,
-                    anonymous: prayer.isAnonymous,
                   }))}
                   scrollEnabled={false}
                 />

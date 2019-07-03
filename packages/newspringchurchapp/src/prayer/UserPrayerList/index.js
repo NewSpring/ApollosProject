@@ -39,8 +39,7 @@ const UserPrayerList = () => (
                 .map((prayer) => (
                   <PrayerCard
                     key={prayer.id}
-                    created={prayer.enteredDateTime}
-                    prayer={prayer.text}
+                    prayer={prayer}
                     showHelp={false}
                     header={false}
                     options={[
