@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { pure, compose } from 'recompose';
 import { H5, styled, withTheme } from '@apollosproject/ui-kit';
-import GradientOverlayImage from '../GradientOverlayImage';
+import GradientOverlayImage from '../../ui/GradientOverlayImage';
 
 const CardView = styled(
   ({ theme }) => ({
@@ -11,9 +11,9 @@ const CardView = styled(
     overflow: 'hidden',
     width: '100%',
     height: '100%',
-    aspectRatio: 1,
+    aspectRatio: 1.75,
   }),
-  'TileImage'
+  'PrayerMenuTileImage'
 )(View);
 
 const Title = styled(
@@ -25,7 +25,7 @@ const Title = styled(
     backgroundColor: theme.colors.transparent,
     color: theme.colors.lightPrimary,
   }),
-  'TileImage.Text'
+  'PrayerMenuTileImage.Text'
 )(H5);
 
 const SquareGradientOverlayImage = styled({
@@ -37,19 +37,21 @@ const enhance = compose(
   pure
 );
 
-const TileImage = enhance(({ image, isLoading, overlayColor, text }) => (
-  <CardView>
-    <SquareGradientOverlayImage
-      source={image}
-      isLoading={isLoading}
-      maintainAspectRatio={false}
-      overlayColor={overlayColor || null}
-    />
-    <Title>{text}</Title>
-  </CardView>
-));
+const PrayerMenuTileImage = enhance(
+  ({ image, isLoading, overlayColor, text }) => (
+    <CardView>
+      <SquareGradientOverlayImage
+        source={image}
+        isLoading={isLoading}
+        maintainAspectRatio={false}
+        overlayColor={overlayColor || null}
+      />
+      <Title>{text}</Title>
+    </CardView>
+  )
+);
 
-TileImage.propTypes = {
+PrayerMenuTileImage.propTypes = {
   image: GradientOverlayImage.propTypes.source,
   isLoading: PropTypes.bool,
   link: PropTypes.string,
@@ -58,8 +60,8 @@ TileImage.propTypes = {
   text: PropTypes.string,
 };
 
-TileImage.defaultProps = {
+PrayerMenuTileImage.defaultProps = {
   text: '',
 };
 
-export default TileImage;
+export default PrayerMenuTileImage;

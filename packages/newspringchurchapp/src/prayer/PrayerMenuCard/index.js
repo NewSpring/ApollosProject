@@ -1,43 +1,42 @@
 import React from 'react';
 import { View } from 'react-native';
+import { compose } from 'recompose';
 import PropTypes from 'prop-types';
-import Color from 'color';
-import { styled } from '@apollosproject/ui-kit';
-import TileImage from '../../ui/TileImage';
+import { styled, withTheme } from '@apollosproject/ui-kit';
+import PrayerMenuTileImage from '../PrayerMenuTileImage';
 
-const Square = styled(({ theme, ...props }) => ({
-  marginRight: theme.sizing.baseUnit * 0.75,
+const enhance = compose(withTheme());
+
+const Tile = styled(({ theme, transform }) => ({
+  marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
-  height: 120,
-  transform: props.transform,
+  height: 90,
+  transform,
 }))(View);
 
-const PrayerMenuCard = ({ image, link, overlayColor, selected, title }) => {
-  // darken the overlay color if the tile is "selected"
-  const newOverlayColor = !selected
-    ? overlayColor.map((color) =>
-        Color(color)
-          .lighten(0.4)
-          .hex()
-      )
-    : overlayColor;
-  const newTransform = selected
-    ? [{ scaleX: 1 }, { scaleY: 1.1 }]
-    : [{ scaleX: 0.95 }, { scaleY: 1 }];
+const PrayerMenuCard = enhance(
+  ({ image, link, overlayColor, selected, title, theme }) => {
+    // lighten the overlay color if the tile is "selected"
+    const selectedOverlayColor = [theme.colors.primary, theme.colors.primary];
+    const newOverlayColor = selected ? selectedOverlayColor : overlayColor;
+    const newTransform = selected
+      ? [{ scaleX: 1 }, { scaleY: 1.1 }]
+      : [{ scaleX: 0.95 }, { scaleY: 1 }];
 
-  return (
-    <Square transform={newTransform}>
-      <TileImage
-        image={image}
-        isLoading
-        link={link}
-        overlayColor={newOverlayColor}
-        text={title}
-      />
-    </Square>
-  );
-};
+    return (
+      <Tile transform={newTransform}>
+        <PrayerMenuTileImage
+          image={image}
+          isLoading
+          link={link}
+          overlayColor={newOverlayColor}
+          text={title}
+        />
+      </Tile>
+    );
+  }
+);
 
 PrayerMenuCard.propTypes = {
   image: PropTypes.string,
