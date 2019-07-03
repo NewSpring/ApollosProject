@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
-import Color from 'color';
 import { styled, withTheme } from '@apollosproject/ui-kit';
 import TileImage from '../../ui/TileImage';
 
