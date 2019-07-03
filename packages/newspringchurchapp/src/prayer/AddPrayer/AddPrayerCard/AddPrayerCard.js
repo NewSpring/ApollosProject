@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import {
-  UIText,
+  BodyText,
   styled,
   Button,
   CardContent,
   FlexedView,
   SideBySideView,
-  Chip,
+  ChannelLabel,
   Touchable,
   H3,
 } from '@apollosproject/ui-kit';
@@ -19,17 +19,16 @@ const StyledView = styled(({ theme }) => ({
   backgroundColor: theme.colors.paper,
 }))(FlexedView);
 
-const StyledUIText = styled(({ theme }) => ({
+const StyledBodyText = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
-}))(UIText);
+}))(BodyText);
 
-const StyledCardContent = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit,
+const StyledCardContent = styled({
   flex: 1,
-}))(CardContent);
+})(CardContent);
 
 const StyledFlexedView = styled(({ theme }) => ({
-  padding: theme.sizing.baseUnit,
+  paddingHorizontal: theme.sizing.baseUnit,
 }))(FlexedView);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
@@ -38,10 +37,10 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
       <SideBySideView>
         <H3>{title}</H3>
         <Touchable onPress={() => ''}>
-          <Chip title={'My Prayers'} />
+          <ChannelLabel icon="profile" label="My Prayers" />
         </Touchable>
       </SideBySideView>
-      <StyledUIText>{description}</StyledUIText>
+      <StyledBodyText>{description}</StyledBodyText>
     </StyledCardContent>
     <StyledFlexedView>
       <Button
