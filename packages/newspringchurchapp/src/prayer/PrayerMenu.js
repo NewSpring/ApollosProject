@@ -16,76 +16,6 @@ import {
 } from '@apollosproject/ui-kit';
 import { AddPrayerCardConnected } from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
-import UserPrayerList from './UserPrayerList';
-import PrayerPreviewCard from './PrayerPreviewCard';
-import SavedPrayerList from './SavedPrayerList';
-
-// used by PrayerList.js to determine what list shows when "Start Praying" is clicked
-const prayerLists = {
-  'my-church': 'ChurchPrayerList',
-  'my-campus': 'CampusPrayerList',
-  'my-community': 'GroupPrayerList',
-};
-
-// TODO: prayer preview cards should use the first one in the list
-const getCategoryComponent = (key) => {
-  switch (key) {
-    case 'my-saved-prayers':
-      return <SavedPrayerList />;
-    case 'my-church':
-      return (
-        <PrayerPreviewCard
-          avatarSource={{
-            uri: 'https://rock.newspring.cc/GetImage.ashx?id=564401',
-          }}
-          avatarSize={'medium'}
-          name={'Dan'}
-          overlayColor={'#FFF'}
-          prayer={
-            'Pray that our church becomes activated and that we allow the Holy Spirit to drive what we do.'
-          }
-          source={'Anderson'}
-          route={prayerLists[key]}
-        />
-      );
-    case 'my-campus':
-      return (
-        <PrayerPreviewCard
-          avatarSource={{
-            uri: 'https://rock.newspring.cc/GetImage.ashx?id=564499',
-          }}
-          avatarSize={'medium'}
-          name={'Morgan'}
-          overlayColor={'#FFF'}
-          prayer={
-            'Pray that God will do big things at our Connect table this month.'
-          }
-          source={'Anderson'}
-          route={prayerLists[key]}
-        />
-      );
-    case 'my-community':
-      return (
-        <PrayerPreviewCard
-          avatarSource={{
-            uri: 'https://rock.newspring.cc/GetImage.ashx?id=576112',
-          }}
-          avatarSize={'medium'}
-          name={'Devin'}
-          overlayColor={'#FFF'}
-          prayer={
-            'Please pray for Fuse! FSKO is coming and we want God to show up big.'
-          }
-          source={'Greenwood'}
-          route={prayerLists[key]}
-        />
-      );
-    case 'my-prayers':
-      return <UserPrayerList />;
-    default:
-      return null;
-  }
-};
 
 const StyledFeed = styled(({ theme }) => ({
   paddingLeft: theme.sizing.baseUnit,
@@ -238,7 +168,7 @@ class PrayerMenu extends PureComponent {
                   <Tab
                     description={category.description}
                     showAddPrayerCard={this.state.showAddPrayerCard}
-                    component={getCategoryComponent(category.key)}
+                    component={null}
                   />
                 );
               });
