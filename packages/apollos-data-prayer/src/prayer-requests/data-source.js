@@ -11,9 +11,7 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   sortPrayers = (prayers) =>
     prayers.sort((a, b) => {
-      // if prayerCount is 0, Rock returns an empty object 🙄
-      if (typeof b.prayerCount === 'object' || a.prayerCount > b.prayerCount)
-        return 1;
+      if (!b.prayerCount || a.prayerCount > b.prayerCount) return 1;
       if (a.prayerCount === b.prayerCount)
         return moment(a.createdDateTime) > moment(b.createdDateTime) ? 1 : -1;
       return -1;
