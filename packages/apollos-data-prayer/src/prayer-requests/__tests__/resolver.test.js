@@ -1,6 +1,5 @@
 import { graphql } from 'graphql';
 import { fetch } from 'apollo-server-env';
-import ApollosConfig from '@apollosproject/config';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
 import { peopleSchema, campusSchema } from '@apollosproject/data-schema';
@@ -9,7 +8,6 @@ import * as PrayerRequest from '../index';
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
 import campusMock from '../../campusMock';
-import followingsMock from '../../followingsMock';
 import interactionsMock from '../../interactionsMock';
 
 const { getSchema, getContext } = createTestHelpers({
@@ -18,19 +16,6 @@ const { getSchema, getContext } = createTestHelpers({
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
   Campus: { dataSource: campusMock },
-  Followings: { dataSource: followingsMock },
-});
-
-ApollosConfig.loadJs({
-  ROCK: {
-    API_URL: 'https://rock.newspring.cc/api',
-    API_TOKEN: 'some-rock-token',
-    IMAGE_URL: 'https://rock.newspring.cc/GetImage.ashx',
-    TIMEZONE: 'America/New_York',
-  },
-  ROCK_MAPPINGS: {
-    PRAYER_GROUP_TYPE_IDS: [10, 23, 25],
-  },
 });
 
 const currentPersonResMock = jest.fn(() =>
