@@ -1,33 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Dimensions } from 'react-native';
+import { View } from 'react-native';
 import moment from 'moment';
 import ActionSheet from 'react-native-actionsheet';
 import {
   BodyText,
   Card,
   CardContent,
-  H3,
   H5,
   PaddedView,
   styled,
   Touchable,
-  TouchableScale,
-  ButtonLink,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
-import PrayerActionMenuCardConnected from '../PrayerActionMenuCard/PrayerActionMenuCardConnected';
 import PrayerHeader from '../PrayerHeader';
-
-const ExpandedCard = styled(({ expanded, expandedHeight }) => {
-  let styles = {};
-  styles = expanded
-    ? {
-        height: expandedHeight,
-      }
-    : {};
-  return styles;
-})(Card);
 
 const HeaderView = styled(({ theme }) => ({
   display: 'flex',
@@ -37,10 +23,6 @@ const HeaderView = styled(({ theme }) => ({
   marginHorizontal: theme.sizing.baseUnit,
   marginTop: theme.sizing.baseUnit * 0.5,
 }))(View);
-
-const GreyH3 = styled(({ theme }) => ({
-  color: theme.colors.lightTertiary,
-}))(H3);
 
 const GreyH5 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
@@ -69,38 +51,22 @@ class PrayerCard extends PureComponent {
     header: null,
   });
 
-  state = {
-    cardPressed: false,
-  };
-
   handleShowActionSheet = () => {
     this.ActionSheet.show();
   };
 
-  handleCardPressed = () => this.setState({ cardPressed: true });
-
   render() {
     const {
       interactive,
-      actionsEnabled,
       showHelp,
       header,
-      expanded,
-      avatarSource,
       avatarSize,
-      created,
-      name,
-      source,
       prayer,
       options,
-      incrementPrayer,
-      advancePrayer,
+      // incrementPrayer, // TODO: use this function to increment prayer
+      // advancePrayer, // TODO: use this function to go to next prayer
       navigation,
-      anonymous,
-      prayerRequest,
     } = this.props;
-
-    const expandedHeight = Dimensions.get('window').height * 0.72;
 
     // add a cancel button
     const buttons = options || [];
@@ -113,78 +79,60 @@ class PrayerCard extends PureComponent {
       buttonMethods[index]();
     };
 
-    return actionsEnabled && this.state.cardPressed ? (
-      <PaddedView>
-        <PrayerActionMenuCardConnected
-          expandedHeight={expandedHeight}
-          navigation={this.props.navigation}
-          advancePrayer={advancePrayer}
-          prayerRequest={prayerRequest}
-        />
-      </PaddedView>
-    ) : (
-      <TouchableScale
-        onPress={() => {
-          if (incrementPrayer) {
-            incrementPrayer();
-            this.handleCardPressed();
-          }
-        }}
-      >
-        <ExpandedCard expandedHeight={expandedHeight} expanded={expanded}>
-          {interactive ? (
-            <HeaderView>
-              <GreyH5>{created ? moment(created).fromNow() : ''}</GreyH5>
-              {buttons ? (
-                <ButtonLink onPress={this.handleShowActionSheet}>
-                  <GreyH3>...</GreyH3>
-                </ButtonLink>
-              ) : null}
-              <ActionSheet
-                ref={(sheet) => {
-                  this.ActionSheet = sheet;
-                }}
-                options={buttons.map((option) => option.title)}
-                cancelButtonIndex={buttons.length - 1}
-                destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
-                  .map((option) => option.destructive)
-                  .indexOf(true)}
-                onPress={(index) => handleOnPress(index)}
+    return (
+      <Card>
+        {interactive ? (
+          <HeaderView>
+            <GreyH5>
+              {prayer.enteredDateTime
+                ? moment(prayer.enteredDateTime).fromNow()
+                : ''}
+            </GreyH5>
+          </HeaderView>
+        ) : null}
+        <StyledCardContent>
+          {header ? (
+            <StyledPrayerHeaderView>
+              <PrayerHeader
+                anonymous={prayer.isAnonymous}
+                avatarSize={avatarSize}
+                avatarSource={prayer.person.photo}
+                name={`Pray For ${prayer.firstName}`}
+                source={prayer.campus.name}
               />
-            </HeaderView>
+            </StyledPrayerHeaderView>
           ) : null}
-          <StyledCardContent>
-            {header ? (
-              <StyledPrayerHeaderView>
-                <PrayerHeader
-                  anonymous={anonymous}
-                  avatarSize={avatarSize}
-                  avatarSource={avatarSource}
-                  name={`Pray For ${name}`}
-                  source={source}
-                />
-              </StyledPrayerHeaderView>
-            ) : null}
-            <StyledBodyText>{prayer}</StyledBodyText>
-            {showHelp ? (
-              <StyledTouchable
-                onPress={() => {
-                  navigation.navigate('ContentSingle', {
-                    // TODO: this should come from a content channel
-                    itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
-                    itemTitle: 'Learning how to pray like Jesus',
-                    isolated: true,
-                  });
-                }}
-              >
-                <PaddedView>
-                  <ChannelLabel icon="information" label="How to Pray?" />
-                </PaddedView>
-              </StyledTouchable>
-            ) : null}
-          </StyledCardContent>
-        </ExpandedCard>
-      </TouchableScale>
+          <StyledBodyText>{prayer.text}</StyledBodyText>
+          {showHelp ? (
+            <StyledTouchable
+              onPress={() => {
+                navigation.navigate('ContentSingle', {
+                  // TODO: this should come from a content channel
+                  itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
+                  itemTitle: 'Learning how to pray like Jesus',
+                  isolated: true,
+                });
+              }}
+            >
+              <PaddedView>
+                <ChannelLabel icon="information" label="How to Pray?" />
+              </PaddedView>
+            </StyledTouchable>
+          ) : null}
+        </StyledCardContent>
+        {/* TODO: use this to delete the prayer with onPress=handleActionSheet */}
+        <ActionSheet
+          ref={(sheet) => {
+            this.ActionSheet = sheet;
+          }}
+          options={buttons.map((option) => option.title)}
+          cancelButtonIndex={buttons.length - 1}
+          destructiveButtonIndex={buttons // ActionSheet only allows for one destructive button // this will only make the first option listed as destructive turn red
+            .map((option) => option.destructive)
+            .indexOf(true)}
+          onPress={(index) => handleOnPress(index)}
+        />
+      </Card>
     );
   }
 }
@@ -193,17 +141,10 @@ PrayerCard.propTypes = {
   interactive: PropTypes.bool,
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
-  actionsEnabled: PropTypes.bool,
-  expanded: PropTypes.bool,
-  avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   avatarSize: PropTypes.string,
-  created: PropTypes.string,
-  name: PropTypes.string,
-  prayer: PropTypes.string,
-  source: PropTypes.string,
-  advancePrayer: PropTypes.func,
-  incrementPrayer: PropTypes.func,
-  prayerRequest: PropTypes.shape({}),
+  prayer: PropTypes.shape({}), // TODO: fill this out
+  // advancePrayer: PropTypes.func,
+  // incrementPrayer: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -211,21 +152,19 @@ PrayerCard.propTypes = {
       destructive: PropTypes.bool,
     })
   ),
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }),
-  anonymous: PropTypes.bool,
 };
 
 PrayerCard.defaultProps = {
   interactive: true,
   showHelp: true,
   header: true,
-  expanded: false,
   avatarSize: 'small',
-  name: 'Request',
-  source: 'Web',
-  anonymous: false,
+  prayer: {
+    firstName: 'Request',
+    campus: { name: 'Web' },
+    isAnonymous: false,
+    person: { photo: { uri: '' } },
+  },
 };
 
 export default PrayerCard;
