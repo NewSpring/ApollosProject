@@ -39,7 +39,6 @@ exports[`The AddPrayerCard component should render 1`] = `
           "backgroundColor": "#ffffff",
           "borderBottomLeftRadius": 16,
           "flex": 1,
-          "paddingHorizontal": 16,
           "paddingVertical": 64,
         }
       }
@@ -359,7 +358,6 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
           "backgroundColor": "#ffffff",
           "borderBottomLeftRadius": 16,
           "flex": 1,
-          "paddingHorizontal": 16,
           "paddingVertical": 64,
         }
       }

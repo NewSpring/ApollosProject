@@ -42,7 +42,6 @@ exports[`renders prayer menu 1`] = `
             "backgroundColor": "#ffffff",
             "borderBottomLeftRadius": 16,
             "flex": 1,
-            "paddingHorizontal": 16,
             "paddingVertical": 64,
           }
         }
@@ -485,7 +484,6 @@ exports[`renders prayer menu with categories 1`] = `
             "backgroundColor": "#ffffff",
             "borderBottomLeftRadius": 16,
             "flex": 1,
-            "paddingHorizontal": 16,
             "paddingVertical": 64,
           }
         }
