@@ -4,7 +4,7 @@ import { View, ScrollView } from 'react-native';
 
 import { styled } from '@apollosproject/ui-kit';
 
-import PrayerCard from '../PrayerCard';
+import PrayerSingle from '../PrayerSingle';
 
 import DELETE_PRAYER from '../data/mutations/deletePrayer';
 import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
@@ -37,7 +37,7 @@ const UserPrayerList = () => (
             <StyledView>
               {userPrayers
                 .map((prayer) => (
-                  <PrayerCard
+                  <PrayerSingle
                     key={prayer.id}
                     prayer={prayer}
                     showHelp={false}

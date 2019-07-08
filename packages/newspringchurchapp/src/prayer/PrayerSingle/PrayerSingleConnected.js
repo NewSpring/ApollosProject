@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
 
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
-import PrayerCard from './PrayerCard';
+import PrayerSingle from './PrayerSingle';
 
-const PrayerCardConnected = memo(({ prayerId, ...props }) => (
+const PrayerSingleConnected = memo(({ prayerId, ...props }) => (
   <Mutation mutation={INCREMENT_PRAYER_COUNT}>
     {(incrementPrayerCount) => (
-      <PrayerCard
+      <PrayerSingle
         prayerId={prayerId}
         incrementPrayer={async () => {
           await incrementPrayerCount({
@@ -23,10 +23,10 @@ const PrayerCardConnected = memo(({ prayerId, ...props }) => (
   </Mutation>
 ));
 
-PrayerCardConnected.propTypes = {
+PrayerSingleConnected.propTypes = {
   prayerId: PropTypes.string,
 };
 
-PrayerCardConnected.displayName = 'PrayerCardConnected';
+PrayerSingleConnected.displayName = 'PrayerSingleConnected';
 
-export default PrayerCardConnected;
+export default PrayerSingleConnected;

@@ -21,7 +21,7 @@ const PrayerText = styled(({ theme }) => ({
   marginVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-class PrayerCard extends PureComponent {
+class PrayerSingle extends PureComponent {
   static navigationOptions = () => ({
     header: null,
   });
@@ -76,7 +76,7 @@ class PrayerCard extends PureComponent {
   }
 }
 
-PrayerCard.propTypes = {
+PrayerSingle.propTypes = {
   showHelp: PropTypes.bool,
   header: PropTypes.bool,
   avatarSize: PropTypes.string,
@@ -84,7 +84,7 @@ PrayerCard.propTypes = {
   action: PropTypes.func,
 };
 
-PrayerCard.defaultProps = {
+PrayerSingle.defaultProps = {
   showHelp: true,
   header: true,
   avatarSize: 'small',
@@ -97,4 +97,4 @@ PrayerCard.defaultProps = {
   action: null,
 };
 
-export default PrayerCard;
+export default PrayerSingle;

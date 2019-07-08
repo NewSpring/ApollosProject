@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { PaddedView } from '@apollosproject/ui-kit';
 
-import PrayerCard from './PrayerCard';
+import PrayerSingle from '.';
 
 const cardData = {
   id: 'PrayerRequest:519df72a48836aa524655df9cceb6989',
@@ -15,9 +15,9 @@ const cardData = {
   source: 'Anderson',
 };
 
-storiesOf('PrayerCard', module).add('Example', () => (
+storiesOf('PrayerSingle', module).add('Example', () => (
   <PaddedView>
-    <PrayerCard
+    <PrayerSingle
       actionsEnabled={false}
       imageSource={cardData.imageSource}
       name={cardData.name}
@@ -27,9 +27,9 @@ storiesOf('PrayerCard', module).add('Example', () => (
   </PaddedView>
 ));
 
-storiesOf('PrayerCard', module).add('actionsEnabled', () => (
+storiesOf('PrayerSingle', module).add('actionsEnabled', () => (
   <PaddedView>
-    <PrayerCard
+    <PrayerSingle
       actionsEnabled
       id={cardData.id}
       imageSource={cardData.imageSource}
