@@ -82,6 +82,39 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
             <View
               style={
                 Object {
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 16,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505050",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 12,
+                    "lineHeight": 17.28,
+                  }
+                }
+              >
+                Viewing
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#6bac43",
+                    "fontFamily": "Colfax-Bold",
+                    "fontSize": 16,
+                    "lineHeight": 23.04,
+                  }
+                }
+              >
+                My Prayers
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
                   "marginBottom": 64,
                 }
               }
