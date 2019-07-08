@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Emoji from 'react-native-emoji';
 import { Query, Mutation } from 'react-apollo';
@@ -11,7 +11,7 @@ import {
   H4,
   H6,
   ModalView,
-  PaddedView,
+  ChannelLabel,
   FlexedView,
   Button,
   ButtonLink,
@@ -30,8 +30,17 @@ const FlexedSafeAreaView = styled({
   flex: 1,
 })(SafeAreaView);
 
+const ScrollArea = styled(({ theme }) => ({
+  flex: 5,
+  padding: theme.sizing.baseUnit,
+}))(FlexedView);
+
 const Header = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit * 2,
+}))(View);
+
+const StyledPrayerView = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit * 5,
 }))(View);
 
 const GreenH4 = styled(({ theme }) => ({
@@ -44,7 +53,7 @@ const FooterAltOption = styled(({ theme }) => ({
 }))(View);
 
 const FooterText = styled(({ theme, isGray }) => ({
-  color: isGray ? 'gray' : theme.colors.primary,
+  color: isGray ? theme.colors.text.tertiary : theme.colors.primary,
 }))(BodyText);
 
 const Footer = styled(({ theme }) => ({
@@ -131,18 +140,30 @@ class PrayerList extends PureComponent {
                 >
                   {(flagPrayer) => (
                     <FlexedView>
-                      <PaddedView>
-                        <Header>
-                          <H6>Praying For</H6>
-                          <GreenH4>{label}</GreenH4>
-                        </Header>
-                        <PrayerCardConnected
-                          avatarSize={'medium'}
-                          navigation={this.props.navigation}
-                          prayer={prayer}
-                          borders={false}
-                        />
-                      </PaddedView>
+                      <ScrollArea>
+                        <ScrollView>
+                          <Header>
+                            <H6>Praying For</H6>
+                            <GreenH4>{label}</GreenH4>
+                          </Header>
+                          <StyledPrayerView>
+                            <PrayerCardConnected
+                              avatarSize={'medium'}
+                              navigation={this.props.navigation}
+                              prayer={prayer}
+                              action={
+                                // TODO: save button component, stateful
+                                <Button>
+                                  <ChannelLabel
+                                    icon="like-solid"
+                                    label="Unsave"
+                                  />
+                                </Button>
+                              }
+                            />
+                          </StyledPrayerView>
+                        </ScrollView>
+                      </ScrollArea>
                       <Footer>
                         {!this.state.prayed ? (
                           <View>
