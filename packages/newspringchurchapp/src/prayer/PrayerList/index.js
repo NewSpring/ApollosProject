@@ -121,7 +121,7 @@ class PrayerList extends PureComponent {
             fetchPolicy="cache-and-network"
           >
             {({ data }) => {
-              const prayers = get(data, this.props.query, []);
+              const prayers = get(data, this.props.query, []).reverse();
               const prayer = prayers[this.state.prayerIndex];
               const isLastPrayer =
                 this.state.prayerIndex + 1 === prayers.length;
