@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the PrayerSingle component renders a prayer card 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#858585",
+            "fontFamily": "Colfax-Medium",
+            "fontSize": 14,
+            "lineHeight": 20.16,
+            "marginBottom": 8,
+          }
+        }
+      >
+        
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "stretch",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "marginBottom": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 20,
+                  "height": 40,
+                  "justifyContent": "flex-end",
+                  "overflow": "hidden",
+                  "width": 40,
+                }
+              }
+              themeSize={40}
+            >
+              <View
+                animate={null}
+                customAnimate={null}
+                onReady={false}
+                style={
+                  Object {
+                    "aspectRatio": 1,
+                    "backgroundColor": "#dddddd",
+                    "width": "100%",
+                  }
+                }
+              >
+                <Image
+                  onLoad={[Function]}
+                  size="small"
+                  source={
+                    Array [
+                      Object {
+                        "cache": "force-cache",
+                        "uri": "https://fillmurray.com/400/600",
+                      },
+                    ]
+                  }
+                  style={
+                    Object {
+                      "backgroundColor": "#dddddd",
+                      "borderRadius": 20,
+                      "bottom": 0,
+                      "height": "100%",
+                      "left": 0,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": "100%",
+                    }
+                  }
+                  themeSize={40}
+                />
+              </View>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Black",
+                "fontSize": 24,
+                "lineHeight": 27.6,
+              }
+            }
+          >
+            Pray for Bill
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#858585",
+                "fontFamily": "Colfax-Bold",
+                "fontSize": 12,
+                "lineHeight": 17.28,
+                "marginTop": 8,
+              }
+            }
+          >
+            Anderson
+          </Text>
+        </View>
+      </View>
+      <Text
+        bold={false}
+        italic={false}
+        style={
+          Object {
+            "color": "#303030",
+            "fontFamily": "Colfax-Regular",
+            "fontSize": 16,
+            "lineHeight": 26,
+            "marginVertical": 16,
+          }
+        }
+      >
+        I want to go back to school for my PTA degree next year, but I’m afraid of not getting accepted. I have a great job right now but I’m not very happy. Pray my plans for school align with God’s plans for me.
+      </Text>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          flexed={false}
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": null,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={19.2}
+            bbWidth={19.2}
+            height={19.2}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                undefined,
+                null,
+                Object {
+                  "flex": 0,
+                  "height": 19,
+                  "width": 19,
+                },
+              ]
+            }
+            vbHeight={24}
+            vbWidth={24}
+            width={19.2}
+          >
+            <RNSVGGroup
+              fill={
+                Array [
+                  0,
+                  4278190080,
+                ]
+              }
+              fillOpacity={1}
+              fillRule={1}
+              font={Object {}}
+              matrix={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+              opacity={1}
+              originX={0}
+              originY={0}
+              propList={Array []}
+              rotation={0}
+              scaleX={1}
+              scaleY={1}
+              skewX={0}
+              skewY={0}
+              stroke={null}
+              strokeDasharray={null}
+              strokeDashoffset={null}
+              strokeLinecap={0}
+              strokeLinejoin={0}
+              strokeMiterlimit={4}
+              strokeOpacity={1}
+              strokeWidth={1}
+              vectorEffect={0}
+              x={0}
+              y={0}
+            >
+              <RNSVGPath
+                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm2.2 15.24c-.54.2-2.44 1.13-3.54.16-.33-.3-.5-.66-.5-1.1 0-.83.28-1.56.77-3.3.1-.33.2-.76.2-1.1 0-.58-.23-.73-.83-.73-.3 0-.62.1-.9.2l.15-.65c.65-.27 1.48-.6 2.18-.6 1.06 0 1.84.53 1.84 1.53 0 .3-.05.8-.16 1.15l-.6 2.15c-.1.44-.3 1.4 0 1.68s1.2.13 1.6-.06l-.14.67zm-1-8.57c-.68 0-1.24-.56-1.24-1.25 0-.7.56-1.25 1.25-1.25.7 0 1.3.56 1.3 1.25 0 .7-.55 1.25-1.24 1.25z"
+                fill={
+                  Array [
+                    0,
+                    4286940549,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth={1}
+                vectorEffect={0}
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 4,
+              }
+            }
+            withIcon="information"
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#858585",
+                  "fontFamily": "Colfax-Bold",
+                  "fontSize": 12,
+                  "lineHeight": 17.28,
+                }
+              }
+              tint="#858585"
+            >
+              How to Pray?
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
