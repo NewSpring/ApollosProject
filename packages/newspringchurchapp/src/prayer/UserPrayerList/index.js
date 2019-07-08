@@ -22,10 +22,6 @@ const StyledView = styled(({ theme }) => ({
   marginBottom: theme.sizing.baseUnit * 4,
 }))(View);
 
-const Header = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit * 2,
-}))(View);
-
 const GreenH4 = styled(({ theme }) => ({
   color: theme.colors.primary,
 }))(H4);
