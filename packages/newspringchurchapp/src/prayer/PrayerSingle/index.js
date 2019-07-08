@@ -1,3 +1,3 @@
-import PrayerCard from './PrayerCard';
+import PrayerSingle from './PrayerSingle';
 
-export default PrayerCard;
+export default PrayerSingle;
