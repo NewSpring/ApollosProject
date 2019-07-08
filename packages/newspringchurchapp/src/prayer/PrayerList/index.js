@@ -120,7 +120,8 @@ class PrayerList extends PureComponent {
             variables={variables}
             fetchPolicy="cache-and-network"
           >
-            {({ data }) => {
+            {({ loading, data }) => {
+              if (loading) return null;
               const prayers = get(data, this.props.query, []).reverse();
               const prayer = prayers[this.state.prayerIndex];
               const isLastPrayer =
