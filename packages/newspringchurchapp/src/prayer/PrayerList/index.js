@@ -121,6 +121,7 @@ class PrayerList extends PureComponent {
             fetchPolicy="cache-and-network"
           >
             {({ loading, data }) => {
+              // TODO: create a pretty loading state
               if (loading) return null;
               const prayers = get(data, this.props.query, []).reverse();
               const prayer = prayers[this.state.prayerIndex];
@@ -161,6 +162,8 @@ class PrayerList extends PureComponent {
                                   />
                                 </Button>
                               }
+                              showHelp
+                              showHeader
                             />
                           </StyledPrayerView>
                         </ScrollView>

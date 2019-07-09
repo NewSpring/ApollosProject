@@ -29,7 +29,8 @@ class PrayerSingle extends PureComponent {
   render() {
     const {
       showHelp,
-      header,
+      showHeader,
+      showDate,
       avatarSize,
       prayer,
       action,
@@ -38,13 +39,15 @@ class PrayerSingle extends PureComponent {
 
     return (
       <View>
+        {showDate? 
         <GreyH5>
           {prayer.enteredDateTime
             ? moment(prayer.enteredDateTime).fromNow()
             : ''}
         </GreyH5>
+            :null}
         <SideBySideView>
-          {header ? (
+          {showHeader ? (
             <PrayerHeader
               avatarSize={avatarSize}
               avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
@@ -78,15 +81,17 @@ class PrayerSingle extends PureComponent {
 
 PrayerSingle.propTypes = {
   showHelp: PropTypes.bool,
-  header: PropTypes.bool,
+  showHeader: PropTypes.bool,
+  showDate: PropTypes.bool,
   avatarSize: PropTypes.string,
   prayer: PropTypes.shape({}), // TODO: fill this out
   action: PropTypes.func,
 };
 
 PrayerSingle.defaultProps = {
-  showHelp: true,
-  header: true,
+  showHelp: false,
+  showHeader: false,
+  showDate: false,
   avatarSize: 'small',
   prayer: {
     firstName: 'Request',

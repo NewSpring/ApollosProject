@@ -48,11 +48,7 @@ class UserPrayerList extends React.Component {
                       .map((prayer) => (
                         <Card key={prayer.id}>
                           <CardContent>
-                            <PrayerSingle
-                              prayer={prayer}
-                              showHelp={false}
-                              header={false}
-                            />
+                            <PrayerSingle prayer={prayer} showDate />
                           </CardContent>
                         </Card>
                       ))
