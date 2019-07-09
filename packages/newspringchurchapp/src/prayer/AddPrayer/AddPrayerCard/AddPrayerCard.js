@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import {
   BodyText,
   styled,
   Button,
   CardContent,
-  FlexedView,
   SideBySideView,
   ChannelLabel,
   Touchable,
@@ -16,19 +16,18 @@ const StyledView = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit * 4,
   borderBottomLeftRadius: theme.sizing.baseUnit,
   backgroundColor: theme.colors.paper,
-}))(FlexedView);
+  justifyContent: 'center',
+}))(View);
 
 const StyledBodyText = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-const StyledCardContent = styled({
-  flex: 1,
-})(CardContent);
+const StyledCardContent = styled({})(CardContent);
 
 const StyledFlexedView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
-}))(FlexedView);
+}))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <StyledView>

@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
-import { BackgroundView, styled } from '@apollosproject/ui-kit';
+import { SafeAreaView } from 'react-navigation';
+import { styled, FlexedView } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../prayer';
 
-const Header = styled({
-  flex: 1,
-})(ScrollView);
+const Header = styled(({ theme }) => ({
+  backgroundColor: theme.colors.tertiary,
+}))(FlexedView);
 
 const StyledSafeAreaView = styled(({ theme }) => ({
-  backgroundColor: theme.colors.background.paper,
   flex: 1,
+  backgroundColor: theme.colors.background.paper,
 }))(SafeAreaView);
 
 class Prayer extends PureComponent {
@@ -19,13 +19,11 @@ class Prayer extends PureComponent {
 
   render() {
     return (
-      <BackgroundView>
-        <StyledSafeAreaView>
-          <Header>
-            <PrayerMenu {...this.props} />
-          </Header>
-        </StyledSafeAreaView>
-      </BackgroundView>
+      <StyledSafeAreaView>
+        <Header>
+          <PrayerMenu {...this.props} />
+        </Header>
+      </StyledSafeAreaView>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Dimensions, View } from 'react-native';
-import { SafeAreaView, withNavigation } from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { TabView } from 'react-native-tab-view';
 import {
@@ -16,10 +16,6 @@ import {
 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
-
-const StyledFlexedView = styled(({ theme }) => ({
-  padding: theme.sizing.baseUnit,
-}))(FlexedView);
 
 const VerticalPaddedView = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit,
@@ -37,17 +33,17 @@ const StyledH4 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H4);
 
-const StyledGreenView = styled(({ theme }) => ({
-  backgroundColor: theme.colors.tertiary,
-}))(View);
+const StyledHorizontalTileFeed = styled({
+  height: 0,
+})(HorizontalTileFeed);
 
 const MenuView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit * 4,
+  paddingTop: theme.sizing.baseUnit * 2,
 }))(FlexedView);
 
 const Tab = withNavigation(
   ({ title, description, showStartPraying, route, ...props }) => (
-    <StyledFlexedView>
+    <PaddedView>
       {showStartPraying ? (
         <View>
           <VerticalPaddedView>
@@ -66,7 +62,7 @@ const Tab = withNavigation(
           <StyledBodyText>Be the first to add one!</StyledBodyText>
         </VerticalPaddedView>
       )}
-    </StyledFlexedView>
+    </PaddedView>
   )
 );
 
@@ -107,73 +103,69 @@ class PrayerMenu extends PureComponent {
 
   render() {
     return (
-      <SafeAreaView>
-        <StyledGreenView>
-          <AddPrayerCard
-            description={
-              'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
-            }
-            {...this.props}
-          />
-          <MenuView>
-            <PaddedView>
-              <StyledH3>Pray for Others</StyledH3>
-            </PaddedView>
-            <TabView
-              initialLayout={{
-                height: Dimensions.get('window').height,
-                width: Dimensions.get('window').width,
-              }}
-              navigationState={{ ...this.state }}
-              renderScene={({ route }) => {
-                const scenes = {};
-                this.props.categories.forEach((category) => {
-                  scenes[category.key] = (
-                    <Tab
-                      description={category.description}
-                      showStartPraying={this.state.showStartPraying}
-                      route={category.route}
-                      title={category.title}
+      <FlexedView>
+        <AddPrayerCard
+          description={
+            'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
+          }
+          {...this.props}
+        />
+        <MenuView>
+          <PaddedView>
+            <StyledH3>Pray for Others</StyledH3>
+          </PaddedView>
+          <TabView
+            initialLayout={{
+              height: Dimensions.get('window').height,
+              width: Dimensions.get('window').width,
+            }}
+            navigationState={{ ...this.state }}
+            renderScene={({ route }) => {
+              const scenes = {};
+              this.props.categories.forEach((category) => {
+                scenes[category.key] = (
+                  <Tab
+                    description={category.description}
+                    showStartPraying={this.state.showStartPraying}
+                    route={category.route}
+                    title={category.title}
+                  />
+                );
+              });
+              return scenes[route.key];
+            }}
+            renderTabBar={(props) => (
+              <StyledHorizontalTileFeed
+                content={this.props.categories}
+                renderItem={({ item }) => (
+                  <TouchableScale
+                    key={item.key}
+                    onPress={() => {
+                      this.setState({ prayerMenuItemSelected: item.key });
+                      props.jumpTo(item.key);
+                    }}
+                  >
+                    <PrayerMenuCard
+                      image={item.image}
+                      overlayColor={item.overlayColor}
+                      title={item.title}
+                      selected={this.state.prayerMenuItemSelected === item.key}
                     />
-                  );
-                });
-                return scenes[route.key];
-              }}
-              renderTabBar={(props) => (
-                <HorizontalTileFeed
-                  content={this.props.categories}
-                  renderItem={({ item }) => (
-                    <TouchableScale
-                      key={item.key}
-                      onPress={() => {
-                        this.setState({ prayerMenuItemSelected: item.key });
-                        props.jumpTo(item.key);
-                      }}
-                    >
-                      <PrayerMenuCard
-                        image={item.image}
-                        overlayColor={item.overlayColor}
-                        title={item.title}
-                        selected={
-                          this.state.prayerMenuItemSelected === item.key
-                        }
-                      />
-                    </TouchableScale>
-                  )}
-                  loadingStateObject={{
-                    node: {
-                      id: 'fakeId0',
-                      isLoading: true,
-                    },
-                  }}
-                />
-              )}
-              onIndexChange={this.handleIndexChange}
-              swipeEnabled={false}
-            />
-          </MenuView>
-        </StyledGreenView>
-      </SafeAreaView>
+                  </TouchableScale>
+                )}
+                loadingStateObject={{
+                  node: {
+                    id: 'fakeId0',
+                    isLoading: true,
+                  },
+                }}
+              />
+            )}
+            onIndexChange={this.handleIndexChange}
+            swipeEnabled={false}
+          />
+        </MenuView>
+      </FlexedView>
     );
   }
 }
