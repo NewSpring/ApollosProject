@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 import tabBarIcon from '../tabBarIcon';
 import { AddPrayerFormConnected } from '../../prayer/AddPrayer/AddPrayerForm';
 import PrayerList from '../../prayer/PrayerList';
+import UserPrayerList from '../../prayer/UserPrayerList';
 import Prayer from './Prayer';
 
 const PrayerNavigator = createStackNavigator(
@@ -9,6 +10,7 @@ const PrayerNavigator = createStackNavigator(
     Prayer,
     AddPrayerFormConnected,
     PrayerList,
+    UserPrayerList,
   },
   {
     initialRouteName: 'Prayer',
