@@ -75,9 +75,7 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
           }
         }
       >
-        <RCTScrollView
-          nestedScrollEnabled={true}
-        >
+        <RCTScrollView>
           <View>
             <View
               style={
