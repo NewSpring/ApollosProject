@@ -35,7 +35,7 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
     <StyledCardContent>
       <SideBySideView>
         <H3>{title}</H3>
-        <Touchable onPress={() => ''}>
+        <Touchable onPress={() => props.navigation.navigate('UserPrayerList')}>
           <ChannelLabel icon="profile" label="My Prayers" />
         </Touchable>
       </SideBySideView>

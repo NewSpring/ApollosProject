@@ -1,7 +1,6 @@
 import React from 'react';
-import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
-
 import Providers from 'newspringchurchapp/src/Providers';
+import { renderWithApolloData } from 'newspringchurchapp/src/utils/testUtils';
 import getUserPrayers from '../data/queries/getUserPrayers';
 import UserPrayerList from '.';
 
@@ -36,21 +35,16 @@ const prayers = [
   },
 ];
 
+const mocks = [
+  { request: { query: getUserPrayers }, response: { data: { prayers } } },
+];
+
 describe('the UserPrayerList component', () => {
   it('renders a list of prayers', async () => {
-    const mock = {
-      request: {
-        query: getUserPrayers,
-      },
-      response: {
-        data: {
-          prayers,
-        },
-      },
-    };
+    const navigation = { pop: jest.fn() };
     const tree = await renderWithApolloData(
-      <Providers mocks={[mock]} addTypename={false}>
-        <UserPrayerList />
+      <Providers mocks={mocks} addTypename={false}>
+        <UserPrayerList navigation={navigation} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
