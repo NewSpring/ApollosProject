@@ -39,13 +39,13 @@ class PrayerSingle extends PureComponent {
 
     return (
       <View>
-        {showDate? 
-        <GreyH5>
-          {prayer.enteredDateTime
-            ? moment(prayer.enteredDateTime).fromNow()
-            : ''}
-        </GreyH5>
-            :null}
+        {showDate ? (
+          <GreyH5>
+            {prayer.enteredDateTime
+              ? moment(prayer.enteredDateTime).fromNow()
+              : ''}
+          </GreyH5>
+        ) : null}
         <SideBySideView>
           {showHeader ? (
             <PrayerHeader
