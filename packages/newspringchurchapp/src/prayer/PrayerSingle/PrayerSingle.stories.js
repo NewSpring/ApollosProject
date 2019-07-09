@@ -4,38 +4,20 @@ import { PaddedView } from '@apollosproject/ui-kit';
 
 import PrayerSingle from '.';
 
-const cardData = {
-  id: 'PrayerRequest:519df72a48836aa524655df9cceb6989',
-  imageSource: {
-    uri: 'https://fillmurray.com/400/600',
+const prayer = {
+  person: {
+    photo: {
+      uri: 'https://fillmurray.com/400/600',
+    },
   },
-  name: 'Bill',
+  firstName: 'Bill',
   text:
-    'I’m alright. Nobody worry ’bout me. Why you got to gimme a fight? Can’t you just let it be?',
-  source: 'Anderson',
+    'I want to go back to school for my PTA degree next year, but I’m afraid of not getting accepted. I have a great job right now but I’m not very happy. Pray my plans for school align with God’s plans for me.',
+  campus: { name: 'Anderson' },
 };
 
 storiesOf('PrayerSingle', module).add('Example', () => (
   <PaddedView>
-    <PrayerSingle
-      actionsEnabled={false}
-      imageSource={cardData.imageSource}
-      name={cardData.name}
-      text={cardData.text}
-      source={cardData.source}
-    />
-  </PaddedView>
-));
-
-storiesOf('PrayerSingle', module).add('actionsEnabled', () => (
-  <PaddedView>
-    <PrayerSingle
-      actionsEnabled
-      id={cardData.id}
-      imageSource={cardData.imageSource}
-      name={cardData.name}
-      text={cardData.text}
-      source={cardData.source}
-    />
+    <PrayerSingle prayer={prayer} />
   </PaddedView>
 ));
