@@ -151,8 +151,11 @@ export default class PrayerRequest extends RockApolloDataSource {
         FirstName: firstName, // Required by Rock
         LastName: lastName,
         Text: text, // Required by Rock
-        CategoryId: categoryId,
-        CampusId: parseInt(parseGlobalId(campusId).id, 10),
+        CategoryId: categoryId || ROCK_MAPPINGS.GENERAL_PRAYER_CATEGORY_ID,
+        // default to web campus
+        CampusId: campusId
+          ? parseInt(parseGlobalId(campusId).id, 10)
+          : ROCK_MAPPINGS.WEB_CAMPUS_ID,
         IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,
