@@ -34,11 +34,21 @@ class AddPrayerFormConnected extends React.Component {
                 onSubmit={(values) => {
                   addPrayer({
                     variables: {
-                      campusId: get(userData, 'currentUser.profile.campus.id'),
+                      // web campus by default
+                      campusId: get(
+                        userData,
+                        'currentUser.profile.campus.id',
+                        20
+                      ),
                       // TODO: make this dynamic
                       categoryId: 2,
                       text: values.prayer,
-                      firstName: get(userData, 'currentUser.profile.firstName'),
+                      // Unknown by default
+                      firstName: get(
+                        userData,
+                        'currentUser.profile.firstName',
+                        'Unknown'
+                      ),
                       lastName: get(userData, 'currentUser.profile.lastName'),
                       isAnonymous: values.anonymous,
                     },
