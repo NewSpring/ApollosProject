@@ -3,14 +3,14 @@ import { SafeAreaView, ScrollView } from 'react-native';
 import { BackgroundView, styled } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../prayer';
 
-const Header = styled(({ theme }) => ({
+const Header = styled({
+  flex: 1,
+})(ScrollView);
+
+const StyledSafeAreaView = styled(({ theme }) => ({
   backgroundColor: theme.colors.background.paper,
   flex: 1,
-}))(ScrollView);
-
-const StyledSafeAreaView = styled({
-  flex: 1,
-})(SafeAreaView);
+}))(SafeAreaView);
 
 class Prayer extends PureComponent {
   static navigationOptions = () => ({

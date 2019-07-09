@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Dimensions, View, Animated } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { Dimensions, View } from 'react-native';
+import { SafeAreaView, withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { TabView } from 'react-native-tab-view';
 import {
@@ -9,24 +9,21 @@ import {
   PaddedView,
   FlexedView,
   styled,
+  Button,
   BodyText,
   H3,
+  H4,
 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
 
-const StyledFeed = styled(({ theme }) => ({
-  paddingLeft: theme.sizing.baseUnit,
-}))(HorizontalTileFeed);
+const StyledFlexedView = styled(({ theme }) => ({
+  padding: theme.sizing.baseUnit,
+}))(FlexedView);
 
-const StyledPaddedView = styled(({ theme }) => ({
-  marginTop: theme.sizing.baseUnit,
-}))(PaddedView);
-
-const StyledView = styled({
-  height: Dimensions.get('window').height * 0.4,
-  justifyContent: 'flex-end',
-})(View);
+const VerticalPaddedView = styled(({ theme }) => ({
+  paddingBottom: theme.sizing.baseUnit,
+}))(View);
 
 const StyledBodyText = styled(({ theme }) => ({
   color: theme.colors.white,
@@ -36,6 +33,10 @@ const StyledH3 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H3);
 
+const StyledH4 = styled(({ theme }) => ({
+  color: theme.colors.white,
+}))(H4);
+
 const StyledGreenView = styled(({ theme }) => ({
   backgroundColor: theme.colors.tertiary,
 }))(View);
@@ -44,19 +45,35 @@ const MenuView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 4,
 }))(FlexedView);
 
-const Tab = ({ description, component, showAddPrayerCard }) => (
-  <>
-    <StyledPaddedView>
-      <StyledBodyText>{description}</StyledBodyText>
-    </StyledPaddedView>
-    {!showAddPrayerCard ? <StyledView>{component}</StyledView> : null}
-  </>
+const Tab = withNavigation(
+  ({ title, description, showStartPraying, route, ...props }) => (
+    <StyledFlexedView>
+      {showStartPraying ? (
+        <View>
+          <VerticalPaddedView>
+            <StyledBodyText>{description}</StyledBodyText>
+          </VerticalPaddedView>
+          <Button
+            title="Start Praying"
+            onPress={() =>
+              props.navigation.navigate('PrayerList', { list: route })
+            }
+          />
+        </View>
+      ) : (
+        <VerticalPaddedView>
+          <StyledH4>There are no prayers yet for {title}</StyledH4>
+          <StyledBodyText>Be the first to add one!</StyledBodyText>
+        </VerticalPaddedView>
+      )}
+    </StyledFlexedView>
+  )
 );
 
 Tab.propTypes = {
   description: PropTypes.string,
-  component: PropTypes.func,
-  showAddPrayerCard: PropTypes.bool,
+  title: PropTypes.string,
+  route: PropTypes.string,
 };
 
 class PrayerMenu extends PureComponent {
@@ -83,19 +100,10 @@ class PrayerMenu extends PureComponent {
       key: category.key,
     })),
     prayerMenuItemSelected: 1,
-    showAddPrayerCard: true,
-    animatedValue: new Animated.Value(0),
+    showStartPraying: true,
   };
 
   handleIndexChange = (index) => this.setState({ index });
-
-  animate = (toValue) =>
-    Animated.spring(this.state.animatedValue, {
-      toValue,
-      useNativeDriver: true,
-      tension: 30,
-      friction: 7,
-    }).start();
 
   render() {
     return (
@@ -123,26 +131,21 @@ class PrayerMenu extends PureComponent {
                   scenes[category.key] = (
                     <Tab
                       description={category.description}
-                      showAddPrayerCard={this.state.showAddPrayerCard}
-                      component={null}
+                      showStartPraying={this.state.showStartPraying}
+                      route={category.route}
+                      title={category.title}
                     />
                   );
                 });
                 return scenes[route.key];
               }}
               renderTabBar={(props) => (
-                <StyledFeed
+                <HorizontalTileFeed
                   content={this.props.categories}
                   renderItem={({ item }) => (
                     <TouchableScale
                       key={item.key}
                       onPress={() => {
-                        if (this.state.showAddPrayerCard) {
-                          this.animate(1);
-                          this.setState({
-                            showAddPrayerCard: false,
-                          });
-                        }
                         this.setState({ prayerMenuItemSelected: item.key });
                         props.jumpTo(item.key);
                       }}
