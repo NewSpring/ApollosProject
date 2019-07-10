@@ -6,9 +6,10 @@ import WithYou from '.';
 
 describe('The WithYou component', () => {
   it('should render', () => {
+    const navigation = { pop: jest.fn(), navigate: jest.fn() };
     const tree = renderer.create(
       <Providers>
-        <WithYou navigation={jest.fn()} />
+        <WithYou navigation={navigation} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();

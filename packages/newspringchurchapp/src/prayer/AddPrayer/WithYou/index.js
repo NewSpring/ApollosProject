@@ -46,12 +46,10 @@ const FooterText = styled(({ theme }) => ({
   color: theme.colors.tertiary,
 }))(BodyText);
 
-// addanother -> nav.pop()
-// pray for others -> nav.PrayerList()
 const WithYou = memo(({ ...props }) => (
   // TODO: this should clear out the stack instead of just
   // navigating, leaving the AddPrayerForm and this screen in the stack
-  <ModalView onClose={() => props.navigation.navigate('Prayer')}>
+  <ModalView {...props} onClose={() => props.navigation.navigate('Prayer')}>
     <FlexedSafeAreaView>
       <MessageView>
         <BrandIcon />
