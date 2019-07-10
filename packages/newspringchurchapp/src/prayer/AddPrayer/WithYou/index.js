@@ -47,8 +47,6 @@ const FooterText = styled(({ theme }) => ({
 }))(BodyText);
 
 const WithYou = memo(({ ...props }) => (
-  // TODO: this should clear out the stack instead of just
-  // navigating, leaving the AddPrayerForm and this screen in the stack
   <ModalView {...props} onClose={() => props.navigation.navigate('Prayer')}>
     <FlexedSafeAreaView>
       <MessageView>
@@ -62,7 +60,6 @@ const WithYou = memo(({ ...props }) => (
       <Footer>
         <Button
           title="Pray for Others"
-          // TODO: this should pop off this and the AddPrayerForm first
           onPress={() => props.navigation.navigate('PrayerList')}
         />
         <FooterAltOption>
