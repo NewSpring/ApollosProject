@@ -43,8 +43,7 @@ class AddPrayerFormConnected extends React.Component {
                       isAnonymous: values.anonymous,
                     },
                   });
-                  // TODO: wonder if this should be tied to the ModalView onClose method???
-                  this.props.navigation.pop();
+                  this.props.navigation.navigate('WithYou');
                 }}
                 avatarSource={get(userData, 'currentUser.profile.photo', {
                   uri: null,
