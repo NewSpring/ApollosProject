@@ -18,7 +18,6 @@ import {
   styled,
 } from '@apollosproject/ui-kit';
 
-import PrayerSingleConnected from 'newspringchurchapp/src/prayer/PrayerSingle/PrayerSingleConnected';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
@@ -152,7 +151,7 @@ class PrayerList extends PureComponent {
                                 <GreenH4>{label}</GreenH4>
                               </Header>
                               <StyledPrayerView>
-                                <PrayerSingleConnected
+                                <PrayerSingle
                                   avatarSize={'medium'}
                                   navigation={this.props.navigation}
                                   prayer={prayer}
