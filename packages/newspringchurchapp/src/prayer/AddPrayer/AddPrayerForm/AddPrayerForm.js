@@ -55,7 +55,7 @@ const AddPrayerForm = memo(
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={onSubmit}
     >
-      {({ handleChange, handleBlur, handleSubmit, resetForm, values }) => (
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
         <ModalView {...props}>
           <FlexedSafeAreaView forceInset={{ top: 'always' }}>
             <ShrinkingView behavior={'padding'}>
@@ -85,13 +85,10 @@ const AddPrayerForm = memo(
                 />
               </SwitchContainer>
               <BottomView>
-                <Button
-                  title={btnLabel}
-                  onPress={async () => {
-                    await handleSubmit(values);
-                    await resetForm();
-                  }}
-                />
+                {/* TODO need to use Formik.resetForm() here somehow
+                    when you come back to this screen, the form still has
+                    old info in it */}
+                <Button title={btnLabel} onPress={handleSubmit} />
               </BottomView>
             </ShrinkingView>
           </FlexedSafeAreaView>
