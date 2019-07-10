@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import {
@@ -35,7 +36,9 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
       <SideBySideView>
         <H3>{title}</H3>
         <Touchable onPress={() => props.navigation.navigate('UserPrayerList')}>
-          <ChannelLabel icon="profile" label="My Prayers" />
+          <View>
+            <ChannelLabel icon="profile" label="My Prayers" />
+          </View>
         </Touchable>
       </SideBySideView>
       <StyledBodyText>{description}</StyledBodyText>
