@@ -2,8 +2,8 @@ import gql from 'graphql-tag';
 
 export default gql`
   mutation AddPrayer(
-    $campusId: String!
-    $categoryId: Int!
+    $campusId: String
+    $categoryId: Int
     $text: String!
     $firstName: String!
     $lastName: String
