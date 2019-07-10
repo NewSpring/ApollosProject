@@ -23,9 +23,9 @@ const StyledH4 = styled(({ theme }) => ({
 }))(H4);
 
 const PrayerTab = withNavigation(
-  ({ title, description, showStartPraying, route, ...props }) => (
+  ({ title, description, prayers, type, route, ...props }) => (
     <PaddedView>
-      {showStartPraying ? (
+      {prayers.length > 0 ? (
         <View>
           <VerticalPaddedView>
             <StyledBodyText>{description}</StyledBodyText>
@@ -33,13 +33,13 @@ const PrayerTab = withNavigation(
           <Button
             title="Start Praying"
             onPress={() =>
-              props.navigation.navigate('PrayerList', { list: route })
+              props.navigation.navigate('PrayerList', { list: route, prayers })
             }
           />
         </View>
       ) : (
         <VerticalPaddedView>
-          <StyledH4>There are no prayers yet for {title}</StyledH4>
+          <StyledH4>There are no prayers yet for your {type}</StyledH4>
           <StyledBodyText>Be the first to add one!</StyledBodyText>
         </VerticalPaddedView>
       )}

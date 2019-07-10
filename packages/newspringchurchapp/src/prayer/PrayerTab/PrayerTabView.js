@@ -8,7 +8,22 @@ import {
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
-import PrayerTab from './PrayerTab';
+import PrayerTabConnected from './PrayerTabConnected';
+
+const getCategory = (key) => {
+  switch (key) {
+    case 'my-saved-prayers':
+      return key;
+    case 'my-church':
+      return key;
+    case 'my-campus':
+      return key;
+    case 'my-community':
+      return key;
+    default:
+      return 'my-church';
+  }
+};
 
 const StyledHorizontalTileFeed = styled({
   height: 0,
@@ -53,15 +68,14 @@ class PrayerTabView extends PureComponent {
         navigationState={{ ...this.state }}
         renderScene={({ route }) => {
           const scenes = {};
-          this.props.categories.forEach((category) => {
+          this.props.categories.map((category) => {
             scenes[category.key] = (
-              <PrayerTab
-                description={category.description}
-                showStartPraying={this.state.showStartPraying}
-                route={category.route}
-                title={category.title}
+              <PrayerTabConnected
+                categoryKey={getCategory(category.key)}
+                category={category}
               />
             );
+            return category.route;
           });
           return scenes[route.key];
         }}
