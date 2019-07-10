@@ -48,6 +48,7 @@ class UserPrayerList extends React.Component {
                       .map((prayer) => (
                         <Card key={prayer.id}>
                           <CardContent>
+                            {/* TODO add action prop containing deletePrayer button */}
                             <PrayerSingle prayer={prayer} showDate />
                           </CardContent>
                         </Card>
