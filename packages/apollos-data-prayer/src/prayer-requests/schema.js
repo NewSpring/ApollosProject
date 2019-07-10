@@ -10,8 +10,8 @@ const prayerRequestSchema = gql`
   }
   extend type Mutation {
     addPrayer(
-      campusId: String!
-      categoryId: Int!
+      campusId: String
+      categoryId: Int
       text: String!
       firstName: String!
       lastName: String

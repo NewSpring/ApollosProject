@@ -10,6 +10,7 @@ import {
   styled,
   BodyText,
   H3,
+  Button,
 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerMenuCard from './PrayerMenuCard';
@@ -146,6 +147,11 @@ class PrayerMenu extends PureComponent {
           )}
           onIndexChange={this.handleIndexChange}
           swipeEnabled={false}
+        />
+        {/* TODO: (start praying) temporary just to see the redesign */}
+        <Button
+          title={'PrayerList'}
+          onPress={() => this.props.navigation.navigate('PrayerList')}
         />
       </SafeAreaView>
     );

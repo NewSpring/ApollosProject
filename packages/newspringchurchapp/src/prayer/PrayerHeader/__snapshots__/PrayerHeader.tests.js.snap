@@ -33,212 +33,11 @@ exports[`the PrayerHeader component renders an anonymous prayer header 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 16,
-        }
-      }
-    >
+    <View>
       <View
         style={
           Object {
-            "paddingBottom": 8,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderRadius": 40,
-              "height": 80,
-              "justifyContent": "flex-end",
-              "overflow": "hidden",
-              "width": 80,
-            }
-          }
-          themeSize={80}
-        >
-          <RNSVGSvgView
-            align="xMidYMid"
-            bbHeight={80}
-            bbWidth={80}
-            height={80}
-            meetOrSlice={0}
-            minX={0}
-            minY={0}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderWidth": 0,
-                },
-                undefined,
-                null,
-                Object {
-                  "flex": 0,
-                  "height": 80,
-                  "width": 80,
-                },
-              ]
-            }
-            vbHeight={24}
-            vbWidth={24}
-            width={80}
-          >
-            <RNSVGGroup
-              fill={
-                Array [
-                  0,
-                  4278190080,
-                ]
-              }
-              fillOpacity={1}
-              fillRule={1}
-              font={Object {}}
-              matrix={
-                Array [
-                  1,
-                  0,
-                  0,
-                  1,
-                  0,
-                  0,
-                ]
-              }
-              opacity={1}
-              originX={0}
-              originY={0}
-              propList={Array []}
-              rotation={0}
-              scaleX={1}
-              scaleY={1}
-              skewX={0}
-              skewY={0}
-              stroke={null}
-              strokeDasharray={null}
-              strokeDashoffset={null}
-              strokeLinecap={0}
-              strokeLinejoin={0}
-              strokeMiterlimit={4}
-              strokeOpacity={1}
-              strokeWidth={1}
-              vectorEffect={0}
-              x={0}
-              y={0}
-            >
-              <RNSVGPath
-                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-3.33 8.33C8.67 8.5 10.2 7 12 7s3.33 1.5 3.33 3.33v.84c0 1.84-1.53 3.33-3.33 3.33S8.67 13 8.67 11.17v-.84zm3.33 10c-2.03 0-3.9-.73-5.33-1.93.7-1.32 2.07-2.23 3.66-2.23h3.34c1.6 0 2.97.9 3.66 2.22-1.44 1.2-3.3 1.92-5.33 1.92z"
-                fill={
-                  Array [
-                    0,
-                    4292730333,
-                  ]
-                }
-                fillOpacity={1}
-                fillRule={1}
-                matrix={
-                  Array [
-                    1,
-                    0,
-                    0,
-                    1,
-                    0,
-                    0,
-                  ]
-                }
-                opacity={1}
-                originX={0}
-                originY={0}
-                propList={
-                  Array [
-                    "fill",
-                  ]
-                }
-                rotation={0}
-                scaleX={1}
-                scaleY={1}
-                skewX={0}
-                skewY={0}
-                stroke={null}
-                strokeDasharray={null}
-                strokeDashoffset={null}
-                strokeLinecap={0}
-                strokeLinejoin={0}
-                strokeMiterlimit={4}
-                strokeOpacity={1}
-                strokeWidth={1}
-                vectorEffect={0}
-                x={0}
-                y={0}
-              />
-            </RNSVGGroup>
-          </RNSVGSvgView>
-        </View>
-      </View>
-      <Text
-        style={
-          Object {
-            "color": "#303030",
-            "fontFamily": "Colfax-Black",
-            "fontSize": 24,
-            "lineHeight": 27.6,
-          }
-        }
-      >
-        Pray For Request
-      </Text>
-    </View>
-  </View>
-</RCTSafeAreaView>
-`;
-
-exports[`the PrayerHeader component renders the prayer header 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  onLayout={[Function]}
-  style={
-    Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
-    }
-  }
->
-  <View
-    onLayout={[Function]}
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 16,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "paddingBottom": 8,
+            "marginBottom": 16,
           }
         }
       >
@@ -308,7 +107,7 @@ exports[`the PrayerHeader component renders the prayer header 1`] = `
           }
         }
       >
-        Pray For Bill
+        Request
       </Text>
       <Text
         style={
@@ -317,6 +116,134 @@ exports[`the PrayerHeader component renders the prayer header 1`] = `
             "fontFamily": "Colfax-Bold",
             "fontSize": 12,
             "lineHeight": 17.28,
+            "marginTop": 8,
+          }
+        }
+      >
+        Anderson
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`the PrayerHeader component renders the prayer header 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  onLayout={[Function]}
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "marginBottom": 16,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 40,
+              "height": 80,
+              "justifyContent": "flex-end",
+              "overflow": "hidden",
+              "width": 80,
+            }
+          }
+          themeSize={80}
+        >
+          <View
+            animate={null}
+            customAnimate={null}
+            onReady={false}
+            style={
+              Object {
+                "aspectRatio": 1,
+                "backgroundColor": "#dddddd",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              onLoad={[Function]}
+              size="medium"
+              source={
+                Array [
+                  Object {
+                    "cache": "force-cache",
+                    "uri": "https://fillmurray.com/400/600",
+                  },
+                ]
+              }
+              style={
+                Object {
+                  "backgroundColor": "#dddddd",
+                  "borderRadius": 40,
+                  "bottom": 0,
+                  "height": "100%",
+                  "left": 0,
+                  "opacity": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+              themeSize={80}
+            />
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#303030",
+            "fontFamily": "Colfax-Black",
+            "fontSize": 24,
+            "lineHeight": 27.6,
+          }
+        }
+      >
+        Request
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#858585",
+            "fontFamily": "Colfax-Bold",
+            "fontSize": 12,
+            "lineHeight": 17.28,
+            "marginTop": 8,
           }
         }
       >

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Providers from 'newspringchurchapp/src/Providers';
 
-import PrayerCard from './PrayerCard';
+import PrayerSingle from '.';
 
 const prayer = {
   person: {
@@ -17,11 +17,11 @@ const prayer = {
   campus: { name: 'Anderson' },
 };
 
-describe('the PrayerCard component', () => {
+describe('the PrayerSingle component', () => {
   it('renders a prayer card', () => {
     const tree = renderer.create(
       <Providers>
-        <PrayerCard prayer={prayer} />
+        <PrayerSingle prayer={prayer} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();

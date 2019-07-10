@@ -10,6 +10,7 @@ import {
   Button,
   styled,
   FlexedView,
+  PaddedView,
 } from '@apollosproject/ui-kit';
 import PrayerHeader from '../../PrayerHeader';
 
@@ -58,13 +59,13 @@ const AddPrayerForm = memo(
         <ModalView {...props}>
           <FlexedSafeAreaView forceInset={{ top: 'always' }}>
             <ShrinkingView behavior={'padding'}>
-              <View>
+              <PaddedView>
                 <PrayerHeader
                   avatarSource={values.anonymous ? null : avatarSource}
                   avatarSize={'medium'}
-                  name={title}
+                  title={title}
                 />
-              </View>
+              </PaddedView>
               <InputPaddedView>
                 <StyledTextInput
                   editable
