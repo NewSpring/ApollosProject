@@ -71,7 +71,9 @@ class PrayerSingle extends PureComponent {
               });
             }}
           >
-            <ChannelLabel icon="information" label="How to Pray?" />
+            <View>
+              <ChannelLabel icon="information" label="How to Pray?" />
+            </View>
           </Touchable>
         ) : null}
       </View>
@@ -85,7 +87,7 @@ PrayerSingle.propTypes = {
   showDate: PropTypes.bool,
   avatarSize: PropTypes.string,
   prayer: PropTypes.shape({}), // TODO: fill this out
-  action: PropTypes.func,
+  action: PropTypes.element,
 };
 
 PrayerSingle.defaultProps = {

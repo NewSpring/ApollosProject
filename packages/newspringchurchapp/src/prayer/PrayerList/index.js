@@ -22,6 +22,7 @@ import PrayerSingleConnected from 'newspringchurchapp/src/prayer/PrayerSingle/Pr
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
+import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
 import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
@@ -123,7 +124,7 @@ class PrayerList extends PureComponent {
             {({ loading, data }) => {
               // TODO: create a pretty loading state
               if (loading) return null;
-              const prayers = get(data, this.props.query, []).reverse();
+              const prayers = get(data, this.props.query, []);
               const prayer = prayers[this.state.prayerIndex];
               const isLastPrayer =
                 this.state.prayerIndex + 1 === prayers.length;
@@ -141,80 +142,92 @@ class PrayerList extends PureComponent {
                   }}
                 >
                   {(flagPrayer) => (
-                    <FlexedView>
-                      <ScrollArea>
-                        <ScrollView>
-                          <Header>
-                            <H6>Praying For</H6>
-                            <GreenH4>{label}</GreenH4>
-                          </Header>
-                          <StyledPrayerView>
-                            <PrayerSingleConnected
-                              avatarSize={'medium'}
-                              navigation={this.props.navigation}
-                              prayer={prayer}
-                              action={
-                                // TODO: save button component, stateful
-                                <Button>
-                                  <ChannelLabel
-                                    icon="like-solid"
-                                    label="Unsave"
-                                  />
-                                </Button>
-                              }
-                              showHelp
-                              showHeader
-                            />
-                          </StyledPrayerView>
-                        </ScrollView>
-                      </ScrollArea>
-                      <Footer>
-                        {!this.state.prayed ? (
-                          <View>
-                            <Button
-                              title={`I've prayed for ${
-                                prayer.isAnonymous
-                                  ? 'request'
-                                  : prayer.firstName
-                              }`}
-                              onPress={() => this.setState({ prayed: true })}
-                            />
-                            <FooterAltOption>
-                              <ButtonLink
-                                onPress={() =>
-                                  flagPrayer({
-                                    variables: {
-                                      parsedId: prayer.id,
-                                    },
-                                  })
-                                }
-                              >
-                                <FooterText isGray>Report Prayer</FooterText>
-                              </ButtonLink>
-                            </FooterAltOption>
-                          </View>
-                        ) : (
-                          <View>
-                            <FooterAltOption>
-                              <FooterText>
-                                Thanks for praying <Emoji name="heart" />
-                              </FooterText>
-                            </FooterAltOption>
-                            <Button
-                              title={!isLastPrayer ? 'Next' : 'Done'}
-                              onPress={() =>
-                                !isLastPrayer
-                                  ? this.setState((prevState) => ({
-                                      prayerIndex: prevState.prayerIndex + 1,
-                                      prayed: false,
-                                    }))
-                                  : this.props.navigation.pop()
-                              }
-                            />
-                          </View>
-                        )}
-                      </Footer>
-                    </FlexedView>
+                    <Mutation mutation={INCREMENT_PRAYER_COUNT}>
+                      {(increment) => (
+                        <FlexedView>
+                          <ScrollArea>
+                            <ScrollView>
+                              <Header>
+                                <H6>Praying For</H6>
+                                <GreenH4>{label}</GreenH4>
+                              </Header>
+                              <StyledPrayerView>
+                                <PrayerSingleConnected
+                                  avatarSize={'medium'}
+                                  navigation={this.props.navigation}
+                                  prayer={prayer}
+                                  action={
+                                    // TODO: save button component, stateful
+                                    <Button>
+                                      <ChannelLabel
+                                        icon="like-solid"
+                                        label="Unsave"
+                                      />
+                                    </Button>
+                                  }
+                                  showHelp
+                                  showHeader
+                                />
+                              </StyledPrayerView>
+                            </ScrollView>
+                          </ScrollArea>
+                          <Footer>
+                            {!this.state.prayed ? (
+                              <View>
+                                <Button
+                                  title={`I've prayed for ${
+                                    prayer.isAnonymous
+                                      ? 'request'
+                                      : prayer.firstName
+                                  }`}
+                                  onPress={() => {
+                                    increment({
+                                      variables: { parsedId: prayer.id },
+                                    });
+                                    this.setState({ prayed: true });
+                                  }}
+                                />
+                                <FooterAltOption>
+                                  <ButtonLink
+                                    onPress={() =>
+                                      flagPrayer({
+                                        variables: {
+                                          parsedId: prayer.id,
+                                        },
+                                      })
+                                    }
+                                  >
+                                    <FooterText isGray>
+                                      Report Prayer
+                                    </FooterText>
+                                  </ButtonLink>
+                                </FooterAltOption>
+                              </View>
+                            ) : (
+                              <View>
+                                <FooterAltOption>
+                                  <FooterText>
+                                    Thanks for praying <Emoji name="heart" />
+                                  </FooterText>
+                                </FooterAltOption>
+                                <Button
+                                  title={!isLastPrayer ? 'Next' : 'Done'}
+                                  onPress={() =>
+                                    !isLastPrayer
+                                      ? this.setState((prevState) => ({
+                                          prayerIndex:
+                                            prevState.prayerIndex + 1,
+                                          prayed: false,
+                                        }))
+                                      : this.props.navigation.navigate('Prayer')
+                                  }
+                                />
+                              </View>
+                            )}
+                          </Footer>
+                        </FlexedView>
+                      )}
+                    </Mutation>
                   )}
                 </Mutation>
               );
