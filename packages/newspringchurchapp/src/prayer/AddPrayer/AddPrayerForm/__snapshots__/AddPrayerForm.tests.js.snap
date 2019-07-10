@@ -89,18 +89,19 @@ exports[`The AddPrayerForm component should render 1`] = `
             ]
           }
         >
-          <View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 16,
-                }
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 16,
+                "paddingVertical": 16,
               }
-            >
+            }
+          >
+            <View>
               <View
                 style={
                   Object {
-                    "paddingBottom": 8,
+                    "marginBottom": 16,
                   }
                 }
               >
@@ -806,18 +807,19 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             ]
           }
         >
-          <View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 16,
-                }
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 16,
+                "paddingVertical": 16,
               }
-            >
+            }
+          >
+            <View>
               <View
                 style={
                   Object {
-                    "paddingBottom": 8,
+                    "marginBottom": 16,
                   }
                 }
               >
@@ -1448,18 +1450,19 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             ]
           }
         >
-          <View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 16,
-                }
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 16,
+                "paddingVertical": 16,
               }
-            >
+            }
+          >
+            <View>
               <View
                 style={
                   Object {
-                    "paddingBottom": 8,
+                    "marginBottom": 16,
                   }
                 }
               >

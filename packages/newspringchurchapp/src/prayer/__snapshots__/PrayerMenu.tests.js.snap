@@ -439,6 +439,56 @@ exports[`renders prayer menu 1`] = `
           />
         </View>
       </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          bordered={false}
+          disabled={false}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
+              "borderRadius": 48,
+              "borderWidth": 2,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "center",
+              "opacity": 1,
+              "overflow": "hidden",
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Bold",
+                "fontSize": 16,
+                "lineHeight": 23.04,
+              }
+            }
+          >
+            PrayerList
+          </Text>
+        </View>
+      </View>
     </RCTSafeAreaView>
   </View>
 </RCTSafeAreaView>
@@ -1303,6 +1353,56 @@ exports[`renders prayer menu with categories 1`] = `
               }
             />
           </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          bordered={false}
+          disabled={false}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#6bac43",
+              "borderColor": "#6bac43",
+              "borderRadius": 48,
+              "borderWidth": 2,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 48,
+              "justifyContent": "center",
+              "opacity": 1,
+              "overflow": "hidden",
+              "paddingHorizontal": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Colfax-Bold",
+                "fontSize": 16,
+                "lineHeight": 23.04,
+              }
+            }
+          >
+            PrayerList
+          </Text>
         </View>
       </View>
     </RCTSafeAreaView>

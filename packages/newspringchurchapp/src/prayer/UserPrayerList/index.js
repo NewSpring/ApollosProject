@@ -11,7 +11,7 @@ import {
   PaddedView,
   styled,
 } from '@apollosproject/ui-kit';
-import PrayerCard from '../PrayerCard';
+import PrayerSingle from '../PrayerSingle';
 import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
 
 const FlexedSafeAreaView = styled({
@@ -35,7 +35,7 @@ class UserPrayerList extends React.Component {
     return (
       <ModalView {...this.props} onClose={() => this.props.navigation.pop()}>
         <FlexedSafeAreaView forceInset={{ top: 'always' }}>
-          <ScrollView nestedScrollEnabled>
+          <ScrollView>
             <Query query={GET_USER_PRAYERS} fetchPolicy="cache-and-network">
               {({ data: { userPrayers = [] } = {} }) => (
                 <>
@@ -46,15 +46,10 @@ class UserPrayerList extends React.Component {
                   <StyledView>
                     {userPrayers
                       .map((prayer) => (
-                        // TODO: Pass all the right things to the prayer card
-                        // once it's done being refactored.
                         <Card key={prayer.id}>
                           <CardContent>
-                            <PrayerCard
-                              prayer={prayer}
-                              showHelp={false}
-                              header={false}
-                            />
+                            {/* TODO add action prop containing deletePrayer button */}
+                            <PrayerSingle prayer={prayer} showDate />
                           </CardContent>
                         </Card>
                       ))
