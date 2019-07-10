@@ -32,6 +32,7 @@ PrayerNavigator.navigationOptions = ({ navigation }) => {
   return {
     tabBarVisible,
     tabBarIcon: tabBarIcon('pray'),
+    header: null,
   };
 };
 

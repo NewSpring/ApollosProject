@@ -54,7 +54,7 @@ const AddPrayerForm = memo(
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={onSubmit}
     >
-      {({ handleChange, handleBlur, handleSubmit, values }) => (
+      {({ handleChange, handleBlur, handleSubmit, resetForm, values }) => (
         <ModalView {...props}>
           <FlexedSafeAreaView forceInset={{ top: 'always' }}>
             <ShrinkingView behavior={'padding'}>
@@ -84,7 +84,13 @@ const AddPrayerForm = memo(
                 />
               </SwitchContainer>
               <BottomView>
-                <Button title={btnLabel} onPress={handleSubmit} />
+                <Button
+                  title={btnLabel}
+                  onPress={async () => {
+                    await handleSubmit(values);
+                    await resetForm();
+                  }}
+                />
               </BottomView>
             </ShrinkingView>
           </FlexedSafeAreaView>

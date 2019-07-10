@@ -125,7 +125,7 @@ class PrayerList extends PureComponent {
     const { navigation } = this.props;
 
     return (
-      <ModalView onClose={() => navigation.pop()}>
+      <ModalView onClose={() => navigation.navigate('Prayer')}>
         <PaddedFeedView>
           <Query
             query={query}
