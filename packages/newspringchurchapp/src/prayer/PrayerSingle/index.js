@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { memo } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -21,65 +21,57 @@ const PrayerText = styled(({ theme }) => ({
   marginVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-class PrayerSingle extends PureComponent {
-  static navigationOptions = () => ({
-    header: null,
-  });
-
-  render() {
-    const {
-      showHelp,
-      showHeader,
-      showDate,
-      avatarSize,
-      prayer,
-      action,
-      navigation,
-    } = this.props;
-
-    return (
-      <View>
-        {showDate ? (
-          <GreyH5>
-            {prayer.enteredDateTime
-              ? moment(prayer.enteredDateTime).fromNow()
-              : ''}
-          </GreyH5>
+const PrayerSingle = memo(
+  ({
+    showHelp,
+    showHeader,
+    showDate,
+    avatarSize,
+    prayer,
+    action,
+    ...props
+  }) => (
+    <View>
+      {showDate ? (
+        <GreyH5>
+          {prayer.enteredDateTime
+            ? moment(prayer.enteredDateTime).fromNow()
+            : ''}
+        </GreyH5>
+      ) : null}
+      <SideBySideView>
+        {showHeader ? (
+          <PrayerHeader
+            avatarSize={avatarSize}
+            avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
+            title={`Pray for ${
+              prayer.isAnonymous ? 'Request' : prayer.firstName
+            }`}
+            source={prayer.campus.name}
+          />
         ) : null}
-        <SideBySideView>
-          {showHeader ? (
-            <PrayerHeader
-              avatarSize={avatarSize}
-              avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
-              title={`Pray for ${
-                prayer.isAnonymous ? 'Request' : prayer.firstName
-              }`}
-              source={prayer.campus.name}
-            />
-          ) : null}
-          {action}
-        </SideBySideView>
-        <PrayerText>{prayer.text}</PrayerText>
-        {showHelp ? (
-          <Touchable
-            onPress={() => {
-              navigation.navigate('ContentSingle', {
-                // TODO: this should come from a content channel
-                itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
-                itemTitle: 'Learning how to pray like Jesus',
-                isolated: true,
-              });
-            }}
-          >
-            <View>
-              <ChannelLabel icon="information" label="How to Pray?" />
-            </View>
-          </Touchable>
-        ) : null}
-      </View>
-    );
-  }
-}
+        {action}
+      </SideBySideView>
+      <PrayerText>{prayer.text}</PrayerText>
+      {showHelp ? (
+        <Touchable
+          onPress={() => {
+            props.navigation.navigate('ContentSingle', {
+              // TODO: this should come from a content channel
+              itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
+              itemTitle: 'Learning how to pray like Jesus',
+              isolated: true,
+            });
+          }}
+        >
+          <View>
+            <ChannelLabel icon="information" label="How to Pray?" />
+          </View>
+        </Touchable>
+      ) : null}
+    </View>
+  )
+);
 
 PrayerSingle.propTypes = {
   showHelp: PropTypes.bool,
@@ -102,6 +94,12 @@ PrayerSingle.defaultProps = {
     person: { photo: { uri: '' } },
   },
   action: null,
+};
+
+PrayerSingle.displayName = 'PrayerSingle';
+
+PrayerSingle.navigationOptions = {
+  header: null,
 };
 
 export default PrayerSingle;

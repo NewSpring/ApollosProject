@@ -18,6 +18,7 @@ import {
   styled,
 } from '@apollosproject/ui-kit';
 
+import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
