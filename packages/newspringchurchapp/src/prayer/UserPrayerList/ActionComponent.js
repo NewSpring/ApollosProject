@@ -1,7 +1,13 @@
 import React from 'react';
 import ActionSheet from 'react-native-actionsheet';
 import PropTypes from 'prop-types';
-import { Icon, Touchable } from '@apollosproject/ui-kit';
+import { Icon, Touchable, withTheme } from '@apollosproject/ui-kit';
+
+const DeleteIcon = withTheme(({ theme }) => ({
+  name: 'close',
+  size: theme.sizing.baseUnit,
+  fill: theme.colors.wordOfChrist,
+}))(Icon);
 
 class ActionComponent extends React.Component {
   handleShowActionSheet = () => {
@@ -13,7 +19,7 @@ class ActionComponent extends React.Component {
     return (
       <>
         <Touchable onPress={this.handleShowActionSheet}>
-          <Icon name="close" size={18} />
+          <DeleteIcon />
         </Touchable>
         <ActionSheet
           ref={(sheet) => {
