@@ -161,7 +161,10 @@ class PrayerList extends PureComponent {
                                     // TODO: this query shouldn't be
                                     // necessary we need a "isSaved"
                                     // field on each prayer
-                                    <Query query={GET_SAVED_PRAYERS}>
+                                    <Query
+                                      query={GET_SAVED_PRAYERS}
+                                      fetchPolicy={'cache-and-network'}
+                                    >
                                       {({
                                         data: { savedPrayers = [] } = {},
                                       }) => {

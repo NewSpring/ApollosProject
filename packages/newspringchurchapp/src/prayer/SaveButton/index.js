@@ -24,8 +24,11 @@ class SaveButtonConnected extends React.Component {
             {(unSave) => (
               <SaveButton
                 saved={this.state.savedButton}
-                onPress={() =>
-                  this.state.savedButton
+                onPress={() => {
+                  this.setState((prevState) => ({
+                    savedButton: !prevState.savedButton,
+                  }));
+                  return this.state.savedButton
                     ? unSave({
                         variables: { nodeId: this.props.prayerID },
                         refetchQueries: [{ query: GET_SAVED_PRAYERS }],
@@ -33,8 +36,8 @@ class SaveButtonConnected extends React.Component {
                     : save({
                         variables: { nodeId: this.props.prayerID },
                         refetchQueries: [{ query: GET_SAVED_PRAYERS }],
-                      })
-                }
+                      });
+                }}
               />
             )}
           </Mutation>
