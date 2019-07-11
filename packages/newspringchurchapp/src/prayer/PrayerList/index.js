@@ -11,7 +11,6 @@ import {
   H4,
   H6,
   ModalView,
-  ChannelLabel,
   FlexedView,
   Button,
   ButtonLink,
@@ -19,6 +18,7 @@ import {
 } from '@apollosproject/ui-kit';
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
+import SaveButton from '../SaveButton';
 import cache from '../../client/cache';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
@@ -156,15 +156,7 @@ class PrayerList extends PureComponent {
                                   avatarSize={'medium'}
                                   navigation={this.props.navigation}
                                   prayer={prayer}
-                                  action={
-                                    // TODO: save button component, stateful
-                                    <Button>
-                                      <ChannelLabel
-                                        icon="like-solid"
-                                        label="Unsave"
-                                      />
-                                    </Button>
-                                  }
+                                  action={<SaveButton prayerID={prayer.id} />}
                                   showHelp
                                   showHeader
                                 />
