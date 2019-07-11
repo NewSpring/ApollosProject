@@ -28,6 +28,7 @@ const getCategoryComponent = (key) => {
             return (
               <PrayerTab
                 prayers={prayers}
+                query={GET_PRAYERS}
                 description={'Pray for the people in our church'}
                 route={'ChurchPrayerList'}
                 title={'My Church'}
@@ -41,9 +42,12 @@ const getCategoryComponent = (key) => {
       return (
         <Query query={getUserProfile}>
           {({
-            currentUser: { profile: { campus: { id } = {} } = {} } = {},
+            data: {
+              currentUser: { profile: { campus: { id } = {} } = {} } = {},
+            } = {},
+            loading,
           }) => {
-            console.log(id);
+            if (loading) return null;
             return (
               <Query
                 query={GET_CAMPUS_PRAYERS}
@@ -54,6 +58,7 @@ const getCategoryComponent = (key) => {
                   const prayers = get(data, 'campusPrayers', []);
                   return (
                     <PrayerTab
+                      query={GET_CAMPUS_PRAYERS}
                       prayers={prayers}
                       description={'Pray for the people at your campus'}
                       route={'CampusPrayerList'}
@@ -75,6 +80,7 @@ const getCategoryComponent = (key) => {
             return (
               <PrayerTab
                 prayers={prayers}
+                query={GET_GROUP_PRAYERS}
                 description={'Pray for those people in your community'}
                 route={'GroupPrayerList'}
                 title={'My Community'}
