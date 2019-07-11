@@ -1,5 +1,5 @@
 import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
-import { uniq, isNumber } from 'lodash';
+import { isNumber } from 'lodash';
 
 export default {
   Query: {
@@ -11,25 +11,8 @@ export default {
       dataSources.PrayerRequest.getFromCurrentPerson(),
     groupPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
-    savedPrayers: async (root, args, { dataSources }) => {
-      try {
-        const followings = await dataSources.Followings.getFollowingsForCurrentUser(
-          {
-            type: 'PrayerRequest',
-          }
-        );
-
-        const stuff = await followings.get();
-        const prayerIds = stuff.map((follow) => follow.entityId);
-        const prayers = await dataSources.PrayerRequest.getFromIds(
-          uniq(prayerIds)
-        ).get();
-
-        return prayers;
-      } catch (err) {
-        throw new Error(err);
-      }
-    },
+    savedPrayers: async (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.getSavedPrayers(),
   },
   Mutation: {
     addPrayer: (root, args, { dataSources }) =>
