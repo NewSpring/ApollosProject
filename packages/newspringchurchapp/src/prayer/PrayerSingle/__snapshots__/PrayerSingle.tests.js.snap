@@ -43,7 +43,9 @@ exports[`the PrayerSingle component renders a prayer card 1`] = `
             "justifyContent": "space-between",
           }
         }
-      />
+      >
+        <View />
+      </View>
       <Text
         bold={false}
         italic={false}
