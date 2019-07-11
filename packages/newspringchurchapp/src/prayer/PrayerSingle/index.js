@@ -33,11 +33,14 @@ const PrayerSingle = memo(
   }) => (
     <View>
       {showDate ? (
-        <GreyH5>
-          {prayer.enteredDateTime
-            ? moment(prayer.enteredDateTime).fromNow()
-            : ''}
-        </GreyH5>
+        <SideBySideView>
+          <GreyH5>
+            {prayer.enteredDateTime
+              ? moment(prayer.enteredDateTime).fromNow()
+              : ''}
+          </GreyH5>
+          {action}
+        </SideBySideView>
       ) : null}
       <SideBySideView>
         {showHeader ? (
@@ -49,8 +52,10 @@ const PrayerSingle = memo(
             }`}
             source={prayer.campus.name}
           />
-        ) : null}
-        {action}
+        ) : (
+          <View />
+        )}
+        {!showDate ? action : null}
       </SideBySideView>
       <PrayerText>{prayer.text}</PrayerText>
       {showHelp ? (
