@@ -114,7 +114,7 @@ class PrayerList extends PureComponent {
     const { queryTag, label, variables } = this.calculateQuery();
 
     return (
-      <ModalView onClose={() => this.props.navigation.navigate('Prayer')}>
+      <ModalView onClose={() => this.props.navigation.popToTop()}>
         <FlexedSafeAreaView>
           <Query
             query={queryTag}
@@ -219,7 +219,7 @@ class PrayerList extends PureComponent {
                                             prevState.prayerIndex + 1,
                                           prayed: false,
                                         }))
-                                      : this.props.navigation.navigate('Prayer')
+                                      : this.props.navigation.popToTop()
                                   }
                                 />
                               </View>

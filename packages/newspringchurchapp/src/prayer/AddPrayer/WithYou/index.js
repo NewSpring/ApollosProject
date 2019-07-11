@@ -47,7 +47,7 @@ const FooterText = styled(({ theme }) => ({
 }))(BodyText);
 
 const WithYou = memo(({ ...props }) => (
-  <ModalView {...props} onClose={() => props.navigation.navigate('Prayer')}>
+  <ModalView {...props} onClose={() => props.navigation.popToTop()}>
     <FlexedSafeAreaView>
       <MessageView>
         <BrandIcon />
