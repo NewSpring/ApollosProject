@@ -26,6 +26,7 @@ import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
 import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -156,7 +157,26 @@ class PrayerList extends PureComponent {
                                   avatarSize={'medium'}
                                   navigation={this.props.navigation}
                                   prayer={prayer}
-                                  action={<SaveButton prayerID={prayer.id} />}
+                                  action={
+                                    // TODO: this query shouldn't be
+                                    // necessary we need a "isSaved"
+                                    // field on each prayer
+                                    <Query query={GET_SAVED_PRAYERS}>
+                                      {({
+                                        data: { savedPrayers = [] } = {},
+                                      }) => {
+                                        const savedIDs = savedPrayers.map(
+                                          (savedPrayer) => savedPrayer.id
+                                        );
+                                        return (
+                                          <SaveButton
+                                            saved={savedIDs.includes(prayer.id)}
+                                            prayerID={prayer.id}
+                                          />
+                                        );
+                                      }}
+                                    </Query>
+                                  }
                                   showHelp
                                   showHeader
                                 />

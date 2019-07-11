@@ -21,6 +21,10 @@ const PrayerText = styled(({ theme }) => ({
   marginVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
+const ActionView = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit,
+}))(View);
+
 const PrayerSingle = memo(
   ({
     showHelp,
@@ -50,7 +54,7 @@ const PrayerSingle = memo(
             source={prayer.campus.name}
           />
         ) : null}
-        {action}
+        <ActionView>{action}</ActionView>
       </SideBySideView>
       <PrayerText>{prayer.text}</PrayerText>
       {showHelp ? (
