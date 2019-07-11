@@ -19,12 +19,8 @@ import {
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import cache from '../../client/cache';
-import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
-import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
-import GET_PRAYERS from '../data/queries/getPrayers';
-import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
