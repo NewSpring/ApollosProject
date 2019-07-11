@@ -47,7 +47,7 @@ class UserPrayerList extends React.Component {
                   </PaddedView>
                   <Mutation
                     mutation={DELETE_PRAYER}
-                    update={async (cache, { data: { deletePrayer } }) => {
+                    update={(cache, { data: { deletePrayer } }) => {
                       const data = cache.readQuery({
                         query: GET_USER_PRAYERS,
                       });
@@ -55,7 +55,7 @@ class UserPrayerList extends React.Component {
                       const updatedPrayers = data.userPrayers.filter(
                         (prayer) => prayer.id !== id
                       );
-                      await cache.writeQuery({
+                      cache.writeQuery({
                         query: GET_USER_PRAYERS,
                         data: { userPrayers: updatedPrayers },
                       });
