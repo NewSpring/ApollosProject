@@ -85,6 +85,9 @@ const AddPrayerForm = memo(
                 />
               </SwitchContainer>
               <BottomView>
+                {/* TODO need to use Formik.resetForm() here somehow
+                    when you come back to this screen, the form still has
+                    old info in it */}
                 <Button title={btnLabel} onPress={handleSubmit} />
               </BottomView>
             </ShrinkingView>
