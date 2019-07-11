@@ -8,7 +8,6 @@ import {
   styled,
   Touchable,
   ChannelLabel,
-  SideBySideView,
 } from '@apollosproject/ui-kit';
 import PrayerHeader from '../PrayerHeader';
 
@@ -21,6 +20,13 @@ const PrayerText = styled(({ theme }) => ({
   marginVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
+const AbsolutePositionedView = styled(() => ({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  zIndex: 2,
+}))(View);
+
 const PrayerSingle = memo(
   ({
     showHelp,
@@ -32,31 +38,24 @@ const PrayerSingle = memo(
     ...props
   }) => (
     <View>
+      <AbsolutePositionedView>{action}</AbsolutePositionedView>
       {showDate ? (
-        <SideBySideView>
-          <GreyH5>
-            {prayer.enteredDateTime
-              ? moment(prayer.enteredDateTime).fromNow()
-              : ''}
-          </GreyH5>
-          {action}
-        </SideBySideView>
+        <GreyH5>
+          {prayer.enteredDateTime
+            ? moment(prayer.enteredDateTime).fromNow()
+            : ''}
+        </GreyH5>
       ) : null}
-      <SideBySideView>
-        {showHeader ? (
-          <PrayerHeader
-            avatarSize={avatarSize}
-            avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
-            title={`Pray for ${
-              prayer.isAnonymous ? 'Request' : prayer.firstName
-            }`}
-            source={prayer.campus.name}
-          />
-        ) : (
-          <View />
-        )}
-        {!showDate ? action : null}
-      </SideBySideView>
+      {showHeader ? (
+        <PrayerHeader
+          avatarSize={avatarSize}
+          avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
+          title={`Pray for ${
+            prayer.isAnonymous ? 'Request' : prayer.firstName
+          }`}
+          source={prayer.campus.name}
+        />
+      ) : null}
       <PrayerText>{prayer.text}</PrayerText>
       {showHelp ? (
         <Touchable
