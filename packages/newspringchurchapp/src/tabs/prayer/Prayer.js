@@ -1,11 +1,7 @@
 import React, { PureComponent } from 'react';
 import { SafeAreaView } from 'react-navigation';
-import { styled, FlexedView } from '@apollosproject/ui-kit';
+import { styled } from '@apollosproject/ui-kit';
 import PrayerMenu from '../../prayer';
-
-const Header = styled(({ theme }) => ({
-  backgroundColor: theme.colors.tertiary,
-}))(FlexedView);
 
 const StyledSafeAreaView = styled(({ theme }) => ({
   flex: 1,
@@ -20,9 +16,7 @@ class Prayer extends PureComponent {
   render() {
     return (
       <StyledSafeAreaView>
-        <Header>
-          <PrayerMenu {...this.props} />
-        </Header>
+        <PrayerMenu {...this.props} />
       </StyledSafeAreaView>
     );
   }

@@ -70,7 +70,6 @@ class PrayerTabConnected extends React.Component {
   render() {
     const { query, queryName, type, variables } = this.calculateQuery();
     const { category } = this.props;
-    console.log('props', this.props);
     return (
       <Query
         query={query}

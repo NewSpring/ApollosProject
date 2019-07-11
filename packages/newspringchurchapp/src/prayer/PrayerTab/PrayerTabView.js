@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions } from 'react-native';
+import { Query } from 'react-apollo';
+import { get } from 'lodash';
+import { Dimensions, View } from 'react-native';
 import { TabView } from 'react-native-tab-view';
 import {
   styled,
@@ -8,21 +10,89 @@ import {
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
-import PrayerTabConnected from './PrayerTabConnected';
 
-const getCategory = (key) => {
+import getUserProfile from '../../tabs/connect/getUserProfile';
+import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
+import GET_PRAYERS from '../data/queries/getPrayers';
+import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
+import PrayerTab from './PrayerTab';
+
+const getCategoryComponent = (key) => {
   switch (key) {
     case 'my-saved-prayers':
-      return key;
     case 'my-church':
-      return key;
+      return (
+        <Query query={GET_PRAYERS} fetchPolicy="cache-and-network">
+          {({ data }) => {
+            const prayers = get(data, 'prayers', []);
+            return (
+              <PrayerTab
+                prayers={prayers}
+                description={'Pray for the people in our church'}
+                route={'ChurchPrayerList'}
+                title={'My Church'}
+                type={'church'}
+              />
+            );
+          }}
+        </Query>
+      );
     case 'my-campus':
-      return key;
+      return (
+        <Query query={getUserProfile}>
+          {({
+            currentUser: { profile: { campus: { id } = {} } = {} } = {},
+          }) => {
+            console.log(id);
+            return (
+              <Query
+                query={GET_CAMPUS_PRAYERS}
+                variables={{ campusId: id }}
+                fetchPolicy="cache-and-network"
+              >
+                {({ data }) => {
+                  const prayers = get(data, 'campusPrayers', []);
+                  return (
+                    <PrayerTab
+                      prayers={prayers}
+                      description={'Pray for the people at your campus'}
+                      route={'CampusPrayerList'}
+                      title={'My Campus'}
+                      type={'campus'}
+                    />
+                  );
+                }}
+              </Query>
+            );
+          }}
+        </Query>
+      );
     case 'my-community':
-      return key;
+      return (
+        <Query query={GET_GROUP_PRAYERS} fetchPolicy="cache-and-network">
+          {({ data }) => {
+            const prayers = get(data, 'groupsPrayers', []);
+            return (
+              <PrayerTab
+                prayers={prayers}
+                description={'Pray for those people in your community'}
+                route={'GroupPrayerList'}
+                title={'My Community'}
+                type={'community'}
+              />
+            );
+          }}
+        </Query>
+      );
     default:
-      return 'my-church';
+      return null;
   }
+};
+
+const TabWrapper = ({ component }) => <View>{component}</View>;
+
+TabWrapper.propTypes = {
+  component: PropTypes.func,
 };
 
 const StyledHorizontalTileFeed = styled({
@@ -67,17 +137,25 @@ class PrayerTabView extends PureComponent {
         }}
         navigationState={{ ...this.state }}
         renderScene={({ route }) => {
-          const scenes = {};
-          this.props.categories.map((category) => {
-            scenes[category.key] = (
-              <PrayerTabConnected
-                categoryKey={getCategory(category.key)}
-                category={category}
-              />
-            );
-            return category.route;
-          });
-          return scenes[route.key];
+          switch (route.key) {
+            case 'my-church': {
+              return <TabWrapper component={getCategoryComponent(route.key)} />;
+            }
+            case 'my-campus': {
+              return <TabWrapper component={getCategoryComponent(route.key)} />;
+            }
+            case 'my-community': {
+              return <TabWrapper component={getCategoryComponent(route.key)} />;
+            }
+            case 'my-prayers': {
+              return <TabWrapper component={getCategoryComponent(route.key)} />;
+            }
+            case 'my-saved-prayers': {
+              return <TabWrapper component={getCategoryComponent(route.key)} />;
+            }
+            default:
+              return null;
+          }
         }}
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed

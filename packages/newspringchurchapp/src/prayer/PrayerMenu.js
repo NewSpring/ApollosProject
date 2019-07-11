@@ -11,8 +11,12 @@ const MenuView = styled(({ theme }) => ({
   paddingTop: theme.sizing.baseUnit * 2,
 }))(FlexedView);
 
+const Container = styled(({ theme }) => ({
+  backgroundColor: theme.colors.tertiary,
+}))(FlexedView);
+
 const PrayerMenu = ({ ...props }) => (
-  <FlexedView>
+  <Container>
     <AddPrayerCard
       description={
         'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
@@ -25,7 +29,7 @@ const PrayerMenu = ({ ...props }) => (
       </PaddedView>
       <PrayerTabView {...props} />
     </MenuView>
-  </FlexedView>
+  </Container>
 );
 
 export default PrayerMenu;
