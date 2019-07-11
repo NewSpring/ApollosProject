@@ -5,17 +5,16 @@ import { SafeAreaView } from 'react-navigation';
 import {
   Card,
   CardContent,
-  Icon,
   H4,
   H6,
   ModalView,
   PaddedView,
   styled,
-  Touchable,
 } from '@apollosproject/ui-kit';
 import PrayerSingle from '../PrayerSingle';
 import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
 import DELETE_PRAYER from '../data/mutations/deletePrayer';
+import ActionComponent from './ActionComponent';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -73,17 +72,26 @@ class UserPrayerList extends React.Component {
                                   prayer={prayer}
                                   showDate
                                   action={
-                                    <Touchable
-                                      onPress={async () => {
-                                        await deletePrayer({
-                                          variables: {
-                                            parsedId: prayer.id,
+                                    <ActionComponent
+                                      options={[
+                                        {
+                                          title: 'Delete Prayer',
+                                          method: async () => {
+                                            await deletePrayer({
+                                              variables: {
+                                                parsedId: prayer.id,
+                                              },
+                                            });
                                           },
-                                        });
-                                      }}
-                                    >
-                                      <Icon name="close" size={20} />
-                                    </Touchable>
+                                          destructive: true,
+                                        },
+                                        {
+                                          title: 'Cancel',
+                                          method: null,
+                                          destructive: false,
+                                        },
+                                      ]}
+                                    />
                                   }
                                 />
                               </CardContent>
