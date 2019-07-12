@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Mutation, Query } from 'react-apollo';
 import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import {
@@ -13,6 +13,8 @@ import {
 } from '@apollosproject/ui-kit';
 import PrayerSingle from '../PrayerSingle';
 import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
+import DELETE_PRAYER from '../data/mutations/deletePrayer';
+import ActionComponent from './ActionComponent';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -43,18 +45,62 @@ class UserPrayerList extends React.Component {
                     <H6>Viewing</H6>
                     <GreenH4>My Prayers</GreenH4>
                   </PaddedView>
-                  <StyledView>
-                    {userPrayers
-                      .map((prayer) => (
-                        <Card key={prayer.id}>
-                          <CardContent>
-                            {/* TODO add action prop containing deletePrayer button */}
-                            <PrayerSingle prayer={prayer} showDate />
-                          </CardContent>
-                        </Card>
-                      ))
-                      .reverse()}
-                  </StyledView>
+                  <Mutation
+                    mutation={DELETE_PRAYER}
+                    update={(cache, { data: { deletePrayer } }) => {
+                      const data = cache.readQuery({
+                        query: GET_USER_PRAYERS,
+                      });
+                      const { id } = deletePrayer;
+                      const updatedPrayers = data.userPrayers.filter(
+                        (prayer) => prayer.id !== id
+                      );
+                      cache.writeQuery({
+                        query: GET_USER_PRAYERS,
+                        data: { userPrayers: updatedPrayers },
+                      });
+                    }}
+                  >
+                    {(deletePrayer) => (
+                      <StyledView>
+                        {/* TODO: Fix user prayer sorting */}
+                        {userPrayers
+                          .map((prayer) => (
+                            <Card key={prayer.id}>
+                              <CardContent>
+                                <PrayerSingle
+                                  prayer={prayer}
+                                  showDate
+                                  action={
+                                    <ActionComponent
+                                      options={[
+                                        {
+                                          title: 'Delete Prayer',
+                                          method: async () => {
+                                            await deletePrayer({
+                                              variables: {
+                                                parsedId: prayer.id,
+                                              },
+                                            });
+                                          },
+                                          destructive: true,
+                                        },
+                                        {
+                                          title: 'Cancel',
+                                          method: null,
+                                          destructive: false,
+                                        },
+                                      ]}
+                                    />
+                                  }
+                                />
+                              </CardContent>
+                            </Card>
+                          ))
+                          .reverse()}
+                      </StyledView>
+                    )}
+                  </Mutation>
                 </>
               )}
             </Query>
