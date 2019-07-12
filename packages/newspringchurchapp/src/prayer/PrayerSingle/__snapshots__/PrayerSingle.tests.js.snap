@@ -43,7 +43,15 @@ exports[`the PrayerSingle component renders a prayer card 1`] = `
             "justifyContent": "space-between",
           }
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 16,
+            }
+          }
+        />
+      </View>
       <Text
         bold={false}
         italic={false}
