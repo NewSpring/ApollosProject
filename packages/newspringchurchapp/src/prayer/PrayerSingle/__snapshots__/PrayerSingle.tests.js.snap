@@ -37,10 +37,10 @@ exports[`the PrayerSingle component renders a prayer card 1`] = `
       <View
         style={
           Object {
-            "alignItems": "stretch",
-            "flexDirection": "row",
-            "flexWrap": "nowrap",
-            "justifyContent": "space-between",
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "zIndex": 2,
           }
         }
       />
