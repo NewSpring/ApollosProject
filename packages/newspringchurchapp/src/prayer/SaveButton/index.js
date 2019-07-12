@@ -31,11 +31,38 @@ class SaveButtonConnected extends React.Component {
                   return this.state.savedButton
                     ? unSave({
                         variables: { nodeId: this.props.prayerID },
-                        refetchQueries: [{ query: GET_SAVED_PRAYERS }],
+                        update: (
+                          cache,
+                          {
+                            data: {
+                              unSavePrayer: { id },
+                            },
+                          }
+                        ) => {
+                          const data = cache.readQuery({
+                            query: GET_SAVED_PRAYERS,
+                          });
+                          const filteredPrayers = data.savedPrayers.filter(
+                            (prayer) => prayer.id !== id
+                          );
+                          cache.writeQuery({
+                            query: GET_SAVED_PRAYERS,
+                            data: { savedPrayers: filteredPrayers },
+                          });
+                        },
                       })
                     : save({
                         variables: { nodeId: this.props.prayerID },
-                        refetchQueries: [{ query: GET_SAVED_PRAYERS }],
+                        update: (cache, { data: { savePrayer } }) => {
+                          const data = cache.readQuery({
+                            query: GET_SAVED_PRAYERS,
+                          });
+                          data.savedPrayers.push(savePrayer);
+                          cache.writeQuery({
+                            query: GET_SAVED_PRAYERS,
+                            data,
+                          });
+                        },
                       });
                 }}
               />

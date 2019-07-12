@@ -161,13 +161,12 @@ class PrayerList extends PureComponent {
                                     // TODO: this query shouldn't be
                                     // necessary we need a "isSaved"
                                     // field on each prayer
-                                    <Query
-                                      query={GET_SAVED_PRAYERS}
-                                      fetchPolicy={'cache-and-network'}
-                                    >
+                                    <Query query={GET_SAVED_PRAYERS}>
                                       {({
-                                        data: { savedPrayers = [] } = {},
+                                        data: { savedPrayers } = {},
+                                        loading: savedLoading,
                                       }) => {
+                                        if (savedLoading) return null;
                                         const savedIDs = savedPrayers.map(
                                           (savedPrayer) => savedPrayer.id
                                         );
