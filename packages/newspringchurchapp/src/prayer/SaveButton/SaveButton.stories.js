@@ -4,7 +4,7 @@ import { PaddedView } from '@apollosproject/ui-kit';
 
 import SaveButton from '.';
 
-storiesOf('PrayerSingle', module).add('default', () =>
+storiesOf('SaveButton', module).add('default', () =>
   (
     <PaddedView>
       <SaveButton />
