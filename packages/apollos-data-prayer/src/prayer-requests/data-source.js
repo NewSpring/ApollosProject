@@ -18,6 +18,12 @@ export default class PrayerRequest extends RockApolloDataSource {
       return -1;
     });
 
+  // Sort user prayers by date - newest first
+  sortUserPrayers = (prayers) =>
+    prayers.sort((a, b) =>
+      moment(a.createdDateTime) < moment(b.createdDateTime) ? 1 : -1
+    );
+
   // QUERY ALL PrayerRequests
   getAll = async () => {
     try {
@@ -70,7 +76,7 @@ export default class PrayerRequest extends RockApolloDataSource {
       const prayers = await this.request('PrayerRequests/Public')
         .filter(`RequestedByPersonAliasId eq ${primaryAliasId}`)
         .get();
-      return this.sortPrayers(prayers);
+      return this.sortUserPrayers(prayers);
     } catch (err) {
       throw new Error(err);
     }
