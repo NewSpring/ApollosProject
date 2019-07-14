@@ -16,7 +16,7 @@ import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
-import PrayerTab from './PrayerTab';
+import PrayerTab from './index';
 
 const getCategoryComponent = (key) => {
   switch (key) {
@@ -116,7 +116,7 @@ const getCategoryComponent = (key) => {
 const TabWrapper = ({ component }) => <View>{component}</View>;
 
 TabWrapper.propTypes = {
-  component: PropTypes.func,
+  component: PropTypes.shape({}),
 };
 
 const StyledHorizontalTileFeed = styled({
