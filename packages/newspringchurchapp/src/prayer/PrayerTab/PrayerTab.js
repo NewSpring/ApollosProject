@@ -44,8 +44,14 @@ const PrayerTab = withNavigation(
         </View>
       ) : (
         <VerticalPaddedView>
-          <StyledH4>There are no prayers yet for your {type}</StyledH4>
-          <StyledBodyText>Be the first to add one!</StyledBodyText>
+          {type === 'saved' ? (
+            <StyledH4>You do not have any saved prayers</StyledH4>
+          ) : (
+            <>
+              <StyledH4>There are no prayers yet for your {type}</StyledH4>
+              <StyledBodyText>Be the first to add one!</StyledBodyText>
+            </>
+          )}
         </VerticalPaddedView>
       )}
     </PaddedView>

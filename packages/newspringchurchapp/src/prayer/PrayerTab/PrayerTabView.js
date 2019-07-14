@@ -32,7 +32,7 @@ const getCategoryComponent = (key) => {
                 description={'Pray for your saved prayers'}
                 list={'SavedPrayerList'}
                 title={'My Saved Prayers'}
-                type={'saved prayers'}
+                type={'saved'}
               />
             );
           }}
