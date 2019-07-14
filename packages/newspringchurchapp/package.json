@@ -3,6 +3,7 @@
   "version": "7.1.0",
   "private": true,
   "devDependencies": {
+    "@apollosproject/ui-storybook": "^0.8.6",
     "@storybook/addon-actions": "4.1.16",
     "@storybook/addon-links": "4.1.16",
     "@storybook/addons": "4.1.16",
@@ -19,8 +20,7 @@
     "react-native-storybook-loader": "1.8.0",
     "react-native-version": "2.6.2",
     "react-test-renderer": "16.8.3",
-    "waait": "1.0.2",
-    "@apollosproject/ui-storybook": "^0.8.6"
+    "waait": "1.0.2"
   },
   "engines": {
     "node": ">=8.11.x"
@@ -108,6 +108,7 @@
     "react-native-amplitude-analytics": "^0.2.6",
     "react-native-config": "^0.11.7",
     "react-native-device-info": "^2.1.2",
+    "react-native-emoji": "^1.8.0",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-image-picker": "0.28.0",
     "react-native-linear-gradient": "^2.5.4",

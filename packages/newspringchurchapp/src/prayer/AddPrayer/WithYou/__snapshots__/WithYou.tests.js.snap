@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the UserPrayerList component renders a list of prayers 1`] = `
+exports[`The WithYou component should render 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   onLayout={[Function]}
@@ -64,61 +64,256 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
     >
       <RCTSafeAreaView
         emulateUnlessSupported={true}
-        forceInset={
-          Object {
-            "top": "always",
-          }
-        }
         style={
           Object {
             "flex": 1,
+            "paddingHorizontal": 16,
           }
         }
       >
-        <RCTScrollView>
-          <View>
+        <View
+          style={
+            Object {
+              "flex": 4,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={64}
+            bbWidth={64}
+            height={64}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                undefined,
+                null,
+                Object {
+                  "flex": 0,
+                  "height": 64,
+                  "width": 64,
+                },
+              ]
+            }
+            vbHeight={24}
+            vbWidth={24}
+            width={64}
+          >
+            <RNSVGGroup
+              fill={
+                Array [
+                  0,
+                  4278190080,
+                ]
+              }
+              fillOpacity={1}
+              fillRule={1}
+              font={Object {}}
+              matrix={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+              opacity={1}
+              originX={0}
+              originY={0}
+              propList={Array []}
+              rotation={0}
+              scaleX={1}
+              scaleY={1}
+              skewX={0}
+              skewY={0}
+              stroke={null}
+              strokeDasharray={null}
+              strokeDashoffset={null}
+              strokeLinecap={0}
+              strokeLinejoin={0}
+              strokeMiterlimit={4}
+              strokeOpacity={1}
+              strokeWidth={1}
+              vectorEffect={0}
+              x={0}
+              y={0}
+            >
+              <RNSVGPath
+                d="M12 22C5.2 22 2 17.52 2 12S6.48 2 12 2s10 3.33 10 10v10H12zM7.84 8v9.08h3.12V12.3c0-1.14.6-1.8 1.63-1.8.53 0 1.03.27 1.23.68.17.33.2.5.2 1.4v4.5h3.1v-5.65c0-1.2-.2-1.82-.8-2.45C15.7 8.33 14.86 8 13.8 8H7.84z"
+                fill={
+                  Array [
+                    0,
+                    4285246531,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth={1}
+                vectorEffect={0}
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <Text
+            style={
+              Object {
+                "color": "#6bac43",
+                "fontFamily": "Colfax-Black",
+                "fontSize": 43,
+                "lineHeight": 49.45,
+                "marginVertical": 16,
+              }
+            }
+          >
+            The NewSpring family is with you in prayer
+          </Text>
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+              }
+            }
+          >
+            Thank you for sharing your prayer request. We will all be praying for you.
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
             <View
+              bordered={false}
+              disabled={false}
+              pill={true}
               style={
                 Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#6bac43",
+                  "borderColor": "#6bac43",
+                  "borderRadius": 48,
+                  "borderWidth": 2,
+                  "elevation": 2,
+                  "flexDirection": "row",
+                  "height": 48,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                  "overflow": "hidden",
                   "paddingHorizontal": 16,
-                  "paddingVertical": 16,
                 }
               }
             >
               <Text
                 style={
                   Object {
-                    "color": "#505050",
-                    "fontFamily": "Colfax-Bold",
-                    "fontSize": 12,
-                    "lineHeight": 17.28,
-                  }
-                }
-              >
-                Viewing
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#6bac43",
+                    "color": "#ffffff",
                     "fontFamily": "Colfax-Bold",
                     "fontSize": 16,
                     "lineHeight": 23.04,
                   }
                 }
               >
-                My Prayers
+                Pray for Others
               </Text>
             </View>
-            <View
+          </View>
+          <View
+            style={
+              Object {
+                "alignSelf": "center",
+                "paddingHorizontal": 16,
+                "paddingVertical": 16,
+              }
+            }
+          >
+            <Text
+              onPress={[Function]}
               style={
                 Object {
-                  "marginBottom": 64,
+                  "color": "#6bac43",
                 }
               }
-            />
+            >
+              <Text
+                bold={false}
+                italic={false}
+                style={
+                  Object {
+                    "color": "#2a4930",
+                    "fontFamily": "Colfax-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 26,
+                  }
+                }
+              >
+                Add Another Prayer Request
+              </Text>
+            </Text>
           </View>
-        </RCTScrollView>
+        </View>
       </RCTSafeAreaView>
       <View
         style={

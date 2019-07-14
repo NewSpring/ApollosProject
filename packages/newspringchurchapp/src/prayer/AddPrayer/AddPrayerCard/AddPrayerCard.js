@@ -5,44 +5,48 @@ import {
   BodyText,
   styled,
   Button,
-  Card,
   CardContent,
-  PaddedView,
+  SideBySideView,
+  ChannelLabel,
+  Touchable,
+  H3,
 } from '@apollosproject/ui-kit';
-import PrayerHeader from '../../PrayerHeader';
 
-const StyledCardContent = styled(({ theme }) => ({
-  alignItems: 'center',
-  marginTop: theme.sizing.baseUnit,
-}))(CardContent);
+const StyledView = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit * 4,
+  borderBottomLeftRadius: theme.sizing.baseUnit,
+  backgroundColor: theme.colors.paper,
+  justifyContent: 'center',
+}))(View);
 
-const StyledBodyText = styled(() => ({
-  textAlign: 'center',
+const StyledBodyText = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-const StyledPrayerHeaderView = styled(({ theme }) => ({
-  marginBottom: theme.sizing.baseUnit,
+const StyledButtonView = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
-  <Card>
-    <StyledCardContent>
-      <StyledPrayerHeaderView>
-        <PrayerHeader
-          avatarSource={avatarSource}
-          avatarSize={'medium'}
-          name={title}
-        />
-      </StyledPrayerHeaderView>
+  <StyledView>
+    <CardContent>
+      <SideBySideView>
+        <H3>{title}</H3>
+        <Touchable onPress={() => props.navigation.navigate('UserPrayerList')}>
+          <View>
+            <ChannelLabel icon="profile" label="My Prayers" />
+          </View>
+        </Touchable>
+      </SideBySideView>
       <StyledBodyText>{description}</StyledBodyText>
-    </StyledCardContent>
-    <PaddedView>
+    </CardContent>
+    <StyledButtonView>
       <Button
-        title={'Add Prayer'}
+        title={'Add a Prayer Request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
-    </PaddedView>
-  </Card>
+    </StyledButtonView>
+  </StyledView>
 ));
 
 AddPrayerCard.propTypes = {

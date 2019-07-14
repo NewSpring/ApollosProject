@@ -1,24 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+
 import Providers from 'newspringchurchapp/src/Providers';
 
-import AddPrayerCard from '.';
+import SaveButton from '.';
 
-describe('The AddPrayerCard component', () => {
-  it('should render', () => {
+describe('the SaveButton component', () => {
+  it('renders a SaveButton', () => {
     const tree = renderer.create(
       <Providers>
-        <AddPrayerCard />
+        <SaveButton />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
   });
-  it('should render a custom title', () => {
+  it('renders a saved SaveButton', () => {
     const tree = renderer.create(
       <Providers>
-        <AddPrayerCard
-          description={'this is a custom description for the card.'}
-        />
+        <SaveButton saved />
       </Providers>
     );
     expect(tree).toMatchSnapshot();

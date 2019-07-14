@@ -39,8 +39,7 @@ class AddPrayerFormConnected extends React.Component {
                     },
                     refetchQueries: [{ query: GET_USER_PRAYERS }],
                   });
-                  // TODO: wonder if this should be tied to the ModalView onClose method???
-                  this.props.navigation.pop();
+                  this.props.navigation.navigate('WithYou');
                 }}
                 avatarSource={photo}
                 {...this.props}

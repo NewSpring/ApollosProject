@@ -1,15 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import Providers from 'newspringchurchapp/src/Providers';
 
-import PrayerActionMenuCard from './PrayerActionMenuCard';
+import WithYou from '.';
 
-describe('the PrayerActionMenuCard component', () => {
-  it('renders a prayer action menu card', () => {
+describe('The WithYou component', () => {
+  it('should render', () => {
+    const navigation = { pop: jest.fn(), navigate: jest.fn() };
     const tree = renderer.create(
       <Providers>
-        <PrayerActionMenuCard />
+        <WithYou navigation={navigation} />
       </Providers>
     );
     expect(tree).toMatchSnapshot();
