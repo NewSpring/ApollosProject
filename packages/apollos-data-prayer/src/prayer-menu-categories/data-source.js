@@ -10,7 +10,6 @@ class PrayerMenuCategory extends ContentItem.dataSource {
       .filter(
         `ContentChannelId eq ${ROCK_MAPPINGS.PRAYER_MENU_CATEGORIES_CHANNEL_ID}`
       )
-      .orderBy(`Priority`)
       .get();
     const {
       dataSources: { Auth, Campus },
