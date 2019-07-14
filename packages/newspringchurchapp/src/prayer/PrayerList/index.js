@@ -85,6 +85,8 @@ class PrayerList extends PureComponent {
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
+    console.log(this.props);
+
     return (
       <ModalView onClose={() => this.props.navigation.popToTop()}>
         <FlexedSafeAreaView>
@@ -159,13 +161,16 @@ class PrayerList extends PureComponent {
                           />
                           <FooterAltOption>
                             <ButtonLink
-                              onPress={() =>
+                              onPress={() => {
                                 flagPrayer({
                                   variables: {
                                     parsedId: prayer.id,
                                   },
-                                })
-                              }
+                                });
+                                this.setState((prevState) => ({
+                                  prayerIndex: prevState.prayerIndex + 1,
+                                }));
+                              }}
                             >
                               <FooterText isGray>Report Prayer</FooterText>
                             </ButtonLink>
