@@ -23,15 +23,13 @@ const StyledBodyText = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-const StyledCardContent = styled({})(CardContent);
-
-const StyledFlexedView = styled(({ theme }) => ({
+const StyledButtonView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <StyledView>
-    <StyledCardContent>
+    <CardContent>
       <SideBySideView>
         <H3>{title}</H3>
         <Touchable onPress={() => props.navigation.navigate('UserPrayerList')}>
@@ -41,13 +39,13 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
         </Touchable>
       </SideBySideView>
       <StyledBodyText>{description}</StyledBodyText>
-    </StyledCardContent>
-    <StyledFlexedView>
+    </CardContent>
+    <StyledButtonView>
       <Button
         title={'Add a Prayer Request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
-    </StyledFlexedView>
+    </StyledButtonView>
   </StyledView>
 ));
 

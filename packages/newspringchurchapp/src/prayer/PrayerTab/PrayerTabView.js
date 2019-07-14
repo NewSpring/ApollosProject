@@ -15,11 +15,29 @@ import getUserProfile from '../../tabs/connect/getUserProfile';
 import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import PrayerTab from './PrayerTab';
 
 const getCategoryComponent = (key) => {
   switch (key) {
     case 'my-saved-prayers':
+      return (
+        <Query query={GET_SAVED_PRAYERS} fetchPolicy="cache-and-network">
+          {({ data }) => {
+            const prayers = get(data, 'prayers', []);
+            return (
+              <PrayerTab
+                prayers={prayers}
+                query={GET_SAVED_PRAYERS}
+                description={'Pray for your saved prayers'}
+                list={'SavedPrayerList'}
+                title={'My Saved Prayers'}
+                type={'saved prayers'}
+              />
+            );
+          }}
+        </Query>
+      );
     case 'my-church':
       return (
         <Query query={GET_PRAYERS} fetchPolicy="cache-and-network">
@@ -30,7 +48,7 @@ const getCategoryComponent = (key) => {
                 prayers={prayers}
                 query={GET_PRAYERS}
                 description={'Pray for the people in our church'}
-                route={'ChurchPrayerList'}
+                list={'ChurchPrayerList'}
                 title={'My Church'}
                 type={'church'}
               />
@@ -61,7 +79,7 @@ const getCategoryComponent = (key) => {
                       query={GET_CAMPUS_PRAYERS}
                       prayers={prayers}
                       description={'Pray for the people at your campus'}
-                      route={'CampusPrayerList'}
+                      list={'CampusPrayerList'}
                       title={'My Campus'}
                       type={'campus'}
                     />
@@ -82,7 +100,7 @@ const getCategoryComponent = (key) => {
                 prayers={prayers}
                 query={GET_GROUP_PRAYERS}
                 description={'Pray for those people in your community'}
-                route={'GroupPrayerList'}
+                list={'GroupPrayerList'}
                 title={'My Community'}
                 type={'community'}
               />

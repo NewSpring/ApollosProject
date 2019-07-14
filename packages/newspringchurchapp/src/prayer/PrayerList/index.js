@@ -78,11 +78,7 @@ class PrayerList extends PureComponent {
   // TODO: this may be better pulled from a content channel???
 
   render() {
-    const { navigation } = this.props;
-
-    const title = navigation.getParam('title');
-    const prayers = navigation.getParam('prayers');
-    const query = navigation.getParam('query');
+    const { title, prayers, query } = this.props.navigation.state.params;
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
@@ -125,6 +121,8 @@ class PrayerList extends PureComponent {
                                 />
                               </Button>
                             }
+                            showHelp
+                            showHeader
                           />
                         </StyledPrayerView>
                       </ScrollView>
