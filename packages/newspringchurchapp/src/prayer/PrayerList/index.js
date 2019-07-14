@@ -76,16 +76,11 @@ class PrayerList extends PureComponent {
     query: 'prayers',
   };
 
-  // TODO: this may be better pulled from a content channel???
-
   render() {
-    // TODO: create a pretty loading state
     if (!this.props.navigation.state.params.prayers) return null;
     const { title, prayers, query } = this.props.navigation.state.params;
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
-
-    console.log(this.props);
 
     return (
       <ModalView onClose={() => this.props.navigation.popToTop()}>
