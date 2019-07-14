@@ -116,7 +116,7 @@ const getCategoryComponent = (key) => {
 const TabWrapper = ({ component }) => <View>{component}</View>;
 
 TabWrapper.propTypes = {
-  component: PropTypes.shape({}),
+  component: PropTypes.element,
 };
 
 const StyledHorizontalTileFeed = styled({
