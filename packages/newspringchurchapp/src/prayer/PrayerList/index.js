@@ -87,7 +87,7 @@ class PrayerList extends PureComponent {
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
     return (
-      <ModalView onClose={() => this.props.navigation.pop()}>
+      <ModalView onClose={() => this.props.navigation.popToTop()}>
         <FlexedSafeAreaView>
           <Mutation
             mutation={FLAG_PRAYER}
@@ -125,8 +125,6 @@ class PrayerList extends PureComponent {
                                 />
                               </Button>
                             }
-                            showHelp
-                            showHeader
                           />
                         </StyledPrayerView>
                       </ScrollView>
@@ -174,7 +172,7 @@ class PrayerList extends PureComponent {
                                     prayerIndex: prevState.prayerIndex + 1,
                                     prayed: false,
                                   }))
-                                : this.props.navigation.navigate('Prayer')
+                                : this.props.navigation.popToTop()
                             }
                           />
                         </View>

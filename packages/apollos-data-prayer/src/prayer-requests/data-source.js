@@ -1,6 +1,7 @@
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
 import ApollosConfig from '@apollosproject/config';
 import moment from 'moment-timezone';
+import { uniq } from 'lodash';
 import { parseGlobalId } from '@apollosproject/server-core';
 
 const { ROCK, ROCK_MAPPINGS } = ApollosConfig;
@@ -99,6 +100,30 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   getFromIds = (ids) =>
     this.request().filterOneOf(ids.map((id) => `Id eq ${id}`));
+
+  getSavedPrayers = async () => {
+    const {
+      dataSources: { Followings },
+    } = this.context;
+
+    try {
+      const followedPrayersRequest = await Followings.getFollowingsForCurrentUser(
+        {
+          type: 'PrayerRequest',
+        }
+      );
+
+      const entities = await followedPrayersRequest.get();
+      if (!entities.length) return [];
+
+      const entityIds = entities.map((entity) => entity.entityId);
+      const prayers = await this.getFromIds(uniq(entityIds)).get();
+
+      return prayers;
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
 
   // MUTATION increment prayed, for a request
   incrementPrayed = async (parsedId) => {
