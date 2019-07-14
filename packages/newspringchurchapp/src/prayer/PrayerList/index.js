@@ -3,7 +3,6 @@ import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Emoji from 'react-native-emoji';
 import { Query, Mutation } from 'react-apollo';
-import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import {
@@ -20,12 +19,8 @@ import {
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import SaveButton from '../SaveButton';
 import cache from '../../client/cache';
-import getUserProfile from '../../tabs/connect/getUserProfile';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
-import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
-import GET_PRAYERS from '../data/queries/getPrayers';
-import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 
 const FlexedSafeAreaView = styled({
@@ -81,172 +76,127 @@ class PrayerList extends PureComponent {
     query: 'prayers',
   };
 
-  // TODO: this may be better pulled from a content channel???
-  calculateQuery = () => {
-    let queryTag;
-    let label;
-    let variables;
-
-    switch (this.props.query) {
-      case 'groups':
-        queryTag = GET_GROUP_PRAYERS;
-        label = 'My Community';
-        break;
-      case 'campus': {
-        const {
-          currentUser: { profile: { campus: { id } = {} } = {} } = {},
-        } = cache.readQuery({
-          query: getUserProfile,
-        });
-        queryTag = GET_CAMPUS_PRAYERS;
-        label = 'My Campus';
-        variables = { campusId: id };
-        break;
-      }
-      default:
-        queryTag = GET_PRAYERS;
-        label = 'My Church';
-        break;
-    }
-    return { queryTag, label, variables };
-  };
-
   render() {
-    const { queryTag, label, variables } = this.calculateQuery();
+    if (!this.props.navigation.state.params.prayers) return null;
+    const { title, prayers, query } = this.props.navigation.state.params;
+    const prayer = prayers[this.state.prayerIndex];
+    const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
     return (
       <ModalView onClose={() => this.props.navigation.popToTop()}>
         <FlexedSafeAreaView>
-          <Query
-            query={queryTag}
-            variables={variables}
-            fetchPolicy="cache-and-network"
-          >
-            {({ loading, data }) => {
-              // TODO: create a pretty loading state
-              if (loading) return null;
-              const prayers = get(data, this.props.query, []);
-              const prayer = prayers[this.state.prayerIndex];
-              const isLastPrayer =
-                this.state.prayerIndex + 1 === prayers.length;
-              return (
-                <Mutation
-                  mutation={FLAG_PRAYER}
-                  update={() => {
-                    const filteredPrayers = prayers.filter(
-                      (filteredPrayer) => filteredPrayer.id !== prayer.id
-                    );
-                    cache.writeQuery({
-                      query: queryTag,
-                      data: { [`${this.props.query}`]: filteredPrayers },
-                    });
-                  }}
-                >
-                  {(flagPrayer) => (
-                    <Mutation mutation={INCREMENT_PRAYER_COUNT}>
-                      {(increment) => (
-                        <FlexedView>
-                          <ScrollArea>
-                            <ScrollView>
-                              <Header>
-                                <H6>Praying For</H6>
-                                <GreenH4>{label}</GreenH4>
-                              </Header>
-                              <StyledPrayerView>
-                                <PrayerSingle
-                                  avatarSize={'medium'}
-                                  navigation={this.props.navigation}
-                                  prayer={prayer}
-                                  action={
-                                    // TODO: this query shouldn't be
-                                    // necessary we need a "isSaved"
-                                    // field on each prayer
-                                    <Query query={GET_SAVED_PRAYERS}>
-                                      {({
-                                        data: { savedPrayers } = {},
-                                        loading: savedLoading,
-                                      }) => {
-                                        if (savedLoading) return null;
-                                        const savedIDs = savedPrayers.map(
-                                          (savedPrayer) => savedPrayer.id
-                                        );
-                                        return (
-                                          <SaveButton
-                                            saved={savedIDs.includes(prayer.id)}
-                                            prayerID={prayer.id}
-                                          />
-                                        );
-                                      }}
-                                    </Query>
-                                  }
-                                  showHelp
-                                  showHeader
-                                />
-                              </StyledPrayerView>
-                            </ScrollView>
-                          </ScrollArea>
-                          <Footer>
-                            {!this.state.prayed ? (
-                              <View>
-                                <Button
-                                  title={`I've prayed for ${
-                                    prayer.isAnonymous
-                                      ? 'request'
-                                      : prayer.firstName
-                                  }`}
-                                  onPress={() => {
-                                    increment({
-                                      variables: { parsedId: prayer.id },
-                                    });
-                                    this.setState({ prayed: true });
-                                  }}
-                                />
-                                <FooterAltOption>
-                                  <ButtonLink
-                                    onPress={() =>
-                                      flagPrayer({
-                                        variables: {
-                                          parsedId: prayer.id,
-                                        },
-                                      })
-                                    }
-                                  >
-                                    <FooterText isGray>
-                                      Report Prayer
-                                    </FooterText>
-                                  </ButtonLink>
-                                </FooterAltOption>
-                              </View>
-                            ) : (
-                              <View>
-                                <FooterAltOption>
-                                  <FooterText>
-                                    Thanks for praying <Emoji name="heart" />
-                                  </FooterText>
-                                </FooterAltOption>
-                                <Button
-                                  title={!isLastPrayer ? 'Next' : 'Done'}
-                                  onPress={() =>
-                                    !isLastPrayer
-                                      ? this.setState((prevState) => ({
-                                          prayerIndex:
-                                            prevState.prayerIndex + 1,
-                                          prayed: false,
-                                        }))
-                                      : this.props.navigation.popToTop()
-                                  }
-                                />
-                              </View>
-                            )}
-                          </Footer>
-                        </FlexedView>
-                      )}
-                    </Mutation>
-                  )}
-                </Mutation>
+          <Mutation
+            mutation={FLAG_PRAYER}
+            update={() => {
+              const filteredPrayers = prayers.filter(
+                (filteredPrayer) => filteredPrayer.id !== prayer.id
               );
+              cache.writeQuery({
+                query,
+                data: { [`${this.props.query}`]: filteredPrayers },
+              });
             }}
-          </Query>
+          >
+            {(flagPrayer) => (
+              <Mutation mutation={INCREMENT_PRAYER_COUNT}>
+                {(increment) => (
+                  <FlexedView>
+                    <ScrollArea>
+                      <ScrollView>
+                        <Header>
+                          <H6>Praying For</H6>
+                          <GreenH4>{title}</GreenH4>
+                        </Header>
+                        <StyledPrayerView>
+                          <PrayerSingle
+                            avatarSize={'medium'}
+                            navigation={this.props.navigation}
+                            prayer={prayer}
+                            action={
+                              // TODO: this query shouldn't be
+                              // necessary we need a "isSaved"
+                              // field on each prayer
+                              <Query query={GET_SAVED_PRAYERS}>
+                                {({
+                                  data: { savedPrayers } = {},
+                                  loading: savedLoading,
+                                }) => {
+                                  if (savedLoading) return null;
+                                  const savedIDs = savedPrayers.map(
+                                    (savedPrayer) => savedPrayer.id
+                                  );
+                                  return (
+                                    <SaveButton
+                                      saved={savedIDs.includes(prayer.id)}
+                                      prayerID={prayer.id}
+                                    />
+                                  );
+                                }}
+                              </Query>
+                            }
+                            showHelp
+                            showHeader
+                          />
+                        </StyledPrayerView>
+                      </ScrollView>
+                    </ScrollArea>
+                    <Footer>
+                      {!this.state.prayed ? (
+                        <View>
+                          <Button
+                            title={`I've prayed for ${
+                              prayer.isAnonymous ? 'request' : prayer.firstName
+                            }`}
+                            onPress={() => {
+                              increment({
+                                variables: { parsedId: prayer.id },
+                              });
+                              this.setState({ prayed: true });
+                            }}
+                          />
+                          <FooterAltOption>
+                            <ButtonLink
+                              onPress={() => {
+                                flagPrayer({
+                                  variables: {
+                                    parsedId: prayer.id,
+                                  },
+                                });
+                                this.setState((prevState) => ({
+                                  prayerIndex: prevState.prayerIndex + 1,
+                                }));
+                              }}
+                            >
+                              <FooterText isGray>Report Prayer</FooterText>
+                            </ButtonLink>
+                          </FooterAltOption>
+                        </View>
+                      ) : (
+                        <View>
+                          <FooterAltOption>
+                            <FooterText>
+                              Thanks for praying <Emoji name="heart" />
+                            </FooterText>
+                          </FooterAltOption>
+                          <Button
+                            title={!isLastPrayer ? 'Next' : 'Done'}
+                            onPress={() =>
+                              !isLastPrayer
+                                ? this.setState((prevState) => ({
+                                    prayerIndex: prevState.prayerIndex + 1,
+                                    prayed: false,
+                                  }))
+                                : this.props.navigation.popToTop()
+                            }
+                          />
+                        </View>
+                      )}
+                    </Footer>
+                  </FlexedView>
+                )}
+              </Mutation>
+            )}
+          </Mutation>
         </FlexedSafeAreaView>
       </ModalView>
     );

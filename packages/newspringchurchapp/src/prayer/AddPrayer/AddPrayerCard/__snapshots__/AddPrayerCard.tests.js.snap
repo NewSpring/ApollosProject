@@ -38,7 +38,7 @@ exports[`The AddPrayerCard component should render 1`] = `
         Object {
           "backgroundColor": "#ffffff",
           "borderBottomLeftRadius": 16,
-          "flex": 1,
+          "justifyContent": "center",
           "paddingVertical": 64,
         }
       }
@@ -46,7 +46,6 @@ exports[`The AddPrayerCard component should render 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "paddingHorizontal": 16,
             "paddingVertical": 16,
           }
@@ -260,7 +259,6 @@ exports[`The AddPrayerCard component should render 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "paddingHorizontal": 16,
           }
         }
@@ -359,7 +357,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
         Object {
           "backgroundColor": "#ffffff",
           "borderBottomLeftRadius": 16,
-          "flex": 1,
+          "justifyContent": "center",
           "paddingVertical": 64,
         }
       }
@@ -367,7 +365,6 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "paddingHorizontal": 16,
             "paddingVertical": 16,
           }
@@ -581,7 +578,6 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "paddingHorizontal": 16,
           }
         }

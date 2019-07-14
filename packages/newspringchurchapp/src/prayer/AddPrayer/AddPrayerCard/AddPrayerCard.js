@@ -6,7 +6,6 @@ import {
   styled,
   Button,
   CardContent,
-  FlexedView,
   SideBySideView,
   ChannelLabel,
   Touchable,
@@ -17,23 +16,20 @@ const StyledView = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit * 4,
   borderBottomLeftRadius: theme.sizing.baseUnit,
   backgroundColor: theme.colors.paper,
-}))(FlexedView);
+  justifyContent: 'center',
+}))(View);
 
 const StyledBodyText = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
 }))(BodyText);
 
-const StyledCardContent = styled({
-  flex: 1,
-})(CardContent);
-
-const StyledFlexedView = styled(({ theme }) => ({
+const StyledButtonView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
-}))(FlexedView);
+}))(View);
 
 const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
   <StyledView>
-    <StyledCardContent>
+    <CardContent>
       <SideBySideView>
         <H3>{title}</H3>
         <Touchable onPress={() => props.navigation.navigate('UserPrayerList')}>
@@ -43,13 +39,13 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
         </Touchable>
       </SideBySideView>
       <StyledBodyText>{description}</StyledBodyText>
-    </StyledCardContent>
-    <StyledFlexedView>
+    </CardContent>
+    <StyledButtonView>
       <Button
         title={'Add a Prayer Request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
-    </StyledFlexedView>
+    </StyledButtonView>
   </StyledView>
 ));
 
