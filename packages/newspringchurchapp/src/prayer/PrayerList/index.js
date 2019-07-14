@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Emoji from 'react-native-emoji';
-import { Mutation } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import PropTypes from 'prop-types';
 
 import {
@@ -10,7 +10,6 @@ import {
   H4,
   H6,
   ModalView,
-  ChannelLabel,
   FlexedView,
   Button,
   ButtonLink,
@@ -18,9 +17,11 @@ import {
 } from '@apollosproject/ui-kit';
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
+import SaveButton from '../SaveButton';
 import cache from '../../client/cache';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -78,6 +79,8 @@ class PrayerList extends PureComponent {
   // TODO: this may be better pulled from a content channel???
 
   render() {
+    // TODO: create a pretty loading state
+    if (!this.props.navigation.state.params.prayers) return null;
     const { title, prayers, query } = this.props.navigation.state.params;
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
@@ -113,13 +116,26 @@ class PrayerList extends PureComponent {
                             navigation={this.props.navigation}
                             prayer={prayer}
                             action={
-                              // TODO: save button component, stateful
-                              <Button>
-                                <ChannelLabel
-                                  icon="like-solid"
-                                  label="Unsave"
-                                />
-                              </Button>
+                              // TODO: this query shouldn't be
+                              // necessary we need a "isSaved"
+                              // field on each prayer
+                              <Query query={GET_SAVED_PRAYERS}>
+                                {({
+                                  data: { savedPrayers } = {},
+                                  loading: savedLoading,
+                                }) => {
+                                  if (savedLoading) return null;
+                                  const savedIDs = savedPrayers.map(
+                                    (savedPrayer) => savedPrayer.id
+                                  );
+                                  return (
+                                    <SaveButton
+                                      saved={savedIDs.includes(prayer.id)}
+                                      prayerID={prayer.id}
+                                    />
+                                  );
+                                }}
+                              </Query>
                             }
                             showHelp
                             showHeader
