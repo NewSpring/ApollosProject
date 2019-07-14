@@ -24,7 +24,7 @@ const getCategoryComponent = (key) => {
       return (
         <Query query={GET_SAVED_PRAYERS} fetchPolicy="cache-and-network">
           {({ data }) => {
-            const prayers = get(data, 'prayers', []);
+            const prayers = get(data, 'savedPrayers', []);
             return (
               <PrayerTab
                 prayers={prayers}
