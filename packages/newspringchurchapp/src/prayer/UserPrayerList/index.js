@@ -63,7 +63,6 @@ class UserPrayerList extends React.Component {
                   >
                     {(deletePrayer) => (
                       <StyledView>
-                        {/* TODO: Fix user prayer sorting */}
                         {userPrayers.map((prayer) => (
                           <Card key={prayer.id}>
                             <CardContent>
