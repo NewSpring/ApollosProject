@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
-import { Dimensions, View } from 'react-native';
+import { Dimensions } from 'react-native';
 import { TabView } from 'react-native-tab-view';
 import {
   styled,
@@ -113,12 +113,6 @@ const getCategoryComponent = (key) => {
   }
 };
 
-const TabWrapper = ({ component }) => <View>{component}</View>;
-
-TabWrapper.propTypes = {
-  component: PropTypes.element,
-};
-
 const StyledHorizontalTileFeed = styled({
   height: 0,
 })(HorizontalTileFeed);
@@ -160,27 +154,7 @@ class PrayerTabView extends PureComponent {
           width: Dimensions.get('window').width,
         }}
         navigationState={{ ...this.state }}
-        renderScene={({ route }) => {
-          switch (route.key) {
-            case 'my-church': {
-              return <TabWrapper component={getCategoryComponent(route.key)} />;
-            }
-            case 'my-campus': {
-              return <TabWrapper component={getCategoryComponent(route.key)} />;
-            }
-            case 'my-community': {
-              return <TabWrapper component={getCategoryComponent(route.key)} />;
-            }
-            case 'my-prayers': {
-              return <TabWrapper component={getCategoryComponent(route.key)} />;
-            }
-            case 'my-saved-prayers': {
-              return <TabWrapper component={getCategoryComponent(route.key)} />;
-            }
-            default:
-              return null;
-          }
-        }}
+        renderScene={({ route }) => getCategoryComponent(route.key)}
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed
             content={this.props.categories}
