@@ -63,41 +63,38 @@ class UserPrayerList extends React.Component {
                   >
                     {(deletePrayer) => (
                       <StyledView>
-                        {/* TODO: Fix user prayer sorting */}
-                        {userPrayers
-                          .map((prayer) => (
-                            <Card key={prayer.id}>
-                              <CardContent>
-                                <PrayerSingle
-                                  prayer={prayer}
-                                  showDate
-                                  action={
-                                    <ActionComponent
-                                      options={[
-                                        {
-                                          title: 'Delete Prayer',
-                                          method: async () => {
-                                            await deletePrayer({
-                                              variables: {
-                                                parsedId: prayer.id,
-                                              },
-                                            });
-                                          },
-                                          destructive: true,
+                        {userPrayers.map((prayer) => (
+                          <Card key={prayer.id}>
+                            <CardContent>
+                              <PrayerSingle
+                                prayer={prayer}
+                                showDate
+                                action={
+                                  <ActionComponent
+                                    options={[
+                                      {
+                                        title: 'Delete Prayer',
+                                        method: async () => {
+                                          await deletePrayer({
+                                            variables: {
+                                              parsedId: prayer.id,
+                                            },
+                                          });
                                         },
-                                        {
-                                          title: 'Cancel',
-                                          method: null,
-                                          destructive: false,
-                                        },
-                                      ]}
-                                    />
-                                  }
-                                />
-                              </CardContent>
-                            </Card>
-                          ))
-                          .reverse()}
+                                        destructive: true,
+                                      },
+                                      {
+                                        title: 'Cancel',
+                                        method: null,
+                                        destructive: false,
+                                      },
+                                    ]}
+                                  />
+                                }
+                              />
+                            </CardContent>
+                          </Card>
+                        ))}
                       </StyledView>
                     )}
                   </Mutation>
