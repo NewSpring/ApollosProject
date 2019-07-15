@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { styled, Button, BodyText, H4 } from '@apollosproject/ui-kit';
 
 const VerticalPaddedView = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit,
+  paddingVertical: theme.sizing.baseUnit * 2,
 }))(View);
 
 const HorizontalPaddedView = styled(({ theme }) => ({
@@ -45,10 +45,10 @@ const PrayerTab = withNavigation(
           {type === 'saved' ? (
             <StyledH4>You do not have any saved prayers</StyledH4>
           ) : (
-            <VerticalPaddedView>
+            <>
               <StyledH4>There are no prayers yet for your {type}</StyledH4>
               <StyledBodyText>Be the first to add one!</StyledBodyText>
-            </VerticalPaddedView>
+            </>
           )}
         </VerticalPaddedView>
       )}
