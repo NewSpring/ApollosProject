@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import { Query } from 'react-apollo';
-// import { get } from 'lodash';
+import { Query } from 'react-apollo';
 import { Dimensions } from 'react-native';
 import { TabView } from 'react-native-tab-view';
 import {
@@ -10,109 +9,12 @@ import {
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
-import PrayerListConnected from '../PrayerList/PrayerListConnected';
-
-// import getUserProfile from '../../tabs/connect/getUserProfile';
-// import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
-// import GET_PRAYERS from '../data/queries/getPrayers';
-// import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
-// import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
-// import PrayerTab from './index';
-
-// const getCategoryComponent = (key) => {
-// switch (key) {
-// case 'my-saved-prayers':
-// return (
-// <Query query={GET_SAVED_PRAYERS} fetchPolicy="cache-and-network">
-// {({ data }) => {
-// const prayers = get(data, 'savedPrayers', []);
-// return (
-// <PrayerTab
-// prayers={prayers}
-// query={GET_SAVED_PRAYERS}
-// description={'Pray for your saved prayers'}
-// list={'SavedPrayerList'}
-// title={'My Saved Prayers'}
-// type={'saved'}
-// />
-// );
-// }}
-// </Query>
-// );
-// case 'my-church':
-// return (
-// <Query query={GET_PRAYERS} fetchPolicy="cache-and-network">
-// {({ data }) => {
-// const prayers = get(data, 'prayers', []);
-// return (
-// <PrayerTab
-// prayers={prayers}
-// query={GET_PRAYERS}
-// description={'Pray for the people in our church'}
-// list={'ChurchPrayerList'}
-// title={'My Church'}
-// type={'church'}
-// />
-// );
-// }}
-// </Query>
-// );
-// case 'my-campus':
-// return (
-// <Query query={getUserProfile}>
-// {({
-// data: {
-// currentUser: { profile: { campus: { id } = {} } = {} } = {},
-// } = {},
-// loading,
-// }) => {
-// if (loading) return null;
-// return (
-// <Query
-// query={GET_CAMPUS_PRAYERS}
-// variables={{ campusId: id }}
-// fetchPolicy="cache-and-network"
-// >
-// {({ data }) => {
-// const prayers = get(data, 'campusPrayers', []);
-// return (
-// <PrayerTab
-// query={GET_CAMPUS_PRAYERS}
-// prayers={prayers}
-// description={'Pray for the people at your campus'}
-// list={'CampusPrayerList'}
-// title={'My Campus'}
-// type={'campus'}
-// />
-// );
-// }}
-// </Query>
-// );
-// }}
-// </Query>
-// );
-// case 'my-community':
-// return (
-// <Query query={GET_GROUP_PRAYERS} fetchPolicy="cache-and-network">
-// {({ data }) => {
-// const prayers = get(data, 'groupsPrayers', []);
-// return (
-// <PrayerTab
-// prayers={prayers}
-// query={GET_GROUP_PRAYERS}
-// description={'Pray for those people in your community'}
-// list={'GroupPrayerList'}
-// title={'My Community'}
-// type={'community'}
-// />
-// );
-// }}
-// </Query>
-// );
-// default:
-// return null;
-// }
-// };
+import PrayerListQuery from '../PrayerList/PrayerListQuery';
+import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
+import GET_PRAYERS from '../data/queries/getPrayers';
+import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
+import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
+import PrayerTab from '.';
 
 const StyledHorizontalTileFeed = styled({
   height: 0,
@@ -140,6 +42,8 @@ class PrayerTabView extends PureComponent {
     index: 0,
     routes: this.props.categories.map((category) => ({
       key: category.key,
+      title: category.title,
+      description: category.description,
     })),
     prayerMenuItemSelected: 1,
     showStartPraying: true,
@@ -155,7 +59,7 @@ class PrayerTabView extends PureComponent {
           width: Dimensions.get('window').width,
         }}
         navigationState={{ ...this.state }}
-        renderScene={({ route }) => <PrayerListConnected list={route.key} />}
+        renderScene={({ route }) => <PrayerListQuery route={route} />}
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed
             content={this.props.categories}
