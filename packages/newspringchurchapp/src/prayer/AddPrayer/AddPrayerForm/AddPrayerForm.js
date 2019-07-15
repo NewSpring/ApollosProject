@@ -31,6 +31,7 @@ const StyledTextInput = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
   paddingTop: theme.sizing.baseUnit,
   paddingBottom: theme.sizing.baseUnit,
+  textAlignVertical: 'top',
 }))(TextInput);
 
 const BottomView = styled(({ theme }) => ({
