@@ -8,7 +8,7 @@ const StyledH3 = styled(({ theme }) => ({
 }))(H3);
 
 const MenuView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit * 2,
+  paddingTop: theme.sizing.baseUnit,
 }))(FlexedView);
 
 const Container = styled(({ theme }) => ({

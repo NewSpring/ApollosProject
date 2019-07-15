@@ -47,7 +47,7 @@ exports[`renders prayer menu 1`] = `
             "backgroundColor": "#ffffff",
             "borderBottomLeftRadius": 16,
             "justifyContent": "center",
-            "paddingVertical": 64,
+            "paddingVertical": 48,
           }
         }
       >
@@ -327,7 +327,7 @@ exports[`renders prayer menu 1`] = `
         style={
           Object {
             "flex": 1,
-            "paddingTop": 32,
+            "paddingTop": 16,
           }
         }
       >
@@ -503,7 +503,7 @@ exports[`renders prayer menu with categories 1`] = `
             "backgroundColor": "#ffffff",
             "borderBottomLeftRadius": 16,
             "justifyContent": "center",
-            "paddingVertical": 64,
+            "paddingVertical": 48,
           }
         }
       >
@@ -783,7 +783,7 @@ exports[`renders prayer menu with categories 1`] = `
         style={
           Object {
             "flex": 1,
-            "paddingTop": 32,
+            "paddingTop": 16,
           }
         }
       >
