@@ -37,14 +37,13 @@ exports[`renders prayer PrayerTab 1`] = `
       style={
         Object {
           "paddingHorizontal": 16,
-          "paddingVertical": 16,
         }
       }
     >
       <View
         style={
           Object {
-            "paddingBottom": 16,
+            "paddingVertical": 16,
           }
         }
       >
@@ -117,14 +116,13 @@ exports[`renders prayer tab with content 1`] = `
       style={
         Object {
           "paddingHorizontal": 16,
-          "paddingVertical": 16,
         }
       }
     >
       <View
         style={
           Object {
-            "paddingBottom": 16,
+            "paddingVertical": 16,
           }
         }
       >

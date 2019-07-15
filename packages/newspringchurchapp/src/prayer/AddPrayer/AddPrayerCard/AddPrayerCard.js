@@ -13,7 +13,7 @@ import {
 } from '@apollosproject/ui-kit';
 
 const StyledView = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit * 4,
+  paddingVertical: theme.sizing.baseUnit * 3,
   borderBottomLeftRadius: theme.sizing.baseUnit,
   backgroundColor: theme.colors.paper,
   justifyContent: 'center',
