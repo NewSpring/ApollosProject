@@ -53,7 +53,10 @@ const AddPrayerForm = memo(
   ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
     <Formik
       initialValues={{ prayer: '', anonymous: false }}
-      onSubmit={onSubmit}
+      onSubmit={(values, { resetForm }) => {
+        onSubmit(values);
+        resetForm({});
+      }}
     >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
         <ModalView {...props}>
@@ -73,7 +76,7 @@ const AddPrayerForm = memo(
                   placeholder="Start typing your prayer..."
                   onChangeText={handleChange('prayer')}
                   onBlur={handleBlur('prayer')}
-                  value={values.prayer}
+                  value={values.prayer || ''}
                   underline={false}
                 />
               </InputPaddedView>
