@@ -10,7 +10,6 @@ import {
   Button,
   styled,
   FlexedView,
-  PaddedView,
 } from '@apollosproject/ui-kit';
 import PrayerHeader from '../../PrayerHeader';
 
@@ -22,6 +21,10 @@ const ShrinkingView = styled(({ theme }) => ({
   flex: 1,
   paddingTop: theme.sizing.baseUnit,
 }))(KeyboardAvoidingView);
+
+const HeaderView = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(View);
 
 const StyledTextInput = styled(({ theme }) => ({
   height: '100%',
@@ -35,7 +38,7 @@ const StyledTextInput = styled(({ theme }) => ({
 }))(TextInput);
 
 const BottomView = styled(({ theme }) => ({
-  justifyContent: 'flex-end',
+  // justifyContent: 'flex-end',
   padding: theme.sizing.baseUnit,
 }))(FlexedView);
 
@@ -60,13 +63,13 @@ const AddPrayerForm = memo(
         <ModalView {...props}>
           <FlexedSafeAreaView forceInset={{ top: 'always' }}>
             <ShrinkingView behavior={'padding'}>
-              <PaddedView>
+              <HeaderView>
                 <PrayerHeader
                   avatarSource={values.anonymous ? null : avatarSource}
                   avatarSize={'medium'}
                   title={title}
                 />
-              </PaddedView>
+              </HeaderView>
               <InputPaddedView>
                 <StyledTextInput
                   editable
