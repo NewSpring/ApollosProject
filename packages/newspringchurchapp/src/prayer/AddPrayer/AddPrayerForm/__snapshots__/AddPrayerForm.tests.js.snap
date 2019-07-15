@@ -93,7 +93,6 @@ exports[`The AddPrayerForm component should render 1`] = `
             style={
               Object {
                 "paddingHorizontal": 16,
-                "paddingVertical": 16,
               }
             }
           >
@@ -311,6 +310,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                           "paddingBottom": 16,
                           "paddingHorizontal": 16,
                           "paddingTop": 16,
+                          "textAlignVertical": "top",
                         }
                       }
                       underlineColorAndroid="transparent"
@@ -484,7 +484,6 @@ exports[`The AddPrayerForm component should render 1`] = `
             style={
               Object {
                 "flex": 1,
-                "justifyContent": "flex-end",
                 "padding": 16,
               }
             }
@@ -811,7 +810,6 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             style={
               Object {
                 "paddingHorizontal": 16,
-                "paddingVertical": 16,
               }
             }
           >
@@ -954,6 +952,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                           "paddingBottom": 16,
                           "paddingHorizontal": 16,
                           "paddingTop": 16,
+                          "textAlignVertical": "top",
                         }
                       }
                       underlineColorAndroid="transparent"
@@ -1127,7 +1126,6 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
             style={
               Object {
                 "flex": 1,
-                "justifyContent": "flex-end",
                 "padding": 16,
               }
             }
@@ -1454,7 +1452,6 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             style={
               Object {
                 "paddingHorizontal": 16,
-                "paddingVertical": 16,
               }
             }
           >
@@ -1672,6 +1669,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                           "paddingBottom": 16,
                           "paddingHorizontal": 16,
                           "paddingTop": 16,
+                          "textAlignVertical": "top",
                         }
                       }
                       underlineColorAndroid="transparent"
@@ -1845,7 +1843,6 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
             style={
               Object {
                 "flex": 1,
-                "justifyContent": "flex-end",
                 "padding": 16,
               }
             }
