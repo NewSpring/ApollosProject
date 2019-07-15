@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Icon, Touchable, withTheme } from '@apollosproject/ui-kit';
 
 const DeleteIcon = withTheme(({ theme }) => ({
-  name: 'close',
+  name: 'delete',
   size: theme.sizing.baseUnit,
   fill: theme.colors.wordOfChrist,
 }))(Icon);
