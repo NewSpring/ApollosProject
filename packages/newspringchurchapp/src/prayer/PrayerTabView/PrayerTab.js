@@ -60,8 +60,6 @@ PrayerTab.propTypes = {
   prayers: PropTypes.arrayOf(
     PropTypes.shape({}) // TODO fill this out
   ),
-
-  route: PropTypes.string,
 };
 
 PrayerTab.displayName = 'PrayerTab';

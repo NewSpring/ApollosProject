@@ -9,6 +9,8 @@ import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import PrayerTab from './PrayerTab';
 
+// TODO I bet we don't even need this component at all now, I just
+// couldn't get it working without this switch statement
 const PrayerTabConnected = memo(({ route, ...props }) => {
   switch (route.key) {
     case 'my-saved-prayers':
