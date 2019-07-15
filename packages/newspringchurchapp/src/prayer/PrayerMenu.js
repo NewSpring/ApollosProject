@@ -1,7 +1,7 @@
 import React from 'react';
 import { PaddedView, FlexedView, styled, H3 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
-import PrayerTabView from './PrayerTab/PrayerTabView';
+import PrayerTabView from './PrayerTabView';
 
 const StyledH3 = styled(({ theme }) => ({
   color: theme.colors.white,

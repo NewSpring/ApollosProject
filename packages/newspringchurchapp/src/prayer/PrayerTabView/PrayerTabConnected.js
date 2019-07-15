@@ -7,9 +7,9 @@ import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
-import PrayerTab from '../PrayerTab';
+import PrayerTab from './PrayerTab';
 
-const PrayerListQuery = memo(({ route }) => {
+const PrayerTabConnected = memo(({ route, ...props }) => {
   switch (route.key) {
     case 'my-saved-prayers':
       return (
@@ -20,6 +20,7 @@ const PrayerListQuery = memo(({ route }) => {
               description={route.description}
               title={route.title}
               type={route.key.split('-')[1]}
+              {...props}
             />
           )}
         </Query>
@@ -46,6 +47,7 @@ const PrayerListQuery = memo(({ route }) => {
                     description={route.description}
                     title={route.title}
                     type={route.key.split('-')[1]}
+                    {...props}
                   />
                 )}
               </Query>
@@ -62,6 +64,7 @@ const PrayerListQuery = memo(({ route }) => {
               description={route.description}
               title={route.title}
               type={route.key.split('-')[1]}
+              {...props}
             />
           )}
         </Query>
@@ -75,6 +78,7 @@ const PrayerListQuery = memo(({ route }) => {
               description={route.description}
               title={route.title}
               type={route.key.split('-')[1]}
+              {...props}
             />
           )}
         </Query>
@@ -82,7 +86,7 @@ const PrayerListQuery = memo(({ route }) => {
   }
 });
 
-PrayerListQuery.propTypes = {
+PrayerTabConnected.propTypes = {
   route: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
@@ -95,7 +99,7 @@ PrayerListQuery.propTypes = {
   }),
 };
 
-PrayerListQuery.defaultProps = {
+PrayerTabConnected.defaultProps = {
   route: {
     title: 'My Church',
     description: 'Pray for the people in our church',
@@ -103,6 +107,6 @@ PrayerListQuery.defaultProps = {
   },
 };
 
-PrayerListQuery.displayName = 'PrayerListQuery';
+PrayerTabConnected.displayName = 'PrayerTabConnected';
 
-export default PrayerListQuery;
+export default PrayerTabConnected;

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
 import { Dimensions } from 'react-native';
 import { TabView } from 'react-native-tab-view';
 import {
@@ -9,12 +8,7 @@ import {
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
-import PrayerListQuery from '../PrayerList/PrayerListQuery';
-import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
-import GET_PRAYERS from '../data/queries/getPrayers';
-import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
-import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
-import PrayerTab from '.';
+import PrayerTabConnected from './PrayerTabConnected';
 
 const StyledHorizontalTileFeed = styled({
   height: 0,
@@ -45,11 +39,8 @@ class PrayerTabView extends PureComponent {
       title: category.title,
       description: category.description,
     })),
-    prayerMenuItemSelected: 1,
-    showStartPraying: true,
+    itemSelected: 1,
   };
-
-  handleIndexChange = (index) => this.setState({ index });
 
   render() {
     return (
@@ -59,7 +50,9 @@ class PrayerTabView extends PureComponent {
           width: Dimensions.get('window').width,
         }}
         navigationState={{ ...this.state }}
-        renderScene={({ route }) => <PrayerListQuery route={route} />}
+        renderScene={({ route }) => (
+          <PrayerTabConnected route={route} {...this.props} />
+        )}
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed
             content={this.props.categories}
@@ -67,7 +60,7 @@ class PrayerTabView extends PureComponent {
               <TouchableScale
                 key={item.key}
                 onPress={() => {
-                  this.setState({ prayerMenuItemSelected: item.key });
+                  this.setState({ itemSelected: item.key });
                   props.jumpTo(item.key);
                 }}
               >
@@ -75,7 +68,7 @@ class PrayerTabView extends PureComponent {
                   image={item.image}
                   overlayColor={item.overlayColor}
                   title={item.title}
-                  selected={this.state.prayerMenuItemSelected === item.key}
+                  selected={this.state.itemSelected === item.key}
                 />
               </TouchableScale>
             )}
@@ -87,7 +80,7 @@ class PrayerTabView extends PureComponent {
             }}
           />
         )}
-        onIndexChange={this.handleIndexChange}
+        onIndexChange={(index) => this.setState({ index })}
         swipeEnabled={false}
       />
     );

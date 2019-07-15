@@ -68,8 +68,9 @@ class PrayerList extends PureComponent {
   };
 
   render() {
-    if (!this.props.navigation.state.params.prayers) return null;
-    const { title, prayers } = this.props.navigation.state.params;
+    // TODO: default
+    const prayers = this.props.navigation.getParam('prayers', []);
+    const title = this.props.navigation.getParam('title', 'My Church');
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
