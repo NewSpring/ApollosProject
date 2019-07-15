@@ -65,7 +65,6 @@ class PrayerTabView extends PureComponent {
         }}
         navigationState={{ ...this.state }}
         renderScene={({ route }) => (
-          // <PrayerTabConnected route={route} {...this.props} />
           <Query query={getUserProfile}>
             {({
               data: {
