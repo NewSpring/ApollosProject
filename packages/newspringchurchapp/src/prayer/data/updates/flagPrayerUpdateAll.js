@@ -22,7 +22,6 @@ export default (cache, id) => {
         data: { [`${query[1]}`]: filteredPrayers },
       });
     } catch (e) {
-      console.warn(e);
       console.warn(
         `${query[1]} not in cache. Probably just hasn't been run yet`
       );
