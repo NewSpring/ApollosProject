@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { styled, Button, BodyText, H4 } from '@apollosproject/ui-kit';
 
 const VerticalPaddedView = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit * 2,
+  paddingVertical: theme.sizing.baseUnit,
 }))(View);
 
 const HorizontalPaddedView = styled(({ theme }) => ({
