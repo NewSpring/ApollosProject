@@ -2,16 +2,14 @@ import React from 'react';
 import { View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import {
-  PaddedView,
-  styled,
-  Button,
-  BodyText,
-  H4,
-} from '@apollosproject/ui-kit';
+import { styled, Button, BodyText, H4 } from '@apollosproject/ui-kit';
 
 const VerticalPaddedView = styled(({ theme }) => ({
-  paddingBottom: theme.sizing.baseUnit,
+  paddingVertical: theme.sizing.baseUnit,
+}))(View);
+
+const HorizontalPaddedView = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
 }))(View);
 
 const StyledBodyText = styled(({ theme }) => ({
@@ -24,7 +22,7 @@ const StyledH4 = styled(({ theme }) => ({
 
 const PrayerTab = withNavigation(
   ({ title, description, prayers, type, query, list, ...props }) => (
-    <PaddedView>
+    <HorizontalPaddedView>
       {prayers.length > 0 ? (
         <View>
           <VerticalPaddedView>
@@ -47,14 +45,14 @@ const PrayerTab = withNavigation(
           {type === 'saved' ? (
             <StyledH4>You do not have any saved prayers</StyledH4>
           ) : (
-            <>
+            <VerticalPaddedView>
               <StyledH4>There are no prayers yet for your {type}</StyledH4>
               <StyledBodyText>Be the first to add one!</StyledBodyText>
-            </>
+            </VerticalPaddedView>
           )}
         </VerticalPaddedView>
       )}
-    </PaddedView>
+    </HorizontalPaddedView>
   )
 );
 
