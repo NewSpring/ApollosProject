@@ -49,13 +49,14 @@ class PrayerTabView extends PureComponent {
     itemSelected: 1,
   };
 
+  queries = {
+    'my-church': GET_PRAYERS,
+    'my-campus': GET_CAMPUS_PRAYERS,
+    'my-community': GET_GROUP_PRAYERS,
+    'my-saved-prayers': GET_SAVED_PRAYERS,
+  };
+
   render() {
-    const queries = {
-      'my-church': GET_PRAYERS,
-      'my-campus': GET_CAMPUS_PRAYERS,
-      'my-community': GET_GROUP_PRAYERS,
-      'my-saved-prayers': GET_SAVED_PRAYERS,
-    };
     return (
       <TabView
         initialLayout={{
@@ -77,7 +78,7 @@ class PrayerTabView extends PureComponent {
               if (loading) return null;
               return (
                 <Query
-                  query={queries[route.key]}
+                  query={this.queries[route.key]}
                   variables={{ campusId: id }}
                   fetchPolicy="cache-and-network"
                 >
