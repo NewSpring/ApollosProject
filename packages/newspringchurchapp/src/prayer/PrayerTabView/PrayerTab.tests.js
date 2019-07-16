@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Providers from 'newspringchurchapp/src/Providers';
-import PrayerTab from './index';
+import PrayerTab from './PrayerTab';
 
 it('renders prayer PrayerTab', () => {
   const tree = renderer.create(
@@ -19,9 +19,7 @@ it('renders prayer tab with content', () => {
       <PrayerTab
         navigation={jest.fn()}
         prayers={[]}
-        query={'GET_SAVED_PRAYERS'}
         description={'Pray for your saved prayers'}
-        list={'SavedPrayerList'}
         title={'My Saved Prayers'}
         type={'saved'}
       />
