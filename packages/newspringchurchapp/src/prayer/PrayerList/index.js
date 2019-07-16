@@ -86,7 +86,7 @@ class PrayerList extends PureComponent {
       !isLastPrayer
         ? this.setState((prevState) => ({
             prayerIndex: prevState.prayerIndex + 1,
-            prayed: prayed ? prevState.prayed : false,
+            prayed: prayed ? false : prevState.prayed,
           }))
         : this.props.navigation.popToTop();
 
