@@ -3,7 +3,6 @@ import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Emoji from 'react-native-emoji';
 import { Query, Mutation } from 'react-apollo';
-import PropTypes from 'prop-types';
 
 import {
   BodyText,
@@ -18,10 +17,12 @@ import {
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import SaveButton from '../SaveButton';
-import cache from '../../client/cache';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
+import GET_PRAYERS from '../data/queries/getPrayers';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
+import flagPrayerUpdateAll from '../data/updates/flagPrayerUpdateAll';
+import cache from '../../client/cache';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -68,17 +69,12 @@ class PrayerList extends PureComponent {
     prayed: false,
   };
 
-  static propTypes = {
-    query: PropTypes.oneOf(['prayers', 'groupPrayers', 'campusPrayers']),
-  };
-
-  static defaultProps = {
-    query: 'prayers',
-  };
-
   render() {
-    if (!this.props.navigation.state.params.prayers) return null;
-    const { title, prayers, query } = this.props.navigation.state.params;
+    const prayers = this.props.navigation.getParam(
+      'prayers',
+      cache.readQuery({ query: GET_PRAYERS }).prayers
+    );
+    const title = this.props.navigation.getParam('title', 'My Church');
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
@@ -95,15 +91,7 @@ class PrayerList extends PureComponent {
         <FlexedSafeAreaView>
           <Mutation
             mutation={FLAG_PRAYER}
-            update={() => {
-              const filteredPrayers = prayers.filter(
-                (filteredPrayer) => filteredPrayer.id !== prayer.id
-              );
-              cache.writeQuery({
-                query,
-                data: { [`${this.props.query}`]: filteredPrayers },
-              });
-            }}
+            update={() => flagPrayerUpdateAll(cache, prayer.id)}
           >
             {(flagPrayer) => (
               <Mutation mutation={INCREMENT_PRAYER_COUNT}>
