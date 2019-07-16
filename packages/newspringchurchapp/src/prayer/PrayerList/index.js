@@ -82,6 +82,14 @@ class PrayerList extends PureComponent {
     const prayer = prayers[this.state.prayerIndex];
     const isLastPrayer = this.state.prayerIndex + 1 === prayers.length;
 
+    const advancePrayer = (prayed = false) =>
+      !isLastPrayer
+        ? this.setState((prevState) => ({
+            prayerIndex: prevState.prayerIndex + 1,
+            prayed: prayed ? false : prevState.prayed,
+          }))
+        : this.props.navigation.popToTop();
+
     return (
       <ModalView onClose={() => this.props.navigation.popToTop()}>
         <FlexedSafeAreaView>
@@ -162,9 +170,7 @@ class PrayerList extends PureComponent {
                                     parsedId: prayer.id,
                                   },
                                 });
-                                this.setState((prevState) => ({
-                                  prayerIndex: prevState.prayerIndex + 1,
-                                }));
+                                advancePrayer();
                               }}
                             >
                               <FooterText isGray>Report Prayer</FooterText>
@@ -180,14 +186,7 @@ class PrayerList extends PureComponent {
                           </FooterAltOption>
                           <Button
                             title={!isLastPrayer ? 'Next' : 'Done'}
-                            onPress={() =>
-                              !isLastPrayer
-                                ? this.setState((prevState) => ({
-                                    prayerIndex: prevState.prayerIndex + 1,
-                                    prayed: false,
-                                  }))
-                                : this.props.navigation.popToTop()
-                            }
+                            onPress={advancePrayer(true)}
                           />
                         </View>
                       )}
