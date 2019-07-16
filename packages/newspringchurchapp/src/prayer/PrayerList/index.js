@@ -86,7 +86,7 @@ class PrayerList extends PureComponent {
       !isLastPrayer
         ? this.setState((prevState) => ({
             prayerIndex: prevState.prayerIndex + 1,
-            prayed: prayed ? false : prevState.prayed,
+            prayed: prayed ? prevState.prayed : false,
           }))
         : this.props.navigation.popToTop();
 
@@ -164,13 +164,13 @@ class PrayerList extends PureComponent {
                           />
                           <FooterAltOption>
                             <ButtonLink
-                              onPress={() => {
-                                flagPrayer({
+                              onPress={async () => {
+                                await flagPrayer({
                                   variables: {
                                     parsedId: prayer.id,
                                   },
                                 });
-                                advancePrayer();
+                                await advancePrayer();
                               }}
                             >
                               <FooterText isGray>Report Prayer</FooterText>
@@ -186,7 +186,7 @@ class PrayerList extends PureComponent {
                           </FooterAltOption>
                           <Button
                             title={!isLastPrayer ? 'Next' : 'Done'}
-                            onPress={advancePrayer(true)}
+                            onPress={() => advancePrayer(true)}
                           />
                         </View>
                       )}
