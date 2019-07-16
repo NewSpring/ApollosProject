@@ -126,7 +126,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
-        resValue "string", "build_config_package", "cc.newspring.newspringapp"
+        resValue "string", "build_config_package", "com.newspringchurchapp"
+        multiDexEnabled true
     }
     splits {
         abi {

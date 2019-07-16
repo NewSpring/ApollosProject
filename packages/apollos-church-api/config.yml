@@ -121,7 +121,12 @@ ROCK_MAPPINGS:
   PRAYER_MENU_CATEGORIES_CHANNEL_ID: 440
 
   WEB_CAMPUS_ID: 20
+
   GENERAL_PRAYER_CATEGORY_ID: 2
+
+  HOME_FEATURE_CHANNEL_ID: 459
+
+  SERMON_CHANNEL_ID: 460
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
