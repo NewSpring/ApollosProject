@@ -164,13 +164,13 @@ class PrayerList extends PureComponent {
                           />
                           <FooterAltOption>
                             <ButtonLink
-                              onPress={async () => {
-                                await flagPrayer({
+                              onPress={() => {
+                                flagPrayer({
                                   variables: {
                                     parsedId: prayer.id,
                                   },
                                 });
-                                await advancePrayer();
+                                advancePrayer();
                               }}
                             >
                               <FooterText isGray>Report Prayer</FooterText>
