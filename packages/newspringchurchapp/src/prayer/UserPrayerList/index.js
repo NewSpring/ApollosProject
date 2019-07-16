@@ -1,10 +1,11 @@
 import React from 'react';
 import { Mutation, Query } from 'react-apollo';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import {
   Card,
   CardContent,
+  BodyText,
   H4,
   H6,
   ModalView,
@@ -63,38 +64,47 @@ class UserPrayerList extends React.Component {
                   >
                     {(deletePrayer) => (
                       <StyledView>
-                        {userPrayers.map((prayer) => (
-                          <Card key={prayer.id}>
-                            <CardContent>
-                              <PrayerSingle
-                                prayer={prayer}
-                                showDate
-                                action={
-                                  <ActionComponent
-                                    options={[
-                                      {
-                                        title: 'Delete Prayer',
-                                        method: async () => {
-                                          await deletePrayer({
-                                            variables: {
-                                              parsedId: prayer.id,
-                                            },
-                                          });
+                        {userPrayers && userPrayers.length > 0 ? (
+                          userPrayers.map((prayer) => (
+                            <Card key={prayer.id}>
+                              <CardContent>
+                                <PrayerSingle
+                                  prayer={prayer}
+                                  showDate
+                                  action={
+                                    <ActionComponent
+                                      options={[
+                                        {
+                                          title: 'Delete Prayer',
+                                          method: async () => {
+                                            await deletePrayer({
+                                              variables: {
+                                                parsedId: prayer.id,
+                                              },
+                                            });
+                                          },
+                                          destructive: true,
                                         },
-                                        destructive: true,
-                                      },
-                                      {
-                                        title: 'Cancel',
-                                        method: null,
-                                        destructive: false,
-                                      },
-                                    ]}
-                                  />
-                                }
-                              />
-                            </CardContent>
-                          </Card>
-                        ))}
+                                        {
+                                          title: 'Cancel',
+                                          method: null,
+                                          destructive: false,
+                                        },
+                                      ]}
+                                    />
+                                  }
+                                />
+                              </CardContent>
+                            </Card>
+                          ))
+                        ) : (
+                          <PaddedView>
+                            <BodyText>
+                              You have not submitted any prayers. Go back and
+                              add one!
+                            </BodyText>
+                          </PaddedView>
+                        )}
                       </StyledView>
                     )}
                   </Mutation>
