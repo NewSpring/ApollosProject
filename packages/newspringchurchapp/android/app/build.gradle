@@ -121,13 +121,12 @@ android {
         applicationId "cc.newspring.newspringapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 14
+        versionCode 15
         versionName "7.2.0"
         ndk {
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
-        resValue "string", "build_config_package", "com.newspringchurchapp"
-        multiDexEnabled true
+        resValue "string", "build_config_package", "cc.newspring.newspringapp"
     }
     splits {
         abi {

@@ -188,20 +188,20 @@
     graphql-tag "2.9.2"
     yup "^0.27.0"
 
-"@apollosproject/ui-htmlview@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-1.0.0.tgz#edf84d6ad2c1fd4ef9fff9f1e7a9eb8cdbba569b"
-  integrity sha512-M1B7a0/yJOZQrtxCga7NpIc6nHls9Sr9HLsbqPZIVJfNJu4WMQDaJcccz5mK7kEJC/wXVmoMYgVq2y5oyWOdkw==
+"@apollosproject/ui-htmlview@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-htmlview/-/ui-htmlview-1.1.0-beta.0.tgz#fa170b73b47b024841a2ede59ca84467d528af9f"
+  integrity sha512-yFDUN8KpQ30x0lY7HPTH2YVMSMTZf8V+H1O9fI859BPqp2YrupQr/QpLOTfvpru798abkk7+oSKVyMAHEkWrPw==
   dependencies:
-    "@apollosproject/ui-kit" "^1.0.0"
-    "@apollosproject/ui-storybook" "^1.0.0-beta.0"
+    "@apollosproject/ui-kit" "^1.1.0-beta.0"
+    "@apollosproject/ui-storybook" "^1.1.0-beta.0"
     entities "^1.1.2"
     htmlparser2 "3.9.2"
 
-"@apollosproject/ui-kit@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.0.0.tgz#156ec1048b7037bb338be7aa51a39f852f47e942"
-  integrity sha512-oBHBMHAUXFgDFBh7VNrzLYXiq5Prvr24ps4wghIVmhBsyAxmxNbNPK6wPJ+j7FODE111IxpEDviFHwYdO4tuIg==
+"@apollosproject/ui-kit@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-kit/-/ui-kit-1.1.0-beta.0.tgz#6b74fef151c247376933746fd5e835955039b97c"
+  integrity sha512-UU0rm8gYA3gF07x6WklckQ6QmUFWu1Qh2jlTkiYdffvMincS8HXEORfPwJ3SgFzABZ60A51RpV9QHe/9BX7E2Q==
   dependencies:
     color "^3.1.0"
     lodash "^4.17.11"
@@ -212,10 +212,10 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-media-player@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-media-player/-/ui-media-player-1.0.0.tgz#ceb730495a8e3adb9ecb9875448298608a9cd635"
-  integrity sha512-vYev4qjPz4LSmqH/ZESggVLI847fec6IbxiIcfnqF4ccFOSaMZ2EFLvx4utkCAJ4DFfEIrRjPiAguauj9DkETA==
+"@apollosproject/ui-media-player@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-media-player/-/ui-media-player-1.1.0-beta.0.tgz#0910da270842286fd42070c8f6eab7a11e86ae4f"
+  integrity sha512-OKVUZAdIIQHF/O9wFd8kmSNnsLPx1EzkwPy6FuCISU9M6lp+R/cvb4w/AuG6OHnnRFZeTr28c5sm/gFroAvm+Q==
   dependencies:
     graphql-tag "^2.10.1"
 
@@ -231,37 +231,37 @@
     lodash "^4.17.11"
     url "^0.11.0"
 
-"@apollosproject/ui-onboarding@0.8.7":
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-onboarding/-/ui-onboarding-0.8.7.tgz#e4a1a7216f929de0c9e0f4e605fbed64ff801a2c"
-  integrity sha512-8HpI+t76clcc9IVjjLtsWx9uNm8VVO+sMh+3rG6C9mU8XIh0XfuEszS2lI64UzISV7lPlN9dOdKqbunOvN0ZaQ==
+"@apollosproject/ui-onboarding@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-onboarding/-/ui-onboarding-1.1.0-beta.0.tgz#a4c57e6c8b283f932466e06c95cfad9d9d946d86"
+  integrity sha512-LWlk5vdULhlUPp3EUzwB9uq9mdm8o+FAPnl3CfBIevdm1hn4CGioVKEl1njv08RygJi3bqy9YKnHWyggrxH4rQ==
   dependencies:
     formik "1.5.1"
     graphql-tag "2.9.2"
-    lodash "4.17.11"
+    lodash "4.17.13"
     moment "2.22.2"
     react-is "^16.8.6"
     react-native-swiper "^1.5.14"
     yup "0.26.6"
 
-"@apollosproject/ui-passes@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-1.0.0.tgz#0baad5e0eeca1b064ca88fab428167f4d3fca69e"
-  integrity sha512-jQt7m3eoC+8hjqtMN6LGjIYA8estpGAs599ekETQ5VagqcaTUY13OT3HupAfWw4ES6OqMc7+CesICbawGthNAQ==
+"@apollosproject/ui-passes@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-passes/-/ui-passes-1.1.0-beta.0.tgz#9873c74a8088222b9d4f5c549cdf812821b7481e"
+  integrity sha512-43f8EmbwFYYEsTVC23d5miE8rCrhgibNrzQrn2jSvSkrPJpAwDKoPJMOar9M9eSk2BsJd5Nt01etLSBpOJgH3g==
   dependencies:
-    "@apollosproject/ui-kit" "^1.0.0"
+    "@apollosproject/ui-kit" "^1.1.0-beta.0"
     graphql-tag "^2.10.1"
     react-apollo "2.5.5"
 
-"@apollosproject/ui-scripture@^1.0.0-beta.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-scripture/-/ui-scripture-1.0.0.tgz#1146651ac27f4f231fae2baa079dfe7a76fc36e4"
-  integrity sha512-4vrav1Q3J3bK2s8G18M3nfEzYVTYf6O72XiDL9DRRd9hnp/luG4cdofm+sip58Y6Tor808wDOvszbW0Zaiguzw==
+"@apollosproject/ui-scripture@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-scripture/-/ui-scripture-1.1.0-beta.0.tgz#eb8d955a717e7bc347b89263e2f2fb96c04f6daa"
+  integrity sha512-k0bDEJdFybwlWlyZVE+rhpWASD5fTbCRMgyUS3XSd9AdPRfLlUXWdXfyZxUOGjQvGAn+F40fqwJ/8JEHG1eHDQ==
 
-"@apollosproject/ui-storybook@^1.0.0-beta.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-storybook/-/ui-storybook-1.0.0.tgz#89eed499f779b75357f93e0f969fe300df917b26"
-  integrity sha512-nqNBJzn1zODCWiHsB0Vn974YQ9EqsUqPgg+TDj8mX8sCGmaYaM3jmo6VRb3X/pjMz1aOupJ2KY6yIR1IIVrnmg==
+"@apollosproject/ui-storybook@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-storybook/-/ui-storybook-1.1.0-beta.0.tgz#5378289936c5ad8f53630143b90dfc59f1ca4791"
+  integrity sha512-t6IVZF1h+vp3WoLeTF5tsM3wDH4V8sVCftA/lgldrN5a17XIKmEjMQ8dkJh2YLV6YwEWKa3mzSqZKJ446akoZQ==
   dependencies:
     "@storybook/addon-actions" "5.2.0-alpha.3"
     "@storybook/addon-links" "5.2.0-alpha.3"
@@ -11412,7 +11412,12 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.17.11, lodash@^4.16.4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.10:
+lodash@4.17.13:
+  version "4.17.13"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
+  integrity sha512-vm3/XWXfWtRua0FkUyEHBZy8kCPjErNBT9fJx8Zvs+U6zjqPbTUOpkaoum3O5uiA8sm+yNMHXfYkTUHFoMxFNA==
+
+lodash@^4.16.4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.10:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
