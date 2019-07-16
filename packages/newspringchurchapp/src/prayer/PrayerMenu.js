@@ -1,14 +1,14 @@
 import React from 'react';
 import { PaddedView, FlexedView, styled, H3 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
-import PrayerTabView from './PrayerTab/PrayerTabView';
+import PrayerTabView from './PrayerTabView';
 
 const StyledH3 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H3);
 
 const MenuView = styled(({ theme }) => ({
-  paddingTop: theme.sizing.baseUnit * 2,
+  paddingTop: theme.sizing.baseUnit,
 }))(FlexedView);
 
 const Container = styled(({ theme }) => ({
