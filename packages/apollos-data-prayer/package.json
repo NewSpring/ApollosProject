@@ -1,6 +1,5 @@
 {
   "name": "apollos-data-prayer",
-  "version": "0.8.1",
   "homepage": "https://github.com/NewSpring/apollos-prototype#readme",
   "main": "lib/index.js",
   "scripts": {
