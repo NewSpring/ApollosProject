@@ -49,4 +49,21 @@ describe('the UserPrayerList component', () => {
     );
     expect(tree).toMatchSnapshot();
   });
+  it('renders no prayer text', async () => {
+    const navigation = { pop: jest.fn() };
+    const tree = await renderWithApolloData(
+      <Providers
+        mocks={[
+          {
+            request: { query: getUserPrayers },
+            response: { data: {} },
+          },
+        ]}
+        addTypename={false}
+      >
+        <UserPrayerList navigation={navigation} />
+      </Providers>
+    );
+    expect(tree).toMatchSnapshot();
+  });
 });
