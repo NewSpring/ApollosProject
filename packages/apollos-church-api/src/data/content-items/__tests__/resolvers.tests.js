@@ -8,6 +8,7 @@ import {
   mediaSchema,
   themeSchema,
   scriptureSchema,
+  liveSchema,
 } from '@apollosproject/data-schema';
 
 import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
@@ -94,7 +95,7 @@ describe('UniversalContentItem', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([themeSchema, mediaSchema, scriptureSchema]);
+    schema = getSchema([themeSchema, mediaSchema, scriptureSchema, liveSchema]);
     context = getContext();
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'

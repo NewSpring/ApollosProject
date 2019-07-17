@@ -24,20 +24,11 @@ const resolver = {
   },
   PrayerMenuCategory: {
     key: ({ itemGlobalKey }) => itemGlobalKey,
-    subtitle: ({
-      attributeValues: {
-        subtitle: { value },
-      },
-    }) => value,
-    imageURL: ({
-      attributeValues: {
-        imageSquare: { value },
-      },
-    }) => createAssetUrl(JSON.parse(value)),
+    subtitle: ({ attributeValues: { subtitle: { value } = {} } = {} }) => value,
+    imageURL: ({ attributeValues: { imageSquare: { value } = {} } = {} }) =>
+      createAssetUrl(JSON.parse(value)),
     overlayColor: ({
-      attributeValues: {
-        overlayColor: { value },
-      },
+      attributeValues: { overlayColor: { value } = {} } = {},
     }) => value,
   },
 };
