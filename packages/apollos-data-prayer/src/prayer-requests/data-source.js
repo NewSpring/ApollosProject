@@ -123,7 +123,9 @@ export default class PrayerRequest extends RockApolloDataSource {
       const prayers = await this.getFromIds(uniq(entityIds)).get();
 
       // filter out flagged prayers
-      return prayers.filter((prayer) => prayer.flagCount === '0');
+      return prayers.filter(
+        (prayer) => !prayer.flagCount || prayer.flagCount === 0
+      );
     } catch (err) {
       throw new Error(err);
     }
