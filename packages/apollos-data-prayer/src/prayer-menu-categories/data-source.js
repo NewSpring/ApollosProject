@@ -2,22 +2,22 @@ import { ContentItem } from '@apollosproject/data-connector-rock';
 
 import ApollosConfig from '@apollosproject/config';
 
-const { ROCK_MAPPINGS } = ApollosConfig;
-
 class PrayerMenuCategory extends ContentItem.dataSource {
   getPrayerMenuCategories = async () => {
+    const {
+      dataSources: { Auth, Campus },
+    } = this.context;
+    const { ROCK_MAPPINGS } = ApollosConfig;
+
     const allCategories = await this.request()
       .filter(
         `ContentChannelId eq ${ROCK_MAPPINGS.PRAYER_MENU_CATEGORIES_CHANNEL_ID}`
       )
       .orderBy('Order')
       .get();
-    const {
-      dataSources: { Auth, Campus },
-    } = this.context;
+    let filteredCategories = allCategories || [];
 
     const { id } = await Auth.getCurrentPerson();
-    let filteredCategories = allCategories;
 
     // filter out campus
     const campus = await Campus.getForPerson({ personId: id });
