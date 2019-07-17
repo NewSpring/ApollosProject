@@ -126,7 +126,7 @@ ROCK_MAPPINGS:
 
   HOME_FEATURE_CHANNEL_ID: 459
 
-  SERMON_CHANNEL_ID: 460
+  SERMON_CHANNEL_ID: 19
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
