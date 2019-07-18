@@ -6,3 +6,4 @@ export LeafOutline from './LeafOutline';
 export LeafSolid from './LeafSolid';
 export LeafLined from './LeafLined';
 export BrandIcon from './LeafLogo';
+export Delete from './Delete';
