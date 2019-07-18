@@ -77,24 +77,24 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                       savePrayer: {
                         __typename: 'PrayerRequest',
                         id: prayerID,
-                        // firstName: '',
-                        // lastName: '',
-                        // isAnonymous: true,
-                        // text: '',
-                        // person: {
-                        // __typename: 'Person',
-                        // photo: {
-                        // __typename: 'ImageMedia',
-                        // uri: '',
-                        // },
-                        // },
-                        // flagCount: 0,
-                        // campus: {
-                        // __typename: 'Campus',
-                        // id: '',
-                        // name: '',
-                        // },
-                        // enteredDateTime: '',
+                        firstName: '',
+                        lastName: '',
+                        isAnonymous: true,
+                        text: '',
+                        person: {
+                          __typename: 'Person',
+                          photo: {
+                            __typename: 'ImageMedia',
+                            uri: '',
+                          },
+                        },
+                        flagCount: 0,
+                        campus: {
+                          __typename: 'Campus',
+                          id: '',
+                          name: '',
+                        },
+                        enteredDateTime: '',
                       },
                     },
                   })
