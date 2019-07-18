@@ -32,9 +32,9 @@ const GreenH4 = styled(({ theme }) => ({
 }))(H4);
 
 const DeleteIcon = withTheme(({ theme }) => ({
-  name: 'close',
+  name: 'delete',
   size: theme.sizing.baseUnit,
-  fill: theme.colors.wordOfChrist,
+  fill: theme.colors.darkTertiary,
 }))(Icon);
 
 class UserPrayerList extends React.Component {
