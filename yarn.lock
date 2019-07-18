@@ -115,6 +115,23 @@
     passkit-generator "1.5.9"
     qrcode "^1.3.3"
 
+"@apollosproject/data-connector-rock@1.1.0-alpha.1":
+  version "1.1.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-1.1.0-alpha.1.tgz#b506a041712e92d1f02152f32b3866b30849a73b"
+  integrity sha512-U+MSqd2ZPS54J1/fpu38RVDW0us8Tz5oI5MxuLhXiBoYQ/WLF/KCY4d8jndD00wOuYKWUtJuaFLkbxCmj36SNQ==
+  dependencies:
+    "@apollosproject/data-schema" "^1.1.0-beta.0"
+    "@apollosproject/server-core" "^1.1.0-beta.0"
+    awesome-phonenumber "^2.4.2"
+    form-data "^2.3.3"
+    jest "^23.6.0"
+    jsonwebtoken "^8.5.1"
+    lodash "^4.17.11"
+    moment "^2.22.2"
+    moment-timezone "^0.5.23"
+    natural "^0.6.2"
+    sanitize-html "^1.19.3"
+
 "@apollosproject/data-connector-rock@^1.1.0-beta.0":
   version "1.1.0-beta.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-1.1.0-beta.0.tgz#e9051041357ca8fed55be61a00abe00fbe16759d"
