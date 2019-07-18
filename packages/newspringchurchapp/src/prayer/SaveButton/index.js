@@ -36,6 +36,30 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                         data: { savedPrayers: filteredPrayers },
                       });
                     },
+                    optimisticResponse: {
+                      unSavePrayer: {
+                        __typename: 'PrayerRequest',
+                        id: prayerID,
+                        firstName: '',
+                        lastName: '',
+                        isAnonymous: true,
+                        text: '',
+                        person: {
+                          __typename: 'Person',
+                          photo: {
+                            __typename: 'ImageMedia',
+                            uri: '',
+                          },
+                        },
+                        flagCount: 0,
+                        campus: {
+                          __typename: 'Campus',
+                          id: '',
+                          name: '',
+                        },
+                        enteredDateTime: '',
+                      },
+                    },
                   })
                 : save({
                     variables: { nodeId: prayerID },
@@ -48,6 +72,30 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                         query: GET_SAVED_PRAYERS,
                         data,
                       });
+                    },
+                    optimisticResponse: {
+                      savePrayer: {
+                        __typename: 'PrayerRequest',
+                        id: prayerID,
+                        // firstName: '',
+                        // lastName: '',
+                        // isAnonymous: true,
+                        // text: '',
+                        // person: {
+                        // __typename: 'Person',
+                        // photo: {
+                        // __typename: 'ImageMedia',
+                        // uri: '',
+                        // },
+                        // },
+                        // flagCount: 0,
+                        // campus: {
+                        // __typename: 'Campus',
+                        // id: '',
+                        // name: '',
+                        // },
+                        // enteredDateTime: '',
+                      },
                     },
                   })
             }
