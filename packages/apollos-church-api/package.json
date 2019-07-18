@@ -36,7 +36,7 @@
     "@apollosproject/data-connector-church-online": "^1.1.0-beta.0",
     "@apollosproject/data-connector-onesignal": "^1.1.0-beta.0",
     "@apollosproject/data-connector-passes": "^1.1.0-beta.0",
-    "@apollosproject/data-connector-rock": "^1.1.0-beta.0",
+    "@apollosproject/data-connector-rock": "1.1.0-alpha.1",
     "@apollosproject/data-connector-twilio": "^1.1.0-beta.0",
     "@apollosproject/rock-apollo-data-source": "^1.1.0-beta.0",
     "@apollosproject/server-core": "^1.1.0-beta.0",

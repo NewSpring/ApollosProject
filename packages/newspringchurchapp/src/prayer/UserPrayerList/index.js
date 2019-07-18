@@ -11,11 +11,13 @@ import {
   ModalView,
   PaddedView,
   styled,
+  Icon,
+  withTheme,
 } from '@apollosproject/ui-kit';
 import PrayerSingle from '../PrayerSingle';
 import GET_USER_PRAYERS from '../data/queries/getUserPrayers';
 import DELETE_PRAYER from '../data/mutations/deletePrayer';
-import ActionComponent from './ActionComponent';
+import ActionComponent from '../ActionComponent';
 
 const FlexedSafeAreaView = styled({
   flex: 1,
@@ -28,6 +30,12 @@ const StyledView = styled(({ theme }) => ({
 const GreenH4 = styled(({ theme }) => ({
   color: theme.colors.primary,
 }))(H4);
+
+const DeleteIcon = withTheme(({ theme }) => ({
+  name: 'close',
+  size: theme.sizing.baseUnit,
+  fill: theme.colors.wordOfChrist,
+}))(Icon);
 
 class UserPrayerList extends React.Component {
   static navigationOptions = {
@@ -73,6 +81,7 @@ class UserPrayerList extends React.Component {
                                   showDate
                                   action={
                                     <ActionComponent
+                                      component={<DeleteIcon />}
                                       options={[
                                         {
                                           title: 'Delete Prayer',

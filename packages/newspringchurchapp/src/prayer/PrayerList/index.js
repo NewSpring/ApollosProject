@@ -11,12 +11,12 @@ import {
   ModalView,
   FlexedView,
   Button,
-  ButtonLink,
   styled,
 } from '@apollosproject/ui-kit';
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import SaveButton from '../SaveButton';
+import ActionComponent from '../ActionComponent';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
@@ -151,18 +151,30 @@ class PrayerList extends PureComponent {
                             }}
                           />
                           <FooterAltOption>
-                            <ButtonLink
-                              onPress={() => {
-                                flagPrayer({
-                                  variables: {
-                                    parsedId: prayer.id,
+                            <ActionComponent
+                              component={
+                                <FooterText isGray>Report Prayer</FooterText>
+                              }
+                              options={[
+                                {
+                                  title: 'Report Prayer',
+                                  method: async () => {
+                                    await flagPrayer({
+                                      variables: {
+                                        parsedId: prayer.id,
+                                      },
+                                    });
+                                    await advancePrayer();
                                   },
-                                });
-                                advancePrayer();
-                              }}
-                            >
-                              <FooterText isGray>Report Prayer</FooterText>
-                            </ButtonLink>
+                                  destructive: true,
+                                },
+                                {
+                                  title: 'Cancel',
+                                  method: null,
+                                  destructive: false,
+                                },
+                              ]}
+                            />
                           </FooterAltOption>
                         </View>
                       ) : (
