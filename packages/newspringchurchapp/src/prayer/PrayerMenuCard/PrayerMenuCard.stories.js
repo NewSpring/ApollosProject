@@ -1,10 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
+import { storiesOf } from '@apollosproject/ui-storybook';
 import { PaddedView } from '@apollosproject/ui-kit';
 
 import PrayerMenuCard from '.';
 
-storiesOf('PrayerMenuCard', module).add('Example', () => (
+storiesOf('prayer/PrayerMenuCard', module).add('Example', () => (
   <PaddedView>
     <PrayerMenuCard
       title={'A Card Title'}
