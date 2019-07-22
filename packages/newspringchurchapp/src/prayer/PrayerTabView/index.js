@@ -28,7 +28,6 @@ class PrayerTabView extends PureComponent {
         id: PropTypes.string,
         description: PropTypes.string,
         image: PropTypes.string,
-        overlayColor: PropTypes.arrayOf(PropTypes.string),
         title: PropTypes.string,
         key: PropTypes.string,
       })
