@@ -112,7 +112,6 @@ class PrayerTabView extends PureComponent {
               >
                 <PrayerMenuCard
                   image={item.image}
-                  overlayColor={item.overlayColor}
                   title={item.title}
                   selected={this.state.itemSelected === item.key}
                 />

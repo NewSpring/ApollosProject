@@ -1,67 +1,67 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { memo } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Color from 'color';
 import PropTypes from 'prop-types';
-import { pure, compose } from 'recompose';
-import { H5, styled, withTheme } from '@apollosproject/ui-kit';
-import GradientOverlayImage from '../../ui/GradientOverlayImage';
+import { H5, styled } from '@apollosproject/ui-kit';
 
-const CardView = styled(
-  ({ theme }) => ({
-    borderRadius: theme.sizing.baseUnit,
-    overflow: 'hidden',
-    width: '100%',
-    height: '100%',
-    aspectRatio: 1.75,
-  }),
-  'PrayerMenuTileImage'
-)(View);
+const CardView = styled(({ theme }) => ({
+  borderRadius: theme.sizing.baseUnit,
+  overflow: 'hidden',
+  width: '100%',
+  height: '100%',
+  aspectRatio: 1.75,
+}))(View);
 
-const Title = styled(
-  ({ theme }) => ({
-    position: 'absolute',
-    bottom: theme.sizing.baseUnit,
-    left: theme.sizing.baseUnit,
-    right: theme.sizing.baseUnit,
-    backgroundColor: theme.colors.transparent,
-    color: theme.colors.lightPrimary,
-  }),
-  'PrayerMenuTileImage.Text'
-)(H5);
+const StyledImage = styled({
+  height: '100%',
+  width: '100%',
+  resizeMode: 'cover',
+})(Image);
 
-const SquareGradientOverlayImage = styled({
-  aspectRatio: 1,
-})(GradientOverlayImage);
+const TitleView = styled(({ theme }) => ({
+  position: 'absolute',
+  bottom: theme.sizing.baseUnit,
+  left: theme.sizing.baseUnit,
+  right: theme.sizing.baseUnit,
+  backgroundColor: theme.colors.transparent,
+}))(View);
 
-const enhance = compose(
-  withTheme(({ theme: { colors } = {} } = {}) => ({ theme: { colors } })),
-  pure
-);
+const Title = styled({
+  color: 'white',
+})(H5);
 
-const PrayerMenuTileImage = enhance(
-  ({ image, isLoading, overlayColor, text }) => (
-    <CardView>
-      <SquareGradientOverlayImage
-        source={image}
-        isLoading={isLoading}
-        maintainAspectRatio={false}
-        overlayColor={overlayColor || null}
-      />
+const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
+
+const PrayerMenuTileImage = memo(({ image, overlayColor, text }) => (
+  <CardView>
+    <StyledImage source={{ uri: image }} />
+    <Overlay
+      colors={[
+        `${Color(overlayColor)
+          .fade(0.2)
+          .string()}`,
+      ]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 0, y: 1 }}
+      locations={[1]}
+    />
+    <TitleView>
       <Title>{text}</Title>
-    </CardView>
-  )
-);
+    </TitleView>
+  </CardView>
+));
 
 PrayerMenuTileImage.propTypes = {
-  image: GradientOverlayImage.propTypes.source,
-  isLoading: PropTypes.bool,
-  link: PropTypes.string,
-  onPressItem: PropTypes.func,
-  overlayColor: PropTypes.arrayOf(PropTypes.string),
+  image: PropTypes.string,
+  overlayColor: PropTypes.string,
   text: PropTypes.string,
 };
 
 PrayerMenuTileImage.defaultProps = {
   text: '',
 };
+
+PrayerMenuTileImage.displayName = 'PrayerMenuTileImage';
 
 export default PrayerMenuTileImage;
