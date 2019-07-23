@@ -14,6 +14,7 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
+import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
 import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
@@ -28,8 +29,8 @@ const Name = styled({
 })(View);
 
 const ActionTable = ({ token }) => (
-  <WebBrowserConsumer>
-    {(openUrl) => (
+  <UserWebBrowserConsumer>
+    {(openUserWebView) => (
       <View>
         <RowHeader>
           <Name>
@@ -38,7 +39,11 @@ const ActionTable = ({ token }) => (
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://rock.newspring.cc/Workflows/431')}
+            onPress={() =>
+              openUserWebView({
+                url: 'https://rock.newspring.cc/Workflows/431',
+              })
+            }
           >
             <Cell>
               <CellIcon name="check" />
@@ -46,14 +51,30 @@ const ActionTable = ({ token }) => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
+          <Touchable
+            onPress={() =>
+              openUserWebView({ url: 'https://my.newspring.cc/groups' })
+            }
+          >
             <Cell>
               <CellIcon name="groups" />
               <CellText>Join a small group</CellText>
             </Cell>
           </Touchable>
+          <Touchable
+            onPress={() =>
+              openUserWebView({ url: 'https://newspring.cc/groups/leader' })
+            }
+          >
+            <Cell>
+              <CellIcon name="groups" />
+              <CellText>Mangage your group</CellText>
+            </Cell>
+          </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
+          <Touchable
+            onPress={() => openUserWebView({ url: 'https://my.newspring.cc' })}
+          >
             <Cell>
               <CellIcon name="download" />
               <CellText>I would like to give</CellText>
@@ -63,9 +84,9 @@ const ActionTable = ({ token }) => (
         <TableView>
           <Touchable
             onPress={() =>
-              openUrl(
-                `https://rock.newspring.cc/WorkflowEntry/530?rckipid=${token}&Source=3`
-              )
+              openUserWebView({
+                url: `https://rock.newspring.cc/WorkflowEntry/530?rckipid=${token}&Source=3`,
+              })
             }
           >
             <Cell>
@@ -88,7 +109,7 @@ const ActionTable = ({ token }) => (
         ) : null}
       </View>
     )}
-  </WebBrowserConsumer>
+  </UserWebBrowserConsumer>
 );
 
 ActionTable.propTypes = {
