@@ -108,7 +108,7 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
 
 SaveButtonConnected.propTypes = {
   prayerID: PropTypes.string,
-  saved: PropTypes.string,
+  saved: PropTypes.bool,
 };
 
 SaveButtonConnected.displayName = 'SaveButtonConnected';
