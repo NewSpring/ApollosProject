@@ -72,5 +72,13 @@ export default {
       (typeof flagCount === 'number' && flagCount) || 0,
     prayerCount: ({ prayerCount }) =>
       (typeof prayerCount === 'number' && prayerCount) || 0,
+    isSaved: async ({ id }, args, { dataSources }) => {
+      const followings = await dataSources.Followings.getFollowingsForCurrentUserAndNode(
+        {
+          nodeId: createGlobalId(id, 'PrayerRequest'),
+        }
+      );
+      return followings.length > 0;
+    },
   },
 };
