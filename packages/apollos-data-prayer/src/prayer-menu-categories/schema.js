@@ -10,7 +10,7 @@ const prayerMenuCategorySchema = gql`
     title: String!
     subtitle: String
     imageURL: String
-    overlayColor: String
+    overlayColor: String @deprecated(reason: "Never changes")
   }
 `;
 

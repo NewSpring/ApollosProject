@@ -12,13 +12,12 @@ class PrayerMenuConnected extends PureComponent {
   render() {
     return (
       <Query query={GET_PRAYER_MENU_CATEGORIES}>
-        {({ loading, data: { prayerMenuCategories } }) => {
+        {({ loading, data: { prayerMenuCategories } = {} }) => {
           if (loading) return null;
           const categories = prayerMenuCategories.map((category) => ({
             id: category.id,
             description: category.subtitle,
             image: category.imageURL,
-            overlayColor: [category.overlayColor, category.overlayColor],
             title: category.title,
             key: category.key,
           }));
