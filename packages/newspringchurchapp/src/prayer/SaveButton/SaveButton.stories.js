@@ -1,10 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
+import { storiesOf } from '@apollosproject/ui-storybook';
 import { PaddedView } from '@apollosproject/ui-kit';
 
 import SaveButton from '.';
 
-storiesOf('SaveButton', module).add('default', () =>
+storiesOf('prayer/SaveButton', module).add('default', () =>
   (
     <PaddedView>
       <SaveButton />
