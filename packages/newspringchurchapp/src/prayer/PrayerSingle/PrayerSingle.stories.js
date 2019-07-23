@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
+import { storiesOf } from '@apollosproject/ui-storybook';
 import { PaddedView } from '@apollosproject/ui-kit';
 
 import PrayerSingle from '.';
@@ -16,7 +16,7 @@ const prayer = {
   campus: { name: 'Anderson' },
 };
 
-storiesOf('PrayerSingle', module).add('Example', () => (
+storiesOf('prayer/PrayerSingle', module).add('Example', () => (
   <PaddedView>
     <PrayerSingle prayer={prayer} />
   </PaddedView>
