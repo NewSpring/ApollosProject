@@ -81,18 +81,16 @@ class PrayerTabView extends PureComponent {
                   variables={{ campusId: id }}
                   fetchPolicy="cache-and-network"
                 >
-                  {({ data, loading: prayersLoading }) => {
-                    if (prayersLoading) return null;
-                    return (
-                      <PrayerTab
-                        prayers={Object.values(data)[0]}
-                        description={route.description}
-                        title={route.title}
-                        type={route.key.split('-')[1]}
-                        {...this.props}
-                      />
-                    );
-                  }}
+                  {({ data, loading: prayersLoading }) => (
+                    <PrayerTab
+                      loading={prayersLoading}
+                      prayers={Object.values(data)[0]}
+                      description={route.description}
+                      title={route.title}
+                      type={route.key.split('-')[1]}
+                      {...this.props}
+                    />
+                  )}
                 </Query>
               );
             }}

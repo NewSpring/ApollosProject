@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
+import { ActivityIndicator } from '@apollosproject/ui-kit';
 import GET_PRAYER_MENU_CATEGORIES from './data/queries/getPrayerMenuCategories';
 import PrayerMenu from './PrayerMenu';
 
@@ -13,7 +14,7 @@ class PrayerMenuConnected extends PureComponent {
     return (
       <Query query={GET_PRAYER_MENU_CATEGORIES}>
         {({ loading, data: { prayerMenuCategories } = {} }) => {
-          if (loading) return null;
+          if (loading) return <ActivityIndicator />;
           const categories = prayerMenuCategories.map((category) => ({
             id: category.id,
             description: category.subtitle,

@@ -19,37 +19,42 @@ const StyledH4 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H4);
 
-const PrayerTab = memo(({ prayers, type, title, description, ...props }) => (
-  <HorizontalPaddedView>
-    {prayers.length > 0 ? (
-      <View>
+const PrayerTab = memo(
+  ({ prayers, type, title, description, loading, ...props }) => (
+    <HorizontalPaddedView>
+      {prayers.length > 0 ? (
+        <View>
+          <VerticalPaddedView>
+            <StyledBodyText isLoading={loading} placeholder={'Loading Prayers'}>
+              {description}
+            </StyledBodyText>
+          </VerticalPaddedView>
+          <Button
+            title="Start Praying"
+            loading={loading}
+            onPress={() =>
+              props.navigation.navigate('PrayerList', {
+                prayers,
+                title,
+              })
+            }
+          />
+        </View>
+      ) : (
         <VerticalPaddedView>
-          <StyledBodyText>{description}</StyledBodyText>
+          {type === 'saved' ? (
+            <StyledH4>You do not have any saved prayers</StyledH4>
+          ) : (
+            <>
+              <StyledH4>There are no prayers yet for your {type}</StyledH4>
+              <StyledBodyText>Be the first to add one!</StyledBodyText>
+            </>
+          )}
         </VerticalPaddedView>
-        <Button
-          title="Start Praying"
-          onPress={() =>
-            props.navigation.navigate('PrayerList', {
-              prayers,
-              title,
-            })
-          }
-        />
-      </View>
-    ) : (
-      <VerticalPaddedView>
-        {type === 'saved' ? (
-          <StyledH4>You do not have any saved prayers</StyledH4>
-        ) : (
-          <>
-            <StyledH4>There are no prayers yet for your {type}</StyledH4>
-            <StyledBodyText>Be the first to add one!</StyledBodyText>
-          </>
-        )}
-      </VerticalPaddedView>
-    )}
-  </HorizontalPaddedView>
-));
+      )}
+    </HorizontalPaddedView>
+  )
+);
 
 PrayerTab.propTypes = {
   description: PropTypes.string,
@@ -58,6 +63,7 @@ PrayerTab.propTypes = {
   prayers: PropTypes.arrayOf(
     PropTypes.shape({}) // TODO fill this out
   ),
+  loading: PropTypes.bool,
 };
 
 PrayerTab.displayName = 'PrayerTab';
