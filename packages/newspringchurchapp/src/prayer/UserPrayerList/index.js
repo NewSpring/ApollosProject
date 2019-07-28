@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mutation, Query } from 'react-apollo';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import {
   Card,
@@ -49,7 +49,7 @@ class UserPrayerList extends React.Component {
           <ScrollView>
             <Query query={GET_USER_PRAYERS} fetchPolicy="cache-and-network">
               {({ loading, data: { userPrayers = [] } = {} }) => {
-                if (loading) return null;
+                if (loading) return <ActivityIndicator />;
                 return (
                   <>
                     <PaddedView>
