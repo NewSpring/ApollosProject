@@ -25,7 +25,6 @@ const TextFeature = ({ body, contentId }) => {
     '_'.repeat(p1.length)
   );
   const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
-  console.log(notesText);
 
   return (
     <TouchableOpacity onPress={() => press(true)}>
