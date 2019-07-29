@@ -32,7 +32,7 @@ const TextFeature = ({ body, contentId }) => {
         icon={'play'}
         action={
           <ShareButton
-            title={`${bodyWithWord} || My Notes: ${notesText.text}`}
+            title={`${bodyWithWord}\nNotes: ${notesText.text}`}
             itemId={contentId}
           />
         }
