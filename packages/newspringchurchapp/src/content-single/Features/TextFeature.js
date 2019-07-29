@@ -20,19 +20,29 @@ const StyledTextInput = styled(({ theme }) => ({
 
 const TextFeature = ({ body, contentId }) => {
   const [isPressed, press] = useState(false);
+  const [notesText, setNotesText] = useState('');
   const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
     '_'.repeat(p1.length)
   );
   const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
+  console.log(notesText);
 
   return (
     <TouchableOpacity onPress={() => press(true)}>
       <ActionCard
         icon={'play'}
-        action={<ShareButton message={body} itemId={contentId} />}
+        action={
+          <ShareButton
+            title={`${bodyWithWord} || My Notes: ${notesText.text}`}
+            itemId={contentId}
+          />
+        }
       >
         <BodyText>{isPressed ? bodyWithWord : bodyWithBlank}</BodyText>
-        <StyledTextInput multiline />
+        <StyledTextInput
+          multiline
+          onChangeText={(text) => setNotesText({ text })}
+        />
       </ActionCard>
     </TouchableOpacity>
   );
