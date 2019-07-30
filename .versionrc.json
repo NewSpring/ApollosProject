@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "postbump": "yarn postversion",
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
+  }
+}

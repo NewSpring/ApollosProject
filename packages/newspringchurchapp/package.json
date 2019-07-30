@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.2.0",
+  "version": "7.2.2",
   "private": true,
   "devDependencies": {
     "@apollosproject/ui-storybook": "^1.1.0-beta.0",
@@ -46,6 +46,10 @@
     "storybook": "rnstl --searchDir ../ --pattern \"newspringchurchapp/src/**/*.stories.js\" && storybook start -p 7007  | react-native start --projectRoot $PWD/storybook",
     "test": "jest",
     "release": "standard-version --release-as minor",
+    "bump": "standard-version",
+    "bump-alpha": "standard-version -- --prerelease alpha",
+    "bump-beta": "standard-version -- --prerelease beta",
+    "bump-major": "standard-version -- --release-as major",
     "storybook:enable": "sed -i '' 's/STORYBOOK=false/STORYBOOK=true/g' .env",
     "storybook:disable": "sed -i '' 's/STORYBOOK=true/STORYBOOK=false/g' .env",
     "generate-stories": "rnstl --searchDir ./src --pattern **/*.stories.js"
