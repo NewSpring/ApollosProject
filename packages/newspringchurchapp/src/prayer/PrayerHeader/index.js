@@ -12,10 +12,14 @@ const GreyH6 = styled(({ theme }) => ({
   color: theme.colors.text.tertiary,
 }))(H6);
 
-const PrayerHeader = (props) => (
+const PrayerHeader = (props, loading) => (
   <View>
     <AvatarView>
-      <Avatar source={props.avatarSource} size={props.avatarSize} />
+      <Avatar
+        isLoading={loading}
+        source={props.avatarSource}
+        size={props.avatarSize}
+      />
     </AvatarView>
     <H3>{props.title}</H3>
     {props.source ? <GreyH6>{props.source}</GreyH6> : null}
