@@ -73,6 +73,15 @@
       "./jest.setup.js"
     ]
   },
+  "standard-version": {
+    "scripts": {
+      "postbump": "yarn postversion"
+    },
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
+  },
   "dependencies": {
     "@apollosproject/ui-analytics": "^1.0.0",
     "@apollosproject/ui-auth": "^1.0.0",
