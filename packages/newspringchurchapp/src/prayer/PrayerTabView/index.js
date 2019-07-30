@@ -72,7 +72,7 @@ class PrayerTabView extends PureComponent {
                   profile: { campus: { id = '' } = {} } = {},
                 } = {},
               } = {},
-              loading,
+               loading: profileLoading,
             }) => (
               <Query
                 query={this.queries[route.key]}
