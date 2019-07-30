@@ -1,6 +1,8 @@
 {
-  "scripts": {
-    "postbump": "yarn postversion",
+  "standard-version": {
+    "scripts": {
+      "postbump": "yarn postversion"
+    },
     "skip": {
       "tag": true,
       "commit": true
