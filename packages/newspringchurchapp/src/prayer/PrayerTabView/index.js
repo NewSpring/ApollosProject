@@ -81,7 +81,7 @@ class PrayerTabView extends PureComponent {
               >
                 {({ data, loading: prayersLoading }) => (
                   <PrayerTab
-                    loading={prayersLoading}
+                    loading={prayersLoading || profileLoading}
                     prayers={Object.values(data)[0]}
                     description={route.description}
                     title={route.title}
