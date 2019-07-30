@@ -31,7 +31,6 @@ const PrayerTab = memo(
           </VerticalPaddedView>
           <Button
             title="Start Praying"
-            loading={loading}
             onPress={() =>
               props.navigation.navigate('PrayerList', {
                 prayers,
