@@ -16,7 +16,7 @@ const PrayerHeader = (props) => (
   <View>
     <AvatarView>
       <Avatar
-        isLoading={props.loading}
+        loading={props.loading}
         source={props.avatarSource}
         size={props.avatarSize}
       />
