@@ -7,47 +7,30 @@ import PrayerMenuTileImage from '../PrayerMenuTileImage';
 
 const enhance = compose(withTheme());
 
-const Tile = styled(({ theme, transform }) => ({
+const Tile = styled(({ theme, selected }) => ({
   marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
   marginBottom: theme.sizing.baseUnit * 0.5,
-  height: 90,
-  transform,
+  height: theme.sizing.baseUnit * 6,
+  transform: selected
+    ? [{ scaleX: 1 }, { scaleY: 1.1 }]
+    : [{ scaleX: 0.95 }, { scaleY: 1 }],
 }))(View);
 
-const PrayerMenuCard = enhance(
-  ({ image, link, overlayColor, selected, title, theme }) => {
-    // lighten the overlay color if the tile is "selected"
-    const selectedOverlayColor = [theme.colors.primary, theme.colors.primary];
-    const newOverlayColor = selected ? selectedOverlayColor : overlayColor;
-    const newTransform = selected
-      ? [{ scaleX: 1 }, { scaleY: 1.1 }]
-      : [{ scaleX: 0.95 }, { scaleY: 1 }];
-
-    return (
-      <Tile transform={newTransform}>
-        <PrayerMenuTileImage
-          image={image}
-          isLoading
-          link={link}
-          overlayColor={newOverlayColor}
-          text={title}
-        />
-      </Tile>
-    );
-  }
-);
+const PrayerMenuCard = enhance(({ image, selected, title, theme }) => (
+  <Tile selected={selected}>
+    <PrayerMenuTileImage
+      image={image}
+      overlayColor={theme.colors.primary}
+      text={title}
+    />
+  </Tile>
+));
 
 PrayerMenuCard.propTypes = {
   image: PropTypes.string,
-  link: PropTypes.string,
-  overlayColor: PropTypes.arrayOf(PropTypes.string),
   selected: PropTypes.bool,
   title: PropTypes.string,
-};
-
-PrayerMenuCard.defaultProps = {
-  overlayColor: ['#fff', '#fff'],
 };
 
 export default PrayerMenuCard;

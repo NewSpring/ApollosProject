@@ -8,7 +8,6 @@ export default gql`
       title
       subtitle
       imageURL
-      overlayColor
     }
   }
 `;

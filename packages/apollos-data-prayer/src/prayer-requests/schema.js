@@ -37,6 +37,7 @@ const prayerRequestSchema = gql`
     requestedByPersonAliasId: Int
     person: Person
     isAnonymous: Boolean
+    isSaved: Boolean
   }
 `;
 

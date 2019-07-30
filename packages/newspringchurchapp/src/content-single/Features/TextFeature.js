@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native';
 
 import { ActionCard, BodyText } from '@apollosproject/ui-kit';
 import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
 
-const TextFeature = ({ body, contentId }) => (
-  <ActionCard action={<ShareButton message={body} itemId={contentId} />}>
-    <BodyText>{body}</BodyText>
-  </ActionCard>
-);
+const TextFeature = ({ body, contentId }) => {
+  const [isPressed, press] = useState(false);
+  const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
+    '_'.repeat(p1.length)
+  );
+  const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
+
+  return (
+    <TouchableOpacity onPress={() => press(true)}>
+      <ActionCard
+        icon={'play'}
+        action={<ShareButton message={body} itemId={contentId} />}
+      >
+        <BodyText>{isPressed ? bodyWithWord : bodyWithBlank}</BodyText>
+      </ActionCard>
+    </TouchableOpacity>
+  );
+};
 
 TextFeature.propTypes = {
   body: PropTypes.string.isRequired,

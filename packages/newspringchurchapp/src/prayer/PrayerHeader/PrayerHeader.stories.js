@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
+import { storiesOf } from '@apollosproject/ui-storybook';
 import { PaddedView } from '@apollosproject/ui-kit';
 
 import PrayerHeader from '.';
@@ -12,7 +12,7 @@ const headerData = {
   source: 'Anderson',
 };
 
-storiesOf('PrayerHeader', module).add('Anonymous', () => (
+storiesOf('prayer/PrayerHeader', module).add('Anonymous', () => (
   <PaddedView>
     <PrayerHeader
       anonymous
@@ -24,7 +24,7 @@ storiesOf('PrayerHeader', module).add('Anonymous', () => (
   </PaddedView>
 ));
 
-storiesOf('PrayerHeader', module).add('Not Anonymous', () => (
+storiesOf('prayer/PrayerHeader', module).add('Not Anonymous', () => (
   <PaddedView>
     <PrayerHeader
       avatarSize={'medium'}
