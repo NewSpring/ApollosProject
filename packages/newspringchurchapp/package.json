@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.2.2",
+  "version": "7.2.0",
   "private": true,
   "devDependencies": {
     "@apollosproject/ui-storybook": "^1.1.0-beta.0",
