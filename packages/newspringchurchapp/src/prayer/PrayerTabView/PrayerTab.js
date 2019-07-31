@@ -19,10 +19,9 @@ const StyledH4 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H4);
 
-const StyledButton = styled(({ theme }) => ({
+const StyledButton = styled({
   width: '100%',
-  backgroundColor: theme.colors.inactive,
-}))(Button);
+})(Button);
 
 const PrayerTab = memo(
   ({ prayers, type, title, description, loading, ...props }) => (
