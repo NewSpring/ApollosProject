@@ -19,18 +19,24 @@ const StyledH4 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H4);
 
+const StyledButton = styled(({ theme }) => ({
+  width: '100%',
+  backgroundColor: theme.colors.inactive,
+}))(Button);
+
 const PrayerTab = memo(
   ({ prayers, type, title, description, loading, ...props }) => (
     <HorizontalPaddedView>
       {prayers.length > 0 ? (
         <View>
           <VerticalPaddedView>
-            <StyledBodyText isLoading={loading} placeholder={'Loading Prayers'}>
+            <StyledH4 isLoading={loading} placeholder={'Loading Prayers'}>
               {description}
-            </StyledBodyText>
+            </StyledH4>
           </VerticalPaddedView>
-          <Button
+          <StyledButton
             title="Start Praying"
+            isLoading={loading}
             onPress={() =>
               props.navigation.navigate('PrayerList', {
                 prayers,
