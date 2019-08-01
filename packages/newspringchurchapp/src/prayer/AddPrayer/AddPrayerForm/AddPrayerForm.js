@@ -54,7 +54,7 @@ const SwitchContainer = styled(({ theme }) => ({
 }))(View);
 
 const AddPrayerForm = memo(
-  ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
+  ({ onSubmit, avatarSource, title, btnLabel, loading, ...props }) => (
     <Formik
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={(values, { resetForm }) => {
@@ -68,6 +68,7 @@ const AddPrayerForm = memo(
             <ShrinkingView behavior={'padding'}>
               <HeaderView>
                 <PrayerHeader
+                  loading={loading}
                   avatarSource={values.anonymous ? null : avatarSource}
                   avatarSize={'medium'}
                   title={title}
@@ -112,6 +113,7 @@ AddPrayerForm.propTypes = {
   }),
   title: PropTypes.string,
   btnLabel: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 AddPrayerForm.defaultProps = {
