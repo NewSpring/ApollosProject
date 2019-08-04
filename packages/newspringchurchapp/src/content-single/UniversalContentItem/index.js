@@ -33,7 +33,10 @@ const UniversalContentItem = ({ content, loading }) => {
             {content.title}
           </H2>
           <HTMLContent contentId={content.id} />
-          <Features contentId={content.id} />
+          <Features
+            contentId={content.id}
+            asNotes={content.__typename === 'ContentSeriesContentItem'}
+          />
         </PaddedView>
         <HorizontalContentFeed contentId={content.id} />
       </FlexedScrollView>

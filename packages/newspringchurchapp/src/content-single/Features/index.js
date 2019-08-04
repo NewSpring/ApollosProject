@@ -1,9 +1,12 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { ErrorCard } from '@apollosproject/ui-kit';
+import { ErrorCard, ActionCard, PaddedView } from '@apollosproject/ui-kit';
+import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
+import CustomNotes from './CustomNotes';
 
 import GET_CONTENT_ITEM_FEATURES from './getContentItemFeatures';
 
@@ -11,7 +14,7 @@ const FEATURE_MAP = {
   TextFeature,
 };
 
-const Features = ({ contentId }) => {
+const Features = ({ contentId, asNotes }) => {
   if (!contentId) return null;
 
   return (
@@ -21,12 +24,23 @@ const Features = ({ contentId }) => {
         if (loading) return null;
 
         const features = get(node, 'features', []);
-        return features.map(({ __typename, ...feature }) => {
+        const featureComponents = features.map(({ __typename, ...feature }) => {
           const Feature = FEATURE_MAP[__typename];
           return (
-            <Feature key={feature.id} {...feature} contentId={contentId} />
+            <View key={feature.id}>
+              <Feature {...feature} contentId={contentId} card={!asNotes} />
+              {asNotes ? <CustomNotes /> : null}
+              <PaddedView />
+            </View>
           );
         });
+        return asNotes ? (
+          <ActionCard action={<ShareButton icon={'play'} itemId={contentId} />}>
+            {featureComponents}
+          </ActionCard>
+        ) : (
+          featureComponents
+        );
       }}
     </Query>
   );
@@ -34,6 +48,12 @@ const Features = ({ contentId }) => {
 
 Features.propTypes = {
   contentId: PropTypes.string,
+  asNotes: PropTypes.bool,
+};
+
+Features.defaultProps = {
+  // asNotes: false,
+  asNotes: true,
 };
 
 export default Features;

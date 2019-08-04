@@ -5,21 +5,28 @@ import { TouchableOpacity } from 'react-native';
 import { ActionCard, BodyText } from '@apollosproject/ui-kit';
 import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
 
-const TextFeature = ({ body, contentId }) => {
+const TextFeature = ({ body, contentId, card }) => {
   const [isPressed, press] = useState(false);
   const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
     '_'.repeat(p1.length)
   );
   const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
+  const FillInTheBlank = () => (
+    <BodyText>{isPressed ? bodyWithWord : bodyWithBlank}</BodyText>
+  );
 
   return (
     <TouchableOpacity onPress={() => press(true)}>
-      <ActionCard
-        icon={'play'}
-        action={<ShareButton message={body} itemId={contentId} />}
-      >
-        <BodyText>{isPressed ? bodyWithWord : bodyWithBlank}</BodyText>
-      </ActionCard>
+      {card ? (
+        <ActionCard
+          icon={'play'}
+          action={<ShareButton message={body} itemId={contentId} />}
+        >
+          <FillInTheBlank />
+        </ActionCard>
+      ) : (
+        <FillInTheBlank />
+      )}
     </TouchableOpacity>
   );
 };
@@ -27,6 +34,11 @@ const TextFeature = ({ body, contentId }) => {
 TextFeature.propTypes = {
   body: PropTypes.string.isRequired,
   contentId: PropTypes.string.isRequired,
+  card: PropTypes.bool,
+};
+
+TextFeature.defaultProps = {
+  card: true,
 };
 
 export const TEXT_FEATURE_FRAGMENT = `
