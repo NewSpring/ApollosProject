@@ -14,6 +14,7 @@ class AddPrayerFormConnected extends React.Component {
     return (
       <Query query={getUserProfile}>
         {({
+          loading: profileLoading,
           data: {
             currentUser: {
               profile: {
@@ -28,6 +29,7 @@ class AddPrayerFormConnected extends React.Component {
           <Mutation mutation={ADD_PRAYER}>
             {(addPrayer) => (
               <AddPrayerForm
+                loading={profileLoading}
                 onSubmit={(values) => {
                   addPrayer({
                     variables: {

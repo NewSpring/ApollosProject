@@ -15,7 +15,11 @@ const GreyH6 = styled(({ theme }) => ({
 const PrayerHeader = (props) => (
   <View>
     <AvatarView>
-      <Avatar source={props.avatarSource} size={props.avatarSize} />
+      <Avatar
+        isLoading={props.loading}
+        source={props.avatarSource}
+        size={props.avatarSize}
+      />
     </AvatarView>
     <H3>{props.title}</H3>
     {props.source ? <GreyH6>{props.source}</GreyH6> : null}
@@ -27,6 +31,7 @@ PrayerHeader.propTypes = {
   avatarSource: PropTypes.shape({ uri: PropTypes.string }),
   title: PropTypes.string,
   source: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 PrayerHeader.defaultProps = {
