@@ -23,6 +23,7 @@ import {
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ExtendedPerson from './people';
+import * as WeekendContentItem from './weekend-content-items';
 import * as ContentItem from './content-items';
 import * as Campus from './campuses';
 import * as Interactions from './interactions';
@@ -36,6 +37,7 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
+  WeekendContentItem,
   Person,
   ExtendedPerson,
   Auth,
