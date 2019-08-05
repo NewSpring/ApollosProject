@@ -2,7 +2,14 @@ import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { ErrorCard, ActionCard, PaddedView } from '@apollosproject/ui-kit';
+import {
+  ErrorCard,
+  ActionCard,
+  PaddedView,
+  H4,
+  H3,
+  H5,
+} from '@apollosproject/ui-kit';
 import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
@@ -29,13 +36,26 @@ const Features = ({ contentId, asNotes }) => {
           return (
             <View key={feature.id}>
               <Feature {...feature} contentId={contentId} card={!asNotes} />
-              {asNotes ? <CustomNotes /> : null}
-              <PaddedView />
+              {asNotes ? (
+                <>
+                  <CustomNotes />
+                  <PaddedView />
+                </>
+              ) : null}
             </View>
           );
         });
         return asNotes ? (
           <ActionCard action={<ShareButton icon={'play'} itemId={contentId} />}>
+            {/* TODO pass featureComponents consisting of just <Feature>
+             ** into a <Notes> component */}
+            <H3>Sermon Notes</H3>
+            <H5>Title</H5>
+            <H5>Series - Week # - Date</H5>
+            <H5>Preacher</H5>
+            <PaddedView />
+            <H4>1. Point One</H4>
+            <PaddedView />
             {featureComponents}
           </ActionCard>
         ) : (
@@ -53,7 +73,7 @@ Features.propTypes = {
 
 Features.defaultProps = {
   // asNotes: false,
-  asNotes: true,
+  asNotes: false,
 };
 
 export default Features;
