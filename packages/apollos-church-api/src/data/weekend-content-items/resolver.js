@@ -3,7 +3,7 @@ import { resolverMerge } from '@apollosproject/server-core';
 
 const resolver = {
   WeekendContentItem: {
-    communicator: (parent, args, context) => null,
+    communicator: () => null,
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
   },
