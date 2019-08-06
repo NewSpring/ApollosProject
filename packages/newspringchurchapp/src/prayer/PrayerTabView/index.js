@@ -6,6 +6,7 @@ import { TabView } from 'react-native-tab-view';
 import {
   styled,
   HorizontalTileFeed,
+  Placeholder,
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
@@ -79,7 +80,7 @@ class PrayerTabView extends PureComponent {
                 variables={{ campusId: id }}
                 fetchPolicy="cache-and-network"
               >
-                {({ data, loading: prayersLoading }) => (
+                {({ data = { prayers: [] }, loading: prayersLoading }) => (
                   <PrayerTab
                     loading={prayersLoading || profileLoading}
                     prayers={Object.values(data)[0]}
