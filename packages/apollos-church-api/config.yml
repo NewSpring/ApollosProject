@@ -24,6 +24,8 @@ ONE_SIGNAL:
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
 CHURCH_ONLINE:
   URL: https://live.newspring.cc/api/v1/
+  MEDIA_URLS: []
+  WEB_VIEW_URL: https://live.newspring.cc
 TWILIO:
   ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
   AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
@@ -75,6 +77,7 @@ ROCK_MAPPINGS:
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
+      ContentChannelId: [5]
       EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
