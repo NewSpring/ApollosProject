@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-
 import { ApolloConsumer } from 'react-apollo';
 
 import { styled } from '@apollosproject/ui-kit';
