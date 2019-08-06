@@ -6,7 +6,6 @@ import { TabView } from 'react-native-tab-view';
 import {
   styled,
   HorizontalTileFeed,
-  Placeholder,
   TouchableScale,
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
