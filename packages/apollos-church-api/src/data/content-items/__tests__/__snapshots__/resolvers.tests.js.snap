@@ -37,8 +37,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -86,8 +86,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -135,8 +135,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
