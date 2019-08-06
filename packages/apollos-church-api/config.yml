@@ -79,6 +79,7 @@ ROCK_MAPPINGS:
     WeekendContentItem:
       ContentChannelId: [5]
       EntityType: ContentChannelItem
+      ContentChannelId: [19]
     ContentItem:
       EntityType: ContentChannelItem
 
@@ -97,6 +98,7 @@ ROCK_MAPPINGS:
     - 27
     - 16
     - 18
+    - 19
     - 20
     - 28
 

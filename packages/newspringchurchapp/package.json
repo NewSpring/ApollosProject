@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.2.0",
+  "version": "7.2.4",
   "private": true,
   "devDependencies": {
     "@apollosproject/ui-storybook": "^0.8.6",
@@ -20,6 +20,7 @@
     "react-native-storybook-loader": "1.8.0",
     "react-native-version": "2.6.2",
     "react-test-renderer": "16.8.3",
+    "standard-version": "^6.0.1",
     "waait": "1.0.2"
   },
   "engines": {
@@ -45,6 +46,7 @@
     "storybook": "rnstl --searchDir ../ --pattern \"newspringchurchapp/src/**/*.stories.js\" && storybook start -p 7007  | react-native start --projectRoot $PWD/storybook",
     "test": "jest",
     "release": "standard-version --release-as minor",
+    "bump": "standard-version",
     "storybook:enable": "sed -i '' 's/STORYBOOK=false/STORYBOOK=true/g' .env",
     "storybook:disable": "sed -i '' 's/STORYBOOK=true/STORYBOOK=false/g' .env",
     "generate-stories": "rnstl --searchDir ./src --pattern **/*.stories.js"
@@ -67,6 +69,15 @@
     "setupFiles": [
       "./jest.setup.js"
     ]
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "yarn postversion"
+    },
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
   },
   "dependencies": {
     "@apollosproject/ui-analytics": "^1.1.0-beta.3",
