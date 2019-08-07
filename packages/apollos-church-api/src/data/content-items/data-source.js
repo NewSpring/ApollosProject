@@ -159,8 +159,8 @@ export default class ContentItem extends oldContentItem.dataSource {
   };
 
   getFeatures({ attributeValues }) {
-    const { Features } = this.context.dataSources;
     const features = [];
+    const { Features } = this.context.dataSources;
 
     const rawFeatures = get(attributeValues, 'features.value', '');
     parseKeyValueAttribute(rawFeatures).forEach(({ key, value }, i) => {
