@@ -19,12 +19,12 @@ import {
   Template,
   AuthSms,
   BinaryFiles,
-  Features,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ExtendedPerson from './people';
 import * as WeekendContentItem from './weekend-content-items';
 import * as ContentItem from './content-items';
+import * as Features from './features';
 import * as Campus from './campuses';
 import * as Interactions from './interactions';
 import * as RockConstants from './rock-constants';
@@ -37,6 +37,7 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
+  Features,
   WeekendContentItem,
   Person,
   ExtendedPerson,
@@ -59,7 +60,6 @@ const data = {
   Template,
   Campus,
   BinaryFiles,
-  Features,
 };
 
 const {
