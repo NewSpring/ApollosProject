@@ -3,16 +3,17 @@ import gql from 'graphql-tag';
 export default gql`
   type NoteFeature implements Feature & Node {
     id: ID!
-    order: Number
+    order: Int
 
     placeholder: String
   }
 
   type HeaderFeature implements Feature & Node {
     id: ID!
-    order: Number
+    order: Int
 
     body: String
-    sharing: SharableFeature
+    # TODO waiting on core release
+    # sharing: SharableFeature
   }
 `;

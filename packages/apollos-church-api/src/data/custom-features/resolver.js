@@ -3,10 +3,11 @@ import { resolverMerge } from '@apollosproject/server-core';
 
 const resolver = {
   HeaderFeature: {
-    sharing: ({ body }) => ({
-      title: 'Share via...',
-      message: body,
-    }),
+    // TODO waiting on core release
+    // sharing: ({ body }) => ({
+    // title: 'Share via...',
+    // message: body,
+    // }),
   },
 };
 
