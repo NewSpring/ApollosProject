@@ -63,6 +63,13 @@ exports[`the PrayerHeader component renders an anonymous prayer header 1`] = `
               Object {
                 "aspectRatio": 1,
                 "backgroundColor": "#dddddd",
+                "borderRadius": 40,
+                "bottom": 0,
+                "height": "100%",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
                 "width": "100%",
               }
             }
@@ -190,6 +197,13 @@ exports[`the PrayerHeader component renders the prayer header 1`] = `
               Object {
                 "aspectRatio": 1,
                 "backgroundColor": "#dddddd",
+                "borderRadius": 40,
+                "bottom": 0,
+                "height": "100%",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
                 "width": "100%",
               }
             }
