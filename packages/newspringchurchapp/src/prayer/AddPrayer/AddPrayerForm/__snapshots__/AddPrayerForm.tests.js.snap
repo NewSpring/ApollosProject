@@ -843,6 +843,13 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                       Object {
                         "aspectRatio": 1,
                         "backgroundColor": "#dddddd",
+                        "borderRadius": 40,
+                        "bottom": 0,
+                        "height": "100%",
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
                         "width": "100%",
                       }
                     }
