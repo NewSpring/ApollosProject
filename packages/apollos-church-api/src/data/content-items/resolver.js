@@ -7,6 +7,10 @@ import ApollosConfig from '@apollosproject/config';
 const { ROCK_MAPPINGS } = ApollosConfig;
 
 const resolver = {
+  Query: {
+    externalLink: (root, { slug }, { dataSources }) =>
+      dataSources.ContentItem.getBySlug(slug),
+  },
   ContentSeriesContentItem: {
     theme: (contentItem) => ({
       type: () => 'LIGHT',

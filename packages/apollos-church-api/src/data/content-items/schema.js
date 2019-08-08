@@ -1,3 +1,9 @@
-import { ContentItem } from '@apollosproject/data-connector-rock';
+import gql from 'graphql-tag';
 
-export default ContentItem.schema;
+const linkSchema = gql`
+  extend type Query {
+    externalLink(slug: String!): ContentItem
+  }
+`;
+
+export default linkSchema;

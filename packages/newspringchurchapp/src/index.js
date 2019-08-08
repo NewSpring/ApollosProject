@@ -23,7 +23,7 @@ import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
-import linkParser from './LinkParser';
+import linkParser from './Linking/LinkParser';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -71,20 +71,27 @@ function getActiveRouteName(navigationState) {
 }
 
 const App = () => {
-  useEffect(() => {
-    function _handleOpenURL(event) {
-      console.log('url:', linkParser(event));
-    }
-    Linking.addEventListener('url', _handleOpenURL);
-    Linking.getInitialURL().then((url) => {
+  console.log('helllososos');
+
+  function handleOpenURL(event) {
+    console.log('url:', linkParser(event));
+    linkParser(event);
+  }
+  useEffect((url) => {
+    console.log('inside the useEffect');
+    console.log(url);
+    Linking.addEventListener('url', handleOpenURL);
+    console.log('after the listener');
+    Linking.getInitialURL().then(() => {
       if (url) {
         // fetch for the contentSingle ID here
-        _handleOpenURL({ url });
+        console.log('url jsjs', url);
+        handleOpenURL({ url });
       }
     });
 
-    return () => {
-      Linking.removeEventListener('url', _handleOpenURL);
+    return function cleanup() {
+      Linking.removeEventListener('url', handleOpenURL);
     };
   });
   return (

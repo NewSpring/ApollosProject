@@ -20,6 +20,7 @@ import {
   AuthSms,
   BinaryFiles,
   Features,
+  ContentItem as BaseContentItem,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ExtendedPerson from './people';
@@ -36,7 +37,7 @@ import * as OneSignalWithRock from './oneSignalWithRock';
 const data = {
   Followings,
   ContentChannel,
-  ContentItem,
+  BaseContentItem,
   WeekendContentItem,
   Person,
   ExtendedPerson,
@@ -60,6 +61,7 @@ const data = {
   Campus,
   BinaryFiles,
   Features,
+  ContentItem,
 };
 
 const {

@@ -30,4 +30,14 @@ public class MainActivity extends ReactActivity {
       }
     };
   }
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    Intent intent = getIntent();
+    String action = intent.getAction();
+    Uri data = intent.getData();
+  }
 }
