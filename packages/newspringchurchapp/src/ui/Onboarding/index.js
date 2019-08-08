@@ -15,6 +15,8 @@ import {
 
 import { requestPushPermissions } from '@apollosproject/ui-notifications';
 
+import CustomLocationFinder from './CustomLocationFinder';
+
 const ImageContainer = styled({
   justifyContent: 'flex-end',
   height: '50%',
@@ -60,6 +62,7 @@ function Onboarding({ navigation }) {
                 <StyledImage source={require('./img/screen3.png')} />
               </ImageContainer>
             }
+            Component={<CustomLocationFinder />}
           />
           <ApolloConsumer>
             {(client) => (
