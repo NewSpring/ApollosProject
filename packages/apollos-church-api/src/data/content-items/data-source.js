@@ -1,6 +1,7 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
 import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
+import { parseKeyValueAttribute } from '@apollosproject/rock-apollo-data-source';
 import { createAssetUrl } from '../utils';
 
 import getScripturesFromTemplate from './getScripturesFromTemplate';
@@ -156,6 +157,52 @@ export default class ContentItem extends oldContentItem.dataSource {
       return '';
     }
   };
+
+  getFeatures({ attributeValues }) {
+    const features = [];
+    const { Features } = this.context.dataSources;
+
+    const rawFeatures = get(attributeValues, 'features.value', '');
+    parseKeyValueAttribute(rawFeatures).forEach(({ key, value }, i) => {
+      switch (key) {
+        case 'scripture':
+          features.push(
+            Features.createScriptureFeature({
+              reference: value,
+              id: `${attributeValues.features.id}-${i}`,
+            })
+          );
+          break;
+        case 'text':
+          features.push(
+            Features.createTextFeature({
+              text: value,
+              id: `${attributeValues.features.id}-${i}`,
+            })
+          );
+          break;
+        case 'note':
+          features.push(
+            Features.createNoteFeature({
+              placeholder: value,
+              id: `${attributeValues.features.id}-${i}`,
+            })
+          );
+          break;
+        case 'header':
+          features.push(
+            Features.createHeaderFeature({
+              body: value,
+              id: `${attributeValues.features.id}-${i}`,
+            })
+          );
+          break;
+        default:
+          console.warn(`Received invalid feature key: ${key}`);
+      }
+    });
+    return features;
+  }
 
   getBySlug = async (slug) => {
     const contentItemFromSlug = await this.request('ContentChannelItemSlugs')
