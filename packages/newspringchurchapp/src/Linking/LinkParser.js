@@ -11,9 +11,8 @@ const LinkParser = ({ url }) => {
   });
   if (loading) return loading;
   if (error) return null;
-  console.log(data);
 
-  return data;
+  return `newspringchurchapp://AppStackNavigator/ContentItem?itemId=${data}`;
 };
 
 LinkParser.propTypes = {
