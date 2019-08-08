@@ -1,7 +1,13 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import { styled, Button, BodyText, H4 } from '@apollosproject/ui-kit';
+import {
+  styled,
+  Button,
+  BodyText,
+  H4,
+  Placeholder,
+} from '@apollosproject/ui-kit';
 
 const VerticalPaddedView = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
@@ -26,36 +32,40 @@ const StyledButton = styled({
 const PrayerTab = memo(
   ({ prayers, type, title, description, loading, ...props }) => (
     <HorizontalPaddedView>
-      {prayers.length > 0 ? (
-        <View>
+      <Placeholder.Paragraph
+        lineNumber={2}
+        onReady={!loading}
+        lastLineWidth="100%"
+        firstLineWidth="60%"
+      >
+        {prayers.length > 0 ? (
+          <View>
+            <VerticalPaddedView>
+              <StyledH4 placeholder={'Loading Prayers'}>{description}</StyledH4>
+            </VerticalPaddedView>
+            <StyledButton
+              title="Start Praying"
+              onPress={() =>
+                props.navigation.navigate('PrayerList', {
+                  prayers,
+                  title,
+                })
+              }
+            />
+          </View>
+        ) : (
           <VerticalPaddedView>
-            <StyledH4 isLoading={loading} placeholder={'Loading Prayers'}>
-              {description}
-            </StyledH4>
+            {type === 'saved' ? (
+              <StyledH4>You do not have any saved prayers</StyledH4>
+            ) : (
+              <>
+                <StyledH4>There are no prayers yet for your {type}</StyledH4>
+                <StyledBodyText>Be the first to add one!</StyledBodyText>
+              </>
+            )}
           </VerticalPaddedView>
-          <StyledButton
-            title="Start Praying"
-            isLoading={loading}
-            onPress={() =>
-              props.navigation.navigate('PrayerList', {
-                prayers,
-                title,
-              })
-            }
-          />
-        </View>
-      ) : (
-        <VerticalPaddedView>
-          {type === 'saved' ? (
-            <StyledH4>You do not have any saved prayers</StyledH4>
-          ) : (
-            <>
-              <StyledH4>There are no prayers yet for your {type}</StyledH4>
-              <StyledBodyText>Be the first to add one!</StyledBodyText>
-            </>
-          )}
-        </VerticalPaddedView>
-      )}
+        )}
+      </Placeholder.Paragraph>
     </HorizontalPaddedView>
   )
 );
