@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 import { ActionCard, TextInput, Touchable } from '@apollosproject/ui-kit';
 import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
 
-const NotesFeature = ({ placeholder, contentId }) => {
+const NoteFeature = ({ placeholder, contentId }) => {
   const [hasBox, showBox] = useState(false);
   const [notes, changeNotes] = useState('');
   return (
@@ -28,16 +28,16 @@ const NotesFeature = ({ placeholder, contentId }) => {
   );
 };
 
-NotesFeature.propTypes = {
+NoteFeature.propTypes = {
   placeholder: PropTypes.string,
   contentId: PropTypes.string.isRequired,
 };
 
-export const NOTES_FEATURE_FRAGMENT = `
-fragment NotesFeatureFragment on NotesFeature {
+export const NOTE_FEATURE_FRAGMENT = `
+fragment NoteFeatureFragment on NoteFeature {
   placeholder
   id
 }
 `;
 
-export default NotesFeature;
+export default NoteFeature;

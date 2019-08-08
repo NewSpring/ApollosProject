@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { TEXT_FEATURE_FRAGMENT } from './TextFeature';
 import { SCRIPTURE_FEATURE_FRAGMENT } from './ScriptureFeature';
 import { HEADER_FEATURE_FRAGMENT } from './HeaderFeature';
-import { NOTES_FEATURE_FRAGMENT } from './NotesFeature';
+import { NOTE_FEATURE_FRAGMENT } from './NoteFeature';
 
 const FEATURES_FRAGMENT = `
   fragment FeaturesFragment on Feature {
@@ -10,12 +10,12 @@ const FEATURES_FRAGMENT = `
     ...TextFeatureFragment
     ...ScriptureFeatureFragment
     ...HeaderFeatureFragment
-    ...NotesFeatureFragment
+    ...NoteFeatureFragment
   }
   ${TEXT_FEATURE_FRAGMENT}
   ${SCRIPTURE_FEATURE_FRAGMENT}
   ${HEADER_FEATURE_FRAGMENT}
-  ${NOTES_FEATURE_FRAGMENT}
+  ${NOTE_FEATURE_FRAGMENT}
 `;
 
 export default gql`
