@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -6,10 +7,11 @@ import {
   PaddedView,
   styled,
   Button,
+  ButtonLink,
   Touchable,
 } from '@apollosproject/ui-kit';
 
-import Slide, { SlideContent } from '@apollosproject/ui-onboarding';
+import { Slide, SlideContent } from '@apollosproject/ui-onboarding';
 
 const getCampusAddress = (campus) =>
   `${campus.street1}\n${campus.city}, ${campus.state} ${campus.postalCode}`;
@@ -23,6 +25,11 @@ const StyledSlideContent = styled({
   justifyContent: 'space-between',
 })(SlideContent);
 
+const StyledButtonLink = styled(({ theme }) => ({
+  alignSelf: 'center',
+  color: theme.colors.text.tertiary,
+}))(ButtonLink);
+
 // memo = sfc PureComponent 💥
 const LocationFinder = memo(
   ({
@@ -33,40 +40,43 @@ const LocationFinder = memo(
     buttonText,
     buttonDisabled,
     onPressButton,
-    isCurrentCampus,
     campus,
+    onSelectWeb,
+    onPressSecondary,
     ...props
   }) => (
-    <Slide {...props}>
+    <Slide onPressSecondary={onPressSecondary ? onSelectWeb : null} {...props}>
       {BackgroundComponent}
       <StyledSlideContent title={slideTitle} description={description}>
-        {campus ? (
-          <Touchable onPress={onPressButton}>
-            <StyledCampusCard
-              key={campus.id}
-              distance={campus.distanceFromLocation}
-              title={campus.name}
-              description={getCampusAddress(campus)}
-              images={[campus.image]}
-            />
-          </Touchable>
-        ) : (
-          <PaddedView horizontal={false}>
-            <Button
-              title={buttonText}
-              onPress={onPressButton}
-              disabled={buttonDisabled}
-              pill={false}
-            />
-          </PaddedView>
-        )}
+        <View>
+          <StyledButtonLink onPress={onSelectWeb}>
+            I attend online
+          </StyledButtonLink>
+          {campus ? (
+            <Touchable onPress={onPressButton}>
+              <StyledCampusCard
+                key={campus.id}
+                distance={campus.distanceFromLocation}
+                title={campus.name}
+                description={getCampusAddress(campus)}
+                images={[campus.image]}
+              />
+            </Touchable>
+          ) : (
+            <PaddedView horizontal={false}>
+              <Button
+                title={buttonText}
+                onPress={onPressButton}
+                disabled={buttonDisabled}
+                pill={false}
+              />
+            </PaddedView>
+          )}
+        </View>
       </StyledSlideContent>
     </Slide>
   )
 );
-
-LocationFinder.CampusCard = StyledCampusCard;
-LocationFinder.SlideContent = StyledSlideContent;
 
 LocationFinder.propTypes = {
   /* The `Swiper` component used in `<Onboarding>` looks for and hijacks the title prop of it's
@@ -90,7 +100,8 @@ LocationFinder.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
   }),
-  isCurrentCampus: PropTypes.bool,
+  onSelectWeb: PropTypes.func,
+  onPressSecondary: PropTypes.func,
 };
 
 LocationFinder.displayName = 'LocationFinder';
