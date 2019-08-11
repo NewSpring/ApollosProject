@@ -29,78 +29,80 @@ const StyledImage = styled({
   width: '100%',
 })(Image);
 
-const Onboarding = ({ navigation }) => (
-  <OnboardingSwiper>
-    {({ swipeForward }) => (
-      <>
-        <AskNameConnected onPressPrimary={swipeForward} />
-        <FeaturesConnected
-          onPressPrimary={swipeForward}
-          BackgroundComponent={
-            <ImageContainer>
-              <StyledImage source={require('./img/screen1.png')} />
-            </ImageContainer>
-          }
-        />
-        <AboutYouConnected
-          onPressPrimary={swipeForward}
-          BackgroundComponent={
-            <ImageContainer>
-              <StyledImage source={require('./img/screen2.png')} />
-            </ImageContainer>
-          }
-        />
-        <LocationFinderConnected
-          onPressPrimary={swipeForward}
-          onNavigate={() => {
-            navigation.navigate('Location', {
-              onFinished: swipeForward,
-            });
-          }}
-          BackgroundComponent={
-            <ImageContainer>
-              <StyledImage source={require('./img/screen3.png')} />
-            </ImageContainer>
-          }
-          Component={({ ...props }) => (
-            <Mutation mutation={CHANGE_CAMPUS}>
-              {(changeCampus) => (
-                <CustomLocationFinder
-                  onSelectWeb={() => {
-                    swipeForward();
-                    changeCampus({
-                      variables: {
-                        // web campus
-                        campusId: 'Campus:05c9c6351be882103edb1e350c77422b',
-                      },
-                    });
-                  }}
-                  {...props}
-                />
-              )}
-            </Mutation>
-          )}
-        />
-        <ApolloConsumer>
-          {(client) => (
-            <AskNotificationsConnected
-              onPressPrimary={() => navigation.replace('Tabs')}
-              onRequestPushPermissions={() =>
-                requestPushPermissions({ client })
-              }
-              primaryNavText={'Finish'}
-              BackgroundComponent={
-                <ImageContainer>
-                  <StyledImage source={require('./img/screen4.png')} />
-                </ImageContainer>
-              }
-            />
-          )}
-        </ApolloConsumer>
-      </>
-    )}
-  </OnboardingSwiper>
-);
+function Onboarding({ navigation }) {
+  return (
+    <OnboardingSwiper>
+      {({ swipeForward }) => (
+        <>
+          <AskNameConnected onPressPrimary={swipeForward} />
+          <FeaturesConnected
+            onPressPrimary={swipeForward}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen1.png')} />
+              </ImageContainer>
+            }
+          />
+          <AboutYouConnected
+            onPressPrimary={swipeForward}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen2.png')} />
+              </ImageContainer>
+            }
+          />
+          <LocationFinderConnected
+            onPressPrimary={swipeForward}
+            onNavigate={() => {
+              navigation.navigate('Location', {
+                onFinished: swipeForward,
+              });
+            }}
+            BackgroundComponent={
+              <ImageContainer>
+                <StyledImage source={require('./img/screen3.png')} />
+              </ImageContainer>
+            }
+            Component={({ ...props }) => (
+              <Mutation mutation={CHANGE_CAMPUS}>
+                {(changeCampus) => (
+                  <CustomLocationFinder
+                    onSelectWeb={() => {
+                      swipeForward();
+                      changeCampus({
+                        variables: {
+                          // web campus
+                          campusId: 'Campus:05c9c6351be882103edb1e350c77422b',
+                        },
+                      });
+                    }}
+                    {...props}
+                  />
+                )}
+              </Mutation>
+            )}
+          />
+          <ApolloConsumer>
+            {(client) => (
+              <AskNotificationsConnected
+                onPressPrimary={() => navigation.replace('Tabs')}
+                onRequestPushPermissions={() =>
+                  requestPushPermissions({ client })
+                }
+                primaryNavText={'Finish'}
+                BackgroundComponent={
+                  <ImageContainer>
+                    <StyledImage source={require('./img/screen4.png')} />
+                  </ImageContainer>
+                }
+              />
+            )}
+          </ApolloConsumer>
+        </>
+      )}
+    </OnboardingSwiper>
+  );
+}
 Onboarding.navigationOptions = {
   title: 'Onboarding',
   header: null,
