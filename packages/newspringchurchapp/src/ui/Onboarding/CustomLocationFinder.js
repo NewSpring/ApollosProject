@@ -9,7 +9,7 @@ import {
   Touchable,
 } from '@apollosproject/ui-kit';
 
-import Slide, { SlideContent } from '../../Slide';
+import Slide, { SlideContent } from '@apollosproject/ui-onboarding';
 
 const getCampusAddress = (campus) =>
   `${campus.street1}\n${campus.city}, ${campus.state} ${campus.postalCode}`;

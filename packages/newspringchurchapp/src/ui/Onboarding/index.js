@@ -62,7 +62,7 @@ function Onboarding({ navigation }) {
                 <StyledImage source={require('./img/screen3.png')} />
               </ImageContainer>
             }
-            Component={<CustomLocationFinder />}
+            Component={() => <CustomLocationFinder />}
           />
           <ApolloConsumer>
             {(client) => (
