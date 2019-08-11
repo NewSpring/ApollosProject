@@ -26,12 +26,6 @@
             <category android:name="android.intent.category.LAUNCHER" />
             <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
         </intent-filter>
-        <intent-filter android:label="filter_react_native">
-          <action android:name="android.intent.action.VIEW" />
-          <category android:name="android.intent.category.DEFAULT" />
-          <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="newspringchurchapp" android:host="AppStackNavigator" />
-        </intent-filter>
       </activity>
       <activity
         android:name=".MainActivity"
@@ -39,7 +33,15 @@
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustPan"
         android:launchMode="singleTask"
-      />
+        >
+        <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="newspringchurchapp" />
+          <data android:scheme="https" android:host="www.newspring.cc" />
+        </intent-filter>
+      </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
 
