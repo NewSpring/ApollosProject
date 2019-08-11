@@ -5,12 +5,16 @@ import { ErrorCard } from '@apollosproject/ui-kit';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
 import ScriptureFeature from './ScriptureFeature';
+import HeaderFeature from './HeaderFeature';
+import NoteFeature from './NoteFeature';
 
 import GET_CONTENT_ITEM_FEATURES from './getContentItemFeatures';
 
 const FEATURE_MAP = {
   TextFeature,
   ScriptureFeature,
+  HeaderFeature,
+  NoteFeature,
 };
 
 const Features = ({ contentId }) => {
