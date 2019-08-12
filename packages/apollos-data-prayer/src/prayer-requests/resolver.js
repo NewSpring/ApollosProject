@@ -68,6 +68,7 @@ export default {
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    lastPrayedDateTime: () => null,
     flagCount: ({ flagCount }) =>
       (typeof flagCount === 'number' && flagCount) || 0,
     prayerCount: ({ prayerCount }) =>
