@@ -154,19 +154,6 @@ export default class PrayerRequest extends RockApolloDataSource {
     return this.sortPrayers(prayers);
   };
 
-  getLastPrayedTime = async (id) => {
-    const interactionComponent = await this.getInteractionComponent({
-      prayerId: id,
-    });
-    // TODO test after new prayer is created, before it's prayed for
-    // if (intComp = ???) return null
-    const interaction = await this.request('Interactions')
-      .filter(`InteractionComponentId eq ${interactionComponent.id}`)
-      .orderBy('InteractionDateTime', 'desc')
-      .first();
-    return interaction.interactionDateTime;
-  };
-
   // QUERY PrayRequest by ID
   getFromId = (id) =>
     this.request()

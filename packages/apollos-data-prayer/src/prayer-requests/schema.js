@@ -29,7 +29,6 @@ const prayerRequestSchema = gql`
     lastName: String
     text: String!
     enteredDateTime: String!
-    lastPrayedDateTime: String
     flagCount: Int
     prayerCount: Int
     categoryId: Int
