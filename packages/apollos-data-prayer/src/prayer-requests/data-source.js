@@ -49,13 +49,28 @@ export default class PrayerRequest extends RockApolloDataSource {
     const currentUser = await Auth.getCurrentPerson();
     const { requestedByPersonAliasId } = await this.getFromId(prayerId);
 
+    // determine whether to send notification
+    // Rock is triggering the workflow based on the Summary field
+    // if it's older than 2 hours ago
+    const lastPrayerNotified = await this.request('Interactions')
+      .filter(`InteractionData eq '${requestedByPersonAliasId}'`)
+      .andFilter(`Operation eq 'Pray'`)
+      .andFilter(`InteractionSummary eq 'NotificationSent'`)
+      .orderBy('InteractionDateTime', 'desc')
+      .first();
+    const summary =
+      lastPrayerNotified &&
+      moment(lastPrayerNotified.interactionDateTime).add(2, 'hours') < moment()
+        ? 'PrayerNotificationSent'
+        : '';
+
     const interactionId = await this.post('/Interactions', {
       PersonAliasId: currentUser.primaryAliasId,
       InteractionComponentId: interactionComponent.id,
       InteractionSessionId: this.context.sessionId,
       Operation: 'Pray',
       InteractionDateTime: new Date().toJSON(),
-      InteractionSummary: 'Pray',
+      InteractionSummary: summary,
       InteractionData: `${requestedByPersonAliasId}`,
     });
 
