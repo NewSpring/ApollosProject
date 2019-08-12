@@ -8,34 +8,26 @@ class RockConstants extends apollosRockConstants.dataSource {
     prayerRequestId,
     prayerName = null,
   }) {
-    const channel = await this.prayerRequestInteractionChannel();
-    return this.createOrFindInteractionComponent({
-      componentName: `${
-        ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
-      } - ${prayerName || prayerRequestId}`,
-      channelId: channel.id,
-      entityId: parseInt(prayerRequestId, 10),
-    });
+    const { PrayerRequest } = this.context.dataSources;
+    // const channel = await this.prayerRequestInteractionChannel();
+    // return this.createOrFindInteractionComponent({
+    // componentName: `${
+    // ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
+    // } - ${prayerName || prayerRequestId}`,
+    // channelId: channel.id,
+    // entityId: parseInt(prayerRequestId, 10),
+    // });
+    return PrayerRequest.getInteractionComponent({ prayerRequestId });
   }
 
   async prayerRequestInteractionChannel() {
-    const { id } = await this.prayerModelType('PrayerRequest');
-    return this.createOrFindInteractionChannel({
-      channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
-      entityTypeId: id,
-    });
-  }
-
-  async prayerModelType() {
-    const types = await this.request('EntityTypes')
-      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
-      .cache({ ttl: 86400 })
-      .get();
-    if (types.length) {
-      return types[0];
-    }
-
-    return null;
+    const { PrayerRequest } = this.context.dataSources;
+    // const { id } = await this.prayerModelType('PrayerRequest');
+    // return this.createOrFindInteractionChannel({
+    // channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
+    // entityTypeId: id,
+    // });
+    return PrayerRequest.getInteractionChannel();
   }
 }
 

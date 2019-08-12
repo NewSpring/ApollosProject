@@ -18,6 +18,27 @@ export default class PrayerRequest extends RockApolloDataSource {
       return -1;
     });
 
+  getEntityType = async () =>
+    this.request('EntityTypes')
+      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
+      .first();
+
+  getInteractionComponent = async ({ prayerRequestId }) => {
+    const { RockConstants } = this.context.dataSources;
+    const { id } = await this.getEntityType();
+    const channel = await RockConstants.createOrFindInteractionChannel({
+      channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
+      entityTypeId: id,
+    });
+    return RockConstants.createOrFindInteractionComponent({
+      componentName: `${
+        ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
+      } - ${prayerRequestId}`,
+      channelId: channel.id,
+      entityId: parseInt(prayerRequestId, 10),
+    });
+  };
+
   // QUERY ALL PrayerRequests
   getAll = async () => {
     try {
