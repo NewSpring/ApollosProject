@@ -23,20 +23,43 @@ export default class PrayerRequest extends RockApolloDataSource {
       .filter(`Name eq 'Rock.Model.PrayerRequest'`)
       .first();
 
-  getInteractionComponent = async ({ prayerRequestId }) => {
+  getInteractionComponent = async ({ prayerId }) => {
     const { RockConstants } = this.context.dataSources;
-    const { id } = await this.getEntityType();
+    const { id: entityTypeId } = await this.getEntityType();
     const channel = await RockConstants.createOrFindInteractionChannel({
       channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
-      entityTypeId: id,
+      entityTypeId,
     });
     return RockConstants.createOrFindInteractionComponent({
       componentName: `${
         ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
-      } - ${prayerRequestId}`,
+      } - ${prayerId}`,
       channelId: channel.id,
-      entityId: parseInt(prayerRequestId, 10),
+      entityId: parseInt(prayerId, 10),
     });
+  };
+
+  createInteraction = async ({ prayerId }) => {
+    const { Auth } = this.context.dataSources;
+
+    const interactionComponent = await this.getInteractionComponent({
+      prayerId,
+    });
+
+    const currentUser = await Auth.getCurrentPerson();
+    const { requestedByPersonAliasId } = await this.getFromId(prayerId);
+
+    const interactionId = await this.post('/Interactions', {
+      PersonAliasId: currentUser.primaryAliasId,
+      InteractionComponentId: interactionComponent.id,
+      InteractionSessionId: this.context.sessionId,
+      Operation: 'Pray',
+      InteractionDateTime: new Date().toJSON(),
+      InteractionSummary: 'Pray',
+      InteractionData: `${requestedByPersonAliasId}`,
+    });
+
+    return this.get(`/Interactions/${interactionId}`);
   };
 
   // QUERY ALL PrayerRequests
