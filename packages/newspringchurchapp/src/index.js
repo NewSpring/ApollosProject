@@ -72,9 +72,7 @@ function getActiveRouteName(navigationState) {
 class App extends React.Component {
   componentDidMount() {
     Linking.addEventListener('url', this._handleOpenURL);
-    console.log('after the listener');
     Linking.getInitialURL().then((url) => {
-      console.log('url 10', url);
       if (url) {
         // fetch for the contentSingle ID here
         this._handleOpenURL({ url });

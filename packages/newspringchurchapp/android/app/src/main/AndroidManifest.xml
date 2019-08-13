@@ -38,7 +38,7 @@
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="newspringchurchapp" />
+          <data android:scheme="newspringchurchapp" android:host="AppStackNavigator" />
           <data android:scheme="https" android:host="www.newspring.cc" />
         </intent-filter>
       </activity>
