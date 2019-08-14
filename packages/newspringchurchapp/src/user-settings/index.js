@@ -44,7 +44,7 @@ class UserSettings extends PureComponent {
 
                 <WebBrowserConsumer>
                   {(openUrl) => (
-                    <BackgroundView>
+                    <>
                       <TableView>
                         <Touchable
                           onPress={async () => {
@@ -137,7 +137,7 @@ class UserSettings extends PureComponent {
                           )}
                         </Mutation>
                       </TableView>
-                    </BackgroundView>
+                    </>
                   )}
                 </WebBrowserConsumer>
               </ScrollView>
