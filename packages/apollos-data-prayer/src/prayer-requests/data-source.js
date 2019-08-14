@@ -18,6 +18,65 @@ export default class PrayerRequest extends RockApolloDataSource {
       return -1;
     });
 
+  getEntityType = async () =>
+    this.request('EntityTypes')
+      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
+      .first();
+
+  getInteractionComponent = async ({ prayerId }) => {
+    const { RockConstants } = this.context.dataSources;
+    const { id: entityTypeId } = await this.getEntityType();
+    const channel = await RockConstants.createOrFindInteractionChannel({
+      channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
+      entityTypeId,
+    });
+    return RockConstants.createOrFindInteractionComponent({
+      componentName: `${
+        ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
+      } - ${prayerId}`,
+      channelId: channel.id,
+      entityId: parseInt(prayerId, 10),
+    });
+  };
+
+  createInteraction = async ({ prayerId }) => {
+    const { Auth } = this.context.dataSources;
+
+    const interactionComponent = await this.getInteractionComponent({
+      prayerId,
+    });
+
+    const currentUser = await Auth.getCurrentPerson();
+    const { requestedByPersonAliasId } = await this.getFromId(prayerId);
+
+    // determine whether to send notification
+    // Rock is triggering the workflow based on the Summary field
+    // if it's older than 2 hours ago
+    const lastPrayerNotified = await this.request('Interactions')
+      .filter(`InteractionData eq '${requestedByPersonAliasId}'`)
+      .andFilter(`InteractionComponentId eq ${interactionComponent.id}`)
+      .andFilter(`InteractionSummary eq 'PrayerNotificationSent'`)
+      .orderBy('InteractionDateTime', 'desc')
+      .first();
+    const summary =
+      !lastPrayerNotified ||
+      moment(lastPrayerNotified.interactionDateTime).add(2, 'hours') < moment()
+        ? 'PrayerNotificationSent'
+        : '';
+
+    const interactionId = await this.post('/Interactions', {
+      PersonAliasId: currentUser.primaryAliasId,
+      InteractionComponentId: interactionComponent.id,
+      InteractionSessionId: this.context.sessionId,
+      Operation: 'Pray',
+      InteractionDateTime: new Date().toJSON(),
+      InteractionSummary: summary,
+      InteractionData: `${requestedByPersonAliasId}`,
+    });
+
+    return this.get(`/Interactions/${interactionId}`);
+  };
+
   // QUERY ALL PrayerRequests
   getAll = async () => {
     try {
