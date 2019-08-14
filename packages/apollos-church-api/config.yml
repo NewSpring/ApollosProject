@@ -77,7 +77,6 @@ ROCK_MAPPINGS:
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
-<<<<<<< ours
       EntityType: ContentChannelItem
       ContentChannelId: [19]
     ContentItem:

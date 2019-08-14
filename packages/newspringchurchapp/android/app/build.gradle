@@ -159,8 +159,13 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-passkit-wallet')
+    implementation project(':react-native-geolocation-service')
+    implementation project(':react-native-gesture-handler')
        // added this and the two google play packages below when upgraded rn-maps to 0.24.2
     implementation 'com.android.support:multidex:1.0.3'
+    implementation project(':@react-native-community_async-storage')
+    // added this and the two google play packages below when upgraded rn-maps to 0.24.2
     implementation(project(':react-native-maps')){
       exclude group: 'com.google.android.gms', module: 'play-services-base'
       exclude group: 'com.google.android.gms', module: 'play-services-maps'
@@ -170,7 +175,6 @@ dependencies {
     implementation project(':rn-fetch-blob')
     implementation project(':react-native-amplitude-analytics')
     implementation project(':bugsnag-react-native')
-    implementation project(':react-native-gesture-handler')
     implementation project(':react-native-reanimated')
     implementation project(':react-native-webview')
     implementation project(':react-native-video')

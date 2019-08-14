@@ -3,16 +3,13 @@ import { ScrollView, SafeAreaView } from 'react-native';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
-import { BackgroundView, styled } from '@apollosproject/ui-kit';
+
+import { BackgroundView } from '@apollosproject/ui-kit';
 import ActionTable from './ActionTable';
-import Toolbar from './Toolbar';
-import { UserAvatarHeaderConnected } from './UserAvatarHeader';
+import ActionBar from './ActionBar';
+import UserAvatarHeader from './UserAvatarHeader';
 import { RecentlyLikedTileFeedConnected } from './RecentlyLikedTileFeed';
 import GET_USER_PROFILE from './getUserProfile';
-
-const StyledScrollView = styled(({ theme }) => ({
-  marginVertical: theme.sizing.baseUnit,
-}))(ScrollView);
 
 class Connect extends PureComponent {
   static navigationOptions = () => ({
@@ -31,10 +28,10 @@ class Connect extends PureComponent {
     return (
       <BackgroundView>
         <SafeAreaView>
-          <StyledScrollView>
-            <UserAvatarHeaderConnected key="UserAvatarHeaderConnected" />
-            <RecentlyLikedTileFeedConnected key="RecentlyLikedTileFeedConnected" />
-            <Toolbar />
+          <ScrollView>
+            <UserAvatarHeader key="UserAvatarHeaderConnected" />
+            <ActionBar />
+            <RecentlyLikedTileFeedConnected />
             <Query query={GET_USER_PROFILE}>
               {({ data: personData }) => (
                 <ActionTable
@@ -46,7 +43,7 @@ class Connect extends PureComponent {
                 />
               )}
             </Query>
-          </StyledScrollView>
+          </ScrollView>
         </SafeAreaView>
       </BackgroundView>
     );
