@@ -162,7 +162,6 @@ dependencies {
     implementation project(':react-native-passkit-wallet')
     implementation project(':react-native-geolocation-service')
     implementation project(':react-native-gesture-handler')
-       // added this and the two google play packages below when upgraded rn-maps to 0.24.2
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(':@react-native-community_async-storage')
     // added this and the two google play packages below when upgraded rn-maps to 0.24.2
