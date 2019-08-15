@@ -5,6 +5,7 @@ import { createGlobalId } from '@apollosproject/server-core';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
 import {
+  featuresSchema,
   mediaSchema,
   themeSchema,
   scriptureSchema,
@@ -95,7 +96,13 @@ describe('UniversalContentItem', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([themeSchema, mediaSchema, scriptureSchema, liveSchema]);
+    schema = getSchema([
+      featuresSchema,
+      themeSchema,
+      mediaSchema,
+      scriptureSchema,
+      liveSchema,
+    ]);
     context = getContext();
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'

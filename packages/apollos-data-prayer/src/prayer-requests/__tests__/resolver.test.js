@@ -8,11 +8,9 @@ import * as PrayerRequest from '../index';
 import prayerRequestSchema from '../schema';
 import authMock from '../../authMock';
 import campusMock from '../../campusMock';
-import interactionsMock from '../../interactionsMock';
 
 const { getSchema, getContext } = createTestHelpers({
   PrayerRequest,
-  Interactions: { dataSource: interactionsMock },
   Auth: { dataSource: authMock },
   Person: { dataSource: authMock },
   Campus: { dataSource: campusMock },
@@ -93,6 +91,7 @@ describe('PrayerRequest resolver', () => {
     schema = getSchema([prayerRequestSchema, peopleSchema, campusSchema]);
     context = getContext();
     context.dataSources.Person.getFromAliasId = currentPersonResMock;
+    context.dataSources.PrayerRequest.createInteraction = jest.fn(() => null);
     rootValue = {};
   });
 
@@ -213,7 +212,6 @@ describe('PrayerRequest resolver', () => {
       }
     `;
     context.dataSources.PrayerRequest.incrementPrayed = onePrayerResMock;
-
     const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
   });
