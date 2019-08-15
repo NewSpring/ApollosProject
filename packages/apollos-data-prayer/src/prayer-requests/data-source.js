@@ -54,10 +54,15 @@ export default class PrayerRequest extends RockApolloDataSource {
     // if it's older than 2 hours ago
     const lastPrayerNotified = await this.request('Interactions')
       .filter(`InteractionData eq '${requestedByPersonAliasId}'`)
-      .andFilter(`InteractionComponentId eq ${interactionComponent.id}`)
+      // .andFilter(`InteractionComponentId eq ${interactionComponent.id}`)
       .andFilter(`InteractionSummary eq 'PrayerNotificationSent'`)
       .orderBy('InteractionDateTime', 'desc')
       .first();
+    console.log('lastPrayerNotified = ', lastPrayerNotified);
+    console.log(
+      'has it been more than 2 hours since the last time this person was prayed for? ',
+      moment(lastPrayerNotified.interactionDateTime).add(2, 'hours') < moment()
+    );
     const summary =
       !lastPrayerNotified ||
       moment(lastPrayerNotified.interactionDateTime).add(2, 'hours') < moment()
