@@ -14125,9 +14125,10 @@ react-native-airplay-btn@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-native-airplay-btn/-/react-native-airplay-btn-1.0.6.tgz#5b03da0d386bf5d018e8c6871b8b09cf50101d55"
 
-react-native-amplitude-analytics@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/react-native-amplitude-analytics/-/react-native-amplitude-analytics-0.2.6.tgz#e603dba405d6a9b029cbcc7ef21f2fb378ab2768"
+react-native-amplitude-analytics@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/react-native-amplitude-analytics/-/react-native-amplitude-analytics-0.2.7.tgz#115e168d3dbf447f8e24391d64e40a1cdd91745a"
+  integrity sha512-JDIQakPZUcKJRGEtv7lnPooe5ThwKJ7lusKBNr/HTjeN8nnTU1bvrP6Ig6eeKO7BmXewPuwbIkP5zqtndRc8Qw==
   dependencies:
     fbjs "^0.8.5"
 
