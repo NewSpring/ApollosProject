@@ -45,11 +45,8 @@ exports[`the PrayerHeader component renders an anonymous prayer header 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderRadius": 40,
               "height": 80,
               "justifyContent": "flex-end",
-              "overflow": "hidden",
               "width": 80,
             }
           }
@@ -179,11 +176,8 @@ exports[`the PrayerHeader component renders the prayer header 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderRadius": 40,
               "height": 80,
               "justifyContent": "flex-end",
-              "overflow": "hidden",
               "width": 80,
             }
           }
