@@ -19,14 +19,15 @@ import {
   Template,
   AuthSms,
   BinaryFiles,
-  Features,
+  RockConstants,
+  Features as BaseFeatures,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
 import * as ExtendedPerson from './people';
+import * as WeekendContentItem from './weekend-content-items';
 import * as ContentItem from './content-items';
+import * as Features from './features';
 import * as Campus from './campuses';
-import * as Interactions from './interactions';
-import * as RockConstants from './rock-constants';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -36,6 +37,9 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
+  BaseFeatures,
+  Features,
+  WeekendContentItem,
   Person,
   ExtendedPerson,
   Auth,
@@ -46,7 +50,6 @@ const data = {
   LiveStream,
   Theme,
   Scripture,
-  Interactions,
   RockConstants,
   Sharable,
   Analytics,
@@ -57,7 +60,6 @@ const data = {
   Template,
   Campus,
   BinaryFiles,
-  Features,
 };
 
 const {

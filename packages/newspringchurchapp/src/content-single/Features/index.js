@@ -10,29 +10,41 @@ import {
   H3,
   H5,
 } from '@apollosproject/ui-kit';
-import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
+import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
 import CustomNotes from './CustomNotes';
+import ScriptureFeature from './ScriptureFeature';
+import HeaderFeature from './HeaderFeature';
+import NoteFeature from './NoteFeature';
 
 import GET_CONTENT_ITEM_FEATURES from './getContentItemFeatures';
 
 const FEATURE_MAP = {
   TextFeature,
+  ScriptureFeature,
+  HeaderFeature,
+  NoteFeature,
 };
 
 const Features = ({ contentId, asNotes }) => {
   if (!contentId) return null;
 
   return (
-    <Query query={GET_CONTENT_ITEM_FEATURES} variables={{ contentId }}>
+    <Query
+      query={GET_CONTENT_ITEM_FEATURES}
+      fetchPolicy="cache-and-network"
+      variables={{ contentId }}
+    >
       {({ data: { node } = {}, loading, error }) => {
         if (error) return <ErrorCard error={error} />;
         if (loading) return null;
 
         const features = get(node, 'features', []);
+        if (!features || !features.length) return null;
         const featureComponents = features.map(({ __typename, ...feature }) => {
           const Feature = FEATURE_MAP[__typename];
+          if (!Feature) return null;
           return (
             <View key={feature.id}>
               <Feature {...feature} contentId={contentId} card={!asNotes} />
@@ -45,21 +57,35 @@ const Features = ({ contentId, asNotes }) => {
             </View>
           );
         });
-        return asNotes ? (
-          <ActionCard action={<ShareButton icon={'play'} itemId={contentId} />}>
-            {/* TODO pass featureComponents consisting of just <Feature>
-             ** into a <Notes> component */}
-            <H3>Sermon Notes</H3>
-            <H5>Title</H5>
-            <H5>Series - Week # - Date</H5>
-            <H5>Preacher</H5>
-            <PaddedView />
-            <H4>1. Point One</H4>
-            <PaddedView />
-            {featureComponents}
-          </ActionCard>
-        ) : (
-          featureComponents
+        return (
+          <PaddedView horizontal={false}>
+            <PaddedView vertical={false}>
+              <H3 padded>Engage</H3>
+            </PaddedView>
+            {asNotes ? (
+              <ActionCard
+                action={
+                  <ShareContentButtonConnected
+                    icon={'play'}
+                    itemId={contentId}
+                  />
+                }
+              >
+                {/* TODO pass featureComponents consisting of just <Feature>
+                 ** into a <Notes> component */}
+                <H3>Sermon Notes</H3>
+                <H5>Title</H5>
+                <H5>Series - Week # - Date</H5>
+                <H5>Preacher</H5>
+                <PaddedView />
+                <H4>1. Point One</H4>
+                <PaddedView />
+                {featureComponents}
+              </ActionCard>
+            ) : (
+              featureComponents
+            )}
+          </PaddedView>
         );
       }}
     </Query>

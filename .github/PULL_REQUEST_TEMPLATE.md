@@ -4,12 +4,9 @@
 
 ### How do I test this PR?
 
----
-
-> I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
-
 ## TODO
 
+- [ ] I am affirming this is my _best_ work ([Ecclesiastes 9:10](https://www.bible.com/bible/97/ECC.9.10.MSG))
 - [ ] PR has a relevant title that will be understandable in a public changelog (ie...non developers)
 - [ ] No new warnings in tests, in storybook, and in-app
 - [ ] Upload GIF(s) of iOS and Android if applicable

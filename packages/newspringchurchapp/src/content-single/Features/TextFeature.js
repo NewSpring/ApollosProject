@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 import { ActionCard, BodyText } from '@apollosproject/ui-kit';
-import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
+import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 
-const TextFeature = ({ body, contentId, card }) => {
+const TextFeature = ({ body, sharing: { message } = {}, contentId, card }) => {
   const [isPressed, press] = useState(false);
   const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
     '_'.repeat(p1.length)
@@ -20,7 +20,9 @@ const TextFeature = ({ body, contentId, card }) => {
       {card ? (
         <ActionCard
           icon={'play'}
-          action={<ShareButton message={body} itemId={contentId} />}
+          action={
+            <ShareContentButtonConnected message={message} itemId={contentId} />
+          }
         >
           <FillInTheBlank />
         </ActionCard>
@@ -33,6 +35,7 @@ const TextFeature = ({ body, contentId, card }) => {
 
 TextFeature.propTypes = {
   body: PropTypes.string.isRequired,
+  sharing: PropTypes.shape({ message: PropTypes.string }),
   contentId: PropTypes.string.isRequired,
   card: PropTypes.bool,
 };
@@ -45,6 +48,9 @@ export const TEXT_FEATURE_FRAGMENT = `
 fragment TextFeatureFragment on TextFeature {
   body
   id
+  sharing {
+    message
+  }
 }
 `;
 
