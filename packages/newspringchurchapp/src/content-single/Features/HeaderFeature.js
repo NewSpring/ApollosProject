@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 import { ActionCard, H5 } from '@apollosproject/ui-kit';
-import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
+import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 
 const HeaderFeature = ({ body, contentId }) => {
   const [isPressed, press] = useState(false);
@@ -16,7 +16,9 @@ const HeaderFeature = ({ body, contentId }) => {
     <TouchableOpacity onPress={() => press(true)}>
       <ActionCard
         icon={'play'}
-        action={<ShareButton message={body} itemId={contentId} />}
+        action={
+          <ShareContentButtonConnected message={body} itemId={contentId} />
+        }
       >
         <H5>{isPressed ? bodyWithWord : bodyWithBlank}</H5>
       </ActionCard>

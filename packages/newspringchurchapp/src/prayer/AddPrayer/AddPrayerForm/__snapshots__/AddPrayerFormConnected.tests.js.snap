@@ -108,11 +108,8 @@ exports[`renders AddPrayerFormConnected 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#ffffff",
-                      "borderRadius": 40,
                       "height": 80,
                       "justifyContent": "flex-end",
-                      "overflow": "hidden",
                       "width": 80,
                     }
                   }
@@ -653,19 +650,6 @@ exports[`renders AddPrayerFormConnected 1`] = `
           }
         >
           <View
-            additionalStyles={
-              Object {
-                "backgroundColor": Object {
-                  "color": Array [
-                    48,
-                    48,
-                    48,
-                  ],
-                  "model": "rgb",
-                  "valpha": 0.7,
-                },
-              }
-            }
             borderRadius={24}
             iconPadding={8}
             style={
