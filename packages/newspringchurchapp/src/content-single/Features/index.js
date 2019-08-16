@@ -13,7 +13,6 @@ import {
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
-import CustomNotes from './CustomNotes';
 import ScriptureFeature from './ScriptureFeature';
 import HeaderFeature from './HeaderFeature';
 import NoteFeature from './NoteFeature';
@@ -48,12 +47,7 @@ const Features = ({ contentId, asNotes }) => {
           return (
             <View key={feature.id}>
               <Feature {...feature} contentId={contentId} card={!asNotes} />
-              {asNotes ? (
-                <>
-                  <CustomNotes />
-                  <PaddedView />
-                </>
-              ) : null}
+              {asNotes ? <PaddedView /> : null}
             </View>
           );
         });
