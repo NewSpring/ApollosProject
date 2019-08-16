@@ -427,19 +427,6 @@ exports[`The WithYou component should render 1`] = `
           }
         >
           <View
-            additionalStyles={
-              Object {
-                "backgroundColor": Object {
-                  "color": Array [
-                    48,
-                    48,
-                    48,
-                  ],
-                  "model": "rgb",
-                  "valpha": 0.7,
-                },
-              }
-            }
             borderRadius={24}
             iconPadding={8}
             style={

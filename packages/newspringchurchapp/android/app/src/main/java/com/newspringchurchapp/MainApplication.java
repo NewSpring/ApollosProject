@@ -3,9 +3,11 @@ package com.newspringchurchapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.sudoplz.reactnativeamplitudeanalytics.RNAmplitudeSDKPackage;
 import com.bugsnag.BugsnagReactNative;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -40,9 +42,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFusedLocationPackage(),
+            new AsyncStoragePackage(),
+            new RNGestureHandlerPackage(),
             new RNAmplitudeSDKPackage(MainApplication.this),
             BugsnagReactNative.getPackage(),
-            new RNGestureHandlerPackage(),
             new ReanimatedPackage(),
             new MapsPackage(),
             new RNFetchBlobPackage(),

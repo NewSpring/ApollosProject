@@ -41,22 +41,22 @@ const ActionTable = ({ token }) => (
             onPress={() => openUrl('https://rock.newspring.cc/Workflows/431')}
           >
             <Cell>
-              <CellIcon name="check" />
               <CellText>Find a serving opportunity</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
           <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
             <Cell>
-              <CellIcon name="groups" />
               <CellText>Join a small group</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
           <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
             <Cell>
-              <CellIcon name="download" />
               <CellText>I would like to give</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
         </TableView>

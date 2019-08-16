@@ -129,9 +129,21 @@ ROCK_MAPPINGS:
 
   GENERAL_PRAYER_CATEGORY_ID: 2
 
-  HOME_FEATURE_CHANNEL_ID: 459
-
   SERMON_CHANNEL_ID: 19
+
+HOME_FEATURES:
+  -
+    title: FOR YOU
+    algorithms: [PERSONA_FEED]
+    subtitle: Explore what God calls you to today
+  -
+    title: BULLETIN
+    subtitle: What's happening at Newspring?
+    algorithms:
+      -
+        type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 459
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
@@ -247,3 +259,4 @@ ROCK_CONSTANTS:
   LABEL: 120
   WISTIA: 125
   S3_ASSET: 133
+

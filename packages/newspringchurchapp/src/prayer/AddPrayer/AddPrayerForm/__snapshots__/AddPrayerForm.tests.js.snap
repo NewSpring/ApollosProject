@@ -108,11 +108,8 @@ exports[`The AddPrayerForm component should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#ffffff",
-                      "borderRadius": 40,
                       "height": 80,
                       "justifyContent": "flex-end",
-                      "overflow": "hidden",
                       "width": 80,
                     }
                   }
@@ -825,11 +822,8 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#ffffff",
-                      "borderRadius": 40,
                       "height": 80,
                       "justifyContent": "flex-end",
-                      "overflow": "hidden",
                       "width": 80,
                     }
                   }
@@ -1474,11 +1468,8 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#ffffff",
-                      "borderRadius": 40,
                       "height": 80,
                       "justifyContent": "flex-end",
-                      "overflow": "hidden",
                       "width": 80,
                     }
                   }
