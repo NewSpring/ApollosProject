@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
@@ -69,13 +69,15 @@ function getActiveRouteName(navigationState) {
   return route.routeName;
 }
 
+const AppContainer = createAppContainer(AppNavigator);
+
 const App = () => (
   <Providers>
     <BackgroundView>
       <AppStatusBar barStyle="dark-content" />
       <AnalyticsConsumer>
         {({ track }) => (
-          <AppNavigator
+          <AppContainer
             ref={(navigatorRef) => {
               NavigationService.setTopLevelNavigator(navigatorRef);
             }}

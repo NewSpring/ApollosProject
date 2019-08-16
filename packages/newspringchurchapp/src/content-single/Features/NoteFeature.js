@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 
 import { ActionCard, TextInput, Touchable } from '@apollosproject/ui-kit';
-import ShareButton from 'newspringchurchapp/src/ui/ShareButton';
+import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 
 const NoteFeature = ({ placeholder, contentId }) => {
   const [hasBox, showBox] = useState(false);
@@ -11,7 +11,9 @@ const NoteFeature = ({ placeholder, contentId }) => {
   return (
     <ActionCard
       icon={'play'}
-      action={<ShareButton message={placeholder} itemId={contentId} />}
+      action={
+        <ShareContentButtonConnected message={placeholder} itemId={contentId} />
+      }
     >
       {hasBox ? (
         <TextInput
