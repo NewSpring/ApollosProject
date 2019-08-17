@@ -5,7 +5,7 @@ import { ActionCard, TextInput, Touchable } from '@apollosproject/ui-kit';
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 import Add from '../../theme/icons/Add';
 
-const NoteFeature = ({ placeholder, contentId, card }) => {
+const NoteFeature = ({ placeholder, contentId, card, onSharingChange }) => {
   const [hasBox, showBox] = useState(false);
   const [notes, changeNotes] = useState('');
   const Note = () =>
@@ -13,7 +13,10 @@ const NoteFeature = ({ placeholder, contentId, card }) => {
       <TextInput
         multiline
         text={notes}
-        onChangeText={(newNotes) => changeNotes({ newNotes })}
+        onChangeText={(newNotes) => {
+          changeNotes({ newNotes });
+          onSharingChange({ newNotes });
+        }}
       />
     ) : (
       <Touchable onPress={() => showBox(true)}>
@@ -38,6 +41,7 @@ NoteFeature.propTypes = {
   placeholder: PropTypes.string,
   contentId: PropTypes.string.isRequired,
   card: PropTypes.bool,
+  onSharingChange: PropTypes.func,
 };
 
 NoteFeature.defaultProps = {

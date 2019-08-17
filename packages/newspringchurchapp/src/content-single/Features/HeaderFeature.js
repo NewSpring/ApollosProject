@@ -7,6 +7,9 @@ export const HEADER_FEATURE_FRAGMENT = `
 fragment HeaderFeatureFragment on HeaderFeature {
   body
   id
+  sharing {
+    message
+  }
 }
 `;
 
