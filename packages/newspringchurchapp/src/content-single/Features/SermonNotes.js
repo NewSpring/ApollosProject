@@ -56,6 +56,7 @@ const SermonNotes = ({ contentId, features }) => {
       action={
         // TODO: use this when it can accept on a custom onPress function
         // so we can share content item info if we want to
+        // https://github.com/ApollosProject/apollos-prototype/issues/1014
         // <ShareContentButtonConnected
         // message={sharedMsg}
         // icon={'play'}
