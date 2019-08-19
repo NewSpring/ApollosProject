@@ -1,34 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
-import { H3, PaddedView, ActionCard } from '@apollosproject/ui-kit';
+import {
+  H3,
+  PaddedView,
+  ActionCard,
+  Touchable,
+  Icon,
+} from '@apollosproject/ui-kit';
+import share from '../../utils/content/share';
 
 const SermonNotes = ({ contentId, features }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
-  const [enhancedFeatures, setEnhancedFeatures] = useState([]);
+  const [enhancedFeatures, enhanceFeatures] = useState([]);
+  const onNotesChange = (id, text) => {
+    const placeholder = `${id}{{(.*)}}`;
+    const re = new RegExp(placeholder, 'g');
+    changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
+  };
   useEffect(() => {
     let msg = '';
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
+
+      // assemble starting message without custom notes
       if (featureProps.sharing) {
         msg = `${msg + featureProps.sharing.message}\n\n`;
+        return feature;
       }
-      const featureWithCallback = feature;
-      featureWithCallback.props.onSharingChange = (text) =>
-        changeSharedMsg(`${sharedMsg + text}\n\n`);
-      return featureWithCallback;
+
+      // drop in placeholders for custom notes
+      if (featureProps.id.match(/NoteFeature/g).length > 0)
+        msg = `${msg + featureProps.id}{{}}\n\n`;
+
+      // add callbacks to swap note placeholders with custom text
+      return {
+        ...feature,
+        props: {
+          ...feature.props,
+          children: [
+            {
+              ...feature.props.children[0],
+              props: { ...feature.props.children[0].props, onNotesChange },
+            },
+            feature.props.children[1],
+          ],
+        },
+      };
     });
-    changeSharedMsg(msg);
-    setEnhancedFeatures(featuresWithCallbacks);
+    if (msg !== '') changeSharedMsg(msg);
+    enhanceFeatures(featuresWithCallbacks);
   }, []);
+
   return (
     <ActionCard
       action={
-        <ShareContentButtonConnected
-          message={sharedMsg}
-          icon={'play'}
-          itemId={contentId}
-        />
+        // TODO: use this when it can accept on a custom onPress function
+        // so we can share content item info if we want to
+        // <ShareContentButtonConnected
+        // message={sharedMsg}
+        // icon={'play'}
+        // itemId={contentId}
+        // />
+        <Touchable
+          onPress={() => {
+            console.log(contentId); // left in the prop for the to do item above
+            const message = sharedMsg.replace(
+              /\w+Feature:\w+{{(.*)}}\n\n/g,
+              (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
+            );
+            share({ message });
+          }}
+        >
+          <Icon name={'share'} />
+        </Touchable>
       }
     >
       <H3>Sermon Notes</H3>

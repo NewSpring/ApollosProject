@@ -6,6 +6,7 @@ import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentB
 import Add from '../../theme/icons/Add';
 
 const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
+  console.log(onNotesChange);
   const [hasBox, showBox] = useState(false);
   const [note, setNote] = useState('');
   return hasBox ? (
