@@ -65,6 +65,11 @@ const resolver = {
     url: ({ id, contentChannelId }, args, { dataSources }) =>
       dataSources.ContentItem.getShareURL(id, contentChannelId),
   },
+  WeekendContentItem: {
+    communicator: () => null,
+    sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
+      value,
+  },
 };
 
 export default resolverMerge(resolver, originalContentItem);
