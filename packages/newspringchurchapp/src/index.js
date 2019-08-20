@@ -86,10 +86,10 @@ class App extends React.Component {
 
   _handleOpenURL(event) {
     console.log('url in the handleOpen:', this.linkParser(event));
-    this.linkParser(event);
   }
 
   render() {
+    console.log('helloooooo');
     return (
       <Providers>
         <BackgroundView>

@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:newspring.cc</string>
+		<string>applinks:dan-new.newspring.cc</string>
 	</array>
 </dict>
 </plist>
