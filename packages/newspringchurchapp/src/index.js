@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, Linking } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
@@ -69,6 +69,8 @@ function getActiveRouteName(navigationState) {
   return route.routeName;
 }
 
+const AppContainer = createAppContainer(AppNavigator);
+
 class App extends React.Component {
   componentDidMount() {
     Linking.addEventListener('url', this._handleOpenURL);
@@ -96,7 +98,7 @@ class App extends React.Component {
           <AppStatusBar barStyle="dark-content" />
           <AnalyticsConsumer>
             {({ track }) => (
-              <AppNavigator
+              <AppContainer
                 ref={(navigatorRef) => {
                   NavigationService.setTopLevelNavigator(navigatorRef);
                 }}

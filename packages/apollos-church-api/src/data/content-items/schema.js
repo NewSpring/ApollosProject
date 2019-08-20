@@ -1,9 +1,13 @@
+import { ContentItem } from '@apollosproject/data-connector-rock';
 import gql from 'graphql-tag';
 
-const linkSchema = gql`
+export default gql`
+  ${ContentItem.schema}
+  extend type WeekendContentItem {
+    communicator: Person
+    sermonDate: String
+  }
   extend type Query {
     externalLink(slug: String!): ContentItem
   }
 `;
-
-export default linkSchema;
