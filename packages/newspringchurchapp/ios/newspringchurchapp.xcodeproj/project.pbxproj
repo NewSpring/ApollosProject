@@ -546,13 +546,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCAsyncStorage;
 		};
-		BFE03675230477CC00F44369 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 00F25A7E17B94370985B32E7 /* RNScreens.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5C32A4F220C6379000FFB8D;
-			remoteInfo = "RNScreens-tvOS";
-		};
 		BFE7E9D22304794800F89386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFE7E9962304794800F89386 /* RNGestureHandler.xcodeproj */;
@@ -1070,7 +1063,6 @@
 			isa = PBXGroup;
 			children = (
 				79CEC00F223011FE00D8F685 /* libRNScreens.a */,
-				BFE03676230477CC00F44369 /* libRNScreens-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1364,6 +1356,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -1979,13 +1974,6 @@
 			fileType = archive.ar;
 			path = libRNCAsyncStorage.a;
 			remoteRef = BFE0366A230477CC00F44369 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BFE03676230477CC00F44369 /* libRNScreens-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNScreens-tvOS.a";
-			remoteRef = BFE03675230477CC00F44369 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		BFE7E9D32304794800F89386 /* libRNGestureHandler.a */ = {
