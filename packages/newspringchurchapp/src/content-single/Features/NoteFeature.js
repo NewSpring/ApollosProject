@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ActionCard, TextInput, Touchable } from '@apollosproject/ui-kit';
+import { ActionCard, Icon, TextInput, Touchable } from '@apollosproject/ui-kit';
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
-import Add from '../../theme/icons/Add';
 
 const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
   const [hasBox, showBox] = useState(false);
@@ -21,7 +20,7 @@ const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
     />
   ) : (
     <Touchable onPress={() => showBox(true)}>
-      <Add size={16} />
+      <Icon name={'add'} size={24} />
     </Touchable>
   );
 };
