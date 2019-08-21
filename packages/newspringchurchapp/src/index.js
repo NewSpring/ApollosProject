@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Linking } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -23,6 +23,8 @@ import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+
+import LinkParser from './linking/LinkParser';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -71,32 +73,54 @@ function getActiveRouteName(navigationState) {
 
 const AppContainer = createAppContainer(AppNavigator);
 
-const App = () => (
-  <Providers>
-    <BackgroundView>
-      <AppStatusBar barStyle="dark-content" />
-      <AnalyticsConsumer>
-        {({ track }) => (
-          <AppContainer
-            ref={(navigatorRef) => {
-              NavigationService.setTopLevelNavigator(navigatorRef);
-            }}
-            onNavigationStateChange={(prevState, currentState) => {
-              const currentScreen = getActiveRouteName(currentState);
-              const prevScreen = getActiveRouteName(prevState);
+class App extends React.Component {
+  componentDidMount() {
+    Linking.addEventListener('url', this._handleOpenURL);
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        this._handleOpenURL({ url });
+      }
+    });
+  }
 
-              if (prevScreen !== currentScreen) {
-                // the line below uses the Google Analytics tracker
-                // change the tracker here to use other Mobile analytics SDK.
-                track({ eventName: `Viewed ${currentScreen}` });
-              }
-            }}
-          />
-        )}
-      </AnalyticsConsumer>
-      <MediaPlayer />
-    </BackgroundView>
-  </Providers>
-);
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this._handleOpenURL);
+  }
+
+  _handleOpenURL(event) {
+    console.log('url in the handleOpen', LinkParser(event.url));
+    this.LinkParser(event.url);
+  }
+
+  render() {
+    return (
+      <Providers>
+        <BackgroundView>
+          <AppStatusBar barStyle="dark-content" />
+          <AnalyticsConsumer>
+            {({ track }) => (
+              <AppContainer
+                ref={(navigatorRef) => {
+                  NavigationService.setTopLevelNavigator(navigatorRef);
+                }}
+                onNavigationStateChange={(prevState, currentState) => {
+                  const currentScreen = getActiveRouteName(currentState);
+                  const prevScreen = getActiveRouteName(prevState);
+
+                  if (prevScreen !== currentScreen) {
+                    // the line below uses the Google Analytics tracker
+                    // change the tracker here to use other Mobile analytics SDK.
+                    track({ eventName: `Viewed ${currentScreen}` });
+                  }
+                }}
+              />
+            )}
+          </AnalyticsConsumer>
+          <MediaPlayer />
+        </BackgroundView>
+      </Providers>
+    );
+  }
+}
 
 export default App;
