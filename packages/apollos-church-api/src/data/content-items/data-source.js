@@ -203,4 +203,16 @@ export default class ContentItem extends oldContentItem.dataSource {
     });
     return features;
   }
+
+  getBySlug = async (slug) => {
+    const contentItemFromSlug = await this.request('ContentChannelItemSlugs')
+      .filter(`Slug eq '${slug}'`)
+      .get();
+    console.log(slug, contentItemFromSlug);
+    if (contentItemFromSlug === [])
+      throw new Error('There is no Content Item with the slug provided.');
+    console.log(slug, contentItemFromSlug);
+
+    return this.getFromId(`${contentItemFromSlug[0].contentChannelItemId}`);
+  };
 }
