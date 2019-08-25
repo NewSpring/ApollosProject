@@ -41,6 +41,7 @@ class ExternalLinkProvider extends Component {
   }
 
   componentDidMount() {
+    console.log('Within The componentDidMount');
     Linking.getInitialURL().then((url) => {
       if (url) {
         this._handleOpenURL({ url });
@@ -61,8 +62,9 @@ class ExternalLinkProvider extends Component {
     this.props.navigate(route, args);
   };
 
-  _handleOpenURL = (url) => {
-    const urlArray = url.split(/[\s/]+/);
+  _handleOpenURL = (rawUrl) => {
+    console.log('url : ', rawUrl);
+    const urlArray = rawUrl.url.split(/[\s/]+/);
     const urlSlug = urlArray[urlArray.length - 1];
     const contentItemFromSlug = () =>
       AsyncStorage.getItem('contentItemFromSlug');
@@ -71,6 +73,7 @@ class ExternalLinkProvider extends Component {
       variables: { urlSlug },
       data: { contentItemFromSlug },
     });
+    console.log('After graphql call : ', contentItemFromSlug);
     const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${contentItemFromSlug}`;
     if (newUrl) {
       this.navigate(newUrl);
