@@ -1,38 +1,62 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
 
-import { ActionCard, TextInput, Touchable } from '@apollosproject/ui-kit';
+import { ActionCard, Icon, TextInput, Touchable } from '@apollosproject/ui-kit';
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 
-const NoteFeature = ({ placeholder, contentId }) => {
+const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
   const [hasBox, showBox] = useState(false);
-  const [notes, changeNotes] = useState('');
-  return (
+  const [note, setNote] = useState('');
+  return hasBox ? (
+    <TextInput
+      multiline
+      defaultValue={placeholder}
+      value={note}
+      onChangeText={(text) => {
+        setNote(text); // this is local state
+        onNoteChange(text); // updates text for sharing this specific note
+        onNotesChange(featureId, text); // updates text for sharing sermon notes
+      }}
+    />
+  ) : (
+    <Touchable onPress={() => showBox(true)}>
+      <Icon name={'add'} size={24} />
+    </Touchable>
+  );
+};
+Note.propTypes = {
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  onNotesChange: PropTypes.func,
+  onNoteChange: PropTypes.func,
+};
+
+const NoteFeature = ({ contentId, card, ...noteProps }) => {
+  const [sharedMsg, setSharedMsg] = useState('');
+  return card ? (
     <ActionCard
       icon={'play'}
       action={
-        <ShareContentButtonConnected message={placeholder} itemId={contentId} />
+        <ShareContentButtonConnected message={sharedMsg} itemId={contentId} />
       }
     >
-      {hasBox ? (
-        <TextInput
-          multiline
-          text={notes}
-          onChangeText={(newNotes) => changeNotes({ newNotes })}
-        />
-      ) : (
-        <Touchable onPress={() => showBox(true)}>
-          <Text>[PLUS_ICON]</Text>
-        </Touchable>
-      )}
+      <Note {...noteProps} onNoteChange={(text) => setSharedMsg(text)} />
     </ActionCard>
+  ) : (
+    <Note {...noteProps} onNoteChange={(text) => setSharedMsg(text)} />
   );
 };
 
 NoteFeature.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   contentId: PropTypes.string.isRequired,
+  card: PropTypes.bool,
+  onSharingChange: PropTypes.func,
+};
+
+NoteFeature.defaultProps = {
+  card: true,
 };
 
 export const NOTE_FEATURE_FRAGMENT = `

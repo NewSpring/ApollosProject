@@ -2,26 +2,40 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
-import { ActionCard, BodyText } from '@apollosproject/ui-kit';
+import { ActionCard, BodyText, H4 } from '@apollosproject/ui-kit';
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
 
-const TextFeature = ({ body, sharing: { message } = {}, contentId }) => {
+const TextFeature = ({
+  body,
+  sharing: { message } = {},
+  contentId,
+  header,
+  card,
+}) => {
   const [isPressed, press] = useState(false);
   const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
     '_'.repeat(p1.length)
   );
   const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
+  const TextComponent = header ? H4 : BodyText;
+  const FillInTheBlank = () => (
+    <TextComponent>{isPressed ? bodyWithWord : bodyWithBlank}</TextComponent>
+  );
 
   return (
     <TouchableOpacity onPress={() => press(true)}>
-      <ActionCard
-        icon={'play'}
-        action={
-          <ShareContentButtonConnected message={message} itemId={contentId} />
-        }
-      >
-        <BodyText>{isPressed ? bodyWithWord : bodyWithBlank}</BodyText>
-      </ActionCard>
+      {card ? (
+        <ActionCard
+          icon={'play'}
+          action={
+            <ShareContentButtonConnected message={message} itemId={contentId} />
+          }
+        >
+          <FillInTheBlank />
+        </ActionCard>
+      ) : (
+        <FillInTheBlank />
+      )}
     </TouchableOpacity>
   );
 };
@@ -30,6 +44,13 @@ TextFeature.propTypes = {
   body: PropTypes.string.isRequired,
   sharing: PropTypes.shape({ message: PropTypes.string }),
   contentId: PropTypes.string.isRequired,
+  header: PropTypes.bool,
+  card: PropTypes.bool,
+};
+
+TextFeature.defaultProps = {
+  header: false,
+  card: true,
 };
 
 export const TEXT_FEATURE_FRAGMENT = `

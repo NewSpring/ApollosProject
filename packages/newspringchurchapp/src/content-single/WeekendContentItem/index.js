@@ -64,7 +64,7 @@ const WeekendContentItem = ({ content, loading }) => {
                     </ThemeMixin>
                   </Header>
                   <MediaControls contentId={content.id} />
-                  <Features contentId={content.id} />
+                  <Features contentId={content.id} asNotes />
                   <HorizontalContentFeed contentId={content.id} />
                 </FlexedScrollView>
               )}
