@@ -2,14 +2,13 @@ import URL from 'url';
 import querystring from 'querystring';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import { Linking, AsyncStorage } from 'react-native';
+import { Linking } from 'react-native';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
-import { resolvers, defaults } from '../store';
 
 const GET_CONTENT_ITEM_BY_SLUG = gql`
   query ContentItemIdFromSlug($slug: String!) {
-    contentItemFromSlug(slug: $slug) @client {
+    contentItemFromSlug(slug: $slug) {
       id
     }
   }
@@ -32,16 +31,7 @@ class ExternalLinkProvider extends Component {
 
   static navigationOptions = {};
 
-  constructor(props) {
-    super(props);
-    const { client } = props;
-    client.addResolvers(resolvers);
-    client.writeData({ data: defaults });
-    client.onResetStore(() => client.writeData({ data: defaults }));
-  }
-
   componentDidMount() {
-    console.log('Within The componentDidMount');
     Linking.getInitialURL().then((url) => {
       if (url) {
         this._handleOpenURL({ url });
@@ -62,19 +52,32 @@ class ExternalLinkProvider extends Component {
     this.props.navigate(route, args);
   };
 
-  _handleOpenURL = (rawUrl) => {
-    console.log('url : ', rawUrl);
+  _handleOpenURL = async (rawUrl) => {
     const urlArray = rawUrl.url.split(/[\s/]+/);
     const urlSlug = urlArray[urlArray.length - 1];
-    const contentItemFromSlug = () =>
-      AsyncStorage.getItem('contentItemFromSlug');
-    this.props.client.query({
-      query: GET_CONTENT_ITEM_BY_SLUG,
-      variables: { urlSlug },
-      data: { contentItemFromSlug },
-    });
-    console.log('After graphql call : ', contentItemFromSlug);
-    const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${contentItemFromSlug}`;
+    const slugQuery = async () => {
+      const res = await this.props.client
+        .query({
+          query: GET_CONTENT_ITEM_BY_SLUG,
+          variables: { slug: urlSlug },
+          fetchPolicy: 'network-only',
+        })
+        .then((result) => {
+          const queryResult = result;
+          return queryResult;
+        });
+      const { data, loading } = res;
+
+      if (loading) return null;
+
+      return data;
+    };
+    const queryResult = await slugQuery();
+    console.log(queryResult.contentItemFromSlug.id);
+    const newUrl = `newspringchurchapp://AppStackNavigator/ContentItem?itemId=${
+      queryResult.contentItemFromSlug.id
+    }`;
+    console.log(newUrl);
     if (newUrl) {
       this.navigate(newUrl);
     }
