@@ -52,7 +52,7 @@ const LocationFinder = memo(
           <StyledButtonLink onPress={onSelectWeb}>
             I attend online
           </StyledButtonLink>
-          {campus ? (
+          {campus && campus.image ? (
             <Touchable onPress={onPressButton}>
               <StyledCampusCard
                 key={campus.id}
