@@ -32,12 +32,13 @@ class ExternalLinkProvider extends Component {
   static navigationOptions = {};
 
   componentDidMount() {
+    console.log('within componentDidMount');
+    Linking.addEventListener('url', this._handleOpenURL);
     Linking.getInitialURL().then((url) => {
       if (url) {
         this._handleOpenURL({ url });
       }
     });
-    Linking.addEventListener('url', ({ url }) => this._handleOpenURL(url));
   }
 
   componentWillUnmount() {
@@ -74,7 +75,7 @@ class ExternalLinkProvider extends Component {
     };
     const queryResult = await slugQuery();
     console.log(queryResult.contentItemFromSlug.id);
-    const newUrl = `newspringchurchapp://AppStackNavigator/ContentItem?itemId=${
+    const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${
       queryResult.contentItemFromSlug.id
     }`;
     console.log(newUrl);
