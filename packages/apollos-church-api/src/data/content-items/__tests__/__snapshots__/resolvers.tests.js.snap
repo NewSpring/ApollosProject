@@ -37,8 +37,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -86,8 +86,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -135,8 +135,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -153,6 +153,20 @@ Object {
     "node": Object {
       "id": "DevotionalContentItem:559b23fd0aa90e81b1c023e72e230fa1",
       "scriptures": Array [],
+      "title": "SAMPLE: Easter",
+    },
+  },
+}
+`;
+
+exports[`UniversalContentItem gets a newspring weekend content item 1`] = `
+Object {
+  "data": Object {
+    "node": Object {
+      "communicator": null,
+      "features": null,
+      "id": "WeekendContentItem:559b23fd0aa90e81b1c023e72e230fa1",
+      "sermonDate": null,
       "title": "SAMPLE: Easter",
     },
   },

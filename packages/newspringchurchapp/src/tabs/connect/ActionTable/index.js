@@ -46,8 +46,8 @@ const ActionTable = ({ token }) => (
             }
           >
             <Cell>
-              <CellIcon name="check" />
               <CellText>Find a serving opportunity</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
@@ -57,8 +57,8 @@ const ActionTable = ({ token }) => (
             }
           >
             <Cell>
-              <CellIcon name="groups" />
               <CellText>Join a small group</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Touchable
@@ -76,8 +76,8 @@ const ActionTable = ({ token }) => (
             onPress={() => openUserWebView({ url: 'https://my.newspring.cc' })}
           >
             <Cell>
-              <CellIcon name="download" />
               <CellText>I would like to give</CellText>
+              <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
         </TableView>

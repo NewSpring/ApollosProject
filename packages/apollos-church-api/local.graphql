@@ -163,6 +163,7 @@ type ContentSeriesContentItem implements ContentItem & Node {
   isLiked: Boolean
   likedCount: Int
   sharing: SharableContentItem
+  features: [Feature]
 }
 
 type DevotionalContentItem implements ContentItem & Node {
@@ -218,6 +219,8 @@ input LikeEntityInput {
 type LiveStream {
   isLive: Boolean
   eventStartTime: String
+  media: VideoMedia
+  webViewUrl: String
 }
 
 interface Media {
@@ -349,27 +352,47 @@ type Query {
   userFeedFeatures: [Feature]
 }
 
-type Scripture {
-  id: String
+type Scripture implements Node {
+  id: ID!
   html: String
   reference: String
   copyright: String
 }
 
+type ScriptureFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  scriptures: [Scripture]
+  sharing: SharableFeature
+}
+
 interface Sharable {
-  url: String
   message: String
   title: String
+  url: String @deprecated(reason: "Not supported on the interface")
 }
 
 type SharableContentItem implements Sharable {
-  url: String
   message: String
   title: String
+  url: String
+}
+
+type SharableFeature implements Sharable {
+  message: String
+  title: String
+  url: String @deprecated(reason: "Not supported on a feature")
 }
 
 type SmsPinResult {
   success: Boolean
+}
+
+type TextFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  body: String
+  sharing: SharableFeature
 }
 
 type Theme {
@@ -451,6 +474,7 @@ type WeekendContentItem implements ContentItem & Node {
   theme: Theme
   isLiked: Boolean
   likedCount: Int
+  liveStream: LiveStream
   sharing: SharableContentItem
   features: [Feature]
 }
