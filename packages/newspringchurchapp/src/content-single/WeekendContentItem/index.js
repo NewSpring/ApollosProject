@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  Dimensions,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
+import { Dimensions } from 'react-native';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import {
@@ -22,8 +17,9 @@ import MediaControls from '../MediaControls';
 import HTMLContent from '../HTMLContent';
 import HorizontalContentFeed from '../HorizontalContentFeed';
 import Features from '../Features';
+import CustomAvoidingScrollView from './CustomAvoidingScrollView';
 
-const FlexedAvoidantView = styled({ flex: 1 })(KeyboardAvoidingView);
+const FlexedScrollView = styled({ flex: 1 })(CustomAvoidingScrollView);
 
 const Header = styled(({ hasMedia, theme }) => ({
   paddingTop: Dimensions.get('window').width * 0.5, // for some reason % based padding still is buggy
@@ -41,48 +37,37 @@ const WeekendContentItem = ({ content, loading }) => {
           <BackgroundView>
             <StretchyView>
               {({ Stretchy, ...scrollViewProps }) => (
-                <FlexedAvoidantView
-                  enabled
-                  behavior={Platform.OS === 'ios' ? 'padding' : false}
-                >
-                  <ScrollView
-                    keyboardShouldPersistTaps={'always'}
-                    keyboardDismissMode={
-                      Platform.OS === 'ios' ? 'interactive' : 'on-drag'
-                    }
-                    {...scrollViewProps}
-                  >
-                    <Header hasMedia={content.videos && content.videos.sources}>
-                      <ThemeMixin mixin={{ type: 'dark' }}>
-                        {coverImageSources.length || loading ? (
-                          <Stretchy
-                            background
-                            style={{ backgroundColor: theme.colors.primary }}
-                          >
-                            <GradientOverlayImage
-                              isLoading={!coverImageSources.length && loading}
-                              overlayColor={theme.colors.primary}
-                              overlayType="featured"
-                              source={coverImageSources}
-                            />
-                          </Stretchy>
-                        ) : null}
-                        <CardLabel
-                          title={
-                            content.parentChannel && content.parentChannel.name
-                          }
-                        />
-                        <H2 padded isLoading={!content.title && loading}>
-                          {content.title}
-                        </H2>
-                        <HTMLContent contentId={content.id} />
-                      </ThemeMixin>
-                    </Header>
-                    <MediaControls contentId={content.id} />
-                    <Features contentId={content.id} asNotes />
-                    <HorizontalContentFeed contentId={content.id} />
-                  </ScrollView>
-                </FlexedAvoidantView>
+                <FlexedScrollView {...scrollViewProps}>
+                  <Header hasMedia={content.videos && content.videos.sources}>
+                    <ThemeMixin mixin={{ type: 'dark' }}>
+                      {coverImageSources.length || loading ? (
+                        <Stretchy
+                          background
+                          style={{ backgroundColor: theme.colors.primary }}
+                        >
+                          <GradientOverlayImage
+                            isLoading={!coverImageSources.length && loading}
+                            overlayColor={theme.colors.primary}
+                            overlayType="featured"
+                            source={coverImageSources}
+                          />
+                        </Stretchy>
+                      ) : null}
+                      <CardLabel
+                        title={
+                          content.parentChannel && content.parentChannel.name
+                        }
+                      />
+                      <H2 padded isLoading={!content.title && loading}>
+                        {content.title}
+                      </H2>
+                      <HTMLContent contentId={content.id} />
+                    </ThemeMixin>
+                  </Header>
+                  <MediaControls contentId={content.id} />
+                  <Features contentId={content.id} asNotes />
+                  <HorizontalContentFeed contentId={content.id} />
+                </FlexedScrollView>
               )}
             </StretchyView>
           </BackgroundView>
