@@ -60,6 +60,7 @@
 		82A2FF1E6E114D3D962D533D /* libRNPassKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		834122CBBA8E476A8652994F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE039A0F55BB4B989835F759 /* libRNCWebView.a */; };
+		856D5C6C23172AD80069AAAB /* newspringchurchapp.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 855CD6D32288B3EA00FB1344 /* newspringchurchapp.entitlements */; };
 		85FEE849558643629FE5F486 /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F910883757A847398A2A8308 /* Colfax-Black.otf */; };
 		894732A70B4740678E85B593 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */; };
 		8F4E1AB900E746DB86031C3D /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B83F63C4DE14443BC6C34CF /* libRNReanimated.a */; };
@@ -2011,6 +2012,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856D5C6C23172AD80069AAAB /* newspringchurchapp.entitlements in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				08CE105F17284254AD54AF84 /* DroidSerif-Bold.ttf in Resources */,
