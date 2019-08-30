@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import { ApolloConsumer } from 'react-apollo';
+import { ApolloConsumer, Mutation } from 'react-apollo';
 
 import { styled } from '@apollosproject/ui-kit';
 
@@ -14,6 +14,9 @@ import {
 } from '@apollosproject/ui-onboarding';
 
 import { requestPushPermissions } from '@apollosproject/ui-notifications';
+
+import CHANGE_CAMPUS from '../../user-settings/Locations/campusChange';
+import CustomLocationFinder from './CustomLocationFinder';
 
 const ImageContainer = styled({
   justifyContent: 'flex-end',
@@ -60,6 +63,24 @@ function Onboarding({ navigation }) {
                 <StyledImage source={require('./img/screen3.png')} />
               </ImageContainer>
             }
+            Component={({ ...props }) => (
+              <Mutation mutation={CHANGE_CAMPUS}>
+                {(changeCampus) => (
+                  <CustomLocationFinder
+                    onSelectWeb={() => {
+                      swipeForward();
+                      changeCampus({
+                        variables: {
+                          // web campus
+                          campusId: 'Campus:05c9c6351be882103edb1e350c77422b',
+                        },
+                      });
+                    }}
+                    {...props}
+                  />
+                )}
+              </Mutation>
+            )}
           />
           <ApolloConsumer>
             {(client) => (
@@ -82,7 +103,6 @@ function Onboarding({ navigation }) {
     </OnboardingSwiper>
   );
 }
-
 Onboarding.navigationOptions = {
   title: 'Onboarding',
   header: null,

@@ -10,14 +10,10 @@ const ScriptureFeature = ({
   sharing: { message } = {},
   isLoading,
   contentId,
-}) => (
-  <ActionCard
-    icon={'text'}
-    action={
-      <ShareContentButtonConnected message={message} itemId={contentId} />
-    }
-  >
-    {scriptures.map(({ copyright, reference, html, id }) => (
+  card,
+}) => {
+  const scriptureItems = scriptures.map(
+    ({ copyright, reference, html, id }) => (
       <ScriptureItem
         key={id}
         reference={reference}
@@ -25,9 +21,21 @@ const ScriptureFeature = ({
         isLoading={isLoading}
         copyright={copyright}
       />
-    ))}
-  </ActionCard>
-);
+    )
+  );
+  return card ? (
+    <ActionCard
+      icon={'text'}
+      action={
+        <ShareContentButtonConnected message={message} itemId={contentId} />
+      }
+    >
+      {scriptureItems}
+    </ActionCard>
+  ) : (
+    <>{scriptureItems}</>
+  );
+};
 
 ScriptureFeature.propTypes = {
   isLoading: PropTypes.bool.isRequired,
@@ -41,6 +49,11 @@ ScriptureFeature.propTypes = {
   ),
   sharing: PropTypes.shape({ message: PropTypes.string }),
   contentId: PropTypes.string.isRequired,
+  card: PropTypes.bool,
+};
+
+ScriptureFeature.defaultProps = {
+  card: true,
 };
 
 export const SCRIPTURE_FEATURE_FRAGMENT = `

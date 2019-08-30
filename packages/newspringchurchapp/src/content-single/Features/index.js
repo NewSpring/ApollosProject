@@ -1,12 +1,14 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { ErrorCard, H3, PaddedView } from '@apollosproject/ui-kit';
+import { ErrorCard, PaddedView, H3 } from '@apollosproject/ui-kit';
 import { get } from 'lodash';
 import TextFeature from './TextFeature';
 import ScriptureFeature from './ScriptureFeature';
 import HeaderFeature from './HeaderFeature';
 import NoteFeature from './NoteFeature';
+import SermonNotes from './SermonNotes';
 
 import GET_CONTENT_ITEM_FEATURES from './getContentItemFeatures';
 
@@ -17,7 +19,7 @@ const FEATURE_MAP = {
   NoteFeature,
 };
 
-const Features = ({ contentId }) => {
+const Features = ({ contentId, asNotes }) => {
   if (!contentId) return null;
 
   return (
@@ -32,19 +34,24 @@ const Features = ({ contentId }) => {
 
         const features = get(node, 'features', []);
         if (!features || !features.length) return null;
-
-        return (
+        const featureComponents = features.map(({ __typename, ...feature }) => {
+          const Feature = FEATURE_MAP[__typename];
+          if (!Feature) return null;
+          return (
+            <View key={feature.id}>
+              <Feature {...feature} contentId={contentId} card={!asNotes} />
+              {asNotes ? <PaddedView /> : null}
+            </View>
+          );
+        });
+        return asNotes ? (
+          <SermonNotes features={featureComponents} contentId={contentId} />
+        ) : (
           <PaddedView horizontal={false}>
             <PaddedView vertical={false}>
               <H3 padded>Engage</H3>
             </PaddedView>
-            {features.map(({ __typename, ...feature }) => {
-              const Feature = FEATURE_MAP[__typename];
-              if (!Feature) return null;
-              return (
-                <Feature key={feature.id} {...feature} contentId={contentId} />
-              );
-            })}
+            featureComponents
           </PaddedView>
         );
       }}
@@ -54,6 +61,12 @@ const Features = ({ contentId }) => {
 
 Features.propTypes = {
   contentId: PropTypes.string,
+  asNotes: PropTypes.bool,
+};
+
+Features.defaultProps = {
+  // asNotes: false,
+  asNotes: false,
 };
 
 export default Features;

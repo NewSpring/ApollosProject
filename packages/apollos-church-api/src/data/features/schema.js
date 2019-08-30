@@ -13,7 +13,6 @@ export default gql`
     order: Int
 
     body: String
-    # TODO waiting on core release
-    # sharing: SharableFeature
+    sharing: SharableFeature
   }
 `;

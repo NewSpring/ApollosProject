@@ -1,40 +1,15 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import React from 'react';
+import TextFeature from './TextFeature';
 
-import { ActionCard, H5 } from '@apollosproject/ui-kit';
-import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
-
-const HeaderFeature = ({ body, contentId }) => {
-  const [isPressed, press] = useState(false);
-  const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
-    '_'.repeat(p1.length)
-  );
-  const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
-
-  return (
-    <TouchableOpacity onPress={() => press(true)}>
-      <ActionCard
-        icon={'play'}
-        action={
-          <ShareContentButtonConnected message={body} itemId={contentId} />
-        }
-      >
-        <H5>{isPressed ? bodyWithWord : bodyWithBlank}</H5>
-      </ActionCard>
-    </TouchableOpacity>
-  );
-};
-
-HeaderFeature.propTypes = {
-  body: PropTypes.string.isRequired,
-  contentId: PropTypes.string.isRequired,
-};
+const HeaderFeature = ({ ...props }) => <TextFeature {...props} header />;
 
 export const HEADER_FEATURE_FRAGMENT = `
 fragment HeaderFeatureFragment on HeaderFeature {
   body
   id
+  sharing {
+    message
+  }
 }
 `;
 
