@@ -51,16 +51,6 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="newspringchurchapp"
-                    android:host="www.newspring.cc" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
                     android:scheme="https"
                     android:host="AppStackNavigator" />
             </intent-filter>
@@ -72,7 +62,7 @@
 
                 <data
                     android:scheme="https"
-                    android:host="dan-new.newspring.cc" />
+                    android:host="newspring.cc" />
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
