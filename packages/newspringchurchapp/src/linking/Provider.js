@@ -78,7 +78,6 @@ class ExternalLinkProvider extends Component {
     const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${
       queryResult.contentItemFromSlug.id
     }`;
-    console.log(newUrl);
     if (newUrl) {
       this.navigate(newUrl);
     }
