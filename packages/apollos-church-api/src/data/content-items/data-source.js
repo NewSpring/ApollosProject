@@ -207,7 +207,7 @@ export default class ContentItem extends oldContentItem.dataSource {
   getBySlug = async (slug) => {
     const contentItemFromSlug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)
-      .get();
+      .first();
     if (contentItemFromSlug === [])
       throw new Error('There is no Content Item with the slug provided.');
     console.log(slug, contentItemFromSlug);
