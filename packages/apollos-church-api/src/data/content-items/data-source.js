@@ -205,7 +205,7 @@ export default class ContentItem extends oldContentItem.dataSource {
   }
 
   getBySlug = async (slug) => {
-    const contentItemFromSlug = await this.request('ContentChannelItemSlugs')
+    const slug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)
       .first();
     if (slug)
