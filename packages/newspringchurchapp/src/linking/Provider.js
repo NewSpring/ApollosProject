@@ -74,7 +74,6 @@ class ExternalLinkProvider extends Component {
       return data;
     };
     const queryResult = await slugQuery();
-    console.log(queryResult.contentItemFromSlug.id);
     const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${
       queryResult.contentItemFromSlug.id
     }`;
