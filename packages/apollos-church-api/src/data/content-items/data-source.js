@@ -209,7 +209,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       .filter(`Slug eq '${slug}'`)
       .first();
     if (slug)
-      throw new Error('There is no Content Item with the slug provided.');
+      throw new Error('Slug does not exist.');
 
     return this.getFromId(`${contentItemFromSlug[0].contentChannelItemId}`);
   };
