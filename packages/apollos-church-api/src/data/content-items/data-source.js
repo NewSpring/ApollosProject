@@ -211,6 +211,6 @@ export default class ContentItem extends oldContentItem.dataSource {
     if (slug)
       throw new Error('Slug does not exist.');
 
-    return this.getFromId(`${contentItemFromSlug[0].contentChannelItemId}`);
+    return this.getFromId(`${slug.contentChannelItemId}`);
   };
 }
