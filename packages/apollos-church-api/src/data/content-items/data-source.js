@@ -205,12 +205,11 @@ export default class ContentItem extends oldContentItem.dataSource {
   }
 
   getBySlug = async (slug) => {
-    const slug = await this.request('ContentChannelItemSlugs')
+    const contentItem = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)
       .first();
-    if (slug)
-      throw new Error('Slug does not exist.');
+    if (!contentItem) throw new Error('Slug does not exist.');
 
-    return this.getFromId(`${slug.contentChannelItemId}`);
+    return this.getFromId(`${contentItem.contentChannelItemId}`);
   };
 }
