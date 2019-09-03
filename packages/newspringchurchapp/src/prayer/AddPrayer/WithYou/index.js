@@ -56,8 +56,9 @@ const WithYou = memo(({ ...props }) => (
           “This is the confidence we have in approaching God: that if we ask
           anything according to his will, he hears us” (1 John 5:14).
         </BodyText>
-        <BodyText />
-        <BodyText>We’re praying for you and believing with you.</BodyText>
+        <PaddedView horizontal={false}>
+          <BodyText>We’re praying for you and believing with you.</BodyText>
+        </PaddedView>
       </MessageView>
       <Footer>
         <Button
