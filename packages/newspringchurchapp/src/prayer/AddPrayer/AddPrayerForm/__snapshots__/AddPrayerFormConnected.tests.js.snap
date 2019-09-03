@@ -242,7 +242,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                   }
                 }
               >
-                Ask for prayer
+                Join me in praying for ...
               </Text>
             </View>
           </View>

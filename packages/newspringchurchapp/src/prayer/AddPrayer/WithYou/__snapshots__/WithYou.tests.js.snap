@@ -205,7 +205,7 @@ exports[`The WithYou component should render 1`] = `
               }
             }
           >
-            The NewSpring family is with you in prayer
+            Thank you for sharing
           </Text>
           <Text
             bold={false}
@@ -219,7 +219,33 @@ exports[`The WithYou component should render 1`] = `
               }
             }
           >
-            Thank you for sharing your prayer request. We will all be praying for you.
+            “This is the confidence we have in approaching God: that if we ask anything according to his will, he hears us” (1 John 5:14).
+          </Text>
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+              }
+            }
+          />
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+              }
+            }
+          >
+            We’re praying for you and believing with you.
           </Text>
         </View>
         <View
@@ -276,7 +302,7 @@ exports[`The WithYou component should render 1`] = `
                   }
                 }
               >
-                Pray for Others
+                Pray for others
               </Text>
             </View>
           </View>
@@ -309,7 +335,7 @@ exports[`The WithYou component should render 1`] = `
                   }
                 }
               >
-                Add Another Prayer Request
+                Add another prayer request
               </Text>
             </Text>
           </View>
