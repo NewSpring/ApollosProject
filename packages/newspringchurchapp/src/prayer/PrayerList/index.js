@@ -100,7 +100,7 @@ class PrayerList extends PureComponent {
                     <ScrollArea>
                       <ScrollView>
                         <Header>
-                          <H6>Praying For</H6>
+                          <H6>Praying for</H6>
                           <GreenH4>{title}</GreenH4>
                         </Header>
                         <StyledPrayerView>
