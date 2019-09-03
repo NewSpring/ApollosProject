@@ -153,11 +153,13 @@ class PrayerList extends PureComponent {
                           <FooterAltOption>
                             <ActionComponent
                               component={
-                                <FooterText isGray>Report Prayer</FooterText>
+                                <FooterText isGray>
+                                  Report prayer as inappropriate
+                                </FooterText>
                               }
                               options={[
                                 {
-                                  title: 'Report Prayer',
+                                  title: 'Report prayer',
                                   method: async () => {
                                     await flagPrayer({
                                       variables: {
