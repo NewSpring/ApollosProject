@@ -11,6 +11,7 @@ import {
   Icon,
   H1,
   withTheme,
+  Paragraph,
 } from '@apollosproject/ui-kit';
 
 const FlexedSafeAreaView = styled(({ theme }) => ({
@@ -52,13 +53,15 @@ const WithYou = memo(({ ...props }) => (
       <MessageView>
         <BrandIcon />
         <Title>Thank you for sharing</Title>
-        <BodyText>
-          “This is the confidence we have in approaching God: that if we ask
-          anything according to his will, he hears us” (1 John 5:14).
-        </BodyText>
-        <PaddedView horizontal={false}>
+        <Paragraph>
+          <BodyText>
+            “This is the confidence we have in approaching God: that if we ask
+            anything according to his will, he hears us” (1 John 5:14).
+          </BodyText>
+        </Paragraph>
+        <Paragraph>
           <BodyText>We’re praying for you and believing with you.</BodyText>
-        </PaddedView>
+        </Paragraph>
       </MessageView>
       <Footer>
         <Button
