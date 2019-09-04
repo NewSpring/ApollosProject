@@ -14,6 +14,7 @@ import {
 } from '@apollosproject/data-schema';
 
 import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
+import ContentItemsDataSource from '../data-source';
 
 import * as ContentItem from '../index';
 
@@ -109,6 +110,15 @@ describe('UniversalContentItem', () => {
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
+    context.dataSources.ContentItem.getBySlug = jest.fn(() => {
+      Promise.resolve([
+        {
+          contentItemFromSlug: {
+            id: 'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7',
+          },
+        },
+      ]);
+    });
   });
 
   it('gets a newspring content item', async () => {
@@ -208,15 +218,11 @@ describe('UniversalContentItem', () => {
   });
 
   it('gets a content item from a url slug', async () => {
-    const query = `
-      query {
-        contentItemFromSlug(slug: "fruit") {
-          id
-        }
-      }
-    `;
-    const rootValue = {};
-    const result = await graphql(schema, query, rootValue, context);
-    expect(result).toMatchSnapshot();
+    const dataSource = new ContentItemsDataSource();
+    dataSource.get = jest.fn(() => ({
+      id: 7853,
+    }));
+    const result = 'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7';
+    expect(dataSource.getBySlug({ slug: 'fruit' })).resolves.toEqual(result);
   });
 });

@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UniversalContentItem gets a content item from a url slug 1`] = `
-Object {
-  "data": Object {
-    "contentItemFromSlug": null,
-  },
-  "errors": Array [
-    [GraphQLError: No route matching https://apollosrock.newspring.cc/api/ContentChannelItemSlugs?loadAttributes=expanded&%24filter=Slug eq 'fruit'&%24top=1],
-  ],
-}
-`;
-
 exports[`UniversalContentItem gets a newspring ContentSeriesContentItem item 1`] = `
 Object {
   "data": Object {
