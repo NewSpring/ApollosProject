@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image } from 'react-native';
-import PropTypes from 'prop-types';
 import { styled } from '@apollosproject/ui-kit';
 
 import ApollosLandingScreen from './ui/LandingScreen';
@@ -25,12 +24,6 @@ const LandingScreen = ({ navigation }) => (
 
 LandingScreen.navigationOptions = {
   header: null,
-};
-
-LandingScreen.propTypes = {
-  navigation: PropTypes.shape({
-    push: PropTypes.func,
-  }),
 };
 
 export default LandingScreen;

@@ -174,10 +174,10 @@
     graphql-tag "2.9.2"
     react-native-device-info "^2.1.2"
 
-"@apollosproject/ui-auth@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-1.1.0.tgz#9119f0202940bdacf00e6e6a3128baa98b85649a"
-  integrity sha512-O9dVUnUnGETDyCXETBZrtEOQKUqGLx7t+kRs34XqqWi4hUNnc3tjJ5N6gLIeGyF48Bm52T9F1GkXiyHFPJISmA==
+"@apollosproject/ui-auth@1.1.1-alpha.6":
+  version "1.1.1-alpha.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-1.1.1-alpha.6.tgz#d51850fd6cbf684ddbdfbba17a3660f4fbd90f99"
+  integrity sha512-7lSiaLu238K/BmnBQwGqxRKBP3V0eLIsioXPnTup7P8zQplPjPV6lvBDuzwzWp4DMVQbVsF/45NVN11XnkpzUQ==
   dependencies:
     "@react-native-community/async-storage" "^1.5.1"
     apollo-cache-inmemory "^1.5.1"
