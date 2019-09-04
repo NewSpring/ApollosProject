@@ -80,7 +80,7 @@
   },
   "dependencies": {
     "@apollosproject/ui-analytics": "^1.1.0",
-    "@apollosproject/ui-auth": "^1.1.0",
+    "@apollosproject/ui-auth": "1.1.1-alpha.6",
     "@apollosproject/ui-htmlview": "^1.1.0",
     "@apollosproject/ui-kit": "^1.1.0",
     "@apollosproject/ui-media-player": "^1.1.0",
