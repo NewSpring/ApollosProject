@@ -206,4 +206,17 @@ describe('UniversalContentItem', () => {
     console.log('result = ', result);
     expect(result).toMatchSnapshot();
   });
+
+  it('gets a content item from a url slug', async () => {
+    const query = `
+      query {
+        contentItemFromSlug(slug: "fruit") {
+          ...ContentItemFragment
+        }
+      }
+    `;
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
 });

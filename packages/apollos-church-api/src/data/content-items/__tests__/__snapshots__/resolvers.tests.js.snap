@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UniversalContentItem gets a content item from a url slug 1`] = `
+Object {
+  "errors": Array [
+    [GraphQLError: Unknown fragment "ContentItemFragment".],
+  ],
+}
+`;
+
 exports[`UniversalContentItem gets a newspring ContentSeriesContentItem item 1`] = `
 Object {
   "data": Object {
