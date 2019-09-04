@@ -219,9 +219,6 @@ describe('UniversalContentItem', () => {
 
   it('gets a content item from a url slug', async () => {
     const dataSource = new ContentItemsDataSource();
-    dataSource.get = jest.fn(() => ({
-      id: 7853,
-    }));
     const result = 'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7';
     expect(dataSource.getBySlug({ slug: 'fruit' })).resolves.toEqual(result);
   });
