@@ -211,7 +211,7 @@ describe('UniversalContentItem', () => {
     const query = `
       query {
         contentItemFromSlug(slug: "fruit") {
-          ...ContentItemFragment
+          id
         }
       }
     `;

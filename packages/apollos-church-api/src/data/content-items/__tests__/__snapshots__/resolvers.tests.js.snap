@@ -2,8 +2,11 @@
 
 exports[`UniversalContentItem gets a content item from a url slug 1`] = `
 Object {
+  "data": Object {
+    "contentItemFromSlug": null,
+  },
   "errors": Array [
-    [GraphQLError: Unknown fragment "ContentItemFragment".],
+    [GraphQLError: No route matching https://apollosrock.newspring.cc/api/ContentChannelItemSlugs?loadAttributes=expanded&%24filter=Slug eq 'fruit'&%24top=1],
   ],
 }
 `;
