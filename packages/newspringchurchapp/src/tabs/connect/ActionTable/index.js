@@ -46,7 +46,9 @@ const ActionTable = ({ token }) => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
+          <Touchable
+            onPress={() => openUrl('https://newspring.cc/groups/finder')}
+          >
             <Cell>
               <CellText>Join a small group</CellText>
               <CellIcon name="arrow-next" />
