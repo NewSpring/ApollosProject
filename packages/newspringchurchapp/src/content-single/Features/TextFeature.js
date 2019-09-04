@@ -13,11 +13,10 @@ const TextFeature = ({
   card,
 }) => {
   const [isPressed, press] = useState(false);
-  const bodyWithComma = body.replace(/%2C/, ',');
-  const bodyWithBlank = bodyWithComma.replace(/__(.*)__/gm, (match, p1) =>
+  const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
     '_'.repeat(p1.length)
   );
-  const bodyWithWord = bodyWithComma.replace(/__(.*)__/gm, (match, p1) => p1);
+  const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
   const TextComponent = header ? H4 : BodyText;
   const FillInTheBlank = () => (
     <TextComponent>{isPressed ? bodyWithWord : bodyWithBlank}</TextComponent>
