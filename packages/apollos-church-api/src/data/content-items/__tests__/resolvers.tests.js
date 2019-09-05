@@ -104,7 +104,6 @@ describe('UniversalContentItem', () => {
       scriptureSchema,
       liveSchema,
       peopleSchema,
-      ContentItem.schema,
     ]);
     context = getContext();
     context.dataSources.ContentItem.getShareURL = jest.fn(
