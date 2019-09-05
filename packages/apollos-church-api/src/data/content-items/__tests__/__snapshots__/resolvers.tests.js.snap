@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UniversalContentItem fetches a contentItem from a slug 1`] = `
-Object {
-  "data": Object {
-    "contentItemFromSlug": null,
-  },
-}
-`;
-
 exports[`UniversalContentItem gets a newspring ContentSeriesContentItem item 1`] = `
 Object {
   "data": Object {

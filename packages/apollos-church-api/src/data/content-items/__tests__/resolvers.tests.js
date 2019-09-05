@@ -110,9 +110,6 @@ describe('UniversalContentItem', () => {
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
-    context.dataSources.ContentItem.getBySlug = jest.fn(() => {
-      'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7';
-    });
   });
 
   it('gets a newspring content item', async () => {
@@ -208,18 +205,6 @@ describe('UniversalContentItem', () => {
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
     console.log('result = ', result);
-    expect(result).toMatchSnapshot();
-  });
-
-  it('fetches a contentItem from a slug', async () => {
-    const query = `
-      query {
-        contentItemFromSlug(slug: "fruit") {
-          id
-        }
-      }
-    `;
-    const result = await graphql(schema, query, {}, context);
     expect(result).toMatchSnapshot();
   });
 });
