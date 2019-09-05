@@ -74,7 +74,6 @@
       "postbump": "yarn postversion"
     },
     "skip": {
-      "tag": true,
       "commit": true
     }
   },
