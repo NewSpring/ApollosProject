@@ -56,28 +56,18 @@ class ExternalLinkProvider extends Component {
   _handleOpenURL = async (rawUrl) => {
     const urlArray = rawUrl.url.split(/[\s/]+/);
     const urlSlug = urlArray[urlArray.length - 1];
-    const slugQuery = async () => {
-      const res = await this.props.client
-        .query({
-          query: GET_CONTENT_ITEM_BY_SLUG,
-          variables: { slug: urlSlug },
-          fetchPolicy: 'network-only',
-        })
-        .then((result) => {
-          const queryResult = result;
-          return queryResult;
-        });
-      const { data, loading } = res;
-
-      if (loading) return null;
-
-      return data;
-    };
-    const queryResult = await slugQuery();
-    const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${
-      queryResult.contentItemFromSlug.id
-    }`;
-    this.navigate(newUrl);
+    const {
+      data: { contentItemFromSlug } = {},
+    } = await this.props.client.query({
+      query: GET_CONTENT_ITEM_BY_SLUG,
+      variables: { slug: urlSlug },
+    });
+    if (contentItemFromSlug) {
+      const newUrl = `newspringchurchapp://AppStackNavigator/ContentSingle?itemId=${
+        contentItemFromSlug.id
+      }`;
+      this.navigate(newUrl);
+    }
   };
 
   render() {
