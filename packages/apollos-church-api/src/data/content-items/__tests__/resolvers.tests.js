@@ -14,7 +14,6 @@ import {
 } from '@apollosproject/data-schema';
 
 import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
-import ContentItemsDataSource from '../data-source';
 
 import * as ContentItem from '../index';
 
@@ -105,19 +104,14 @@ describe('UniversalContentItem', () => {
       scriptureSchema,
       liveSchema,
       peopleSchema,
+      ContentItem.schema,
     ]);
     context = getContext();
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
     context.dataSources.ContentItem.getBySlug = jest.fn(() => {
-      Promise.resolve([
-        {
-          contentItemFromSlug: {
-            id: 'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7',
-          },
-        },
-      ]);
+      'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7';
     });
   });
 
@@ -217,9 +211,15 @@ describe('UniversalContentItem', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('gets a content item from a url slug', async () => {
-    const dataSource = new ContentItemsDataSource();
-    const result = 'DevotionalContentItem:2e4144092c34feca80e27de85ad238e7';
-    expect(dataSource.getBySlug({ slug: 'fruit' })).resolves.toEqual(result);
+  it('fetches a contentItem from a slug', async () => {
+    const query = `
+      query {
+        contentItemFromSlug(slug: "fruit") {
+          id
+        }
+      }
+    `;
+    const result = await graphql(schema, query, {}, context);
+    expect(result).toMatchSnapshot();
   });
 });
