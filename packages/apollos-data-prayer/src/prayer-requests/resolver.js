@@ -23,11 +23,10 @@ export default {
     },
     incrementPrayerCount: async (root, { nodeId }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(nodeId);
-      const operationName = 'Pray';
 
-      await dataSources.Interactions.createPrayerRequestInteraction({
+      // create the interaction to trigger a notification
+      await dataSources.PrayerRequest.createInteraction({
         prayerId: parsedId,
-        operationName,
       });
 
       return dataSources.PrayerRequest.incrementPrayed(parsedId);

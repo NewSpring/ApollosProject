@@ -7,6 +7,10 @@ import ApollosConfig from '@apollosproject/config';
 const { ROCK_MAPPINGS } = ApollosConfig;
 
 const resolver = {
+  Query: {
+    contentItemFromSlug: (root, { slug }, { dataSources }) =>
+      dataSources.ContentItem.getBySlug(slug),
+  },
   ContentSeriesContentItem: {
     theme: (contentItem) => ({
       type: () => 'LIGHT',
@@ -64,6 +68,11 @@ const resolver = {
   SharableContentItem: {
     url: ({ id, contentChannelId }, args, { dataSources }) =>
       dataSources.ContentItem.getShareURL(id, contentChannelId),
+  },
+  WeekendContentItem: {
+    communicator: () => null,
+    sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
+      value,
   },
 };
 

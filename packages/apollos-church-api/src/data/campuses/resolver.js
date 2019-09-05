@@ -8,9 +8,12 @@ const resolver = {
       dataSources.Campus.getPublicByLocation(location),
   },
   Campus: {
-    image: ({ location }) => ({
-      uri: createAssetUrl(location.image),
-    }),
+    image: ({ location }) =>
+      location.image
+        ? {
+            uri: createAssetUrl(location.image),
+          }
+        : null,
   },
 };
 
