@@ -14,15 +14,17 @@ const Toolbar = ({ navigation }) => (
           label="Check-in"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
+          onPress={() => openUrl('https://my.newspring.cc')}
           icon="download"
           label="Give"
         />
-        <ActionBarItem
-          onPress={() => navigation.navigate('TestingControlPanel')}
-          icon="information"
-          label="Test"
-        />
+        {process.env.NODE_ENV !== 'production' ? (
+          <ActionBarItem
+            onPress={() => navigation.navigate('TestingControlPanel')}
+            icon="information"
+            label="Test"
+          />
+        ) : null}
       </ActionBar>
     )}
   </WebBrowserConsumer>
