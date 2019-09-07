@@ -14,7 +14,7 @@ const Toolbar = ({ navigation }) => (
           label="Check-in"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://my.newspring.cc')}
+          onPress={() => openUrl('https://my.newspring.cc', 'give')}
           icon="download"
           label="Give"
         />
