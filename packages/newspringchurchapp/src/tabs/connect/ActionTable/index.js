@@ -55,12 +55,6 @@ const ActionTable = ({ token }) => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
-            <Cell>
-              <CellText>I would like to give</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
         </TableView>
         <TableView>
           <Touchable
