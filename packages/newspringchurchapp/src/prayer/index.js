@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import { ActivityIndicator } from '@apollosproject/ui-kit';
+import { client } from '../client';
+import GET_USER_PROFILE from '../tabs/connect/getUserProfile';
 import GET_PRAYER_MENU_CATEGORIES from './data/queries/getPrayerMenuCategories';
 import PrayerMenu from './PrayerMenu';
 
@@ -9,6 +11,10 @@ class PrayerMenuConnected extends PureComponent {
     title: 'Prayer',
     header: null,
   });
+
+  componentDidMount() {
+    client.query({ query: GET_USER_PROFILE });
+  }
 
   render() {
     return (
