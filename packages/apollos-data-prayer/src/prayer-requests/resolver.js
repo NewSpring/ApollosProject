@@ -65,7 +65,7 @@ export default {
       isNumber(campusId) ? dataSources.Campus.getFromId(campusId) : null,
     isAnonymous: ({
       attributeValues: { isAnonymous: { value } = {} } = {
-        isAnonymous: { value: false },
+        isAnonymous: { value: true },
       },
     }) => value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
