@@ -10,7 +10,6 @@ import {
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
 
-import getUserProfile from '../../tabs/connect/getUserProfile';
 import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
@@ -32,6 +31,7 @@ class PrayerTabView extends PureComponent {
         key: PropTypes.string,
       })
     ),
+    campusID: PropTypes.string,
   };
 
   static defaultProps = {
@@ -63,39 +63,30 @@ class PrayerTabView extends PureComponent {
           width: Dimensions.get('window').width,
         }}
         navigationState={{ ...this.state }}
-        renderScene={({ route }) => (
-          // TODO: ideally we just pull this from cache and don't have to run this
-          <Query query={getUserProfile}>
-            {({
-              data: {
-                currentUser: {
-                  profile: { campus: { id = '' } = {} } = {},
-                } = {},
-              } = {},
-              loading: profileLoading,
-            }) => {
-              if (profileLoading) return null;
-              return (
-                <Query
-                  query={this.queries[route.key]}
-                  variables={{ campusId: id }}
-                  fetchPolicy="cache-and-network"
-                >
-                  {({ data, loading: prayersLoading }) => (
-                    <PrayerTab
-                      loading={prayersLoading}
-                      prayers={!prayersLoading ? Object.values(data)[0] : []}
-                      description={route.description}
-                      title={route.title}
-                      type={route.key.split('-')[1]}
-                      {...this.props}
-                    />
-                  )}
-                </Query>
-              );
-            }}
-          </Query>
-        )}
+        renderScene={({ route }) =>
+          this.props.campusID === '' ? null : (
+            <Query
+              query={this.queries[route.key]}
+              variables={{ campusId: this.props.campusID }}
+              fetchPolicy="cache-and-network"
+            >
+              {({ data, loading: prayersLoading }) => (
+                <PrayerTab
+                  loading={prayersLoading}
+                  prayers={
+                    data && Object.values(data).length > 0
+                      ? Object.values(data)[0]
+                      : []
+                  }
+                  description={route.description}
+                  title={route.title}
+                  type={route.key.split('-')[1]}
+                  {...this.props}
+                />
+              )}
+            </Query>
+          )
+        }
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed
             content={this.props.categories}
