@@ -99,11 +99,11 @@ export default class PrayerRequest extends RockApolloDataSource {
       dataSources: { Auth, Campus },
     } = this.context;
 
-    const { primaryAliasId } = await Auth.getCurrentPerson();
+    const { id: personID, primaryAliasId } = await Auth.getCurrentPerson();
 
     let campusID;
     if (id === '') {
-      campusID = (await Campus.getForPerson(primaryAliasId)).id;
+      campusID = (await Campus.getForPerson(personID)).id;
     } else {
       campusID = parseGlobalId(id).id;
     }

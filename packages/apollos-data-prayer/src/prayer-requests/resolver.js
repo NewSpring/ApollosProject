@@ -63,11 +63,8 @@ export default {
       createGlobalId(id, parentType.name),
     campus: ({ campusId }, args, { dataSources }) =>
       isNumber(campusId) ? dataSources.Campus.getFromId(campusId) : null,
-    isAnonymous: ({
-      attributeValues: { isAnonymous: { value } = {} } = {
-        isAnonymous: { value: true },
-      },
-    }) => value === 'True',
+    isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
+      value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
     flagCount: ({ flagCount }) =>
