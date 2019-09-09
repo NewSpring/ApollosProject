@@ -203,4 +203,13 @@ export default class ContentItem extends oldContentItem.dataSource {
     });
     return features;
   }
+
+  getBySlug = async (slug) => {
+    const contentItemSlug = await this.request('ContentChannelItemSlugs')
+      .filter(`Slug eq '${slug}'`)
+      .first();
+    if (!contentItemSlug) throw new Error('Slug does not exist.');
+
+    return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
+  };
 }

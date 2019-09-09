@@ -60,6 +60,7 @@
 		82A2FF1E6E114D3D962D533D /* libRNPassKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB4C6D7F52C428FA62777F1 /* libRNPassKit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		834122CBBA8E476A8652994F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE039A0F55BB4B989835F759 /* libRNCWebView.a */; };
+		856D5C6C23172AD80069AAAB /* newspringchurchapp.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 855CD6D32288B3EA00FB1344 /* newspringchurchapp.entitlements */; };
 		85FEE849558643629FE5F486 /* Colfax-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F910883757A847398A2A8308 /* Colfax-Black.otf */; };
 		894732A70B4740678E85B593 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5410F239E9477B9C2E86BD /* Inter-UI-BoldItalic.otf */; };
 		8F4E1AB900E746DB86031C3D /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B83F63C4DE14443BC6C34CF /* libRNReanimated.a */; };
@@ -545,13 +546,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCAsyncStorage;
-		};
-		BFE03675230477CC00F44369 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 00F25A7E17B94370985B32E7 /* RNScreens.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5C32A4F220C6379000FFB8D;
-			remoteInfo = "RNScreens-tvOS";
 		};
 		BFE7E9D22304794800F89386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1070,7 +1064,6 @@
 			isa = PBXGroup;
 			children = (
 				79CEC00F223011FE00D8F685 /* libRNScreens.a */,
-				BFE03676230477CC00F44369 /* libRNScreens-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1364,6 +1357,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -1981,13 +1977,6 @@
 			remoteRef = BFE0366A230477CC00F44369 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BFE03676230477CC00F44369 /* libRNScreens-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNScreens-tvOS.a";
-			remoteRef = BFE03675230477CC00F44369 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		BFE7E9D32304794800F89386 /* libRNGestureHandler.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -2023,6 +2012,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856D5C6C23172AD80069AAAB /* newspringchurchapp.entitlements in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				08CE105F17284254AD54AF84 /* DroidSerif-Bold.ttf in Resources */,
@@ -2302,7 +2292,7 @@
 				CODE_SIGN_ENTITLEMENTS = newspringchurchapp/newspringchurchapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
@@ -2351,7 +2341,7 @@
 				CODE_SIGN_ENTITLEMENTS = newspringchurchapp/newspringchurchapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 7TM8C6252Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
