@@ -129,7 +129,7 @@ describe('PrayerRequest resolver', () => {
   it('gets all public prayer requests by campus', async () => {
     const query = `
       query {
-        campusPrayers(campusId: "Campus:4f68015ba18662a7409d1219a4ce013e") {
+        campusPrayers {
           id
           firstName
           text
