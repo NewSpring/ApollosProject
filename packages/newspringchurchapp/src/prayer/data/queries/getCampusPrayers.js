@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query CampusPrayers($campusId: String!) {
-    campusPrayers(campusId: $campusId) {
+  query CampusPrayers {
+    campusPrayers {
       id
       firstName
       lastName
