@@ -10,7 +10,6 @@ import {
 } from '@apollosproject/ui-kit';
 import PrayerMenuCard from '../PrayerMenuCard';
 
-import getUserProfile from '../../tabs/connect/getUserProfile';
 import GET_GROUP_PRAYERS from '../data/queries/getGroupPrayers';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import GET_CAMPUS_PRAYERS from '../data/queries/getCampusPrayers';
