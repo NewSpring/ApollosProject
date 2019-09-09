@@ -31,6 +31,7 @@ class PrayerTabView extends PureComponent {
         key: PropTypes.string,
       })
     ),
+    campusID: PropTypes.string,
   };
 
   static defaultProps = {
