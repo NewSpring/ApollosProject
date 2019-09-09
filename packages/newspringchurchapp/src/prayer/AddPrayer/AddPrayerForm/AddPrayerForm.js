@@ -78,6 +78,7 @@ const AddPrayerForm = memo(
                 <StyledTextInput
                   editable
                   multiline
+                  returnKeyType="default"
                   placeholder="Start typing your prayer..."
                   onChangeText={handleChange('prayer')}
                   onBlur={handleBlur('prayer')}
