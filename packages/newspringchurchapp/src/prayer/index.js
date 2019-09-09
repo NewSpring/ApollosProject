@@ -12,8 +12,17 @@ class PrayerMenuConnected extends PureComponent {
     header: null,
   });
 
-  componentDidMount() {
-    client.query({ query: GET_USER_PROFILE });
+  state = {
+    userCampusID: null,
+  };
+
+  async componentDidMount() {
+    const {
+      data: {
+        currentUser: { profile: { campus: { id = '' } = {} } = {} } = {},
+      } = {},
+    } = await client.query({ query: GET_USER_PROFILE });
+    this.setState({ userCampusID: id });
   }
 
   render() {
@@ -28,7 +37,13 @@ class PrayerMenuConnected extends PureComponent {
             title: category.title,
             key: category.key,
           }));
-          return <PrayerMenu categories={categories} {...this.props} />;
+          return (
+            <PrayerMenu
+              categories={categories}
+              campusID={this.state.userCampusID}
+              {...this.props}
+            />
+          );
         }}
       </Query>
     );
