@@ -4,7 +4,7 @@ const prayerRequestSchema = gql`
   extend type Query {
     prayers: [PrayerRequest]
     campusPrayers: [PrayerRequest]
-    userPrayers: [PrayerRequest] 
+    userPrayers: [PrayerRequest]
     groupPrayers: [PrayerRequest]
     savedPrayers: [PrayerRequest]
   }
