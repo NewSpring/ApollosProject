@@ -5,13 +5,13 @@ export default {
   Query: {
     prayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
-    campusPrayers: (root, { campusId }, { dataSources }) =>
-      dataSources.PrayerRequest.getAllByCampus(campusId),
+    campusPrayers: (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.getAllByCampus(),
     userPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
     groupPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
-    savedPrayers: async (root, args, { dataSources }) =>
+    savedPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getSavedPrayers(),
   },
   Mutation: {
