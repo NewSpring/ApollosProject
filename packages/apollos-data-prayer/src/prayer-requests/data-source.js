@@ -94,26 +94,26 @@ export default class PrayerRequest extends RockApolloDataSource {
     }
   };
 
-  // QUERY PrayerRequests by Campus
-  getAllByCampus = async (campusId) => {
-    try {
-      const {
-        dataSources: { Auth },
-      } = this.context;
+  getAllByCampus = async (id = '') => {
+    const {
+      dataSources: { Auth, Campus },
+    } = this.context;
 
-      const { primaryAliasId } = await Auth.getCurrentPerson();
+    const { id: personId, primaryAliasId } = await Auth.getCurrentPerson();
 
-      const prayers = await this.request('PrayerRequests/Public')
-        .filter(
-          `(CampusId eq ${
-            parseGlobalId(campusId).id
-          }) and (RequestedByPersonAliasId ne ${primaryAliasId})`
-        )
-        .get();
-      return this.sortPrayers(prayers);
-    } catch (err) {
-      throw new Error(err);
+    let campusID;
+    if (id === '') {
+      campusID = (await Campus.getForPerson({ personId })).id;
+    } else {
+      campusID = parseGlobalId(id).id;
     }
+
+    const prayers = await this.request('PrayerRequests/Public')
+      .filter(
+        `(CampusId eq ${campusID}) and (RequestedByPersonAliasId ne ${primaryAliasId})`
+      )
+      .get();
+    return this.sortPrayers(prayers);
   };
 
   // QUERY PrayerRequests from Current Person

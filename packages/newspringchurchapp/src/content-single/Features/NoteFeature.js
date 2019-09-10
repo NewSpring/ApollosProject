@@ -27,6 +27,7 @@ const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
     <StyledTextInput
       multiline
       defaultValue={placeholder}
+      returnKeyType={'default'}
       value={note}
       scrollEnabled={false}
       onChangeText={(text) => {

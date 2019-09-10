@@ -100,7 +100,7 @@ class PrayerList extends PureComponent {
                     <ScrollArea>
                       <ScrollView>
                         <Header>
-                          <H6>Praying For</H6>
+                          <H6>Praying for</H6>
                           <GreenH4>{title}</GreenH4>
                         </Header>
                         <StyledPrayerView>
@@ -153,11 +153,13 @@ class PrayerList extends PureComponent {
                           <FooterAltOption>
                             <ActionComponent
                               component={
-                                <FooterText isGray>Report Prayer</FooterText>
+                                <FooterText isGray>
+                                  Report prayer as inappropriate
+                                </FooterText>
                               }
                               options={[
                                 {
-                                  title: 'Report Prayer',
+                                  title: 'Report prayer',
                                   method: async () => {
                                     await flagPrayer({
                                       variables: {

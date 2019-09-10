@@ -309,7 +309,7 @@ exports[`The AddPrayerCard component should render 1`] = `
                 }
               }
             >
-              Add a Prayer Request
+              Add a prayer request
             </Text>
           </View>
         </View>
@@ -628,7 +628,7 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
                 }
               }
             >
-              Add a Prayer Request
+              Add a prayer request
             </Text>
           </View>
         </View>
