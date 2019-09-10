@@ -11,6 +11,7 @@ import {
   Icon,
   H1,
   withTheme,
+  Paragraph,
 } from '@apollosproject/ui-kit';
 
 const FlexedSafeAreaView = styled(({ theme }) => ({
@@ -51,20 +52,25 @@ const WithYou = memo(({ ...props }) => (
     <FlexedSafeAreaView>
       <MessageView>
         <BrandIcon />
-        <Title>The NewSpring family is with you in prayer</Title>
-        <BodyText>
-          Thank you for sharing your prayer request. We will all be praying for
-          you.
-        </BodyText>
+        <Title>Thank you for sharing</Title>
+        <Paragraph>
+          <BodyText>
+            “This is the confidence we have in approaching God: that if we ask
+            anything according to his will, he hears us” (1 John 5:14).
+          </BodyText>
+        </Paragraph>
+        <Paragraph>
+          <BodyText>We’re praying for you and believing with you.</BodyText>
+        </Paragraph>
       </MessageView>
       <Footer>
         <Button
-          title="Pray for Others"
+          title="Pray for others"
           onPress={() => props.navigation.navigate('PrayerList')}
         />
         <FooterAltOption>
           <ButtonLink onPress={() => props.navigation.pop()}>
-            <FooterText>Add Another Prayer Request</FooterText>
+            <FooterText>Add another prayer request</FooterText>
           </ButtonLink>
         </FooterAltOption>
       </Footer>

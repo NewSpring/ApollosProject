@@ -32,7 +32,6 @@ class ExternalLinkProvider extends Component {
   static navigationOptions = {};
 
   componentDidMount() {
-    console.log('within componentDidMount');
     Linking.addEventListener('url', this._handleOpenURL);
     Linking.getInitialURL().then((url) => {
       if (url) {

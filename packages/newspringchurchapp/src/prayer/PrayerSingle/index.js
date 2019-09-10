@@ -69,7 +69,10 @@ const PrayerSingle = memo(
           }}
         >
           <View>
-            <ChannelLabel icon="information" label="How to Pray?" />
+            <ChannelLabel
+              icon="information"
+              label="Not sure how to pray? Read this."
+            />
           </View>
         </Touchable>
       ) : null}

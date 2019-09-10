@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import { ContentItem as originalContentItem } from '@apollosproject/data-connector-rock';
 import { resolverMerge } from '@apollosproject/server-core';
 
@@ -10,21 +9,6 @@ const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
-  },
-  ContentSeriesContentItem: {
-    theme: (contentItem) => ({
-      type: () => 'LIGHT',
-      colors: () => ({
-        primary: `${get(
-          contentItem,
-          'attributeValues.backgroundColor.value',
-          '#fff'
-        )}`,
-        secondary: '#6bac43',
-        screen: '#F8F7F4',
-        paper: `#fff`,
-      }),
-    }),
   },
   DevotionalContentItem: {
     scriptures: async ({ id }, args, { dataSources }) => {
