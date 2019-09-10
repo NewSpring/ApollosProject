@@ -19,7 +19,7 @@ const PrayerMenu = ({ ...props }) => (
   <Container>
     <AddPrayerCard
       description={
-        'Take a moment to send a prayer request that your NewSpring Church family can pray for.'
+        'Share a prayer request anonymously or publicly with your NewSpring Church family.'
       }
       {...props}
     />

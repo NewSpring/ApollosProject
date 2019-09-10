@@ -42,7 +42,7 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
     </CardContent>
     <StyledButtonView>
       <Button
-        title={'Add a Prayer Request'}
+        title={'Add a prayer request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
     </StyledButtonView>

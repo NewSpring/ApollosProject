@@ -63,30 +63,27 @@ class PrayerTabView extends PureComponent {
           width: Dimensions.get('window').width,
         }}
         navigationState={{ ...this.state }}
-        renderScene={({ route }) =>
-          this.props.campusID === '' ? null : (
-            <Query
-              query={this.queries[route.key]}
-              variables={{ campusId: this.props.campusID }}
-              fetchPolicy="cache-and-network"
-            >
-              {({ data, loading: prayersLoading }) => (
-                <PrayerTab
-                  loading={prayersLoading}
-                  prayers={
-                    data && Object.values(data).length > 0
-                      ? Object.values(data)[0]
-                      : []
-                  }
-                  description={route.description}
-                  title={route.title}
-                  type={route.key.split('-')[1]}
-                  {...this.props}
-                />
-              )}
-            </Query>
-          )
-        }
+        renderScene={({ route }) => (
+          <Query
+            query={this.queries[route.key]}
+            fetchPolicy="cache-and-network"
+          >
+            {({ data, loading: prayersLoading }) => (
+              <PrayerTab
+                loading={prayersLoading}
+                prayers={
+                  data && Object.values(data).length > 0
+                    ? Object.values(data)[0]
+                    : []
+                }
+                description={route.description}
+                title={route.title}
+                type={route.key.split('-')[1]}
+                {...this.props}
+              />
+            )}
+          </Query>
+        )}
         renderTabBar={(props) => (
           <StyledHorizontalTileFeed
             content={this.props.categories}
