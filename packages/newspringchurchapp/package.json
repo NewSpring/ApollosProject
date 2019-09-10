@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.3.1",
+  "version": "7.3.0",
   "private": true,
   "devDependencies": {
     "@storybook/addon-actions": "4.1.16",
@@ -73,6 +73,7 @@
       "postbump": "yarn postversion"
     },
     "skip": {
+      "tag": true,
       "commit": true
     }
   },
