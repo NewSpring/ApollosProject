@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 7.3.1 (2019-09-10)
+
+
+### Bug Fixes
+
+* Changed keyboard default and updated tests: ([#241](https://github.com/NewSpring/ApollosProject/issues/241)) ([05d7c7f](https://github.com/NewSpring/ApollosProject/commit/05d7c7f))
+
+
+
 ## 7.3.0 (2019-09-05)
 
 
