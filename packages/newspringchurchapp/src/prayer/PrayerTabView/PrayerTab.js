@@ -44,7 +44,7 @@ const PrayerTab = memo(
               <StyledH4 placeholder={'Loading Prayers'}>{description}</StyledH4>
             </VerticalPaddedView>
             <StyledButton
-              title="Start Praying"
+              title="Start praying"
               onPress={() =>
                 props.navigation.navigate('PrayerList', {
                   prayers,
