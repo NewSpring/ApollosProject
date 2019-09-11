@@ -36,6 +36,7 @@ export default class ContentItem extends oldContentItem.dataSource {
         .get();
 
       const mediaData = await JSON.parse(videoData[0].mediaData);
+      console.log('mediaData', mediaData);
       const videos = mediaData.assets.filter(
         (asset) => asset.type === 'HlsVideoFile'
       );
