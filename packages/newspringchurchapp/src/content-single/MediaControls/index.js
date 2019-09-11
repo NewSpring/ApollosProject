@@ -102,6 +102,12 @@ class MediaControls extends PureComponent {
     );
 
     const videoSource = get(videos, '[0].sources[0]', null);
+    // const videoSource = {
+    // __typename: 'VideoMediaSource',
+    // uri:
+    // 'http://embed.wistia.com/deliveries/9efa110e114daab2cf975320c7db5eaee29519a6.bin',
+    // };
+    console.log('videoSource', videoSource);
     const shouldRender = (isLive && hasLiveStreamContent) || videoSource;
 
     if (!shouldRender) return null;
