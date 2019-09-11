@@ -231,7 +231,7 @@ exports[`the LandingScreen should render 1`] = `
                 }
               }
             >
-              We're glad you're here.
+              Welcome to NewSpring!
             </Text>
             <Text
               color="white"
@@ -244,7 +244,7 @@ exports[`the LandingScreen should render 1`] = `
                 }
               }
             >
-              We're not just a building you go to, but a family to belong to.
+              The church is more than a building you go to. It’s a family you belong to.
             </Text>
           </View>
         </View>
