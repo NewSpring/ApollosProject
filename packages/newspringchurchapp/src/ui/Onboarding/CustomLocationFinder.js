@@ -44,38 +44,45 @@ const LocationFinder = memo(
     onSelectWeb,
     onPressSecondary,
     ...props
-  }) => (
-    <Slide onPressSecondary={onPressSecondary ? onSelectWeb : null} {...props}>
-      {BackgroundComponent}
-      <StyledSlideContent title={slideTitle} description={description}>
-        <View>
-          <StyledButtonLink onPress={onSelectWeb}>
-            I attend online
-          </StyledButtonLink>
-          {campus && campus.image ? (
-            <Touchable onPress={onPressButton}>
-              <StyledCampusCard
-                key={campus.id}
-                distance={campus.distanceFromLocation}
-                title={campus.name}
-                description={getCampusAddress(campus)}
-                images={[campus.image]}
-              />
-            </Touchable>
-          ) : (
-            <PaddedView horizontal={false}>
-              <Button
-                title={buttonText}
-                onPress={onPressButton}
-                disabled={buttonDisabled}
-                pill={false}
-              />
-            </PaddedView>
-          )}
-        </View>
-      </StyledSlideContent>
-    </Slide>
-  )
+  }) => {
+    const showSkip = onPressSecondary || campus.name === 'Web';
+    return (
+      <Slide
+        onPressSecondary={showSkip ? onSelectWeb : null}
+        onPressPrimary={!showSkip ? onPressPrimary : null}
+        {...props}
+      >
+        {BackgroundComponent}
+        <StyledSlideContent title={slideTitle} description={description}>
+          <View>
+            <StyledButtonLink onPress={onSelectWeb}>
+              I attend online
+            </StyledButtonLink>
+            {campus && campus.image ? (
+              <Touchable onPress={onPressButton}>
+                <StyledCampusCard
+                  key={campus.id}
+                  distance={campus.distanceFromLocation}
+                  title={campus.name}
+                  description={getCampusAddress(campus)}
+                  images={[campus.image]}
+                />
+              </Touchable>
+            ) : (
+              <PaddedView horizontal={false}>
+                <Button
+                  title={buttonText}
+                  onPress={onPressButton}
+                  disabled={buttonDisabled}
+                  pill={false}
+                />
+              </PaddedView>
+            )}
+          </View>
+        </StyledSlideContent>
+      </Slide>
+    );
+  }
 );
 
 LocationFinder.propTypes = {
