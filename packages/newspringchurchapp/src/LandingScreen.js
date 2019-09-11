@@ -13,6 +13,10 @@ const FullScreenImage = styled({
 
 const LandingScreen = ({ navigation }) => (
   <ApollosLandingScreen
+    slideTitle={'Welcome to NewSpring!'}
+    description={
+      'The church is more than a building you go to. It’s a family you belong to.'
+    }
     onPressPrimary={() => navigation.push('Auth')}
     textColor={'white'}
     BackgroundComponent={
