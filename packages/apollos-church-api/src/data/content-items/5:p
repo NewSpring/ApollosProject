@@ -143,6 +143,23 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
+  getShareURL = async (id, contentChannelId) => {
+    console.log('id', id);
+    console.log('contentChannelId', contentChannelId);
+    try {
+      const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
+        contentChannelId
+      );
+      const slug = await this.request('ContentChannelItemSlugs')
+        .filter(`ContentChannelItemId eq ${id}`)
+        .first();
+      return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+
   getFeatures({ attributeValues }) {
     const features = [];
     const { Features } = this.context.dataSources;
