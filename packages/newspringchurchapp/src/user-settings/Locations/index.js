@@ -79,30 +79,28 @@ class Location extends PureComponent {
         }}
         fetchPolicy="cache-and-network"
       >
-        {({ loading, error, data: { campuses = [] } = {} }) =>
-          console.log(campuses) || (
-            <Mutation mutation={CHANGE_CAMPUS}>
-              {(handlePress) => (
-                <MapView
-                  navigation={this.props.navigation}
-                  isLoading={loading}
-                  error={error}
-                  campuses={campuses}
-                  initialRegion={this.props.initialRegion}
-                  userLocation={this.state.userLocation}
-                  onLocationSelect={async ({ id }) => {
-                    await handlePress({
-                      variables: {
-                        campusId: id,
-                      },
-                    });
-                    this.props.navigation.goBack();
-                  }}
-                />
-              )}
-            </Mutation>
-          )
-        }
+        {({ loading, error, data: { campuses = [] } = {} }) => (
+          <Mutation mutation={CHANGE_CAMPUS}>
+            {(handlePress) => (
+              <MapView
+                navigation={this.props.navigation}
+                isLoading={loading}
+                error={error}
+                campuses={campuses}
+                initialRegion={this.props.initialRegion}
+                userLocation={this.state.userLocation}
+                onLocationSelect={async ({ id }) => {
+                  await handlePress({
+                    variables: {
+                      campusId: id,
+                    },
+                  });
+                  this.props.navigation.goBack();
+                }}
+              />
+            )}
+          </Mutation>
+        )}
       </Query>
     );
   }
