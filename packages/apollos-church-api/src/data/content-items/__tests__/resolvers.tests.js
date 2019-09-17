@@ -186,10 +186,8 @@ describe('UniversalContentItem', () => {
           ... on WeekendContentItem {
             title
             communicator {
-              ... on Person {
-                firstName
-                lastName
-              }
+              firstName
+              lastName
             }
             sermonDate
             features {
