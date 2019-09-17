@@ -11,7 +11,6 @@ import {
 import share from '../../utils/content/share';
 
 const SermonNotes = ({ contentId, features, communicator }) => {
-  console.log(communicator);
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
