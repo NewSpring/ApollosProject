@@ -163,7 +163,9 @@ exports[`UniversalContentItem gets a newspring weekend content item 1`] = `
 Object {
   "data": Object {
     "node": Object {
-      "communicator": null,
+      "communicator": Object {
+        "firstName": null,
+      },
       "features": null,
       "id": "WeekendContentItem:559b23fd0aa90e81b1c023e72e230fa1",
       "sermonDate": null,

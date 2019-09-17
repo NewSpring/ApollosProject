@@ -209,7 +209,7 @@ export default class ContentItem extends oldContentItem.dataSource {
   }) => {
     const {
       attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
-    } = await this.request('AttributeMatrixItems')
+    } = await this.request('/AttributeMatrixItems')
       .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
       .first();
     const { personId } = await this.request('/PersonAlias')
