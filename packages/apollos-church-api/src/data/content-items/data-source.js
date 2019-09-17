@@ -204,9 +204,7 @@ export default class ContentItem extends oldContentItem.dataSource {
     return features;
   }
 
-  getCommunicator = async ({
-    attributeValues: { communicators: { value: matrixItemGuid } = {} } = {},
-  }) => {
+  getCommunicator = async ({ value: matrixItemGuid }) => {
     const {
       attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
     } = await this.request('/AttributeMatrixItems')
