@@ -37,6 +37,10 @@ export const CONTENT_ITEM_FRAGMENT = gql`
       }
     }
     ... on WeekendContentItem {
+      communicator {
+        firstName
+        lastName
+      }
       liveStream {
         isLive
       }
