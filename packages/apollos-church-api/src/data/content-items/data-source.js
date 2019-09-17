@@ -214,7 +214,6 @@ export default class ContentItem extends oldContentItem.dataSource {
       .first();
     const { personId } = await this.request('/PersonAlias')
       .filter(`Guid eq guid'${personAliasGuid}'`)
-      .select('PersonId')
       .first();
     return this.context.dataSources.Person.getFromId(personId);
   };
