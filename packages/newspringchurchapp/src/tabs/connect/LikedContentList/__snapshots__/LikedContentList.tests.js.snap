@@ -130,11 +130,6 @@ fragment contentItemFragment on ContentItem {
     __typename
   }
   ... on WeekendContentItem {
-    communicator {
-      firstName
-      lastName
-      __typename
-    }
     liveStream {
       isLive
       __typename
@@ -389,11 +384,6 @@ fragment contentItemFragment on ContentItem {
     __typename
   }
   ... on WeekendContentItem {
-    communicator {
-      firstName
-      lastName
-      __typename
-    }
     liveStream {
       isLive
       __typename
