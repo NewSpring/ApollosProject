@@ -189,6 +189,18 @@ export default class ContentItem extends oldContentItem.dataSource {
     return features;
   }
 
+  getCommunicator = async ({ value: matrixItemGuid }) => {
+    const {
+      attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
+    } = await this.request('/AttributeMatrixItems')
+      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
+      .first();
+    const { personId } = await this.request('/PersonAlias')
+      .filter(`Guid eq guid'${personAliasGuid}'`)
+      .first();
+    return this.context.dataSources.Person.getFromId(personId);
+  };
+
   getBySlug = async (slug) => {
     const contentItemSlug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)

@@ -109,6 +109,10 @@ describe('UniversalContentItem', () => {
     context.dataSources.ContentItem.getShareURL = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
+    context.dataSources.ContentItem.getCommunicator = jest.fn(() => ({
+      firstName: 'first',
+      lastName: 'last',
+    }));
   });
 
   it('gets a newspring content item', async () => {
@@ -183,6 +187,7 @@ describe('UniversalContentItem', () => {
             title
             communicator {
               firstName
+              lastName
             }
             sermonDate
             features {

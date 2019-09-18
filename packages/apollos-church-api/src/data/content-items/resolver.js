@@ -50,7 +50,11 @@ const resolver = {
     },
   },
   WeekendContentItem: {
-    communicator: () => null,
+    communicator: async (
+      { attributeValues: { communicators } },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
   },
