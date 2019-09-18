@@ -6,10 +6,11 @@ import {
   ActionCard,
   Touchable,
   Icon,
+  H5,
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
 
-const SermonNotes = ({ contentId, features }) => {
+const SermonNotes = ({ contentId, features, communicator }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
@@ -80,8 +81,11 @@ const SermonNotes = ({ contentId, features }) => {
       {/* TODO
     <H5>Title</H5>
     <H5>Series - Week # - Date</H5>
-    <H5>Preacher</H5>
-    */}
+        */}
+      <H5>
+        {communicator.firstName} {communicator.lastName}
+      </H5>
+
       <PaddedView />
       {enhancedFeatures}
     </ActionCard>
@@ -91,5 +95,9 @@ const SermonNotes = ({ contentId, features }) => {
 SermonNotes.propTypes = {
   contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
+  communicator: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+  }),
 };
 export default SermonNotes;
