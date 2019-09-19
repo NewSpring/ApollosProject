@@ -54,7 +54,11 @@ const resolver = {
       dataSources.ContentItem.getShareURL(id, contentChannelId),
   },
   WeekendContentItem: {
-    communicator: () => null,
+    communicator: (
+      { attributeValues: { communicators } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
   },
