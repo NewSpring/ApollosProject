@@ -35,13 +35,12 @@ export default class ContentItem extends oldContentItem.dataSource {
         .select('MediaData')
         .get();
 
-      const mediaData = await JSON.parse(videoData[0].mediaData);
-      console.log('mediaData', mediaData);
+      const mediaData = JSON.parse(videoData[0].mediaData);
       const videos = mediaData.assets.filter(
-        (asset) => asset.type === 'HlsVideoFile'
+        (asset) => asset.type === 'HlsVideoFile' && asset.height === 720
       );
       if (!videos.length) return '';
-      return videos[0].url;
+      return videos[0].url.replace('.bin', '.m3u8');
     } catch (error) {
       return '';
     }
