@@ -101,13 +101,7 @@ class MediaControls extends PureComponent {
       get(liveStream, 'webViewUrl') || get(liveStream, 'media.sources[0]')
     );
 
-    // const videoSource = get(videos, '[0].sources[0]', null);
-    const videoSource = {
-      __typename: 'VideoMediaSource',
-      uri:
-        'http://embed.wistia.com/deliveries/cf51c0b86ff194a710f41eac38a2a34c4517b8a2.bin',
-    };
-    console.log('videoSource', videoSource);
+    const videoSource = get(videos, '[0].sources[0]', null);
     const shouldRender = (isLive && hasLiveStreamContent) || videoSource;
 
     if (!shouldRender) return null;
