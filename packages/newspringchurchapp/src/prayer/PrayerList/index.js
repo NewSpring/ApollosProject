@@ -140,9 +140,7 @@ class PrayerList extends PureComponent {
                       {!this.state.prayed ? (
                         <View>
                           <Button
-                            title={`I've prayed for ${
-                              prayer.isAnonymous ? 'request' : prayer.firstName
-                            }`}
+                            title={`I've prayed`}
                             onPress={() => {
                               increment({
                                 variables: { parsedId: prayer.id },
