@@ -48,6 +48,14 @@ const resolver = {
 
       return 'UniversalContentItem';
     },
+
+    // TODO temp fix, remove after this is merged
+    // https://github.com/ApollosProject/apollos-prototype/pull/1061
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(root.id, root.contentChannelId),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
   },
   SharableContentItem: {
     url: ({ id, contentChannelId }, args, { dataSources }) =>
