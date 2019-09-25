@@ -5,12 +5,23 @@ import ApollosConfig from '@apollosproject/config';
 
 const { ROCK_MAPPINGS } = ApollosConfig;
 
+// TODO temp fix, remove after this is merged
+// https://github.com/ApollosProject/apollos-prototype/pull/1061
+const defaultResolvers = {
+  sharing: (root, args, { dataSources: { ContentItem } }) => ({
+    url: ContentItem.getShareUrl(root.id, root.contentChannelId),
+    title: 'Share via ...',
+    message: `${root.title} - ${ContentItem.createSummary(root)}`,
+  }),
+};
+
 const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
   },
   DevotionalContentItem: {
+    ...defaultResolvers,
     scriptures: async ({ id }, args, { dataSources }) => {
       const scriptures = await dataSources.ContentItem.getContentItemScriptures(
         id
@@ -48,20 +59,13 @@ const resolver = {
 
       return 'UniversalContentItem';
     },
-
-    // TODO temp fix, remove after this is merged
-    // https://github.com/ApollosProject/apollos-prototype/pull/1061
-    sharing: (root, args, { dataSources: { ContentItem } }) => ({
-      url: ContentItem.getShareUrl(root.id, root.contentChannelId),
-      title: 'Share via ...',
-      message: `${root.title} - ${ContentItem.createSummary(root)}`,
-    }),
   },
-  SharableContentItem: {
-    url: ({ id, contentChannelId }, args, { dataSources }) =>
-      dataSources.ContentItem.getShareURL(id, contentChannelId),
-  },
+  // SharableContentItem: {
+  // url: ({ id, contentChannelId }, args, { dataSources }) =>
+  // dataSources.ContentItem.getShareURL(id, contentChannelId),
+  // },
   WeekendContentItem: {
+    ...defaultResolvers,
     communicator: (
       { attributeValues: { communicators } = {} },
       args,
@@ -69,6 +73,9 @@ const resolver = {
     ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
+  },
+  UniversalContentItem: {
+    ...defaultResolvers,
   },
 };
 
