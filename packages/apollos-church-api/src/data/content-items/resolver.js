@@ -60,10 +60,10 @@ const resolver = {
       return 'UniversalContentItem';
     },
   },
-  SharableContentItem: {
-    url: ({ id, contentChannelId }, args, { dataSources }) =>
-      dataSources.ContentItem.getShareURL(id, contentChannelId),
-  },
+  // SharableContentItem: {
+  // url: ({ id, contentChannelId }, args, { dataSources }) =>
+  // dataSources.ContentItem.getShareUrl(id, contentChannelId),
+  // },
   WeekendContentItem: {
     ...defaultResolvers,
     communicator: (
