@@ -137,6 +137,10 @@ ROCK_MAPPINGS:
 
   SERMON_CHANNEL_ID: 19
 
+  SERVING_GROUP_TYPE_ID: 23
+  COMMUNITY_GROUP_TYPE_ID: 25
+  FAMILY_GROUP_TYPE_ID: 10
+
 HOME_FEATURES:
   -
     title: FOR YOU
@@ -150,12 +154,6 @@ HOME_FEATURES:
         type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 459
-
-  SERMON_CHANNEL_ID: 5
-
-  SERVING_GROUP_TYPE_ID: 23
-  COMMUNITY_GROUP_TYPE_ID: 25
-  FAMILY_GROUP_TYPE_ID: 10
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
