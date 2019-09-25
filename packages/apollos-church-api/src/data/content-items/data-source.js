@@ -146,19 +146,15 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
-  getShareURL = async (id, contentChannelId) => {
-    try {
-      const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
-        contentChannelId
-      );
-      const slug = await this.request('ContentChannelItemSlugs')
-        .filter(`ContentChannelItemId eq ${id}`)
-        .first();
-      return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
-    } catch (error) {
-      console.error(error);
-      return '';
-    }
+  getShareUrl = async (id, contentChannelId) => {
+    console.log('contentChannelId', contentChannelId);
+    const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
+      contentChannelId
+    );
+    const slug = await this.request('ContentChannelItemSlugs')
+      .filter(`ContentChannelItemId eq ${id}`)
+      .first();
+    return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
   };
 
   getFeatures({ attributeValues }) {
