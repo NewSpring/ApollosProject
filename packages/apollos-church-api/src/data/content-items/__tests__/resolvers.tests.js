@@ -106,7 +106,7 @@ describe('UniversalContentItem', () => {
       peopleSchema,
     ]);
     context = getContext();
-    context.dataSources.ContentItem.getShareURL = jest.fn(
+    context.dataSources.ContentItem.getShareUrl = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
     context.dataSources.ContentItem.getCommunicator = jest.fn(() => ({
