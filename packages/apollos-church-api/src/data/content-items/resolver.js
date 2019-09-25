@@ -77,6 +77,9 @@ const resolver = {
   UniversalContentItem: {
     ...defaultResolvers,
   },
+  MediaContentItem: {
+    ...defaultResolvers,
+  },
 };
 
 export default resolverMerge(resolver, originalContentItem);
