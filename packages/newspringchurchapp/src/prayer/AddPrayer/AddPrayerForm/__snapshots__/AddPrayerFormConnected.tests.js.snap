@@ -413,7 +413,9 @@ exports[`renders AddPrayerFormConnected 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -487,7 +489,9 @@ exports[`renders AddPrayerFormConnected 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -636,7 +640,9 @@ exports[`renders AddPrayerFormConnected 1`] = `
         </RNSVGSvgView>
         <View
           accessible={true}
+          clickable={true}
           isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -742,7 +748,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                   fill={
                     Array [
                       0,
-                      4286940549,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}

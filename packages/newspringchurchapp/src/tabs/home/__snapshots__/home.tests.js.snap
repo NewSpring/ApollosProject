@@ -1119,11 +1119,6 @@ exports[`User Home Feed Query should return correct query results 1`] = `
               />
             </React.Fragment>
           }
-          contentContainerStyle={
-            Object {
-              "paddingVertical": 7.2,
-            }
-          }
           data={
             Array [
               Object {
@@ -1293,6 +1288,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
               />
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -1553,6 +1550,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1648,6 +1647,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                     </View>
                     <View
                       accessible={true}
+                      clickable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1743,6 +1744,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                     </View>
                     <View
                       accessible={true}
+                      clickable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1838,6 +1841,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                     </View>
                     <View
                       accessible={true}
+                      clickable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1941,6 +1946,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2122,6 +2129,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2303,6 +2312,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2484,6 +2495,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2665,6 +2678,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2846,6 +2861,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -3027,6 +3044,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -3208,6 +3227,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -3389,6 +3410,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -3570,6 +3593,8 @@ exports[`User Home Feed Query should return correct query results 1`] = `
             >
               <View
                 accessible={true}
+                clickable={true}
+                onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
