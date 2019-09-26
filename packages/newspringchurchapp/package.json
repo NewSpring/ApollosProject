@@ -50,6 +50,7 @@
     "storybook:enable": "sed -i '' 's/STORYBOOK=false/STORYBOOK=true/g' .env",
     "storybook:disable": "sed -i '' 's/STORYBOOK=true/STORYBOOK=false/g' .env",
     "postinstall": "jetify",
+    "pods": "./scripts/install_pods.sh",
     "generate-stories": "rnstl --searchDir ./src --pattern **/*.stories.js"
   },
   "jest": {
