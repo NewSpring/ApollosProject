@@ -140,11 +140,10 @@ export default class PrayerRequest extends RockApolloDataSource {
   // QUERY PrayerRequests from groups
   getFromGroups = async () => {
     const {
-      dataSources: { Auth },
+      dataSources: { Auth, Group },
     } = this.context;
 
-    const groupTypeIds = ROCK_MAPPINGS.PRAYER_GROUP_TYPE_IDS.join();
-
+    const groupTypeIds = Group.getGroupTypeIds();
     const { id } = await Auth.getCurrentPerson();
 
     const prayers = await this.request(
