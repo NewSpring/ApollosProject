@@ -10,6 +10,7 @@ import {
   context,
   dataSources,
   applyServerMiddleware,
+  setupJobs,
 } from './data';
 
 export { resolvers, schema, testSchema };
@@ -50,6 +51,8 @@ const app = express();
 app.use(bugsnagMiddleware.requestHandler);
 
 applyServerMiddleware({ app, dataSources, context });
+setupJobs({ app, dataSources, context });
+
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
 

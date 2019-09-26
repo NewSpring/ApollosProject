@@ -1,3 +1,4 @@
+import hoistNonReactStatic from 'hoist-non-react-statics';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
@@ -35,12 +36,36 @@ const ProtectedRouteWithSplashScreen = (props) => {
   return <ProtectedRoute {...props} onRouteChange={handleOnRouteChange} />;
 };
 
+// Hack to avoid needing to pass emailRequired through the navigator.navigate
+const EnhancedAuth = (props) => (
+  <Auth
+    {...props}
+    emailRequired={false}
+    authTitleText={'Let’s connect'}
+    smsPromptText={
+      'Sign in to or create your NewSpring account. \n\nFill in your mobile phone number below, and let’s get started.'
+    }
+    smsPolicyInfo={
+      'Worried about sharing your contact info? We get it. Privacy matters to you and to us. We will not share your information or contact you without your permission.'
+    }
+    passwordPromptText={
+      'If you already get emails from NewSpring or give at NewSpring, use that email address to sign in. If you’re new to NewSpring, click the register tab.'
+    }
+    confirmationTitleText={'Thanks!'}
+    confirmationPromptText={
+      'We just texted you a shortcode. Enter it below, then hit next.'
+    }
+  />
+);
+// 😑
+hoistNonReactStatic(EnhancedAuth, Auth);
+
 const AppNavigator = createStackNavigator(
   {
     ProtectedRoute: ProtectedRouteWithSplashScreen,
     Tabs,
     ContentSingle,
-    Auth,
+    Auth: EnhancedAuth,
     PersonalDetails,
     ChangePassword,
     Location,

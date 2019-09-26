@@ -52,9 +52,7 @@ const ActionTable = ({ token }) => (
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() =>
-              openUserWebView({ url: 'https://my.newspring.cc/groups' })
-            }
+            onPress={() => openUrl('https://newspring.cc/groups/finder')}
           >
             <Cell>
               <CellText>Join a small group</CellText>
@@ -72,14 +70,6 @@ const ActionTable = ({ token }) => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUserWebView({ url: 'https://my.newspring.cc' })}
-          >
-            <Cell>
-              <CellText>I would like to give</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
         </TableView>
         <TableView>
           <Touchable

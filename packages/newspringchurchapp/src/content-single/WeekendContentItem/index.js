@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import {
@@ -17,8 +17,9 @@ import MediaControls from '../MediaControls';
 import HTMLContent from '../HTMLContent';
 import HorizontalContentFeed from '../HorizontalContentFeed';
 import Features from '../Features';
+import CustomAvoidingScrollView from './CustomAvoidingScrollView';
 
-const FlexedScrollView = styled({ flex: 1 })(ScrollView);
+const FlexedScrollView = styled({ flex: 1 })(CustomAvoidingScrollView);
 
 const Header = styled(({ hasMedia, theme }) => ({
   paddingTop: Dimensions.get('window').width * 0.5, // for some reason % based padding still is buggy

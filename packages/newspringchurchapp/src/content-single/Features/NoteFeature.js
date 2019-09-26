@@ -1,17 +1,35 @@
 import React, { useState } from 'react';
+import { KeyboardAvoidingView } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { ActionCard, Icon, TextInput, Touchable } from '@apollosproject/ui-kit';
+import {
+  ActionCard,
+  Icon,
+  TextInput,
+  styled,
+  Touchable,
+} from '@apollosproject/ui-kit';
 import ShareContentButtonConnected from 'newspringchurchapp/src/ui/ShareContentButtonConnected';
+
+const StyledTextInput = styled(({ theme }) => ({
+  borderWidth: 0.5,
+  borderColor: theme.colors.shadows.default,
+  paddingHorizontal: theme.sizing.baseUnit * 0.5,
+  paddingTop: theme.sizing.baseUnit,
+  paddingBottom: theme.sizing.baseUnit,
+  textAlignVertical: 'top',
+}))(TextInput);
 
 const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
   const [hasBox, showBox] = useState(false);
   const [note, setNote] = useState('');
   return hasBox ? (
-    <TextInput
+    <StyledTextInput
       multiline
       defaultValue={placeholder}
+      returnKeyType={'default'}
       value={note}
+      scrollEnabled={false}
       onChangeText={(text) => {
         setNote(text); // this is local state
         onNoteChange(text); // updates text for sharing this specific note
@@ -40,7 +58,9 @@ const NoteFeature = ({ contentId, card, ...noteProps }) => {
         <ShareContentButtonConnected message={sharedMsg} itemId={contentId} />
       }
     >
-      <Note {...noteProps} onNoteChange={(text) => setSharedMsg(text)} />
+      <KeyboardAvoidingView>
+        <Note {...noteProps} onNoteChange={(text) => setSharedMsg(text)} />
+      </KeyboardAvoidingView>
     </ActionCard>
   ) : (
     <Note {...noteProps} onNoteChange={(text) => setSharedMsg(text)} />

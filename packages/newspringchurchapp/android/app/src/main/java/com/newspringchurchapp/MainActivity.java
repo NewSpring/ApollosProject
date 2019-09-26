@@ -1,4 +1,7 @@
 package com.newspringchurchapp;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity;
@@ -11,6 +14,10 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
       SplashScreen.show(this, R.style.SplashScreenTheme);
       super.onCreate(savedInstanceState);
+      // ATTENTION: This was auto-generated to handle app links.
+      Intent appLinkIntent = getIntent();
+      String appLinkAction = appLinkIntent.getAction();
+      Uri appLinkData = appLinkIntent.getData();
   }
   /**
    * Returns the name of the main component registered from JavaScript.

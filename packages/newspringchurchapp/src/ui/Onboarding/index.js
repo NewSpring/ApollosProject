@@ -34,8 +34,14 @@ function Onboarding({ navigation }) {
     <OnboardingSwiper>
       {({ swipeForward }) => (
         <>
-          <AskNameConnected onPressPrimary={swipeForward} />
+          <AskNameConnected
+            slideTitle={"What's your name?"}
+            onPressPrimary={swipeForward}
+          />
           <FeaturesConnected
+            description={
+              'You’re almost done. By answering a few questions, we can personalize your experience so you see: \n\n\u2022 news specific to your campus \n\u2022 articles related to your age and stage of life \n\u2022 prayer requests for your campus and your small group'
+            }
             onPressPrimary={swipeForward}
             BackgroundComponent={
               <ImageContainer>
@@ -44,6 +50,7 @@ function Onboarding({ navigation }) {
             }
           />
           <AboutYouConnected
+            slideTitle={'Tell us a little about yourself'}
             onPressPrimary={swipeForward}
             BackgroundComponent={
               <ImageContainer>
@@ -52,11 +59,13 @@ function Onboarding({ navigation }) {
             }
           />
           <LocationFinderConnected
+            description={
+              'Enabling location services allows you to choose your campus so you see news, events, and groups near you.'
+            }
+            slideTitle={'One church in many locations'}
             onPressPrimary={swipeForward}
             onNavigate={() => {
-              navigation.navigate('Location', {
-                onFinished: swipeForward,
-              });
+              navigation.navigate('Location', { onFinished: swipeForward });
             }}
             BackgroundComponent={
               <ImageContainer>
@@ -85,6 +94,9 @@ function Onboarding({ navigation }) {
           <ApolloConsumer>
             {(client) => (
               <AskNotificationsConnected
+                description={
+                  'Get updates when people pray for you, and receive reminders and announcements from your NewSpring family.'
+                }
                 onPressPrimary={() => navigation.replace('Tabs')}
                 onRequestPushPermissions={() =>
                   requestPushPermissions({ client })

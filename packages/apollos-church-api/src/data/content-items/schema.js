@@ -7,4 +7,7 @@ export default gql`
     communicator: Person
     sermonDate: String
   }
+  extend type Query {
+    contentItemFromSlug(slug: String!): ContentItem
+  }
 `;

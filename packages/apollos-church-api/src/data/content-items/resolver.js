@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import { ContentItem as originalContentItem } from '@apollosproject/data-connector-rock';
 import { resolverMerge } from '@apollosproject/server-core';
 
@@ -6,23 +5,23 @@ import ApollosConfig from '@apollosproject/config';
 
 const { ROCK_MAPPINGS } = ApollosConfig;
 
+// TODO temp fix, remove after this is merged
+// https://github.com/ApollosProject/apollos-prototype/pull/1061
+const defaultResolvers = {
+  sharing: (root, args, { dataSources: { ContentItem } }) => ({
+    url: ContentItem.getShareUrl(root.id, root.contentChannelId),
+    title: 'Share via ...',
+    message: `${root.title} - ${ContentItem.createSummary(root)}`,
+  }),
+};
+
 const resolver = {
-  ContentSeriesContentItem: {
-    theme: (contentItem) => ({
-      type: () => 'LIGHT',
-      colors: () => ({
-        primary: `${get(
-          contentItem,
-          'attributeValues.backgroundColor.value',
-          '#fff'
-        )}`,
-        secondary: '#6bac43',
-        screen: '#F8F7F4',
-        paper: `#fff`,
-      }),
-    }),
+  Query: {
+    contentItemFromSlug: (root, { slug }, { dataSources }) =>
+      dataSources.ContentItem.getBySlug(slug),
   },
   DevotionalContentItem: {
+    ...defaultResolvers,
     scriptures: async ({ id }, args, { dataSources }) => {
       const scriptures = await dataSources.ContentItem.getContentItemScriptures(
         id
@@ -61,14 +60,25 @@ const resolver = {
       return 'UniversalContentItem';
     },
   },
-  SharableContentItem: {
-    url: ({ id, contentChannelId }, args, { dataSources }) =>
-      dataSources.ContentItem.getShareURL(id, contentChannelId),
-  },
+  // SharableContentItem: {
+  // url: ({ id, contentChannelId }, args, { dataSources }) =>
+  // dataSources.ContentItem.getShareUrl(id, contentChannelId),
+  // },
   WeekendContentItem: {
-    communicator: () => null,
+    ...defaultResolvers,
+    communicator: (
+      { attributeValues: { communicators } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
+  },
+  UniversalContentItem: {
+    ...defaultResolvers,
+  },
+  MediaContentItem: {
+    ...defaultResolvers,
   },
 };
 

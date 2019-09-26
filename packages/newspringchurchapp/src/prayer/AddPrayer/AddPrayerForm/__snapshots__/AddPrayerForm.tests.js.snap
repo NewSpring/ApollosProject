@@ -297,7 +297,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                       placeholder="Start typing your prayer..."
                       placeholderTextColor="rgba(48, 48, 48, 0.6)"
                       rejectResponderTermination={true}
-                      returnKeyType="done"
+                      returnKeyType="default"
                       style={
                         Object {
                           "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
@@ -413,7 +413,9 @@ exports[`The AddPrayerForm component should render 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -487,7 +489,9 @@ exports[`The AddPrayerForm component should render 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -943,7 +947,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                       placeholder="Start typing your prayer..."
                       placeholderTextColor="rgba(48, 48, 48, 0.6)"
                       rejectResponderTermination={true}
-                      returnKeyType="done"
+                      returnKeyType="default"
                       style={
                         Object {
                           "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
@@ -1059,7 +1063,9 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1133,7 +1139,9 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1657,7 +1665,7 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                       placeholder="Start typing your prayer..."
                       placeholderTextColor="rgba(48, 48, 48, 0.6)"
                       rejectResponderTermination={true}
-                      returnKeyType="done"
+                      returnKeyType="default"
                       style={
                         Object {
                           "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
@@ -1773,7 +1781,9 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1847,7 +1857,9 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}

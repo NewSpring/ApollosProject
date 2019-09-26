@@ -6,6 +6,7 @@ import { AnalyticsProvider } from '@apollosproject/ui-analytics';
 
 import { MediaPlayerProvider } from '@apollosproject/ui-media-player';
 import { NotificationsProvider } from '@apollosproject/ui-notifications';
+import ExternalLinkProvider from './linking/Provider';
 import { track } from './analytics';
 
 import NavigationService from './NavigationService';
@@ -23,15 +24,17 @@ const AppProviders = (props) => (
         navigateToAuth={() => NavigationService.navigate('Auth')}
         closeAuth={() => NavigationService.navigate('Onboarding')}
       >
-        <MediaPlayerProvider>
-          <AnalyticsProvider trackFunctions={[track]}>
-            <Providers
-              themeInput={customTheme}
-              iconInput={customIcons}
-              {...props}
-            />
-          </AnalyticsProvider>
-        </MediaPlayerProvider>
+        <ExternalLinkProvider navigate={NavigationService.navigate}>
+          <MediaPlayerProvider>
+            <AnalyticsProvider trackFunctions={[track]}>
+              <Providers
+                themeInput={customTheme}
+                iconInput={customIcons}
+                {...props}
+              />
+            </AnalyticsProvider>
+          </MediaPlayerProvider>
+        </ExternalLinkProvider>
       </AuthProvider>
     </NotificationsProvider>
   </ClientProvider>

@@ -242,7 +242,9 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
         </RNSVGSvgView>
         <View
           accessible={true}
+          clickable={true}
           isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -348,7 +350,7 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
                   fill={
                     Array [
                       0,
-                      4286940549,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}
@@ -640,7 +642,9 @@ exports[`the UserPrayerList component renders no prayer text 1`] = `
         </RNSVGSvgView>
         <View
           accessible={true}
+          clickable={true}
           isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -746,7 +750,7 @@ exports[`the UserPrayerList component renders no prayer text 1`] = `
                   fill={
                     Array [
                       0,
-                      4286940549,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}

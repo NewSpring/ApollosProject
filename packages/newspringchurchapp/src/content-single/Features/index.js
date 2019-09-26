@@ -45,7 +45,11 @@ const Features = ({ contentId, asNotes }) => {
           );
         });
         return asNotes ? (
-          <SermonNotes features={featureComponents} contentId={contentId} />
+          <SermonNotes
+            features={featureComponents}
+            contentId={contentId}
+            communicator={node.communicator}
+          />
         ) : (
           <PaddedView horizontal={false}>
             <PaddedView vertical={false}>

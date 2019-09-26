@@ -205,22 +205,52 @@ exports[`The WithYou component should render 1`] = `
               }
             }
           >
-            The NewSpring family is with you in prayer
+            Thank you for sharing
           </Text>
-          <Text
-            bold={false}
-            italic={false}
+          <View
             style={
               Object {
-                "color": "#303030",
-                "fontFamily": "Colfax-Regular",
-                "fontSize": 16,
-                "lineHeight": 26,
+                "paddingBottom": 17.28,
               }
             }
           >
-            Thank you for sharing your prayer request. We will all be praying for you.
-          </Text>
+            <Text
+              bold={false}
+              italic={false}
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 26,
+                }
+              }
+            >
+              “This is the confidence we have in approaching God: that if we ask anything according to his will, he hears us” (1 John 5:14).
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "paddingBottom": 17.28,
+              }
+            }
+          >
+            <Text
+              bold={false}
+              italic={false}
+              style={
+                Object {
+                  "color": "#303030",
+                  "fontFamily": "Colfax-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 26,
+                }
+              }
+            >
+              We’re praying for you and believing with you.
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -232,7 +262,9 @@ exports[`The WithYou component should render 1`] = `
         >
           <View
             accessible={true}
+            clickable={true}
             isTVSelectable={true}
+            onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -276,7 +308,7 @@ exports[`The WithYou component should render 1`] = `
                   }
                 }
               >
-                Pray for Others
+                Pray for others
               </Text>
             </View>
           </View>
@@ -309,7 +341,7 @@ exports[`The WithYou component should render 1`] = `
                   }
                 }
               >
-                Add Another Prayer Request
+                Add another prayer request
               </Text>
             </Text>
           </View>
@@ -413,7 +445,9 @@ exports[`The WithYou component should render 1`] = `
         </RNSVGSvgView>
         <View
           accessible={true}
+          clickable={true}
           isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -519,7 +553,7 @@ exports[`The WithYou component should render 1`] = `
                   fill={
                     Array [
                       0,
-                      4286940549,
+                      4294967295,
                     ]
                   }
                   fillOpacity={1}
