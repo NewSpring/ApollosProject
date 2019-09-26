@@ -1,4 +1,5 @@
 package com.newspringchurchapp;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

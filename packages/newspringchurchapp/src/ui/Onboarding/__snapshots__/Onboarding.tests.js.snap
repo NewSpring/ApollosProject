@@ -48,7 +48,7 @@ exports[`the Onboarding component should render Onboarding 1`] = `
     >
       <RCTScrollView
         activeDot={
-          <SafeAreaView
+          <ForwardRef(_SafeAreaView)
             forceInset={
               Object {
                 "bottom": "always",
@@ -56,7 +56,7 @@ exports[`the Onboarding component should render Onboarding 1`] = `
             }
           >
             <mapProps(getContext(mapProps(withPropsOnChange(mapProps(View))))) />
-          </SafeAreaView>
+          </ForwardRef(_SafeAreaView)>
         }
         automaticallyAdjustContentInsets={false}
         autoplay={false}
@@ -78,7 +78,7 @@ exports[`the Onboarding component should render Onboarding 1`] = `
         }
         disableNextButton={false}
         dot={
-          <SafeAreaView
+          <ForwardRef(_SafeAreaView)
             forceInset={
               Object {
                 "bottom": "always",
@@ -92,7 +92,7 @@ exports[`the Onboarding component should render Onboarding 1`] = `
                 }
               }
             />
-          </SafeAreaView>
+          </ForwardRef(_SafeAreaView)>
         }
         horizontal={true}
         index={0}
@@ -669,7 +669,9 @@ exports[`the Onboarding component should render Onboarding 1`] = `
               >
                 <View
                   accessible={true}
+                  clickable={true}
                   isTVSelectable={true}
+                  onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
                   onResponderRelease={[Function]}
@@ -862,7 +864,9 @@ exports[`the Onboarding component should render Onboarding 1`] = `
               >
                 <View
                   accessible={true}
+                  clickable={true}
                   isTVSelectable={true}
+                  onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
                   onResponderRelease={[Function]}

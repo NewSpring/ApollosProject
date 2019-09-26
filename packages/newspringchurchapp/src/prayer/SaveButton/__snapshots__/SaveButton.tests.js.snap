@@ -35,7 +35,9 @@ exports[`the SaveButton component renders a SaveButton 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -257,7 +259,9 @@ exports[`the SaveButton component renders a saved SaveButton 1`] = `
   >
     <View
       accessible={true}
+      clickable={true}
       isTVSelectable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}

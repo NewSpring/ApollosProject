@@ -19,6 +19,7 @@ ROCK:
   SHARE_URL: https://newspring.cc
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
+  USE_PLUGIN: true
 ONE_SIGNAL:
   APP_ID: fe946d19-cad0-42eb-b32c-078f29c54e41
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
@@ -26,6 +27,11 @@ CHURCH_ONLINE:
   URL: https://live.newspring.cc/api/v1/
   MEDIA_URLS: []
   WEB_VIEW_URL: https://live.newspring.cc
+ALGOLIA:
+  APPLICATION_ID: ${ALGOLIA_APP_ID}
+  API_KEY: ${ALGOLIA_API_KEY}
+  # TODO: should we support multiple indices? how?
+  SEARCH_INDEX: test_ContentItems
 TWILIO:
   ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
   AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
@@ -130,6 +136,10 @@ ROCK_MAPPINGS:
   GENERAL_PRAYER_CATEGORY_ID: 2
 
   SERMON_CHANNEL_ID: 19
+
+  SERVING_GROUP_TYPE_ID: 23
+  COMMUNITY_GROUP_TYPE_ID: 25
+  FAMILY_GROUP_TYPE_ID: 10
 
 HOME_FEATURES:
   -
