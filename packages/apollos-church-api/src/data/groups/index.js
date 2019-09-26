@@ -1,4 +1,7 @@
+import { Group } from '@apollosproject/data-connector-rock';
 import schema from './schema';
 import dataSource from './data-source';
 
-export { schema, dataSource };
+const { resolver } = Group;
+
+export { schema, resolver, dataSource };
