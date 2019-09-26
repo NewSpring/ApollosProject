@@ -116,6 +116,8 @@ export default class PrayerRequest extends RockApolloDataSource {
     return this.sortPrayers(prayers);
   };
 
+  // TODO deprecate this one, enforce current user from resolver
+  // and use getByPerson()
   // QUERY PrayerRequests from Current Person
   getFromCurrentPerson = async () => {
     try {
@@ -137,19 +139,42 @@ export default class PrayerRequest extends RockApolloDataSource {
     }
   };
 
+  getByPerson = async (id) => {
+    const prayers = await this.request('PrayerRequests/Public')
+      .filter(`RequestedByPersonAliasId eq ${id}`)
+      .get();
+    // Sort user prayers by date - newest first
+    return prayers.sort((a, b) =>
+      moment(a.createdDateTime) < moment(b.createdDateTime) ? 1 : -1
+    );
+  };
+
   // QUERY PrayerRequests from groups
   getFromGroups = async () => {
     const {
-      dataSources: { Auth },
+      dataSources: { Auth, Group },
     } = this.context;
 
-    const groupTypeIds = ROCK_MAPPINGS.PRAYER_GROUP_TYPE_IDS.join();
+    const { id: personId } = await Auth.getCurrentPerson();
+    const groups = await Group.getByPerson({ personId });
+    const groupMembers = new Set([]);
+    await Promise.all(
+      groups.map(async ({ id }) => {
+        const { primaryAliasId } = await this.request('GroupMembers')
+          .filter(`GroupId eq ${id}`)
+          .get();
+        groupMembers.add(primaryAliasId);
+      })
+    );
+    const prayers = await Promise.all(
+      [...groupMembers].map(
+        async (id) => console.log('id', id) || this.getByPerson(id)
+      )
+    );
 
-    const { id } = await Auth.getCurrentPerson();
-
-    const prayers = await this.request(
-      `PrayerRequests/GetForGroupMembersOfPersonInGroupTypes/${id}?groupTypeIds=${groupTypeIds}&excludePerson=true`
-    ).get();
+    // const prayers = await this.request(
+    // `PrayerRequests/GetForGroupMembersOfPersonInGroupTypes/${id}?groupTypeIds=${groupTypeIds}&excludePerson=true`
+    // ).get();
     return this.sortPrayers(prayers);
   };
 

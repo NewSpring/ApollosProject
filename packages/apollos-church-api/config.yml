@@ -108,14 +108,6 @@ ROCK_MAPPINGS:
     - 20
     - 28
 
-  # Group type ids for all groups to share prayers
-  PRAYER_GROUP_TYPE_IDS:
-    - 10
-    - 23
-    - 25
-    - 60
-    - 141
-
   CAMPAIGN_CHANNEL_IDS:
     - 439
 
@@ -269,4 +261,3 @@ ROCK_CONSTANTS:
   LABEL: 120
   WISTIA: 125
   S3_ASSET: 133
-
