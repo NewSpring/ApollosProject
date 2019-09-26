@@ -13,7 +13,6 @@ import {
   PaddedView,
   H4,
 } from '@apollosproject/ui-kit';
-import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
 import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
@@ -28,7 +27,7 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
-const ActionTable = ({ token }) => (
+const ActionTable = ({ token, isGroupLeader }) => (
   <UserWebBrowserConsumer>
     {(openUserWebView) => (
       <View>
@@ -52,23 +51,27 @@ const ActionTable = ({ token }) => (
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() => openUrl('https://newspring.cc/groups/finder')}
+            onPress={() =>
+              openUserWebView({ url: 'https://newspring.cc/groups/finder' })
+            }
           >
             <Cell>
               <CellText>Join a small group</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
-          <Touchable
-            onPress={() =>
-              openUserWebView({ url: 'https://newspring.cc/groups/leader' })
-            }
-          >
-            <Cell>
-              <CellIcon name="groups" />
-              <CellText>Mangage your group</CellText>
-            </Cell>
-          </Touchable>
+          {isGroupLeader ? (
+            <Touchable
+              onPress={() =>
+                openUserWebView({ url: 'https://newspring.cc/groups/leader' })
+              }
+            >
+              <Cell>
+                <CellIcon name="groups" />
+                <CellText>Manage your group</CellText>
+              </Cell>
+            </Touchable>
+          ) : null}
           <Divider />
         </TableView>
         <TableView>
@@ -104,6 +107,7 @@ const ActionTable = ({ token }) => (
 
 ActionTable.propTypes = {
   token: PropTypes.string,
+  isGroupLeader: PropTypes.bool,
 };
 
 const StyledActionTable = styled(({ theme }) => ({

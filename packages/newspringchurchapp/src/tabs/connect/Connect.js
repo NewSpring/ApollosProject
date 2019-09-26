@@ -45,6 +45,11 @@ class Connect extends PureComponent {
                     'currentUser.profile.impersonationParameter',
                     ''
                   )}
+                  isGroupLeader={get(
+                    personData,
+                    'currentUser.profile.isGroupLeader',
+                    false
+                  )}
                 />
               )}
             </Query>
