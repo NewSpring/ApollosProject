@@ -69,6 +69,7 @@ const ActionTable = ({ token, isGroupLeader }) => (
               <Cell>
                 <CellIcon name="groups" />
                 <CellText>Manage your group</CellText>
+                <CellIcon name="arrow-next" />
               </Cell>
             </Touchable>
           ) : null}
