@@ -9531,7 +9531,7 @@ graphql@0.13.2, graphql@^0.13.2:
   dependencies:
     iterall "^1.2.1"
 
-graphql@^14.0.0, graphql@^14.0.2:
+graphql@14.4.1, graphql@^14.0.0, graphql@^14.0.2:
   version "14.4.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.4.1.tgz#7a7818d3f63f66b9528ba5416b6c88460db62280"
   dependencies:
