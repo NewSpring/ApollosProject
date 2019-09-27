@@ -1,6 +1,6 @@
 {
   "name": "newspringchurchapp",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "private": true,
   "devDependencies": {
     "@storybook/addon-actions": "4.1.16",
@@ -74,11 +74,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postbump": "yarn postversion"
-    },
-    "skip": {
-      "tag": true,
-      "commit": true
+      "postbump": "yarn postversion && git add . && git commit -m 'chore(release): Update Native Files'"
     }
   },
   "dependencies": {
