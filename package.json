@@ -31,7 +31,8 @@
     "nuke:node": "rm -rdf ./node_modules packages/*/node_modules && yarn cache clean && yarn",
     "nuke:cache": "watchman watch-del-all && ./node_modules/.bin/lerna run start --scope newspringchurchapp --stream -- --reset-cache",
     "postinstall": "lerna run postinstall && lerna run build --parallel",
-    "pods": "lerna run pods --stream --scope newspringchurchapp"
+    "pods": "lerna run pods --stream --scope newspringchurchapp",
+    "commit": "commit"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
@@ -44,6 +45,7 @@
     "@babel/runtime": "7.1.5",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt-cli": "^8.2.0",
     "apollo": "^1.9.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
