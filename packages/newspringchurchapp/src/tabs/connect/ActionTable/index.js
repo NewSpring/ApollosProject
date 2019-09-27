@@ -61,17 +61,20 @@ const ActionTable = ({ token, isGroupLeader }) => (
             </Cell>
           </Touchable>
           {isGroupLeader ? (
-            <Touchable
-              onPress={() =>
-                openUserWebView({ url: 'https://newspring.cc/groups/leader' })
-              }
-            >
-              <Cell>
-                <CellIcon name="groups" />
-                <CellText>Manage your group</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
+            <>
+              <Divider />
+              <Touchable
+                onPress={() =>
+                  openUserWebView({ url: 'https://newspring.cc/groups/leader' })
+                }
+              >
+                <Cell>
+                  <CellIcon name="groups" />
+                  <CellText>Manage your group</CellText>
+                  <CellIcon name="arrow-next" />
+                </Cell>
+              </Touchable>
+            </>
           ) : null}
           <Divider />
         </TableView>
