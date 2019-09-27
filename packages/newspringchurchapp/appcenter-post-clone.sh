@@ -16,3 +16,11 @@ cp .env.production .env
 
 # overwrites android version code with current date and time
 sed -i "" -E "s/versionCode [0-9]+/versionCode $(date -u +"%y%m%d%H%M")/g" android/app/build.gradle
+
+echo "Uninstalling all CocoaPods versions"
+sudo gem uninstall cocoapods --all --executables
+
+COCOAPODS_VER=`sed -n -e 's/^COCOAPODS: \([0-9.]*\)/\1/p' ios/Podfile.lock`
+
+echo "Installing CocoaPods version $COCOAPODS_VER"
+sudo gem install cocoapods -v $COCOAPODS_VER
