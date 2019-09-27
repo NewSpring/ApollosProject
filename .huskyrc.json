@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "commit-msg": "if [ git-branch-is develop ]; then commitlint -E HUSKY_GIT_PARAMS; fi"
   }
 }
