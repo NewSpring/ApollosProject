@@ -35,9 +35,12 @@ export default class ContentItem extends oldContentItem.dataSource {
         .select('MediaData')
         .get();
 
-      const mediaData = await JSON.parse(videoData[0].mediaData);
-
-      return get(mediaData, 'assets[0].url', '');
+      const mediaData = JSON.parse(videoData[0].mediaData);
+      const videos = mediaData.assets.filter(
+        (asset) => asset.type === 'HlsVideoFile' && asset.height === 720
+      );
+      if (!videos.length) return '';
+      return videos[0].url.replace('.bin', '.m3u8');
     } catch (error) {
       return '';
     }
@@ -143,19 +146,15 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
-  getShareURL = async (id, contentChannelId) => {
-    try {
-      const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
-        contentChannelId
-      );
-      const slug = await this.request('ContentChannelItemSlugs')
-        .filter(`ContentChannelItemId eq ${id}`)
-        .first();
-      return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
-    } catch (error) {
-      console.error(error);
-      return '';
-    }
+  getShareUrl = async (id, contentChannelId) => {
+    console.log('contentChannelId', contentChannelId);
+    const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
+      contentChannelId
+    );
+    const slug = await this.request('ContentChannelItemSlugs')
+      .filter(`ContentChannelItemId eq ${id}`)
+      .first();
+    return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
   };
 
   getFeatures({ attributeValues }) {
@@ -203,6 +202,19 @@ export default class ContentItem extends oldContentItem.dataSource {
     });
     return features;
   }
+
+  getCommunicator = async ({ value: matrixItemGuid } = {}) => {
+    if (!matrixItemGuid) return null;
+    const {
+      attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
+    } = await this.request('/AttributeMatrixItems')
+      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
+      .first();
+    const { personId } = await this.request('/PersonAlias')
+      .filter(`Guid eq guid'${personAliasGuid}'`)
+      .first();
+    return this.context.dataSources.Person.getFromId(personId);
+  };
 
   getBySlug = async (slug) => {
     const contentItemSlug = await this.request('ContentChannelItemSlugs')

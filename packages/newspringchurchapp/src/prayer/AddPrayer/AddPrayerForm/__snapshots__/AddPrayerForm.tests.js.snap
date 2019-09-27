@@ -413,7 +413,9 @@ exports[`The AddPrayerForm component should render 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -487,7 +489,9 @@ exports[`The AddPrayerForm component should render 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1059,7 +1063,9 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1133,7 +1139,9 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1773,7 +1781,9 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
                   >
                     <View
                       accessible={true}
+                      clickable={true}
                       isTVSelectable={true}
+                      onClick={[Function]}
                       onResponderGrant={[Function]}
                       onResponderMove={[Function]}
                       onResponderRelease={[Function]}
@@ -1847,7 +1857,9 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
           >
             <View
               accessible={true}
+              clickable={true}
               isTVSelectable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
