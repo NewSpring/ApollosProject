@@ -20,6 +20,7 @@ export default gql`
         photo {
           uri
         }
+        isGroupLeader
       }
     }
   }
