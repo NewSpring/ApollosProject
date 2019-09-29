@@ -24,6 +24,7 @@ jobs:
         - travis_wait yarn codecov
     - stage: Tag and Bump
       script:
+        - git checkout develop
         - yarn bump
         - git config user.email ${GITHUB_EMAIL}
         - git config user.name ${GITHUB_USER}
