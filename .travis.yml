@@ -12,8 +12,6 @@ install:
 stages:
   - name: Test
     if: (type IN (pull_request)) OR (type IN (push) AND branch = master)
-  - name: Tag and Bump
-    if: (type IN (push) AND branch = develop)
 jobs:
   include:
     - stage: Test
@@ -22,10 +20,3 @@ jobs:
     - script:
         - travis_wait yarn ci-test
         - travis_wait yarn codecov
-    - stage: Tag and Bump
-      script:
-        - git checkout develop
-        - yarn bump
-        - git config user.email ${GITHUB_EMAIL}
-        - git config user.name ${GITHUB_USER}
-        - git push --follow-tags "https://${GITHUB_TOKEN}@${GITHUB_REPO}" develop
