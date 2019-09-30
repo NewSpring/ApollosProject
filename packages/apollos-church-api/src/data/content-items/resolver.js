@@ -13,6 +13,14 @@ const defaultResolvers = {
     title: 'Share via ...',
     message: `${root.title} - ${ContentItem.createSummary(root)}`,
   }),
+  parentChannel: async ({ contentChannelId }, args, { dataSources }) => {
+    let channelName = await dataSources.ContentChannel.getFromId(
+      contentChannelId
+    );
+    // our content channels are prefixed with NewSpring, remove that
+    channelName = channelName.replace('NewSpring - ', '');
+    return channelName;
+  },
 };
 
 const resolver = {
