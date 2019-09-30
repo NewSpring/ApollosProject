@@ -8,11 +8,13 @@ const Toolbar = ({ navigation }) => (
   <WebBrowserConsumer>
     {(openUrl) => (
       <ActionBar>
-        <ActionBarItem
-          onPress={() => navigation.navigate('Passes')}
-          icon="check"
-          label="Check-in"
-        />
+        {process.env.NODE_ENV !== 'production' ? (
+          <ActionBarItem
+            onPress={() => navigation.navigate('Passes')}
+            icon="check"
+            label="Check-in"
+          />
+        ) : null}
         <ActionBarItem
           onPress={() =>
             openUrl('https://my.newspring.cc', { externalBrowser: true })
