@@ -1,5 +1,7 @@
+import { Person } from '@apollosproject/data-connector-rock';
 import schema from './schema';
 import resolver from './resolver';
-import dataSource from './data-source';
+
+const { dataSource } = Person;
 
 export { schema, resolver, dataSource };
