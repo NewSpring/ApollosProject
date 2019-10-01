@@ -40,7 +40,7 @@ const ActionTable = ({ isGroupLeader }) => (
           <Touchable
             onPress={() =>
               openUserWebView({
-                url: 'https://rock.newspring.cc/Workflows/431',
+                url: 'https://newspring.cc/serving',
               })
             }
           >
