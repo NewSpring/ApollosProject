@@ -12,7 +12,6 @@ import * as Sms from '@apollosproject/data-connector-twilio';
 import { PrayerRequest, PrayerMenuCategory } from 'apollos-data-prayer';
 import {
   Followings,
-  Person,
   ContentChannel,
   Sharable,
   Auth,
@@ -22,9 +21,10 @@ import {
   BinaryFiles,
   RockConstants,
   Features as BaseFeatures,
+  Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
-import * as ExtendedPerson from './people';
+import * as Person from './people';
 import * as ContentItem from './content-items';
 import * as Features from './features';
 import * as Campus from './campuses';
@@ -41,7 +41,7 @@ const data = {
   Features,
   BaseFeatures,
   Person,
-  ExtendedPerson,
+  BasePerson,
   Auth,
   AuthSms,
   Sms,

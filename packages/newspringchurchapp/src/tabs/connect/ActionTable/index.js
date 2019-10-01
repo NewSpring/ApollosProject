@@ -27,7 +27,7 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
-const ActionTable = ({ token, isGroupLeader }) => (
+const ActionTable = ({ isGroupLeader }) => (
   <UserWebBrowserConsumer>
     {(openUserWebView) => (
       <View>
@@ -81,7 +81,7 @@ const ActionTable = ({ token, isGroupLeader }) => (
           <Touchable
             onPress={() =>
               openUserWebView({
-                url: `https://rock.newspring.cc/WorkflowEntry/530?rckipid=${token}&Source=3`,
+                url: `https://rock.newspring.cc/WorkflowEntry/530`,
               })
             }
           >
@@ -109,7 +109,6 @@ const ActionTable = ({ token, isGroupLeader }) => (
 );
 
 ActionTable.propTypes = {
-  token: PropTypes.string,
   isGroupLeader: PropTypes.bool,
 };
 
