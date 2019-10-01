@@ -51,6 +51,7 @@ const ActionTable = ({ isGroupLeader }) => (
               </Cell>
             </Touchable>
           ) : null}
+          <Divider />
           <Touchable
             onPress={() =>
               openUserWebView({
