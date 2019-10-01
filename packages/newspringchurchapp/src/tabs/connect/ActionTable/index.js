@@ -46,11 +46,12 @@ const ActionTable = ({ token, isGroupLeader }) => (
               }
             >
               <Cell>
-                <CellText>Give</CellText>
+                <CellText>Give now</CellText>
                 <CellIcon name="arrow-next" />
               </Cell>
             </Touchable>
           ) : null}
+          <Divider />
           <Touchable
             onPress={() =>
               openUserWebView({
