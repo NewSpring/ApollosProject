@@ -7,7 +7,7 @@ import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 const Toolbar = ({ navigation }) => (
   <WebBrowserConsumer>
     {(openUrl) =>
-      process.env.NODE_ENV !== 'development' ? (
+      process.env.NODE_ENV === 'development' ? (
         <ActionBar>
           <ActionBarItem
             onPress={() => navigation.navigate('Passes')}
