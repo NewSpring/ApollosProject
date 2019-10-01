@@ -37,20 +37,18 @@ const ActionTable = ({ isGroupLeader }) => (
           </Name>
         </RowHeader>
         <TableView>
-          {process.env.NODE_ENV === 'production' ? (
-            <Touchable
-              onPress={() =>
-                openUserWebView({
-                  url: 'https://my.newspring.cc',
-                })
-              }
-            >
-              <Cell>
-                <CellText>Give now</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
-          ) : null}
+          <Touchable
+            onPress={() =>
+              openUserWebView({
+                url: 'https://my.newspring.cc',
+              })
+            }
+          >
+            <Cell>
+              <CellText>Give now</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
           <Divider />
           <Touchable
             onPress={() =>
