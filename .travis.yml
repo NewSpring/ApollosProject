@@ -12,6 +12,8 @@ install:
 stages:
   - name: Test
     if: (type IN (pull_request)) OR (type IN (push) AND branch = master)
+  - name: Publish Schema
+    if: (type IN (push))
 jobs:
   include:
     - stage: Test
@@ -20,3 +22,5 @@ jobs:
     - script:
         - travis_wait yarn ci-test
         - travis_wait yarn codecov
+    - stage: Publish Schema
+      script: ENGINE_API_KEY=service:NewSpring-5254:wbJZJlowfNbryOkFeMX7gQ npx apollo service:push --endpoint=http://localhost:4000
