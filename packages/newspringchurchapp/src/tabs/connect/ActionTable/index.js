@@ -37,23 +37,21 @@ const ActionTable = ({ isGroupLeader }) => (
     </RowHeader>
     <TableView>
       <WebBrowserConsumer>
-        {(openUrl) =>
-          (
-            <View>
-              <Touchable
-                onPress={() =>
-                  openUrl('https://my.newspring.cc', { externalBrowser: true })
-                }
-              >
-                <Cell>
-                  <CellText>Give now</CellText>
-                  <CellIcon name="arrow-next" />
-                </Cell>
-              </Touchable>
-              <Divider />
-            </View>
-          )
-        }
+        {(openUrl) => (
+          <View>
+            <Touchable
+              onPress={() =>
+                openUrl('https://my.newspring.cc', { externalBrowser: true })
+              }
+            >
+              <Cell>
+                <CellText>Give now</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+          </View>
+        )}
       </WebBrowserConsumer>
       <UserWebBrowserConsumer>
         {(openUserWebView) => (
