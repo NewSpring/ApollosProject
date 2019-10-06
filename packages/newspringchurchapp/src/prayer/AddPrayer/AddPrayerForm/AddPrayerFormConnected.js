@@ -44,9 +44,8 @@ class AddPrayerFormConnected extends React.Component {
                   this.props.navigation.navigate('WithYou');
                 }}
                 avatarSource={photo}
-                {...this.props}
-                onClose={() => this.props.navigation.pop()}
                 title={'Join me in praying for ...'}
+                {...this.props}
               />
             )}
           </Mutation>
