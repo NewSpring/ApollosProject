@@ -59,6 +59,19 @@ const ActionTable = ({ isGroupLeader }) => (
             <Touchable
               onPress={() =>
                 openUserWebView({
+                  url: 'https://newspring.cc/connect',
+                })
+              }
+            >
+              <Cell>
+                <CellText>Sign up for Connect</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUserWebView({
                   url: 'https://newspring.cc/serving',
                 })
               }
