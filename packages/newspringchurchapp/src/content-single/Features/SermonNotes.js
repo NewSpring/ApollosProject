@@ -13,7 +13,6 @@ import share from '../../utils/content/share';
 const SermonNotes = ({ contentId, features, communicator }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
-  console.log(sharedMsg);
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -66,7 +65,7 @@ const SermonNotes = ({ contentId, features, communicator }) => {
         // />
         <Touchable
           onPress={() => {
-            console.log(contentId, sharedMsg); // left in the prop for the to do item above
+            console.log(contentId); // left in the prop for the to do item above
             const message = sharedMsg.replace(
               /\w+Feature:\w+{{(.*)}}\n\n/gs,
               (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
