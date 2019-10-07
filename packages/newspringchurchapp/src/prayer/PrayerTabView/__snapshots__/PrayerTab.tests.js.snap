@@ -1,23 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders prayer PrayerTab 1`] = `
-<RNCSafeAreaView
-  onInsetsChange={[Function]}
+<View
   style={
     Object {
-      "flex": 1,
+      "paddingHorizontal": 16,
     }
   }
-/>
+>
+  <View
+    style={
+      Object {
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Bold",
+          "fontSize": 16,
+          "lineHeight": 23.04,
+        }
+      }
+    >
+      There are no prayers yet for your 
+    </Text>
+    <Text
+      bold={false}
+      italic={false}
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Regular",
+          "fontSize": 16,
+          "lineHeight": 26,
+        }
+      }
+    >
+      Be the first to add one!
+    </Text>
+  </View>
+</View>
 `;
 
 exports[`renders prayer tab with content 1`] = `
-<RNCSafeAreaView
-  onInsetsChange={[Function]}
+<View
   style={
     Object {
-      "flex": 1,
+      "paddingHorizontal": 16,
     }
   }
-/>
+>
+  <View
+    style={
+      Object {
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Bold",
+          "fontSize": 16,
+          "lineHeight": 23.04,
+        }
+      }
+    >
+      You do not have any saved prayers
+    </Text>
+  </View>
+</View>
 `;
