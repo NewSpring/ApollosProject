@@ -535,7 +535,7 @@ exports[`The AddPrayerForm component should render 1`] = `
                     }
                   }
                 >
-                  Send prayer to community
+                  Send prayer
                 </Text>
               </View>
             </View>
@@ -1185,7 +1185,7 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
                     }
                   }
                 >
-                  Send prayer to community
+                  Send prayer
                 </Text>
               </View>
             </View>
