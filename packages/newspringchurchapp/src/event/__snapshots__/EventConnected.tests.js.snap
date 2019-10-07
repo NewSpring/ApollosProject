@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The WithYou component should render 1`] = `
+exports[`EventConnected component renders without errors 1`] = `
 <RNCSafeAreaView
   onInsetsChange={[Function]}
   style={
