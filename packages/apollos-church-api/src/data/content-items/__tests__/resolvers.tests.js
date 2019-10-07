@@ -113,6 +113,11 @@ describe('UniversalContentItem', () => {
       firstName: 'first',
       lastName: 'last',
     }));
+    context.dataSources.ContentItem.getContentItemScriptures = jest.fn(() => [
+      {
+        html: '<p><i>1</i>In the beginning...</p>',
+      },
+    ]);
   });
 
   it('gets a newspring content item', async () => {

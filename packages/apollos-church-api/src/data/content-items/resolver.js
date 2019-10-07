@@ -22,15 +22,11 @@ const resolver = {
   },
   DevotionalContentItem: {
     ...defaultResolvers,
-    scriptures: async ({ id }, args, { dataSources }) => {
-      const scriptures = await dataSources.ContentItem.getContentItemScriptures(
-        id
-      );
-      if (scriptures.length) {
-        return dataSources.Scripture.getScriptures(scriptures);
-      }
-      return [];
-    },
+    scriptures: async (
+      { attributeValues: { scriptures } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getContentItemScriptures(scriptures),
   },
   ContentItem: {
     __resolveType: async (
