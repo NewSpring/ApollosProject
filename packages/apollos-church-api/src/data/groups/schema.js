@@ -12,6 +12,7 @@ export const groupSchema = gql`
     id: ID!
     name: String
     leader: Person
+    leaders: Person
     members: [Person]
   }
   extend type Person {
