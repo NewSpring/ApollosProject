@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import { Query } from 'react-apollo';
-import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import { BackgroundView, styled } from '@apollosproject/ui-kit';
@@ -38,20 +37,11 @@ class Connect extends PureComponent {
             <ActionBar />
             <RecentlyLikedTileFeedConnected />
             <Query query={GET_USER_PROFILE}>
-              {({ data: personData }) => (
-                <ActionTable
-                  token={get(
-                    personData,
-                    'currentUser.profile.impersonationParameter',
-                    ''
-                  )}
-                  isGroupLeader={get(
-                    personData,
-                    'currentUser.profile.isGroupLeader',
-                    false
-                  )}
-                />
-              )}
+              {({
+                data: {
+                  currentUser: { profile: { isGroupLeader } = {} } = {},
+                } = {},
+              }) => <ActionTable isGroupLeader={isGroupLeader} />}
             </Query>
           </ScrollViewWithPadding>
         </SafeAreaView>

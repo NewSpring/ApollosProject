@@ -535,7 +535,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                     }
                   }
                 >
-                  Send prayer to community
+                  Send prayer
                 </Text>
               </View>
             </View>

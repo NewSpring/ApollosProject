@@ -152,7 +152,11 @@ Object {
   "data": Object {
     "node": Object {
       "id": "DevotionalContentItem:559b23fd0aa90e81b1c023e72e230fa1",
-      "scriptures": Array [],
+      "scriptures": Array [
+        Object {
+          "html": "<p><i>1</i>In the beginning...</p>",
+        },
+      ],
       "title": "SAMPLE: Easter",
     },
   },

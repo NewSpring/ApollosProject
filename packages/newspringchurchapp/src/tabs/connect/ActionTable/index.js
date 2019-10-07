@@ -14,6 +14,7 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
+import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
@@ -27,89 +28,121 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
-const ActionTable = ({ token, isGroupLeader }) => (
-  <UserWebBrowserConsumer>
-    {(openUserWebView) => (
-      <View>
-        <RowHeader>
-          <Name>
-            <H4>{'Connect with NewSpring'}</H4>
-          </Name>
-        </RowHeader>
-        <TableView>
-          <Touchable
-            onPress={() =>
-              openUserWebView({
-                url: 'https://newspring.cc/serving',
-              })
-            }
-          >
-            <Cell>
-              <CellText>Find a serving opportunity</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() =>
-              openUserWebView({ url: 'https://newspring.cc/groups/finder' })
-            }
-          >
-            <Cell>
-              <CellText>Join a small group</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          {isGroupLeader ? (
-            <>
-              <Divider />
-              <Touchable
-                onPress={() =>
-                  openUserWebView({ url: 'https://newspring.cc/groups/leader' })
-                }
-              >
-                <Cell>
-                  <CellText>Manage your group</CellText>
-                  <CellIcon name="arrow-next" />
-                </Cell>
-              </Touchable>
-            </>
-          ) : null}
-          <Divider />
-        </TableView>
-        <TableView>
-          <Touchable
-            onPress={() =>
-              openUserWebView({
-                url: `https://rock.newspring.cc/WorkflowEntry/530?rckipid=${token}&Source=3`,
-              })
-            }
-          >
-            <Cell>
-              <CellIcon name="settings" />
-              <CellText>Bug Report!</CellText>
-            </Cell>
-          </Touchable>
-        </TableView>
-        {process.env.NODE_ENV !== 'production' ? (
-          <TableView>
+const ActionTable = ({ isGroupLeader }) => (
+  <View>
+    <RowHeader>
+      <Name>
+        <H4>{'Connect with NewSpring'}</H4>
+      </Name>
+    </RowHeader>
+    <TableView>
+      <WebBrowserConsumer>
+        {(openUrl) => (
+          <View>
             <Touchable
-              onPress={() => NavigationActions.navigate('TestingControlPanel')}
+              onPress={() =>
+                openUrl('https://my.newspring.cc', { externalBrowser: true })
+              }
+            >
+              <Cell>
+                <CellText>Give now</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+          </View>
+        )}
+      </WebBrowserConsumer>
+      <UserWebBrowserConsumer>
+        {(openUserWebView) => (
+          <View>
+            <Touchable
+              onPress={() =>
+                openUserWebView({
+                  url: 'https://newspring.cc/connect',
+                })
+              }
+            >
+              <Cell>
+                <CellText>Sign up for Connect</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUserWebView({
+                  url: 'https://newspring.cc/serving',
+                })
+              }
+            >
+              <Cell>
+                <CellText>Find a serving opportunity</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUserWebView({ url: 'https://newspring.cc/groups/finder' })
+              }
+            >
+              <Cell>
+                <CellText>Join a small group</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            {isGroupLeader ? (
+              <>
+                <Divider />
+                <Touchable
+                  onPress={() =>
+                    openUserWebView({
+                      url: 'https://newspring.cc/groups/leader',
+                    })
+                  }
+                >
+                  <Cell>
+                    <CellText>Manage your group</CellText>
+                    <CellIcon name="arrow-next" />
+                  </Cell>
+                </Touchable>
+              </>
+            ) : null}
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUserWebView({
+                  url: `https://rock.newspring.cc/WorkflowEntry/530`,
+                })
+              }
             >
               <Cell>
                 <CellIcon name="settings" />
-                <CellText>Open Testing Panel</CellText>
+                <CellText>Bug Report!</CellText>
               </Cell>
             </Touchable>
-          </TableView>
-        ) : null}
-      </View>
-    )}
-  </UserWebBrowserConsumer>
+            <Divider />
+            {process.env.NODE_ENV !== 'production' ? (
+              <Touchable
+                onPress={() =>
+                  NavigationActions.navigate('TestingControlPanel')
+                }
+              >
+                <Cell>
+                  <CellIcon name="settings" />
+                  <CellText>Open Testing Panel</CellText>
+                </Cell>
+              </Touchable>
+            ) : null}
+          </View>
+        )}
+      </UserWebBrowserConsumer>
+    </TableView>
+  </View>
 );
 
 ActionTable.propTypes = {
-  token: PropTypes.string,
   isGroupLeader: PropTypes.bool,
 };
 

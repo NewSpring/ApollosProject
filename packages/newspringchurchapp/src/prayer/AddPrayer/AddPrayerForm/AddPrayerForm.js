@@ -119,7 +119,7 @@ AddPrayerForm.propTypes = {
 
 AddPrayerForm.defaultProps = {
   title: 'Ask for prayer',
-  btnLabel: 'Send prayer to community',
+  btnLabel: 'Send prayer',
 };
 
 AddPrayerForm.displayName = 'AddPrayerForm';
