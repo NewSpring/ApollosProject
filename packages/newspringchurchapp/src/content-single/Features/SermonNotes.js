@@ -10,11 +10,11 @@ import {
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
 
-const SermonNotes = ({ contentId, features, communicator }) => {
+const SermonNotes = ({ features, communicator }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
-    const placeholder = `${id}{{(.*)}}`;
+    const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
@@ -65,9 +65,9 @@ const SermonNotes = ({ contentId, features, communicator }) => {
         // />
         <Touchable
           onPress={() => {
-            console.log(contentId); // left in the prop for the to do item above
+            // console.log(contentId); // left in the prop for the to do item above
             const message = sharedMsg.replace(
-              /\w+Feature:\w+{{(.*)}}\n\n/gs,
+              /\w+Feature:\w+{{(.*?)}}\n\n/gs,
               (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
             );
             share({ message });
@@ -93,7 +93,7 @@ const SermonNotes = ({ contentId, features, communicator }) => {
 };
 
 SermonNotes.propTypes = {
-  contentId: PropTypes.string,
+  // contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
   communicator: PropTypes.shape({
     firstName: PropTypes.string,
