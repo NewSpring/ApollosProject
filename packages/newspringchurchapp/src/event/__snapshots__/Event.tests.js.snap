@@ -288,7 +288,7 @@ exports[`The Event component should render 1`] = `
                     }
                   }
                 >
-                  11:10 AM — 1:10 PM
+                  3:10 PM — 5:10 PM
                 </Text>
               </View>
             </View>
