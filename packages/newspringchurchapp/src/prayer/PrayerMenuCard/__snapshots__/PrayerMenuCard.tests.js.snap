@@ -1,142 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  onLayout={[Function]}
+<View
   style={
     Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
+      "height": 96,
+      "marginBottom": 8,
+      "marginRight": 4,
+      "marginTop": 8,
+      "transform": Array [
+        Object {
+          "scaleX": 0.95,
+        },
+        Object {
+          "scaleY": 1,
+        },
+      ],
     }
   }
 >
   <View
-    onLayout={[Function]}
     style={
       Object {
-        "flex": 1,
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "aspectRatio": 1.75,
+        "borderRadius": 16,
+        "height": "100%",
+        "overflow": "hidden",
+        "width": "100%",
       }
     }
   >
+    <Image
+      source={
+        Object {
+          "uri": "https://picsum.photos/600/400/?random",
+        }
+      }
+      style={
+        Object {
+          "height": "100%",
+          "resizeMode": "cover",
+          "width": "100%",
+        }
+      }
+    />
+    <BVLinearGradient
+      colors={
+        Array [
+          3429608515,
+          3429608515,
+        ]
+      }
+      endPoint={
+        Object {
+          "x": 0,
+          "y": 1,
+        }
+      }
+      locations={
+        Array [
+          0,
+          1,
+        ]
+      }
+      startPoint={
+        Object {
+          "x": 0,
+          "y": 0,
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
     <View
       style={
         Object {
-          "height": 96,
-          "marginBottom": 8,
-          "marginRight": 4,
-          "marginTop": 8,
-          "transform": Array [
-            Object {
-              "scaleX": 0.95,
-            },
-            Object {
-              "scaleY": 1,
-            },
-          ],
+          "backgroundColor": "transparent",
+          "bottom": 16,
+          "left": 16,
+          "position": "absolute",
+          "right": 16,
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "aspectRatio": 1.75,
-            "borderRadius": 16,
-            "height": "100%",
-            "overflow": "hidden",
-            "width": "100%",
+            "color": "white",
+            "fontFamily": "Colfax-Medium",
+            "fontSize": 14,
+            "lineHeight": 20.16,
           }
         }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://picsum.photos/600/400/?random",
-            }
-          }
-          style={
-            Object {
-              "height": "100%",
-              "resizeMode": "cover",
-              "width": "100%",
-            }
-          }
-        />
-        <BVLinearGradient
-          colors={
-            Array [
-              3429608515,
-              3429608515,
-            ]
-          }
-          endPoint={
-            Object {
-              "x": 0,
-              "y": 1,
-            }
-          }
-          locations={
-            Array [
-              0,
-              1,
-            ]
-          }
-          startPoint={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          style={
-            Object {
-              "bottom": 0,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-            }
-          }
-        />
-        <View
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "bottom": 16,
-              "left": 16,
-              "position": "absolute",
-              "right": 16,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "white",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
-              }
-            }
-          >
-            A Card Title
-          </Text>
-        </View>
-      </View>
+        A Card Title
+      </Text>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

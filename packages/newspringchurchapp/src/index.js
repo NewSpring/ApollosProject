@@ -15,6 +15,7 @@ import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 import Providers from './Providers';
 import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
+import Event from './event';
 import Tabs from './tabs';
 import PersonalDetails from './user-settings/PersonalDetails';
 import ChangePassword from './user-settings/ChangePassword';
@@ -65,6 +66,7 @@ const AppNavigator = createStackNavigator(
     ProtectedRoute: ProtectedRouteWithSplashScreen,
     Tabs,
     ContentSingle,
+    Event,
     Auth: EnhancedAuth,
     PersonalDetails,
     ChangePassword,

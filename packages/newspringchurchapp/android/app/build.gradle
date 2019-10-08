@@ -181,7 +181,6 @@ android {
             }
         }
     }
-
     packagingOptions {
         pickFirst '**/armeabi-v7a/libc++_shared.so'
         pickFirst '**/x86/libc++_shared.so'

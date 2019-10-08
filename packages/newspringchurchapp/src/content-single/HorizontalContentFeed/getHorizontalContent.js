@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query getHorizontalContent($itemId: ID!) {
+  query getHorizontalContent($itemId: ID!, $cursor: String) {
     node(id: $itemId) {
       ... on ContentItem {
         id
-        childContentItemsConnection {
+        childContentItemsConnection(after: $cursor) {
           edges {
             node {
               id
@@ -29,8 +29,9 @@ export default gql`
             }
           }
         }
-        siblingContentItemsConnection {
+        siblingContentItemsConnection(after: $cursor) {
           edges {
+            cursor
             node {
               id
               coverImage {
