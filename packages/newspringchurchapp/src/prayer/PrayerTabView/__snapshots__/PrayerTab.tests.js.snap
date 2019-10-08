@@ -1,145 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders prayer PrayerTab 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  onLayout={[Function]}
+<View
   style={
     Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
+      "paddingHorizontal": 16,
     }
   }
 >
   <View
-    onLayout={[Function]}
     style={
       Object {
-        "flex": 1,
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "paddingVertical": 16,
       }
     }
   >
-    <View
+    <Text
       style={
         Object {
-          "paddingHorizontal": 16,
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Bold",
+          "fontSize": 16,
+          "lineHeight": 23.04,
         }
       }
     >
-      <View
-        style={
-          Object {
-            "paddingVertical": 16,
-          }
+      There are no prayers yet for your 
+    </Text>
+    <Text
+      bold={false}
+      italic={false}
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Regular",
+          "fontSize": 16,
+          "lineHeight": 26,
         }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Colfax-Bold",
-              "fontSize": 16,
-              "lineHeight": 23.04,
-            }
-          }
-        >
-          There are no prayers yet for your 
-        </Text>
-        <Text
-          bold={false}
-          italic={false}
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Colfax-Regular",
-              "fontSize": 16,
-              "lineHeight": 26,
-            }
-          }
-        >
-          Be the first to add one!
-        </Text>
-      </View>
-    </View>
+      }
+    >
+      Be the first to add one!
+    </Text>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders prayer tab with content 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  onLayout={[Function]}
+<View
   style={
     Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
+      "paddingHorizontal": 16,
     }
   }
 >
   <View
-    onLayout={[Function]}
     style={
       Object {
-        "flex": 1,
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "paddingVertical": 16,
       }
     }
   >
-    <View
+    <Text
       style={
         Object {
-          "paddingHorizontal": 16,
+          "color": "#ffffff",
+          "fontFamily": "Colfax-Bold",
+          "fontSize": 16,
+          "lineHeight": 23.04,
         }
       }
     >
-      <View
-        style={
-          Object {
-            "paddingVertical": 16,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Colfax-Bold",
-              "fontSize": 16,
-              "lineHeight": 23.04,
-            }
-          }
-        >
-          You do not have any saved prayers
-        </Text>
-      </View>
-    </View>
+      You do not have any saved prayers
+    </Text>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

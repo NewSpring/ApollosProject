@@ -20,6 +20,7 @@ import {
   AuthSms,
   BinaryFiles,
   RockConstants,
+  Event,
   Features as BaseFeatures,
   Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
@@ -61,6 +62,7 @@ const data = {
   Campus,
   BinaryFiles,
   Group,
+  Event,
   // Search,
 };
 

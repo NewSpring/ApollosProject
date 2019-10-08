@@ -139,16 +139,13 @@ ROCK_MAPPINGS:
   RALLY_GROUP_TYPE_ID: 141
 
 HOME_FEATURES:
-  -
-    title: FOR YOU
+  - title: FOR YOU
     algorithms: [PERSONA_FEED]
     subtitle: Explore what God calls you to today
-  -
-    title: BULLETIN
+  - title: BULLETIN
     subtitle: What's happening at Newspring?
     algorithms:
-      -
-        type: CONTENT_CHANNEL
+      - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 459
 
