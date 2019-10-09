@@ -39,7 +39,7 @@ class AddPrayerFormConnected extends React.Component {
                       lastName,
                       isAnonymous: values.anonymous,
                     },
-                    refetchQueries: [{ query: GET_USER_PRAYERS }],
+                    refetchQueries: () => [{ query: GET_USER_PRAYERS }],
                   });
                   this.props.navigation.navigate('WithYou');
                 }}
