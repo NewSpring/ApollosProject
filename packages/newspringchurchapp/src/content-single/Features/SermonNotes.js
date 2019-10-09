@@ -14,8 +14,8 @@ const SermonNotes = ({ contentId, features, communicator }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
-    const placeholder = `${id}{{(.*)}}`;
-    const re = new RegExp(placeholder, 'g');
+    const placeholder = `${id}{{(.*?)}}`;
+    const re = new RegExp(placeholder, 'gs');
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
   useEffect(() => {
@@ -67,7 +67,7 @@ const SermonNotes = ({ contentId, features, communicator }) => {
           onPress={() => {
             console.log(contentId); // left in the prop for the to do item above
             const message = sharedMsg.replace(
-              /\w+Feature:\w+{{(.*)}}\n\n/g,
+              /\w+Feature:\w+{{(.*?)}}\n\n/gs,
               (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
             );
             share({ message });
