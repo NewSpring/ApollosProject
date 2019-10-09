@@ -34,6 +34,7 @@ const StyledButtonLink = styled(({ theme }) => ({
 const LocationFinder = memo(
   ({
     onPressPrimary,
+    onPressSecondary,
     BackgroundComponent,
     slideTitle,
     description,
@@ -42,15 +43,15 @@ const LocationFinder = memo(
     onPressButton,
     campus,
     onSelectWeb,
-    onPressSecondary,
     ...props
   }) => {
-    const showSkip = onPressSecondary || campus.name === 'Web';
+    const showSkip = !campus || campus.name === 'Web';
+    const swipeFunction = onPressPrimary || onPressSecondary;
     return (
       <Slide
-        onPressSecondary={showSkip ? onSelectWeb : null}
-        onPressPrimary={!showSkip ? onPressPrimary : null}
         {...props}
+        onPressSecondary={showSkip ? onSelectWeb : null}
+        onPressPrimary={!showSkip ? swipeFunction : null}
       >
         {BackgroundComponent}
         <StyledSlideContent title={slideTitle} description={description}>
