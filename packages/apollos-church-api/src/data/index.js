@@ -6,8 +6,9 @@ import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
 import * as LiveStream from '@apollosproject/data-connector-church-online';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
+import * as Search from '@apollosproject/data-connector-algolia-search';
 import * as Pass from '@apollosproject/data-connector-passes';
-// import * as Search from '@apollosproject/data-connector-algolia-search';
+import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
 import { PrayerRequest, PrayerMenuCategory } from 'apollos-data-prayer';
 import {
@@ -24,12 +25,12 @@ import {
   Features as BaseFeatures,
   Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
-import * as Theme from './theme';
 import * as Person from './people';
 import * as ContentItem from './content-items';
 import * as Features from './features';
 import * as Campus from './campuses';
 import * as Group from './groups';
+import * as Theme from './theme';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -39,15 +40,10 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
-  Features,
-  BaseFeatures,
   Person,
-  BasePerson,
   Auth,
   AuthSms,
   Sms,
-  PrayerRequest,
-  PrayerMenuCategory,
   LiveStream,
   Theme,
   Scripture,
@@ -58,12 +54,19 @@ const data = {
   PersonalDevice,
   OneSignalWithRock,
   Pass,
+  Search,
   Template,
   Campus,
-  BinaryFiles,
   Group,
+  BinaryFiles,
+  Features,
   Event,
-  // Search,
+  Cache,
+  // newspring custom types
+  BaseFeatures,
+  BasePerson,
+  PrayerRequest,
+  PrayerMenuCategory,
 };
 
 const {
