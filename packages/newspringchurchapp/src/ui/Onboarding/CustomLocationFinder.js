@@ -26,6 +26,7 @@ const StyledSlideContent = styled({
 })(SlideContent);
 
 const StyledChip = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit,
   alignSelf: 'center',
   color: theme.colors.text.tertiary,
 }))(Chip);
