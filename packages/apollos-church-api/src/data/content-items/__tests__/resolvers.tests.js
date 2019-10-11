@@ -174,10 +174,20 @@ describe('UniversalContentItem', () => {
             scriptures {
               html
             }
+            series {
+              title
+            }
           }
         }
       }
     `;
+    context.dataSources.DevotionalContentItem.getParent = jest.fn(() =>
+      Promise.resolve({
+        id: 123,
+        contentChannelId: 6,
+        title: '7 day study',
+      })
+    );
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
     expect(result).toMatchSnapshot();
