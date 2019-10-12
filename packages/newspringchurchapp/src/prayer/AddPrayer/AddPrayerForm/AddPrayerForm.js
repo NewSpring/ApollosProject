@@ -59,7 +59,8 @@ const AddPrayerForm = memo(
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={(values, { resetForm }) => {
         onSubmit(values);
-        resetForm({});
+        // this is necessary so the modal can transition completely
+        setTimeout(() => resetForm({}), 1000);
       }}
     >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -119,7 +120,7 @@ AddPrayerForm.propTypes = {
 
 AddPrayerForm.defaultProps = {
   title: 'Ask for prayer',
-  btnLabel: 'Send prayer to community',
+  btnLabel: 'Send prayer',
 };
 
 AddPrayerForm.displayName = 'AddPrayerForm';

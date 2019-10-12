@@ -70,7 +70,8 @@ type AudioMediaSource implements MediaSource {
 type AuthenticatedUser {
   id: ID!
   profile: Person
-  rockToken: String
+  rock: RockPersonDetails
+  rockToken: String @deprecated(reason: "Use rock.authCookie instead")
 }
 
 type Authentication {
@@ -193,6 +194,7 @@ type Event implements Node {
   location: String
   start: String
   end: String
+  image: ImageMedia
 }
 
 interface Feature {
@@ -209,7 +211,8 @@ enum GENDER {
 type Group implements Node {
   id: ID!
   name: String
-  leader: Person
+  leader: Person @deprecated(reason: "No longer used, use 'leaders' instead")
+  leaders: [Person]
   members: [Person]
 }
 
@@ -344,7 +347,7 @@ enum PassType {
 type Person implements Node {
   id: ID!
   firstName: String
-  lastName: String!
+  lastName: String
   nickName: String
   email: String
   gender: GENDER
@@ -375,6 +378,11 @@ type Query {
   search(query: String!, first: Int, after: String): SearchResultsConnection
   campuses(location: CampusLocationInput): [Campus]
   userFeedFeatures: [Feature]
+}
+
+type RockPersonDetails {
+  authToken: String
+  authCookie: String
 }
 
 type Scripture implements Node {

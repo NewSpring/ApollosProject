@@ -28,7 +28,9 @@ const ContentCardConnected = memo(
               {...node}
               hasAction={hasMedia}
               isLive={isLive}
-              labelText={labelText}
+              labelText={
+                labelText ? labelText.replace('NewSpring - ', '') : null
+              }
               {...otherProps}
               coverImage={coverImage}
               isLoading={loading}

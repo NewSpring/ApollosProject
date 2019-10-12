@@ -21,7 +21,7 @@ const CustomAvoidingScrollView = ({ children, ...scrollViewProps }) => (
 );
 
 CustomAvoidingScrollView.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.arrayOf(PropTypes.node),
 };
 
 export default CustomAvoidingScrollView;

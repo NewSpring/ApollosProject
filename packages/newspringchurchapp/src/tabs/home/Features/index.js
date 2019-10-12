@@ -101,11 +101,20 @@ const Features = memo(({ navigation }) => (
                     <H3 numberOfLines={3}>{subtitle}</H3>
                   </>
                 }
-                actions={actions}
+                actions={actions.map((action) => ({
+                  ...action,
+                  subtitle: action.subtitle.replace('NewSpring - ', ''),
+                }))}
                 onPressActionItem={({ action, relatedNode }) => {
                   if (action === 'READ_CONTENT') {
                     navigation.navigate('ContentSingle', {
                       itemId: relatedNode.id,
+                      transitionKey: 2,
+                    });
+                  }
+                  if (action === 'READ_EVENT') {
+                    navigation.navigate('Event', {
+                      eventId: relatedNode.id,
                       transitionKey: 2,
                     });
                   }

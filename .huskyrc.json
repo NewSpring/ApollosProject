@@ -1,0 +1,5 @@
+{
+  "hooks": {
+    "commit-msg": "if [[ $(git rev-parse --abbrev-ref HEAD) = develop ]]; then commitlint -E HUSKY_GIT_PARAMS; fi"
+  }
+}

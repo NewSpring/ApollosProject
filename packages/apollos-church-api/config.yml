@@ -20,6 +20,7 @@ ROCK:
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
   USE_PLUGIN: true
+  SHOW_INACTIVE_CONTENT: ${ROCK_SHOW_INACTIVE_CONTENT}
 ONE_SIGNAL:
   APP_ID: fe946d19-cad0-42eb-b32c-078f29c54e41
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
@@ -57,6 +58,9 @@ CLOUDINARY:
   # value should look something like
   # cloudinary://123123123:adkfnla_adASDv_adAS@test
   URL: ${CLOUDINARY_URL}
+ENGINE:
+  API_KEY: ${ENGINE_API_KEY}
+  SCHEMA_TAG: ${ENGINE_SCHEMA_TAG}
 
 # This key holds various properties that allow our GraphQL server to map to your Rock Instance
 ROCK_MAPPINGS:
@@ -83,12 +87,14 @@ ROCK_MAPPINGS:
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
-      EntityType: ContentChannelItem
       ContentChannelId: [19]
+      EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
 
-  PRAYER_REQUEST_TYPE: PrayerRequest
+  DATAVIEW_CATEGORIES:
+    # Id of the category used to store all persona dataviews
+    PersonaId: 1349
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
@@ -111,9 +117,7 @@ ROCK_MAPPINGS:
   CAMPAIGN_CHANNEL_IDS:
     - 439
 
-  DATAVIEW_CATEGORIES:
-    # Id of the category used to store all persona dataviews
-    PersonaId: 1349
+  SERMON_CHANNEL_ID: 19
 
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
@@ -121,13 +125,13 @@ ROCK_MAPPINGS:
     '8': ns.images
     '9': ns.videos
 
+  GENERAL_PRAYER_CATEGORY_ID: 2
+
+  PRAYER_REQUEST_TYPE: PrayerRequest
+
   PRAYER_MENU_CATEGORIES_CHANNEL_ID: 440
 
   WEB_CAMPUS_ID: 20
-
-  GENERAL_PRAYER_CATEGORY_ID: 2
-
-  SERMON_CHANNEL_ID: 19
 
   SERVING_GROUP_TYPE_ID: 23
   COMMUNITY_GROUP_TYPE_ID: 25
@@ -136,18 +140,16 @@ ROCK_MAPPINGS:
   RALLY_GROUP_TYPE_ID: 141
 
 HOME_FEATURES:
-  -
-    title: FOR YOU
+  - title: FOR YOU
     algorithms: [PERSONA_FEED]
     subtitle: Explore what God calls you to today
-  -
-    title: BULLETIN
+  - title: BULLETIN
     subtitle: What's happening at Newspring?
     algorithms:
-      -
-        type: CONTENT_CHANNEL
+      - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 459
+      - type: UPCOMING_EVENTS
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

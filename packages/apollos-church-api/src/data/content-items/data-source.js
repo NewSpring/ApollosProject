@@ -4,28 +4,34 @@ import ApollosConfig from '@apollosproject/config';
 import { parseKeyValueAttribute } from '@apollosproject/rock-apollo-data-source';
 import { createAssetUrl } from '../utils';
 
-import getScripturesFromTemplate from './getScripturesFromTemplate';
-
 const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
-  getContentItemScriptures = async (id) => {
-    try {
-      const request = await this.post(
-        'Lava/RenderTemplate',
-        getScripturesFromTemplate(id)
-      );
+  getContentItemScriptures = async ({ value: matrixItemGuid }) => {
+    const {
+      dataSources: { Scripture },
+    } = this.context;
+    if (!matrixItemGuid) return null;
+    const matrixItems = await this.request('/AttributeMatrixItems')
+      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
+      .get();
+    const references = await Promise.all(
+      matrixItems.map(
+        async ({
+          attributeValues: {
+            book: { value: bookGuid },
+            reference: { value: reference },
+          } = {},
+        }) => {
+          const { value: book } = await this.request('/DefinedValues')
+            .filter(`Guid eq guid'${bookGuid}'`)
+            .first();
+          return `${book} ${reference}`;
+        }
+      )
+    );
 
-      return await JSON.parse(request.replace(/\s/g, '')).map((item) => {
-        let scripture;
-        return Object.keys(item).reduce((previous, key) => {
-          scripture = `${item[previous]} ${item[key]}`;
-          return scripture;
-        });
-      });
-    } catch (error) {
-      return '';
-    }
+    return Scripture.getScriptures(references);
   };
 
   getWistiaVideoUri = async (wistiaHashedId) => {

@@ -21,7 +21,7 @@ class Discover extends PureComponent {
   renderItem = ({ item }) => (
     <TileContentFeed
       id={item.id}
-      name={item.name}
+      name={item.name.replace('NewSpring - ', '')}
       content={get(item, 'childContentItemsConnection.edges', []).map(
         (edge) => edge.node
       )}

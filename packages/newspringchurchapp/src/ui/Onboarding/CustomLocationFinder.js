@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import {
   CampusCard,
+  Chip,
   PaddedView,
   styled,
   Button,
-  ButtonLink,
   Touchable,
 } from '@apollosproject/ui-kit';
 
@@ -25,15 +25,17 @@ const StyledSlideContent = styled({
   justifyContent: 'space-between',
 })(SlideContent);
 
-const StyledButtonLink = styled(({ theme }) => ({
+const StyledChip = styled(({ theme }) => ({
+  marginTop: theme.sizing.baseUnit,
   alignSelf: 'center',
   color: theme.colors.text.tertiary,
-}))(ButtonLink);
+}))(Chip);
 
 // memo = sfc PureComponent 💥
 const LocationFinder = memo(
   ({
     onPressPrimary,
+    onPressSecondary,
     BackgroundComponent,
     slideTitle,
     description,
@@ -42,22 +44,20 @@ const LocationFinder = memo(
     onPressButton,
     campus,
     onSelectWeb,
-    onPressSecondary,
     ...props
   }) => {
-    const showSkip = onPressSecondary || campus.name === 'Web';
+    const showSkip = !campus || campus.name === 'Web';
+    const swipeFunction = onPressPrimary || onPressSecondary;
     return (
       <Slide
-        onPressSecondary={showSkip ? onSelectWeb : null}
-        onPressPrimary={!showSkip ? onPressPrimary : null}
         {...props}
+        onPressSecondary={showSkip ? onSelectWeb : null}
+        onPressPrimary={!showSkip ? swipeFunction : null}
       >
         {BackgroundComponent}
         <StyledSlideContent title={slideTitle} description={description}>
           <View>
-            <StyledButtonLink onPress={onSelectWeb}>
-              I attend online
-            </StyledButtonLink>
+            <StyledChip onPress={onSelectWeb} title="I attend online" />
             {campus && campus.image ? (
               <Touchable onPress={onPressButton}>
                 <StyledCampusCard
