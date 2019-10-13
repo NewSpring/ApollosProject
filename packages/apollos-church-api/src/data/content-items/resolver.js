@@ -27,6 +27,8 @@ const resolver = {
       args,
       { dataSources }
     ) => dataSources.ContentItem.getContentItemScriptures(scriptures),
+    series: ({ id }, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getParent(id, ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID),
   },
   ContentItem: {
     __resolveType: async (
@@ -69,6 +71,8 @@ const resolver = {
     ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
+    series: ({ id }, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getParent(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
   },
   UniversalContentItem: {
     ...defaultResolvers,
