@@ -728,7 +728,7 @@ exports[`the Onboarding component should render Onboarding 1`] = `
             <View
               style={
                 Object {
-                  "height": "50%",
+                  "height": "40%",
                   "justifyContent": "flex-end",
                 }
               }

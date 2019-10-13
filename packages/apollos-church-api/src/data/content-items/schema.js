@@ -6,6 +6,10 @@ export default gql`
   extend type WeekendContentItem {
     communicator: Person
     sermonDate: String
+    series: ContentItem
+  }
+  extend type DevotionalContentItem {
+    series: ContentItem
   }
   extend type Query {
     contentItemFromSlug(slug: String!): ContentItem
