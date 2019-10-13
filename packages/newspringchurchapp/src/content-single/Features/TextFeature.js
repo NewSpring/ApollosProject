@@ -13,17 +13,22 @@ const TextFeature = ({
   card,
 }) => {
   const [isPressed, press] = useState(false);
-  const bodyWithBlank = body.replace(/__(.*)__/gm, (match, p1) =>
+  const blanksRegex = /__(.*)/gm;
+  const hasBlanks = body.match(blanksRegex);
+  const bodyWithBlank = body.replace(blanksRegex, (match, p1) =>
     '_'.repeat(p1.length)
   );
-  const bodyWithWord = body.replace(/__(.*)__/gm, (match, p1) => p1);
+  const bodyWithWord = body.replace(blanksRegex, (match, p1) => p1);
   const TextComponent = header ? H4 : BodyText;
   const FillInTheBlank = () => (
     <TextComponent>{isPressed ? bodyWithWord : bodyWithBlank}</TextComponent>
   );
 
   return (
-    <TouchableOpacity onPress={() => press(true)}>
+    <TouchableOpacity
+      onPress={() => press(true)}
+      disabled={isPressed || !hasBlanks}
+    >
       {card ? (
         <ActionCard
           icon={'play'}
