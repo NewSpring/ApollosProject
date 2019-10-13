@@ -163,6 +163,21 @@ export default class ContentItem extends oldContentItem.dataSource {
     return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
   };
 
+  getParent = async (childId, channelId) => {
+    const parentAssociations = await this.request(
+      'ContentChannelItemAssociations'
+    )
+      .filter(`ChildContentChannelItemId eq ${childId}`)
+      .get();
+    const parentFilter = parentAssociations.map(
+      ({ contentChannelItemId }) => `Id eq ${contentChannelItemId}`
+    );
+    return this.request()
+      .filterOneOf(parentFilter)
+      .andFilter(`ContentChannelId eq ${channelId}`)
+      .first();
+  };
+
   getFeatures({ attributeValues }) {
     const features = [];
     const { Features } = this.context.dataSources;

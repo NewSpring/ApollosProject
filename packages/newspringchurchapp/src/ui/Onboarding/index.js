@@ -20,7 +20,7 @@ import CustomLocationFinder from './CustomLocationFinder';
 
 const ImageContainer = styled({
   justifyContent: 'flex-end',
-  height: '50%',
+  height: '40%',
 })(View);
 
 const StyledImage = styled({
