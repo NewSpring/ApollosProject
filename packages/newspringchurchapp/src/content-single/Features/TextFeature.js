@@ -14,7 +14,6 @@ const TextFeature = ({
 }) => {
   const [isPressed, press] = useState(false);
   const blanksRegex = /__(.*)/gm;
-  // TODO add this to header feature too
   const hasBlanks = body.match(blanksRegex);
   const bodyWithBlank = body.replace(blanksRegex, (match, p1) =>
     '_'.repeat(p1.length)
