@@ -152,7 +152,7 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
-  getShareUrl = async ({ title, id, contentChannelId }, parentChannelId) => {
+  getShareUrl = async ({ id, contentChannelId }, parentChannelId) => {
     const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
       contentChannelId
     );
