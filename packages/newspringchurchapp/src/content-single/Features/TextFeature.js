@@ -13,7 +13,7 @@ const TextFeature = ({
   card,
 }) => {
   const [isPressed, press] = useState(false);
-  const blanksRegex = /__(.*)/gm;
+  const blanksRegex = /__(.*)__/gm;
   const hasBlanks = body.match(blanksRegex);
   const bodyWithBlank = body.replace(blanksRegex, (match, p1) =>
     '_'.repeat(p1.length)
