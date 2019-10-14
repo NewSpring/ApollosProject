@@ -7,6 +7,7 @@ export default gql`
         id
         childContentItemsConnection(after: $cursor) {
           edges {
+            cursor
             node {
               id
               coverImage {
