@@ -29,6 +29,7 @@ export default gql`
       }
       ... on WeekendContentItem {
         communicator {
+          nickName
           firstName
           lastName
         }
