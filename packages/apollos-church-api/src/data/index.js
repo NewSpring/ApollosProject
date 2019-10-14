@@ -60,7 +60,6 @@ const data = {
   BinaryFiles,
   Event,
   Cache,
-  // newspring custom types
   Features,
   BasePerson,
   PrayerRequest,
