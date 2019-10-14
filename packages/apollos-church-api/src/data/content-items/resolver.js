@@ -9,9 +9,7 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 // https://github.com/ApollosProject/apollos-prototype/pull/1061
 const defaultResolvers = {
   sharing: (root, args, { dataSources: { ContentItem } }) => ({
-    url:
-      console.log(root.title, root.contentChannelId) ||
-      ContentItem.getShareUrl(root),
+    url: ContentItem.getShareUrl(root),
     title: 'Share via ...',
     message: `${root.title} - ${ContentItem.createSummary(root)}`,
   }),
