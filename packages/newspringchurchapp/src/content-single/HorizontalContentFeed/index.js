@@ -53,7 +53,6 @@ class HorizontalContentFeed extends Component {
       ({ id }) => id === this.props.contentId
     );
     const initialScrollIndex = currentIndex === -1 ? 0 : currentIndex;
-
     return content && content.length ? (
       <HorizontalTileFeed
         content={content}
