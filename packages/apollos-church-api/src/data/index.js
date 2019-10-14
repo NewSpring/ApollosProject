@@ -22,7 +22,6 @@ import {
   BinaryFiles,
   RockConstants,
   Event,
-  Features as BaseFeatures,
   Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
 import * as Person from './people';
@@ -59,11 +58,10 @@ const data = {
   Campus,
   Group,
   BinaryFiles,
-  Features,
   Event,
   Cache,
   // newspring custom types
-  BaseFeatures,
+  Features,
   BasePerson,
   PrayerRequest,
   PrayerMenuCategory,
