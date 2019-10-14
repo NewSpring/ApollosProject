@@ -9,7 +9,9 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 // https://github.com/ApollosProject/apollos-prototype/pull/1061
 const defaultResolvers = {
   sharing: (root, args, { dataSources: { ContentItem } }) => ({
-    url: ContentItem.getShareUrl(root.id, root.contentChannelId),
+    url:
+      console.log(root.title, root.contentChannelId) ||
+      ContentItem.getShareUrl(root),
     title: 'Share via ...',
     message: `${root.title} - ${ContentItem.createSummary(root)}`,
   }),
@@ -22,6 +24,14 @@ const resolver = {
   },
   DevotionalContentItem: {
     ...defaultResolvers,
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(
+        root,
+        ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID
+      ),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
     scriptures: async (
       { attributeValues: { scriptures } = {} },
       args,
@@ -64,6 +74,14 @@ const resolver = {
   // },
   WeekendContentItem: {
     ...defaultResolvers,
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(
+        root,
+        ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID
+      ),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
     communicator: (
       { attributeValues: { communicators } = {} },
       args,
@@ -78,6 +96,9 @@ const resolver = {
     ...defaultResolvers,
   },
   MediaContentItem: {
+    ...defaultResolvers,
+  },
+  ContentSeriesContentItem: {
     ...defaultResolvers,
   },
 };
