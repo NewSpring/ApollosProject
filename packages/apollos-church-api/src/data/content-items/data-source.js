@@ -260,6 +260,8 @@ export default class ContentItem extends oldContentItem.dataSource {
     return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
   };
 
+  coreSummaryMethod = this.createSummary;
+
   createSummary = (root) => {
     const { attributeValues } = root;
     const summary = get(attributeValues, 'summary.value', '');
@@ -269,9 +271,6 @@ export default class ContentItem extends oldContentItem.dataSource {
         allowedAttributes: [],
       });
     }
-    // return ContentItem.createSummary({ content, attributeValues });
-    console.log('root.title = ', root.title);
-    console.log('summary = ', summary);
-    return this.createSummary(root);
+    return this.coreSummaryMethod(root);
   };
 }
