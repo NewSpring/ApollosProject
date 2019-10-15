@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
+import Config from 'react-native-config';
 import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
@@ -34,7 +35,7 @@ class Connect extends PureComponent {
         <SafeAreaView>
           <ScrollViewWithPadding>
             <UserAvatarHeader key="UserAvatarHeaderConnected" />
-            <ActionBar />
+            {Config.EXPERIMENTAL === 'true' ? <ActionBar /> : null}
             <RecentlyLikedTileFeedConnected />
             <Query query={GET_USER_PROFILE}>
               {({
