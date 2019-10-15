@@ -11,6 +11,7 @@ import {
 import share from '../../utils/content/share';
 
 const SermonNotes = ({ contentId, features, communicator }) => {
+  const { nickName, firstName, lastName } = communicator;
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
@@ -79,11 +80,11 @@ const SermonNotes = ({ contentId, features, communicator }) => {
     >
       <H3>Sermon Notes</H3>
       {/* TODO
-    <H5>Title</H5>
-    <H5>Series - Week # - Date</H5>
+ <H5>Title</H5>
+   <H5>Series - Week # - Date</H5>
         */}
       <H5>
-        {communicator.firstName} {communicator.lastName}
+        {nickName || firstName} {lastName}
       </H5>
 
       <PaddedView />

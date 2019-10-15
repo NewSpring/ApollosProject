@@ -152,15 +152,39 @@ export default class ContentItem extends oldContentItem.dataSource {
     }));
   };
 
-  getShareUrl = async (id, contentChannelId) => {
-    console.log('contentChannelId', contentChannelId);
+  getShareUrl = async ({ id, contentChannelId }, parentChannelId) => {
     const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
       contentChannelId
     );
     const slug = await this.request('ContentChannelItemSlugs')
       .filter(`ContentChannelItemId eq ${id}`)
       .first();
-    return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${slug.slug}`;
+    let parent = null;
+    let parentSlug = null;
+    if (parentChannelId) {
+      parent = await this.getParent(id, parentChannelId);
+      parentSlug = await this.request('ContentChannelItemSlugs')
+        .filter(`ContentChannelItemId eq ${parent.id}`)
+        .first();
+    }
+    return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${
+      parent ? `${parentSlug.slug}/` : ''
+    }${slug.slug}`;
+  };
+
+  getParent = async (childId, channelId) => {
+    const parentAssociations = await this.request(
+      'ContentChannelItemAssociations'
+    )
+      .filter(`ChildContentChannelItemId eq ${childId}`)
+      .get();
+    const parentFilter = parentAssociations.map(
+      ({ contentChannelItemId }) => `Id eq ${contentChannelItemId}`
+    );
+    return this.request()
+      .filterOneOf(parentFilter)
+      .andFilter(`ContentChannelId eq ${channelId}`)
+      .first();
   };
 
   getFeatures({ attributeValues }) {

@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.5.5](https://github.com/NewSpring/ApollosProject/compare/v7.5.4...v7.5.5) (2019-10-10)
+
+
+### Bug Fixes
+
+* [DEV-4019] Fixes Notes Exporting ([#294](https://github.com/NewSpring/ApollosProject/issues/294)) ([602849b](https://github.com/NewSpring/ApollosProject/commit/602849b))
+* [DEV-4028] Hide ActionBar in Production v.2 ([#284](https://github.com/NewSpring/ApollosProject/issues/284)) ([1c482b7](https://github.com/NewSpring/ApollosProject/commit/1c482b7))
+* Adds Delay to Prayer Form Reset ([#295](https://github.com/NewSpring/ApollosProject/issues/295)) ([b91fbeb](https://github.com/NewSpring/ApollosProject/commit/b91fbeb))
+* Change the proptype to be the correct type. ([#282](https://github.com/NewSpring/ApollosProject/issues/282)) ([0230389](https://github.com/NewSpring/ApollosProject/commit/0230389))
+* Fixes content type label on sermons ([#283](https://github.com/NewSpring/ApollosProject/issues/283)) ([3c1775c](https://github.com/NewSpring/ApollosProject/commit/3c1775c))
+* Fixes Skip and Next Buttons in Location Finder ([#297](https://github.com/NewSpring/ApollosProject/issues/297)) ([b23d0a3](https://github.com/NewSpring/ApollosProject/commit/b23d0a3))
+* Made refetchqueries call a function ([#296](https://github.com/NewSpring/ApollosProject/issues/296)) ([a4daebd](https://github.com/NewSpring/ApollosProject/commit/a4daebd))
+* Release 1.2.0 beta.2 ([#293](https://github.com/NewSpring/ApollosProject/issues/293)) ([be11969](https://github.com/NewSpring/ApollosProject/commit/be11969))
+* Updated giving link ([#287](https://github.com/NewSpring/ApollosProject/issues/287)) ([97cf800](https://github.com/NewSpring/ApollosProject/commit/97cf800))
+* Upgrades to Apollos 1.2.0-beta.3 ([#299](https://github.com/NewSpring/ApollosProject/issues/299)) ([681a2b2](https://github.com/NewSpring/ApollosProject/commit/681a2b2))
+
+
+
 ### [7.5.4](https://github.com/NewSpring/ApollosProject/compare/v7.5.3...v7.5.4) (2019-09-29)
 
 
