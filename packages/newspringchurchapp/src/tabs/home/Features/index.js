@@ -103,7 +103,7 @@ const Features = memo(({ navigation }) => (
                 }
                 actions={actions.map((action) => ({
                   ...action,
-                  subtitle: action.subtitle.replace('NewSpring - ', ''),
+                  // subtitle: action.subtitle.replace('NewSpring - ', ''),
                 }))}
                 onPressActionItem={({ action, relatedNode }) => {
                   if (action === 'READ_CONTENT') {
