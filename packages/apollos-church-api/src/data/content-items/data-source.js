@@ -2,6 +2,7 @@ import { ContentItem as oldContentItem } from '@apollosproject/data-connector-ro
 import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import { parseKeyValueAttribute } from '@apollosproject/rock-apollo-data-source';
+import sanitizeHtmlNode from 'sanitize-html';
 import { createAssetUrl } from '../utils';
 
 const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
@@ -97,7 +98,11 @@ export default class ContentItem extends oldContentItem.dataSource {
       key,
       name: attributes[key].name,
       sources: attributeValues[key].value
-        ? [{ uri: createAssetUrl(JSON.parse(attributeValues[key].value)) }]
+        ? [
+            {
+              uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+            },
+          ]
         : [],
     }));
   };
@@ -253,5 +258,20 @@ export default class ContentItem extends oldContentItem.dataSource {
     if (!contentItemSlug) throw new Error('Slug does not exist.');
 
     return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
+  };
+
+  createSummary = (root) => {
+    const { attributeValues } = root;
+    const summary = get(attributeValues, 'summary.value', '');
+    if (summary !== '') {
+      return sanitizeHtmlNode(summary, {
+        allowedTags: [],
+        allowedAttributes: [],
+      });
+    }
+    // return ContentItem.createSummary({ content, attributeValues });
+    console.log('root.title = ', root.title);
+    console.log('summary = ', summary);
+    return this.createSummary(root);
   };
 }
