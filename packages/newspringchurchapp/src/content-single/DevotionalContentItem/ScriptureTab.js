@@ -19,6 +19,8 @@ const ScriptureTab = ({ id, scripture, isLoading, navigation }) => (
           reference={ref.reference}
           html={ref.html}
           isLoading={isLoading}
+          copyright={ref.copyright}
+          version="WEB"
         />
       ))}
     </PaddedView>
