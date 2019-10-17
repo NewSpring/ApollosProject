@@ -1,5 +1,7 @@
 import { Features as baseFeatures } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
+import ApollosConfig from '@apollosproject/config';
+import { get } from 'lodash';
 
 export default class Features extends baseFeatures.dataSource {
   // eslint-disable-next-line class-methods-use-this
@@ -18,5 +20,26 @@ export default class Features extends baseFeatures.dataSource {
       id: createGlobalId(id, 'HeaderFeature'),
       __typename: 'HeaderFeature',
     };
+  }
+
+  // TODO come up with a better way to hide features per block
+  // currently this is only showing features if you're on staff
+  async getHomeFeedFeatures() {
+    const { Auth } = this.context.dataSources;
+    const person = await Auth.getCurrentPerson();
+    const staff = await this.request('GroupMembers')
+      .filter(
+        "GroupId eq 3 and GroupMemberStatus eq '1' and IsArchived eq false"
+      )
+      // .andFilter('GroupMemberStatus eq 1 and IsArchived eq false')
+      .get();
+    const staffIds = staff.map(({ personId }) => personId);
+    if (!staffIds.includes(person.id)) return [];
+
+    return Promise.all(
+      get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) =>
+        this.createActionListFeature(featureConfig)
+      )
+    );
   }
 }
