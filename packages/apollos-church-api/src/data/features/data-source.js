@@ -28,7 +28,10 @@ export default class Features extends baseFeatures.dataSource {
     const { Auth } = this.context.dataSources;
     const person = await Auth.getCurrentPerson();
     const staff = await this.request('GroupMembers')
-      .andFilter(`GroupId eq 3`)
+      .filter(
+        "GroupId eq 3 and GroupMemberStatus eq '1' and IsArchived eq false"
+      )
+      // .andFilter('GroupMemberStatus eq 1 and IsArchived eq false')
       .get();
     const staffIds = staff.map(({ personId }) => personId);
     if (!staffIds.includes(person.id)) return null;
