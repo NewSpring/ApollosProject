@@ -34,7 +34,7 @@ export default class Features extends baseFeatures.dataSource {
       // .andFilter('GroupMemberStatus eq 1 and IsArchived eq false')
       .get();
     const staffIds = staff.map(({ personId }) => personId);
-    if (!staffIds.includes(person.id)) return null;
+    if (!staffIds.includes(person.id)) return [];
 
     return Promise.all(
       get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) =>
