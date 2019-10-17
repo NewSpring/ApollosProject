@@ -41,7 +41,15 @@ const ActionTable = ({ isGroupLeader }) => (
           <View>
             <Touchable
               onPress={() =>
-                openUrl('https://my.newspring.cc', { externalBrowser: true })
+                openUrl(
+                  'https://newspring.cc/give/now1',
+                  {
+                    externalBrowser: true,
+                  },
+                  {
+                    useRockToken: true,
+                  }
+                )
               }
             >
               <Cell>
