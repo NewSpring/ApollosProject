@@ -316,6 +316,7 @@ exports[`The WithYou component should render 1`] = `
     </View>
   </RCTSafeAreaView>
   <View
+    pointerEvents="box-none"
     style={
       Object {
         "flexDirection": "row",
@@ -328,15 +329,6 @@ exports[`The WithYou component should render 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "height": 75,
-          "position": "absolute",
-          "width": "100%",
-        }
-      }
-    />
     <RNSVGSvgView
       align="xMidYMid"
       bbHeight={32}
