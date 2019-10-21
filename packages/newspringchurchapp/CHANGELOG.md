@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.5.6](https://github.com/NewSpring/ApollosProject/compare/v7.5.5...v7.5.6) (2019-10-21)
+
+
+### Bug Fixes
+
+* (DEV-4049) Resizes Onboarding Images ([#301](https://github.com/NewSpring/ApollosProject/issues/301)) ([423517b](https://github.com/NewSpring/ApollosProject/commit/423517b))
+* (DEV-4095) Fixes Confusing clicking of notes ([#307](https://github.com/NewSpring/ApollosProject/issues/307)) ([414c937](https://github.com/NewSpring/ApollosProject/commit/414c937))
+* (DEV-4100) Fixes feature sharing ([#306](https://github.com/NewSpring/ApollosProject/issues/306)) ([f326361](https://github.com/NewSpring/ApollosProject/commit/f326361))
+* (DEV-4150) Fixes Sharing URLs ([#309](https://github.com/NewSpring/ApollosProject/issues/309)) ([15e4f4e](https://github.com/NewSpring/ApollosProject/commit/15e4f4e))
+* [DEV-4155] Fix Content Summary ([#317](https://github.com/NewSpring/ApollosProject/issues/317)) ([906957d](https://github.com/NewSpring/ApollosProject/commit/906957d))
+* Adds Nickname to Notes ([#305](https://github.com/NewSpring/ApollosProject/issues/305)) ([4448815](https://github.com/NewSpring/ApollosProject/commit/4448815))
+* Fix android videos by using exoplayer ([#313](https://github.com/NewSpring/ApollosProject/issues/313)) ([c23cb65](https://github.com/NewSpring/ApollosProject/commit/c23cb65))
+* Fixes Android Build Error ([#319](https://github.com/NewSpring/ApollosProject/issues/319)) ([7fa0bca](https://github.com/NewSpring/ApollosProject/commit/7fa0bca))
+* Fixes Campus Prayers Updating with Location Change ([#304](https://github.com/NewSpring/ApollosProject/issues/304)) ([dfffc0d](https://github.com/NewSpring/ApollosProject/commit/dfffc0d))
+* Fixes infinite loading children ([#310](https://github.com/NewSpring/ApollosProject/issues/310)) ([c3d718d](https://github.com/NewSpring/ApollosProject/commit/c3d718d))
+* Publishes Schema to Apollo Engine Correctly ([#311](https://github.com/NewSpring/ApollosProject/issues/311)) ([6f65209](https://github.com/NewSpring/ApollosProject/commit/6f65209))
+* Upgrades Apollos to 1.2.0 beta.4 ([#308](https://github.com/NewSpring/ApollosProject/issues/308)) ([575623f](https://github.com/NewSpring/ApollosProject/commit/575623f))
+
+
+
 ### [7.5.5](https://github.com/NewSpring/ApollosProject/compare/v7.5.4...v7.5.5) (2019-10-10)
 
 
