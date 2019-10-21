@@ -2,6 +2,15 @@ import React from 'react';
 import { NativeModules } from 'react-native';
 // We ran into an issue where SafeAreaView would break jest tests.
 
+jest.mock(
+  '../apollos-ui-kit/node_modules/react-native-safe-area-context/',
+  () => ({
+    SafeAreaConsumer: ({ children }) =>
+      children({ top: 0, bottom: 0, left: 0, right: 0 }),
+    SafeAreaProvider: ({ children }) => children,
+  })
+);
+
 jest.mock('react-navigation', () => {
   const ActualNavigation = require.requireActual('react-navigation');
   return {
@@ -9,6 +18,19 @@ jest.mock('react-navigation', () => {
     SafeAreaView: require.requireActual('SafeAreaView'),
   };
 });
+
+jest.mock('react-native-music-control', () => ({
+  enableBackgroundMode: jest.fn(),
+  enableControl: jest.fn(),
+  on: jest.fn(),
+  setNowPlaying: jest.fn(),
+  STATE_PLAYING: false,
+  STATE_PAUSED: true,
+}));
+
+jest.mock('react-native-config', () => ({
+  ONE_SIGNAL_KEY: 'doesntmatter',
+}));
 
 jest.mock('Animated', () => {
   const ActualAnimated = require.requireActual('Animated');
@@ -31,19 +53,13 @@ jest.mock('Animated', () => {
   };
 });
 
-jest.mock('react-native-safe-area-context', () => ({
-  SafeAreaConsumer: ({ children }) =>
-    children({ top: 0, bottom: 0, left: 0, right: 0 }),
-  SafeAreaProvider: ({ children }) => children,
-}));
-
 jest.mock('react-native-safari-view', () => ({
   isAvailable: jest.fn().mockImplementation(() => Promise.resolve(true)),
   show: jest.fn(),
 }));
 
 jest.mock('react-native-device-info', () => ({
-  getUniqueID: () => 'id-123',
+  getUniqueId: () => 'id-123',
   getSystemVersion: () => 'sys-version-123',
   getModel: () => 'ios',
   getVersion: () => 'version-123',
@@ -51,6 +67,10 @@ jest.mock('react-native-device-info', () => ({
 }));
 
 jest.mock('rn-fetch-blob', () => 'Fetch');
+jest.mock(
+  '@apollosproject/ui-passes/node_modules/rn-fetch-blob',
+  () => 'Fetch'
+);
 
 jest.mock('@apollosproject/ui-analytics', () => ({
   track: () => '',
@@ -148,6 +168,7 @@ jest.mock('react-native-gesture-handler', () => {
 });
 
 jest.mock('react-native-video', () => 'Video');
+
 jest.mock('NativeEventEmitter');
 
 jest.mock('react-native-maps');
