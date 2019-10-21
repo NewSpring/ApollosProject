@@ -9,7 +9,7 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 // https://github.com/ApollosProject/apollos-prototype/pull/1061
 const defaultResolvers = {
   sharing: (root, args, { dataSources: { ContentItem } }) => ({
-    url: ContentItem.getShareUrl(root.id, root.contentChannelId),
+    url: ContentItem.getShareUrl(root),
     title: 'Share via ...',
     message: `${root.title} - ${ContentItem.createSummary(root)}`,
   }),
@@ -22,11 +22,21 @@ const resolver = {
   },
   DevotionalContentItem: {
     ...defaultResolvers,
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(
+        root,
+        ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID
+      ),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
     scriptures: async (
       { attributeValues: { scriptures } = {} },
       args,
       { dataSources }
     ) => dataSources.ContentItem.getContentItemScriptures(scriptures),
+    series: ({ id }, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getParent(id, ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID),
   },
   ContentItem: {
     __resolveType: async (
@@ -62,6 +72,14 @@ const resolver = {
   // },
   WeekendContentItem: {
     ...defaultResolvers,
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(
+        root,
+        ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID
+      ),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
     communicator: (
       { attributeValues: { communicators } = {} },
       args,
@@ -69,11 +87,16 @@ const resolver = {
     ) => dataSources.ContentItem.getCommunicator(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
+    series: ({ id }, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getParent(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
   },
   UniversalContentItem: {
     ...defaultResolvers,
   },
   MediaContentItem: {
+    ...defaultResolvers,
+  },
+  ContentSeriesContentItem: {
     ...defaultResolvers,
   },
 };

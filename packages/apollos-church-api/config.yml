@@ -125,6 +125,10 @@ ROCK_MAPPINGS:
     '8': ns.images
     '9': ns.videos
 
+  # TODO: merge into core
+  SERMON_SERIES_CHANNEL_ID: 20
+  DEVOTIONAL_SERIES_CHANNEL_ID: 18
+
   GENERAL_PRAYER_CATEGORY_ID: 2
 
   PRAYER_REQUEST_TYPE: PrayerRequest
