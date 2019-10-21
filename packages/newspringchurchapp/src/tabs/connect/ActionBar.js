@@ -2,13 +2,12 @@ import React from 'react';
 import { ActionBar, ActionBarItem } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 
 const Toolbar = () => (
-  <ActionBar>
-    <WebBrowserConsumer>
-      {(openUrl) => (
+  <WebBrowserConsumer>
+    {(openUrl) => (
+      <ActionBar>
         <ActionBarItem
           onPress={() =>
             openUrl(
@@ -20,22 +19,16 @@ const Toolbar = () => (
           icon="give"
           label="Give"
         />
-      )}
-    </WebBrowserConsumer>
-    <UserWebBrowserConsumer>
-      {(openUserWebView) => (
         <ActionBarItem
           onPress={() =>
-            openUserWebView({
-              url: 'https://newspring.cc/serving',
-            })
+            openUrl('https://newspring.cc/serving', {}, { useRockToken: true })
           }
           icon="pray"
           label="Serve"
         />
-      )}
-    </UserWebBrowserConsumer>
-  </ActionBar>
+      </ActionBar>
+    )}
+  </WebBrowserConsumer>
 );
 
 Toolbar.propTypes = {
