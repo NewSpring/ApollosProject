@@ -24,7 +24,7 @@ const Toolbar = ({ navigation }) => (
           onPress={() =>
             openUrl('https://newspring.cc/serving', {}, { useRockToken: true })
           }
-          icon="pray"
+          icon="serve"
           label="Serve"
         />
         {Config.EXPERIMENTAL === 'true' ? (
