@@ -42,7 +42,7 @@ const Browser = {
       url.searchParams.append('rckipid', authToken);
     }
     try {
-      if (await InAppBrowser.isAvailable()) {
+      if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
           headers,
           ...options,
