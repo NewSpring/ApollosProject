@@ -44,7 +44,6 @@ const Features = ({ contentId, asNotes }) => {
             </View>
           );
         });
-        console.log('node.communicators = ', node.communicators);
         return asNotes ? (
           <SermonNotes
             features={featureComponents}
