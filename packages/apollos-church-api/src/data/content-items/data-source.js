@@ -238,19 +238,32 @@ export default class ContentItem extends oldContentItem.dataSource {
     return features;
   }
 
-  getCommunicator = async ({ value: matrixItemGuid } = {}) => {
+  getCommunicators = async ({ value: matrixItemGuid } = {}) => {
     if (!matrixItemGuid) return null;
     const matrixItem = await this.request('/AttributeMatrixItems')
       .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
       .first();
     if (!matrixItem) return null;
+    let communicator = '';
+    let guestCommunicator = '';
     const {
-      attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
+      attributeValues: {
+        communicator: { value: personAliasGuid } = {},
+        guestCommunicator: { value: guestName } = {},
+      } = {},
     } = matrixItem;
-    const { personId } = await this.request('/PersonAlias')
-      .filter(`Guid eq guid'${personAliasGuid}'`)
-      .first();
-    return this.context.dataSources.Person.getFromId(personId);
+    if (personAliasGuid !== '') {
+      const { personId } = await this.request('/PersonAlias')
+        .filter(`Guid eq guid'${personAliasGuid}'`)
+        .first();
+      communicator = this.context.dataSources.Person.getFromId(personId);
+    }
+    guestCommunicator = guestName;
+    const communicators = {
+      communicator,
+      guestCommunicator,
+    };
+    return communicators;
   };
 
   getBySlug = async (slug) => {

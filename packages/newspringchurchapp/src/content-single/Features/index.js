@@ -44,11 +44,12 @@ const Features = ({ contentId, asNotes }) => {
             </View>
           );
         });
+        console.log('node.communicators = ', node.communicators);
         return asNotes ? (
           <SermonNotes
             features={featureComponents}
             contentId={contentId}
-            communicator={node.communicator}
+            communicators={node.communicators}
           />
         ) : (
           <PaddedView horizontal={false}>

@@ -28,10 +28,13 @@ export default gql`
         }
       }
       ... on WeekendContentItem {
-        communicator {
-          nickName
-          firstName
-          lastName
+        communicators {
+          communicator {
+            nickName
+            firstName
+            lastName
+          }
+          guestCommunicator
         }
         features {
           ...FeaturesFragment

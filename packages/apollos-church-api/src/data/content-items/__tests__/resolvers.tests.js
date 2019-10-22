@@ -109,9 +109,12 @@ describe('UniversalContentItem', () => {
     context.dataSources.ContentItem.getShareUrl = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
-    context.dataSources.ContentItem.getCommunicator = jest.fn(() => ({
-      firstName: 'first',
-      lastName: 'last',
+    context.dataSources.ContentItem.getCommunicators = jest.fn(() => ({
+      communicator: {
+        firstName: 'first',
+        lastName: 'last',
+      },
+      guestCommunicator: 'guest communicator',
     }));
     context.dataSources.ContentItem.getContentItemScriptures = jest.fn(() => [
       {
@@ -190,9 +193,12 @@ describe('UniversalContentItem', () => {
           id
           ... on WeekendContentItem {
             title
-            communicator {
-              firstName
-              lastName
+            communicators {
+              communicator {
+                firstName
+                lastName
+              }
+              guestCommunicator
             }
             sermonDate
             features {

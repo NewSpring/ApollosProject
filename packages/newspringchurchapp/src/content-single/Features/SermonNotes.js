@@ -10,9 +10,10 @@ import {
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
 
-const SermonNotes = ({ contentId, features, communicator }) => {
+const SermonNotes = ({ contentId, features, communicators }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
+  const { communicator, guestCommunicator } = communicators;
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -88,6 +89,7 @@ const SermonNotes = ({ contentId, features, communicator }) => {
           {communicator.lastName}
         </H5>
       ) : null}
+      {guestCommunicator ? <H5>{guestCommunicator}</H5> : null}
 
       <PaddedView />
       {enhancedFeatures}
@@ -98,9 +100,12 @@ const SermonNotes = ({ contentId, features, communicator }) => {
 SermonNotes.propTypes = {
   contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
-  communicator: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+  communicators: PropTypes.shape({
+    communicator: PropTypes.shape({
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    }),
+    guestCommunicator: PropTypes.string,
   }),
 };
 export default SermonNotes;
