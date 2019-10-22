@@ -53,6 +53,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       if (!videos.length) return '';
       return videos[0].url.replace('.bin', typeMap[type][1]);
     } catch (error) {
+      console.error(error);
       return '';
     }
   };
