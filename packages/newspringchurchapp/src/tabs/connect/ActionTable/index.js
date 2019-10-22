@@ -14,7 +14,6 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
-import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
   flexDirection: 'row',
