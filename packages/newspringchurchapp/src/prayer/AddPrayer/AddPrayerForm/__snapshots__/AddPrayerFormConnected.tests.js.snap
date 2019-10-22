@@ -268,7 +268,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                   returnKeyType="default"
                   style={
                     Object {
-                      "borderColor": "rgba(133, 133, 133, 0.30000000000000004)",
+                      "borderColor": "rgba(133, 133, 133, 0.6)",
                       "borderRadius": 8,
                       "borderWidth": 0.5,
                       "height": "100%",
@@ -511,6 +511,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
     </View>
   </RCTSafeAreaView>
   <View
+    pointerEvents="box-none"
     style={
       Object {
         "flexDirection": "row",
@@ -523,15 +524,6 @@ exports[`renders AddPrayerFormConnected 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "height": 75,
-          "position": "absolute",
-          "width": "100%",
-        }
-      }
-    />
     <RNSVGSvgView
       align="xMidYMid"
       bbHeight={32}

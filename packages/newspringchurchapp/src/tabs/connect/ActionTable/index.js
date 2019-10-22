@@ -14,7 +14,6 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
-import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
@@ -36,31 +35,6 @@ const ActionTable = ({ isGroupLeader }) => (
       </Name>
     </RowHeader>
     <TableView>
-      <WebBrowserConsumer>
-        {(openUrl) => (
-          <View>
-            <Touchable
-              onPress={() =>
-                openUrl(
-                  'https://newspring.cc/give/now1',
-                  {
-                    externalBrowser: true,
-                  },
-                  {
-                    useRockToken: true,
-                  }
-                )
-              }
-            >
-              <Cell>
-                <CellText>Give now</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
-            <Divider />
-          </View>
-        )}
-      </WebBrowserConsumer>
       <UserWebBrowserConsumer>
         {(openUserWebView) => (
           <View>
@@ -73,19 +47,6 @@ const ActionTable = ({ isGroupLeader }) => (
             >
               <Cell>
                 <CellText>Sign up for Connect</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
-            <Divider />
-            <Touchable
-              onPress={() =>
-                openUserWebView({
-                  url: 'https://newspring.cc/serving',
-                })
-              }
-            >
-              <Cell>
-                <CellText>Find a serving opportunity</CellText>
                 <CellIcon name="arrow-next" />
               </Cell>
             </Touchable>

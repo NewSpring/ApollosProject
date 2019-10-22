@@ -18,6 +18,7 @@ export const GET_ROCK_AUTH_DETAILS = gql`
 export const getRockAuthDetails = async () => {
   const { data: { currentUser: { rock } = {} } = {} } = await client.query({
     query: GET_ROCK_AUTH_DETAILS,
+    fetchPolicy: 'network-only',
   });
   return rock;
 };
@@ -41,7 +42,7 @@ const Browser = {
       url.searchParams.append('rckipid', authToken);
     }
     try {
-      if (await InAppBrowser.isAvailable()) {
+      if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
           headers,
           ...options,
