@@ -35,7 +35,11 @@ export default class ContentItem extends oldContentItem.dataSource {
     return Scripture.getScriptures(references);
   };
 
-  getWistiaVideoUri = async (wistiaHashedId) => {
+  getWistiaVideoUri = async (wistiaHashedId, type = 'mp4') => {
+    const typeMap = {
+      mp4: ['HdMp4VideoFile', '/video.mp4'],
+      hls: ['HlsVideoFile', '.m3u8'],
+    };
     try {
       const videoData = await this.request('WistiaMedias')
         .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
@@ -44,10 +48,10 @@ export default class ContentItem extends oldContentItem.dataSource {
 
       const mediaData = JSON.parse(videoData[0].mediaData);
       const videos = mediaData.assets.filter(
-        (asset) => asset.type === 'HlsVideoFile' && asset.height === 720
+        (asset) => asset.type === typeMap[type][0] && asset.height === 720
       );
       if (!videos.length) return '';
-      return videos[0].url.replace('.bin', '.m3u8');
+      return videos[0].url.replace('.bin', typeMap[type][1]);
     } catch (error) {
       return '';
     }
