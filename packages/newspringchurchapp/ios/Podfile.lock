@@ -125,7 +125,7 @@ PODS:
     - React
   - RNCAsyncStorage (1.6.1):
     - React
-  - RNDeviceInfo (2.1.3):
+  - RNDeviceInfo (4.0.1):
     - React
   - RNGestureHandler (1.3.0):
     - React
@@ -187,7 +187,7 @@ DEPENDENCIES:
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Amplitude-iOS
     - boost-for-react-native
     - OneSignal
@@ -326,7 +326,7 @@ SPEC CHECKSUMS:
   rn-fetch-blob: 651b8d076b43d0d7aa294a3d9ec16c00aab8bef9
   RNAirplay: 75777dd55dafbd3687703c3eb9c290ea6cc43248
   RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
-  RNDeviceInfo: a67eef80ee1e68e1824f3ed3dc0ccf9e2d4fdc59
+  RNDeviceInfo: 687c1b2ab6d86ff1ca1208783320cd144138c7f2
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNInAppBrowser: 9d1ffb9db0d0cbdf03f528f1f0624b2c533b93fd
   RNReanimated: c8dd490ca98a4edcba229bfa49f2516c95a43afb
@@ -336,4 +336,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 06c9ab780944d7b50a45ae6a20b26a8880c01405
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
