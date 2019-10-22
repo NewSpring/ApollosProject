@@ -40,25 +40,6 @@ const ActionTable = ({ isGroupLeader }) => (
             <Touchable
               onPress={() =>
                 openUrl(
-                  'https://newspring.cc/give/now1',
-                  {
-                    externalBrowser: true,
-                  },
-                  {
-                    useRockToken: true,
-                  }
-                )
-              }
-            >
-              <Cell>
-                <CellText>Give now</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
-            <Divider />
-            <Touchable
-              onPress={() =>
-                openUrl(
                   'https://newspring.cc/connect',
                   {},
                   { useRockToken: true }
@@ -67,21 +48,6 @@ const ActionTable = ({ isGroupLeader }) => (
             >
               <Cell>
                 <CellText>Sign up for Connect</CellText>
-                <CellIcon name="arrow-next" />
-              </Cell>
-            </Touchable>
-            <Divider />
-            <Touchable
-              onPress={() =>
-                openUrl(
-                  'https://newspring.cc/serving',
-                  {},
-                  { useRockToken: true }
-                )
-              }
-            >
-              <Cell>
-                <CellText>Find a serving opportunity</CellText>
                 <CellIcon name="arrow-next" />
               </Cell>
             </Touchable>
