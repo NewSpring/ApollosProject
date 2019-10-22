@@ -7,29 +7,35 @@ import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 
 const Toolbar = ({ navigation }) => (
   <WebBrowserConsumer>
-    {(openUrl) =>
-      Config.EXPERIMENTAL === 'true' ? (
-        <ActionBar>
+    {(openUrl) => (
+      <ActionBar>
+        <ActionBarItem
+          onPress={() =>
+            openUrl(
+              'https://newspring.cc/give/now1',
+              { externalBrowser: true },
+              { useRockToken: true }
+            )
+          }
+          icon="give"
+          label="Give"
+        />
+        <ActionBarItem
+          onPress={() =>
+            openUrl('https://newspring.cc/serving', {}, { useRockToken: true })
+          }
+          icon="serve"
+          label="Serve"
+        />
+        {Config.EXPERIMENTAL === 'true' ? (
           <ActionBarItem
             onPress={() => navigation.navigate('Passes')}
             icon="check"
             label="Check-in"
           />
-          <ActionBarItem
-            onPress={() =>
-              openUrl('https://my.newspring.cc', { externalBrowser: true })
-            }
-            icon="download"
-            label="Give"
-          />
-          <ActionBarItem
-            onPress={() => navigation.navigate('TestingControlPanel')}
-            icon="information"
-            label="Test"
-          />
-        </ActionBar>
-      ) : null
-    }
+        ) : null}
+      </ActionBar>
+    )}
   </WebBrowserConsumer>
 );
 
