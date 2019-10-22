@@ -240,30 +240,33 @@ export default class ContentItem extends oldContentItem.dataSource {
 
   getCommunicators = async ({ value: matrixItemGuid } = {}) => {
     if (!matrixItemGuid) return null;
-    const matrixItem = await this.request('/AttributeMatrixItems')
+    const matrixItems = await this.request('/AttributeMatrixItems')
       .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .first();
-    if (!matrixItem) return null;
-    let communicator = '';
-    let guestCommunicator = '';
-    const {
-      attributeValues: {
-        communicator: { value: personAliasGuid } = {},
-        guestCommunicator: { value: guestName } = {},
-      } = {},
-    } = matrixItem;
-    if (personAliasGuid !== '') {
-      const { personId } = await this.request('/PersonAlias')
-        .filter(`Guid eq guid'${personAliasGuid}'`)
-        .first();
-      communicator = this.context.dataSources.Person.getFromId(personId);
-    }
-    guestCommunicator = guestName;
-    const communicators = {
-      communicator,
-      guestCommunicator,
-    };
+      .get();
+    const communicators = await matrixItems.map(async (item) => {
+      const {
+        attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
+      } = item;
+      if (personAliasGuid !== '') {
+        const { personId } = await this.request('/PersonAlias')
+          .filter(`Guid eq guid'${personAliasGuid}'`)
+          .first();
+        return this.context.dataSources.Person.getFromId(personId);
+      }
+      return null;
+    });
     return communicators;
+  };
+
+  getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
+    if (!matrixItemGuid) return null;
+    const matrixItems = await this.request('/AttributeMatrixItems')
+      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
+      .get();
+    const guestCommunicators = await matrixItems.map(
+      (item) => item.attributeValues.guestCommunicator.value
+    );
+    return guestCommunicators;
   };
 
   getBySlug = async (slug) => {

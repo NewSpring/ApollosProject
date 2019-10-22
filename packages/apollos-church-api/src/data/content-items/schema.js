@@ -4,13 +4,9 @@ import gql from 'graphql-tag';
 export default gql`
   ${ContentItem.schema}
 
-  type Communicators {
-    communicator: Person
-    guestCommunicator: String
-  }
-
   extend type WeekendContentItem {
-    communicators: Communicators
+    communicators: [Person]
+    guestCommunicators: [String]
     sermonDate: String
     series: ContentItem
   }

@@ -85,6 +85,11 @@ const resolver = {
       args,
       { dataSources }
     ) => dataSources.ContentItem.getCommunicators(communicators),
+    guestCommunicators: (
+      { attributeValues: { communicators } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getGuestCommunicators(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
     series: ({ id }, args, { dataSources: { ContentItem } }) =>

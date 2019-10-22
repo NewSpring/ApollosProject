@@ -49,6 +49,7 @@ const Features = ({ contentId, asNotes }) => {
             features={featureComponents}
             contentId={contentId}
             communicators={node.communicators}
+            guestCommunicators={node.guestCommunicators}
           />
         ) : (
           <PaddedView horizontal={false}>

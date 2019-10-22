@@ -10,10 +10,14 @@ import {
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
 
-const SermonNotes = ({ contentId, features, communicators }) => {
+const SermonNotes = ({
+  contentId,
+  features,
+  communicators,
+  guestCommunicators,
+}) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
-  const { communicator, guestCommunicator } = communicators;
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -83,13 +87,19 @@ const SermonNotes = ({ contentId, features, communicators }) => {
  <H5>Title</H5>
    <H5>Series - Week # - Date</H5>
         */}
-      {communicator ? (
-        <H5>
-          {communicator.nickName || communicator.firstName}{' '}
-          {communicator.lastName}
-        </H5>
-      ) : null}
-      {guestCommunicator ? <H5>{guestCommunicator}</H5> : null}
+      {communicators && communicators[0] != null
+        ? communicators.map((communicator) => (
+            <H5 key={communicator}>
+              {communicator.nickName || communicator.firstName}{' '}
+              {communicator.lastName}
+            </H5>
+          ))
+        : null}
+      {guestCommunicators && guestCommunicators[0] != null
+        ? guestCommunicators.map((guestCommunicator) => (
+            <H5 key={guestCommunicator}>{guestCommunicator}</H5>
+          ))
+        : null}
 
       <PaddedView />
       {enhancedFeatures}
@@ -100,12 +110,12 @@ const SermonNotes = ({ contentId, features, communicators }) => {
 SermonNotes.propTypes = {
   contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
-  communicators: PropTypes.shape({
-    communicator: PropTypes.shape({
+  communicators: PropTypes.arrayOf(
+    PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string,
-    }),
-    guestCommunicator: PropTypes.string,
-  }),
+    })
+  ),
+  guestCommunicators: PropTypes.arrayOf(PropTypes.string),
 };
 export default SermonNotes;
