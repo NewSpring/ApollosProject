@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import { KeyboardAvoidingView, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
   ActionCard,
   Icon,
   TextInput,
+  BodyText,
   styled,
   Touchable,
 } from '@apollosproject/ui-kit';
@@ -19,6 +20,15 @@ const StyledTextInput = styled(({ theme }) => ({
   paddingBottom: theme.sizing.baseUnit,
   textAlignVertical: 'top',
 }))(TextInput);
+
+const StyledAddNoteView = styled({
+  flex: 1,
+  flexDirection: 'row',
+})(View);
+
+const PaddedText = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(BodyText);
 
 const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
   const [hasBox, showBox] = useState(false);
@@ -38,7 +48,10 @@ const Note = ({ id: featureId, placeholder, onNotesChange, onNoteChange }) => {
     />
   ) : (
     <Touchable onPress={() => showBox(true)}>
-      <Icon name={'add'} size={24} />
+      <StyledAddNoteView>
+        <Icon name={'add'} size={24} />
+        <PaddedText>Add a Note</PaddedText>
+      </StyledAddNoteView>
     </Touchable>
   );
 };
