@@ -8,14 +8,19 @@ import { createAssetUrl } from '../utils';
 const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
+  getMatrixItems = async (matrixItemGuid) => {
+    const matrixItems = this.request('/AttributeMatrixItems')
+      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
+      .get();
+    return matrixItems;
+  };
+
   getContentItemScriptures = async ({ value: matrixItemGuid }) => {
     const {
       dataSources: { Scripture },
     } = this.context;
     if (!matrixItemGuid) return null;
-    const matrixItems = await this.request('/AttributeMatrixItems')
-      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .get();
+    const matrixItems = await this.getMatrixItems(matrixItemGuid);
     const references = await Promise.all(
       matrixItems.map(
         async ({
@@ -240,9 +245,7 @@ export default class ContentItem extends oldContentItem.dataSource {
 
   getCommunicators = async ({ value: matrixItemGuid } = {}) => {
     if (!matrixItemGuid) return null;
-    const matrixItems = await this.request('/AttributeMatrixItems')
-      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .get();
+    const matrixItems = await this.getMatrixItems(matrixItemGuid);
     const communicators = await matrixItems.map(async (item) => {
       const {
         attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
@@ -260,9 +263,7 @@ export default class ContentItem extends oldContentItem.dataSource {
 
   getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
     if (!matrixItemGuid) return null;
-    const matrixItems = await this.request('/AttributeMatrixItems')
-      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .get();
+    const matrixItems = await this.getMatrixItems(matrixItemGuid);
     const guestCommunicators = await matrixItems.map(
       (item) => item.attributeValues.guestCommunicator.value
     );
