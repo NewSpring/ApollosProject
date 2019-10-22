@@ -42,7 +42,6 @@ const Browser = {
     }
     try {
       if (await InAppBrowser.isAvailable()) {
-        console.log(url.toString());
         InAppBrowser.open(url.toString(), {
           headers,
           ...options,
