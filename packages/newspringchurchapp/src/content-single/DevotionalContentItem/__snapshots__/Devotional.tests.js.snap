@@ -355,7 +355,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                           "borderRadius": 16,
                           "marginHorizontal": 16,
                           "marginVertical": 12,
-                          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+                          "shadowColor": "rgba(133, 133, 133, 0.6)",
                           "shadowOffset": Object {
                             "height": 1,
                             "width": 0,
@@ -1627,7 +1627,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           "borderRadius": 16,
                           "marginHorizontal": 16,
                           "marginVertical": 12,
-                          "shadowColor": "rgba(133, 133, 133, 0.30000000000000004)",
+                          "shadowColor": "rgba(133, 133, 133, 0.6)",
                           "shadowOffset": Object {
                             "height": 1,
                             "width": 0,
