@@ -44,7 +44,6 @@ const Browser = {
       if (url.toString().includes('newspring.cc'))
         url.searchParams.append('hidenav', 'true');
     }
-    console.log(url.toString());
     try {
       if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
