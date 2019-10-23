@@ -4,6 +4,9 @@ exports[`renders prayer PrayerTab 1`] = `
 <View
   style={
     Object {
+      "flex": 1,
+      "justifyContent": "flex-end",
+      "marginBottom": 32,
       "paddingHorizontal": 16,
     }
   }
@@ -49,6 +52,9 @@ exports[`renders prayer tab with content 1`] = `
 <View
   style={
     Object {
+      "flex": 1,
+      "justifyContent": "flex-end",
+      "marginBottom": 32,
       "paddingHorizontal": 16,
     }
   }
