@@ -8,7 +8,7 @@ import { renderWithApolloData } from '../../utils/testUtils';
 import GET_CONTENT_CARD from '../../ui/ContentCardConnected/query';
 
 import Discover from './Discover';
-import GET_CONTENT_CHANNELS from './DiscoverFeed/getContentChannels';
+import GET_CONTENT_CHANNELS from './getContentChannels';
 
 describe('The Discover tab component', () => {
   it('Should retrieve the Content Channel Feeds', async () => {
