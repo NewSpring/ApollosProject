@@ -14,6 +14,7 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
+import NavigationActions from 'newspringchurchapp/src/NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
   flexDirection: 'row',
@@ -100,6 +101,19 @@ const ActionTable = ({ isGroupLeader }) => (
                 <CellText>Bug Report!</CellText>
               </Cell>
             </Touchable>
+            <Divider />
+            {process.env.NODE_ENV !== 'production' ? (
+              <Touchable
+                onPress={() =>
+                  NavigationActions.navigate('TestingControlPanel')
+                }
+              >
+                <Cell>
+                  <CellIcon name="settings" />
+                  <CellText>Open Testing Panel</CellText>
+                </Cell>
+              </Touchable>
+            ) : null}
           </View>
         )}
       </WebBrowserConsumer>
