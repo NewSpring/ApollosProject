@@ -8,13 +8,6 @@ import { createAssetUrl } from '../utils';
 const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
-  // getMatrixItems = async (matrixItemGuid) => {
-  //   const matrixItems = this.request('/AttributeMatrixItems')
-  //     .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-  //     .get();
-  //   return matrixItems;
-  // };
-
   getContentItemScriptures = async ({ value: matrixItemGuid }) => {
     const {
       dataSources: { Scripture, MatrixItem },
