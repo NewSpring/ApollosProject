@@ -7,15 +7,18 @@ import {
   BodyText,
   H4,
   Placeholder,
+  FlexedView,
 } from '@apollosproject/ui-kit';
 
 const VerticalPaddedView = styled(({ theme }) => ({
   paddingVertical: theme.sizing.baseUnit,
 }))(View);
 
-const HorizontalPaddedView = styled(({ theme }) => ({
+const ContentView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
-}))(View);
+  marginBottom: theme.sizing.baseUnit * 2,
+  justifyContent: 'flex-end',
+}))(FlexedView);
 
 const StyledBodyText = styled(({ theme }) => ({
   color: theme.colors.white,
@@ -31,7 +34,7 @@ const StyledButton = styled({
 
 const PrayerTab = memo(
   ({ prayers, type, title, description, loading, ...props }) => (
-    <HorizontalPaddedView>
+    <ContentView>
       <Placeholder.Paragraph
         lineNumber={2}
         onReady={!loading}
@@ -66,7 +69,7 @@ const PrayerTab = memo(
           </VerticalPaddedView>
         )}
       </Placeholder.Paragraph>
-    </HorizontalPaddedView>
+    </ContentView>
   )
 );
 
