@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ScrollView } from 'react-native';
+import Config from 'react-native-config';
 import { StackActions, NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { Query, Mutation } from 'react-apollo';
@@ -141,7 +142,9 @@ class UserSettings extends PureComponent {
                       <TableView>
                         <Cell>
                           <CellText>
-                            {`App Version: ${getVersion()}.${getBuildNumber()}`}
+                            {`App Version: ${getVersion()}.${getBuildNumber()}${
+                              Config.EXPERIMENTAL ? ' (Experimental)' : ''
+                            }`}
                           </CellText>
                         </Cell>
                       </TableView>
