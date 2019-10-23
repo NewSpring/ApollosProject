@@ -10,7 +10,12 @@ import {
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
 
-const SermonNotes = ({ contentId, features, communicator }) => {
+const SermonNotes = ({
+  contentId,
+  features,
+  communicators,
+  guestCommunicators,
+}) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
@@ -82,12 +87,21 @@ const SermonNotes = ({ contentId, features, communicator }) => {
  <H5>Title</H5>
    <H5>Series - Week # - Date</H5>
         */}
-      {communicator ? (
-        <H5>
-          {communicator.nickName || communicator.firstName}{' '}
-          {communicator.lastName}
-        </H5>
-      ) : null}
+      {communicators && communicators[0] != null
+        ? communicators.map((communicator) => (
+            <H5 key={communicator}>
+              {communicator.nickName || communicator.firstName}{' '}
+              {communicator.lastName}
+            </H5>
+          ))
+        : null}
+      {guestCommunicators && guestCommunicators[0] != null
+        ? guestCommunicators.map((guestCommunicator) =>
+            guestCommunicator !== '' ? (
+              <H5 key={guestCommunicator}>{guestCommunicator}</H5>
+            ) : null
+          )
+        : null}
 
       <PaddedView />
       {enhancedFeatures}
@@ -98,9 +112,12 @@ const SermonNotes = ({ contentId, features, communicator }) => {
 SermonNotes.propTypes = {
   contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
-  communicator: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-  }),
+  communicators: PropTypes.arrayOf(
+    PropTypes.shape({
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    })
+  ),
+  guestCommunicators: PropTypes.arrayOf(PropTypes.string),
 };
 export default SermonNotes;
