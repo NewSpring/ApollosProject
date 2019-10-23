@@ -1,7 +1,7 @@
 import { Person as basePerson } from '@apollosproject/data-connector-rock';
 
 export default class Person extends basePerson.dataSource {
-  async isCurrentPersonStaff(id) {
+  async isStaff(id) {
     const staff = await this.request('GroupMembers')
       // active and not archived
       .filter(
