@@ -13,7 +13,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       dataSources: { Scripture, MatrixItem },
     } = this.context;
     if (!matrixItemGuid) return null;
-    const matrixItems = await MatrixItem.getMatrixItems(matrixItemGuid);
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
     const references = await Promise.all(
       matrixItems.map(
         async ({
@@ -241,20 +241,23 @@ export default class ContentItem extends oldContentItem.dataSource {
       dataSources: { MatrixItem },
     } = this.context;
     if (!matrixItemGuid) return null;
-    const matrixItems = await MatrixItem.getMatrixItems(matrixItemGuid);
-    const communicators = await matrixItems.map(async (item) => {
-      const {
-        attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
-      } = item;
-      if (personAliasGuid !== '') {
-        const { personId } = await this.request('/PersonAlias')
-          .filter(`Guid eq guid'${personAliasGuid}'`)
-          .first();
-        return this.context.dataSources.Person.getFromId(personId);
-      }
-      return null;
-    });
-    return communicators;
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
+    return Promise.all(
+      matrixItems.map(async (item) => {
+        const {
+          attributeValues: {
+            communicator: { value: personAliasGuid } = {},
+          } = {},
+        } = item;
+        if (personAliasGuid !== '') {
+          const { personId } = await this.request('/PersonAlias')
+            .filter(`Guid eq guid'${personAliasGuid}'`)
+            .first();
+          return this.context.dataSources.Person.getFromId(personId);
+        }
+        return null;
+      })
+    );
   };
 
   getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
@@ -262,11 +265,10 @@ export default class ContentItem extends oldContentItem.dataSource {
       dataSources: { MatrixItem },
     } = this.context;
     if (!matrixItemGuid) return null;
-    const matrixItems = await MatrixItem.getMatrixItems(matrixItemGuid);
-    const guestCommunicators = await matrixItems.map(
-      (item) => item.attributeValues.guestCommunicator.value
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
+    return Promise.all(
+      matrixItems.map((item) => item.attributeValues.guestCommunicator.value)
     );
-    return guestCommunicators;
   };
 
   getBySlug = async (slug) => {
