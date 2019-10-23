@@ -96,9 +96,11 @@ const SermonNotes = ({
           ))
         : null}
       {guestCommunicators && guestCommunicators[0] != null
-        ? guestCommunicators.map((guestCommunicator) => (
-            <H5 key={guestCommunicator}>{guestCommunicator}</H5>
-          ))
+        ? guestCommunicators.map((guestCommunicator) =>
+            guestCommunicator !== '' ? (
+              <H5 key={guestCommunicator}>{guestCommunicator}</H5>
+            ) : null
+          )
         : null}
 
       <PaddedView />
