@@ -8,3 +8,5 @@ export LeafSolid from './LeafSolid';
 export LeafLined from './LeafLined';
 export BrandIcon from './LeafLogo';
 export Delete from './Delete';
+export Serve from './Serve';
+export Give from './Give';

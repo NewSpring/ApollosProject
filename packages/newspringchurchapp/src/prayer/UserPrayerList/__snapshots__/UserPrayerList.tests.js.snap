@@ -113,6 +113,7 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
     </RCTScrollView>
   </RCTSafeAreaView>
   <View
+    pointerEvents="box-none"
     style={
       Object {
         "flexDirection": "row",
@@ -125,15 +126,6 @@ exports[`the UserPrayerList component renders a list of prayers 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "height": 75,
-          "position": "absolute",
-          "width": "100%",
-        }
-      }
-    />
     <RNSVGSvgView
       align="xMidYMid"
       bbHeight={32}
@@ -479,6 +471,7 @@ exports[`the UserPrayerList component renders no prayer text 1`] = `
     </RCTScrollView>
   </RCTSafeAreaView>
   <View
+    pointerEvents="box-none"
     style={
       Object {
         "flexDirection": "row",
@@ -491,15 +484,6 @@ exports[`the UserPrayerList component renders no prayer text 1`] = `
       }
     }
   >
-    <View
-      style={
-        Object {
-          "height": 75,
-          "position": "absolute",
-          "width": "100%",
-        }
-      }
-    />
     <RNSVGSvgView
       align="xMidYMid"
       bbHeight={32}

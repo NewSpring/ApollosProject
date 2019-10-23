@@ -18,6 +18,7 @@ export const GET_ROCK_AUTH_DETAILS = gql`
 export const getRockAuthDetails = async () => {
   const { data: { currentUser: { rock } = {} } = {} } = await client.query({
     query: GET_ROCK_AUTH_DETAILS,
+    fetchPolicy: 'network-only',
   });
   return rock;
 };
@@ -39,9 +40,12 @@ const Browser = {
     }
     if (auth.useRockToken && authToken) {
       url.searchParams.append('rckipid', authToken);
+      // hide nav bar for links to newspring's site
+      if (url.toString().includes('newspring.cc'))
+        url.searchParams.append('hidenav', 'true');
     }
     try {
-      if (await InAppBrowser.isAvailable()) {
+      if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
           headers,
           ...options,

@@ -19,6 +19,26 @@ const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
+    contentChannels: async (
+      root,
+      args,
+      { dataSources: { ContentChannel, Person } }
+    ) => {
+      let channels = await ContentChannel.getRootChannels();
+      const isStaff = await Person.isCurrentPersonStaff();
+      if (!isStaff) channels = channels.filter(({ id }) => id !== 513);
+      const sortOrder = ROCK_MAPPINGS.DISCOVER_CONTENT_CHANNEL_IDS;
+      // Setup a result array.
+      const result = [];
+      sortOrder.forEach((configId) => {
+        // Remove the matched element from the channel list.
+        const index = channels.findIndex(({ id }) => id === configId);
+        // if index exists, add channel to end of result array
+        if (index > -1) result.push(...channels.splice(index, 1));
+      });
+      // Return results and any left over channels.
+      return [...result, ...channels];
+    },
   },
   DevotionalContentItem: {
     ...defaultResolvers,
@@ -80,11 +100,16 @@ const resolver = {
       title: 'Share via ...',
       message: `${root.title} - ${ContentItem.createSummary(root)}`,
     }),
-    communicator: (
+    communicators: (
       { attributeValues: { communicators } = {} },
       args,
       { dataSources }
-    ) => dataSources.ContentItem.getCommunicator(communicators),
+    ) => dataSources.ContentItem.getCommunicators(communicators),
+    guestCommunicators: (
+      { attributeValues: { communicators } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getGuestCommunicators(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
     series: ({ id }, args, { dataSources: { ContentItem } }) =>
