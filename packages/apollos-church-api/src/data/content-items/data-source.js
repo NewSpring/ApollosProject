@@ -249,13 +249,11 @@ export default class ContentItem extends oldContentItem.dataSource {
             communicator: { value: personAliasGuid } = {},
           } = {},
         } = item;
-        if (personAliasGuid !== '') {
-          const { personId } = await this.request('/PersonAlias')
-            .filter(`Guid eq guid'${personAliasGuid}'`)
-            .first();
-          return this.context.dataSources.Person.getFromId(personId);
-        }
-        return null;
+        if (personAliasGuid === '') return null;
+        const { personId } = await this.request('/PersonAlias')
+          .filter(`Guid eq guid'${personAliasGuid}'`)
+          .first();
+        return this.context.dataSources.Person.getFromId(personId);
       })
     );
   };
