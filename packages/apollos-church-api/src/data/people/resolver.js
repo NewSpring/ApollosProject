@@ -7,8 +7,8 @@ const resolver = {
       const groups = await Group.getByPerson({ personId: id, asLeader: true });
       return groups.length > 0;
     },
-    isStaff: (root, args, { dataSources: { Person } }) =>
-      Person.isCurrentPersonStaff(),
+    isStaff: ({ id }, args, { dataSources: { Person } }) =>
+      Person.isCurrentPersonStaff(id),
   },
 };
 export default resolverMerge(resolver, originalPerson);
