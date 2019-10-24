@@ -8,6 +8,10 @@ const peopleSchema = gql`
     isGroupLeader: Boolean
     isStaff: Boolean
   }
+
+  extend type Query {
+    forgotPasswordURL: String
+  }
 `;
 
 export default peopleSchema;

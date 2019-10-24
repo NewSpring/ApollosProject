@@ -2,6 +2,8 @@ import hoistNonReactStatic from 'hoist-non-react-statics';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
 import SplashScreen from 'react-native-splash-screen';
 
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
@@ -25,6 +27,7 @@ import Prayer from './prayer';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+import { WebBrowserConsumer } from './ui/WebBrowser';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -37,20 +40,34 @@ const ProtectedRouteWithSplashScreen = (props) => {
   return <ProtectedRoute {...props} onRouteChange={handleOnRouteChange} />;
 };
 
-// Hack to avoid needing to pass emailRequired through the navigator.navigate
 const EnhancedAuth = (props) => (
-  <Auth
-    {...props}
-    emailRequired={false}
-    authTitleText={'Let’s connect'}
-    smsPolicyInfo={
-      'We will not share your information or contact you without your permission.'
-    }
-    confirmationTitleText={'Thanks!'}
-    confirmationPromptText={
-      'We just texted you a shortcode. Enter it below, then hit next.'
-    }
-  />
+  <WebBrowserConsumer>
+    {(openUrl) => (
+      <Query
+        query={gql`
+          {
+            forgotPasswordURL
+          }
+        `}
+      >
+        {({ data: { forgotPasswordURL = '' } = {} }) => (
+          <Auth
+            {...props}
+            emailRequired={false}
+            handleForgotPassword={() => openUrl(forgotPasswordURL)}
+            authTitleText={'Let’s connect'}
+            smsPolicyInfo={
+              'We will not share your information or contact you without your permission.'
+            }
+            confirmationTitleText={'Thanks!'}
+            confirmationPromptText={
+              'We just texted you a shortcode. Enter it below, then hit next.'
+            }
+          />
+        )}
+      </Query>
+    )}
+  </WebBrowserConsumer>
 );
 // 😑
 hoistNonReactStatic(EnhancedAuth, Auth);
