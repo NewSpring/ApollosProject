@@ -26,7 +26,7 @@ export default class Features extends baseFeatures.dataSource {
   // currently this is only showing features if you're on staff
   async getHomeFeedFeatures() {
     const { Person } = this.context.dataSources;
-    const isStaff = await Person.isCurrentPersonStaff();
+    const isStaff = await Person.isStaff();
     if (!isStaff) return [];
 
     return Promise.all(
