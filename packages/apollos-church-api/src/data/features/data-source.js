@@ -25,8 +25,9 @@ export default class Features extends baseFeatures.dataSource {
   // TODO come up with a better way to hide features per block
   // currently this is only showing features if you're on staff
   async getHomeFeedFeatures() {
-    const { Person } = this.context.dataSources;
-    const isStaff = await Person.isCurrentPersonStaff();
+    const { Person, Auth } = this.context.dataSources;
+    const { id } = await Auth.getCurrentPerson();
+    const isStaff = await Person.isStaff(id);
     if (!isStaff) return [];
 
     return Promise.all(
