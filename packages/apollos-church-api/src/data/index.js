@@ -22,7 +22,6 @@ import {
   BinaryFiles,
   RockConstants,
   Event,
-  Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
 import * as Person from './people';
 import * as ContentItem from './content-items';
@@ -30,6 +29,7 @@ import * as Features from './features';
 import * as Campus from './campuses';
 import * as Group from './groups';
 import * as Theme from './theme';
+import * as MatrixItem from './matrix-items';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -39,7 +39,6 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
-  Person,
   Auth,
   AuthSms,
   Sms,
@@ -61,9 +60,10 @@ const data = {
   Event,
   Cache,
   Features,
-  BasePerson,
+  Person,
   PrayerRequest,
   PrayerMenuCategory,
+  MatrixItem,
 };
 
 const {

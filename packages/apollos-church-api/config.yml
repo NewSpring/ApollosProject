@@ -98,11 +98,12 @@ ROCK_MAPPINGS:
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 27
-    - 16
-    - 18
-    - 20
-    - 28
+    - 513 # staff
+    - 20  # sermon series
+    - 18  # studies
+    - 16  # articles
+    - 27  # news
+    - 28  # stories
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
   FEED_CONTENT_CHANNEL_IDS:

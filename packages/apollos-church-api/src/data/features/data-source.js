@@ -25,16 +25,9 @@ export default class Features extends baseFeatures.dataSource {
   // TODO come up with a better way to hide features per block
   // currently this is only showing features if you're on staff
   async getHomeFeedFeatures() {
-    const { Auth } = this.context.dataSources;
-    const person = await Auth.getCurrentPerson();
-    const staff = await this.request('GroupMembers')
-      .filter(
-        "GroupId eq 3 and GroupMemberStatus eq '1' and IsArchived eq false"
-      )
-      // .andFilter('GroupMemberStatus eq 1 and IsArchived eq false')
-      .get();
-    const staffIds = staff.map(({ personId }) => personId);
-    if (!staffIds.includes(person.id)) return [];
+    const { Person } = this.context.dataSources;
+    const isStaff = await Person.isCurrentPersonStaff();
+    if (!isStaff) return [];
 
     return Promise.all(
       get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) =>
