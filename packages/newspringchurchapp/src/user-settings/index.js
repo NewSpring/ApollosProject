@@ -143,7 +143,9 @@ class UserSettings extends PureComponent {
                         <Cell>
                           <CellText>
                             {`App Version: ${getVersion()}.${getBuildNumber()}${
-                              Config.EXPERIMENTAL ? ' (Experimental)' : ''
+                              Config.EXPERIMENTAL === 'true'
+                                ? ' (Experimental)'
+                                : ''
                             }`}
                           </CellText>
                         </Cell>
