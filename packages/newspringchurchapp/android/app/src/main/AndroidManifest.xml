@@ -81,6 +81,10 @@
                     android:scheme="https"
                     android:host="newspring.cc"
                     android:pathPrefix="/news" />
+                <data
+                    android:scheme="https"
+                    android:host="newspring.cc"
+                    android:pathPrefix="/staffnews" />
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
