@@ -25,7 +25,7 @@ const resolver = {
       { dataSources: { ContentChannel, Person } }
     ) => {
       let channels = await ContentChannel.getRootChannels();
-      const isStaff = await Person.isCurrentPersonStaff();
+      const isStaff = await Person.isStaff();
       if (!isStaff) channels = channels.filter(({ id }) => id !== 513);
       const sortOrder = ROCK_MAPPINGS.DISCOVER_CONTENT_CHANNEL_IDS;
       // Setup a result array.
