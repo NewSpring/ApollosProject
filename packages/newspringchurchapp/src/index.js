@@ -50,11 +50,13 @@ const EnhancedAuth = (props) => (
           }
         `}
       >
-        {({ data: { forgotPasswordURL = '' } = {} }) => (
+        {({ data: { forgotPasswordURL } = {} }) => (
           <Auth
             {...props}
             emailRequired={false}
-            handleForgotPassword={() => openUrl(forgotPasswordURL)}
+            handleForgotPassword={() =>
+              forgotPasswordURL ? openUrl(forgotPasswordURL) : null
+            }
             authTitleText={'Let’s connect'}
             smsPolicyInfo={
               'We will not share your information or contact you without your permission.'
