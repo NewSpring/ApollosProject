@@ -9,6 +9,7 @@ const resolver = {
     },
     isStaff: (root, args, { dataSources: { Person } }) =>
       Person.isCurrentPersonStaff(),
+    photo: ({ photo: { path } }) => ({ uri: path }),
   },
 };
 export default resolverMerge(resolver, originalPerson);
