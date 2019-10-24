@@ -22,7 +22,6 @@ import {
   BinaryFiles,
   RockConstants,
   Event,
-  Person as BasePerson,
 } from '@apollosproject/data-connector-rock';
 import * as Person from './people';
 import * as ContentItem from './content-items';
@@ -40,7 +39,6 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
-  Person,
   Auth,
   AuthSms,
   Sms,
@@ -62,7 +60,7 @@ const data = {
   Event,
   Cache,
   Features,
-  BasePerson,
+  Person,
   PrayerRequest,
   PrayerMenuCategory,
   MatrixItem,
