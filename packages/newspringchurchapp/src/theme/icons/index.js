@@ -1,5 +1,6 @@
 /* Export your custom icon components here. */
 export Add from './Add';
+export Export from './Export';
 export ArrowDown from './ArrowDown';
 export ArrowUp from './ArrowUp';
 export Pray from './Pray';
