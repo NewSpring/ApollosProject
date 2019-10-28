@@ -22,10 +22,14 @@ const Toolbar = ({ navigation }) => (
         />
         <ActionBarItem
           onPress={() =>
-            openUrl('https://newspring.cc/serving', {}, { useRockToken: true })
+            openUrl(
+              'https://newspring.cc/groups/finder',
+              {},
+              { useRockToken: true }
+            )
           }
-          icon="serve"
-          label="Serve"
+          icon="group"
+          label="Join Group"
         />
         {Config.EXPERIMENTAL === 'true' ? (
           <ActionBarItem
