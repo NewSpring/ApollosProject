@@ -10,3 +10,4 @@ export BrandIcon from './LeafLogo';
 export Delete from './Delete';
 export Serve from './Serve';
 export Give from './Give';
+export Group from './Group';

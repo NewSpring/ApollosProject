@@ -30,6 +30,8 @@ const Browser = {
     auth = { useRockCookie: false, useRockToken: false }
   ) => {
     const url = new URL(baseURL);
+    url._url = url.toString().slice(0, -1);
+
     const { authCookie, authToken } = await getRockAuthDetails();
     let headers = {};
     if (auth.useRockCookie && authCookie) {
