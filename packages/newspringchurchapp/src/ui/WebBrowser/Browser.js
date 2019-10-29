@@ -26,7 +26,7 @@ export const getRockAuthDetails = async () => {
 const Browser = {
   open: async (
     baseURL,
-    options,
+    options = { externalBrowser: false },
     auth = { useRockCookie: false, useRockToken: false }
   ) => {
     const url = new URL(baseURL);
