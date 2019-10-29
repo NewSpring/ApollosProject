@@ -30,6 +30,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       )
     );
 
+    if (!references.length) return null;
     return Scripture.getScriptures(references);
   };
 
