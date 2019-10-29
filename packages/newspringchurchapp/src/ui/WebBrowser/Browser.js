@@ -42,10 +42,10 @@ const Browser = {
     }
     if (auth.useRockToken && authToken) {
       url.searchParams.append('rckipid', authToken);
-      // hide nav bar for links to newspring's site
-      if (url.toString().includes('newspring.cc'))
-        url.searchParams.append('hidenav', 'true');
     }
+    // hide nav bar for links to newspring's site
+    if (url.toString().includes('newspring.cc'))
+      url.searchParams.append('hidenav', 'true');
     try {
       if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
