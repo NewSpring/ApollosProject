@@ -88,11 +88,7 @@ class UserSettings extends PureComponent {
                       <TableView>
                         <Touchable
                           onPress={() =>
-                            openUrl(
-                              'https://newspring.cc/privacy',
-                              {},
-                              { useRockToken: true }
-                            )
+                            openUrl('https://newspring.cc/privacy')
                           }
                         >
                           <Cell>
@@ -102,13 +98,7 @@ class UserSettings extends PureComponent {
                         </Touchable>
                         <Divider />
                         <Touchable
-                          onPress={() =>
-                            openUrl(
-                              'https://newspring.cc/terms',
-                              {},
-                              { useRockToken: true }
-                            )
-                          }
+                          onPress={() => openUrl('https://newspring.cc/terms')}
                         >
                           <Cell>
                             <CellText>Terms of Use</CellText>
