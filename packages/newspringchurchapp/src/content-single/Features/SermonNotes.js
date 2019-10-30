@@ -7,8 +7,19 @@ import {
   Touchable,
   Icon,
   H5,
+  FlexedView,
+  styled,
+  BodyText,
 } from '@apollosproject/ui-kit';
 import share from '../../utils/content/share';
+
+const ExportWrapper = styled({
+  flexDirection: 'row',
+})(FlexedView);
+
+const PaddedText = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(BodyText);
 
 const SermonNotes = ({
   contentId,
@@ -78,7 +89,10 @@ const SermonNotes = ({
             share({ message });
           }}
         >
-          <Icon name={'share'} />
+          <ExportWrapper>
+            <PaddedText>Export</PaddedText>
+            <Icon name={'export'} size={24} />
+          </ExportWrapper>
         </Touchable>
       }
     >
