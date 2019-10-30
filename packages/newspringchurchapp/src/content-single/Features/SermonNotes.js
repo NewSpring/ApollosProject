@@ -15,6 +15,8 @@ const SermonNotes = ({
   features,
   communicators,
   guestCommunicators,
+  title,
+  series,
 }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
@@ -83,8 +85,9 @@ const SermonNotes = ({
       }
     >
       <H3>Sermon Notes</H3>
+      <H5>{title || ''}</H5>
+      <H5>{series || ''}</H5>
       {/* TODO
- <H5>Title</H5>
    <H5>Series - Week # - Date</H5>
         */}
       {communicators && communicators[0] != null
@@ -119,5 +122,7 @@ SermonNotes.propTypes = {
     })
   ),
   guestCommunicators: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  series: PropTypes.string,
 };
 export default SermonNotes;
