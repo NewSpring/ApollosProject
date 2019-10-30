@@ -56,14 +56,14 @@ const ActionTable = ({ isGroupLeader }) => (
             <Touchable
               onPress={() =>
                 openUrl(
-                  'https://newspring.cc/groups/finder',
+                  'https://newspring.cc/serving',
                   {},
                   { useRockToken: true }
                 )
               }
             >
               <Cell>
-                <CellText>Join a small group</CellText>
+                <CellText>Find a serving opportunity</CellText>
                 <CellIcon name="arrow-next" />
               </Cell>
             </Touchable>
@@ -90,7 +90,7 @@ const ActionTable = ({ isGroupLeader }) => (
             <Touchable
               onPress={() =>
                 openUrl(
-                  `https://rock.newspring.cc/WorkflowEntry/530`,
+                  `https://newspring.cc/workflows/530?Source=3`,
                   {},
                   { useRockToken: true }
                 )

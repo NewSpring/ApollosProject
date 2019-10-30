@@ -26,10 +26,12 @@ export const getRockAuthDetails = async () => {
 const Browser = {
   open: async (
     baseURL,
-    options,
+    options = { externalBrowser: false },
     auth = { useRockCookie: false, useRockToken: false }
   ) => {
     const url = new URL(baseURL);
+    url._url = url.toString().slice(0, -1);
+
     const { authCookie, authToken } = await getRockAuthDetails();
     let headers = {};
     if (auth.useRockCookie && authCookie) {
@@ -40,10 +42,10 @@ const Browser = {
     }
     if (auth.useRockToken && authToken) {
       url.searchParams.append('rckipid', authToken);
-      // hide nav bar for links to newspring's site
-      if (url.toString().includes('newspring.cc'))
-        url.searchParams.append('hidenav', 'true');
     }
+    // hide nav bar for links to newspring's site
+    if (url.toString().includes('newspring.cc'))
+      url.searchParams.append('hidenav', 'true');
     try {
       if (!options.externalBrowser && (await InAppBrowser.isAvailable())) {
         InAppBrowser.open(url.toString(), {
