@@ -30,7 +30,8 @@ export default class ContentItem extends oldContentItem.dataSource {
       )
     );
 
-    return Scripture.getScriptures(references);
+    const query = references.join(',');
+    return query !== '' ? Scripture.getScriptures(query) : null;
   };
 
   getWistiaVideoUri = async (wistiaHashedId) => {
