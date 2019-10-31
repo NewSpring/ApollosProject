@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const prayerRequestSchema = gql`
   extend type Query {
-    prayers(type: PRAYER_TYPE): [PrayerRequest]
+    prayers(type: PrayerType): [PrayerRequest]
     campusPrayers: [PrayerRequest]
     userPrayers: [PrayerRequest]
     groupPrayers: [PrayerRequest]
@@ -24,7 +24,7 @@ const prayerRequestSchema = gql`
     unSavePrayer(nodeId: String!): PrayerRequest
   }
 
-  enum PRAYER_TYPE {
+  enum PrayerType {
     CAMPUS
     USER
     GROUP
