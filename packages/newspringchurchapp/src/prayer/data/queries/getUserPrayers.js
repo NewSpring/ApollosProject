@@ -5,7 +5,6 @@ export default gql`
     userPrayers {
       id
       text
-      enteredDateTime
       startTime
     }
   }
