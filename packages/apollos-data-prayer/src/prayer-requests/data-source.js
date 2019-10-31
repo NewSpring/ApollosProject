@@ -221,29 +221,26 @@ export default class PrayerRequest extends RockApolloDataSource {
   };
 
   // MUTATION add public prayer request
-  add = async ({
-    campusId,
-    categoryId,
-    text,
-    firstName,
-    lastName,
-    isAnonymous,
-  }) => {
+  add = async ({ text, isAnonymous }) => {
     const {
       dataSources: { Auth },
     } = this.context;
     try {
-      const { primaryAliasId } = await Auth.getCurrentPerson();
+      const {
+        primaryAliasId,
+        nickName,
+        firstName,
+        lastName,
+        primaryCampusId,
+      } = await Auth.getCurrentPerson();
 
       const newPrayerRequest = await this.post('/PrayerRequests', {
-        FirstName: firstName, // Required by Rock
+        FirstName: nickName || firstName, // Required by Rock
         LastName: lastName,
         Text: text, // Required by Rock
-        CategoryId: categoryId || ROCK_MAPPINGS.GENERAL_PRAYER_CATEGORY_ID,
+        CategoryId: ROCK_MAPPINGS.GENERAL_PRAYER_CATEGORY_ID,
         // default to web campus
-        CampusId: campusId
-          ? parseInt(parseGlobalId(campusId).id, 10)
-          : ROCK_MAPPINGS.WEB_CAMPUS_ID,
+        CampusId: primaryCampusId || ROCK_MAPPINGS.WEB_CAMPUS_ID,
         IsPublic: true,
         RequestedByPersonAliasId: primaryAliasId,
         IsActive: true,

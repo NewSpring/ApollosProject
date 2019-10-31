@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const prayerRequestSchema = gql`
   extend type Query {
-    prayers: [PrayerRequest]
+    prayers(type: PRAYER_TYPE): [PrayerRequest]
     campusPrayers: [PrayerRequest]
     userPrayers: [PrayerRequest]
     groupPrayers: [PrayerRequest]
@@ -10,11 +10,11 @@ const prayerRequestSchema = gql`
   }
   extend type Mutation {
     addPrayer(
-      campusId: String
-      categoryId: Int
+      campusId: String @deprecated(reason: "Not used")
+      categoryId: Int @deprecated(reason: "Not used")
       text: String!
-      firstName: String!
-      lastName: String
+      firstName: String @deprecated(reason: "Not used")
+      lastName: String @deprecated(reason: "Not used")
       isAnonymous: Boolean
     ): PrayerRequest
     deletePrayer(nodeId: String!): PrayerRequest
@@ -23,19 +23,29 @@ const prayerRequestSchema = gql`
     savePrayer(nodeId: String!): PrayerRequest
     unSavePrayer(nodeId: String!): PrayerRequest
   }
+
+  enum PRAYER_TYPE {
+    CAMPUS
+    USER
+    GROUP
+    SAVED
+  }
+
   type PrayerRequest implements Node {
     id: ID!
-    firstName: String
-    lastName: String
+    firstName: String @deprecated(reason: "Not used")
+    lastName: String @deprecated(reason: "Not used")
     text: String!
-    enteredDateTime: String!
+    enteredDateTime: String! @deprecated(reason: "Use startTime")
+    startTime: String!
     flagCount: Int
     prayerCount: Int
-    categoryId: Int
+    categoryId: Int @deprecated(reason: "Not used")
     campus: Campus
-    createdByPersonAliasId: Int
-    requestedByPersonAliasId: Int
-    person: Person
+    createdByPersonAliasId: Int @deprecated(reason: "Not used")
+    requestedByPersonAliasId: Int @deprecated(reason: "Not used")
+    person: Person @deprecated(reason: "Use requestor")
+    requestor: Person
     isAnonymous: Boolean
     isSaved: Boolean
   }
