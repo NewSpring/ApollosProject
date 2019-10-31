@@ -152,7 +152,6 @@ export default class PrayerRequest extends RockApolloDataSource {
     return this.sortPrayers(prayers);
   };
 
-  // QUERY PrayRequest by ID
   getFromId = (id) =>
     this.request()
       .find(id)
@@ -234,7 +233,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         primaryCampusId,
       } = await Auth.getCurrentPerson();
 
-      const newPrayerRequest = await this.post('/PrayerRequests', {
+      const prayerId = await this.post('/PrayerRequests', {
         FirstName: nickName || firstName, // Required by Rock
         LastName: lastName,
         Text: text, // Required by Rock
@@ -252,12 +251,12 @@ export default class PrayerRequest extends RockApolloDataSource {
       // Sets the attribute value "IsAnonymous" on newly created prayer request
       // TODO: we should combine this so network doesn't die and someone's prayer is left un-anonymous
       await this.post(
-        `/PrayerRequests/AttributeValue/${newPrayerRequest}?attributeKey=IsAnonymous&attributeValue=${
+        `/PrayerRequests/AttributeValue/${prayerId}?attributeKey=IsAnonymous&attributeValue=${
           isAnonymous ? 'True' : 'False'
         }`
       );
-      return this.getFromId(newPrayerRequest);
-    } catch (err) {
+      return this.getFromId(prayerId);
+    } catch (e) {
       throw new Error(`Unable to create prayer request!`);
     }
   };

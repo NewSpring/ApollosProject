@@ -19,6 +19,15 @@ export default gql`
         name
       }
       enteredDateTime
+      startTime
+      requestor {
+        photo {
+          uri
+        }
+        firstName
+        nickName
+        lastName
+      }
     }
   }
 `;

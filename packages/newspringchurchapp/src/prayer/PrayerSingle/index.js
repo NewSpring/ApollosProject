@@ -41,17 +41,17 @@ const PrayerSingle = memo(
       <AbsolutePositionedView>{action}</AbsolutePositionedView>
       {showDate ? (
         <GreyH5>
-          {prayer.enteredDateTime
-            ? moment(prayer.enteredDateTime).fromNow()
-            : ''}
+          {prayer.startTime ? moment(prayer.startTime).fromNow() : ''}
         </GreyH5>
       ) : null}
       {showHeader ? (
         <PrayerHeader
           avatarSize={avatarSize}
-          avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
+          avatarSource={prayer.isAnonymous ? null : prayer.requestor.photo}
           title={`Pray for ${
-            prayer.isAnonymous ? 'Request' : prayer.firstName
+            prayer.isAnonymous
+              ? 'Request'
+              : prayer.requestor.nickName || prayer.requestor.firstName
           }`}
           source={prayer.campus.name !== 'Web' ? prayer.campus.name : null}
         />

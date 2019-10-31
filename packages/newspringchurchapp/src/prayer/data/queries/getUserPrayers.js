@@ -4,10 +4,9 @@ export default gql`
   query UserPrayers {
     userPrayers {
       id
-      firstName
-      lastName
       text
       enteredDateTime
+      startTime
     }
   }
 `;
