@@ -158,7 +158,7 @@ HOME_FEATURES:
   - title: FOR STAFF
     subtitle: Updates for NewSpring staff
     algorithms:
-      - type: CONTENT_CHANNEL
+      - type: STAFF_NEWS
         arguments:
           contentChannelId: 5
           limit: 3
