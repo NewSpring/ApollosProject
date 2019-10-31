@@ -230,7 +230,7 @@ exports[`The SermonNotes component should render 1`] = `
 </View>
 `;
 
-exports[`The SermonNotes component should render with a title, series, a text feature, and one speaker 1`] = `
+exports[`The SermonNotes component should render with a title, series, and one speaker 1`] = `
 <View
   style={
     Object {
