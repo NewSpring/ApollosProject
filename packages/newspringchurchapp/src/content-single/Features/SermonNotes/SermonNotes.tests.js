@@ -32,7 +32,7 @@ describe('The SermonNotes component', () => {
     );
     expect(tree).toMatchSnapshot();
   });
-  it('should render with a title, series, a text feature, and one speaker', () => {
+  it('should render with a title, series, and one speaker', () => {
     const tree = renderer.create(
       <Providers>
         <SermonNotes
