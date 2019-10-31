@@ -63,7 +63,7 @@ export default class PrayerRequest extends RockApolloDataSource {
         ? 'PrayerNotificationSent'
         : '';
 
-    const interactionId = await this.post('/Interactions', {
+    this.post('/Interactions', {
       PersonAliasId: currentUser.primaryAliasId,
       InteractionComponentId: interactionComponent.id,
       InteractionSessionId: this.context.sessionId,
@@ -72,8 +72,6 @@ export default class PrayerRequest extends RockApolloDataSource {
       InteractionSummary: summary,
       InteractionData: `${requestedByPersonAliasId}`,
     });
-
-    return this.get(`/Interactions/${interactionId}`);
   };
 
   // QUERY ALL PrayerRequests
