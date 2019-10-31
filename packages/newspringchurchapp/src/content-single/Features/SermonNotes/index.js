@@ -8,7 +8,7 @@ import {
   Icon,
   H5,
 } from '@apollosproject/ui-kit';
-import share from '../../utils/content/share';
+import share from '../../../utils/content/share';
 
 const SermonNotes = ({
   contentId,
@@ -26,10 +26,12 @@ const SermonNotes = ({
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
 
-  const communicatorNames = communicators.map(
-    ({ nickName, firstName, lastName }) =>
-      `${nickName || firstName} ${lastName}`
-  );
+  const communicatorNames = communicators
+    ? communicators.map(
+        ({ nickName, firstName, lastName }) =>
+          `${nickName || firstName} ${lastName}`
+      )
+    : [];
   const speakers = communicatorNames.concat(guestCommunicators);
 
   // assemble exported notes
@@ -41,34 +43,36 @@ const SermonNotes = ({
     });
 
     // loop through all features and add them
-    const featuresWithCallbacks = features.map((feature) => {
-      const featureProps = feature.props.children[0].props;
+    const featuresWithCallbacks = features
+      ? features.map((feature) => {
+          const featureProps = feature.props.children[0].props;
 
-      // assemble starting message without custom notes
-      if (featureProps.sharing) {
-        msg = `${msg + featureProps.sharing.message}\n\n`;
-        return feature;
-      }
+          // assemble starting message without custom notes
+          if (featureProps.sharing) {
+            msg = `${msg + featureProps.sharing.message}\n\n`;
+            return feature;
+          }
 
-      // drop in placeholders for custom notes
-      if (featureProps.id.match(/NoteFeature/g).length > 0)
-        msg = `${msg + featureProps.id}{{}}\n\n`;
+          // drop in placeholders for custom notes
+          if (featureProps.id.match(/NoteFeature/g).length > 0)
+            msg = `${msg + featureProps.id}{{}}\n\n`;
 
-      // add callbacks to swap note placeholders with custom text
-      return {
-        ...feature,
-        props: {
-          ...feature.props,
-          children: [
-            {
-              ...feature.props.children[0],
-              props: { ...feature.props.children[0].props, onNotesChange },
+          // add callbacks to swap note placeholders with custom text
+          return {
+            ...feature,
+            props: {
+              ...feature.props,
+              children: [
+                {
+                  ...feature.props.children[0],
+                  props: { ...feature.props.children[0].props, onNotesChange },
+                },
+                feature.props.children[1],
+              ],
             },
-            feature.props.children[1],
-          ],
-        },
-      };
-    });
+          };
+        })
+      : [];
     if (msg !== '') changeSharedMsg(msg);
     enhanceFeatures(featuresWithCallbacks);
   }, []);
