@@ -25,8 +25,22 @@ const SermonNotes = ({
     const re = new RegExp(placeholder, 'gs');
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
+
+  const communicatorNames = communicators.map(
+    ({ nickName, firstName, lastName }) =>
+      `${nickName || firstName} ${lastName}`
+  );
+  const speakers = communicatorNames.concat(guestCommunicators);
+
+  // assemble exported notes
   useEffect(() => {
-    let msg = '';
+    // add title, series, and speakers to top
+    let msg = `${title}\n${series}\n`;
+    speakers.forEach((speaker) => {
+      msg += `${speaker}\n`;
+    });
+
+    // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
 
@@ -90,19 +104,9 @@ const SermonNotes = ({
       {/* TODO
    <H5>Series - Week # - Date</H5>
         */}
-      {communicators && communicators[0] != null
-        ? communicators.map((communicator) => (
-            <H5 key={communicator}>
-              {communicator.nickName || communicator.firstName}{' '}
-              {communicator.lastName}
-            </H5>
-          ))
-        : null}
-      {guestCommunicators && guestCommunicators[0] != null
-        ? guestCommunicators.map((guestCommunicator) =>
-            guestCommunicator !== '' ? (
-              <H5 key={guestCommunicator}>{guestCommunicator}</H5>
-            ) : null
+      {speakers[0] != null
+        ? speakers.map((speaker) =>
+            speaker !== '' ? <H5 key={speaker}>{speaker}</H5> : null
           )
         : null}
 
