@@ -4,6 +4,8 @@ export default gql`
   query Prayers {
     prayers {
       id
+      isAnonymous
+      text
       flagCount
       campus {
         id
