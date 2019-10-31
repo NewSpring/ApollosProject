@@ -40,12 +40,12 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                       unSavePrayer: {
                         __typename: 'PrayerRequest',
                         id: prayerID,
-                        firstName: '',
-                        lastName: '',
                         isAnonymous: true,
                         text: '',
-                        person: {
+                        requestor: {
                           __typename: 'Person',
+                          firstName: '',
+                          lastName: '',
                           photo: {
                             __typename: 'ImageMedia',
                             uri: '',
@@ -57,7 +57,7 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                           id: '',
                           name: '',
                         },
-                        enteredDateTime: '',
+                        startTime: '',
                       },
                     },
                   })
@@ -77,12 +77,12 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                       savePrayer: {
                         __typename: 'PrayerRequest',
                         id: prayerID,
-                        firstName: '',
-                        lastName: '',
                         isAnonymous: true,
                         text: '',
-                        person: {
+                        requestor: {
                           __typename: 'Person',
+                          firstName: '',
+                          lastName: '',
                           photo: {
                             __typename: 'ImageMedia',
                             uri: '',
@@ -94,7 +94,7 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
                           id: '',
                           name: '',
                         },
-                        enteredDateTime: '',
+                        startTime: '',
                       },
                     },
                   })
