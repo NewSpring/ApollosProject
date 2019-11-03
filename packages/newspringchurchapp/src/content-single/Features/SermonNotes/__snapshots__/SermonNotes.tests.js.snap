@@ -109,84 +109,66 @@ exports[`The SermonNotes component should render 1`] = `
           }
         }
       >
-        <RNSVGSvgView
-          align="xMidYMid"
-          bbHeight={32}
-          bbWidth={32}
-          height={32}
-          meetOrSlice={0}
-          minX={0}
-          minY={0}
+        <View
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-                "borderWidth": 0,
-              },
-              undefined,
-              null,
-              Object {
-                "flex": 0,
-                "height": 32,
-                "width": 32,
-              },
-            ]
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+            }
           }
-          vbHeight={24}
-          vbWidth={24}
-          width={32}
         >
-          <RNSVGGroup
-            fill={
-              Array [
-                0,
-                4278190080,
-              ]
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+                "paddingHorizontal": 16,
+              }
             }
-            fillOpacity={1}
-            fillRule={1}
-            font={Object {}}
-            matrix={
-              Array [
-                1,
-                0,
-                0,
-                1,
-                0,
-                0,
-              ]
-            }
-            opacity={1}
-            originX={0}
-            originY={0}
-            propList={Array []}
-            rotation={0}
-            scaleX={1}
-            scaleY={1}
-            skewX={0}
-            skewY={0}
-            stroke={null}
-            strokeDasharray={null}
-            strokeDashoffset={null}
-            strokeLinecap={0}
-            strokeLinejoin={0}
-            strokeMiterlimit={4}
-            strokeOpacity={1}
-            strokeWidth={1}
-            vectorEffect={0}
-            x={0}
-            y={0}
           >
-            <RNSVGPath
-              d="M12.8 3.621v8.6568h-1.6V3.5545L8.6046 6.224c-.3037.3124-.7962.3124-1.1 0-.3037-.3124-.3037-.819 0-1.1314l3.826-3.9352c.174-.179.41-.2554.637-.2293.227-.026.463.0505.637.2295l3.826 3.9352c.3037.3125.3037.819 0 1.1314-.3038.3125-.7963.3125-1.1 0L12.8 3.621zM8.0338 8v1.5556H6.4012c-.4785 0-.8012.2822-.8012.544v9.8007c0 .2617.3228.544.7997.544h11.2006c.477 0 .7997-.2823.7997-.544v-9.8006c0-.2623-.3216-.544-.796-.544h-1.623V8h1.623C18.927 8 20 8.9403 20 10.0997v9.8006C20 21.06 18.9254 22 17.6003 22H6.3997C5.0744 22 4 21.0597 4 19.9003v-9.8006C4 8.94 5.0743 8 6.4012 8h1.6326z"
+            Export
+          </Text>
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={24}
+            bbWidth={24}
+            height={24}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                undefined,
+                null,
+                Object {
+                  "flex": 0,
+                  "height": 24,
+                  "width": 24,
+                },
+              ]
+            }
+            vbHeight={512}
+            vbWidth={576}
+            width={24}
+          >
+            <RNSVGGroup
               fill={
                 Array [
                   0,
-                  4281348144,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
               fillRule={1}
+              font={Object {}}
               matrix={
                 Array [
                   1,
@@ -200,11 +182,7 @@ exports[`The SermonNotes component should render 1`] = `
               opacity={1}
               originX={0}
               originY={0}
-              propList={
-                Array [
-                  "fill",
-                ]
-              }
+              propList={Array []}
               rotation={0}
               scaleX={1}
               scaleY={1}
@@ -221,9 +199,55 @@ exports[`The SermonNotes component should render 1`] = `
               vectorEffect={0}
               x={0}
               y={0}
-            />
-          </RNSVGGroup>
-        </RNSVGSvgView>
+            >
+              <RNSVGPath
+                d="M572.29 279.06l-71.77-72.31c-7.55-7.6-20.52-2.26-20.52 8.45v48.88h-96v-132.1c0-12.7-5.17-25-14.17-33.99L285.94 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h287.94c26.5 0 48.07-21.5 48.07-47.99V360.07h-48v103.94H47.99V48.09h159.97v103.98c0 13.3 10.7 23.99 24 23.99H336v88.01H172c-6.63 0-12 5.37-12 12v24c0 6.63 5.37 12 12 12h308v48.88c0 10.71 12.97 16.05 20.52 8.45l71.77-72.31c4.95-4.99 4.95-13.04 0-18.03zM255.95 128.07V51.99l76.09 76.08h-76.09z"
+                fill={
+                  Array [
+                    0,
+                    4281348144,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth={1}
+                vectorEffect={0}
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
       </View>
     </View>
   </View>
@@ -312,16 +336,6 @@ exports[`The SermonNotes component should render with a title, series, and one s
       >
         Brad Cooper
       </Text>
-      <Text
-        style={
-          Object {
-            "color": "#303030",
-            "fontFamily": "Colfax-Medium",
-            "fontSize": 14,
-            "lineHeight": 20.16,
-          }
-        }
-      />
       <View
         style={
           Object {
@@ -361,84 +375,66 @@ exports[`The SermonNotes component should render with a title, series, and one s
           }
         }
       >
-        <RNSVGSvgView
-          align="xMidYMid"
-          bbHeight={32}
-          bbWidth={32}
-          height={32}
-          meetOrSlice={0}
-          minX={0}
-          minY={0}
+        <View
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-                "borderWidth": 0,
-              },
-              undefined,
-              null,
-              Object {
-                "flex": 0,
-                "height": 32,
-                "width": 32,
-              },
-            ]
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+            }
           }
-          vbHeight={24}
-          vbWidth={24}
-          width={32}
         >
-          <RNSVGGroup
-            fill={
-              Array [
-                0,
-                4278190080,
-              ]
+          <Text
+            bold={false}
+            italic={false}
+            style={
+              Object {
+                "color": "#303030",
+                "fontFamily": "Colfax-Regular",
+                "fontSize": 16,
+                "lineHeight": 26,
+                "paddingHorizontal": 16,
+              }
             }
-            fillOpacity={1}
-            fillRule={1}
-            font={Object {}}
-            matrix={
-              Array [
-                1,
-                0,
-                0,
-                1,
-                0,
-                0,
-              ]
-            }
-            opacity={1}
-            originX={0}
-            originY={0}
-            propList={Array []}
-            rotation={0}
-            scaleX={1}
-            scaleY={1}
-            skewX={0}
-            skewY={0}
-            stroke={null}
-            strokeDasharray={null}
-            strokeDashoffset={null}
-            strokeLinecap={0}
-            strokeLinejoin={0}
-            strokeMiterlimit={4}
-            strokeOpacity={1}
-            strokeWidth={1}
-            vectorEffect={0}
-            x={0}
-            y={0}
           >
-            <RNSVGPath
-              d="M12.8 3.621v8.6568h-1.6V3.5545L8.6046 6.224c-.3037.3124-.7962.3124-1.1 0-.3037-.3124-.3037-.819 0-1.1314l3.826-3.9352c.174-.179.41-.2554.637-.2293.227-.026.463.0505.637.2295l3.826 3.9352c.3037.3125.3037.819 0 1.1314-.3038.3125-.7963.3125-1.1 0L12.8 3.621zM8.0338 8v1.5556H6.4012c-.4785 0-.8012.2822-.8012.544v9.8007c0 .2617.3228.544.7997.544h11.2006c.477 0 .7997-.2823.7997-.544v-9.8006c0-.2623-.3216-.544-.796-.544h-1.623V8h1.623C18.927 8 20 8.9403 20 10.0997v9.8006C20 21.06 18.9254 22 17.6003 22H6.3997C5.0744 22 4 21.0597 4 19.9003v-9.8006C4 8.94 5.0743 8 6.4012 8h1.6326z"
+            Export
+          </Text>
+          <RNSVGSvgView
+            align="xMidYMid"
+            bbHeight={24}
+            bbWidth={24}
+            height={24}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                undefined,
+                null,
+                Object {
+                  "flex": 0,
+                  "height": 24,
+                  "width": 24,
+                },
+              ]
+            }
+            vbHeight={512}
+            vbWidth={576}
+            width={24}
+          >
+            <RNSVGGroup
               fill={
                 Array [
                   0,
-                  4281348144,
+                  4278190080,
                 ]
               }
               fillOpacity={1}
               fillRule={1}
+              font={Object {}}
               matrix={
                 Array [
                   1,
@@ -452,11 +448,7 @@ exports[`The SermonNotes component should render with a title, series, and one s
               opacity={1}
               originX={0}
               originY={0}
-              propList={
-                Array [
-                  "fill",
-                ]
-              }
+              propList={Array []}
               rotation={0}
               scaleX={1}
               scaleY={1}
@@ -473,9 +465,55 @@ exports[`The SermonNotes component should render with a title, series, and one s
               vectorEffect={0}
               x={0}
               y={0}
-            />
-          </RNSVGGroup>
-        </RNSVGSvgView>
+            >
+              <RNSVGPath
+                d="M572.29 279.06l-71.77-72.31c-7.55-7.6-20.52-2.26-20.52 8.45v48.88h-96v-132.1c0-12.7-5.17-25-14.17-33.99L285.94 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h287.94c26.5 0 48.07-21.5 48.07-47.99V360.07h-48v103.94H47.99V48.09h159.97v103.98c0 13.3 10.7 23.99 24 23.99H336v88.01H172c-6.63 0-12 5.37-12 12v24c0 6.63 5.37 12 12 12h308v48.88c0 10.71 12.97 16.05 20.52 8.45l71.77-72.31c4.95-4.99 4.95-13.04 0-18.03zM255.95 128.07V51.99l76.09 76.08h-76.09z"
+                fill={
+                  Array [
+                    0,
+                    4281348144,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={
+                  Array [
+                    "fill",
+                  ]
+                }
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth={1}
+                vectorEffect={0}
+                x={0}
+                y={0}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
       </View>
     </View>
   </View>
