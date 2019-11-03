@@ -13,13 +13,14 @@ const ScriptureFeature = ({
   card,
 }) => {
   const scriptureItems = scriptures.map(
-    ({ copyright, reference, html, id }) => (
+    ({ copyright, reference, html, id, version }) => (
       <ScriptureItem
         key={id}
         reference={reference}
         html={html}
         isLoading={isLoading}
         copyright={copyright}
+        version={version}
       />
     )
   );
@@ -45,6 +46,7 @@ ScriptureFeature.propTypes = {
       reference: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
       copyright: PropTypes.string,
+      version: PropTypes.string,
     })
   ),
   sharing: PropTypes.shape({ message: PropTypes.string }),
@@ -66,6 +68,7 @@ fragment ScriptureFeatureFragment on ScriptureFeature {
     html
     reference
     copyright
+    version
   }
 }
 `;

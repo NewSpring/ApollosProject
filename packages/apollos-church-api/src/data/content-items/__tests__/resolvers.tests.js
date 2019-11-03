@@ -17,10 +17,21 @@ import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
 
+class Cache {
+  get = () => Promise.resolve(null);
+
+  set = () => Promise.resolve(null);
+
+  initialize({ context }) {
+    this.context = context;
+  }
+}
+
 const { getSchema, getContext } = createTestHelpers({
   ContentChannel,
   ContentItem,
   Sharable,
+  Cache: { dataSource: Cache },
 });
 
 const contentItemFragment = `
