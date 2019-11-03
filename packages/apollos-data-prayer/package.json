@@ -20,8 +20,8 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@apollosproject/data-schema": "^1.2.0-beta.7",
-    "@apollosproject/server-core": "^1.2.0-beta.7",
+    "@apollosproject/data-schema": "^1.2.0",
+    "@apollosproject/server-core": "^1.2.0",
     "lodash": "^4.17.11",
     "moment-timezone": "^0.5.25",
     "natural": "^0.6.2",
@@ -32,8 +32,8 @@
     "@apollosproject/rock-apollo-data-source": "*"
   },
   "devDependencies": {
-    "@apollosproject/apollo-server-env-mock": "^1.2.0-beta.7",
-    "@apollosproject/babel-preset-apollos": "^1.2.0-beta.7",
+    "@apollosproject/apollo-server-env-mock": "^1.2.0",
+    "@apollosproject/babel-preset-apollos": "^1.2.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "2.1.1"
   },

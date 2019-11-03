@@ -52,7 +52,9 @@ ANALYTICS:
   GA_ID:
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
-  BIBLE_ID: '9879dbb7cfe39e4d-01'
+  BIBLE_ID:
+    WEB: '9879dbb7cfe39e4d-01'
+    KJV: 'de4e12af7f28f599-02'
 CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
@@ -158,7 +160,7 @@ HOME_FEATURES:
   - title: FOR STAFF
     subtitle: Updates for NewSpring staff
     algorithms:
-      - type: CONTENT_CHANNEL
+      - type: STAFF_NEWS
         arguments:
           contentChannelId: 5
           limit: 3

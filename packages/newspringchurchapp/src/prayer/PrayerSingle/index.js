@@ -53,7 +53,7 @@ const PrayerSingle = memo(
           title={`Pray for ${
             prayer.isAnonymous ? 'Request' : prayer.firstName
           }`}
-          source={prayer.campus.name}
+          source={prayer.campus.name !== 'Web' ? prayer.campus.name : null}
         />
       ) : null}
       <PrayerText>{prayer.text}</PrayerText>
