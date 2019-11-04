@@ -1,4 +1,5 @@
 import React from 'react';
+import Config from 'react-native-config';
 import { ActionBar, ActionBarItem } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
