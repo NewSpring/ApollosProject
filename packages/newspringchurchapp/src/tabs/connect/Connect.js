@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
-import Config from 'react-native-config';
 import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
