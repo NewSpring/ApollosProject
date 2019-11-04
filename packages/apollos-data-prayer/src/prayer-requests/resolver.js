@@ -51,23 +51,23 @@ export default {
       root,
       { nodeId },
       { dataSources, models: { Node } },
-      { schema }
+      info
     ) => {
       await dataSources.Followings.followNode({
         nodeId,
       });
-      return Node.get(nodeId, dataSources, schema);
+      return Node.get(nodeId, dataSources, info);
     },
     unSavePrayer: async (
       root,
       { nodeId },
       { dataSources, models: { Node } },
-      { schema }
+      info
     ) => {
       await dataSources.Followings.unFollowNode({
         nodeId,
       });
-      return Node.get(nodeId, dataSources, schema);
+      return Node.get(nodeId, dataSources, info);
     },
   },
   PrayerRequest: {
