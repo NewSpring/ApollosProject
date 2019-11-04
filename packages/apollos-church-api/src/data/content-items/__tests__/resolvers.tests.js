@@ -17,10 +17,21 @@ import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
 
+class Cache {
+  get = () => Promise.resolve(null);
+
+  set = () => Promise.resolve(null);
+
+  initialize({ context }) {
+    this.context = context;
+  }
+}
+
 const { getSchema, getContext } = createTestHelpers({
   ContentChannel,
   ContentItem,
   Sharable,
+  Cache: { dataSource: Cache },
 });
 
 const contentItemFragment = `
@@ -109,10 +120,15 @@ describe('UniversalContentItem', () => {
     context.dataSources.ContentItem.getShareUrl = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
-    context.dataSources.ContentItem.getCommunicator = jest.fn(() => ({
-      firstName: 'first',
-      lastName: 'last',
-    }));
+    context.dataSources.ContentItem.getCommunicators = jest.fn(() => [
+      {
+        firstName: 'first',
+        lastName: 'last',
+      },
+    ]);
+    context.dataSources.ContentItem.getGuestCommunicators = jest.fn(() => [
+      'guest communicator',
+    ]);
     context.dataSources.ContentItem.getContentItemScriptures = jest.fn(() => [
       {
         html: '<p><i>1</i>In the beginning...</p>',
@@ -190,10 +206,11 @@ describe('UniversalContentItem', () => {
           id
           ... on WeekendContentItem {
             title
-            communicator {
+            communicators {
               firstName
               lastName
             }
+            guestCommunicators
             sermonDate
             features {
               __typename

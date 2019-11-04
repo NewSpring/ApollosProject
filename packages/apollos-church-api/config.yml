@@ -32,7 +32,7 @@ ALGOLIA:
   APPLICATION_ID: ${ALGOLIA_APP_ID}
   API_KEY: ${ALGOLIA_API_KEY}
   # TODO: should we support multiple indices? how?
-  SEARCH_INDEX: test_ContentItems
+  SEARCH_INDEX: ${ALGOLIA_SEARCH_INDEX}
 TWILIO:
   ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
   AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
@@ -52,7 +52,9 @@ ANALYTICS:
   GA_ID:
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
-  BIBLE_ID: '9879dbb7cfe39e4d-01'
+  BIBLE_ID:
+    WEB: '9879dbb7cfe39e4d-01'
+    KJV: 'de4e12af7f28f599-02'
 CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
@@ -98,11 +100,12 @@ ROCK_MAPPINGS:
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 27
-    - 16
-    - 18
-    - 20
-    - 28
+    - 513 # staff
+    - 20  # sermon series
+    - 18  # studies
+    - 16  # articles
+    - 27  # news
+    - 28  # stories
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
   FEED_CONTENT_CHANNEL_IDS:
@@ -157,7 +160,7 @@ HOME_FEATURES:
   - title: FOR STAFF
     subtitle: Updates for NewSpring staff
     algorithms:
-      - type: CONTENT_CHANNEL
+      - type: STAFF_NEWS
         arguments:
           contentChannelId: 5
           limit: 3

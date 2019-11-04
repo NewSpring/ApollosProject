@@ -10,12 +10,10 @@ const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
 export default class ContentItem extends oldContentItem.dataSource {
   getContentItemScriptures = async ({ value: matrixItemGuid }) => {
     const {
-      dataSources: { Scripture },
+      dataSources: { Scripture, MatrixItem },
     } = this.context;
     if (!matrixItemGuid) return null;
-    const matrixItems = await this.request('/AttributeMatrixItems')
-      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .get();
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
     const references = await Promise.all(
       matrixItems.map(
         async ({
@@ -32,7 +30,8 @@ export default class ContentItem extends oldContentItem.dataSource {
       )
     );
 
-    return Scripture.getScriptures(references);
+    const query = references.join(',');
+    return query !== '' ? Scripture.getScriptures(query) : null;
   };
 
   getWistiaVideoUri = async (wistiaHashedId) => {
@@ -238,17 +237,39 @@ export default class ContentItem extends oldContentItem.dataSource {
     return features;
   }
 
-  getCommunicator = async ({ value: matrixItemGuid } = {}) => {
-    if (!matrixItemGuid) return null;
+  getCommunicators = async ({ value: matrixItemGuid } = {}) => {
     const {
-      attributeValues: { communicator: { value: personAliasGuid } = {} } = {},
-    } = await this.request('/AttributeMatrixItems')
-      .filter(`AttributeMatrix/Guid eq guid'${matrixItemGuid}'`)
-      .first();
-    const { personId } = await this.request('/PersonAlias')
-      .filter(`Guid eq guid'${personAliasGuid}'`)
-      .first();
-    return this.context.dataSources.Person.getFromId(personId);
+      dataSources: { MatrixItem },
+    } = this.context;
+    if (!matrixItemGuid) return [];
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
+    const communicators = await Promise.all(
+      matrixItems.map(async (item) => {
+        const {
+          attributeValues: {
+            communicator: { value: personAliasGuid } = {},
+          } = {},
+        } = item;
+        if (personAliasGuid === '') return null;
+        const { personId } = await this.request('/PersonAlias')
+          .filter(`Guid eq guid'${personAliasGuid}'`)
+          .first();
+        return this.context.dataSources.Person.getFromId(personId);
+      })
+    );
+    if (communicators[0] === null) return [];
+    return communicators;
+  };
+
+  getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
+    const {
+      dataSources: { MatrixItem },
+    } = this.context;
+    if (!matrixItemGuid) return [];
+    const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
+    return Promise.all(
+      matrixItems.map((item) => item.attributeValues.guestCommunicator.value)
+    );
   };
 
   getBySlug = async (slug) => {

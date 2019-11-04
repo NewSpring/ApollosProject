@@ -31,7 +31,13 @@ const LiveNowButton = () => (
         <WebBrowserConsumer>
           {(openUrl) => (
             <TouchableScale
-              onPress={() => openUrl('https://live.newspring.cc/')}
+              onPress={() =>
+                openUrl(
+                  'https://live.newspring.cc/',
+                  {},
+                  { useRockToken: true }
+                )
+              }
             >
               <LiveCard isLoading={loading}>
                 <CardContent>

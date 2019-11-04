@@ -1,9 +1,15 @@
 import { Features as baseFeatures } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
 import ApollosConfig from '@apollosproject/config';
-import { get } from 'lodash';
 
 export default class Features extends baseFeatures.dataSource {
+  baseAlgorithms = this.ACTION_ALGORITHIMS;
+
+  ACTION_ALGORITHIMS = {
+    ...this.baseAlgorithms,
+    STAFF_NEWS: this.contentChannelAlgorithm.bind(this),
+  };
+
   // eslint-disable-next-line class-methods-use-this
   createNoteFeature({ placeholder, id }) {
     return {
@@ -22,22 +28,22 @@ export default class Features extends baseFeatures.dataSource {
     };
   }
 
-  // TODO come up with a better way to hide features per block
-  // currently this is only showing features if you're on staff
   async getHomeFeedFeatures() {
-    const { Auth } = this.context.dataSources;
-    const person = await Auth.getCurrentPerson();
-    const staff = await this.request('GroupMembers')
-      .filter(
-        "GroupId eq 3 and GroupMemberStatus eq '1' and IsArchived eq false"
-      )
-      // .andFilter('GroupMemberStatus eq 1 and IsArchived eq false')
-      .get();
-    const staffIds = staff.map(({ personId }) => personId);
-    if (!staffIds.includes(person.id)) return [];
+    const { Person, Auth } = this.context.dataSources;
+    const { id } = await Auth.getCurrentPerson();
+    const isStaff = await Person.isStaff(id);
 
+    const features = ApollosConfig.HOME_FEATURES.filter((feature) => {
+      const staffOnly = feature.algorithms.filter(
+        ({ type }) => type === 'STAFF_NEWS'
+      );
+      // if there are staff only features and I'm not on staff, filter out
+      if (staffOnly.length && !isStaff) return false;
+      // TODO filter out experimental if "experimental" header isn't present
+      return true;
+    });
     return Promise.all(
-      get(ApollosConfig, 'HOME_FEATURES', []).map((featureConfig) =>
+      features.map((featureConfig) =>
         this.createActionListFeature(featureConfig)
       )
     );

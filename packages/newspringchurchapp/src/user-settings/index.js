@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import { ScrollView } from 'react-native';
+import Config from 'react-native-config';
 import { StackActions, NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { Query, Mutation } from 'react-apollo';
+import { getVersion, getBuildNumber } from 'react-native-device-info';
 
 import {
   BackgroundView,
@@ -136,6 +138,17 @@ class UserSettings extends PureComponent {
                             </Touchable>
                           )}
                         </Mutation>
+                      </TableView>
+                      <TableView>
+                        <Cell>
+                          <CellText>
+                            {`App Version: ${getVersion()}.${getBuildNumber()}${
+                              Config.EXPERIMENTAL === 'true'
+                                ? ' (Experimental)'
+                                : ''
+                            }`}
+                          </CellText>
+                        </Cell>
                       </TableView>
                     </>
                   )}

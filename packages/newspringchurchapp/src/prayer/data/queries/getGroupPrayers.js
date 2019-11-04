@@ -4,13 +4,6 @@ export default gql`
   query GroupPrayers {
     groupPrayers {
       id
-      firstName
-      lastName
-      person {
-        photo {
-          uri
-        }
-      }
       isAnonymous
       text
       flagCount
@@ -18,7 +11,15 @@ export default gql`
         id
         name
       }
-      enteredDateTime
+      startTime
+      requestor {
+        photo {
+          uri
+        }
+        firstName
+        nickName
+        lastName
+      }
     }
   }
 `;

@@ -9,22 +9,34 @@ const Toolbar = ({ navigation }) => (
     {(openUrl) => (
       <ActionBar>
         <ActionBarItem
-          onPress={() => navigation.navigate('Passes')}
-          icon="check"
-          label="Check-in"
-        />
-        <ActionBarItem
           onPress={() =>
-            openUrl('https://my.newspring.cc', { externalBrowser: true })
+            openUrl(
+              'https://newspring.cc/give/now1',
+              { externalBrowser: true },
+              { useRockToken: true }
+            )
           }
-          icon="download"
+          icon="give"
           label="Give"
         />
         <ActionBarItem
-          onPress={() => navigation.navigate('TestingControlPanel')}
-          icon="information"
-          label="Test"
+          onPress={() =>
+            openUrl(
+              'https://newspring.cc/groups/finder',
+              {},
+              { useRockToken: true }
+            )
+          }
+          icon="group"
+          label="Join Group"
         />
+        {Config.EXPERIMENTAL === 'true' ? (
+          <ActionBarItem
+            onPress={() => navigation.navigate('Passes')}
+            icon="check"
+            label="Check-in"
+          />
+        ) : null}
       </ActionBar>
     )}
   </WebBrowserConsumer>

@@ -7,11 +7,28 @@ import {
   Touchable,
   Icon,
   H5,
+  FlexedView,
+  styled,
+  BodyText,
 } from '@apollosproject/ui-kit';
-import share from '../../utils/content/share';
+import share from '../../../utils/content/share';
 
-const SermonNotes = ({ contentId, features, communicator }) => {
-  const { nickName, firstName, lastName } = communicator;
+const ExportWrapper = styled({
+  flexDirection: 'row',
+})(FlexedView);
+
+const PaddedText = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(BodyText);
+
+const SermonNotes = ({
+  contentId,
+  features,
+  communicators,
+  guestCommunicators,
+  title,
+  series,
+}) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
@@ -19,8 +36,21 @@ const SermonNotes = ({ contentId, features, communicator }) => {
     const re = new RegExp(placeholder, 'gs');
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
+  const communicatorNames = communicators.map(
+    ({ nickName, firstName, lastName }) =>
+      `${nickName || firstName} ${lastName}`
+  );
+  const speakers = communicatorNames.concat(guestCommunicators);
+
+  // assemble exported notes
   useEffect(() => {
-    let msg = '';
+    // add title, series, and speakers to top
+    let msg = `${title}\n${series}\n`;
+    speakers.forEach((speaker) => {
+      msg += `${speaker}\n`;
+    });
+
+    // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
 
@@ -74,18 +104,24 @@ const SermonNotes = ({ contentId, features, communicator }) => {
             share({ message });
           }}
         >
-          <Icon name={'share'} />
+          <ExportWrapper>
+            <PaddedText>Export</PaddedText>
+            <Icon name={'export'} size={24} />
+          </ExportWrapper>
         </Touchable>
       }
     >
       <H3>Sermon Notes</H3>
+      <H5>{title || ''}</H5>
+      <H5>{series || ''}</H5>
       {/* TODO
- <H5>Title</H5>
    <H5>Series - Week # - Date</H5>
         */}
-      <H5>
-        {nickName || firstName} {lastName}
-      </H5>
+      {speakers[0] != null
+        ? speakers.map((speaker) =>
+            speaker !== '' ? <H5 key={speaker}>{speaker}</H5> : null
+          )
+        : null}
 
       <PaddedView />
       {enhancedFeatures}
@@ -96,9 +132,21 @@ const SermonNotes = ({ contentId, features, communicator }) => {
 SermonNotes.propTypes = {
   contentId: PropTypes.string,
   features: PropTypes.arrayOf(PropTypes.element),
-  communicator: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-  }),
+  communicators: PropTypes.arrayOf(
+    PropTypes.shape({
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    })
+  ),
+  guestCommunicators: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  series: PropTypes.string,
 };
+
+SermonNotes.defaultProps = {
+  features: [],
+  communicators: [],
+  guestCommunicators: [],
+};
+
 export default SermonNotes;
