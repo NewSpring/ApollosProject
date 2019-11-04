@@ -73,11 +73,14 @@ export default {
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
+    startTime: ({ enteredDateTime }) => enteredDateTime,
     campus: ({ campusId }, args, { dataSources }) =>
       isNumber(campusId) ? dataSources.Campus.getFromId(campusId) : null,
     isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
+      dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    requestor: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
     flagCount: ({ flagCount }) =>
       (typeof flagCount === 'number' && flagCount) || 0,
