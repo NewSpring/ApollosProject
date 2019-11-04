@@ -35,7 +35,7 @@ class Connect extends PureComponent {
         <SafeAreaView>
           <ScrollViewWithPadding>
             <UserAvatarHeader key="UserAvatarHeaderConnected" />
-            {Config.EXPERIMENTAL === 'true' ? <ActionBar /> : null}
+            <ActionBar />
             <RecentlyLikedTileFeedConnected />
             <Query query={GET_USER_PROFILE}>
               {({
