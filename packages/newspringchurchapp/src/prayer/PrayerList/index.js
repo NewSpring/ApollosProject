@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Emoji from 'react-native-emoji';
-import { Query, Mutation } from 'react-apollo';
+import { Mutation } from 'react-apollo';
 
 import {
   BodyText,
@@ -20,7 +20,6 @@ import ActionComponent from '../ActionComponent';
 import FLAG_PRAYER from '../data/mutations/flagPrayer';
 import GET_PRAYERS from '../data/queries/getPrayers';
 import INCREMENT_PRAYER_COUNT from '../data/mutations/incrementPrayerCount';
-import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import flagPrayerUpdateAll from '../data/updates/flagPrayerUpdateAll';
 import cache from '../../client/cache';
 
