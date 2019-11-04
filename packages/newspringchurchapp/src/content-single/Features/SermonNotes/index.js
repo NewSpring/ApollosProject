@@ -49,6 +49,7 @@ const SermonNotes = ({
     speakers.forEach((speaker) => {
       msg += `${speaker}\n`;
     });
+    msg += '\n';
 
     // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
