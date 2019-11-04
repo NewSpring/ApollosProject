@@ -16,14 +16,7 @@ class AddPrayerFormConnected extends React.Component {
         {({
           loading: profileLoading,
           data: {
-            currentUser: {
-              profile: {
-                campus: { id: campusId } = {},
-                firstName,
-                lastName,
-                photo = { uri: null },
-              } = {},
-            } = {},
+            currentUser: { profile: { photo = { uri: '' } } = {} } = {},
           } = {},
         }) => (
           <Mutation mutation={ADD_PRAYER}>
@@ -33,10 +26,7 @@ class AddPrayerFormConnected extends React.Component {
                 onSubmit={(values) => {
                   addPrayer({
                     variables: {
-                      campusId,
                       text: values.prayer,
-                      firstName,
-                      lastName,
                       isAnonymous: values.anonymous,
                     },
                     refetchQueries: () => [{ query: GET_USER_PRAYERS }],

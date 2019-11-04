@@ -241,9 +241,9 @@ export default class ContentItem extends oldContentItem.dataSource {
     const {
       dataSources: { MatrixItem },
     } = this.context;
-    if (!matrixItemGuid) return null;
+    if (!matrixItemGuid) return [];
     const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
-    return Promise.all(
+    const communicators = await Promise.all(
       matrixItems.map(async (item) => {
         const {
           attributeValues: {
@@ -257,13 +257,15 @@ export default class ContentItem extends oldContentItem.dataSource {
         return this.context.dataSources.Person.getFromId(personId);
       })
     );
+    if (communicators[0] === null) return [];
+    return communicators;
   };
 
   getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
     const {
       dataSources: { MatrixItem },
     } = this.context;
-    if (!matrixItemGuid) return null;
+    if (!matrixItemGuid) return [];
     const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
     return Promise.all(
       matrixItems.map((item) => item.attributeValues.guestCommunicator.value)
