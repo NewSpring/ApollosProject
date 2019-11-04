@@ -37,6 +37,10 @@ export default gql`
         features {
           ...FeaturesFragment
         }
+        title
+        series {
+          title
+        }
       }
     }
   }
