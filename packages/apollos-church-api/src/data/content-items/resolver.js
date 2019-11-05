@@ -19,13 +19,16 @@ const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
+    // NOTE: adds sorting, update when core issue is resolved
+    // https://github.com/ApollosProject/apollos-prototype/issues/1091
     contentChannels: async (
       root,
       args,
-      { dataSources: { ContentChannel, Person } }
+      { dataSources: { ContentChannel, Person, Auth } }
     ) => {
       let channels = await ContentChannel.getRootChannels();
-      const isStaff = await Person.isCurrentPersonStaff();
+      const { id: personId } = await Auth.getCurrentPerson();
+      const isStaff = await Person.isStaff(personId);
       if (!isStaff) channels = channels.filter(({ id }) => id !== 513);
       const sortOrder = ROCK_MAPPINGS.DISCOVER_CONTENT_CHANNEL_IDS;
       // Setup a result array.

@@ -14,6 +14,7 @@ import {
   withTheme,
   CampusCard,
 } from '@apollosproject/ui-kit';
+import { MediaPlayerSpacer } from '@apollosproject/ui-media-player';
 
 import Marker from './Marker';
 
@@ -82,7 +83,10 @@ class MapView extends Component {
   }
 
   componentDidUpdate(oldProps) {
-    if (oldProps.userLocation !== this.props.userLocation) {
+    if (
+      oldProps.userLocation !== this.props.userLocation ||
+      oldProps.campuses.length !== this.props.campuses.length
+    ) {
       this.updateCoordinates({ value: this.previousScrollPosition });
     }
   }
@@ -222,16 +226,18 @@ class MapView extends Component {
               </Touchable>
             ))}
           </Animated.ScrollView>
-          <PaddedView>
-            <Button
-              title="Select Campus"
-              pill={false}
-              type="secondary"
-              onPress={() =>
-                onLocationSelect(this.currentCampus || this.sortedCampuses[0])
-              }
-            />
-          </PaddedView>
+          <MediaPlayerSpacer>
+            <PaddedView>
+              <Button
+                title="Select Campus"
+                pill={false}
+                type="secondary"
+                onPress={() =>
+                  onLocationSelect(this.currentCampus || this.sortedCampuses[0])
+                }
+              />
+            </PaddedView>
+          </MediaPlayerSpacer>
         </Footer>
       </FlexedView>
     );
