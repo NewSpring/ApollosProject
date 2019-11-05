@@ -19,6 +19,9 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - google-cast-sdk (4.3.0):
+    - google-cast-sdk/Core (= 4.3.0)
+  - google-cast-sdk/Core (4.3.0)
   - OneSignal (2.10.1)
   - React (0.60.5):
     - React-Core (= 0.60.5)
@@ -71,6 +74,15 @@ PODS:
   - react-native-config (0.11.7):
     - React
   - react-native-geolocation (2.0.2):
+    - React
+  - react-native-google-cast (3.2.1):
+    - React
+    - react-native-google-cast/Default (= 3.2.1)
+  - react-native-google-cast/Default (3.2.1):
+    - google-cast-sdk (<= 4.3.0)
+    - React
+    - react-native-google-cast/RNGoogleCast
+  - react-native-google-cast/RNGoogleCast (3.2.1):
     - React
   - react-native-image-picker (0.28.0):
     - React
@@ -155,6 +167,7 @@ DEPENDENCIES:
   - react-native-amplitude-analytics (from `../node_modules/react-native-amplitude-analytics`)
   - react-native-config (from `../node_modules/react-native-config`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-google-cast (from `../node_modules/react-native-google-cast/ios`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - react-native-music-control (from `../node_modules/react-native-music-control`)
@@ -190,6 +203,7 @@ SPEC REPOS:
   trunk:
     - Amplitude-iOS
     - boost-for-react-native
+    - google-cast-sdk
     - OneSignal
 
 EXTERNAL SOURCES:
@@ -223,6 +237,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-config"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
+  react-native-google-cast:
+    :path: "../node_modules/react-native-google-cast/ios"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
   react-native-maps:
@@ -292,6 +308,7 @@ SPEC CHECKSUMS:
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  google-cast-sdk: 57cd67b4a0966802b2738fcbbc103125c98cc8a1
   OneSignal: 8fb749fa07f88006403c9b659a570fb7fb74519a
   React: 53c53c4d99097af47cf60594b8706b4e3321e722
   React-Core: ba421f6b4f4cbe2fb17c0b6fc675f87622e78a64
@@ -303,6 +320,7 @@ SPEC CHECKSUMS:
   react-native-amplitude-analytics: a4387e29d68ec0ff3c0e877a3ca8e328c0aca732
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
+  react-native-google-cast: 3e38104843a8dd40d284629678568233abdf7e13
   react-native-image-picker: e6e06d4315e3c85bad17e4b2002cd29f11d202c8
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
   react-native-music-control: 700e53dc9b2ec7342f69705243609c1cd644fa44
