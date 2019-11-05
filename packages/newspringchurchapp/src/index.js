@@ -8,7 +8,7 @@ import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
 
 // eslint-disable-next-line
-import MediaPlayer from './ui/MediaPlayer'; // temporary until core decides on chromecast
+import { MediaPlayer } from './ui/MediaPlayer'; // temporary until core decides on chromecast
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
 import { AnalyticsConsumer } from '@apollosproject/ui-analytics';

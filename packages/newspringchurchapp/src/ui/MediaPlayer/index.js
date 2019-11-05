@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
-import { Query } from 'react-apollo';
+export MediaPlayerProvider, { defaults, schema } from './Provider';
+export MediaPlayer from './MediaPlayer';
 
-import FullscreenPlayer from './FullscreenPlayer';
+export { MINI_PLAYER_HEIGHT } from './MediaPlayer/MiniControls';
+export MediaPlayerSpacer from './MediaPlayer/MediaPlayerSpacer';
+export withTabBarMediaSpacer from './tabBarWithMediaSpacer';
 
-import { GET_MEDIA_PLAYER_VISIBILITY } from './queries';
+export { GET_VIDEO_STATE } from './MediaPlayer/queries';
 
-/**
- * Selectively renders FullscreenPlayer component is MediaPlayer is visible
- */
-class MediaPlayer extends Component {
-  shouldComponentUpdate() {
-    return false; // 🚀
-  }
-
-  renderPlayer = ({ data = {} }) => {
-    if (!data.mediaPlayer || !data.mediaPlayer.isVisible) return null;
-    return <FullscreenPlayer {...this.props} />;
-  };
-
-  render() {
-    return (
-      <Query query={GET_MEDIA_PLAYER_VISIBILITY}>{this.renderPlayer}</Query>
-    );
-  }
-}
-
-export default MediaPlayer;
+export {
+  PAUSE_AND_RESTART,
+  PLAY_VIDEO,
+  GO_FULLSCREEN,
+  PLAY,
+  PAUSE,
+  DISMISS,
+  EXIT_FULLSCREEN,
+  UPDATE_PLAYHEAD,
+  MUTE,
+  UNMUTE,
+  SHOW_VIDEO,
+  HIDE_VIDEO,
+} from './MediaPlayer/mutations';

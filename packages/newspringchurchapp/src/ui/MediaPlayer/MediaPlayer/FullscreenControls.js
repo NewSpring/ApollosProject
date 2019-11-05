@@ -6,13 +6,13 @@ import {
   Animated,
   TouchableWithoutFeedback,
   View,
-  Platform,
 } from 'react-native';
 import { Query, withApollo } from 'react-apollo';
 import LinearGradient from 'react-native-linear-gradient';
 import { SafeAreaView } from 'react-navigation';
 import { get } from 'lodash';
 import { compose } from 'recompose';
+import GoogleCast, { CastButton } from 'react-native-google-cast';
 
 import {
   PaddedView,
@@ -36,7 +36,6 @@ import {
 } from './mutations';
 import { ControlsConsumer } from './PlayheadState';
 import Seeker from './Seeker';
-import AirPlayButton from './AirPlayButton';
 
 const Background = withTheme(({ theme }) => ({
   style: StyleSheet.absoluteFill,
@@ -78,6 +77,10 @@ const Titles = styled({
 
 const Title = styled({ textAlign: 'center' })(H4);
 const Artist = styled({ textAlign: 'center' })(H6);
+
+const StyledCastButton = withTheme(({ theme }) => ({
+  padding: theme.sizing.baseUnit * 2,
+}))(CastButton);
 
 const IconSm = withTheme(({ theme }) => ({
   size: theme.sizing.baseUnit * 1.25,
@@ -279,11 +282,7 @@ class FullscreenControls extends PureComponent {
                   <Title>{get(mediaPlayer, 'currentTrack.title')}</Title>
                   <Artist>{get(mediaPlayer, 'currentTrack.artist')}</Artist>
                 </Titles>
-                {Platform.OS === 'ios' ? (
-                  <AirPlayButton />
-                ) : (
-                  <IconSm name="empty" disabled />
-                )}
+                <StyledCastButton />
               </UpperControls>
               <LowerControls horizontal={false}>
                 <PlayHead>
@@ -299,7 +298,30 @@ class FullscreenControls extends PureComponent {
   };
 
   render() {
+    // GoogleCast.castMedia({
+    // mediaUrl:
+    // 'https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/mp4/BigBuckBunny.mp4',
+    // imageUrl:
+    // 'https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/images/480x270/BigBuckBunny.jpg',
+    // title: 'Big Buck Bunny',
+    // subtitle:
+    // 'A large and lovable rabbit deals with three tiny bullies, led by a flying squirrel, who are determined to squelch his happiness.',
+    // studio: 'Blender Foundation',
+    // streamDuration: 596, // seconds
+    // contentType: 'video/mp4', // Optional, default is "video/mp4"
+    // playPosition: 10, // seconds
+    // customData: {
+    // // Optional, your custom object that will be passed to as customData to reciever
+    // customKey: 'customValue',
+    // },
+    // });
     return (
+      // <Query query={GET_CONTROL_STATE}>
+      // {({ data }) => {
+      // console.log(data.mediaPlayer);
+      // return this.renderFullscreenControls(data);
+      // }}
+      // </Query>
       <Query query={GET_CONTROL_STATE}>{this.renderFullscreenControls}</Query>
     );
   }
