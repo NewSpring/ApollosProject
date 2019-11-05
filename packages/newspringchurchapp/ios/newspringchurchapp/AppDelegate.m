@@ -13,10 +13,7 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 
-// for chromecast
 #import <GoogleCast/GoogleCast.h>
-GCKCastOptions *options = [[GCKCastOptions alloc] initWithReceiverApplicationID:kGCKMediaDefaultReceiverApplicationID];
-[GCKCastContext setSharedInstanceWithOptions:options];
 
 @implementation AppDelegate
 
@@ -43,6 +40,11 @@ GCKCastOptions *options = [[GCKCastOptions alloc] initWithReceiverApplicationID:
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"newspringchurchapp"
                                             initialProperties:nil];
+
+  // Initialize Google Cast
+  GCKDiscoveryCriteria *criteria = [[GCKDiscoveryCriteria alloc] initWithApplicationID:kGCKDefaultMediaReceiverApplicationID];
+  GCKCastOptions* options = [[GCKCastOptions alloc] initWithDiscoveryCriteria:criteria];
+  [GCKCastContext setSharedInstanceWithOptions:options];
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
