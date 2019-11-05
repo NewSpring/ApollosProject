@@ -8,5 +8,7 @@
 	<array>
 		<string>applinks:newspring.cc</string>
 	</array>
+	<key>com.apple.developer.networking.wifi-info</key>
+	<true/>
 </dict>
 </plist>

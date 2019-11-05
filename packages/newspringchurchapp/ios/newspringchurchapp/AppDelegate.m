@@ -13,9 +13,14 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 
+// for chromecast
+#import <GoogleCast/GoogleCast.h>
+GCKCastOptions *options = [[GCKCastOptions alloc] initWithReceiverApplicationID:kGCKMediaDefaultReceiverApplicationID];
+[GCKCastContext setSharedInstanceWithOptions:options];
+
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application 
+- (BOOL)application:(UIApplication *)application
    openURL:(NSURL *)url
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
