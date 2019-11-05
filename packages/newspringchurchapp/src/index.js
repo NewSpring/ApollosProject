@@ -7,7 +7,8 @@ import SplashScreen from 'react-native-splash-screen';
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
 
-import { MediaPlayer } from '@apollosproject/ui-media-player';
+// eslint-disable-next-line
+import MediaPlayer from './ui/MediaPlayer'; // temporary until core decides on chromecast
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
 import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
