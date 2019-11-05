@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.5.7](https://github.com/NewSpring/ApollosProject/compare/v7.5.6...v7.5.7) (2019-11-05)
+
+
+### Bug Fixes
+
+* (DEV-4124) Fixes In App Browser Styles ([#312](https://github.com/NewSpring/ApollosProject/issues/312)) ([ebfbcb6](https://github.com/NewSpring/ApollosProject/commit/ebfbcb6))
+* (DEV-4161) Fixes Empty Communicator Bug ([#328](https://github.com/NewSpring/ApollosProject/issues/328)) ([545f787](https://github.com/NewSpring/ApollosProject/commit/545f787)), closes [#331](https://github.com/NewSpring/ApollosProject/issues/331)
+* (DEV-4177) Fixes Devos With No Scripture ([#352](https://github.com/NewSpring/ApollosProject/issues/352)) ([c870dde](https://github.com/NewSpring/ApollosProject/commit/c870dde))
+* (DEV-4178) Allows URLs with One Argument ([#353](https://github.com/NewSpring/ApollosProject/issues/353)) ([69b309c](https://github.com/NewSpring/ApollosProject/commit/69b309c))
+* [DEV-4169, DEV-4172] Update Links ([#350](https://github.com/NewSpring/ApollosProject/issues/350)) ([c4eafcb](https://github.com/NewSpring/ApollosProject/commit/c4eafcb))
+* Adds Extra Line to Notes ([#363](https://github.com/NewSpring/ApollosProject/issues/363)) ([e2a20c0](https://github.com/NewSpring/ApollosProject/commit/e2a20c0))
+* Fix openUrl links to have the right arguments. ([#349](https://github.com/NewSpring/ApollosProject/issues/349)) ([7929094](https://github.com/NewSpring/ApollosProject/commit/7929094))
+* Fixes Android Build Error ([#319](https://github.com/NewSpring/ApollosProject/issues/319)) ([5ac0ea7](https://github.com/NewSpring/ApollosProject/commit/5ac0ea7))
+* Fixes Android Videos...really this time ([#332](https://github.com/NewSpring/ApollosProject/issues/332)) ([b6b3076](https://github.com/NewSpring/ApollosProject/commit/b6b3076))
+* Fixes Experimental flag for release builds ([#335](https://github.com/NewSpring/ApollosProject/issues/335)) ([dcc8766](https://github.com/NewSpring/ApollosProject/commit/dcc8766))
+* Fixes Prayer Avatars ([#342](https://github.com/NewSpring/ApollosProject/issues/342)) ([7fc5848](https://github.com/NewSpring/ApollosProject/commit/7fc5848))
+* Fixes Save Prayer Function ([#362](https://github.com/NewSpring/ApollosProject/issues/362)) ([ffb87e7](https://github.com/NewSpring/ApollosProject/commit/ffb87e7))
+* Fixes Speaker Queries ([#364](https://github.com/NewSpring/ApollosProject/issues/364)) ([74f17a8](https://github.com/NewSpring/ApollosProject/commit/74f17a8))
+* Fixes Staff Field in API ([#341](https://github.com/NewSpring/ApollosProject/issues/341)) ([7b1e2c6](https://github.com/NewSpring/ApollosProject/commit/7b1e2c6))
+* Release 1.2.0 ([#360](https://github.com/NewSpring/ApollosProject/issues/360)) ([d359371](https://github.com/NewSpring/ApollosProject/commit/d359371))
+* Updated prayer buttons so they stick to the bottom of the screen ([#348](https://github.com/NewSpring/ApollosProject/issues/348)) ([fd224b9](https://github.com/NewSpring/ApollosProject/commit/fd224b9))
+* Upgrades to Apollos 1.2.0-beta.6 ([#326](https://github.com/NewSpring/ApollosProject/issues/326)) ([0562459](https://github.com/NewSpring/ApollosProject/commit/0562459))
+
+
+
 ### [7.5.6](https://github.com/NewSpring/ApollosProject/compare/v7.5.5...v7.5.6) (2019-10-21)
 
 
