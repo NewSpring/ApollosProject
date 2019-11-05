@@ -7,14 +7,27 @@ import {
   Touchable,
   Icon,
   H5,
+  FlexedView,
+  styled,
+  BodyText,
 } from '@apollosproject/ui-kit';
-import share from '../../utils/content/share';
+import share from '../../../utils/content/share';
+
+const ExportWrapper = styled({
+  flexDirection: 'row',
+})(FlexedView);
+
+const PaddedText = styled(({ theme }) => ({
+  paddingHorizontal: theme.sizing.baseUnit,
+}))(BodyText);
 
 const SermonNotes = ({
   contentId,
   features,
   communicators,
   guestCommunicators,
+  title,
+  series,
 }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
@@ -23,8 +36,22 @@ const SermonNotes = ({
     const re = new RegExp(placeholder, 'gs');
     changeSharedMsg((msg) => msg.replace(re, `${id}{{${text}}}`));
   };
+  const communicatorNames = communicators.map(
+    ({ nickName, firstName, lastName }) =>
+      `${nickName || firstName} ${lastName}`
+  );
+  const speakers = communicatorNames.concat(guestCommunicators);
+
+  // assemble exported notes
   useEffect(() => {
-    let msg = '';
+    // add title, series, and speakers to top
+    let msg = `${title}\n${series}\n`;
+    speakers.forEach((speaker) => {
+      msg += `${speaker}\n`;
+    });
+    msg += '\n';
+
+    // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
 
@@ -78,28 +105,22 @@ const SermonNotes = ({
             share({ message });
           }}
         >
-          <Icon name={'share'} />
+          <ExportWrapper>
+            <PaddedText>Export</PaddedText>
+            <Icon name={'export'} size={24} />
+          </ExportWrapper>
         </Touchable>
       }
     >
       <H3>Sermon Notes</H3>
+      <H5>{title || ''}</H5>
+      <H5>{series || ''}</H5>
       {/* TODO
- <H5>Title</H5>
    <H5>Series - Week # - Date</H5>
         */}
-      {communicators && communicators[0] != null
-        ? communicators.map((communicator) => (
-            <H5 key={communicator}>
-              {communicator.nickName || communicator.firstName}{' '}
-              {communicator.lastName}
-            </H5>
-          ))
-        : null}
-      {guestCommunicators && guestCommunicators[0] != null
-        ? guestCommunicators.map((guestCommunicator) =>
-            guestCommunicator !== '' ? (
-              <H5 key={guestCommunicator}>{guestCommunicator}</H5>
-            ) : null
+      {speakers[0] != null
+        ? speakers.map((speaker) =>
+            speaker !== '' ? <H5 key={speaker}>{speaker}</H5> : null
           )
         : null}
 
@@ -119,5 +140,14 @@ SermonNotes.propTypes = {
     })
   ),
   guestCommunicators: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  series: PropTypes.string,
 };
+
+SermonNotes.defaultProps = {
+  features: [],
+  communicators: [],
+  guestCommunicators: [],
+};
+
 export default SermonNotes;

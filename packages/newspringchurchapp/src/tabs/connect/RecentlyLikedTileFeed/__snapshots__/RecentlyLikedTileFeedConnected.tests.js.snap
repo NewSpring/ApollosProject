@@ -102,12 +102,10 @@ exports[`RecentlyLikedTileFeedConnected renders a RecentlyLikedTileFeedConnected
       Array [
         Object {
           "__typename": "UniversalContentItem",
-          "audios": Array [],
           "coverImage": null,
           "hyphenatedTitle": "Mea Animal Aperiam Ornatus Eu",
           "id": "UniversalContentItem:d57994350b9d213866b24dea3a97433d",
           "isLiked": false,
-          "likedCount": 0,
           "parentChannel": Object {
             "__typename": "ContentChannel",
             "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -120,12 +118,10 @@ exports[`RecentlyLikedTileFeedConnected renders a RecentlyLikedTileFeedConnected
         },
         Object {
           "__typename": "UniversalContentItem",
-          "audios": Array [],
           "coverImage": null,
           "hyphenatedTitle": "Probo Senserit Id Mea, Ut Sed Malis Postea,",
           "id": "UniversalContentItem:b36e55d803443431e96bb4b5068147ec",
           "isLiked": false,
-          "likedCount": 0,
           "parentChannel": Object {
             "__typename": "ContentChannel",
             "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -273,13 +269,8 @@ exports[`RecentlyLikedTileFeedConnected renders a RecentlyLikedTileFeedConnected
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -290,13 +281,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -307,10 +302,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -454,13 +445,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -471,13 +457,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -488,10 +478,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {

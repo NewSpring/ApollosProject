@@ -19,6 +19,8 @@ const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
+    // NOTE: adds sorting, update when core issue is resolved
+    // https://github.com/ApollosProject/apollos-prototype/issues/1091
     contentChannels: async (
       root,
       args,

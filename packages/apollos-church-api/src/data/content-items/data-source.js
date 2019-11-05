@@ -30,7 +30,8 @@ export default class ContentItem extends oldContentItem.dataSource {
       )
     );
 
-    return Scripture.getScriptures(references);
+    const query = references.join(',');
+    return query !== '' ? Scripture.getScriptures(query) : null;
   };
 
   getWistiaVideoUri = async (wistiaHashedId) => {
@@ -240,15 +241,16 @@ export default class ContentItem extends oldContentItem.dataSource {
     const {
       dataSources: { MatrixItem },
     } = this.context;
-    if (!matrixItemGuid) return null;
+    if (!matrixItemGuid) return [];
     const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
-    return Promise.all(
+    const communicators = await Promise.all(
       matrixItems.map(async (item) => {
         const {
           attributeValues: {
             communicator: { value: personAliasGuid } = {},
           } = {},
         } = item;
+        // some lines may be guest communicators
         if (personAliasGuid === '') return null;
         const { personId } = await this.request('/PersonAlias')
           .filter(`Guid eq guid'${personAliasGuid}'`)
@@ -256,17 +258,23 @@ export default class ContentItem extends oldContentItem.dataSource {
         return this.context.dataSources.Person.getFromId(personId);
       })
     );
+    // filter out null lines
+    return communicators.filter((person) => person);
   };
 
   getGuestCommunicators = async ({ value: matrixItemGuid } = {}) => {
     const {
       dataSources: { MatrixItem },
     } = this.context;
-    if (!matrixItemGuid) return null;
+    if (!matrixItemGuid) return [];
     const matrixItems = await MatrixItem.getItemsFromGuid(matrixItemGuid);
-    return Promise.all(
-      matrixItems.map((item) => item.attributeValues.guestCommunicator.value)
+    const guests = matrixItems.map(
+      ({
+        attributeValues: { guestCommunicator: { value: name } = {} } = {},
+      } = {}) => name
     );
+    // some lines may be communicators, filter those out
+    return guests.filter((name) => name !== '');
   };
 
   getBySlug = async (slug) => {
