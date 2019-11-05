@@ -108,10 +108,8 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Landscape Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -121,7 +119,6 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                               },
                               "hyphenatedTitle": "Anderson Family Cookout!",
                               "id": "UniversalContentItem:00bb7b364911281c97fc50f2a0d17b11",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -137,10 +134,8 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -150,7 +145,6 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                               },
                               "hyphenatedTitle": "Robert Madu is Coming to Christ Fellowship",
                               "id": "UniversalContentItem:7db601b238aa4345a818654300f83dd2",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -166,10 +160,8 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -179,7 +171,6 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                               },
                               "hyphenatedTitle": "Guys Night!",
                               "id": "UniversalContentItem:296373ecb53580855cadffa0375ebe18",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -205,11 +196,9 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": null,
                               "hyphenatedTitle": "Test Article",
                               "id": "UniversalContentItem:604a4a763a5fc0edfe386684ca6b3515",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -225,11 +214,9 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": null,
                               "hyphenatedTitle": "10 ways to refresh your spirit every day",
                               "id": "UniversalContentItem:c495ff18cd998ed516a798b6218907cd",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -245,11 +232,9 @@ exports[`The Discover tab component Should retrieve the Content Channel Feeds 1`
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": null,
                               "hyphenatedTitle": "Live for Freedom Toolkit",
                               "id": "UniversalContentItem:95ff79f60a028b1b506aaeedf8b4c6ae",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -276,10 +261,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Series Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -289,7 +272,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "The New Weekend Experience",
                               "id": "ContentSeriesContentItem:6d8dc8e4bad017f815ae0cac8bf692bb",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -314,10 +296,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -327,7 +307,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "Gathering",
                               "id": "ContentSeriesContentItem:08449058d438ebeaffe9adb7a8e633cc",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -352,10 +331,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -365,7 +342,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "Gauntlet 2018",
                               "id": "ContentSeriesContentItem:b74c2d295a0cf1340232ffa8be856c00",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -400,10 +376,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -413,7 +387,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "Jeremiah: A 33-Day Devotional",
                               "id": "ContentSeriesContentItem:b085ec27d53006e9e6b95f3ac57da581",
-                              "isLiked": true,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -434,10 +407,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -447,7 +418,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "How To Be A Better Leader: A 7-Day Devotional",
                               "id": "ContentSeriesContentItem:71bfdac0b98ea1b72a63ff4ea64e3c5a",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -468,10 +438,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "ContentSeriesContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -481,7 +449,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "2 Thessalonians: A 5-Day Devotional",
                               "id": "ContentSeriesContentItem:44fd3b82373ea8f197bd1e1e77c4bed0",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -512,10 +479,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -525,7 +490,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "The surprising journey that changed me and my dad",
                               "id": "UniversalContentItem:cf8fa657f23af88a2d63f7e4a2237db8",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -541,10 +505,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Square Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -554,7 +516,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "When I lost hope, my church family had my back",
                               "id": "UniversalContentItem:2e17f5a66407d114ab9f2392b03ebccd",
-                              "isLiked": true,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -570,10 +531,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             "__typename": "ContentItemsConnectionEdge",
                             "node": Object {
                               "__typename": "UniversalContentItem",
-                              "audios": Array [],
                               "coverImage": Object {
                                 "__typename": "ImageMedia",
-                                "name": "Portrait Image",
                                 "sources": Array [
                                   Object {
                                     "__typename": "ImageMediaSource",
@@ -583,7 +542,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                               },
                               "hyphenatedTitle": "A Place to Worship Free of Fear",
                               "id": "UniversalContentItem:ae8ec75906ba7437c49ad2534b5024db",
-                              "isLiked": false,
                               "parentChannel": Object {
                                 "__typename": "ContentChannel",
                                 "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -737,10 +695,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                         Array [
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Landscape Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -750,7 +706,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             },
                             "hyphenatedTitle": "Anderson Family Cookout!",
                             "id": "UniversalContentItem:00bb7b364911281c97fc50f2a0d17b11",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -763,10 +718,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -776,7 +729,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             },
                             "hyphenatedTitle": "Robert Madu is Coming to Christ Fellowship",
                             "id": "UniversalContentItem:7db601b238aa4345a818654300f83dd2",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -789,10 +741,8 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -802,7 +752,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                             },
                             "hyphenatedTitle": "Guys Night!",
                             "id": "UniversalContentItem:296373ecb53580855cadffa0375ebe18",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
@@ -1006,26 +955,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -1177,26 +1106,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -1348,26 +1257,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -1470,11 +1359,9 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                         Array [
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": null,
                             "hyphenatedTitle": "Test Article",
                             "id": "UniversalContentItem:604a4a763a5fc0edfe386684ca6b3515",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -1487,11 +1374,9 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": null,
                             "hyphenatedTitle": "10 ways to refresh your spirit every day",
                             "id": "UniversalContentItem:c495ff18cd998ed516a798b6218907cd",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -1504,11 +1389,9 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": null,
                             "hyphenatedTitle": "Live for Freedom Toolkit",
                             "id": "UniversalContentItem:95ff79f60a028b1b506aaeedf8b4c6ae",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
@@ -1713,26 +1596,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -1884,26 +1747,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -2055,26 +1898,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -2177,10 +2000,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                         Array [
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Series Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -2190,7 +2011,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "The New Weekend Experience",
                             "id": "ContentSeriesContentItem:6d8dc8e4bad017f815ae0cac8bf692bb",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -2212,10 +2032,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -2225,7 +2043,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "Gathering",
                             "id": "ContentSeriesContentItem:08449058d438ebeaffe9adb7a8e633cc",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -2247,10 +2064,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -2260,7 +2075,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "Gauntlet 2018",
                             "id": "ContentSeriesContentItem:b74c2d295a0cf1340232ffa8be856c00",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:a0f64573eabf00a607bec911794d50fb",
@@ -2473,26 +2287,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -2644,26 +2438,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -2815,26 +2589,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -2937,10 +2691,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                         Array [
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -2950,7 +2702,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "Jeremiah: A 33-Day Devotional",
                             "id": "ContentSeriesContentItem:b085ec27d53006e9e6b95f3ac57da581",
-                            "isLiked": true,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -2968,10 +2719,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -2981,7 +2730,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "How To Be A Better Leader: A 7-Day Devotional",
                             "id": "ContentSeriesContentItem:71bfdac0b98ea1b72a63ff4ea64e3c5a",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -2999,10 +2747,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "ContentSeriesContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -3012,7 +2758,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "2 Thessalonians: A 5-Day Devotional",
                             "id": "ContentSeriesContentItem:44fd3b82373ea8f197bd1e1e77c4bed0",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:7fba1b1ee253e0fd5f0795b4b8b1175e",
@@ -3221,26 +2966,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -3392,26 +3117,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -3563,26 +3268,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -3685,10 +3370,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                         Array [
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -3698,7 +3381,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "The surprising journey that changed me and my dad",
                             "id": "UniversalContentItem:cf8fa657f23af88a2d63f7e4a2237db8",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -3711,10 +3393,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Square Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -3724,7 +3404,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "When I lost hope, my church family had my back",
                             "id": "UniversalContentItem:2e17f5a66407d114ab9f2392b03ebccd",
-                            "isLiked": true,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -3737,10 +3416,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                           },
                           Object {
                             "__typename": "UniversalContentItem",
-                            "audios": Array [],
                             "coverImage": Object {
                               "__typename": "ImageMedia",
-                              "name": "Portrait Image",
                               "sources": Array [
                                 Object {
                                   "__typename": "ImageMediaSource",
@@ -3750,7 +3427,6 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
                             },
                             "hyphenatedTitle": "A Place to Worship Free of Fear",
                             "id": "UniversalContentItem:ae8ec75906ba7437c49ad2534b5024db",
-                            "isLiked": false,
                             "parentChannel": Object {
                               "__typename": "ContentChannel",
                               "id": "ContentChannel:be7381e9c2fea9f41504cd98d4b14321",
@@ -3955,26 +3631,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -4126,26 +3782,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
@@ -4297,26 +3933,6 @@ Our son Cameron began attending Willow Creek Special Friends in 2015.",
                                     }
                                   }
                                 />
-                                <View
-                                  style={
-                                    Object {
-                                      "position": "absolute",
-                                      "right": 16,
-                                      "top": 16,
-                                    }
-                                  }
-                                >
-                                  <View
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#dddddd",
-                                        "borderRadius": 16,
-                                        "height": 24,
-                                        "width": 24,
-                                      }
-                                    }
-                                  />
-                                </View>
                               </View>
                             </View>
                           </View>
