@@ -18,12 +18,12 @@ const SaveButtonConnected = memo(({ prayerID, saved, toggleSavedState }) => (
               if (saved)
                 unSave({
                   variables: { nodeId: prayerID },
-                  refetchQueries: [GET_SAVED_PRAYERS],
+                  refetchQueries: [{ query: GET_SAVED_PRAYERS }],
                 });
               else
                 save({
                   variables: { nodeId: prayerID },
-                  refetchQueries: [GET_SAVED_PRAYERS],
+                  refetchQueries: [{ query: GET_SAVED_PRAYERS }],
                 });
             }}
           />
