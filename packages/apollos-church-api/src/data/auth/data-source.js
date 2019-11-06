@@ -4,6 +4,7 @@ import { Auth as baseAuth } from '@apollosproject/data-connector-rock';
 export default class Auth extends baseAuth.dataSource {
   getCurrentPerson = async ({ cookie = null } = { cookie: null }) => {
     const { rockCookie, currentPerson } = this.context;
+    console.log('context from getCurrentPerson', this.context);
     console.log('rockCookie from getCurrentPerson', rockCookie);
     const userCookie = cookie || rockCookie;
 
