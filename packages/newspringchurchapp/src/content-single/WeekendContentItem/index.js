@@ -56,7 +56,9 @@ const WeekendContentItem = ({ content, loading }) => {
                       <CardLabel
                         title={
                           content.parentChannel &&
-                          content.parentChannel.name.replace('NewSpring - ', '')
+                          content.parentChannel.name
+                            .replace('NewSpring - ', '')
+                            .replace('Rock - ', '')
                         }
                       />
                       <H2 padded isLoading={!content.title && loading}>
