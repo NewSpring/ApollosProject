@@ -4,11 +4,11 @@ export default gql`
   mutation UnSavePrayer($nodeId: String!) {
     unSavePrayer(nodeId: $nodeId) {
       id
-      firstName
-      lastName
       isAnonymous
       text
-      person {
+      requestor {
+        firstName
+        lastName
         photo {
           uri
         }
@@ -18,7 +18,7 @@ export default gql`
         id
         name
       }
-      enteredDateTime
+      startTime
     }
   }
 `;
