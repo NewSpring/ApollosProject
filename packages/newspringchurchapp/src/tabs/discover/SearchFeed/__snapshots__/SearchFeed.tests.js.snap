@@ -76,146 +76,27 @@ exports[`The SearchFeed component should render 1`] = `
                 Array [
                   Object {
                     "__typename": "DevotionalContentItem",
-                    "audios": Array [],
-                    "coverImage": Object {
-                      "__typename": "ImageMedia",
-                      "name": "Square Image",
-                      "sources": Array [
-                        Object {
-                          "__typename": "ImageMediaSource",
-                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
-                        },
-                      ],
-                    },
                     "id": "DevotionalContentItem:561dfb7dbd8a5c093fd8385c7edaadbc",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:559b23fd0aa90e81b1c023e72e230fa1",
-                      "name": "Devotional",
-                    },
-                    "summary": "Love compels a mother to lose all dignity in public as she screams the name of her lost child.",
-                    "theme": null,
-                    "title": "How to lead people to Jesus",
-                    "videos": Array [
-                      Object {
-                        "__typename": "VideoMedia",
-                        "sources": Array [],
-                      },
-                    ],
                   },
                   Object {
                     "__typename": "UniversalContentItem",
-                    "audios": Array [],
-                    "coverImage": null,
                     "id": "UniversalContentItem:95ff79f60a028b1b506aaeedf8b4c6ae",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
-                      "name": "Articles",
-                    },
-                    "summary": "Get in the Groove
-Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you go — with this playlist of NewSpring Worship's favorite songs of the summer.",
-                    "theme": null,
-                    "title": "Live for Freedom Toolkit",
-                    "videos": Array [],
                   },
                   Object {
                     "__typename": "UniversalContentItem",
-                    "audios": Array [],
-                    "coverImage": Object {
-                      "__typename": "ImageMedia",
-                      "name": "Landscape Image",
-                      "sources": Array [
-                        Object {
-                          "__typename": "ImageMediaSource",
-                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Db08e4d69-0acf-40ff-920a-4517de086175",
-                        },
-                      ],
-                    },
                     "id": "UniversalContentItem:895738f70482712adb3ab45a08c30456",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
-                      "name": "Articles",
-                    },
-                    "summary": "Daughter: “Mom, can I bring some friends from college over for dinner Sunday?",
-                    "theme": null,
-                    "title": "Should your 20-something live at home?",
-                    "videos": Array [],
                   },
                   Object {
                     "__typename": "UniversalContentItem",
-                    "audios": Array [],
-                    "coverImage": Object {
-                      "__typename": "ImageMedia",
-                      "name": "Square Image",
-                      "sources": Array [
-                        Object {
-                          "__typename": "ImageMediaSource",
-                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D58c037fa-cc7f-4d72-9571-a0cc0558e346",
-                        },
-                      ],
-                    },
                     "id": "UniversalContentItem:296373ecb53580855cadffa0375ebe18",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:965b6e6d7046a885bea4e300b5c0400d",
-                      "name": "News",
-                    },
-                    "summary": "A time to connect with other guys who live nearby.",
-                    "theme": null,
-                    "title": "Guys Night!",
-                    "videos": Array [],
                   },
                   Object {
                     "__typename": "UniversalContentItem",
-                    "audios": Array [],
-                    "coverImage": null,
                     "id": "UniversalContentItem:c495ff18cd998ed516a798b6218907cd",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:4f68015ba18662a7409d1219a4ce013e",
-                      "name": "Articles",
-                    },
-                    "summary": "1. Be slow What would it look like to live your life at half-speed?",
-                    "theme": null,
-                    "title": "10 ways to refresh your spirit every day",
-                    "videos": Array [],
                   },
                   Object {
                     "__typename": "DevotionalContentItem",
-                    "audios": Array [],
-                    "coverImage": Object {
-                      "__typename": "ImageMedia",
-                      "name": "Square Image",
-                      "sources": Array [
-                        Object {
-                          "__typename": "ImageMediaSource",
-                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dd3a96243-2558-4c04-bf41-3aadcf41771f",
-                        },
-                      ],
-                    },
                     "id": "DevotionalContentItem:4dd74ceca9e09b5276e93cbf53821bd6",
-                    "isLiked": false,
-                    "parentChannel": Object {
-                      "__typename": "ContentChannel",
-                      "id": "ContentChannel:559b23fd0aa90e81b1c023e72e230fa1",
-                      "name": "Devotional",
-                    },
-                    "summary": "We all like to know that our boss or the authority over us is pleased, and it means even more when they take the time to share that in front of other people.",
-                    "theme": null,
-                    "title": "Why leadership isn’t all about the title",
-                    "videos": Array [
-                      Object {
-                        "__typename": "VideoMedia",
-                        "sources": Array [],
-                      },
-                    ],
                   },
                 ]
               }
@@ -339,13 +220,8 @@ Celebrate your freedom in Christ — in the car, shower, cubicle or wherever you
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -356,13 +232,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -373,10 +253,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -513,13 +389,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -530,13 +401,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -547,10 +422,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -687,13 +558,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -704,13 +570,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -721,10 +591,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -861,13 +727,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -878,13 +739,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -895,10 +760,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -1035,13 +896,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -1052,13 +908,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -1069,10 +929,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {
@@ -1209,13 +1065,8 @@ fragment themeFragment on ContentItem {
   node(id: $contentId) {
     id
     __typename
-    ...largeCardFragment
+    ...baseCardFragment
   }
-}
-
-fragment largeCardFragment on ContentItem {
-  ...baseCardFragment
-  __typename
 }
 
 fragment baseCardFragment on ContentItem {
@@ -1226,13 +1077,17 @@ fragment baseCardFragment on ContentItem {
   title
   hyphenatedTitle: title(hyphenated: true)
   summary
-  isLiked
   ... on MediaContentItem {
     videos {
       sources {
         uri
         __typename
       }
+      __typename
+    }
+    parentChannel {
+      id
+      name
       __typename
     }
     __typename
@@ -1243,10 +1098,6 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
-      __typename
-    }
-    liveStream {
-      isLive
       __typename
     }
     parentChannel {

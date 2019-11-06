@@ -326,6 +326,26 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                   }
                 }
               />
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "right": 16,
+                    "top": 16,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#dddddd",
+                      "borderRadius": 16,
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                />
+              </View>
             </View>
           </View>
         </View>
@@ -477,6 +497,26 @@ exports[`RecentlyLikedTileFeed renders a RecentlyLikedTileFeed 1`] = `
                   }
                 }
               />
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "right": 16,
+                    "top": 16,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#dddddd",
+                      "borderRadius": 16,
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                />
+              </View>
             </View>
           </View>
         </View>
@@ -802,6 +842,26 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                   }
                 }
               />
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "right": 16,
+                    "top": 16,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#dddddd",
+                      "borderRadius": 16,
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                />
+              </View>
             </View>
           </View>
         </View>
@@ -953,6 +1013,26 @@ exports[`RecentlyLikedTileFeed renders a loading state 1`] = `
                   }
                 }
               />
+              <View
+                style={
+                  Object {
+                    "position": "absolute",
+                    "right": 16,
+                    "top": 16,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#dddddd",
+                      "borderRadius": 16,
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                />
+              </View>
             </View>
           </View>
         </View>
