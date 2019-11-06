@@ -5,6 +5,7 @@ export default gql`
     savedPrayers {
       id
       isAnonymous
+      isSaved
       text
       flagCount
       campus {
