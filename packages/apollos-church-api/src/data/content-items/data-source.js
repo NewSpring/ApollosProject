@@ -299,4 +299,19 @@ export default class ContentItem extends oldContentItem.dataSource {
     }
     return this.coreSummaryMethod(root);
   };
+
+  pickBestImage = ({ images }) => {
+    // TODO: there's probably a _much_ more explicit and better way to handle this
+    const appImage = images.find((image) =>
+      image.key.toLowerCase().includes('app')
+    );
+    if (appImage) return { ...appImage, __typename: 'ImageMedia' };
+
+    const squareImage = images.find((image) =>
+      image.key.toLowerCase().includes('square')
+    );
+    if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
+
+    return { ...images[0], __typename: 'ImageMedia' };
+  };
 }
