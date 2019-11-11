@@ -104,7 +104,7 @@ ROCK_MAPPINGS:
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 5 # staff news
+    - 513 # staff news
     - 20 # sermon series
     - 18 # studies
     - 16 # articles
@@ -167,7 +167,7 @@ HOME_FEATURES:
     algorithms:
       - type: STAFF_NEWS
         arguments:
-          contentChannelId: 5
+          contentChannelId: 513
           limit: 3
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
