@@ -56,6 +56,8 @@ ANALYTICS:
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
   BIBLE_ID:
+    NIV: '71c6eab17ae5b667-01'
+    ESV: 'f421fe261da7624f-01'
     WEB: '9879dbb7cfe39e4d-01'
     KJV: 'de4e12af7f28f599-02'
 CLOUDINARY:
