@@ -31,9 +31,7 @@ export default class PrayerRequest extends RockApolloDataSource {
       entityTypeId,
     });
     return RockConstants.createOrFindInteractionComponent({
-      componentName: `${
-        ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST
-      } - ${prayerId}`,
+      componentName: `${ROCK_MAPPINGS.INTERACTIONS.PRAYER_REQUEST} - ${prayerId}`,
       channelId: channel.id,
       entityId: parseInt(prayerId, 10),
     });
