@@ -12,7 +12,7 @@ import {
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 
-import GET_LIVE_STREAM from './getLiveStream';
+import GET_LIVE_CONTENT from './getLiveContent';
 
 const LiveCard = styled(({ theme }) => ({
   backgroundColor: theme.colors.lightSecondary,
@@ -20,7 +20,7 @@ const LiveCard = styled(({ theme }) => ({
 
 const LiveNowButton = () => (
   <Query
-    query={GET_LIVE_STREAM}
+    query={GET_LIVE_CONTENT}
     fetchPolicy="cache-and-network"
     pollInterval={60000}
   >
