@@ -281,7 +281,7 @@ export default class ContentItem extends oldContentItem.dataSource {
     const contentItemSlug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)
       .first();
-    if (!contentItemSlug) throw new Error('Slug does not exist.');
+    if (!contentItemSlug) throw new Error(`Slug "${slug}" does not exist.`);
 
     return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
   };
