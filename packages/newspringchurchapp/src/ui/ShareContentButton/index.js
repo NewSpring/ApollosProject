@@ -5,10 +5,7 @@ import share from 'newspringchurchapp/src/utils/content/share';
 import { Touchable, Icon, withTheme } from '@apollosproject/ui-kit';
 import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 
-const enhance = compose(
-  pure,
-  withTheme()
-);
+const enhance = compose(pure, withTheme());
 
 const ShareContentButton = enhance(({ content, theme }) => (
   <AnalyticsConsumer>
