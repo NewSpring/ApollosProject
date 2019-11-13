@@ -4,7 +4,7 @@ import { resolverMerge } from '@apollosproject/server-core';
 const resolver = {
   Person: {
     // deprecated
-    impersonationParameter: () => '',
+    impersonationParameter: () => 'deprecatedtoken',
     isGroupLeader: async ({ id }, args, { dataSources: { Group } }) => {
       const groups = await Group.getByPerson({ personId: id, asLeader: true });
       return groups.length > 0;
