@@ -278,10 +278,15 @@ export default class ContentItem extends oldContentItem.dataSource {
   };
 
   getBySlug = async (slug) => {
-    const { url } = await this.request('PageShortLinks')
+    // try to expand short link first
+    const link = await this.request('PageShortLinks')
       .filter(`Token eq '${slug}'`)
       .first();
-    const path = url ? url.split('/')[url.split('/').length - 1] : '';
+    const path = link
+      ? link.url.split('/')[link.url.split('/').length - 1]
+      : '';
+
+    // get content item
     const contentItemSlug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${path !== '' ? path : null || slug}'`)
       .first();
