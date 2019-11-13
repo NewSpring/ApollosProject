@@ -278,9 +278,14 @@ export default class ContentItem extends oldContentItem.dataSource {
   };
 
   getBySlug = async (slug) => {
-    const contentItemSlug = await this.request('ContentChannelItemSlugs')
-      .filter(`Slug eq '${slug}'`)
+    const { url } = await this.request('PageShortLinks')
+      .filter(`Token eq '${slug}'`)
       .first();
+    const path = url ? url.split('/')[url.split('/').length - 1] : '';
+    const contentItemSlug = await this.request('ContentChannelItemSlugs')
+      .filter(`Slug eq '${path !== '' ? path : null || slug}'`)
+      .first();
+
     if (!contentItemSlug) throw new Error('Slug does not exist.');
 
     return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
