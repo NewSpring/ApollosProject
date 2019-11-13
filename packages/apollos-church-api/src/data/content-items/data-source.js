@@ -194,7 +194,7 @@ export default class ContentItem extends oldContentItem.dataSource {
     const newLink = await this.request('PageShortLinks')
       .filter(`Id eq ${linkID}`)
       .first();
-    return `${ROCK.SHORTLINK_SHARE_URL}/${newLink.token}` || path;
+    return newLink ? `${ROCK.SHORTLINK_SHARE_URL}/${newLink.token}` : path;
   };
 
   getParent = async (childId, channelId) => {
