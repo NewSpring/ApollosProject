@@ -12,20 +12,16 @@ import {
 } from '@apollosproject/ui-kit';
 import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 
-import GET_LIVE_STREAM from './getLiveStream';
+import { LiveConsumer } from '.';
 
 const LiveCard = styled(({ theme }) => ({
   backgroundColor: theme.colors.lightSecondary,
 }))(Card);
 
 const LiveNowButton = () => (
-  <Query
-    query={GET_LIVE_STREAM}
-    fetchPolicy="cache-and-network"
-    pollInterval={60000}
-  >
-    {({ loading, data }) => {
-      const isLive = get(data, 'liveStream.isLive', false);
+  <LiveConsumer>
+    {(liveStream) => {
+      const isLive = !!liveStream;
 
       return isLive ? (
         <WebBrowserConsumer>
@@ -39,7 +35,7 @@ const LiveNowButton = () => (
                 )
               }
             >
-              <LiveCard isLoading={loading}>
+              <LiveCard>
                 <CardContent>
                   <ChannelLabel
                     icon="video"
@@ -57,7 +53,7 @@ const LiveNowButton = () => (
         </WebBrowserConsumer>
       ) : null;
     }}
-  </Query>
+  </LiveConsumer>
 );
 
 export default LiveNowButton;
