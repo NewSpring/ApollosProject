@@ -3,15 +3,14 @@ import Config from 'react-native-config';
 import { Providers } from '@apollosproject/ui-kit';
 import { AuthProvider } from '@apollosproject/ui-auth';
 import { AnalyticsProvider } from '@apollosproject/ui-analytics';
-
 import { MediaPlayerProvider } from '@apollosproject/ui-media-player';
 import { NotificationsProvider } from '@apollosproject/ui-notifications';
-import ExternalLinkProvider from './linking/Provider';
-import { track } from './analytics';
 
 import NavigationService from './NavigationService';
+import { LiveProvider } from './live';
 import ClientProvider from './client';
-
+import ExternalLinkProvider from './linking/Provider';
+import { track } from './analytics';
 import customTheme, { customIcons } from './theme';
 
 const AppProviders = (props) => (
@@ -27,11 +26,13 @@ const AppProviders = (props) => (
         <ExternalLinkProvider navigate={NavigationService.navigate}>
           <MediaPlayerProvider>
             <AnalyticsProvider trackFunctions={[track]}>
-              <Providers
-                themeInput={customTheme}
-                iconInput={customIcons}
-                {...props}
-              />
+              <LiveProvider>
+                <Providers
+                  themeInput={customTheme}
+                  iconInput={customIcons}
+                  {...props}
+                />
+              </LiveProvider>
             </AnalyticsProvider>
           </MediaPlayerProvider>
         </ExternalLinkProvider>
