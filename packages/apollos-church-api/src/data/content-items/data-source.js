@@ -3,9 +3,10 @@ import { get } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import { parseKeyValueAttribute } from '@apollosproject/rock-apollo-data-source';
 import sanitizeHtmlNode from 'sanitize-html';
+import btoa from 'btoa';
 import { createAssetUrl } from '../utils';
 
-const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
+const { ROCK, ROCK_CONSTANTS, ROCK_MAPPINGS } = ApollosConfig;
 
 export default class ContentItem extends oldContentItem.dataSource {
   getContentItemScriptures = async ({ value: matrixItemGuid }) => {
@@ -171,9 +172,29 @@ export default class ContentItem extends oldContentItem.dataSource {
         .filter(`ContentChannelItemId eq ${parent.id}`)
         .first();
     }
-    return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${
+    const path = `${ROCK.SHARE_URL + contentChannel.channelUrl}/${
       parent ? `${parentSlug.slug}/` : ''
     }${slug.slug}`;
+
+    // check that token has already been made
+    const link = await this.request('PageShortLinks')
+      .filter(`Url eq '${path}'`)
+      .first();
+    if (link) return `${ROCK.SHORTLINK_SHARE_URL}/${link.token}`;
+
+    // generate token
+    const token = btoa(path)
+      .replace(/[0-9A-Z+=/]*/g, '')
+      .slice(-7, -1);
+    const linkID = await this.post('PageShortLinks', {
+      Url: path,
+      SiteId: ROCK_MAPPINGS.SHORTLINK_SHARING_SITE_ID,
+      Token: token,
+    });
+    const newLink = await this.request('PageShortLinks')
+      .filter(`Id eq ${linkID}`)
+      .first();
+    return newLink ? `${ROCK.SHORTLINK_SHARE_URL}/${newLink.token}` : path;
   };
 
   getParent = async (childId, channelId) => {
