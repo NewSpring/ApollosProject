@@ -250,80 +250,88 @@ exports[`The AddPrayerForm component should render 1`] = `
               <View
                 style={
                   Object {
+                    "alignSelf": "flex-end",
                     "flex": 1,
-                    "opacity": 1,
                   }
                 }
               >
-                <TextInput
-                  allowFontScaling={true}
-                  editable={true}
-                  multiline={true}
-                  onBlur={[Function]}
-                  onChangeText={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Start typing your prayer..."
-                  placeholderTextColor="rgba(48, 48, 48, 0.6)"
-                  rejectResponderTermination={true}
-                  returnKeyType="default"
+                <View
                   style={
                     Object {
-                      "borderColor": "rgba(133, 133, 133, 0.6)",
-                      "borderRadius": 8,
-                      "borderWidth": 0.5,
-                      "height": "100%",
-                      "paddingBottom": 16,
-                      "paddingHorizontal": 16,
-                      "paddingTop": 16,
-                      "textAlignVertical": "top",
+                      "opacity": 1,
                     }
                   }
-                  underlineColorAndroid="transparent"
-                  value=""
-                />
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    editable={true}
+                    multiline={true}
+                    onBlur={[Function]}
+                    onChangeText={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Start typing your prayer..."
+                    placeholderTextColor="rgba(48, 48, 48, 0.6)"
+                    rejectResponderTermination={true}
+                    returnKeyType="default"
+                    style={
+                      Object {
+                        "borderColor": "rgba(133, 133, 133, 0.6)",
+                        "borderRadius": 8,
+                        "borderWidth": 0.5,
+                        "height": "100%",
+                        "paddingBottom": 16,
+                        "paddingHorizontal": 16,
+                        "paddingTop": 16,
+                        "textAlignVertical": "top",
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "bottom": 0,
+                      "justifyContent": "center",
+                      "opacity": 0.8,
+                      "position": "absolute",
+                      "top": 0,
+                      "transform": Array [
+                        Object {
+                          "scale": 0.8,
+                        },
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 0,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#505050",
+                        "fontFamily": "Colfax-Bold",
+                        "fontSize": 12,
+                        "lineHeight": 17.28,
+                        "paddingVertical": 4,
+                      }
+                    }
+                  />
+                </View>
               </View>
               <View
                 style={
                   Object {
                     "alignItems": "center",
                     "justifyContent": "center",
-                  }
-                }
-              />
-            </View>
-            <View
-              onLayout={[Function]}
-              pointerEvents="none"
-              style={
-                Object {
-                  "bottom": 0,
-                  "justifyContent": "center",
-                  "opacity": 0.8,
-                  "position": "absolute",
-                  "top": 0,
-                  "transform": Array [
-                    Object {
-                      "scale": 0.8,
-                    },
-                    Object {
-                      "translateX": 0,
-                    },
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "color": "#505050",
-                    "fontFamily": "Colfax-Bold",
-                    "fontSize": 12,
-                    "lineHeight": 17.28,
-                    "paddingVertical": 4,
                   }
                 }
               />
@@ -858,80 +866,88 @@ exports[`The AddPrayerForm component should render a custom avatar 1`] = `
               <View
                 style={
                   Object {
+                    "alignSelf": "flex-end",
                     "flex": 1,
-                    "opacity": 1,
                   }
                 }
               >
-                <TextInput
-                  allowFontScaling={true}
-                  editable={true}
-                  multiline={true}
-                  onBlur={[Function]}
-                  onChangeText={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Start typing your prayer..."
-                  placeholderTextColor="rgba(48, 48, 48, 0.6)"
-                  rejectResponderTermination={true}
-                  returnKeyType="default"
+                <View
                   style={
                     Object {
-                      "borderColor": "rgba(133, 133, 133, 0.6)",
-                      "borderRadius": 8,
-                      "borderWidth": 0.5,
-                      "height": "100%",
-                      "paddingBottom": 16,
-                      "paddingHorizontal": 16,
-                      "paddingTop": 16,
-                      "textAlignVertical": "top",
+                      "opacity": 1,
                     }
                   }
-                  underlineColorAndroid="transparent"
-                  value=""
-                />
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    editable={true}
+                    multiline={true}
+                    onBlur={[Function]}
+                    onChangeText={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Start typing your prayer..."
+                    placeholderTextColor="rgba(48, 48, 48, 0.6)"
+                    rejectResponderTermination={true}
+                    returnKeyType="default"
+                    style={
+                      Object {
+                        "borderColor": "rgba(133, 133, 133, 0.6)",
+                        "borderRadius": 8,
+                        "borderWidth": 0.5,
+                        "height": "100%",
+                        "paddingBottom": 16,
+                        "paddingHorizontal": 16,
+                        "paddingTop": 16,
+                        "textAlignVertical": "top",
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "bottom": 0,
+                      "justifyContent": "center",
+                      "opacity": 0.8,
+                      "position": "absolute",
+                      "top": 0,
+                      "transform": Array [
+                        Object {
+                          "scale": 0.8,
+                        },
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 0,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#505050",
+                        "fontFamily": "Colfax-Bold",
+                        "fontSize": 12,
+                        "lineHeight": 17.28,
+                        "paddingVertical": 4,
+                      }
+                    }
+                  />
+                </View>
               </View>
               <View
                 style={
                   Object {
                     "alignItems": "center",
                     "justifyContent": "center",
-                  }
-                }
-              />
-            </View>
-            <View
-              onLayout={[Function]}
-              pointerEvents="none"
-              style={
-                Object {
-                  "bottom": 0,
-                  "justifyContent": "center",
-                  "opacity": 0.8,
-                  "position": "absolute",
-                  "top": 0,
-                  "transform": Array [
-                    Object {
-                      "scale": 0.8,
-                    },
-                    Object {
-                      "translateX": 0,
-                    },
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "color": "#505050",
-                    "fontFamily": "Colfax-Bold",
-                    "fontSize": 12,
-                    "lineHeight": 17.28,
-                    "paddingVertical": 4,
                   }
                 }
               />
@@ -1534,80 +1550,88 @@ exports[`The AddPrayerForm component should render a custom title 1`] = `
               <View
                 style={
                   Object {
+                    "alignSelf": "flex-end",
                     "flex": 1,
-                    "opacity": 1,
                   }
                 }
               >
-                <TextInput
-                  allowFontScaling={true}
-                  editable={true}
-                  multiline={true}
-                  onBlur={[Function]}
-                  onChangeText={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Start typing your prayer..."
-                  placeholderTextColor="rgba(48, 48, 48, 0.6)"
-                  rejectResponderTermination={true}
-                  returnKeyType="default"
+                <View
                   style={
                     Object {
-                      "borderColor": "rgba(133, 133, 133, 0.6)",
-                      "borderRadius": 8,
-                      "borderWidth": 0.5,
-                      "height": "100%",
-                      "paddingBottom": 16,
-                      "paddingHorizontal": 16,
-                      "paddingTop": 16,
-                      "textAlignVertical": "top",
+                      "opacity": 1,
                     }
                   }
-                  underlineColorAndroid="transparent"
-                  value=""
-                />
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    editable={true}
+                    multiline={true}
+                    onBlur={[Function]}
+                    onChangeText={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Start typing your prayer..."
+                    placeholderTextColor="rgba(48, 48, 48, 0.6)"
+                    rejectResponderTermination={true}
+                    returnKeyType="default"
+                    style={
+                      Object {
+                        "borderColor": "rgba(133, 133, 133, 0.6)",
+                        "borderRadius": 8,
+                        "borderWidth": 0.5,
+                        "height": "100%",
+                        "paddingBottom": 16,
+                        "paddingHorizontal": 16,
+                        "paddingTop": 16,
+                        "textAlignVertical": "top",
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </View>
+                <View
+                  onLayout={[Function]}
+                  pointerEvents="none"
+                  style={
+                    Object {
+                      "bottom": 0,
+                      "justifyContent": "center",
+                      "opacity": 0.8,
+                      "position": "absolute",
+                      "top": 0,
+                      "transform": Array [
+                        Object {
+                          "scale": 0.8,
+                        },
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 0,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#505050",
+                        "fontFamily": "Colfax-Bold",
+                        "fontSize": 12,
+                        "lineHeight": 17.28,
+                        "paddingVertical": 4,
+                      }
+                    }
+                  />
+                </View>
               </View>
               <View
                 style={
                   Object {
                     "alignItems": "center",
                     "justifyContent": "center",
-                  }
-                }
-              />
-            </View>
-            <View
-              onLayout={[Function]}
-              pointerEvents="none"
-              style={
-                Object {
-                  "bottom": 0,
-                  "justifyContent": "center",
-                  "opacity": 0.8,
-                  "position": "absolute",
-                  "top": 0,
-                  "transform": Array [
-                    Object {
-                      "scale": 0.8,
-                    },
-                    Object {
-                      "translateX": 0,
-                    },
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "color": "#505050",
-                    "fontFamily": "Colfax-Bold",
-                    "fontSize": 12,
-                    "lineHeight": 17.28,
-                    "paddingVertical": 4,
                   }
                 }
               />
