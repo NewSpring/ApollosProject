@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import Config from 'react-native-config';
 import { throttle } from 'lodash';
 
 import { BackgroundView } from '@apollosproject/ui-kit';
@@ -34,12 +33,10 @@ class Discover extends PureComponent {
   render() {
     return (
       <BackgroundView>
-        {Config.EXPERIMENTAL === 'true' ? (
-          <SearchInputHeader
-            onChangeText={this.handleOnChangeText}
-            onFocus={this.handleOnFocus}
-          />
-        ) : null}
+        <SearchInputHeader
+          onChangeText={this.handleOnChangeText}
+          onFocus={this.handleOnFocus}
+        />
         {this.state.isFocused || this.state.searchText ? (
           <SearchFeed searchText={this.state.searchText} />
         ) : (
