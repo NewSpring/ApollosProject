@@ -299,4 +299,16 @@ export default class ContentItem extends oldContentItem.dataSource {
     }
     return this.coreSummaryMethod(root);
   };
+
+  corePickBestImage = this.pickBestImage;
+
+  pickBestImage = ({ images }) => {
+    // TODO: there's probably a _much_ more explicit and better way to handle this
+    const appImage = images.find((image) =>
+      image.key.toLowerCase().includes('app')
+    );
+    if (appImage) return { ...appImage, __typename: 'ImageMedia' };
+
+    return this.corePickBestImage({ images });
+  };
 }
