@@ -13,6 +13,7 @@ import GET_CONTENT_ITEM from './getContentItem';
 import DevotionalContentItem from './DevotionalContentItem';
 import UniversalContentItem from './UniversalContentItem';
 import WeekendContentItem from './WeekendContentItem';
+import ContentSeriesContentItem from './ContentSeriesContentItem';
 
 import NavigationHeader from './NavigationHeader';
 
@@ -57,6 +58,15 @@ class ContentSingle extends PureComponent {
       case 'WeekendContentItem':
         return (
           <WeekendContentItem
+            id={this.itemId}
+            content={content}
+            loading={loading}
+            error={error}
+          />
+        );
+      case 'ContentSeriesContentItem':
+        return (
+          <ContentSeriesContentItem
             id={this.itemId}
             content={content}
             loading={loading}
