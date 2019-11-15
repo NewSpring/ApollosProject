@@ -92,13 +92,24 @@ class ContentSingle extends PureComponent {
     const content = data.node || {};
 
     const { theme = {}, id } = content;
+    const colors = get(theme, 'colors') || {};
+    const { primary, secondary, screen, paper } = colors;
 
     return (
       <ThemeMixin
-        mixin={{
-          type: get(theme, 'type', 'light').toLowerCase(),
-          colors: get(theme, 'colors'),
-        }}
+        mixin={
+          content.theme
+            ? {
+                type: 'light',
+                colors: {
+                  ...(primary ? { primary, tertiary: primary } : {}),
+                  ...(secondary ? { secondary } : {}),
+                  ...(screen ? { screen } : {}),
+                  ...(paper ? { paper } : {}),
+                },
+              }
+            : {}
+        }
       >
         <TrackEventWhenLoaded
           loaded={!!(!loading && content.title)}
