@@ -13,6 +13,9 @@ const defaultResolvers = {
     title: 'Share via ...',
     message: `${root.title} - ${ContentItem.createSummary(root)}`,
   }),
+
+  theme: (root, input, { dataSources }) =>
+    dataSources.ContentItem.getTheme(root),
 };
 
 const resolver = {
