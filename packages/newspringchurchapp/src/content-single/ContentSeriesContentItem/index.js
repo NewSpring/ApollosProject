@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, ScrollView, View } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import {
@@ -18,10 +18,11 @@ import HorizontalContentFeed from '../HorizontalContentFeed';
 
 const FlexedScrollView = styled({ flex: 1 })(ScrollView);
 
-const Content = styled(() => ({
+const Content = styled(({ hasMedia, theme }) => ({
   paddingTop: Dimensions.get('window').width, // for some reason % based padding still is buggy
   alignItems: 'flex-start',
-}))(View);
+  paddingBottom: hasMedia ? theme.sizing.baseUnit : theme.sizing.baseUnit * 2,
+}))(PaddedView);
 
 const ContentSeriesContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
@@ -32,11 +33,11 @@ const ContentSeriesContentItem = ({ content, loading }) => {
           get(content, 'theme.colors.primary') ||
           (loading ? theme.colors.lightTertiary : theme.colors.primary);
         return (
-          <FlexedView style={{ backgroundColor: overlayColor }}>
+          <FlexedView>
             <StretchyView>
               {({ Stretchy, ...scrollViewProps }) => (
                 <FlexedScrollView {...scrollViewProps}>
-                  <Content>
+                  <Content hasMedia={content.videos && content.videos.sources}>
                     <ThemeMixin
                       mixin={{
                         type: (
@@ -45,7 +46,10 @@ const ContentSeriesContentItem = ({ content, loading }) => {
                       }}
                     >
                       {coverImageSources.length || loading ? (
-                        <Stretchy background>
+                        <Stretchy
+                          background
+                          style={{ backgroundColor: overlayColor }}
+                        >
                           <GradientOverlayImage
                             isLoading={!coverImageSources.length && loading}
                             overlayColor={overlayColor}
@@ -53,18 +57,15 @@ const ContentSeriesContentItem = ({ content, loading }) => {
                           />
                         </Stretchy>
                       ) : null}
-                      <MediaControls contentId={content.id} />
-
-                      <PaddedView>
-                        <H2 padded isLoading={!content.title && loading}>
-                          {content.title}
-                        </H2>
-                        <HTMLContent contentId={content.id} />
-                      </PaddedView>
-
-                      <HorizontalContentFeed contentId={content.id} />
+                      <H2 isLoading={!content.title && loading}>
+                        {content.title}
+                      </H2>
+                      <HTMLContent contentId={content.id} />
                     </ThemeMixin>
                   </Content>
+                  <MediaControls contentId={content.id} />
+                  <PaddedView />
+                  <HorizontalContentFeed contentId={content.id} />
                 </FlexedScrollView>
               )}
             </StretchyView>
