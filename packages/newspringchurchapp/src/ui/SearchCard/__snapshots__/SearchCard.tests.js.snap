@@ -50,9 +50,8 @@ exports[`The SearchCard component should render 1`] = `
         }
       >
         <Image
-          customTheme={null}
-          maxAspectRatio={1.2}
-          minAspectRatio={0.75}
+          maxAspectRatio={1}
+          minAspectRatio={1}
           onLoad={[Function]}
           source={
             Array [
@@ -83,8 +82,8 @@ exports[`The SearchCard component should render 1`] = `
       <BVLinearGradient
         colors={
           Array [
-            1711276032,
-            2147483648,
+            1718332483,
+            4285246531,
           ]
         }
         endPoint={
@@ -96,11 +95,11 @@ exports[`The SearchCard component should render 1`] = `
         locations={
           Array [
             0,
-            1,
+            0.8,
           ]
         }
-        overlayColor="#000000"
-        overlayType="gradient-bottom"
+        overlayColor="#6bac43"
+        overlayType="featured"
         startPoint={
           Object {
             "x": 0,
@@ -122,12 +121,10 @@ exports[`The SearchCard component should render 1`] = `
       style={
         Object {
           "alignItems": "flex-start",
-          "bottom": 0,
+          "marginTop": "-40%",
           "paddingBottom": 32,
           "paddingHorizontal": 24,
           "paddingVertical": 16,
-          "position": "absolute",
-          "width": "100%",
         }
       }
     >
@@ -137,8 +134,8 @@ exports[`The SearchCard component should render 1`] = `
           Object {
             "color": "#ffffff",
             "fontFamily": "Colfax-Black",
-            "fontSize": 24,
-            "lineHeight": 27.6,
+            "fontSize": 36,
+            "lineHeight": 41.4,
           }
         }
       >
