@@ -1,3 +1,5 @@
+import Color from 'color';
+
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
 
@@ -86,7 +88,22 @@ const typography = {
   },
 };
 
+export const buttons = ({ colors: themeColors, alpha: themeAlpha }) => ({
+  darkOverlay: {
+    fill: Color(themeColors.darkTertiary).alpha(themeAlpha.low),
+    accent: themeColors.darkSecondary,
+  },
+});
+
+export const overrides = {
+  'ui-kit.CardLabel': {
+    borderWidth: 0,
+  },
+};
+
 export default {
   colors,
   typography,
+  buttons,
+  overrides,
 };
