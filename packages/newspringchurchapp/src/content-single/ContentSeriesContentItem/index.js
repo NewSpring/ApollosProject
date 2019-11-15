@@ -27,45 +27,50 @@ const ContentSeriesContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
     <ThemeConsumer>
-      {(theme) => (
-        <FlexedView style={{ backgroundColor: theme.colors.primary }}>
-          <StretchyView>
-            {({ Stretchy, ...scrollViewProps }) => (
-              <FlexedScrollView {...scrollViewProps}>
-                <Content>
-                  <ThemeMixin
-                    mixin={{
-                      type: (
-                        get(content, 'theme.type') || 'dark'
-                      ).toLowerCase(),
-                    }}
-                  >
-                    {coverImageSources.length || loading ? (
-                      <Stretchy background>
-                        <GradientOverlayImage
-                          isLoading={!coverImageSources.length && loading}
-                          overlayColor={theme.colors.primary}
-                          source={coverImageSources}
-                        />
-                      </Stretchy>
-                    ) : null}
-                    <MediaControls contentId={content.id} />
+      {(theme) => {
+        const overlayColor =
+          get(content, 'theme.colors.primary') ||
+          (loading ? theme.colors.lightTertiary : theme.colors.primary);
+        return (
+          <FlexedView style={{ backgroundColor: overlayColor }}>
+            <StretchyView>
+              {({ Stretchy, ...scrollViewProps }) => (
+                <FlexedScrollView {...scrollViewProps}>
+                  <Content>
+                    <ThemeMixin
+                      mixin={{
+                        type: (
+                          get(content, 'theme.type') || 'dark'
+                        ).toLowerCase(),
+                      }}
+                    >
+                      {coverImageSources.length || loading ? (
+                        <Stretchy background>
+                          <GradientOverlayImage
+                            isLoading={!coverImageSources.length && loading}
+                            overlayColor={overlayColor}
+                            source={coverImageSources}
+                          />
+                        </Stretchy>
+                      ) : null}
+                      <MediaControls contentId={content.id} />
 
-                    <PaddedView>
-                      <H2 padded isLoading={!content.title && loading}>
-                        {content.title}
-                      </H2>
-                      <HTMLContent contentId={content.id} />
-                    </PaddedView>
+                      <PaddedView>
+                        <H2 padded isLoading={!content.title && loading}>
+                          {content.title}
+                        </H2>
+                        <HTMLContent contentId={content.id} />
+                      </PaddedView>
 
-                    <HorizontalContentFeed contentId={content.id} />
-                  </ThemeMixin>
-                </Content>
-              </FlexedScrollView>
-            )}
-          </StretchyView>
-        </FlexedView>
-      )}
+                      <HorizontalContentFeed contentId={content.id} />
+                    </ThemeMixin>
+                  </Content>
+                </FlexedScrollView>
+              )}
+            </StretchyView>
+          </FlexedView>
+        );
+      }}
     </ThemeConsumer>
   );
 };
