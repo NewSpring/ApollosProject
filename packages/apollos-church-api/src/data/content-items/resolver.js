@@ -22,28 +22,19 @@ const resolver = {
   Query: {
     contentItemFromSlug: (root, { slug }, { dataSources }) =>
       dataSources.ContentItem.getBySlug(slug),
-    // NOTE: adds sorting, update when core issue is resolved
-    // https://github.com/ApollosProject/apollos-prototype/issues/1091
     contentChannels: async (
       root,
       args,
       { dataSources: { ContentChannel, Person, Auth } }
     ) => {
       let channels = await ContentChannel.getRootChannels();
+
+      // if not staff, strip out staff channel
       const { id: personId } = await Auth.getCurrentPerson();
       const isStaff = await Person.isStaff(personId);
       if (!isStaff) channels = channels.filter(({ id }) => id !== 513);
-      const sortOrder = ROCK_MAPPINGS.DISCOVER_CONTENT_CHANNEL_IDS;
-      // Setup a result array.
-      const result = [];
-      sortOrder.forEach((configId) => {
-        // Remove the matched element from the channel list.
-        const index = channels.findIndex(({ id }) => id === configId);
-        // if index exists, add channel to end of result array
-        if (index > -1) result.push(...channels.splice(index, 1));
-      });
-      // Return results and any left over channels.
-      return [...result, ...channels];
+
+      return channels;
     },
   },
   DevotionalContentItem: {
