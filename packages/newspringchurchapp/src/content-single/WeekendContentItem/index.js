@@ -12,11 +12,13 @@ import {
   ThemeMixin,
   ThemeConsumer,
   CardLabel,
+  withTheme,
 } from '@apollosproject/ui-kit';
 import MediaControls from '../MediaControls';
 import HTMLContent from '../HTMLContent';
 import HorizontalContentFeed from '../HorizontalContentFeed';
 import Features from '../Features';
+import { LiveConsumer } from '../../live';
 import CustomAvoidingScrollView from './CustomAvoidingScrollView';
 
 const FlexedScrollView = styled({ flex: 1 })(CustomAvoidingScrollView);
@@ -27,6 +29,19 @@ const Header = styled(({ hasMedia, theme }) => ({
   paddingBottom: hasMedia ? theme.sizing.baseUnit : theme.sizing.baseUnit * 2,
   // backgroundColor: theme.colors.primary,
 }))(PaddedView);
+
+const LiveAwareLabel = withTheme(({ isLive, title, theme }) => ({
+  ...(isLive
+    ? {
+        title: 'Live',
+        type: 'secondary',
+        icon: 'live-dot',
+        iconSize: theme.helpers.rem(0.4375), // using our typographic size unit based on fontSize so that the icon scales correctly with font size changes.
+      }
+    : {
+        title,
+      }),
+}))(CardLabel);
 
 const WeekendContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
@@ -53,12 +68,19 @@ const WeekendContentItem = ({ content, loading }) => {
                           />
                         </Stretchy>
                       ) : null}
-                      <CardLabel
-                        title={
-                          content.parentChannel &&
-                          content.parentChannel.name.replace('NewSpring - ', '')
-                        }
-                      />
+                      <LiveConsumer contentId={content.id}>
+                        {(liveStream) => (
+                          <LiveAwareLabel
+                            isLive={!!liveStream}
+                            title={
+                              content.parentChannel &&
+                              content.parentChannel.name
+                                .replace('NewSpring - ', '')
+                                .replace('Rock - ', '')
+                            }
+                          />
+                        )}
+                      </LiveConsumer>
                       <H2 padded isLoading={!content.title && loading}>
                         {content.title}
                       </H2>

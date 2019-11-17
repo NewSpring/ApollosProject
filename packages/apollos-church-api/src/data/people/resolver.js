@@ -9,6 +9,8 @@ const resolver = {
     forgotPasswordURL: () => ROCK.FORGOT_PASSWORD_URL,
   },
   Person: {
+    // deprecated
+    impersonationParameter: () => 'deprecatedtoken',
     isGroupLeader: async ({ id }, args, { dataSources: { Group } }) => {
       const groups = await Group.getByPerson({ personId: id, asLeader: true });
       return groups.length > 0;
