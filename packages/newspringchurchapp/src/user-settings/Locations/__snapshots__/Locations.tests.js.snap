@@ -60,7 +60,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -90,28 +90,41 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                   }
                 }
               >
-                <Image
-                  onLoad={[Function]}
-                  source={
-                    Array [
-                      Object {
-                        "cache": "force-cache",
-                        "height": 240,
-                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dede1fb83-968e-4bef-8d77-ad81c96e8a47",
-                        "width": 320,
-                      },
-                    ]
-                  }
+                <View
+                  animate={null}
+                  customAnimate={null}
+                  onReady={false}
                   style={
                     Object {
                       "aspectRatio": 1,
                       "backgroundColor": "#dddddd",
                       "height": "100%",
-                      "opacity": 0,
                       "resizeMode": "cover",
+                      "width": "100%",
                     }
                   }
-                />
+                >
+                  <Image
+                    onLoad={[Function]}
+                    source={
+                      Array [
+                        Object {
+                          "cache": "force-cache",
+                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dede1fb83-968e-4bef-8d77-ad81c96e8a47",
+                        },
+                      ]
+                    }
+                    style={
+                      Object {
+                        "aspectRatio": 1,
+                        "backgroundColor": "#dddddd",
+                        "height": "100%",
+                        "opacity": 0,
+                        "resizeMode": "cover",
+                      }
+                    }
+                  />
+                </View>
                 <View
                   style={
                     Object {
@@ -202,7 +215,7 @@ South Barrington, IL 60010-6143
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -232,28 +245,41 @@ South Barrington, IL 60010-6143
                   }
                 }
               >
-                <Image
-                  onLoad={[Function]}
-                  source={
-                    Array [
-                      Object {
-                        "cache": "force-cache",
-                        "height": 240,
-                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Da47e8e69-9542-42de-9ed3-ff42fdc82417",
-                        "width": 320,
-                      },
-                    ]
-                  }
+                <View
+                  animate={null}
+                  customAnimate={null}
+                  onReady={false}
                   style={
                     Object {
                       "aspectRatio": 1,
                       "backgroundColor": "#dddddd",
                       "height": "100%",
-                      "opacity": 0,
                       "resizeMode": "cover",
+                      "width": "100%",
                     }
                   }
-                />
+                >
+                  <Image
+                    onLoad={[Function]}
+                    source={
+                      Array [
+                        Object {
+                          "cache": "force-cache",
+                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Da47e8e69-9542-42de-9ed3-ff42fdc82417",
+                        },
+                      ]
+                    }
+                    style={
+                      Object {
+                        "aspectRatio": 1,
+                        "backgroundColor": "#dddddd",
+                        "height": "100%",
+                        "opacity": 0,
+                        "resizeMode": "cover",
+                      }
+                    }
+                  />
+                </View>
                 <View
                   style={
                     Object {
@@ -344,7 +370,7 @@ Anderson, SC 29621-3619
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -374,28 +400,41 @@ Anderson, SC 29621-3619
                   }
                 }
               >
-                <Image
-                  onLoad={[Function]}
-                  source={
-                    Array [
-                      Object {
-                        "cache": "force-cache",
-                        "height": 240,
-                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D5f9fd97a-fd6e-4ae5-ab5d-a9b95290d9b6",
-                        "width": 320,
-                      },
-                    ]
-                  }
+                <View
+                  animate={null}
+                  customAnimate={null}
+                  onReady={false}
                   style={
                     Object {
                       "aspectRatio": 1,
                       "backgroundColor": "#dddddd",
                       "height": "100%",
-                      "opacity": 0,
                       "resizeMode": "cover",
+                      "width": "100%",
                     }
                   }
-                />
+                >
+                  <Image
+                    onLoad={[Function]}
+                    source={
+                      Array [
+                        Object {
+                          "cache": "force-cache",
+                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3D5f9fd97a-fd6e-4ae5-ab5d-a9b95290d9b6",
+                        },
+                      ]
+                    }
+                    style={
+                      Object {
+                        "aspectRatio": 1,
+                        "backgroundColor": "#dddddd",
+                        "height": "100%",
+                        "opacity": 0,
+                        "resizeMode": "cover",
+                      }
+                    }
+                  />
+                </View>
                 <View
                   style={
                     Object {
@@ -486,7 +525,7 @@ Richardson, TX 75080-5525
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -516,28 +555,41 @@ Richardson, TX 75080-5525
                   }
                 }
               >
-                <Image
-                  onLoad={[Function]}
-                  source={
-                    Array [
-                      Object {
-                        "cache": "force-cache",
-                        "height": 240,
-                        "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dbad9eb54-3e78-44a7-a028-3f2d6e71a36f",
-                        "width": 320,
-                      },
-                    ]
-                  }
+                <View
+                  animate={null}
+                  customAnimate={null}
+                  onReady={false}
                   style={
                     Object {
                       "aspectRatio": 1,
                       "backgroundColor": "#dddddd",
                       "height": "100%",
-                      "opacity": 0,
                       "resizeMode": "cover",
+                      "width": "100%",
                     }
                   }
-                />
+                >
+                  <Image
+                    onLoad={[Function]}
+                    source={
+                      Array [
+                        Object {
+                          "cache": "force-cache",
+                          "uri": "https://res.cloudinary.com/apollos/image/fetch/c_limit,f_auto,w_1600/https://apollosrock.newspring.cc/GetImage.ashx%3Fguid%3Dbad9eb54-3e78-44a7-a028-3f2d6e71a36f",
+                        },
+                      ]
+                    }
+                    style={
+                      Object {
+                        "aspectRatio": 1,
+                        "backgroundColor": "#dddddd",
+                        "height": "100%",
+                        "opacity": 0,
+                        "resizeMode": "cover",
+                      }
+                    }
+                  />
+                </View>
                 <View
                   style={
                     Object {

@@ -900,7 +900,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1049,7 +1049,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                 "borderRadius": 16,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -1105,7 +1105,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   Object {
                     "backgroundColor": "#ffffff",
                     "borderBottomWidth": 0,
-                    "borderColor": "rgba(133, 133, 133, 0.6)",
+                    "borderColor": "rgba(8, 0, 20, 0.25)",
                     "borderLeftWidth": 0,
                     "borderRightWidth": 0,
                     "borderTopWidth": 0,
@@ -1187,7 +1187,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1284,7 +1284,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1381,7 +1381,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1478,7 +1478,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1537,7 +1537,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1701,7 +1701,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1865,7 +1865,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2029,7 +2029,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2193,7 +2193,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2357,7 +2357,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2521,7 +2521,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2685,7 +2685,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2849,7 +2849,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -3013,7 +3013,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
