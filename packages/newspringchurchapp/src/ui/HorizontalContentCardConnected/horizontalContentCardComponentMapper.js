@@ -14,11 +14,20 @@ const horizontalContentCardComponentMapper = ({
 }) => {
   // map typename to the the card we want to render.
   switch (get(props, '__typename')) {
-    case 'MediaContentItem':
-    case 'WeekendContentItem':
     case 'ContentSeriesContentItem':
-    case 'DevotionalContentItem':
+      return <HorizontalHighlightCard {...props} />;
+    case 'MediaContentItem':
       return <HorizontalHighlightCard title={hyphenatedTitle} {...props} />;
+    case 'WeekendContentItem':
+    case 'DevotionalContentItem':
+      return (
+        <HorizontalHighlightCard
+          title={hyphenatedTitle}
+          {...props}
+          coverImage={null}
+          labelText={null}
+        />
+      );
     default:
       return <HorizontalDefaultCard title={title} {...props} />;
   }
