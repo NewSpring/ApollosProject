@@ -14,3 +14,9 @@ pull_request_rules:
       - merged
     actions:
       delete_head_branch: {}
+  - name: automatic merge with strict
+    conditions: []
+    actions:
+      merge:
+        method: merge
+        strict: true
