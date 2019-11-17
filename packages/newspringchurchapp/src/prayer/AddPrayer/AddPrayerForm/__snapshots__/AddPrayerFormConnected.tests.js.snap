@@ -275,7 +275,7 @@ exports[`renders AddPrayerFormConnected 1`] = `
                     returnKeyType="default"
                     style={
                       Object {
-                        "borderColor": "rgba(133, 133, 133, 0.6)",
+                        "borderColor": "rgba(8, 0, 20, 0.25)",
                         "borderRadius": 8,
                         "borderWidth": 0.5,
                         "height": "100%",

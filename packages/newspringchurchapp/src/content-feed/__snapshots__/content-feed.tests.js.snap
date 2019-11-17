@@ -129,7 +129,7 @@ exports[`content feed query component renders a feedview after successful query 
                 "borderRadius": 16,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -298,7 +298,7 @@ fragment themeFragment on ContentItem {
                 "borderRadius": 16,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
