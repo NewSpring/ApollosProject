@@ -327,35 +327,82 @@ exports[`the Onboarding component should render Onboarding 1`] = `
                         <View
                           style={
                             Object {
+                              "alignSelf": "flex-end",
                               "flex": 1,
-                              "opacity": 0,
                             }
                           }
                         >
-                          <TextInput
-                            allowFontScaling={true}
-                            editable={false}
-                            enablesReturnKeyAutomatically={true}
-                            onBlur={[Function]}
-                            onChangeText={[Function]}
-                            onFocus={[Function]}
-                            onSubmitEditing={[Function]}
-                            placeholderTextColor="rgba(48, 48, 48, 0.6)"
-                            rejectResponderTermination={true}
-                            returnKeyType="next"
+                          <View
                             style={
                               Object {
-                                "color": "#303030",
-                                "fontFamily": "Colfax-Bold",
-                                "fontSize": 14,
-                                "height": 38,
-                                "paddingVertical": 0,
+                                "opacity": 0,
                               }
                             }
-                            textContentType="givenName"
-                            type="text"
-                            underlineColorAndroid="transparent"
-                          />
+                          >
+                            <TextInput
+                              allowFontScaling={true}
+                              editable={false}
+                              enablesReturnKeyAutomatically={true}
+                              onBlur={[Function]}
+                              onChangeText={[Function]}
+                              onFocus={[Function]}
+                              onSubmitEditing={[Function]}
+                              placeholderTextColor="rgba(48, 48, 48, 0.6)"
+                              rejectResponderTermination={true}
+                              returnKeyType="next"
+                              style={
+                                Object {
+                                  "color": "#303030",
+                                  "fontFamily": "Colfax-Bold",
+                                  "fontSize": 14,
+                                  "height": 38,
+                                  "paddingVertical": 0,
+                                }
+                              }
+                              textContentType="givenName"
+                              type="text"
+                              underlineColorAndroid="transparent"
+                            />
+                          </View>
+                          <View
+                            onLayout={[Function]}
+                            pointerEvents="none"
+                            style={
+                              Object {
+                                "bottom": 0,
+                                "justifyContent": "center",
+                                "opacity": 1,
+                                "position": "absolute",
+                                "top": 0,
+                                "transform": Array [
+                                  Object {
+                                    "scale": 1,
+                                  },
+                                  Object {
+                                    "translateX": 0,
+                                  },
+                                  Object {
+                                    "translateY": 0,
+                                  },
+                                ],
+                              }
+                            }
+                          >
+                            <Text
+                              style={
+                                Object {
+                                  "backgroundColor": "transparent",
+                                  "color": "#505050",
+                                  "fontFamily": "Colfax-Bold",
+                                  "fontSize": 12,
+                                  "lineHeight": 17.28,
+                                  "paddingVertical": 4,
+                                }
+                              }
+                            >
+                              First Name
+                            </Text>
+                          </View>
                         </View>
                         <View
                           style={
@@ -365,45 +412,6 @@ exports[`the Onboarding component should render Onboarding 1`] = `
                             }
                           }
                         />
-                      </View>
-                      <View
-                        onLayout={[Function]}
-                        pointerEvents="none"
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "justifyContent": "center",
-                            "opacity": 1,
-                            "position": "absolute",
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "scale": 1,
-                              },
-                              Object {
-                                "translateX": 0,
-                              },
-                              Object {
-                                "translateY": 0,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <Text
-                          style={
-                            Object {
-                              "backgroundColor": "transparent",
-                              "color": "#505050",
-                              "fontFamily": "Colfax-Bold",
-                              "fontSize": 12,
-                              "lineHeight": 17.28,
-                              "paddingVertical": 4,
-                            }
-                          }
-                        >
-                          First Name
-                        </Text>
                       </View>
                       <View
                         style={
@@ -480,35 +488,82 @@ exports[`the Onboarding component should render Onboarding 1`] = `
                         <View
                           style={
                             Object {
+                              "alignSelf": "flex-end",
                               "flex": 1,
-                              "opacity": 0,
                             }
                           }
                         >
-                          <TextInput
-                            allowFontScaling={true}
-                            editable={false}
-                            enablesReturnKeyAutomatically={true}
-                            onBlur={[Function]}
-                            onChangeText={[Function]}
-                            onFocus={[Function]}
-                            onSubmitEditing={[Function]}
-                            placeholderTextColor="rgba(48, 48, 48, 0.6)"
-                            rejectResponderTermination={true}
-                            returnKeyType="next"
+                          <View
                             style={
                               Object {
-                                "color": "#303030",
-                                "fontFamily": "Colfax-Bold",
-                                "fontSize": 14,
-                                "height": 38,
-                                "paddingVertical": 0,
+                                "opacity": 0,
                               }
                             }
-                            textContentType="familyName"
-                            type="text"
-                            underlineColorAndroid="transparent"
-                          />
+                          >
+                            <TextInput
+                              allowFontScaling={true}
+                              editable={false}
+                              enablesReturnKeyAutomatically={true}
+                              onBlur={[Function]}
+                              onChangeText={[Function]}
+                              onFocus={[Function]}
+                              onSubmitEditing={[Function]}
+                              placeholderTextColor="rgba(48, 48, 48, 0.6)"
+                              rejectResponderTermination={true}
+                              returnKeyType="next"
+                              style={
+                                Object {
+                                  "color": "#303030",
+                                  "fontFamily": "Colfax-Bold",
+                                  "fontSize": 14,
+                                  "height": 38,
+                                  "paddingVertical": 0,
+                                }
+                              }
+                              textContentType="familyName"
+                              type="text"
+                              underlineColorAndroid="transparent"
+                            />
+                          </View>
+                          <View
+                            onLayout={[Function]}
+                            pointerEvents="none"
+                            style={
+                              Object {
+                                "bottom": 0,
+                                "justifyContent": "center",
+                                "opacity": 1,
+                                "position": "absolute",
+                                "top": 0,
+                                "transform": Array [
+                                  Object {
+                                    "scale": 1,
+                                  },
+                                  Object {
+                                    "translateX": 0,
+                                  },
+                                  Object {
+                                    "translateY": 0,
+                                  },
+                                ],
+                              }
+                            }
+                          >
+                            <Text
+                              style={
+                                Object {
+                                  "backgroundColor": "transparent",
+                                  "color": "#505050",
+                                  "fontFamily": "Colfax-Bold",
+                                  "fontSize": 12,
+                                  "lineHeight": 17.28,
+                                  "paddingVertical": 4,
+                                }
+                              }
+                            >
+                              Last Name
+                            </Text>
+                          </View>
                         </View>
                         <View
                           style={
@@ -518,45 +573,6 @@ exports[`the Onboarding component should render Onboarding 1`] = `
                             }
                           }
                         />
-                      </View>
-                      <View
-                        onLayout={[Function]}
-                        pointerEvents="none"
-                        style={
-                          Object {
-                            "bottom": 0,
-                            "justifyContent": "center",
-                            "opacity": 1,
-                            "position": "absolute",
-                            "top": 0,
-                            "transform": Array [
-                              Object {
-                                "scale": 1,
-                              },
-                              Object {
-                                "translateX": 0,
-                              },
-                              Object {
-                                "translateY": 0,
-                              },
-                            ],
-                          }
-                        }
-                      >
-                        <Text
-                          style={
-                            Object {
-                              "backgroundColor": "transparent",
-                              "color": "#505050",
-                              "fontFamily": "Colfax-Bold",
-                              "fontSize": 12,
-                              "lineHeight": 17.28,
-                              "paddingVertical": 4,
-                            }
-                          }
-                        >
-                          Last Name
-                        </Text>
                       </View>
                       <View
                         style={

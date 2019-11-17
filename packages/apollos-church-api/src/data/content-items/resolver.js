@@ -94,6 +94,17 @@ const resolver = {
       title: 'Share via ...',
       message: `${root.title} - ${ContentItem.createSummary(root)}`,
     }),
+    // deprecated
+    communicator: async (
+      { attributeValues: { communicators } = {} },
+      args,
+      { dataSources }
+    ) => {
+      const speakers = await dataSources.ContentItem.getCommunicators(
+        communicators
+      );
+      return speakers[0] || null;
+    },
     communicators: (
       { attributeValues: { communicators } = {} },
       args,
