@@ -60,6 +60,9 @@ const colors = {
 
   alert: '#c64f55',
   wordOfChrist: '#8b0000',
+  shadows: {
+    default: 'rgba(8, 0, 20, 0.25)',
+  },
 };
 
 /* Base Typography sizing and fonts.
