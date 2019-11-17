@@ -17,6 +17,7 @@ const LiveProvider = (props) => (
 const LiveConsumer = ({ contentId, children }) => (
   <Consumer>
     {(liveStreams) => {
+      if (!contentId) return children(liveStreams);
       const stream = liveStreams.find(
         (s) => get(s, 'contentItem.id') === contentId
       );
