@@ -109,7 +109,6 @@ class MapView extends Component {
       currentCampus,
       ...publicCampuses
         .filter(({ id }) => id !== currentCampus.id)
-        .filter(({ name }) => name !== 'Web'),
     ];
   }
 
