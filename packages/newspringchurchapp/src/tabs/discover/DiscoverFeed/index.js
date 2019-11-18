@@ -22,7 +22,7 @@ const renderItem = (
 ) => (
   <TileContentFeed
     id={item.id}
-    name={item.name.replace('NewSpring - ', '').replace('Rock - ', '')}
+    name={item.name.split(' - ').pop()}
     content={get(item, 'childContentItemsConnection.edges', []).map(
       (edge) => edge.node
     )}

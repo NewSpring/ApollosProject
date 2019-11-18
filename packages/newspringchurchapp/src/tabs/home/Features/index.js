@@ -104,9 +104,7 @@ const Features = memo(({ navigation }) => (
                 actions={actions.map((action) => ({
                   ...action,
                   subtitle: action.subtitle
-                    ? action.subtitle
-                        .replace('NewSpring - ', '')
-                        .replace('Rock - ', '')
+                    ? action.subtitle.split(' - ').pop()
                     : '',
                 }))}
                 onPressActionItem={({ action, relatedNode }) => {

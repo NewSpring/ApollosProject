@@ -88,9 +88,7 @@ const WeekendContentItem = ({ content, loading }) => {
                             isLive={!!liveStream}
                             title={
                               content.parentChannel &&
-                              content.parentChannel.name
-                                .replace('NewSpring - ', '')
-                                .replace('Rock - ', '')
+                              content.parentChannel.name.split(' - ').pop()
                             }
                           />
                         )}
