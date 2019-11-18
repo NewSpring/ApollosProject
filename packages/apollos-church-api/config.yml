@@ -155,19 +155,20 @@ HOME_FEATURES:
   #- title: FOR YOU
   #algorithms: [PERSONA_FEED]
   #subtitle: Explore what God calls you to today
-  #- title: BULLETIN
-  #subtitle: What's happening at Newspring?
-  #algorithms:
-  #- type: CONTENT_CHANNEL
-  #arguments:
-  #contentChannelId: 27
   #- type: UPCOMING_EVENTS
-  - title: FOR STAFF
+  - title:
     subtitle: Updates for NewSpring staff
     algorithms:
       - type: STAFF_NEWS
         arguments:
           contentChannelId: 513
+          limit: 3
+  - title:
+    subtitle: Next steps
+    algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 459
           limit: 3
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
