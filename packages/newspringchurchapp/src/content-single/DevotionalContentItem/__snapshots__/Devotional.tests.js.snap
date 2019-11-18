@@ -258,42 +258,32 @@ exports[`the Devotional component renders a devotional 1`] = `
           }
         }
       >
-        <RCTScrollView
-          alwaysBounceHorizontal={false}
-          automaticallyAdjustContentInsets={false}
-          bounces={false}
-          contentContainerStyle={null}
-          contentOffset={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          directionalLockEnabled={true}
-          horizontal={true}
-          keyboardDismissMode="on-drag"
-          keyboardShouldPersistTaps="always"
-          onMomentumScrollEnd={[Function]}
-          onScroll={[Function]}
-          overScrollMode="never"
-          pagingEnabled={true}
-          scrollEnabled={true}
-          scrollEventThrottle={1}
-          scrollsToTop={false}
-          showsHorizontalScrollIndicator={false}
-          style={
-            Object {
-              "flex": 1,
-            }
-          }
+        <View
+          enabled={true}
+          minDeltaX={10}
+          onGestureEvent={[Function]}
+          onHandlerStateChange={[Function]}
         >
-          <View>
+          <View
+            style={
+              Object {
+                "alignItems": "stretch",
+                "flex": 1,
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "width": 1500,
+              }
+            }
+          >
             <View
               accessibilityElementsHidden={false}
               importantForAccessibility="auto"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -355,7 +345,7 @@ exports[`the Devotional component renders a devotional 1`] = `
                           "borderRadius": 16,
                           "marginHorizontal": 16,
                           "marginVertical": 12,
-                          "shadowColor": "rgba(133, 133, 133, 0.6)",
+                          "shadowColor": "rgba(8, 0, 20, 0.25)",
                           "shadowOffset": Object {
                             "height": 1,
                             "width": 0,
@@ -430,7 +420,6 @@ exports[`the Devotional component renders a devotional 1`] = `
               importantForAccessibility="no-hide-descendants"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -898,7 +887,7 @@ exports[`the Devotional component renders a devotional 1`] = `
               </RCTScrollView>
             </View>
           </View>
-        </RCTScrollView>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1163,42 +1152,32 @@ exports[`the Devotional component renders a loading state of null 1`] = `
           }
         }
       >
-        <RCTScrollView
-          alwaysBounceHorizontal={false}
-          automaticallyAdjustContentInsets={false}
-          bounces={false}
-          contentContainerStyle={null}
-          contentOffset={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          directionalLockEnabled={true}
-          horizontal={true}
-          keyboardDismissMode="on-drag"
-          keyboardShouldPersistTaps="always"
-          onMomentumScrollEnd={[Function]}
-          onScroll={[Function]}
-          overScrollMode="never"
-          pagingEnabled={true}
-          scrollEnabled={true}
-          scrollEventThrottle={1}
-          scrollsToTop={false}
-          showsHorizontalScrollIndicator={false}
-          style={
-            Object {
-              "flex": 1,
-            }
-          }
+        <View
+          enabled={true}
+          minDeltaX={10}
+          onGestureEvent={[Function]}
+          onHandlerStateChange={[Function]}
         >
-          <View>
+          <View
+            style={
+              Object {
+                "alignItems": "stretch",
+                "flex": 1,
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "width": 1500,
+              }
+            }
+          >
             <View
               accessibilityElementsHidden={false}
               importantForAccessibility="auto"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -1248,7 +1227,6 @@ exports[`the Devotional component renders a loading state of null 1`] = `
               importantForAccessibility="no-hide-descendants"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -1267,7 +1245,7 @@ exports[`the Devotional component renders a loading state of null 1`] = `
               </RCTScrollView>
             </View>
           </View>
-        </RCTScrollView>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1532,42 +1510,32 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
           }
         }
       >
-        <RCTScrollView
-          alwaysBounceHorizontal={false}
-          automaticallyAdjustContentInsets={false}
-          bounces={false}
-          contentContainerStyle={null}
-          contentOffset={
-            Object {
-              "x": 0,
-              "y": 0,
-            }
-          }
-          directionalLockEnabled={true}
-          horizontal={true}
-          keyboardDismissMode="on-drag"
-          keyboardShouldPersistTaps="always"
-          onMomentumScrollEnd={[Function]}
-          onScroll={[Function]}
-          overScrollMode="never"
-          pagingEnabled={true}
-          scrollEnabled={true}
-          scrollEventThrottle={1}
-          scrollsToTop={false}
-          showsHorizontalScrollIndicator={false}
-          style={
-            Object {
-              "flex": 1,
-            }
-          }
+        <View
+          enabled={true}
+          minDeltaX={10}
+          onGestureEvent={[Function]}
+          onHandlerStateChange={[Function]}
         >
-          <View>
+          <View
+            style={
+              Object {
+                "alignItems": "stretch",
+                "flex": 1,
+                "flexDirection": "row",
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "width": 1500,
+              }
+            }
+          >
             <View
               accessibilityElementsHidden={false}
               importantForAccessibility="auto"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -1629,7 +1597,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
                           "borderRadius": 16,
                           "marginHorizontal": 16,
                           "marginVertical": 12,
-                          "shadowColor": "rgba(133, 133, 133, 0.6)",
+                          "shadowColor": "rgba(8, 0, 20, 0.25)",
                           "shadowOffset": Object {
                             "height": 1,
                             "width": 0,
@@ -1704,7 +1672,6 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
               importantForAccessibility="no-hide-descendants"
               style={
                 Object {
-                  "overflow": "hidden",
                   "width": 750,
                 }
               }
@@ -2172,7 +2139,7 @@ exports[`the Devotional component renders even with empty scripture array 1`] = 
               </RCTScrollView>
             </View>
           </View>
-        </RCTScrollView>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>

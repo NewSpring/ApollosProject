@@ -5,8 +5,13 @@ const peopleSchema = gql`
   ${Person.schema}
 
   extend type Person {
+    impersonationParameter: String! @deprecated(reason: "No longer used.")
     isGroupLeader: Boolean
     isStaff: Boolean
+  }
+
+  extend type Query {
+    forgotPasswordURL: String
   }
 `;
 
