@@ -101,6 +101,7 @@ class MapView extends Component {
 
   get sortedCampuses() {
     const { currentCampus = null, campuses = [] } = this.props;
+    const publicCampuses = campuses.filter(({ name }) => name !== 'Web');
     if (!this.props.currentCampus) {
       return campuses.filter(({ name }) => name !== 'Web');
     }
