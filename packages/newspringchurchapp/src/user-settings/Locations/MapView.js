@@ -103,7 +103,7 @@ class MapView extends Component {
     const { currentCampus = null, campuses = [] } = this.props;
     const publicCampuses = campuses.filter(({ name }) => name !== 'Web');
     if (!this.props.currentCampus) {
-      return campuses.filter(({ name }) => name !== 'Web');
+      return publicCampuses;
     }
     return [
       currentCampus,
