@@ -192,18 +192,14 @@ class MapView extends Component {
           <Animated.ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            snapToInterval={CARD_WIDTH + 8}
-            snapToAlignment={
-              'start' // account for padding
-            }
+            snapToInterval={CARD_WIDTH + 8} // account for padding
+            snapToAlignment={'start'}
             decelerationRate={'fast'}
             contentContainerStyle={{
               paddingHorizontal: this.props.theme.sizing.baseUnit * 0.75,
             }}
             ref={(ref) => (this.scrollView = ref)} // eslint-disable-line
-            scrollEventThrottle={
-              16 // roughtly 1000ms/60fps = 16ms
-            }
+            scrollEventThrottle={16} // roughtly 1000ms/60fps = 16ms
             onScroll={Animated.event(
               [
                 {
