@@ -177,7 +177,7 @@ class MapView extends Component {
             const campusOpacity = {
               opacity: interpolations[index].opacity,
             };
-            return (
+            return campus.name !== 'Web' ? (
               <Marker
                 onPress={() => this.scrollToIndex(index)}
                 key={campus.id}
@@ -185,7 +185,7 @@ class MapView extends Component {
                 latitude={campus.latitude}
                 longitude={campus.longitude}
               />
-            );
+            ) : null;
           })}
         </FlexedMapView>
         <Footer>
@@ -213,19 +213,21 @@ class MapView extends Component {
               { useNativeDriver: true }
             )}
           >
-            {this.sortedCampuses.map((campus) => (
-              <Touchable
-                key={campus.id}
-                onPress={() => onLocationSelect(campus)}
-              >
-                <StyledCampusCard
-                  distance={campus.distanceFromLocation}
-                  title={campus.name}
-                  description={getCampusAddress(campus)}
-                  images={[campus.image]}
-                />
-              </Touchable>
-            ))}
+            {this.sortedCampuses.map((campus) =>
+              campus.name !== 'Web' ? (
+                <Touchable
+                  key={campus.id}
+                  onPress={() => onLocationSelect(campus)}
+                >
+                  <StyledCampusCard
+                    distance={campus.distanceFromLocation}
+                    title={campus.name}
+                    description={getCampusAddress(campus)}
+                    images={[campus.image]}
+                  />
+                </Touchable>
+              ) : null
+            )}
           </Animated.ScrollView>
           <MediaPlayerSpacer>
             <PaddedView>
