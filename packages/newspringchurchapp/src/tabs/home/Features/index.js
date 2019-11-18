@@ -103,9 +103,7 @@ const Features = memo(({ navigation }) => (
                 }
                 actions={actions.map((action) => ({
                   ...action,
-                  subtitle: action.subtitle
-                    ? action.subtitle.split(' - ').pop()
-                    : '',
+                  subtitle: '',
                 }))}
                 onPressActionItem={({ action, relatedNode }) => {
                   if (action === 'READ_CONTENT') {
