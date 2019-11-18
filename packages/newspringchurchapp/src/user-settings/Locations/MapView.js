@@ -102,11 +102,13 @@ class MapView extends Component {
   get sortedCampuses() {
     const { currentCampus = null, campuses = [] } = this.props;
     if (!this.props.currentCampus) {
-      return campuses;
+      return campuses.filter(({ name }) => name !== 'Web');
     }
     return [
       currentCampus,
-      ...campuses.filter(({ id }) => id !== currentCampus.id),
+      ...campuses
+        .filter(({ id }) => id !== currentCampus.id)
+        .filter(({ name }) => name !== 'Web'),
     ];
   }
 
@@ -174,10 +176,8 @@ class MapView extends Component {
           }}
         >
           {this.sortedCampuses.map((campus, index) => {
-            const campusOpacity = {
-              opacity: interpolations[index].opacity,
-            };
-            return campus.name !== 'Web' ? (
+            const campusOpacity = { opacity: interpolations[index].opacity };
+            return (
               <Marker
                 onPress={() => this.scrollToIndex(index)}
                 key={campus.id}
@@ -185,21 +185,25 @@ class MapView extends Component {
                 latitude={campus.latitude}
                 longitude={campus.longitude}
               />
-            ) : null;
+            );
           })}
         </FlexedMapView>
         <Footer>
           <Animated.ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            snapToInterval={CARD_WIDTH + 8} // account for padding
-            snapToAlignment={'start'}
+            snapToInterval={CARD_WIDTH + 8}
+            snapToAlignment={
+              'start' // account for padding
+            }
             decelerationRate={'fast'}
             contentContainerStyle={{
               paddingHorizontal: this.props.theme.sizing.baseUnit * 0.75,
             }}
             ref={(ref) => (this.scrollView = ref)} // eslint-disable-line
-            scrollEventThrottle={16} // roughtly 1000ms/60fps = 16ms
+            scrollEventThrottle={
+              16 // roughtly 1000ms/60fps = 16ms
+            }
             onScroll={Animated.event(
               [
                 {
@@ -213,21 +217,19 @@ class MapView extends Component {
               { useNativeDriver: true }
             )}
           >
-            {this.sortedCampuses.map((campus) =>
-              campus.name !== 'Web' ? (
-                <Touchable
-                  key={campus.id}
-                  onPress={() => onLocationSelect(campus)}
-                >
-                  <StyledCampusCard
-                    distance={campus.distanceFromLocation}
-                    title={campus.name}
-                    description={getCampusAddress(campus)}
-                    images={[campus.image]}
-                  />
-                </Touchable>
-              ) : null
-            )}
+            {this.sortedCampuses.map((campus) => (
+              <Touchable
+                key={campus.id}
+                onPress={() => onLocationSelect(campus)}
+              >
+                <StyledCampusCard
+                  distance={campus.distanceFromLocation}
+                  title={campus.name}
+                  description={getCampusAddress(campus)}
+                  images={[campus.image]}
+                />
+              </Touchable>
+            ))}
           </Animated.ScrollView>
           <MediaPlayerSpacer>
             <PaddedView>
