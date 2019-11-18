@@ -84,7 +84,7 @@
                 <data
                     android:scheme="https"
                     android:host="newspring.cc"
-                    android:pathPrefix="/staffcontent" />
+                    android:pathPrefix="/staff/news" />
                 <data
                     android:scheme="https"
                     android:host="ns.link"

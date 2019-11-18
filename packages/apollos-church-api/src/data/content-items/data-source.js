@@ -1,8 +1,9 @@
 import { ContentItem as oldContentItem } from '@apollosproject/data-connector-rock';
-import { get } from 'lodash';
+import { get, flatten } from 'lodash';
 import ApollosConfig from '@apollosproject/config';
 import { parseKeyValueAttribute } from '@apollosproject/rock-apollo-data-source';
 import sanitizeHtmlNode from 'sanitize-html';
+import Color from 'color';
 import { createAssetUrl } from '../utils';
 
 const { ROCK, ROCK_CONSTANTS } = ApollosConfig;
@@ -281,10 +282,41 @@ export default class ContentItem extends oldContentItem.dataSource {
     const contentItemSlug = await this.request('ContentChannelItemSlugs')
       .filter(`Slug eq '${slug}'`)
       .first();
-    if (!contentItemSlug) throw new Error('Slug does not exist.');
+    if (!contentItemSlug) throw new Error(`Slug "${slug}" does not exist.`);
 
     return this.getFromId(`${contentItemSlug.contentChannelItemId}`);
   };
+
+  async getTheme({ id, attributeValues: { backgroundColor } }) {
+    const primary = get(backgroundColor, 'value');
+    const type = Color(primary).luminosity() > 0.5 ? 'LIGHT' : 'DARK';
+
+    const theme = {
+      type,
+      colors: {
+        primary,
+      },
+    };
+
+    if (!primary && id) {
+      const parentItemsCursor = await this.getCursorByChildContentItemId(id);
+      if (parentItemsCursor) {
+        const parentItems = await parentItemsCursor.get();
+        if (parentItems.length) {
+          const parentThemes = flatten(
+            await Promise.all(parentItems.map((i) => this.getTheme(i)))
+          ).filter((v) => v);
+          if (parentThemes && parentThemes.length) return parentThemes[0];
+        }
+      }
+    }
+
+    // if there's still no primary color set in the CMS, we want to return a null theme so that
+    // the front end uses its default theme:
+    if (!theme.colors.primary) return null;
+
+    return theme;
+  }
 
   coreSummaryMethod = this.createSummary;
 
@@ -298,5 +330,17 @@ export default class ContentItem extends oldContentItem.dataSource {
       });
     }
     return this.coreSummaryMethod(root);
+  };
+
+  corePickBestImage = this.pickBestImage;
+
+  pickBestImage = ({ images }) => {
+    // TODO: there's probably a _much_ more explicit and better way to handle this
+    const appImage = images.find((image) =>
+      image.key.toLowerCase().includes('app')
+    );
+    if (appImage) return { ...appImage, __typename: 'ImageMedia' };
+
+    return this.corePickBestImage({ images });
   };
 }
