@@ -176,7 +176,9 @@ class MapView extends Component {
           }}
         >
           {this.sortedCampuses.map((campus, index) => {
-            const campusOpacity = { opacity: interpolations[index].opacity };
+            const campusOpacity = {
+              opacity: interpolations[index].opacity,
+            };
             return (
               <Marker
                 onPress={() => this.scrollToIndex(index)}
