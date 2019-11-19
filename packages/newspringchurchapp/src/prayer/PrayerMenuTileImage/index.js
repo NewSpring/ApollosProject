@@ -5,7 +5,7 @@ import {
   Card,
   CardContent,
   CardImage,
-  H5,
+  H4,
   styled,
   withTheme,
 } from '@apollosproject/ui-kit';
@@ -20,7 +20,7 @@ const TitleView = styled(({ theme }) => ({
 
 const Title = styled({
   color: 'white',
-})(H5);
+})(H4);
 
 const SquareCard = styled(() => ({
   width: 150,
