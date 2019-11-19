@@ -121,14 +121,15 @@ const App = () => (
             ref={(navigatorRef) => {
               NavigationService.setTopLevelNavigator(navigatorRef);
             }}
-            onNavigationStateChange={(prevState, currentState) => {
+            onNavigationStateChange={(prevState, currentState, action) => {
               const currentScreen = getActiveRouteName(currentState);
               const prevScreen = getActiveRouteName(prevState);
 
               if (prevScreen !== currentScreen) {
-                // the line below uses the Google Analytics tracker
-                // change the tracker here to use other Mobile analytics SDK.
-                track({ eventName: `Viewed ${currentScreen}` });
+                track({
+                  eventName: `Viewed ${currentScreen}`,
+                  properties: { params: action.params },
+                });
               }
             }}
           />
