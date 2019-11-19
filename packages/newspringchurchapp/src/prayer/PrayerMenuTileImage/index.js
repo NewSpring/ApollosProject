@@ -8,9 +8,8 @@ import { H5, styled } from '@apollosproject/ui-kit';
 const CardView = styled(({ theme }) => ({
   borderRadius: theme.sizing.baseUnit,
   overflow: 'hidden',
-  width: '100%',
-  height: '100%',
-  aspectRatio: 1.75,
+  width: 150,
+  height: 150,
 }))(View);
 
 const StyledImage = styled({
