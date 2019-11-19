@@ -102,13 +102,13 @@ class MapView extends Component {
   get sortedCampuses() {
     const { currentCampus = null, campuses = [] } = this.props;
     const publicCampuses = campuses.filter(({ name }) => name !== 'Web');
-    if (!this.props.currentCampus) {
-      return publicCampuses;
+    if (currentCampus && currentCampus.name !== 'Web') {
+      return [
+        currentCampus,
+        ...publicCampuses.filter(({ id }) => id !== currentCampus.id),
+      ];
     }
-    return [
-      currentCampus,
-      ...publicCampuses.filter(({ id }) => id !== currentCampus.id),
-    ];
+    return publicCampuses;
   }
 
   scrollToIndex = (index) => {
