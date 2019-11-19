@@ -5,9 +5,8 @@ exports[`The AddPrayerCard component should render 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomLeftRadius": 16,
       "justifyContent": "center",
-      "paddingVertical": 48,
+      "paddingBottom": 16,
     }
   }
 >
@@ -294,9 +293,8 @@ exports[`The AddPrayerCard component should render a custom title 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomLeftRadius": 16,
       "justifyContent": "center",
-      "paddingVertical": 48,
+      "paddingBottom": 16,
     }
   }
 >
