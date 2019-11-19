@@ -9,6 +9,7 @@ import {
   Touchable,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
+import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 import PrayerHeader from '../PrayerHeader';
 
 const GreyH5 = styled(({ theme }) => ({
@@ -58,23 +59,28 @@ const PrayerSingle = memo(
       ) : null}
       <PrayerText>{prayer.text}</PrayerText>
       {showHelp ? (
-        <Touchable
-          onPress={() => {
-            props.navigation.navigate('ContentSingle', {
-              // TODO: this should come from a content channel
-              itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
-              itemTitle: 'Learning how to pray like Jesus',
-              isolated: true,
-            });
-          }}
-        >
-          <View>
-            <ChannelLabel
-              icon="information"
-              label="Not sure how to pray? Read this."
-            />
-          </View>
-        </Touchable>
+        <AnalyticsConsumer>
+          {({ track }) => (
+            <Touchable
+              onPress={() => {
+                props.navigation.navigate('ContentSingle', {
+                  // TODO: this should come from a content channel
+                  itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
+                  itemTitle: 'Learning how to pray like Jesus',
+                  isolated: true,
+                });
+                track({ eventName: "Clicked 'How to Pray'" });
+              }}
+            >
+              <View>
+                <ChannelLabel
+                  icon="information"
+                  label="Not sure how to pray? Read this."
+                />
+              </View>
+            </Touchable>
+          )}
+        </AnalyticsConsumer>
       ) : null}
     </View>
   )

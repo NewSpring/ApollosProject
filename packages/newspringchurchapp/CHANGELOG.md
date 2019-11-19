@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.5.8](https://github.com/NewSpring/ApollosProject/compare/v7.5.7...v7.5.8) (2019-11-11)
+
+
+### Bug Fixes
+
+* [DEV-4211] Release 1.2.2 ([#370](https://github.com/NewSpring/ApollosProject/issues/370)) ([dbd0325](https://github.com/NewSpring/ApollosProject/commit/dbd0325))
+
+
+
 ### [7.5.7](https://github.com/NewSpring/ApollosProject/compare/v7.5.6...v7.5.7) (2019-11-05)
 
 

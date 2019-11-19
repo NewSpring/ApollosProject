@@ -5,6 +5,7 @@ export default gql`
   ${ContentItem.schema}
 
   extend type WeekendContentItem {
+    communicator: Person @deprecated(reason: "Use communicators")
     communicators: [Person]
     guestCommunicators: [String]
     sermonDate: String

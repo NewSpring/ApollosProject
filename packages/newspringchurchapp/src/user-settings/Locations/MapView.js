@@ -83,9 +83,10 @@ class MapView extends Component {
   }
 
   componentDidUpdate(oldProps) {
+    // update mapview if there are campuses and the location changes
     if (
-      oldProps.userLocation !== this.props.userLocation ||
-      oldProps.campuses.length !== this.props.campuses.length
+      this.props.campuses.length &&
+      oldProps.userLocation !== this.props.userLocation
     ) {
       this.updateCoordinates({ value: this.previousScrollPosition });
     }
@@ -100,13 +101,14 @@ class MapView extends Component {
 
   get sortedCampuses() {
     const { currentCampus = null, campuses = [] } = this.props;
-    if (!this.props.currentCampus) {
-      return campuses;
+    const publicCampuses = campuses.filter(({ name }) => name !== 'Web');
+    if (currentCampus && currentCampus.name !== 'Web') {
+      return [
+        currentCampus,
+        ...publicCampuses.filter(({ id }) => id !== currentCampus.id),
+      ];
     }
-    return [
-      currentCampus,
-      ...campuses.filter(({ id }) => id !== currentCampus.id),
-    ];
+    return publicCampuses;
   }
 
   scrollToIndex = (index) => {
