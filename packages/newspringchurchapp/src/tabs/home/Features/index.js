@@ -101,14 +101,7 @@ const Features = memo(({ navigation }) => (
                     <H3 numberOfLines={3}>{subtitle}</H3>
                   </>
                 }
-                actions={actions.map((action) => ({
-                  ...action,
-                  subtitle: action.subtitle
-                    ? action.subtitle
-                        .replace('NewSpring - ', '')
-                        .replace('Rock - ', '')
-                    : '',
-                }))}
+                actions={actions}
                 onPressActionItem={({ action, relatedNode }) => {
                   if (action === 'READ_CONTENT') {
                     navigation.navigate('ContentSingle', {

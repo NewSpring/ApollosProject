@@ -18,8 +18,8 @@ const LiveCard = styled(({ theme }) => ({
 
 const LiveNowButton = () => (
   <LiveConsumer>
-    {(liveStream) => {
-      const isLive = !!liveStream;
+    {(liveStreams) => {
+      const isLive = !!liveStreams.length;
 
       return isLive ? (
         <WebBrowserConsumer>

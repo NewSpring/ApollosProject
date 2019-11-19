@@ -10,7 +10,6 @@ export default gql`
         actions {
           id
           title
-          subtitle
           action
           image {
             sources {
