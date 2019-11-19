@@ -60,7 +60,7 @@ exports[`Display Native Map with Locations Render a native map view 1`] = `
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -215,7 +215,7 @@ South Barrington, IL 60010-6143
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -370,7 +370,7 @@ Anderson, SC 29621-3619
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -525,7 +525,7 @@ Richardson, TX 75080-5525
                 "borderRadius": 16,
                 "margin": 8,
                 "marginHorizontal": 4,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,

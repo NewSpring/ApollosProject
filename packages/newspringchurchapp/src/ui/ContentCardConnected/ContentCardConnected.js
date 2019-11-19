@@ -31,13 +31,7 @@ const ContentCardConnected = memo(
                   {...node}
                   hasAction={hasMedia}
                   isLive={isLive}
-                  labelText={
-                    isLive
-                      ? 'Live'
-                      : labelText
-                          .replace('NewSpring - ', '')
-                          .replace('Rock - ', '')
-                  }
+                  labelText={isLive ? 'Live' : labelText.split(' - ').pop()}
                   {...otherProps}
                   coverImage={coverImage}
                   isLoading={loading}

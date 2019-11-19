@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { PaddedView, FlexedView, styled, H3 } from '@apollosproject/ui-kit';
 import AddPrayerCard from './AddPrayer/AddPrayerCard';
 import PrayerTabView from './PrayerTabView';
@@ -7,29 +8,30 @@ const StyledH3 = styled(({ theme }) => ({
   color: theme.colors.white,
 }))(H3);
 
-const MenuView = styled(({ theme }) => ({
+const FlexedScrollView = styled(({ theme }) => ({
+  flex: 1,
   paddingTop: theme.sizing.baseUnit,
-}))(FlexedView);
+}))(ScrollView);
 
-const Container = styled(({ theme }) => ({
+const BackgroundView = styled(({ theme }) => ({
   backgroundColor: theme.colors.tertiary,
 }))(FlexedView);
 
 const PrayerMenu = ({ ...props }) => (
-  <Container>
+  <BackgroundView>
     <AddPrayerCard
       description={
         'Share a prayer request anonymously or publicly with your NewSpring Church family.'
       }
       {...props}
     />
-    <MenuView>
+    <FlexedScrollView>
       <PaddedView>
         <StyledH3>Pray for Others</StyledH3>
       </PaddedView>
       <PrayerTabView {...props} />
-    </MenuView>
-  </Container>
+    </FlexedScrollView>
+  </BackgroundView>
 );
 
 export default PrayerMenu;

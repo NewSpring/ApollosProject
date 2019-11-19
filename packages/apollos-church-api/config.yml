@@ -19,6 +19,7 @@ ROCK:
   API_TOKEN: ${ROCK_TOKEN}
   IMAGE_URL: https://s3.amazonaws.com
   SHARE_URL: https://newspring.cc
+  FORGOT_PASSWORD_URL: https://rock.newspring.cc/page/56
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
   USE_PLUGIN: true
@@ -156,19 +157,18 @@ HOME_FEATURES:
   #- title: FOR YOU
   #algorithms: [PERSONA_FEED]
   #subtitle: Explore what God calls you to today
-  #- title: BULLETIN
-  #subtitle: What's happening at Newspring?
-  #algorithms:
-  #- type: CONTENT_CHANNEL
-  #arguments:
-  #contentChannelId: 27
   #- type: UPCOMING_EVENTS
-  - title: FOR STAFF
-    subtitle: Updates for NewSpring staff
+  - subtitle: Updates for NewSpring staff
     algorithms:
       - type: STAFF_NEWS
         arguments:
           contentChannelId: 513
+          limit: 3
+  - subtitle: Next steps
+    algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 459
           limit: 3
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
