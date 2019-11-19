@@ -28,7 +28,7 @@ const SaveButtonConnected = memo(({ prayerID, saved, toggleSavedState }) => (
                       variables: { nodeId: prayerID },
                       refetchQueries: [{ query: GET_SAVED_PRAYERS }],
                     });
-                  track({ eventName: saved ? 'Unsave' : 'Save' });
+                  track({ eventName: saved ? 'Unsaved Prayer' : 'Saved Prayer' });
                 }}
               />
             )}
