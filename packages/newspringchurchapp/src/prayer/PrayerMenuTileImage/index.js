@@ -1,22 +1,14 @@
 import React, { memo } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Color from 'color';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
-import { H5, styled } from '@apollosproject/ui-kit';
-
-const CardView = styled(({ theme }) => ({
-  borderRadius: theme.sizing.baseUnit,
-  overflow: 'hidden',
-  width: 150,
-  height: 150,
-}))(View);
-
-const StyledImage = styled({
-  height: '100%',
-  width: '100%',
-  resizeMode: 'cover',
-})(Image);
+import {
+  Card,
+  CardContent,
+  CardImage,
+  H5,
+  styled,
+  withTheme,
+} from '@apollosproject/ui-kit';
 
 const TitleView = styled(({ theme }) => ({
   position: 'absolute',
@@ -30,29 +22,41 @@ const Title = styled({
   color: 'white',
 })(H5);
 
-const Overlay = styled(StyleSheet.absoluteFillObject)(LinearGradient);
+const SquareCard = styled(() => ({
+  width: 150,
+  height: 150,
+}))(Card);
 
-const PrayerMenuTileImage = memo(({ image, overlayColor, text }) => (
-  <CardView>
-    <StyledImage source={{ uri: image }} />
-    <Overlay
-      colors={[
-        `${Color(overlayColor)
-          .fade(0.2)
-          .string()}`,
-        // Android needs two colors 🙄
-        `${Color(overlayColor)
-          .fade(0.2)
-          .string()}`,
-      ]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 0, y: 1 }}
-      locations={[0, 1]}
-    />
-    <TitleView>
-      <Title>{text}</Title>
-    </TitleView>
-  </CardView>
+const StyledCardContent = styled(
+  ({ theme }) => ({
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    alignItems: 'flex-start', // needed to make `Label` display as an "inline" element
+    paddingHorizontal: theme.sizing.baseUnit, // TODO: refactor CardContent to have this be the default
+    paddingBottom: theme.sizing.baseUnit * 1.5, // TODO: refactor CardContent to have this be the default
+  }),
+  'ui-kit.HorizontalHighlightCard.Content'
+)(CardContent);
+
+const StyledCardImage = withTheme(({ theme }) => ({
+  minAspectRatio: 1,
+  maxAspectRatio: 1,
+  maintainAspectRatio: true,
+  forceRatio: 1, // fixes loading state
+  overlayColor: theme.colors.primary,
+  overlayType: 'high',
+}))(CardImage);
+
+const PrayerMenuTileImage = memo(({ image, text }) => (
+  <SquareCard>
+    <StyledCardImage source={{ uri: image }} />
+    <StyledCardContent>
+      <TitleView>
+        <Title>{text}</Title>
+      </TitleView>
+    </StyledCardContent>
+  </SquareCard>
 ));
 
 PrayerMenuTileImage.propTypes = {
