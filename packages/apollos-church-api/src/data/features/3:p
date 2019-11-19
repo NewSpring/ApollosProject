@@ -1,1 +1,0 @@
-import { Auth as baseAuth } from '@apollosproject/data-connector-rock';
