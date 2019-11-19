@@ -52,13 +52,20 @@ const SermonNotes = ({
     msg += '\n';
 
     // loop through all features and add them
-    const featuresWithCallbacks = features.map((feature) => {
+    const featuresWithCallbacks = features.map((feature, i) => {
       const featureProps = feature.props.children[0].props;
+
+      // remove all but the last copyright
+      const cleanedFeature = feature;
+      if (features.length !== i && featureProps.scripture)
+        cleanedFeature.props.children[0].props.scripture = cleanedFeature.props.children[0].props.scripture.map(
+          (ref) => ({ ...ref, copyright: '' })
+        );
 
       // assemble starting message without custom notes
       if (featureProps.sharing) {
         msg = `${msg + featureProps.sharing.message}\n\n`;
-        return feature;
+        return cleanedFeature;
       }
 
       // drop in placeholders for custom notes
@@ -67,15 +74,18 @@ const SermonNotes = ({
 
       // add callbacks to swap note placeholders with custom text
       return {
-        ...feature,
+        ...cleanedFeature,
         props: {
-          ...feature.props,
+          ...cleanedFeature.props,
           children: [
             {
-              ...feature.props.children[0],
-              props: { ...feature.props.children[0].props, onNotesChange },
+              ...cleanedFeature.props.children[0],
+              props: {
+                ...cleanedFeature.props.children[0].props,
+                onNotesChange,
+              },
             },
-            feature.props.children[1],
+            cleanedFeature.props.children[1],
           ],
         },
       };
