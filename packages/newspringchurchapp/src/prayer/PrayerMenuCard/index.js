@@ -10,7 +10,7 @@ const enhance = compose(withTheme());
 const Tile = styled(({ theme, selected }) => ({
   marginRight: theme.sizing.baseUnit * 0.25,
   marginTop: theme.sizing.baseUnit * 0.5,
-  marginBottom: theme.sizing.baseUnit * 0.5,
+  marginBottom: theme.sizing.baseUnit * 4,
   height: theme.sizing.baseUnit * 6,
   transform: selected
     ? [{ scaleX: 1 }, { scaleY: 1.1 }]
