@@ -61,7 +61,6 @@ const PrayerMenuTileImage = memo(({ image, text }) => (
 
 PrayerMenuTileImage.propTypes = {
   image: PropTypes.string,
-  overlayColor: PropTypes.string,
   text: PropTypes.string,
 };
 
