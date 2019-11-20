@@ -215,8 +215,27 @@ export default class ContentItem extends oldContentItem.dataSource {
     return items.length;
   };
 
-  getSeriesItemIndex = async (seriesId, childChannelId, childId) => {
+  getSeriesItemIndex = async (
+    seriesId,
+    childChannelId,
+    childId,
+    dateToFind
+  ) => {
     const items = await this.getSeriesItemData(seriesId, childChannelId);
+
+    // sort by date and return the right one
+    if (dateToFind) {
+      let index;
+      const sortedItems = items.sort(
+        (a, b) =>
+          new Date(a.childContentChannelItem.startDateTime) -
+          new Date(b.childContentChannelItem.startDateTime)
+      );
+      sortedItems.forEach(({ childContentChannelItem }, i) => {
+        if (dateToFind === childContentChannelItem.startDateTime) index = i;
+      });
+      return index + 1;
+    }
 
     // get the order of a specific child
     return items.find(

@@ -145,7 +145,7 @@ const resolver = {
     series: ({ id }, args, { dataSources: { ContentItem } }) =>
       ContentItem.getSeries(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
     seriesConnection: async (
-      { id, contentChannelId },
+      { id, contentChannelId, startDateTime },
       args,
       { dataSources: { ContentItem } }
     ) => {
@@ -160,7 +160,8 @@ const resolver = {
         itemIndex: ContentItem.getSeriesItemIndex(
           series.id,
           contentChannelId,
-          id
+          id,
+          startDateTime
         ),
       };
     },
