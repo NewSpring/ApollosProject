@@ -15,7 +15,9 @@ const horizontalContentCardComponentMapper = ({
   ...props
 }) => {
   // map typename to the the card we want to render.
-  switch (get(props, '__typename')) {
+  const typeName = get(props, '__typename');
+
+  switch (typeName) {
     case 'ContentSeriesContentItem':
       return <HorizontalHighlightCard {...props} />;
     case 'MediaContentItem':
@@ -23,21 +25,13 @@ const horizontalContentCardComponentMapper = ({
     case 'WeekendContentItem':
     case 'DevotionalContentItem': {
       let labelText;
-      if (
-        get(props, 'parentChannel.name', '')
-          .split(' - ')
-          .pop() === 'Devotionals'
-      ) {
+      if (typeName === 'DevotionalContentItem') {
         labelText = `${get(props, 'seriesConnection.itemIndex', '')} of ${get(
           props,
           'seriesConnection.itemCount',
           ''
         )}`;
-      } else if (
-        get(props, 'parentChannel.name', '')
-          .split(' - ')
-          .pop() === 'Sermons'
-      ) {
+      } else if (typeName === 'WeekendContentItem') {
         labelText = `Week ${get(props, 'seriesConnection.itemIndex')}`;
       } else {
         labelText = '';
