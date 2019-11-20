@@ -19,15 +19,36 @@ const horizontalContentCardComponentMapper = ({
     case 'MediaContentItem':
       return <HorizontalHighlightCard title={hyphenatedTitle} {...props} />;
     case 'WeekendContentItem':
-    case 'DevotionalContentItem':
+    case 'DevotionalContentItem': {
+      let labelText;
+      if (
+        get(props, 'parentChannel.name', '')
+          .split(' - ')
+          .pop() === 'Devotionals'
+      ) {
+        labelText = `${get(props, 'seriesConnection.itemIndex', '')} of ${get(
+          props,
+          'seriesConnection.itemCount',
+          ''
+        )}`;
+      } else if (
+        get(props, 'parentChannel.name', '')
+          .split(' - ')
+          .pop() === 'Sermons'
+      ) {
+        labelText = `Week ${get(props, 'seriesConnection.itemIndex')}`;
+      } else {
+        labelText = '';
+      }
       return (
         <HorizontalHighlightCard
           title={hyphenatedTitle}
           {...props}
           coverImage={null}
-          labelText={null}
+          labelText={labelText}
         />
       );
+    }
     default:
       return <HorizontalDefaultCard title={title} {...props} />;
   }

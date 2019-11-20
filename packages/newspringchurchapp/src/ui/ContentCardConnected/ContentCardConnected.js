@@ -24,14 +24,16 @@ const ContentCardConnected = memo(
               const coverImage = get(node, 'coverImage.sources', undefined);
               const hasMedia = !!get(node, 'videos.[0].sources[0]', null);
               const isLive = !!liveStream;
-              const labelText = get(node, 'parentChannel.name', '');
+              const labelText = get(node, 'parentChannel.name', '')
+                .split(' - ')
+                .pop();
 
               return (
                 <Component
                   {...node}
                   hasAction={hasMedia}
                   isLive={isLive}
-                  labelText={isLive ? 'Live' : labelText.split(' - ').pop()}
+                  labelText={isLive ? 'Live' : labelText}
                   {...otherProps}
                   coverImage={coverImage}
                   isLoading={loading}
