@@ -145,7 +145,7 @@ const resolver = {
     series: ({ id }, args, { dataSources: { ContentItem } }) =>
       ContentItem.getSeries(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
     seriesConnection: async (
-      { id },
+      { id, contentChannelId },
       args,
       { dataSources: { ContentItem } }
     ) => {
@@ -156,11 +156,12 @@ const resolver = {
 
       return {
         series,
-        itemCount: ContentItem.getSeriesItemCount(
+        itemCount: ContentItem.getSeriesItemCount(series.id, contentChannelId),
+        itemIndex: ContentItem.getSeriesItemIndex(
           series.id,
-          ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID
+          contentChannelId,
+          id
         ),
-        itemIndex: null,
       };
     },
   },
