@@ -21,14 +21,13 @@ const PaddedText = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
 }))(BodyText);
 
-const SermonNotes = ({
-  contentId,
-  features,
-  communicators,
-  guestCommunicators,
-  title,
-  series,
-}) => {
+const SermonNotes = ({ contentItem, features }) => {
+  const {
+    communicators,
+    guestCommunicators,
+    title,
+    seriesConnection,
+  } = contentItem;
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
   const onNotesChange = (id, text) => {
@@ -45,7 +44,7 @@ const SermonNotes = ({
   // assemble exported notes
   useEffect(() => {
     // add title, series, and speakers to top
-    let msg = `${title}\n${series}\n`;
+    let msg = `${title}\n${seriesConnection.series.title}\n`;
     speakers.forEach((speaker) => {
       msg += `${speaker}\n`;
     });
@@ -97,7 +96,7 @@ const SermonNotes = ({
         // />
         <Touchable
           onPress={() => {
-            console.log(contentId); // left in the prop for the to do item above
+            console.log(contentItem.id); // left in the prop for the to do item above
             const message = sharedMsg.replace(
               /\w+Feature:\w+{{(.*?)}}\n\n/gs,
               (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
@@ -114,10 +113,13 @@ const SermonNotes = ({
     >
       <H3>Sermon Notes</H3>
       <H5>{title || ''}</H5>
-      <H5>{series || ''}</H5>
-      {/* TODO
-   <H5>Series - Week # - Date</H5>
-        */}
+      <H5>
+        {seriesConnection.series.title || ''}
+        {seriesConnection.itemIndex
+          ? ` - Week ${seriesConnection.itemIndex}`
+          : ''}
+        {/*  - Date */}
+      </H5>
       {speakers[0] != null
         ? speakers.map((speaker) =>
             speaker !== '' ? <H5 key={speaker}>{speaker}</H5> : null
@@ -131,23 +133,27 @@ const SermonNotes = ({
 };
 
 SermonNotes.propTypes = {
-  contentId: PropTypes.string,
+  contentItem: PropTypes.shape({
+    id: PropTypes.string,
+    communicators: PropTypes.arrayOf(
+      PropTypes.shape({
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
+      })
+    ),
+    guestCommunicators: PropTypes.arrayOf(PropTypes.string),
+    title: PropTypes.string,
+    seriesConnection: PropTypes.shape({
+      series: PropTypes.shape({ title: PropTypes.string }),
+      itemIndex: PropTypes.number,
+    }),
+  }),
   features: PropTypes.arrayOf(PropTypes.element),
-  communicators: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstName: PropTypes.string,
-      lastName: PropTypes.string,
-    })
-  ),
-  guestCommunicators: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string,
-  series: PropTypes.string,
 };
 
 SermonNotes.defaultProps = {
   features: [],
-  communicators: [],
-  guestCommunicators: [],
+  contentItem: { communicators: [], guestCommunicators: [] },
 };
 
 export default SermonNotes;
