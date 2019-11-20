@@ -35,22 +35,20 @@ export default class ContentItem extends oldContentItem.dataSource {
     return query !== '' ? Scripture.getScriptures(query) : null;
   };
 
-  getWistiaVideoUri = async (wistiaHashedId) => {
-    try {
-      const videoData = await this.request('WistiaMedias')
-        .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
-        .select('MediaData')
-        .get();
+  getWistiaAssetUrls = async (wistiaHashedId) => {
+    const videoData = await this.request('WistiaMedias')
+      .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
+      .select('MediaData')
+      .get();
 
-      const mediaData = JSON.parse(videoData[0].mediaData);
-      const videos = mediaData.assets.filter(
-        (asset) => asset.type === 'HlsVideoFile' && asset.height === 720
-      );
-      if (!videos.length) return '';
-      return videos[0].url.replace('.bin', '.m3u8');
-    } catch (error) {
-      return '';
-    }
+    const assetUrls = { video: '', thumbnail: '' };
+    JSON.parse(videoData[0].mediaData).assets.forEach((asset) => {
+      if (asset.type === 'HlsVideoFile' && asset.height === 720)
+        assetUrls.video = asset.url.replace('.bin', '.m3u8');
+      if (asset.type === 'StillImageFile')
+        assetUrls.thumbnail = asset.url.replace('.bin', '/file.jpeg');
+    });
+    return assetUrls;
   };
 
   attributeIsVideo = ({ key, attributes }) =>
@@ -97,13 +95,11 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'ImageMedia',
       key,
       name: attributes[key].name,
-      sources: attributeValues[key].value
-        ? [
-            {
-              uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
-            },
-          ]
-        : [],
+      sources: [
+        {
+          uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+        },
+      ],
     }));
   };
 
@@ -116,19 +112,22 @@ export default class ContentItem extends oldContentItem.dataSource {
       })
     );
 
-    return videoKeys.map((key) => ({
-      __typename: 'VideoMedia',
-      key,
-      name: attributes[key].name,
-      embedHtml: get(attributeValues, 'videoEmbed.value', null),
-      sources: attributeValues[key].value
-        ? [
-            {
-              uri: this.getWistiaVideoUri(attributeValues[key].value),
-            },
-          ]
-        : [],
-    }));
+    return Promise.all(
+      videoKeys.map(async (key) => {
+        const urls = await this.getWistiaAssetUrls(attributeValues[key].value);
+        return {
+          __typename: 'VideoMedia',
+          key,
+          name: attributes[key].name,
+          embedHtml: get(attributeValues, 'videoEmbed.value', null),
+          sources: [{ uri: urls.video }],
+          thumbnail: {
+            __typename: 'ImageMedia',
+            sources: [{ uri: urls.thumbnail }],
+          },
+        };
+      })
+    );
   };
 
   getAudios = ({ attributeValues, attributes }) => {
@@ -143,17 +142,11 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'AudioMedia',
       key,
       name: attributes[key].name,
-      sources:
-        Object.keys(attributeValues[key].value).length !== 0
-          ? [
-              {
-                uri:
-                  typeof attributeValues[key].value === 'string'
-                    ? createAssetUrl(JSON.parse(attributeValues[key].value))
-                    : createAssetUrl(attributeValues[key].value),
-              },
-            ]
-          : [],
+      sources: [
+        {
+          uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+        },
+      ],
     }));
   };
 
@@ -335,7 +328,6 @@ export default class ContentItem extends oldContentItem.dataSource {
   corePickBestImage = this.pickBestImage;
 
   pickBestImage = ({ images }) => {
-    // TODO: there's probably a _much_ more explicit and better way to handle this
     const appImage = images.find((image) =>
       image.key.toLowerCase().includes('app')
     );

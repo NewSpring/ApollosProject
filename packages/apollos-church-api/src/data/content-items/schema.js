@@ -16,6 +16,10 @@ export default gql`
     series: ContentItem
   }
 
+  extend type VideoMedia {
+    thumbnail: ImageMedia
+  }
+
   extend type Query {
     contentItemFromSlug(slug: String!): ContentItem
   }
