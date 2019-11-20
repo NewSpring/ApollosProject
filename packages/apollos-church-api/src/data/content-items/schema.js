@@ -4,16 +4,24 @@ import gql from 'graphql-tag';
 export default gql`
   ${ContentItem.schema}
 
+  type SeriesConnection {
+    series: ContentItem
+    itemCount: Int
+    itemIndex(id: String): Int
+  }
+
   extend type WeekendContentItem {
     communicator: Person @deprecated(reason: "Use communicators")
     communicators: [Person]
     guestCommunicators: [String]
     sermonDate: String
-    series: ContentItem
+    series: ContentItem @deprecated(reason: "Use seriesConnection")
+    seriesConnection: SeriesConnection
   }
 
   extend type DevotionalContentItem {
     series: ContentItem
+    seriesConnection: SeriesConnection
   }
 
   extend type Query {
