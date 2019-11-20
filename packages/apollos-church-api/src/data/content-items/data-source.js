@@ -161,35 +161,67 @@ export default class ContentItem extends oldContentItem.dataSource {
     const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
       contentChannelId
     );
-    const slug = await this.request('ContentChannelItemSlugs')
+    const childSlug = await this.request('ContentChannelItemSlugs')
       .filter(`ContentChannelItemId eq ${id}`)
       .first();
-    let parent = null;
-    let parentSlug = null;
+    let series;
+    let seriesSlug;
     if (parentChannelId) {
-      parent = await this.getParent(id, parentChannelId);
-      parentSlug = await this.request('ContentChannelItemSlugs')
-        .filter(`ContentChannelItemId eq ${parent.id}`)
+      series = await this.getSeries(id, parentChannelId);
+      seriesSlug = await this.request('ContentChannelItemSlugs')
+        .filter(`ContentChannelItemId eq ${series.id}`)
         .first();
     }
     return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${
-      parent ? `${parentSlug.slug}/` : ''
-    }${slug.slug}`;
+      series ? `${seriesSlug.slug}/` : ''
+    }${childSlug.slug}`;
   };
 
-  getParent = async (childId, channelId) => {
-    const parentAssociations = await this.request(
-      'ContentChannelItemAssociations'
-    )
+  getSeries = async (childId, channelId) => {
+    // get all children and of all possible parents
+    const children = await this.request('ContentChannelItemAssociations')
       .filter(`ChildContentChannelItemId eq ${childId}`)
+      .select('ContentChannelItemId')
       .get();
-    const parentFilter = parentAssociations.map(
+
+    // create list of parent Id filters
+    const parentFilters = children.map(
       ({ contentChannelItemId }) => `Id eq ${contentChannelItemId}`
     );
+
+    // find parent from the list of Id filters and the given channel
     return this.request()
-      .filterOneOf(parentFilter)
+      .filterOneOf(parentFilters)
       .andFilter(`ContentChannelId eq ${channelId}`)
       .first();
+  };
+
+  getSeriesItemData = async (seriesId, childChannelId) => {
+    // get all possible children for a given parent
+    const children = await this.request('ContentChannelItemAssociations')
+      .filter(`ContentChannelItemId eq ${seriesId}`)
+      .expand('ChildContentChannelItem')
+      .get();
+
+    // find the right children
+    return children.filter(
+      ({ childContentChannelItem: { contentChannelId } = {} }) =>
+        contentChannelId === childChannelId
+    );
+  };
+
+  getSeriesItemCount = async (seriesId, childChannelId) => {
+    const items = await this.getSeriesItemData(seriesId, childChannelId);
+    return items.length;
+  };
+
+  getSeriesItemIndex = async (seriesId, childChannelId, childId) => {
+    const items = await this.getSeriesItemData(seriesId, childChannelId);
+
+    // get the order of a specific child
+    return items.find(
+      ({ childContentChannelItemId }) => childContentChannelItemId === childId
+    ).order;
   };
 
   getFeatures({ attributeValues }) {
