@@ -37,6 +37,24 @@ const resolver = {
       return channels;
     },
   },
+  DevotionalContentItem: {
+    ...defaultResolvers,
+    sharing: (root, args, { dataSources: { ContentItem } }) => ({
+      url: ContentItem.getShareUrl(
+        root,
+        ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID
+      ),
+      title: 'Share via ...',
+      message: `${root.title} - ${ContentItem.createSummary(root)}`,
+    }),
+    scriptures: async (
+      { attributeValues: { scriptures } = {} },
+      args,
+      { dataSources }
+    ) => dataSources.ContentItem.getContentItemScriptures(scriptures),
+    series: ({ id }, args, { dataSources: { ContentItem } }) =>
+      ContentItem.getParent(id, ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID),
+  },
   ContentItem: {
     __resolveType: async (
       { attributeValues, attributes, contentChannelId },
@@ -69,45 +87,6 @@ const resolver = {
   // url: ({ id, contentChannelId }, args, { dataSources }) =>
   // dataSources.ContentItem.getShareUrl(id, contentChannelId),
   // },
-  DevotionalContentItem: {
-    ...defaultResolvers,
-    sharing: (root, args, { dataSources: { ContentItem } }) => ({
-      url: ContentItem.getShareUrl(
-        root,
-        ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID
-      ),
-      title: 'Share via ...',
-      message: `${root.title} - ${ContentItem.createSummary(root)}`,
-    }),
-    scriptures: async (
-      { attributeValues: { scriptures } = {} },
-      args,
-      { dataSources }
-    ) => dataSources.ContentItem.getContentItemScriptures(scriptures),
-    // deprecated
-    series: ({ id }, args, { dataSources: { ContentItem } }) =>
-      ContentItem.getSeries(id, ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID),
-    seriesConnection: async (
-      { id, contentChannelId },
-      args,
-      { dataSources: { ContentItem } }
-    ) => {
-      const series = await ContentItem.getSeries(
-        id,
-        ROCK_MAPPINGS.DEVOTIONAL_SERIES_CHANNEL_ID
-      );
-
-      return {
-        series,
-        itemCount: ContentItem.getSeriesItemCount(series.id, contentChannelId),
-        itemIndex: ContentItem.getSeriesItemIndex(
-          series.id,
-          contentChannelId,
-          id
-        ),
-      };
-    },
-  },
   WeekendContentItem: {
     ...defaultResolvers,
     sharing: (root, args, { dataSources: { ContentItem } }) => ({
@@ -141,28 +120,8 @@ const resolver = {
     ) => dataSources.ContentItem.getGuestCommunicators(communicators),
     sermonDate: ({ attributeValues: { actualDate: { value } = {} } = {} }) =>
       value,
-    // deprecated
     series: ({ id }, args, { dataSources: { ContentItem } }) =>
-      ContentItem.getSeries(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
-    seriesConnection: async (
-      { id },
-      args,
-      { dataSources: { ContentItem } }
-    ) => {
-      const series = await ContentItem.getSeries(
-        id,
-        ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID
-      );
-
-      return {
-        series,
-        itemCount: ContentItem.getSeriesItemCount(
-          series.id,
-          ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID
-        ),
-        itemIndex: null,
-      };
-    },
+      ContentItem.getParent(id, ROCK_MAPPINGS.SERMON_SERIES_CHANNEL_ID),
   },
   UniversalContentItem: {
     ...defaultResolvers,
