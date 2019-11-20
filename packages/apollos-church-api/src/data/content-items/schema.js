@@ -20,7 +20,7 @@ export default gql`
   }
 
   extend type DevotionalContentItem {
-    series: ContentItem
+    series: ContentItem @deprecated(reason: "Use seriesConnection")
     seriesConnection: SeriesConnection
   }
 
