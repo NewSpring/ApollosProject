@@ -35,22 +35,21 @@ export default class ContentItem extends oldContentItem.dataSource {
     return query !== '' ? Scripture.getScriptures(query) : null;
   };
 
-  getWistiaVideoUri = async (wistiaHashedId) => {
-    try {
-      const videoData = await this.request('WistiaMedias')
-        .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
-        .select('MediaData')
-        .get();
+  getWistiaAssetUrls = async (wistiaHashedId) => {
+    const videoData = await this.request('WistiaMedias')
+      .filter(`WistiaHashedId eq '${wistiaHashedId}'`)
+      .select('MediaData')
+      .get();
 
-      const mediaData = JSON.parse(videoData[0].mediaData);
-      const videos = mediaData.assets.filter(
-        (asset) => asset.type === 'HlsVideoFile' && asset.height === 720
-      );
-      if (!videos.length) return '';
-      return videos[0].url.replace('.bin', '.m3u8');
-    } catch (error) {
-      return '';
-    }
+    const assetUrls = { video: '', thumbnail: '' };
+    if (!videoData.length) return assetUrls;
+    JSON.parse(videoData[0].mediaData).assets.forEach((asset) => {
+      if (asset.type === 'HlsVideoFile' && asset.height === 720)
+        assetUrls.video = asset.url.replace('.bin', '.m3u8');
+      if (asset.type === 'StillImageFile')
+        assetUrls.thumbnail = asset.url.replace('.bin', '/file.jpeg');
+    });
+    return assetUrls;
   };
 
   attributeIsVideo = ({ key, attributes }) =>
@@ -116,19 +115,24 @@ export default class ContentItem extends oldContentItem.dataSource {
       })
     );
 
-    return videoKeys.map((key) => ({
-      __typename: 'VideoMedia',
-      key,
-      name: attributes[key].name,
-      embedHtml: get(attributeValues, 'videoEmbed.value', null),
-      sources: attributeValues[key].value
-        ? [
-            {
-              uri: this.getWistiaVideoUri(attributeValues[key].value),
-            },
-          ]
-        : [],
-    }));
+    return Promise.all(
+      videoKeys.map(async (key) => {
+        const urls = await this.getWistiaAssetUrls(attributeValues[key].value);
+        return {
+          __typename: 'VideoMedia',
+          key,
+          name: attributes[key].name,
+          embedHtml: get(attributeValues, 'videoEmbed.value', null),
+          sources: attributeValues[key].value ? [{ uri: urls.video }] : [],
+          thumbnail: {
+            __typename: 'ImageMedia',
+            sources: attributeValues[key].value
+              ? [{ uri: urls.thumbnail }]
+              : [],
+          },
+        };
+      })
+    );
   };
 
   getAudios = ({ attributeValues, attributes }) => {
@@ -143,17 +147,13 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'AudioMedia',
       key,
       name: attributes[key].name,
-      sources:
-        Object.keys(attributeValues[key].value).length !== 0
-          ? [
-              {
-                uri:
-                  typeof attributeValues[key].value === 'string'
-                    ? createAssetUrl(JSON.parse(attributeValues[key].value))
-                    : createAssetUrl(attributeValues[key].value),
-              },
-            ]
-          : [],
+      sources: attributeValues[key].value
+        ? [
+            {
+              uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+            },
+          ]
+        : [],
     }));
   };
 
@@ -161,35 +161,86 @@ export default class ContentItem extends oldContentItem.dataSource {
     const contentChannel = await this.context.dataSources.ContentChannel.getFromId(
       contentChannelId
     );
-    const slug = await this.request('ContentChannelItemSlugs')
+    const childSlug = await this.request('ContentChannelItemSlugs')
       .filter(`ContentChannelItemId eq ${id}`)
       .first();
-    let parent = null;
-    let parentSlug = null;
+    let series;
+    let seriesSlug;
     if (parentChannelId) {
-      parent = await this.getParent(id, parentChannelId);
-      parentSlug = await this.request('ContentChannelItemSlugs')
-        .filter(`ContentChannelItemId eq ${parent.id}`)
+      series = await this.getSeries(id, parentChannelId);
+      seriesSlug = await this.request('ContentChannelItemSlugs')
+        .filter(`ContentChannelItemId eq ${series.id}`)
         .first();
     }
     return `${ROCK.SHARE_URL + contentChannel.channelUrl}/${
-      parent ? `${parentSlug.slug}/` : ''
-    }${slug.slug}`;
+      series ? `${seriesSlug.slug}/` : ''
+    }${childSlug.slug}`;
   };
 
-  getParent = async (childId, channelId) => {
-    const parentAssociations = await this.request(
-      'ContentChannelItemAssociations'
-    )
+  getSeries = async (childId, channelId) => {
+    // get all children and of all possible parents
+    const children = await this.request('ContentChannelItemAssociations')
       .filter(`ChildContentChannelItemId eq ${childId}`)
+      .select('ContentChannelItemId')
       .get();
-    const parentFilter = parentAssociations.map(
+
+    // create list of parent Id filters
+    const parentFilters = children.map(
       ({ contentChannelItemId }) => `Id eq ${contentChannelItemId}`
     );
+
+    // find parent from the list of Id filters and the given channel
     return this.request()
-      .filterOneOf(parentFilter)
+      .filterOneOf(parentFilters)
       .andFilter(`ContentChannelId eq ${channelId}`)
       .first();
+  };
+
+  getSeriesItemData = async (seriesId, childChannelId) => {
+    // get all possible children for a given parent
+    const children = await this.request('ContentChannelItemAssociations')
+      .filter(`ContentChannelItemId eq ${seriesId}`)
+      .expand('ChildContentChannelItem')
+      .get();
+
+    // find the right children
+    return children.filter(
+      ({ childContentChannelItem: { contentChannelId } = {} }) =>
+        contentChannelId === childChannelId
+    );
+  };
+
+  getSeriesItemCount = async (seriesId, childChannelId) => {
+    const items = await this.getSeriesItemData(seriesId, childChannelId);
+    return items.length;
+  };
+
+  getSeriesItemIndex = async (
+    seriesId,
+    childChannelId,
+    childId,
+    dateToFind
+  ) => {
+    const items = await this.getSeriesItemData(seriesId, childChannelId);
+
+    // sort by date and return the right one
+    if (dateToFind) {
+      let index;
+      const sortedItems = items.sort(
+        (a, b) =>
+          new Date(a.childContentChannelItem.startDateTime) -
+          new Date(b.childContentChannelItem.startDateTime)
+      );
+      sortedItems.forEach(({ childContentChannelItem }, i) => {
+        if (dateToFind === childContentChannelItem.startDateTime) index = i;
+      });
+      return index + 1;
+    }
+
+    // get the order of a specific child
+    return items.find(
+      ({ childContentChannelItemId }) => childContentChannelItemId === childId
+    ).order;
   };
 
   getFeatures({ attributeValues }) {
@@ -198,11 +249,13 @@ export default class ContentItem extends oldContentItem.dataSource {
 
     const rawFeatures = get(attributeValues, 'features.value', '');
     parseKeyValueAttribute(rawFeatures).forEach(({ key, value }, i) => {
-      switch (key) {
+      const [type, modifier] = key.split('/');
+      switch (type) {
         case 'scripture':
           features.push(
             Features.createScriptureFeature({
               reference: value,
+              version: modifier,
               id: `${attributeValues.features.id}-${i}`,
             })
           );
@@ -335,7 +388,6 @@ export default class ContentItem extends oldContentItem.dataSource {
   corePickBestImage = this.pickBestImage;
 
   pickBestImage = ({ images }) => {
-    // TODO: there's probably a _much_ more explicit and better way to handle this
     const appImage = images.find((image) =>
       image.key.toLowerCase().includes('app')
     );

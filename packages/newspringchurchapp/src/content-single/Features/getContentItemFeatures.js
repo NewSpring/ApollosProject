@@ -18,6 +18,25 @@ const FEATURES_FRAGMENT = `
   ${NOTE_FEATURE_FRAGMENT}
 `;
 
+const SERMON_NOTES_FRAGMENT = gql`
+  fragment SermonNotesFragment on WeekendContentItem {
+    communicators {
+      nickName
+      firstName
+      lastName
+    }
+    guestCommunicators
+    title
+    seriesConnection {
+      series {
+        title
+      }
+      itemIndex
+      itemCount
+    }
+  }
+`;
+
 export default gql`
   query contentItemFeatures($contentId: ID!) {
     node(id: $contentId) {
@@ -28,21 +47,13 @@ export default gql`
         }
       }
       ... on WeekendContentItem {
-        communicators {
-          nickName
-          firstName
-          lastName
-        }
-        guestCommunicators
         features {
           ...FeaturesFragment
         }
-        title
-        series {
-          title
-        }
+        ...SermonNotesFragment
       }
     }
   }
   ${FEATURES_FRAGMENT}
+  ${SERMON_NOTES_FRAGMENT}
 `;

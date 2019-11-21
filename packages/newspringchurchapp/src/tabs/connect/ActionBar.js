@@ -22,11 +22,7 @@ const Toolbar = ({ navigation }) => (
         />
         <ActionBarItem
           onPress={() =>
-            openUrl(
-              'https://newspring.cc/groups/finder',
-              {},
-              { useRockToken: true }
-            )
+            openUrl('https://newspring.cc/groups', {}, { useRockToken: true })
           }
           icon="group"
           label="Join Group"

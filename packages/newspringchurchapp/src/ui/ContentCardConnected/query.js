@@ -49,16 +49,35 @@ export const BASE_CARD_FRAGMENT = gql`
         sources {
           uri
         }
+        thumbnail {
+          sources {
+            uri
+          }
+        }
       }
       parentChannel {
         id
         name
+      }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
       }
     }
     ... on DevotionalContentItem {
       parentChannel {
         id
         name
+      }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
       }
     }
   }

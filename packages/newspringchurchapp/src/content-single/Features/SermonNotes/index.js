@@ -11,6 +11,7 @@ import {
   styled,
   BodyText,
 } from '@apollosproject/ui-kit';
+import { LegalText } from '@apollosproject/ui-scripture';
 import share from '../../../utils/content/share';
 
 const ExportWrapper = styled({
@@ -21,16 +22,16 @@ const PaddedText = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
 }))(BodyText);
 
-const SermonNotes = ({
-  contentId,
-  features,
-  communicators,
-  guestCommunicators,
-  title,
-  series,
-}) => {
+const SermonNotes = ({ contentItem, features }) => {
+  const {
+    communicators = [],
+    guestCommunicators = [],
+    title = '',
+    seriesConnection = { series: { title: '' }, itemIndex: 0 },
+  } = contentItem;
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
+  const [copyrights, setCopyrights] = useState(new Set());
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -45,7 +46,7 @@ const SermonNotes = ({
   // assemble exported notes
   useEffect(() => {
     // add title, series, and speakers to top
-    let msg = `${title}\n${series}\n`;
+    let msg = `${title}\n${seriesConnection.series.title}\n`;
     speakers.forEach((speaker) => {
       msg += `${speaker}\n`;
     });
@@ -54,11 +55,43 @@ const SermonNotes = ({
     // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
+      let cleanedFeature = feature;
+
+      // clean scripture features
+      if (featureProps.scriptures) {
+        // pop out all copyrights to be used later
+        featureProps.scriptures.forEach((s) => {
+          copyrights.add(s.copyright);
+        });
+        setCopyrights(copyrights);
+
+        // remove all copyrights from features
+        const cleanedScriptures = featureProps.scriptures.map((s) => ({
+          ...s,
+          copyright: '',
+        }));
+        cleanedFeature = {
+          ...feature,
+          props: {
+            ...feature.props,
+            children: [
+              {
+                ...feature.props.children[0],
+                props: {
+                  ...feature.props.children[0].props,
+                  scriptures: cleanedScriptures,
+                },
+              },
+              feature.props.children[1],
+            ],
+          },
+        };
+      }
 
       // assemble starting message without custom notes
       if (featureProps.sharing) {
         msg = `${msg + featureProps.sharing.message}\n\n`;
-        return feature;
+        return cleanedFeature;
       }
 
       // drop in placeholders for custom notes
@@ -73,7 +106,10 @@ const SermonNotes = ({
           children: [
             {
               ...feature.props.children[0],
-              props: { ...feature.props.children[0].props, onNotesChange },
+              props: {
+                ...feature.props.children[0].props,
+                onNotesChange,
+              },
             },
             feature.props.children[1],
           ],
@@ -97,7 +133,7 @@ const SermonNotes = ({
         // />
         <Touchable
           onPress={() => {
-            console.log(contentId); // left in the prop for the to do item above
+            console.log(contentItem.id); // left in the prop for the to do item above
             const message = sharedMsg.replace(
               /\w+Feature:\w+{{(.*?)}}\n\n/gs,
               (match, p1) => (p1 === '' ? p1 : `${p1}\n\n`)
@@ -113,11 +149,14 @@ const SermonNotes = ({
       }
     >
       <H3>Sermon Notes</H3>
-      <H5>{title || ''}</H5>
-      <H5>{series || ''}</H5>
-      {/* TODO
-   <H5>Series - Week # - Date</H5>
-        */}
+      <H5>{title}</H5>
+      <H5>
+        {seriesConnection.series.title}
+        {seriesConnection.itemIndex
+          ? ` - Week ${seriesConnection.itemIndex}`
+          : ''}
+        {/*  - Date */}
+      </H5>
       {speakers[0] != null
         ? speakers.map((speaker) =>
             speaker !== '' ? <H5 key={speaker}>{speaker}</H5> : null
@@ -126,28 +165,35 @@ const SermonNotes = ({
 
       <PaddedView />
       {enhancedFeatures}
+      {[...copyrights].map((copyright) => (
+        <LegalText key={copyright}>{copyright}</LegalText>
+      ))}
     </ActionCard>
   );
 };
 
 SermonNotes.propTypes = {
-  contentId: PropTypes.string,
+  contentItem: PropTypes.shape({
+    id: PropTypes.string,
+    communicators: PropTypes.arrayOf(
+      PropTypes.shape({
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
+      })
+    ),
+    guestCommunicators: PropTypes.arrayOf(PropTypes.string),
+    title: PropTypes.string,
+    seriesConnection: PropTypes.shape({
+      series: PropTypes.shape({ title: PropTypes.string }),
+      itemIndex: PropTypes.number,
+    }),
+  }),
   features: PropTypes.arrayOf(PropTypes.element),
-  communicators: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstName: PropTypes.string,
-      lastName: PropTypes.string,
-    })
-  ),
-  guestCommunicators: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string,
-  series: PropTypes.string,
 };
 
 SermonNotes.defaultProps = {
   features: [],
-  communicators: [],
-  guestCommunicators: [],
+  contentItem: {},
 };
 
 export default SermonNotes;
