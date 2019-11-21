@@ -24,6 +24,10 @@ export default gql`
     seriesConnection: SeriesConnection
   }
 
+  extend type VideoMedia {
+    thumbnail: ImageMedia
+  }
+
   extend type Query {
     contentItemFromSlug(slug: String!): ContentItem
   }
