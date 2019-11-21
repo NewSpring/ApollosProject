@@ -59,9 +59,15 @@ const horizontalContentCardComponentMapper = ({
 
   switch (typename) {
     case 'ContentSeriesContentItem':
-      return <HorizontalHighlightCard {...props} />;
+      return <HorizontalHighlightCard {...props} labelText={null} />;
     case 'MediaContentItem':
-      return <HorizontalHighlightCard title={hyphenatedTitle} {...props} />;
+      return (
+        <HorizontalHighlightCard
+          title={hyphenatedTitle}
+          {...props}
+          labelText={null}
+        />
+      );
     case 'WeekendContentItem':
       return (
         <StyledHorizontalHightlightCard
