@@ -1,8 +1,11 @@
-import { Client } from 'bugsnag-react-native';
+import { Client, Configuration } from 'bugsnag-react-native';
 import Config from 'react-native-config';
 import { onError } from 'apollo-link-error';
 
-const bugsnag = new Client(Config.BUGSNAG_API_KEY);
+const configuration = new Configuration()
+configuration.apiKey = Config.BUGSNAG_API_KEY
+configuration.releaseStage = Config.BUGSNAG_STAGE
+bugsnag = new Client(configuration);
 
 const bugsnagLink = onError(({ graphQLErrors, networkError, operation }) => {
   if (graphQLErrors) {
