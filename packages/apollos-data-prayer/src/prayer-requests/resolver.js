@@ -31,9 +31,11 @@ export default {
       //
       // create the interaction to trigger a notification
       try {
+        console.time('interaction');
         await dataSources.PrayerRequest.createInteraction({
           prayerId,
         });
+        console.timeEnd('interaction');
       } catch (e) {
         console.warn(
           'Error, interaction and notification may not have been sent'

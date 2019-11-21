@@ -18,14 +18,13 @@ export default class PrayerRequest extends RockApolloDataSource {
       return -1;
     });
 
-  getEntityType = async () =>
-    this.request('EntityTypes')
-      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
-      .first();
-
   getInteractionComponent = async ({ prayerId }) => {
     const { RockConstants } = this.context.dataSources;
-    const { id: entityTypeId } = await this.getEntityType();
+    const { id: entityTypeId } = await this.request('EntityTypes')
+      .filter(`Name eq 'Rock.Model.PrayerRequest'`)
+      .select('Id')
+      .first();
+
     const channel = await RockConstants.createOrFindInteractionChannel({
       channelName: ROCK_MAPPINGS.INTERACTIONS.CHANNEL_NAME,
       entityTypeId,
@@ -52,14 +51,16 @@ export default class PrayerRequest extends RockApolloDataSource {
     // determine whether to send notification
     // Rock is triggering the workflow based on the Summary field
     // if it's older than 2 hours ago
-    const lastPrayerNotified = await this.request('Interactions')
+    // TODO this check is taking on average 2.5 sec and will only get slower
+    // we need a better algorithm
+    const { interactionDateTime: time } = await this.request('Interactions')
       .filter(`InteractionData eq '${requestedByPersonAliasId}'`)
       .andFilter(`InteractionSummary eq 'PrayerNotificationSent'`)
       .orderBy('InteractionDateTime', 'desc')
+      .select('InteractionDateTime')
       .first();
     const summary =
-      !lastPrayerNotified ||
-      moment(lastPrayerNotified.interactionDateTime).add(2, 'hours') < moment()
+      !time || moment(time).add(2, 'hours') < moment()
         ? 'PrayerNotificationSent'
         : '';
 
@@ -76,20 +77,16 @@ export default class PrayerRequest extends RockApolloDataSource {
 
   // QUERY ALL PrayerRequests
   getAll = async () => {
-    try {
-      const {
-        dataSources: { Auth },
-      } = this.context;
+    const {
+      dataSources: { Auth },
+    } = this.context;
 
-      const { primaryAliasId } = await Auth.getCurrentPerson();
+    const { primaryAliasId } = await Auth.getCurrentPerson();
 
-      const prayers = await this.request('PrayerRequests/Public')
-        .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
-        .get();
-      return this.sortPrayers(prayers);
-    } catch (err) {
-      throw new Error(err);
-    }
+    const prayers = await this.request('PrayerRequests/Public')
+      .filter(`RequestedByPersonAliasId ne ${primaryAliasId}`)
+      .get();
+    return this.sortPrayers(prayers);
   };
 
   getAllByCampus = async (id = '') => {
@@ -155,43 +152,43 @@ export default class PrayerRequest extends RockApolloDataSource {
       .find(id)
       .get();
 
-  getFromIds = (ids) =>
-    this.request().filterOneOf(ids.map((id) => `Id eq ${id}`));
+  getFromIds = async (ids) => {
+    const idsFilter = ids.map((id) => `Id eq ${id}`);
+    return this.request()
+      .filterOneOf(idsFilter)
+      .get();
+  };
 
   getSavedPrayers = async () => {
     const {
       dataSources: { Followings },
     } = this.context;
 
-    try {
-      const followedPrayersRequest = await Followings.getFollowingsForCurrentUser(
-        {
-          type: 'PrayerRequest',
-        }
-      );
+    const followedPrayersRequest = await Followings.getFollowingsForCurrentUser(
+      {
+        type: 'PrayerRequest',
+      }
+    );
 
-      const entities = await followedPrayersRequest.get();
-      if (!entities.length) return [];
+    const entities = await followedPrayersRequest.get();
+    if (!entities.length) return [];
 
-      const entityIds = entities.map((entity) => entity.entityId);
-      const prayers = await this.getFromIds(uniq(entityIds)).get();
+    const entityIds = entities.map((entity) => entity.entityId);
+    const prayers = await this.getFromIds(uniq(entityIds));
 
-      // filter out flagged prayers
-      return prayers.filter(
-        (prayer) => !prayer.flagCount || prayer.flagCount === 0
-      );
-    } catch (err) {
-      throw new Error(err);
-    }
+    // filter out flagged prayers
+    return prayers.filter(
+      (prayer) => !prayer.flagCount || prayer.flagCount === 0
+    );
   };
 
   // MUTATION increment prayed, for a request
   incrementPrayed = async (parsedId) => {
     try {
       await this.put(`PrayerRequests/Prayed/${parsedId}`, {});
-      return await this.getFromId(parsedId);
-    } catch (err) {
-      throw new Error(`Unable to increment prayed request!`);
+      return this.getFromId(parsedId);
+    } catch (e) {
+      throw new Error(`Unable to increment prayer!`);
     }
   };
 
@@ -199,9 +196,9 @@ export default class PrayerRequest extends RockApolloDataSource {
   flag = async (parsedId) => {
     try {
       await this.put(`PrayerRequests/Flag/${parsedId}`, {});
-      return await this.getFromId(parsedId);
-    } catch (err) {
-      throw new Error(`Unable to increment prayed request!`);
+      return this.getFromId(parsedId);
+    } catch (e) {
+      throw new Error(`Unable to flag prayer!`);
     }
   };
 
@@ -212,8 +209,8 @@ export default class PrayerRequest extends RockApolloDataSource {
       const deletedPrayer = await this.getFromId(parsedId);
       await this.delete(`PrayerRequests/${parsedId}`);
       return deletedPrayer;
-    } catch (err) {
-      throw new Error(`Unable to delete prayer request`);
+    } catch (e) {
+      throw new Error(`Unable to delete prayer!`);
     }
   };
 
