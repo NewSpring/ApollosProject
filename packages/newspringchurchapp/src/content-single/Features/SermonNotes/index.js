@@ -166,7 +166,6 @@ const SermonNotes = ({ contentItem, features }) => {
       <PaddedView />
       {enhancedFeatures}
       {[...copyrights].map((copyright) => (
-        // change this to LegalText once it's merged from core
         <LegalText key={copyright}>{copyright}</LegalText>
       ))}
     </ActionCard>
