@@ -15,7 +15,6 @@ import {
   Followings,
   ContentChannel,
   Sharable,
-  Auth,
   PersonalDevice,
   Template,
   AuthSms,
@@ -24,6 +23,7 @@ import {
   Event,
 } from '@apollosproject/data-connector-rock';
 import * as Person from './people';
+import * as Auth from './auth';
 import * as ContentItem from './content-items';
 import * as Features from './features';
 import * as Campus from './campuses';

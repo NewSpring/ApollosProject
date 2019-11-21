@@ -13,6 +13,7 @@ import {
   Button,
   styled,
 } from '@apollosproject/ui-kit';
+import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 
 import PrayerSingle from 'newspringchurchapp/src/prayer/PrayerSingle';
 import SaveButton from '../SaveButton';
@@ -144,15 +145,20 @@ class PrayerList extends PureComponent {
                     <Footer>
                       {!this.state.prayed ? (
                         <View>
-                          <Button
-                            title={`I've prayed`}
-                            onPress={() => {
-                              increment({
-                                variables: { parsedId: prayer.id },
-                              });
-                              this.setState({ prayed: true });
-                            }}
-                          />
+                          <AnalyticsConsumer>
+                            {({ track }) => (
+                              <Button
+                                title={`I've prayed`}
+                                onPress={() => {
+                                  increment({
+                                    variables: { parsedId: prayer.id },
+                                  });
+                                  this.setState({ prayed: true });
+                                  track({ eventName: 'Prayed' });
+                                }}
+                              />
+                            )}
+                          </AnalyticsConsumer>
                           <FooterAltOption>
                             <ActionComponent
                               component={

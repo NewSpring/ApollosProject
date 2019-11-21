@@ -10,8 +10,9 @@ import {
   FeedView,
   BackgroundView,
   TouchableScale,
-  FeaturedCard,
 } from '@apollosproject/ui-kit';
+
+import BrandedCard from '../../ui/BrandedCard';
 
 import fetchMoreResolver from '../../utils/fetchMoreResolver';
 import ContentCardConnected from '../../ui/ContentCardConnected';
@@ -103,7 +104,7 @@ class Home extends PureComponent {
                             }
                           >
                             <ContentCardConnected
-                              Component={FeaturedCard}
+                              Component={BrandedCard}
                               contentId={featuredItem.id}
                               isLoading={isFeaturedLoading}
                             />

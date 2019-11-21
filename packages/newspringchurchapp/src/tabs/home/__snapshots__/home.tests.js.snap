@@ -403,6 +403,47 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                                         ],
                                       },
                                     },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "thumbnail",
+                                      },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "alias": undefined,
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "sources",
+                                            },
+                                            "selectionSet": Object {
+                                              "kind": "SelectionSet",
+                                              "selections": Array [
+                                                Object {
+                                                  "alias": undefined,
+                                                  "arguments": Array [],
+                                                  "directives": Array [],
+                                                  "kind": "Field",
+                                                  "name": Object {
+                                                    "kind": "Name",
+                                                    "value": "uri",
+                                                  },
+                                                  "selectionSet": undefined,
+                                                },
+                                              ],
+                                            },
+                                          },
+                                        ],
+                                      },
+                                    },
                                   ],
                                 },
                               },
@@ -437,6 +478,69 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "name",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "seriesConnection",
+                                },
+                                "selectionSet": Object {
+                                  "kind": "SelectionSet",
+                                  "selections": Array [
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "series",
+                                      },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "alias": undefined,
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "title",
+                                            },
+                                            "selectionSet": undefined,
+                                          },
+                                        ],
+                                      },
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "itemCount",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "itemIndex",
                                       },
                                       "selectionSet": undefined,
                                     },
@@ -490,6 +594,69 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                                       "name": Object {
                                         "kind": "Name",
                                         "value": "name",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                  ],
+                                },
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "seriesConnection",
+                                },
+                                "selectionSet": Object {
+                                  "kind": "SelectionSet",
+                                  "selections": Array [
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "series",
+                                      },
+                                      "selectionSet": Object {
+                                        "kind": "SelectionSet",
+                                        "selections": Array [
+                                          Object {
+                                            "alias": undefined,
+                                            "arguments": Array [],
+                                            "directives": Array [],
+                                            "kind": "Field",
+                                            "name": Object {
+                                              "kind": "Name",
+                                              "value": "title",
+                                            },
+                                            "selectionSet": undefined,
+                                          },
+                                        ],
+                                      },
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "itemCount",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "itemIndex",
                                       },
                                       "selectionSet": undefined,
                                     },
@@ -685,7 +852,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                 ],
                 "kind": "Document",
                 "loc": Object {
-                  "end": 1128,
+                  "end": 1430,
                   "start": 0,
                 },
               }
@@ -900,7 +1067,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1049,7 +1216,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                 "borderRadius": 16,
                 "marginHorizontal": 16,
                 "marginVertical": 12,
-                "shadowColor": "rgba(133, 133, 133, 0.6)",
+                "shadowColor": "rgba(8, 0, 20, 0.25)",
                 "shadowOffset": Object {
                   "height": 1,
                   "width": 0,
@@ -1105,7 +1272,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   Object {
                     "backgroundColor": "#ffffff",
                     "borderBottomWidth": 0,
-                    "borderColor": "rgba(133, 133, 133, 0.6)",
+                    "borderColor": "rgba(8, 0, 20, 0.25)",
                     "borderLeftWidth": 0,
                     "borderRightWidth": 0,
                     "borderTopWidth": 0,
@@ -1187,7 +1354,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1284,7 +1451,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1381,7 +1548,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1478,7 +1645,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                       style={
                         Object {
                           "borderBottomWidth": 0.5,
-                          "borderColor": "rgba(133, 133, 133, 0.6)",
+                          "borderColor": "rgba(8, 0, 20, 0.25)",
                           "flex": 1,
                           "height": 68,
                           "justifyContent": "center",
@@ -1537,7 +1704,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1656,6 +1823,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -1700,7 +1868,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1819,6 +1987,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -1863,7 +2032,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -1982,6 +2151,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2026,7 +2196,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2145,6 +2315,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2189,7 +2360,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2308,6 +2479,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2352,7 +2524,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2471,6 +2643,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2515,7 +2688,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2634,6 +2807,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2678,7 +2852,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2797,6 +2971,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -2841,7 +3016,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -2960,6 +3135,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,
@@ -3004,7 +3180,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                   "borderRadius": 16,
                   "marginHorizontal": 16,
                   "marginVertical": 12,
-                  "shadowColor": "rgba(133, 133, 133, 0.6)",
+                  "shadowColor": "rgba(8, 0, 20, 0.25)",
                   "shadowOffset": Object {
                     "height": 1,
                     "width": 0,
@@ -3123,6 +3299,7 @@ exports[`User Home Feed Query should return correct query results 1`] = `
                           "alignSelf": "stretch",
                           "backgroundColor": "#dddddd",
                           "borderRadius": 16,
+                          "borderWidth": 0,
                           "height": 32,
                           "paddingHorizontal": 12,
                           "width": 64,

@@ -5,7 +5,6 @@ exports[`renders prayer PrayerTab 1`] = `
   style={
     Object {
       "flex": 1,
-      "justifyContent": "flex-end",
       "marginBottom": 32,
       "paddingHorizontal": 16,
     }
@@ -21,7 +20,7 @@ exports[`renders prayer PrayerTab 1`] = `
     <Text
       style={
         Object {
-          "color": "#ffffff",
+          "color": "#303030",
           "fontFamily": "Colfax-Bold",
           "fontSize": 16,
           "lineHeight": 23.04,
@@ -35,7 +34,7 @@ exports[`renders prayer PrayerTab 1`] = `
       italic={false}
       style={
         Object {
-          "color": "#ffffff",
+          "color": "#303030",
           "fontFamily": "Colfax-Regular",
           "fontSize": 16,
           "lineHeight": 26,
@@ -53,7 +52,6 @@ exports[`renders prayer tab with content 1`] = `
   style={
     Object {
       "flex": 1,
-      "justifyContent": "flex-end",
       "marginBottom": 32,
       "paddingHorizontal": 16,
     }
@@ -69,7 +67,7 @@ exports[`renders prayer tab with content 1`] = `
     <Text
       style={
         Object {
-          "color": "#ffffff",
+          "color": "#303030",
           "fontFamily": "Colfax-Bold",
           "fontSize": 16,
           "lineHeight": 23.04,

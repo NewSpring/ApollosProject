@@ -4,24 +4,24 @@ import Providers from 'newspringchurchapp/src/Providers';
 
 import SermonNotes from '.';
 
-const features = [
-  {
-    props: {
-      children: [
-        {
-          props: {
-            id: 'TextFeature:123',
-            card: false,
-            header: false,
-            body: 'This is a text feature',
-            contentId: 'WeekendContentItem:123',
-            sharing: { message: 'This is a text feature' },
-          },
-        },
-      ],
-    },
-  },
-];
+// const features = [
+// {
+// props: {
+// children: [
+// {
+// props: {
+// id: 'TextFeature:123',
+// card: false,
+// header: false,
+// body: 'This is a text feature',
+// contentId: 'WeekendContentItem:123',
+// sharing: { message: 'This is a text feature' },
+// },
+// },
+// ],
+// },
+// },
+// ];
 
 describe('The SermonNotes component', () => {
   it('should render', () => {
@@ -36,12 +36,18 @@ describe('The SermonNotes component', () => {
     const tree = renderer.create(
       <Providers>
         <SermonNotes
-          title={'A Fun Sunday'}
-          series={'A Fun Series'}
-          communicators={[
-            { firstName: 'Bradford', nickName: 'Brad', lastName: 'Cooper' },
-          ]}
-          features={features}
+          contentItem={{
+            title: 'A Fun Sunday',
+            communicators: [
+              { firstName: 'Bradford', nickName: 'Brad', lastName: 'Cooper' },
+            ],
+            seriesConnection: {
+              series: { title: 'A Fun Series' },
+              itemIndex: 4,
+            },
+          }}
+          // TODO figure this out, should try and snap some notes too
+          // features={features}
         />
       </Providers>
     );

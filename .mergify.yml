@@ -4,12 +4,13 @@ pull_request_rules:
       - base=develop
       - label=merge
       - label!=blocked
-      - title~=$[fix|feat|chore].*
+      - title~=^[fix|feat|chore].*
     actions:
       merge:
         method: squash
         strict: smart
   - name: delete head branch after merge
-    conditions: []
+    conditions:
+      - merged
     actions:
       delete_head_branch: {}
