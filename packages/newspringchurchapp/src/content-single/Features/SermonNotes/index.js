@@ -11,6 +11,7 @@ import {
   styled,
   BodyText,
 } from '@apollosproject/ui-kit';
+// import {LegalText} from '@apollosproject/ui-scripture';
 import share from '../../../utils/content/share';
 
 const ExportWrapper = styled({
@@ -31,6 +32,7 @@ const SermonNotes = ({
 }) => {
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
+  const [copyrights, setCopyrights] = useState(new Set());
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -52,15 +54,40 @@ const SermonNotes = ({
     msg += '\n';
 
     // loop through all features and add them
-    const featuresWithCallbacks = features.map((feature, i) => {
+    const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
+      let cleanedFeature = feature;
 
-      // remove all but the last copyright
-      const cleanedFeature = feature;
-      if (features.length !== i && featureProps.scripture)
-        cleanedFeature.props.children[0].props.scripture = cleanedFeature.props.children[0].props.scripture.map(
-          (ref) => ({ ...ref, copyright: '' })
-        );
+      // clean scripture features
+      if (featureProps.scriptures) {
+        // pop out all copyrights to be used later
+        featureProps.scriptures.forEach((s) => {
+          copyrights.add(s.copyright);
+        });
+        setCopyrights(copyrights);
+
+        // remove all copyrights from features
+        const cleanedScriptures = featureProps.scriptures.map((s) => ({
+          ...s,
+          copyright: '',
+        }));
+        cleanedFeature = {
+          ...feature,
+          props: {
+            ...feature.props,
+            children: [
+              {
+                ...feature.props.children[0],
+                props: {
+                  ...feature.props.children[0].props,
+                  scriptures: cleanedScriptures,
+                },
+              },
+              feature.props.children[1],
+            ],
+          },
+        };
+      }
 
       // assemble starting message without custom notes
       if (featureProps.sharing) {
@@ -74,18 +101,18 @@ const SermonNotes = ({
 
       // add callbacks to swap note placeholders with custom text
       return {
-        ...cleanedFeature,
+        ...feature,
         props: {
-          ...cleanedFeature.props,
+          ...feature.props,
           children: [
             {
-              ...cleanedFeature.props.children[0],
+              ...feature.props.children[0],
               props: {
-                ...cleanedFeature.props.children[0].props,
+                ...feature.props.children[0].props,
                 onNotesChange,
               },
             },
-            cleanedFeature.props.children[1],
+            feature.props.children[1],
           ],
         },
       };
@@ -136,6 +163,10 @@ const SermonNotes = ({
 
       <PaddedView />
       {enhancedFeatures}
+      {[...copyrights].map((copyright) => (
+        // change this to LegalText once it's merged from core
+        <H5 key={copyright}>{`${copyright}`}</H5>
+      ))}
     </ActionCard>
   );
 };
