@@ -23,10 +23,10 @@ const PaddedText = styled(({ theme }) => ({
 
 const SermonNotes = ({ contentItem, features }) => {
   const {
-    communicators,
-    guestCommunicators,
-    title,
-    seriesConnection,
+    communicators = [],
+    guestCommunicators = [],
+    title = '',
+    seriesConnection = { series: { title: '' }, itemIndex: 0 },
   } = contentItem;
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
@@ -112,9 +112,9 @@ const SermonNotes = ({ contentItem, features }) => {
       }
     >
       <H3>Sermon Notes</H3>
-      <H5>{title || ''}</H5>
+      <H5>{title}</H5>
       <H5>
-        {seriesConnection.series.title || ''}
+        {seriesConnection.series.title}
         {seriesConnection.itemIndex
           ? ` - Week ${seriesConnection.itemIndex}`
           : ''}
@@ -153,7 +153,7 @@ SermonNotes.propTypes = {
 
 SermonNotes.defaultProps = {
   features: [],
-  contentItem: { communicators: [], guestCommunicators: [] },
+  contentItem: {},
 };
 
 export default SermonNotes;
