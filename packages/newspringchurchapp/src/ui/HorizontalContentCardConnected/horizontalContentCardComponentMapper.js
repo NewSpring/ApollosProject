@@ -9,53 +9,67 @@ import {
   ThemeConsumer,
 } from '@apollosproject/ui-kit';
 
+const StyledHorizontalHightlightCard = ({
+  hyphenatedTitle,
+  labelText,
+  ...props
+}) => (
+  <ThemeConsumer>
+    {(theme) => (
+      <HorizontalHighlightCard
+        title={hyphenatedTitle}
+        {...props}
+        coverImage={null}
+        LabelComponent={
+          <CardLabel
+            type={get(theme, 'type') === 'light' ? 'darkOverlay' : undefined}
+            title={labelText}
+          />
+        }
+      />
+    )}
+  </ThemeConsumer>
+);
+
+StyledHorizontalHightlightCard.propTypes = {
+  hyphenatedTitle: PropTypes.string,
+  labelText: PropTypes.string,
+};
+
 const horizontalContentCardComponentMapper = ({
   title,
   hyphenatedTitle,
   ...props
 }) => {
   // map typename to the the card we want to render.
-  const {seriesConnection: {itemCount, itemIndex}, __typeName: typename} = props
+  const {
+    __typename: typename,
+    seriesConnection: { itemCount, itemIndex } = {},
+  } = props;
 
-  switch (typeName) {
+  switch (typename) {
     case 'ContentSeriesContentItem':
       return <HorizontalHighlightCard {...props} />;
     case 'MediaContentItem':
       return <HorizontalHighlightCard title={hyphenatedTitle} {...props} />;
     case 'WeekendContentItem':
-    case 'DevotionalContentItem': {
-      let labelText;
-      if (typeName === 'DevotionalContentItem') {
-        labelText = `${get(props, 'seriesConnection.itemIndex', '')} of ${get(
-          props,
-          'seriesConnection.itemCount',
-          ''
-        )}`;
-      } else if (typeName === 'WeekendContentItem') {
-        labelText = `Week ${get(props, 'seriesConnection.itemIndex')}`;
-      } else {
-        labelText = '';
-      }
       return (
-        <ThemeConsumer>
-          {(theme) => (
-            <HorizontalHighlightCard
-              title={hyphenatedTitle}
-              {...props}
-              coverImage={null}
-              LabelComponent={
-                <CardLabel
-                  type={
-                    get(theme, 'type') === 'light' ? 'darkOverlay' : undefined
-                  }
-                  title={labelText}
-                />
-              }
-            />
-          )}
-        </ThemeConsumer>
+        <StyledHorizontalHightlightCard
+          {...props}
+          hyphenatedTitle={hyphenatedTitle}
+          labelText={itemIndex ? `Week ${itemIndex}` : ''}
+        />
       );
-    }
+    case 'DevotionalContentItem':
+      return (
+        <StyledHorizontalHightlightCard
+          {...props}
+          hyphenatedTitle={hyphenatedTitle}
+          labelText={
+            itemIndex && itemCount ? `${itemIndex} of ${itemCount}` : ''
+          }
+        />
+      );
     default:
       return <HorizontalDefaultCard title={title} {...props} />;
   }
@@ -66,6 +80,11 @@ horizontalContentCardComponentMapper.propTypes = {
   title: PropTypes.string,
   theme: PropTypes.shape({
     type: PropTypes.string,
+  }),
+  __typename: PropTypes.string,
+  seriesConnection: PropTypes.shape({
+    itemCount: PropTypes.number,
+    itemIndex: PropTypes.number,
   }),
 };
 
