@@ -15,7 +15,7 @@ const horizontalContentCardComponentMapper = ({
   ...props
 }) => {
   // map typename to the the card we want to render.
-  const typeName = get(props, '__typename');
+  const {seriesConnection: {itemCount, itemIndex}, __typeName: typename} = props
 
   switch (typeName) {
     case 'ContentSeriesContentItem':
