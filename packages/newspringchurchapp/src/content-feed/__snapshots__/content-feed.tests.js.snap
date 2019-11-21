@@ -223,12 +223,30 @@ fragment baseCardFragment on ContentItem {
       name
       __typename
     }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
+      __typename
+    }
     __typename
   }
   ... on DevotionalContentItem {
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
@@ -392,12 +410,30 @@ fragment baseCardFragment on ContentItem {
       name
       __typename
     }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
+      __typename
+    }
     __typename
   }
   ... on DevotionalContentItem {
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
