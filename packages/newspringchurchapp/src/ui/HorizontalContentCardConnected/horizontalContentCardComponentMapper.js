@@ -20,7 +20,7 @@ const StyledHorizontalHightlightCard = ({
       <HorizontalHighlightCard
         {...props}
         title={hyphenatedTitle}
-        coverImage={coverImage.sources}
+        coverImage={coverImage ? coverImage.sources : null}
         LabelComponent={
           <CardLabel
             type={
