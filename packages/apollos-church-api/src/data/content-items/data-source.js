@@ -123,10 +123,12 @@ export default class ContentItem extends oldContentItem.dataSource {
           key,
           name: attributes[key].name,
           embedHtml: get(attributeValues, 'videoEmbed.value', null),
-          sources: [{ uri: urls.video }],
+          sources: attributeValues[key].value ? [{ uri: urls.video }] : [],
           thumbnail: {
             __typename: 'ImageMedia',
-            sources: [{ uri: urls.thumbnail }],
+            sources: attributeValues[key].value
+              ? [{ uri: urls.thumbnail }]
+              : [],
           },
         };
       })
