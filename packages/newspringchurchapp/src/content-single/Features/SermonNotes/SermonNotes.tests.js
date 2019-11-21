@@ -36,11 +36,16 @@ describe('The SermonNotes component', () => {
     const tree = renderer.create(
       <Providers>
         <SermonNotes
-          title={'A Fun Sunday'}
-          series={'A Fun Series'}
-          communicators={[
-            { firstName: 'Bradford', nickName: 'Brad', lastName: 'Cooper' },
-          ]}
+          contentItem={{
+            title: 'A Fun Sunday',
+            communicators: [
+              { firstName: 'Bradford', nickName: 'Brad', lastName: 'Cooper' },
+            ],
+            seriesConnection: {
+              series: { title: 'A Fun Series' },
+              itemIndex: 4,
+            },
+          }}
           // TODO figure this out, should try and snap some notes too
           // features={features}
         />
