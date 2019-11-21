@@ -249,11 +249,13 @@ export default class ContentItem extends oldContentItem.dataSource {
 
     const rawFeatures = get(attributeValues, 'features.value', '');
     parseKeyValueAttribute(rawFeatures).forEach(({ key, value }, i) => {
-      switch (key) {
+      const [type, modifier] = key.split('/');
+      switch (type) {
         case 'scripture':
           features.push(
             Features.createScriptureFeature({
               reference: value,
+              version: modifier,
               id: `${attributeValues.features.id}-${i}`,
             })
           );
