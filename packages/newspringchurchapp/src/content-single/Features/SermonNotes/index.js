@@ -11,6 +11,7 @@ import {
   styled,
   BodyText,
 } from '@apollosproject/ui-kit';
+import { LegalText } from '@apollosproject/ui-scripture';
 import share from '../../../utils/content/share';
 
 const ExportWrapper = styled({
@@ -30,6 +31,7 @@ const SermonNotes = ({ contentItem, features }) => {
   } = contentItem;
   const [sharedMsg, changeSharedMsg] = useState('');
   const [enhancedFeatures, enhanceFeatures] = useState([]);
+  const [copyrights, setCopyrights] = useState(new Set());
   const onNotesChange = (id, text) => {
     const placeholder = `${id}{{(.*?)}}`;
     const re = new RegExp(placeholder, 'gs');
@@ -53,11 +55,43 @@ const SermonNotes = ({ contentItem, features }) => {
     // loop through all features and add them
     const featuresWithCallbacks = features.map((feature) => {
       const featureProps = feature.props.children[0].props;
+      let cleanedFeature = feature;
+
+      // clean scripture features
+      if (featureProps.scriptures) {
+        // pop out all copyrights to be used later
+        featureProps.scriptures.forEach((s) => {
+          copyrights.add(s.copyright);
+        });
+        setCopyrights(copyrights);
+
+        // remove all copyrights from features
+        const cleanedScriptures = featureProps.scriptures.map((s) => ({
+          ...s,
+          copyright: '',
+        }));
+        cleanedFeature = {
+          ...feature,
+          props: {
+            ...feature.props,
+            children: [
+              {
+                ...feature.props.children[0],
+                props: {
+                  ...feature.props.children[0].props,
+                  scriptures: cleanedScriptures,
+                },
+              },
+              feature.props.children[1],
+            ],
+          },
+        };
+      }
 
       // assemble starting message without custom notes
       if (featureProps.sharing) {
         msg = `${msg + featureProps.sharing.message}\n\n`;
-        return feature;
+        return cleanedFeature;
       }
 
       // drop in placeholders for custom notes
@@ -72,7 +106,10 @@ const SermonNotes = ({ contentItem, features }) => {
           children: [
             {
               ...feature.props.children[0],
-              props: { ...feature.props.children[0].props, onNotesChange },
+              props: {
+                ...feature.props.children[0].props,
+                onNotesChange,
+              },
             },
             feature.props.children[1],
           ],
@@ -128,6 +165,9 @@ const SermonNotes = ({ contentItem, features }) => {
 
       <PaddedView />
       {enhancedFeatures}
+      {[...copyrights].map((copyright) => (
+        <LegalText key={copyright}>{copyright}</LegalText>
+      ))}
     </ActionCard>
   );
 };
