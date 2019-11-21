@@ -42,6 +42,7 @@ export default class ContentItem extends oldContentItem.dataSource {
       .get();
 
     const assetUrls = { video: '', thumbnail: '' };
+    if (!videoData.length) return assetUrls;
     JSON.parse(videoData[0].mediaData).assets.forEach((asset) => {
       if (asset.type === 'HlsVideoFile' && asset.height === 720)
         assetUrls.video = asset.url.replace('.bin', '.m3u8');
