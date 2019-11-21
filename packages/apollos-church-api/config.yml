@@ -57,7 +57,8 @@ ANALYTICS:
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
   BIBLE_ID:
-    KJV: 'de4e12af7f28f599-02'
+    ESV: 'f421fe261da7624f-01'
+    NIV: '71c6eab17ae5b667-01'
     WEB: '9879dbb7cfe39e4d-01'
 CLOUDINARY:
   # Cloudinary is used to improve image loading
