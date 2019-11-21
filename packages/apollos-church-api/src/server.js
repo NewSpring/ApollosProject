@@ -41,8 +41,7 @@ const apolloServer = new ApolloServer({
   introspection: true,
   extensions,
   formatError: (error) => {
-    // NOTE don't think we need this
-    // bugsnag.notify(error);
+    bugsnag.notify(error);
     console.error(error.extensions.exception.stacktrace.join('\n'));
     return error;
   },
