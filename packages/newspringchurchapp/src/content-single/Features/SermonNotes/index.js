@@ -11,7 +11,7 @@ import {
   styled,
   BodyText,
 } from '@apollosproject/ui-kit';
-// import {LegalText} from '@apollosproject/ui-scripture';
+import { LegalText } from '@apollosproject/ui-scripture';
 import share from '../../../utils/content/share';
 
 const ExportWrapper = styled({
@@ -167,7 +167,7 @@ const SermonNotes = ({ contentItem, features }) => {
       {enhancedFeatures}
       {[...copyrights].map((copyright) => (
         // change this to LegalText once it's merged from core
-        <H5 key={copyright}>{`${copyright}`}</H5>
+        <LegalText key={copyright}>{copyright}</LegalText>
       ))}
     </ActionCard>
   );
