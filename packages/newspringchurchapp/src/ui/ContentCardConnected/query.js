@@ -54,11 +54,25 @@ export const BASE_CARD_FRAGMENT = gql`
         id
         name
       }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
+      }
     }
     ... on DevotionalContentItem {
       parentChannel {
         id
         name
+      }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
       }
     }
   }
