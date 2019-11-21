@@ -253,6 +253,13 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     parentChannel {
@@ -438,6 +445,13 @@ fragment baseCardFragment on ContentItem {
     videos {
       sources {
         uri
+        __typename
+      }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
         __typename
       }
       __typename
@@ -627,6 +641,13 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     parentChannel {
@@ -812,6 +833,13 @@ fragment baseCardFragment on ContentItem {
     videos {
       sources {
         uri
+        __typename
+      }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
         __typename
       }
       __typename
@@ -1001,6 +1029,13 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     parentChannel {
@@ -1186,6 +1221,13 @@ fragment baseCardFragment on ContentItem {
     videos {
       sources {
         uri
+        __typename
+      }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
         __typename
       }
       __typename
