@@ -96,11 +96,13 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'ImageMedia',
       key,
       name: attributes[key].name,
-      sources: [
-        {
-          uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
-        },
-      ],
+      sources: attributeValues[key].value
+        ? [
+            {
+              uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+            },
+          ]
+        : [],
     }));
   };
 
@@ -143,11 +145,13 @@ export default class ContentItem extends oldContentItem.dataSource {
       __typename: 'AudioMedia',
       key,
       name: attributes[key].name,
-      sources: [
-        {
-          uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
-        },
-      ],
+      sources: attributeValues[key].value
+        ? [
+            {
+              uri: createAssetUrl(JSON.parse(attributeValues[key].value)),
+            },
+          ]
+        : [],
     }));
   };
 
