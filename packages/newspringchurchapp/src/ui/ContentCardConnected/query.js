@@ -49,6 +49,11 @@ export const BASE_CARD_FRAGMENT = gql`
         sources {
           uri
         }
+        thumbnail {
+          sources {
+            uri
+          }
+        }
       }
       parentChannel {
         id

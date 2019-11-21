@@ -1,5 +1,4 @@
 import React from 'react';
-import { get } from 'lodash';
 import PropTypes from 'prop-types';
 
 import {
@@ -12,17 +11,23 @@ import {
 const StyledHorizontalHightlightCard = ({
   hyphenatedTitle,
   labelText,
+  labelTheme,
+  coverImage,
   ...props
 }) => (
   <ThemeConsumer>
-    {(theme) => (
+    {({ type }) => (
       <HorizontalHighlightCard
-        title={hyphenatedTitle}
         {...props}
-        coverImage={null}
+        title={hyphenatedTitle}
+        coverImage={coverImage.sources}
         LabelComponent={
           <CardLabel
-            type={get(theme, 'type') === 'light' ? 'darkOverlay' : undefined}
+            type={
+              type === 'light' && labelTheme !== 'light'
+                ? 'darkOverlay'
+                : undefined
+            }
             title={labelText}
           />
         }
@@ -34,6 +39,10 @@ const StyledHorizontalHightlightCard = ({
 StyledHorizontalHightlightCard.propTypes = {
   hyphenatedTitle: PropTypes.string,
   labelText: PropTypes.string,
+  labelTheme: PropTypes.oneOf('light', 'dark'),
+  coverImage: PropTypes.shape({
+    sources: PropTypes.arrayOf(PropTypes.shape({ uri: PropTypes.string })),
+  }),
 };
 
 const horizontalContentCardComponentMapper = ({
@@ -45,6 +54,7 @@ const horizontalContentCardComponentMapper = ({
   const {
     __typename: typename,
     seriesConnection: { itemCount, itemIndex } = {},
+    videos = [],
   } = props;
 
   switch (typename) {
@@ -58,6 +68,9 @@ const horizontalContentCardComponentMapper = ({
           {...props}
           hyphenatedTitle={hyphenatedTitle}
           labelText={itemIndex ? `Week ${itemIndex}` : ''}
+          labelTheme={'light'}
+          theme={'light'}
+          coverImage={videos.length ? videos[0].thumbnail : null}
         />
       );
     case 'DevotionalContentItem':
@@ -68,6 +81,7 @@ const horizontalContentCardComponentMapper = ({
           labelText={
             itemIndex && itemCount ? `${itemIndex} of ${itemCount}` : ''
           }
+          coverImage={null}
         />
       );
     default:
@@ -86,6 +100,13 @@ horizontalContentCardComponentMapper.propTypes = {
     itemCount: PropTypes.number,
     itemIndex: PropTypes.number,
   }),
+  videos: PropTypes.arrayOf(
+    PropTypes.shape({
+      thumbnail: PropTypes.shape({
+        sources: PropTypes.arrayOf(PropTypes.shape({ uri: PropTypes.string })),
+      }),
+    })
+  ),
 };
 
 export default horizontalContentCardComponentMapper;
