@@ -1,4 +1,5 @@
 import { Campus as apollosCampus } from '@apollosproject/data-connector-rock';
+import bugsnagClient from '../../bugsnag';
 
 export default class Campus extends apollosCampus.dataSource {
   getPublicByLocation = async (location) => {
@@ -6,12 +7,16 @@ export default class Campus extends apollosCampus.dataSource {
 
     // check public attribute first
     const campuses = allCampuses.filter((campus) => {
-      try {
-        return campus.attributeValues.public.value === 'True';
-      } catch (err) {
-        console.error(
-          `${err}\n\nCampus doesn't have attributeValues field to check for public status.`
+      const { attributeValues: { public: { value } = {} } = {} } = campus;
+      if (!value) {
+        bugsnagClient.notify(
+          new Error('cannot determine if campus is public'),
+          {
+            metaData: { campus },
+            severity: 'warning',
+          }
         );
+
         // fall back is filter out if there's no location or image
         return !!(
           campus.location.longitude &&
@@ -19,6 +24,7 @@ export default class Campus extends apollosCampus.dataSource {
           campus.location.image
         );
       }
+      return value === 'True';
     });
     return campuses;
   };
