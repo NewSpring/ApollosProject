@@ -69,6 +69,7 @@ exports[`The SermonNotes component should render 1`] = `
         }
       >
         
+        
       </Text>
       <View
         style={
@@ -323,6 +324,7 @@ exports[`The SermonNotes component should render with a title, series, and one s
         }
       >
         A Fun Series
+         - Week 4
       </Text>
       <Text
         style={

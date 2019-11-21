@@ -17,16 +17,7 @@ const VerticalPaddedView = styled(({ theme }) => ({
 const ContentView = styled(({ theme }) => ({
   paddingHorizontal: theme.sizing.baseUnit,
   marginBottom: theme.sizing.baseUnit * 2,
-  justifyContent: 'flex-end',
 }))(FlexedView);
-
-const StyledBodyText = styled(({ theme }) => ({
-  color: theme.colors.white,
-}))(BodyText);
-
-const StyledH4 = styled(({ theme }) => ({
-  color: theme.colors.white,
-}))(H4);
 
 const StyledButton = styled({
   width: '100%',
@@ -44,7 +35,7 @@ const PrayerTab = memo(
         {prayers.length > 0 ? (
           <View>
             <VerticalPaddedView>
-              <StyledH4 placeholder={'Loading Prayers'}>{description}</StyledH4>
+              <BodyText placeholder={'Loading Prayers'}>{description}</BodyText>
             </VerticalPaddedView>
             <StyledButton
               title="Start praying"
@@ -59,11 +50,11 @@ const PrayerTab = memo(
         ) : (
           <VerticalPaddedView>
             {type === 'saved' ? (
-              <StyledH4>You do not have any saved prayers</StyledH4>
+              <H4>You do not have any saved prayers</H4>
             ) : (
               <>
-                <StyledH4>There are no prayers yet for your {type}</StyledH4>
-                <StyledBodyText>Be the first to add one!</StyledBodyText>
+                <H4>There are no prayers yet for your {type}</H4>
+                <BodyText>Be the first to add one!</BodyText>
               </>
             )}
           </VerticalPaddedView>

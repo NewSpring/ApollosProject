@@ -82,11 +82,27 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
@@ -95,6 +111,15 @@ fragment baseCardFragment on ContentItem {
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
@@ -273,11 +298,27 @@ fragment baseCardFragment on ContentItem {
         uri
         __typename
       }
+      thumbnail {
+        sources {
+          uri
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
@@ -286,6 +327,15 @@ fragment baseCardFragment on ContentItem {
     parentChannel {
       id
       name
+      __typename
+    }
+    seriesConnection {
+      series {
+        title
+        __typename
+      }
+      itemCount
+      itemIndex
       __typename
     }
     __typename
