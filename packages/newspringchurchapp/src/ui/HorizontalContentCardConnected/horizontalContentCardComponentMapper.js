@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Config from 'react-native-config';
 
 import {
   CardLabel,
@@ -28,7 +29,7 @@ const StyledHorizontalHightlightCard = ({
                 ? 'darkOverlay'
                 : undefined
             }
-            title={labelText}
+            title={Config.EXPERIMENTAL ? labelText : ''}
           />
         }
       />
