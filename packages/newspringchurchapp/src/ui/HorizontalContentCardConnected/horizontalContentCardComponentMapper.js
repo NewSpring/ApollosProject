@@ -29,7 +29,7 @@ const StyledHorizontalHightlightCard = ({
                 ? 'darkOverlay'
                 : undefined
             }
-            title={Config.EXPERIMENTAL ? labelText : ''}
+            title={Config.EXPERIMENTAL === 'true' ? labelText : ''}
           />
         }
       />
