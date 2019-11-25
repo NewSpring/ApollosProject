@@ -152,7 +152,7 @@ export default class PrayerRequest extends RockApolloDataSource {
       .find(id)
       .get();
 
-  getFromIds = async (ids) => {
+  getFromIds = (ids) => {
     const idsFilter = ids.map((id) => `Id eq ${id}`);
     return this.request()
       .filterOneOf(idsFilter)
