@@ -23,14 +23,16 @@ const StyledHorizontalHightlightCard = ({
         title={hyphenatedTitle}
         coverImage={coverImage ? coverImage.sources : null}
         LabelComponent={
-          <CardLabel
-            type={
-              type === 'light' && labelTheme !== 'light'
-                ? 'darkOverlay'
-                : undefined
-            }
-            title={Config.EXPERIMENTAL === 'true' ? labelText : ''}
-          />
+          Config.EXPERIMENTAL === 'true' ? (
+            <CardLabel
+              type={
+                type === 'light' && labelTheme !== 'light'
+                  ? 'darkOverlay'
+                  : undefined
+              }
+              title={labelText}
+            />
+          ) : null
         }
       />
     )}
