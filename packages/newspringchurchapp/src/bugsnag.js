@@ -5,6 +5,7 @@ import { onError } from 'apollo-link-error';
 const configuration = new Configuration();
 configuration.apiKey = Config.BUGSNAG_API_KEY;
 configuration.releaseStage = Config.BUGSNAG_STAGE;
+configuration.notifyReleaseStages = ['production', 'staging'];
 const bugsnag = new Client(configuration);
 
 const bugsnagLink = onError(({ graphQLErrors, networkError, operation }) => {
