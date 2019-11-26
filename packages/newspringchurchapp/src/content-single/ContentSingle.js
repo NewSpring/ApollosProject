@@ -12,6 +12,8 @@ import GET_CONTENT_ITEM from './getContentItem';
 
 import DevotionalContentItem from './DevotionalContentItem';
 import UniversalContentItem from './UniversalContentItem';
+import WeekendContentItem from './WeekendContentItem';
+import ContentSeriesContentItem from './ContentSeriesContentItem';
 
 import NavigationHeader from './NavigationHeader';
 
@@ -42,10 +44,29 @@ class ContentSingle extends PureComponent {
     if (!__typename && this.itemId) {
       [__typename] = this.itemId.split(':');
     }
+
     switch (__typename) {
       case 'DevotionalContentItem':
         return (
           <DevotionalContentItem
+            id={this.itemId}
+            content={content}
+            loading={loading}
+            error={error}
+          />
+        );
+      case 'WeekendContentItem':
+        return (
+          <WeekendContentItem
+            id={this.itemId}
+            content={content}
+            loading={loading}
+            error={error}
+          />
+        );
+      case 'ContentSeriesContentItem':
+        return (
+          <ContentSeriesContentItem
             id={this.itemId}
             content={content}
             loading={loading}
@@ -71,13 +92,24 @@ class ContentSingle extends PureComponent {
     const content = data.node || {};
 
     const { theme = {}, id } = content;
+    const colors = get(theme, 'colors') || {};
+    const { primary, secondary, screen, paper } = colors;
 
     return (
       <ThemeMixin
-        mixin={{
-          type: get(theme, 'type', 'light').toLowerCase(),
-          colors: get(theme, 'colors'),
-        }}
+        mixin={
+          content.theme
+            ? {
+                type: 'light',
+                colors: {
+                  ...(primary ? { primary, tertiary: primary } : {}),
+                  ...(secondary ? { secondary } : {}),
+                  ...(screen ? { screen } : {}),
+                  ...(paper ? { paper } : {}),
+                },
+              }
+            : {}
+        }
       >
         <TrackEventWhenLoaded
           loaded={!!(!loading && content.title)}

@@ -27,72 +27,102 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
-const ActionTable = ({ token }) => (
-  <WebBrowserConsumer>
-    {(openUrl) => (
-      <View>
-        <RowHeader>
-          <Name>
-            <H4>{'Connect with NewSpring'}</H4>
-          </Name>
-        </RowHeader>
-        <TableView>
-          <Touchable
-            onPress={() => openUrl('https://rock.newspring.cc/Workflows/431')}
-          >
-            <Cell>
-              <CellIcon name="check" />
-              <CellText>Find a serving opportunity</CellText>
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc/groups')}>
-            <Cell>
-              <CellIcon name="groups" />
-              <CellText>Join a small group</CellText>
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable onPress={() => openUrl('https://my.newspring.cc')}>
-            <Cell>
-              <CellIcon name="download" />
-              <CellText>I would like to give</CellText>
-            </Cell>
-          </Touchable>
-        </TableView>
-        <TableView>
-          <Touchable
-            onPress={() =>
-              openUrl(
-                `https://rock.newspring.cc/WorkflowEntry/530?rckipid=${token}&Source=3`
-              )
-            }
-          >
-            <Cell>
-              <CellIcon name="settings" />
-              <CellText>Bug Report!</CellText>
-            </Cell>
-          </Touchable>
-        </TableView>
-        {process.env.NODE_ENV !== 'production' ? (
-          <TableView>
+const ActionTable = ({ isGroupLeader }) => (
+  <View>
+    <RowHeader>
+      <Name>
+        <H4>{'Connect with NewSpring'}</H4>
+      </Name>
+    </RowHeader>
+    <TableView>
+      <WebBrowserConsumer>
+        {(openUrl) => (
+          <View>
             <Touchable
-              onPress={() => NavigationActions.navigate('TestingControlPanel')}
+              onPress={() =>
+                openUrl(
+                  'https://newspring.cc/connect',
+                  {},
+                  { useRockToken: true }
+                )
+              }
+            >
+              <Cell>
+                <CellText>Sign up for Connect</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUrl(
+                  'https://newspring.cc/serving',
+                  {},
+                  { useRockToken: true }
+                )
+              }
+            >
+              <Cell>
+                <CellText>Find a serving opportunity</CellText>
+                <CellIcon name="arrow-next" />
+              </Cell>
+            </Touchable>
+            {isGroupLeader ? (
+              <>
+                <Divider />
+                <Touchable
+                  onPress={() =>
+                    openUrl(
+                      'https://newspring.cc/groups/leader',
+                      {},
+                      { useRockToken: true }
+                    )
+                  }
+                >
+                  <Cell>
+                    <CellText>Manage your group</CellText>
+                    <CellIcon name="arrow-next" />
+                  </Cell>
+                </Touchable>
+              </>
+            ) : null}
+            <Divider />
+            <Touchable
+              onPress={() =>
+                openUrl(
+                  `https://newspring.cc/workflows/530?Source=3`,
+                  {},
+                  { useRockToken: true }
+                )
+              }
             >
               <Cell>
                 <CellIcon name="settings" />
-                <CellText>Open Testing Panel</CellText>
+                <CellText>Bug Report!</CellText>
               </Cell>
             </Touchable>
-          </TableView>
-        ) : null}
-      </View>
-    )}
-  </WebBrowserConsumer>
+            <Divider />
+            {process.env.NODE_ENV !== 'production' ? (
+              <Touchable
+                onPress={() =>
+                  NavigationActions.navigate('TestingControlPanel')
+                }
+              >
+                <Cell>
+                  <CellIcon name="settings" />
+                  <CellText>Open Testing Panel</CellText>
+                </Cell>
+              </Touchable>
+            ) : null}
+          </View>
+        )}
+      </WebBrowserConsumer>
+    </TableView>
+  </View>
 );
 
 ActionTable.propTypes = {
-  token: PropTypes.string,
+  isGroupLeader: PropTypes.bool,
 };
 
 const StyledActionTable = styled(({ theme }) => ({

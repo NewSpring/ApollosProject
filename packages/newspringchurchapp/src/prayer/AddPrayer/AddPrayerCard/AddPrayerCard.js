@@ -13,8 +13,7 @@ import {
 } from '@apollosproject/ui-kit';
 
 const StyledView = styled(({ theme }) => ({
-  paddingVertical: theme.sizing.baseUnit * 3,
-  borderBottomLeftRadius: theme.sizing.baseUnit,
+  paddingBottom: theme.sizing.baseUnit,
   backgroundColor: theme.colors.paper,
   justifyContent: 'center',
 }))(View);
@@ -42,7 +41,7 @@ const AddPrayerCard = memo(({ avatarSource, title, description, ...props }) => (
     </CardContent>
     <StyledButtonView>
       <Button
-        title={'Add a Prayer Request'}
+        title={'Add a prayer request'}
         onPress={() => props.navigation.navigate('AddPrayerFormConnected')}
       />
     </StyledButtonView>

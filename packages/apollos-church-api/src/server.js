@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server-express';
+import ApollosConfig from '@apollosproject/config';
 import express from 'express';
 import { RockLoggingExtension } from '@apollosproject/rock-apollo-data-source';
 import bugsnag, { bugsnagMiddleware } from './bugsnag';
@@ -10,6 +11,7 @@ import {
   context,
   dataSources,
   applyServerMiddleware,
+  setupJobs,
 } from './data';
 
 export { resolvers, schema, testSchema };
@@ -18,6 +20,18 @@ const isDev =
   process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 
 const extensions = isDev ? [() => new RockLoggingExtension()] : [];
+
+const cacheOptions = isDev
+  ? {}
+  : {
+      cacheControl: {
+        stripFormattedExtensions: false,
+        calculateHttpHeaders: true,
+        defaultMaxAge: 600,
+      },
+    };
+
+const { ENGINE } = ApollosConfig;
 
 const apolloServer = new ApolloServer({
   typeDefs: schema,
@@ -36,10 +50,10 @@ const apolloServer = new ApolloServer({
       'editor.cursorShape': 'line',
     },
   },
-  cacheControl: {
-    stripFormattedExtensions: false,
-    calculateHttpHeaders: true,
-    defaultMaxAge: 600,
+  ...cacheOptions,
+  engine: {
+    apiKey: ENGINE.API_KEY,
+    schemaTag: ENGINE.SCHEMA_TAG,
   },
 });
 
@@ -50,6 +64,8 @@ const app = express();
 app.use(bugsnagMiddleware.requestHandler);
 
 applyServerMiddleware({ app, dataSources, context });
+setupJobs({ app, dataSources, context });
+
 apolloServer.applyMiddleware({ app });
 apolloServer.applyMiddleware({ app, path: '/' });
 

@@ -1,3 +1,5 @@
+import Color from 'color';
+
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
 
@@ -11,6 +13,9 @@
 
 /* Base alpha values. These are used to keep transparent values across the app consistant */
 // export const alpha = {};
+
+/* Base overlays. These are used as configuration for LinearGradients across the app */
+// export const overlays = () => ({});
 
 /* Overrides allow you to override the styles of any component styled using the `styled` HOC.
  * For example, this component:
@@ -55,6 +60,9 @@ const colors = {
 
   alert: '#c64f55',
   wordOfChrist: '#8b0000',
+  shadows: {
+    default: 'rgba(8, 0, 20, 0.25)',
+  },
 };
 
 /* Base Typography sizing and fonts.
@@ -83,7 +91,22 @@ const typography = {
   },
 };
 
+export const buttons = ({ colors: themeColors, alpha: themeAlpha }) => ({
+  darkOverlay: {
+    fill: Color(themeColors.darkTertiary).alpha(themeAlpha.low),
+    accent: themeColors.darkSecondary,
+  },
+});
+
+export const overrides = {
+  'ui-kit.CardLabel': {
+    borderWidth: 0,
+  },
+};
+
 export default {
   colors,
   typography,
+  buttons,
+  overrides,
 };

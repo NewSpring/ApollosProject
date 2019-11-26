@@ -1,86 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  onLayout={[Function]}
+<View
   style={
     Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
+      "marginHorizontal": -12,
+      "transform": Array [
+        Object {
+          "scaleX": 0.95,
+        },
+        Object {
+          "scaleY": 1,
+        },
+      ],
     }
   }
 >
   <View
-    onLayout={[Function]}
     style={
       Object {
-        "flex": 1,
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "backgroundColor": "#ffffff",
+        "borderRadius": 16,
+        "height": 150,
+        "marginHorizontal": 16,
+        "marginVertical": 12,
+        "shadowColor": "rgba(8, 0, 20, 0.25)",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 6,
+        "width": 150,
       }
     }
   >
     <View
       style={
         Object {
-          "height": 96,
-          "marginBottom": 8,
-          "marginRight": 4,
-          "marginTop": 8,
-          "transform": Array [
-            Object {
-              "scaleX": 0.95,
-            },
-            Object {
-              "scaleY": 1,
-            },
-          ],
+          "borderRadius": 16,
+          "overflow": "hidden",
         }
       }
     >
       <View
         style={
           Object {
-            "aspectRatio": 1.75,
-            "borderRadius": 16,
-            "height": "100%",
+            "backgroundColor": "#dddddd",
             "overflow": "hidden",
             "width": "100%",
           }
         }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://picsum.photos/600/400/?random",
-            }
-          }
+        <View
+          animate={null}
+          customAnimate={null}
+          forceRatio={1}
+          onReady={false}
           style={
             Object {
-              "height": "100%",
+              "aspectRatio": 1,
+              "backgroundColor": "#dddddd",
               "resizeMode": "cover",
               "width": "100%",
             }
           }
-        />
+        >
+          <Image
+            maxAspectRatio={1}
+            minAspectRatio={1}
+            onLoad={[Function]}
+            source={
+              Array [
+                Object {
+                  "cache": "force-cache",
+                  "uri": "https://picsum.photos/600/400/?random",
+                },
+              ]
+            }
+            style={
+              Object {
+                "backgroundColor": "#dddddd",
+                "opacity": 0,
+                "resizeMode": "cover",
+                "width": "100%",
+              }
+            }
+          />
+        </View>
         <BVLinearGradient
           colors={
             Array [
-              3429608515,
-              3429608515,
+              3865816131,
+              3865816131,
             ]
           }
           endPoint={
@@ -95,6 +107,8 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
               1,
             ]
           }
+          overlayColor="#6bac43"
+          overlayType="high"
           startPoint={
             Object {
               "x": 0,
@@ -111,6 +125,20 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
             }
           }
         />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "bottom": 0,
+            "paddingBottom": 24,
+            "paddingHorizontal": 16,
+            "paddingVertical": 16,
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      >
         <View
           style={
             Object {
@@ -126,9 +154,9 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
             style={
               Object {
                 "color": "white",
-                "fontFamily": "Colfax-Medium",
-                "fontSize": 14,
-                "lineHeight": 20.16,
+                "fontFamily": "Colfax-Bold",
+                "fontSize": 16,
+                "lineHeight": 23.04,
               }
             }
           >
@@ -138,5 +166,5 @@ exports[`the PrayerMenuCard component renders a prayer menu card 1`] = `
       </View>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

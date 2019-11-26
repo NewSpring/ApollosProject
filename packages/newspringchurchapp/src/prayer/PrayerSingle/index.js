@@ -9,6 +9,7 @@ import {
   Touchable,
   ChannelLabel,
 } from '@apollosproject/ui-kit';
+import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 import PrayerHeader from '../PrayerHeader';
 
 const GreyH5 = styled(({ theme }) => ({
@@ -41,37 +42,45 @@ const PrayerSingle = memo(
       <AbsolutePositionedView>{action}</AbsolutePositionedView>
       {showDate ? (
         <GreyH5>
-          {prayer.enteredDateTime
-            ? moment(prayer.enteredDateTime).fromNow()
-            : ''}
+          {prayer.startTime ? moment(prayer.startTime).fromNow() : ''}
         </GreyH5>
       ) : null}
       {showHeader ? (
         <PrayerHeader
           avatarSize={avatarSize}
-          avatarSource={prayer.isAnonymous ? null : prayer.person.photo}
+          avatarSource={prayer.isAnonymous ? null : prayer.requestor.photo}
           title={`Pray for ${
-            prayer.isAnonymous ? 'Request' : prayer.firstName
+            prayer.isAnonymous
+              ? 'Request'
+              : prayer.requestor.nickName || prayer.requestor.firstName
           }`}
-          source={prayer.campus.name}
+          source={prayer.campus.name !== 'Web' ? prayer.campus.name : null}
         />
       ) : null}
       <PrayerText>{prayer.text}</PrayerText>
       {showHelp ? (
-        <Touchable
-          onPress={() => {
-            props.navigation.navigate('ContentSingle', {
-              // TODO: this should come from a content channel
-              itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
-              itemTitle: 'Learning how to pray like Jesus',
-              isolated: true,
-            });
-          }}
-        >
-          <View>
-            <ChannelLabel icon="information" label="How to Pray?" />
-          </View>
-        </Touchable>
+        <AnalyticsConsumer>
+          {({ track }) => (
+            <Touchable
+              onPress={() => {
+                props.navigation.navigate('ContentSingle', {
+                  // TODO: this should come from a content channel
+                  itemId: 'MediaContentItem:20f5b6548d64b1ac62a1c4b0deb0bfcb',
+                  itemTitle: 'Learning how to pray like Jesus',
+                  isolated: true,
+                });
+                track({ eventName: "Clicked 'How to Pray'" });
+              }}
+            >
+              <View>
+                <ChannelLabel
+                  icon="information"
+                  label="Not sure how to pray? Read this."
+                />
+              </View>
+            </Touchable>
+          )}
+        </AnalyticsConsumer>
       ) : null}
     </View>
   )

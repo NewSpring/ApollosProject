@@ -54,12 +54,13 @@ const SwitchContainer = styled(({ theme }) => ({
 }))(View);
 
 const AddPrayerForm = memo(
-  ({ onSubmit, avatarSource, title, btnLabel, ...props }) => (
+  ({ onSubmit, avatarSource, title, btnLabel, loading, ...props }) => (
     <Formik
       initialValues={{ prayer: '', anonymous: false }}
       onSubmit={(values, { resetForm }) => {
         onSubmit(values);
-        resetForm({});
+        // this is necessary so the modal can transition completely
+        setTimeout(() => resetForm({}), 1000);
       }}
     >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -68,6 +69,7 @@ const AddPrayerForm = memo(
             <ShrinkingView behavior={'padding'}>
               <HeaderView>
                 <PrayerHeader
+                  loading={loading}
                   avatarSource={values.anonymous ? null : avatarSource}
                   avatarSize={'medium'}
                   title={title}
@@ -77,6 +79,7 @@ const AddPrayerForm = memo(
                 <StyledTextInput
                   editable
                   multiline
+                  returnKeyType="default"
                   placeholder="Start typing your prayer..."
                   onChangeText={handleChange('prayer')}
                   onBlur={handleBlur('prayer')}
@@ -112,11 +115,12 @@ AddPrayerForm.propTypes = {
   }),
   title: PropTypes.string,
   btnLabel: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 AddPrayerForm.defaultProps = {
   title: 'Ask for prayer',
-  btnLabel: 'Send prayer to community',
+  btnLabel: 'Send prayer',
 };
 
 AddPrayerForm.displayName = 'AddPrayerForm';

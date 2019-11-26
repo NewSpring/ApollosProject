@@ -2,20 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Query, Mutation } from 'react-apollo';
 import { Dimensions } from 'react-native';
-
+import Geolocation from 'react-native-geolocation-service';
 import { PaddedView, ButtonLink } from '@apollosproject/ui-kit';
+import { get } from 'lodash';
 
+import GET_CAMPUS_PRAYERS from 'newspringchurchapp/src/prayer/data/queries/getCampusPrayers';
 import GET_CAMPUSES from './getCampusLocations';
 import CHANGE_CAMPUS from './campusChange';
 import MapView from './MapView';
-
-const getCurrentLocation = () =>
-  new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => resolve(position),
-      (e) => reject(e)
-    );
-  });
 
 class Location extends PureComponent {
   static propTypes = {
@@ -30,12 +24,10 @@ class Location extends PureComponent {
       latitudeDelta: PropTypes.number,
       longitudeDelta: PropTypes.number,
     }),
-    onFinished: PropTypes.func,
   };
 
   static defaultProps = {
     initialRegion: {
-      // roughly show the entire USA by default
       latitude: 32.916107,
       longitude: -80.974731,
       latitudeDelta: 8,
@@ -61,24 +53,22 @@ class Location extends PureComponent {
     },
   };
 
-  componentDidMount() {
-    return getCurrentLocation().then((position) => {
-      if (position) {
+  async componentDidMount() {
+    Geolocation.getCurrentPosition(
+      (position) => {
         this.setState({
           userLocation: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           },
         });
-      }
-    });
+      },
+      (e) => console.warn('Error getting location!', e),
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+    );
   }
 
   render() {
-    const { navigation, onFinished } = this.props;
-    // we should use the `onFinished` from the navigation param, if it exists.
-    const handleFinished = navigation.getParam('onFinished', onFinished);
-
     return (
       <Query
         query={GET_CAMPUSES}
@@ -88,24 +78,36 @@ class Location extends PureComponent {
         }}
         fetchPolicy="cache-and-network"
       >
-        {({ loading, error, data: { campuses = [] } = {} }) => (
+        {({ loading, error, data: { campuses, currentUser } = {} }) => (
           <Mutation mutation={CHANGE_CAMPUS}>
             {(handlePress) => (
               <MapView
-                navigation={navigation}
+                navigation={this.props.navigation}
                 isLoading={loading}
                 error={error}
-                campuses={campuses}
+                campuses={campuses || []}
                 initialRegion={this.props.initialRegion}
                 userLocation={this.state.userLocation}
-                onLocationSelect={async ({ id }) => {
-                  await handlePress({
+                currentCampus={get(currentUser, 'profile.campus')}
+                onLocationSelect={async (campus) => {
+                  handlePress({
                     variables: {
-                      campusId: id,
+                      campusId: campus.id,
                     },
+                    optimisticResponse: {
+                      updateUserCampus: {
+                        __typename: 'Mutation',
+                        id: currentUser.id,
+                        campus,
+                      },
+                    },
+                    refetchQueries: [
+                      {
+                        query: GET_CAMPUS_PRAYERS,
+                      },
+                    ],
                   });
-                  await navigation.goBack();
-                  if (handleFinished) handleFinished();
+                  this.props.navigation.goBack();
                 }}
               />
             )}

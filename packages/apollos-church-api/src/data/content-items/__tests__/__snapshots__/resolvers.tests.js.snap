@@ -37,8 +37,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -86,8 +86,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -135,8 +135,8 @@ Object {
       },
       "sharing": Object {
         "__typename": "SharableContentItem",
-        "message": "",
-        "title": "SAMPLE: Easter",
+        "message": "SAMPLE: Easter - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Share via ...",
         "url": "https://newspring.cc/whatever",
       },
       "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -152,7 +152,33 @@ Object {
   "data": Object {
     "node": Object {
       "id": "DevotionalContentItem:559b23fd0aa90e81b1c023e72e230fa1",
-      "scriptures": Array [],
+      "scriptures": Array [
+        Object {
+          "html": "<p><i>1</i>In the beginning...</p>",
+        },
+      ],
+      "title": "SAMPLE: Easter",
+    },
+  },
+}
+`;
+
+exports[`UniversalContentItem gets a newspring weekend content item 1`] = `
+Object {
+  "data": Object {
+    "node": Object {
+      "communicators": Array [
+        Object {
+          "firstName": "first",
+          "lastName": "last",
+        },
+      ],
+      "features": null,
+      "guestCommunicators": Array [
+        "guest communicator",
+      ],
+      "id": "WeekendContentItem:559b23fd0aa90e81b1c023e72e230fa1",
+      "sermonDate": null,
       "title": "SAMPLE: Easter",
     },
   },

@@ -14,36 +14,29 @@ class AddPrayerFormConnected extends React.Component {
     return (
       <Query query={getUserProfile}>
         {({
+          loading: profileLoading,
           data: {
-            currentUser: {
-              profile: {
-                campus: { id: campusId } = {},
-                firstName,
-                lastName,
-                photo = { uri: null },
-              } = {},
-            } = {},
+            currentUser: { profile: { photo = { uri: '' } } = {} } = {},
           } = {},
         }) => (
           <Mutation mutation={ADD_PRAYER}>
             {(addPrayer) => (
               <AddPrayerForm
+                loading={profileLoading}
                 onSubmit={(values) => {
                   addPrayer({
                     variables: {
-                      campusId,
                       text: values.prayer,
-                      firstName,
-                      lastName,
                       isAnonymous: values.anonymous,
                     },
-                    refetchQueries: [{ query: GET_USER_PRAYERS }],
+                    refetchQueries: () => [{ query: GET_USER_PRAYERS }],
                   });
                   this.props.navigation.navigate('WithYou');
                 }}
                 avatarSource={photo}
                 {...this.props}
                 onClose={() => this.props.navigation.pop()}
+                title={'Join me in praying for ...'}
               />
             )}
           </Mutation>

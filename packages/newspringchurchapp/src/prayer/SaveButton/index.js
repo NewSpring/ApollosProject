@@ -1,105 +1,40 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
+import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 import SAVE_PRAYER from '../data/mutations/savePrayer';
 import UNSAVE_PRAYER from '../data/mutations/unSavePrayer';
 import GET_SAVED_PRAYERS from '../data/queries/getSavedPrayers';
 import SaveButton from './SaveButton';
 
-const SaveButtonConnected = memo(({ prayerID, saved }) => (
+const SaveButtonConnected = memo(({ prayerID, saved, toggleSavedState }) => (
   <Mutation mutation={SAVE_PRAYER}>
     {(save) => (
       <Mutation mutation={UNSAVE_PRAYER}>
         {(unSave) => (
-          <SaveButton
-            saved={saved}
-            onPress={() =>
-              saved
-                ? unSave({
-                    variables: { nodeId: prayerID },
-                    update: (
-                      cache,
-                      {
-                        data: {
-                          unSavePrayer: { id },
-                        },
-                      }
-                    ) => {
-                      const data = cache.readQuery({
-                        query: GET_SAVED_PRAYERS,
-                      });
-                      const filteredPrayers = data.savedPrayers.filter(
-                        (prayer) => prayer.id !== id
-                      );
-                      cache.writeQuery({
-                        query: GET_SAVED_PRAYERS,
-                        data: { savedPrayers: filteredPrayers },
-                      });
-                    },
-                    optimisticResponse: {
-                      unSavePrayer: {
-                        __typename: 'PrayerRequest',
-                        id: prayerID,
-                        firstName: '',
-                        lastName: '',
-                        isAnonymous: true,
-                        text: '',
-                        person: {
-                          __typename: 'Person',
-                          photo: {
-                            __typename: 'ImageMedia',
-                            uri: '',
-                          },
-                        },
-                        flagCount: 0,
-                        campus: {
-                          __typename: 'Campus',
-                          id: '',
-                          name: '',
-                        },
-                        enteredDateTime: '',
-                      },
-                    },
-                  })
-                : save({
-                    variables: { nodeId: prayerID },
-                    update: (cache, { data: { savePrayer } }) => {
-                      const data = cache.readQuery({
-                        query: GET_SAVED_PRAYERS,
-                      });
-                      data.savedPrayers.push(savePrayer);
-                      cache.writeQuery({
-                        query: GET_SAVED_PRAYERS,
-                        data,
-                      });
-                    },
-                    optimisticResponse: {
-                      savePrayer: {
-                        __typename: 'PrayerRequest',
-                        id: prayerID,
-                        firstName: '',
-                        lastName: '',
-                        isAnonymous: true,
-                        text: '',
-                        person: {
-                          __typename: 'Person',
-                          photo: {
-                            __typename: 'ImageMedia',
-                            uri: '',
-                          },
-                        },
-                        flagCount: 0,
-                        campus: {
-                          __typename: 'Campus',
-                          id: '',
-                          name: '',
-                        },
-                        enteredDateTime: '',
-                      },
-                    },
-                  })
-            }
-          />
+          <AnalyticsConsumer>
+            {({ track }) => (
+              <SaveButton
+                saved={saved}
+                onPress={() => {
+                  toggleSavedState();
+                  if (saved)
+                    unSave({
+                      variables: { nodeId: prayerID },
+                      refetchQueries: [{ query: GET_SAVED_PRAYERS }],
+                    });
+                  else
+                    save({
+                      variables: { nodeId: prayerID },
+                      refetchQueries: [{ query: GET_SAVED_PRAYERS }],
+                    });
+                  track({
+                    eventName: saved ? 'Unsaved Prayer' : 'Saved Prayer',
+                  });
+                }}
+              />
+            )}
+          </AnalyticsConsumer>
         )}
       </Mutation>
     )}
@@ -109,6 +44,7 @@ const SaveButtonConnected = memo(({ prayerID, saved }) => (
 SaveButtonConnected.propTypes = {
   prayerID: PropTypes.string,
   saved: PropTypes.bool,
+  toggleSavedState: PropTypes.func,
 };
 
 SaveButtonConnected.displayName = 'SaveButtonConnected';

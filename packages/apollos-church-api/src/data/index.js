@@ -6,27 +6,30 @@ import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
 import * as LiveStream from '@apollosproject/data-connector-church-online';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
+import * as Search from '@apollosproject/data-connector-algolia-search';
 import * as Pass from '@apollosproject/data-connector-passes';
+import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
 import { PrayerRequest, PrayerMenuCategory } from 'apollos-data-prayer';
 import {
   Followings,
-  Person,
   ContentChannel,
   Sharable,
-  Auth,
   PersonalDevice,
   Template,
   AuthSms,
   BinaryFiles,
-  Features,
+  RockConstants,
+  Event,
 } from '@apollosproject/data-connector-rock';
-import * as Theme from './theme';
-import * as ExtendedPerson from './people';
+import * as Person from './people';
+import * as Auth from './auth';
 import * as ContentItem from './content-items';
+import * as Features from './features';
 import * as Campus from './campuses';
-import * as Interactions from './interactions';
-import * as RockConstants from './rock-constants';
+import * as Group from './groups';
+import * as Theme from './theme';
+import * as MatrixItem from './matrix-items';
 
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
@@ -36,17 +39,12 @@ const data = {
   Followings,
   ContentChannel,
   ContentItem,
-  Person,
-  ExtendedPerson,
   Auth,
   AuthSms,
   Sms,
-  PrayerRequest,
-  PrayerMenuCategory,
   LiveStream,
   Theme,
   Scripture,
-  Interactions,
   RockConstants,
   Sharable,
   Analytics,
@@ -54,10 +52,18 @@ const data = {
   PersonalDevice,
   OneSignalWithRock,
   Pass,
+  Search,
   Template,
   Campus,
+  Group,
   BinaryFiles,
+  Event,
+  Cache,
   Features,
+  Person,
+  PrayerRequest,
+  PrayerMenuCategory,
+  MatrixItem,
 };
 
 const {
@@ -66,9 +72,17 @@ const {
   schema,
   context,
   applyServerMiddleware,
+  setupJobs,
 } = createApolloServerConfig(data);
 
-export { dataSources, resolvers, schema, context, applyServerMiddleware };
+export {
+  dataSources,
+  resolvers,
+  schema,
+  context,
+  applyServerMiddleware,
+  setupJobs,
+};
 
 // the upload Scalar is added
 export const testSchema = [

@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Animated, Dimensions } from 'react-native';
+import { Animated, Dimensions, Platform, PixelRatio } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import RNMapView from 'react-native-maps';
 import { debounce } from 'lodash';
 
 import {
   Button,
+  Touchable,
   PaddedView,
   FlexedView,
   styled,
   withTheme,
   CampusCard,
 } from '@apollosproject/ui-kit';
+import { MediaPlayerSpacer } from '@apollosproject/ui-media-player';
 
 import Marker from './Marker';
+
+const getCampusAddress = (campus) =>
+  `${campus.street1}\n${campus.city}, ${campus.state} ${campus.postalCode}`;
 
 /* TODO: remove magic number. `theme.sizing.baseUnit * 2.25` This width value is a brittle
  * calculation of width minus `CampusCard` margins */
@@ -24,15 +29,12 @@ const FlexedMapView = styled({ flex: 1 })(({ mapRef, ...props }) => (
   <RNMapView ref={mapRef} {...props} />
 ));
 
-const getCampusAddress = (campus) =>
-  `${campus.street1}\n${campus.city}, ${campus.state} ${campus.postalCode}`;
-
 const Footer = styled({
   position: 'absolute',
   bottom: 0,
   left: 0,
   right: 0,
-})(View);
+})(SafeAreaView);
 
 const StyledCampusCard = styled(({ theme }) => ({
   width: CARD_WIDTH,
@@ -47,6 +49,10 @@ class MapView extends Component {
         longitude: PropTypes.number.isRequired,
       })
     ),
+    currentCampus: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+    }),
     onLocationSelect: PropTypes.func.isRequired,
     initialRegion: PropTypes.shape({
       latitude: PropTypes.number.isRequired,
@@ -68,62 +74,84 @@ class MapView extends Component {
     }),
   };
 
-  state = {
-    campus: null,
-  };
-
   animation = new Animated.Value(0);
+
+  scrollView = null;
 
   componentDidMount() {
     this.animation.addListener(debounce(this.updateCoordinates));
   }
 
   componentDidUpdate(oldProps) {
-    if (oldProps.userLocation !== this.props.userLocation) {
+    // update mapview if there are campuses and the location changes
+    if (
+      this.props.campuses.length &&
+      oldProps.userLocation !== this.props.userLocation
+    ) {
       this.updateCoordinates({ value: this.previousScrollPosition });
     }
   }
 
-  get contentContainerStyle() {
-    return { paddingHorizontal: this.props.theme.sizing.baseUnit * 0.75 }; // pad cards from edge of screen but account for card margin
+  get currentCampus() {
+    const cardIndex = Math.floor(
+      this.previousScrollPosition / CARD_WIDTH + 0.3
+    ); // animate 30% away from landing on the next item;
+    return this.sortedCampuses[cardIndex];
   }
+
+  get sortedCampuses() {
+    const { currentCampus = null, campuses = [] } = this.props;
+    const publicCampuses = campuses.filter(({ name }) => name !== 'Web');
+    if (currentCampus && currentCampus.name !== 'Web') {
+      return [
+        currentCampus,
+        ...publicCampuses.filter(({ id }) => id !== currentCampus.id),
+      ];
+    }
+    return publicCampuses;
+  }
+
+  scrollToIndex = (index) => {
+    this.scrollView.getNode().scrollTo({
+      x: index * (CARD_WIDTH + 8),
+      y: 0,
+      animated: true,
+    });
+    this.updateCoordinates({ value: index * (CARD_WIDTH + 8) });
+  };
 
   updateCoordinates = ({ value }) => {
     this.previousScrollPosition = value;
-    const cardIndex = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item;
-    const campus = this.props.campuses[cardIndex];
-    this.setState({ campus });
-    if (!campus) {
-      this.map.fitToCoordinates(
-        [...this.props.campuses, this.props.userLocation],
-        {
-          edgePadding: {
-            top: 100,
-            left: 100,
-            right: 100,
-            // This is higher to avoid the campus cards (baseUnit * 6) on the bottom
-            bottom: 100 + this.props.theme.sizing.baseUnit * 12,
-          },
-        }
-      );
-      return;
-    }
 
     const { userLocation } = this.props;
-    this.map.fitToCoordinates([campus, userLocation], {
-      edgePadding: {
-        top: 100,
-        left: 100,
-        right: 100,
-        // This is higher to avoid the campus cards (baseUnit * 6) on the bottom
-        bottom: 100 + this.props.theme.sizing.baseUnit * 12,
-      },
+    // campus card height + some padding
+
+    const bottomPadding = 100 + this.props.theme.sizing.baseUnit * 12;
+    const edgePadding = {
+      top: 100,
+      left: 100,
+      right: 100,
+      bottom:
+        Platform.OS === 'android'
+          ? // NOTE: android bug
+            // https://github.com/react-native-community/react-native-maps/issues/2543
+            PixelRatio.getPixelSizeForLayoutSize(bottomPadding)
+          : bottomPadding,
+    };
+
+    const visibleCampuses = [
+      userLocation,
+      ...(this.currentCampus ? [this.currentCampus] : this.sortedCampuses),
+    ];
+
+    this.map.fitToCoordinates(visibleCampuses, {
+      edgePadding,
     });
   };
 
   render() {
-    const { campuses = [], onLocationSelect } = this.props;
-    const interpolations = campuses.map((marker, index) => {
+    const { onLocationSelect } = this.props;
+    const interpolations = this.sortedCampuses.map((marker, index) => {
       const inputRange = [
         (index - 1) * CARD_WIDTH,
         index * CARD_WIDTH,
@@ -146,12 +174,13 @@ class MapView extends Component {
             this.map = map;
           }}
         >
-          {campuses.map((campus, index) => {
+          {this.sortedCampuses.map((campus, index) => {
             const campusOpacity = {
               opacity: interpolations[index].opacity,
             };
             return (
               <Marker
+                onPress={() => this.scrollToIndex(index)}
                 key={campus.id}
                 opacityStyle={campusOpacity}
                 latitude={campus.latitude}
@@ -161,49 +190,56 @@ class MapView extends Component {
           })}
         </FlexedMapView>
         <Footer>
-          <SafeAreaView>
-            <Animated.ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              snapToInterval={CARD_WIDTH + 8} // account for padding
-              snapToAlignment={'start'}
-              decelerationRate={'fast'}
-              contentContainerStyle={this.contentContainerStyle} // correctly pads cards in ScrollView
-              scrollEventThrottle={16} // roughtly 1000ms/60fps = 16ms
-              onScroll={Animated.event(
-                [
-                  {
-                    nativeEvent: {
-                      contentOffset: {
-                        x: this.animation,
-                      },
+          <Animated.ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={CARD_WIDTH + 8} // account for padding
+            snapToAlignment={'start'}
+            decelerationRate={'fast'}
+            contentContainerStyle={{
+              paddingHorizontal: this.props.theme.sizing.baseUnit * 0.75,
+            }}
+            ref={(ref) => (this.scrollView = ref)} // eslint-disable-line
+            scrollEventThrottle={16} // roughtly 1000ms/60fps = 16ms
+            onScroll={Animated.event(
+              [
+                {
+                  nativeEvent: {
+                    contentOffset: {
+                      x: this.animation,
                     },
                   },
-                ],
-                { useNativeDriver: true }
-              )}
-            >
-              {campuses.map((campus) => (
+                },
+              ],
+              { useNativeDriver: true }
+            )}
+          >
+            {this.sortedCampuses.map((campus) => (
+              <Touchable
+                key={campus.id}
+                onPress={() => onLocationSelect(campus)}
+              >
                 <StyledCampusCard
-                  key={campus.id}
                   distance={campus.distanceFromLocation}
                   title={campus.name}
                   description={getCampusAddress(campus)}
                   images={[campus.image]}
                 />
-              ))}
-            </Animated.ScrollView>
+              </Touchable>
+            ))}
+          </Animated.ScrollView>
+          <MediaPlayerSpacer>
             <PaddedView>
               <Button
                 title="Select Campus"
                 pill={false}
                 type="secondary"
                 onPress={() =>
-                  onLocationSelect(this.state.campus || campuses[0])
+                  onLocationSelect(this.currentCampus || this.sortedCampuses[0])
                 }
               />
             </PaddedView>
-          </SafeAreaView>
+          </MediaPlayerSpacer>
         </Footer>
       </FlexedView>
     );

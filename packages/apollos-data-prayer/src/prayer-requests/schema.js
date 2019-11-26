@@ -2,19 +2,19 @@ import gql from 'graphql-tag';
 
 const prayerRequestSchema = gql`
   extend type Query {
-    prayers: [PrayerRequest]
-    campusPrayers(campusId: String!): [PrayerRequest]
-    userPrayers: [PrayerRequest] @cacheControl(maxAge: 0)
+    prayers(type: PrayerType): [PrayerRequest]
+    campusPrayers: [PrayerRequest]
+    userPrayers: [PrayerRequest]
     groupPrayers: [PrayerRequest]
     savedPrayers: [PrayerRequest]
   }
   extend type Mutation {
     addPrayer(
-      campusId: String
-      categoryId: Int
+      campusId: String @deprecated(reason: "Not used")
+      categoryId: Int @deprecated(reason: "Not used")
       text: String!
-      firstName: String!
-      lastName: String
+      firstName: String @deprecated(reason: "Not used")
+      lastName: String @deprecated(reason: "Not used")
       isAnonymous: Boolean
     ): PrayerRequest
     deletePrayer(nodeId: String!): PrayerRequest
@@ -23,19 +23,32 @@ const prayerRequestSchema = gql`
     savePrayer(nodeId: String!): PrayerRequest
     unSavePrayer(nodeId: String!): PrayerRequest
   }
+
+  enum PrayerType {
+    CAMPUS
+    USER
+    GROUP
+    SAVED
+  }
+
   type PrayerRequest implements Node {
     id: ID!
     firstName: String
+      @deprecated(reason: "Not supported. Use requestor.firstName")
     lastName: String
+      @deprecated(reason: "Not supported. Use requestor.lastName.")
     text: String!
     enteredDateTime: String!
+      @deprecated(reason: "Not supported. Use startTime.")
+    startTime: String!
     flagCount: Int
     prayerCount: Int
-    categoryId: Int
-    campus: Campus
-    createdByPersonAliasId: Int
-    requestedByPersonAliasId: Int
-    person: Person
+    categoryId: Int @deprecated(reason: "Not supported")
+    campus: Campus @deprecated(reason: "Not supported")
+    createdByPersonAliasId: Int @deprecated(reason: "Not supported")
+    requestedByPersonAliasId: Int @deprecated(reason: "Not supported")
+    person: Person @deprecated(reason: "Not supported. Use requestor.")
+    requestor: Person
     isAnonymous: Boolean
     isSaved: Boolean
   }

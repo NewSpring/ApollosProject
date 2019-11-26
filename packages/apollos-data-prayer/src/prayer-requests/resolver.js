@@ -5,13 +5,13 @@ export default {
   Query: {
     prayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getAll(),
-    campusPrayers: (root, { campusId }, { dataSources }) =>
-      dataSources.PrayerRequest.getAllByCampus(campusId),
+    campusPrayers: (root, args, { dataSources }) =>
+      dataSources.PrayerRequest.getAllByCampus(),
     userPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromCurrentPerson(),
     groupPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getFromGroups(),
-    savedPrayers: async (root, args, { dataSources }) =>
+    savedPrayers: (root, args, { dataSources }) =>
       dataSources.PrayerRequest.getSavedPrayers(),
   },
   Mutation: {
@@ -22,15 +22,26 @@ export default {
       return dataSources.PrayerRequest.deletePrayer(parsedId);
     },
     incrementPrayerCount: async (root, { nodeId }, { dataSources }) => {
-      const { id: parsedId } = parseGlobalId(nodeId);
-      const operationName = 'Pray';
+      const { id: prayerId } = parseGlobalId(nodeId);
 
-      await dataSources.Interactions.createPrayerRequestInteraction({
-        prayerId: parsedId,
-        operationName,
-      });
+      const prayer = await dataSources.PrayerRequest.incrementPrayed(prayerId);
 
-      return dataSources.PrayerRequest.incrementPrayed(parsedId);
+      // TODO: createInteraction needs to be way faster
+      // does 10 data calls and sometimes it times out
+      //
+      // create the interaction to trigger a notification
+      try {
+        await dataSources.PrayerRequest.createInteraction({
+          prayerId,
+        });
+      } catch (e) {
+        console.warn(
+          'Error, interaction and notification may not have been sent'
+        );
+        console.warn(e);
+      }
+
+      return prayer;
     },
     flagPrayer: (root, { nodeId }, { dataSources }) => {
       const { id: parsedId } = parseGlobalId(nodeId);
@@ -40,33 +51,36 @@ export default {
       root,
       { nodeId },
       { dataSources, models: { Node } },
-      { schema }
+      info
     ) => {
       await dataSources.Followings.followNode({
         nodeId,
       });
-      return Node.get(nodeId, dataSources, schema);
+      return Node.get(nodeId, dataSources, info);
     },
     unSavePrayer: async (
       root,
       { nodeId },
       { dataSources, models: { Node } },
-      { schema }
+      info
     ) => {
       await dataSources.Followings.unFollowNode({
         nodeId,
       });
-      return Node.get(nodeId, dataSources, schema);
+      return Node.get(nodeId, dataSources, info);
     },
   },
   PrayerRequest: {
     id: ({ id }, args, context, { parentType }) =>
       createGlobalId(id, parentType.name),
+    startTime: ({ enteredDateTime }) => enteredDateTime,
     campus: ({ campusId }, args, { dataSources }) =>
       isNumber(campusId) ? dataSources.Campus.getFromId(campusId) : null,
     isAnonymous: ({ attributeValues: { isAnonymous: { value } = {} } = {} }) =>
       value === 'True',
     person: ({ requestedByPersonAliasId }, args, { dataSources }) =>
+      dataSources.Person.getFromAliasId(requestedByPersonAliasId),
+    requestor: ({ requestedByPersonAliasId }, args, { dataSources }) =>
       dataSources.Person.getFromAliasId(requestedByPersonAliasId),
     flagCount: ({ flagCount }) =>
       (typeof flagCount === 'number' && flagCount) || 0,

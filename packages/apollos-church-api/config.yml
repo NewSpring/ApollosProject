@@ -12,18 +12,30 @@ APP:
   # It should match whatver is in your Info.plist `CFBundleURLTypes`
   DEEP_LINK_HOST: newspringchurchapp
   ROOT_API_URL: ${ROOT_URL}
+  JOBS_USERNAME: ${JOBS_USERNAME}
+  JOBS_PASSWORD: ${JOBS_PASSWORD}
 ROCK:
   API_URL: ${ROCK_API}
   API_TOKEN: ${ROCK_TOKEN}
   IMAGE_URL: https://s3.amazonaws.com
   SHARE_URL: https://newspring.cc
+  FORGOT_PASSWORD_URL: https://rock.newspring.cc/page/56
   # This should match the timezone of the Rock server
   TIMEZONE: 'America/New_York'
+  USE_PLUGIN: true
+  SHOW_INACTIVE_CONTENT: ${ROCK_SHOW_INACTIVE_CONTENT}
 ONE_SIGNAL:
   APP_ID: fe946d19-cad0-42eb-b32c-078f29c54e41
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
 CHURCH_ONLINE:
   URL: https://live.newspring.cc/api/v1/
+  MEDIA_URLS: []
+  WEB_VIEW_URL: https://live.newspring.cc
+ALGOLIA:
+  APPLICATION_ID: ${ALGOLIA_APP_ID}
+  API_KEY: ${ALGOLIA_API_KEY}
+  # TODO: should we support multiple indices? how?
+  SEARCH_INDEX: ${ALGOLIA_SEARCH_INDEX}
 TWILIO:
   ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
   AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
@@ -41,14 +53,21 @@ ANALYTICS:
   # on the accompanying service
   SEGMENT_KEY:
   GA_ID:
+  USE_ROCK: false
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
-  BIBLE_ID: '9879dbb7cfe39e4d-01'
+  BIBLE_ID:
+    ESV: 'f421fe261da7624f-01'
+    NIV: '71c6eab17ae5b667-01'
+    WEB: '9879dbb7cfe39e4d-01'
 CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
   # cloudinary://123123123:adkfnla_adASDv_adAS@test
   URL: ${CLOUDINARY_URL}
+ENGINE:
+  API_KEY: ${ENGINE_API_KEY}
+  SCHEMA_TAG: ${ENGINE_SCHEMA_TAG}
 
 # This key holds various properties that allow our GraphQL server to map to your Rock Instance
 ROCK_MAPPINGS:
@@ -75,42 +94,39 @@ ROCK_MAPPINGS:
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
+      ContentChannelId: [19]
       EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
 
-  PRAYER_REQUEST_TYPE: PrayerRequest
+  DATAVIEW_CATEGORIES:
+    # Id of the category used to store all persona dataviews
+    PersonaId: 1349
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 27
-    - 16
-    - 18
-    - 20
-    - 28
+    - 513 # staff news
+    - 20 # sermon series
+    - 18 # studies
+    - 16 # articles
+    - 27 # news
+    - 28 # stories
+
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
   FEED_CONTENT_CHANNEL_IDS:
     - 27
     - 16
+    - 17
     - 18
+    - 19
     - 20
     - 28
-
-  # Group type ids for all groups to share prayers
-  PRAYER_GROUP_TYPE_IDS:
-    - 10
-    - 23
-    - 25
-    - 60
-    - 141
 
   CAMPAIGN_CHANNEL_IDS:
     - 439
 
-  DATAVIEW_CATEGORIES:
-    # Id of the category used to store all persona dataviews
-    PersonaId: 1349
+  SERMON_CHANNEL_ID: 19
 
   ASSET_STORAGE_PROVIDERS:
     '6': ns.assets
@@ -118,15 +134,41 @@ ROCK_MAPPINGS:
     '8': ns.images
     '9': ns.videos
 
+  # TODO: merge into core
+  SERMON_SERIES_CHANNEL_ID: 20
+  DEVOTIONAL_SERIES_CHANNEL_ID: 18
+
+  GENERAL_PRAYER_CATEGORY_ID: 2
+
+  PRAYER_REQUEST_TYPE: PrayerRequest
+
   PRAYER_MENU_CATEGORIES_CHANNEL_ID: 440
 
   WEB_CAMPUS_ID: 20
 
-  GENERAL_PRAYER_CATEGORY_ID: 2
+  SERVING_GROUP_TYPE_ID: 23
+  COMMUNITY_GROUP_TYPE_ID: 25
+  FAMILY_GROUP_TYPE_ID: 10
+  FUSE_GROUP_TYPE_ID: 60
+  RALLY_GROUP_TYPE_ID: 141
 
-  HOME_FEATURE_CHANNEL_ID: 459
-
-  SERMON_CHANNEL_ID: 19
+HOME_FEATURES:
+  #- title: FOR YOU
+  #algorithms: [PERSONA_FEED]
+  #subtitle: Explore what God calls you to today
+  #- type: UPCOMING_EVENTS
+  - subtitle: Updates for NewSpring staff
+    algorithms:
+      - type: STAFF_NEWS
+        arguments:
+          contentChannelId: 513
+          limit: 3
+  - subtitle: Next steps
+    algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 459
+          limit: 3
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { TableView, Divider } from '@apollosproject/ui-kit';
+import { TableView } from '@apollosproject/ui-kit';
 import { UserWebBrowserConsumer } from 'newspringchurchapp/src/user-web-browser';
-import ChangeLivestream from './ChangeLivestream';
+import { WebBrowserConsumer } from 'newspringchurchapp/src/ui/WebBrowser';
 import TouchableCell from './TouchableCell';
 
 export default class TestingControlPanel extends PureComponent {
@@ -12,8 +12,6 @@ export default class TestingControlPanel extends PureComponent {
   render() {
     return (
       <TableView>
-        <ChangeLivestream />
-        <Divider />
         <UserWebBrowserConsumer>
           {(openUserWebView) => (
             <TouchableCell
@@ -28,6 +26,17 @@ export default class TestingControlPanel extends PureComponent {
             />
           )}
         </UserWebBrowserConsumer>
+        <WebBrowserConsumer>
+          {(openUrl) => (
+            <TouchableCell
+              handlePress={() =>
+                openUrl('https://rock.newspring.cc', {}, { useRockToken: true })
+              }
+              iconName="share"
+              cellText={`Open InAppBrowser With Rock Token`}
+            />
+          )}
+        </WebBrowserConsumer>
         <TouchableCell
           handlePress={() => this.props.navigation.navigate('Onboarding')}
           iconName="Avatar"

@@ -5,10 +5,13 @@ import { withNavigation } from 'react-navigation';
 import { Query } from 'react-apollo';
 
 import {
-  CardTile,
   HorizontalTileFeed,
   TouchableScale,
+  PaddedView,
+  H5,
 } from '@apollosproject/ui-kit';
+
+import HorizontalContentCardConnected from '../../ui/HorizontalContentCardConnected';
 
 import GET_HORIZONTAL_CONTENT from './getHorizontalContent';
 
@@ -28,51 +31,84 @@ class HorizontalContentFeed extends Component {
     }),
   };
 
+  renderItem = ({ item }) => {
+    const itemId = get(item, 'id', '');
+    const disabled = get(item, 'id', '') === this.props.contentId;
+    return (
+      <TouchableScale
+        onPress={() => this.handleOnPressItem(item)}
+        disabled={disabled}
+      >
+        <HorizontalContentCardConnected
+          contentId={itemId}
+          disabled={disabled}
+        />
+      </TouchableScale>
+    );
+  };
+
   handleOnPressItem = (item) => {
     this.props.navigation.push('ContentSingle', {
       itemId: item.id,
     });
   };
 
-  renderItem = ({ item, index }) => (
-    <TouchableScale onPress={() => this.handleOnPressItem(item)}>
-      <CardTile
-        number={index + 1}
-        title={get(item, 'title', '')}
-        /*
-         * These are props that are not yet being passed in the data.
-         * We will need to make sure they get added back when that data is available.
-         * byLine={item.content.speaker}
-         * date={item.meta.date}
-         */
-      />
-    </TouchableScale>
-  );
-
-  renderFeed = ({ data, loading, error }) => {
+  renderFeed = ({ data, loading, error, fetchMore }) => {
     if (error) return null;
+    if (loading) return null;
 
-    const childContent = get(
-      data,
-      'node.childContentItemsConnection.edges',
-      []
-    ).map((edge) => edge.node);
+    const children = get(data, 'node.childContentItemsConnection.edges', []);
+    const siblings = get(data, 'node.siblingContentItemsConnection.edges', []);
+    const isParent = children.length > 0;
 
-    const siblingContent = get(
-      data,
-      'node.siblingContentItemsConnection.edges',
-      []
-    ).map((edge) => edge.node);
+    const edges = isParent ? children : siblings;
+    const content = edges.map((edge) => edge.node);
+    const { cursor } = edges.length && edges[edges.length - 1];
+    const currentIndex = content.findIndex(
+      ({ id }) => id === this.props.contentId
+    );
+    const initialScrollIndex = currentIndex === -1 ? 0 : currentIndex;
+    return content && content.length ? (
+      <PaddedView horizontal={false}>
+        <PaddedView vertical={false}>
+          <H5>In this series</H5>
+        </PaddedView>
+        <HorizontalTileFeed
+          content={content}
+          loadingStateObject={loadingStateObject}
+          renderItem={this.renderItem}
+          initialScrollIndex={initialScrollIndex}
+          getItemLayout={(itemData, index) => ({
+            // We need to pass this function so that initialScrollIndex will work.
+            length: 240,
+            offset: 240 * index,
+            index,
+          })}
+          onEndReached={() =>
+            fetchMore({
+              query: GET_HORIZONTAL_CONTENT,
+              variables: { cursor, itemId: this.props.contentId },
+              updateQuery: (previousResult, { fetchMoreResult }) => {
+                const connection = isParent
+                  ? 'childContentItemsConnection'
+                  : 'siblingContentItemsConnection';
+                const newEdges = get(fetchMoreResult.node, connection, [])
+                  .edges;
 
-    const content = siblingContent.length ? siblingContent : childContent;
-
-    return (content && content.length) || loading ? (
-      <HorizontalTileFeed
-        content={content}
-        isLoading={loading}
-        loadingStateObject={loadingStateObject}
-        renderItem={this.renderItem}
-      />
+                return {
+                  node: {
+                    ...previousResult.node,
+                    [connection]: {
+                      ...previousResult.node[connection],
+                      edges: [...edges, ...newEdges],
+                    },
+                  },
+                };
+              },
+            })
+          }
+        />
+      </PaddedView>
     ) : null;
   };
 

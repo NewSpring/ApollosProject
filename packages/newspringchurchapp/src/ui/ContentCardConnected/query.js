@@ -24,70 +24,76 @@ export const THEME_FRAGMENT = gql`
   }
 `;
 
-export const CONTENT_CARD_METRICS_FRAGMENT = gql`
-  fragment contentCardMetricsFragment on ContentItem {
-    isLiked
-    likedCount
-  }
-`;
-
 export const BASE_CARD_FRAGMENT = gql`
   fragment baseCardFragment on ContentItem {
     id
     __typename
-    ...contentCardMetricsFragment
     ...coverImageFragment
     ...themeFragment
     title
+    hyphenatedTitle: title(hyphenated: true)
     summary
-  }
-  ${CONTENT_CARD_METRICS_FRAGMENT}
-  ${COVER_IMAGE_FRAGMENT}
-  ${THEME_FRAGMENT}
-`;
-
-export const TILE_CARD_FRAGMENT = gql`
-  fragment tileCardFragment on ContentItem {
-    ... on ContentSeriesContentItem {
-      id
-      ...themeFragment
-      ...coverImageFragment
-      ...contentCardMetricsFragment
+    ... on MediaContentItem {
+      videos {
+        sources {
+          uri
+        }
+      }
+      parentChannel {
+        id
+        name
+      }
     }
-    ... on UniversalContentItem {
-      ...baseCardFragment
+    ... on WeekendContentItem {
+      videos {
+        sources {
+          uri
+        }
+        thumbnail {
+          sources {
+            uri
+          }
+        }
+      }
+      parentChannel {
+        id
+        name
+      }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
+      }
     }
     ... on DevotionalContentItem {
-      ...baseCardFragment
-    }
-    ... on MediaContentItem {
-      ...baseCardFragment
+      parentChannel {
+        id
+        name
+      }
+      seriesConnection {
+        series {
+          title
+        }
+        itemCount
+        itemIndex
+      }
     }
   }
-  ${BASE_CARD_FRAGMENT}
-  ${THEME_FRAGMENT}
   ${COVER_IMAGE_FRAGMENT}
-  ${CONTENT_CARD_METRICS_FRAGMENT}
-`;
-
-export const LARGE_CARD_FRAGMENT = gql`
-  fragment largeCardFragment on ContentItem {
-    ...baseCardFragment
-  }
-  ${BASE_CARD_FRAGMENT}
+  ${THEME_FRAGMENT}
 `;
 
 const GET_CONTENT_CARD = gql`
-  query getContentCard($contentId: ID!, $tile: Boolean!) {
+  query getContentCard($contentId: ID!) {
     node(id: $contentId) {
       id
       __typename
-      ...tileCardFragment @include(if: $tile)
-      ...largeCardFragment @skip(if: $tile)
+      ...baseCardFragment
     }
   }
-  ${TILE_CARD_FRAGMENT}
-  ${LARGE_CARD_FRAGMENT}
+  ${BASE_CARD_FRAGMENT}
 `;
 
 export default GET_CONTENT_CARD;

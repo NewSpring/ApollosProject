@@ -5,20 +5,33 @@ import { createGlobalId } from '@apollosproject/server-core';
 import { createTestHelpers } from '@apollosproject/server-core/lib/testUtils';
 
 import {
+  featuresSchema,
   mediaSchema,
   themeSchema,
   scriptureSchema,
   liveSchema,
+  peopleSchema,
 } from '@apollosproject/data-schema';
 
 import { ContentChannel, Sharable } from '@apollosproject/data-connector-rock';
 
 import * as ContentItem from '../index';
 
+class Cache {
+  get = () => Promise.resolve(null);
+
+  set = () => Promise.resolve(null);
+
+  initialize({ context }) {
+    this.context = context;
+  }
+}
+
 const { getSchema, getContext } = createTestHelpers({
   ContentChannel,
   ContentItem,
   Sharable,
+  Cache: { dataSource: Cache },
 });
 
 const contentItemFragment = `
@@ -95,11 +108,32 @@ describe('UniversalContentItem', () => {
   beforeEach(() => {
     fetch.resetMocks();
     fetch.mockRockDataSourceAPI();
-    schema = getSchema([themeSchema, mediaSchema, scriptureSchema, liveSchema]);
+    schema = getSchema([
+      featuresSchema,
+      themeSchema,
+      mediaSchema,
+      scriptureSchema,
+      liveSchema,
+      peopleSchema,
+    ]);
     context = getContext();
-    context.dataSources.ContentItem.getShareURL = jest.fn(
+    context.dataSources.ContentItem.getShareUrl = jest.fn(
       () => 'https://newspring.cc/whatever'
     );
+    context.dataSources.ContentItem.getCommunicators = jest.fn(() => [
+      {
+        firstName: 'first',
+        lastName: 'last',
+      },
+    ]);
+    context.dataSources.ContentItem.getGuestCommunicators = jest.fn(() => [
+      'guest communicator',
+    ]);
+    context.dataSources.ContentItem.getContentItemScriptures = jest.fn(() => [
+      {
+        html: '<p><i>1</i>In the beginning...</p>',
+      },
+    ]);
   });
 
   it('gets a newspring content item', async () => {
@@ -162,6 +196,41 @@ describe('UniversalContentItem', () => {
     `;
     const rootValue = {};
     const result = await graphql(schema, query, rootValue, context);
+    expect(result).toMatchSnapshot();
+  });
+
+  it('gets a newspring weekend content item', async () => {
+    const query = `
+      query {
+        node(id: "${createGlobalId(1, 'WeekendContentItem')}") {
+          id
+          ... on WeekendContentItem {
+            title
+            communicators {
+              firstName
+              lastName
+            }
+            guestCommunicators
+            sermonDate
+            features {
+              __typename
+              id
+              ... on ScriptureFeature {
+                scriptures {
+                  reference
+                }
+              }
+              ... on TextFeature {
+                body
+              }
+            }
+          }
+        }
+      }
+    `;
+    const rootValue = {};
+    const result = await graphql(schema, query, rootValue, context);
+    console.log('result = ', result);
     expect(result).toMatchSnapshot();
   });
 });

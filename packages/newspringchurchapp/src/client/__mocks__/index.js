@@ -4,7 +4,7 @@ import ApolloClient from 'apollo-client';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import { SchemaLink } from 'apollo-link-schema';
 
-import { testSchema as typeDefs } from 'apollos-church-api';
+import { importSchema } from 'graphql-import';
 
 import cache from '../cache';
 import { resolvers, schema, defaults } from '../../store';
@@ -21,7 +21,9 @@ export default (props) => {
 };
 
 const serverSchema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: importSchema(
+    `${process.cwd()}/../apollos-church-api/local.graphql`
+  ),
   resolverValidationOptions: {
     requireResolversForResolveType: false,
   },
