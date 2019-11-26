@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Config from 'react-native-config';
 
 import {
   CardLabel,
@@ -22,14 +23,16 @@ const StyledHorizontalHightlightCard = ({
         title={hyphenatedTitle}
         coverImage={coverImage ? coverImage.sources : null}
         LabelComponent={
-          <CardLabel
-            type={
-              type === 'light' && labelTheme !== 'light'
-                ? 'darkOverlay'
-                : undefined
-            }
-            title={labelText}
-          />
+          Config.EXPERIMENTAL === 'true' ? (
+            <CardLabel
+              type={
+                type === 'light' && labelTheme !== 'light'
+                  ? 'darkOverlay'
+                  : undefined
+              }
+              title={labelText}
+            />
+          ) : null
         }
       />
     )}

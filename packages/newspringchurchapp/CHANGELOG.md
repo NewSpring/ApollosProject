@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.5.10](https://github.com/NewSpring/ApollosProject/compare/v7.5.9...v7.5.10) (2019-11-25)
+
+
+
+### [7.5.9](https://github.com/NewSpring/ApollosProject/compare/v7.5.8...v7.5.9) (2019-11-21)
+
+
+### Bug Fixes
+
+* (DEV-4080) Removes Email from Staff Login ([#356](https://github.com/NewSpring/ApollosProject/issues/356)) ([6d4c59c](https://github.com/NewSpring/ApollosProject/commit/6d4c59c))
+* (DEV-4250) Removes Duplicate Copyrights from Sermon Notes ([#397](https://github.com/NewSpring/ApollosProject/issues/397)) ([40e9238](https://github.com/NewSpring/ApollosProject/commit/40e9238))
+* [DEV-4191] Fix mapview to not show the Web campus ([#395](https://github.com/NewSpring/ApollosProject/issues/395)) ([5e531f2](https://github.com/NewSpring/ApollosProject/commit/5e531f2))
+* [DEV-4210] Add Staff News to the For Staff section of the Home Feed ([#368](https://github.com/NewSpring/ApollosProject/issues/368)) ([0ff0622](https://github.com/NewSpring/ApollosProject/commit/0ff0622))
+* Adds Safety Check ([#407](https://github.com/NewSpring/ApollosProject/issues/407)) ([f9db219](https://github.com/NewSpring/ApollosProject/commit/f9db219))
+* Deprecates old field ([#385](https://github.com/NewSpring/ApollosProject/issues/385)) ([04ed9df](https://github.com/NewSpring/ApollosProject/commit/04ed9df))
+* Fixes Communicator Bug ([#382](https://github.com/NewSpring/ApollosProject/issues/382)) ([4e5cb5f](https://github.com/NewSpring/ApollosProject/commit/4e5cb5f))
+* Fixes Live Button ([#391](https://github.com/NewSpring/ApollosProject/issues/391)) ([ad335ce](https://github.com/NewSpring/ApollosProject/commit/ad335ce))
+* Fixes Mergify ([#405](https://github.com/NewSpring/ApollosProject/issues/405)) ([904c10d](https://github.com/NewSpring/ApollosProject/commit/904c10d))
+* Fixes Mergify Title Check ([#408](https://github.com/NewSpring/ApollosProject/issues/408)) ([7846be2](https://github.com/NewSpring/ApollosProject/commit/7846be2))
+* Fixes Prayer View on Small Phones ([#394](https://github.com/NewSpring/ApollosProject/issues/394)) ([1e3ff6e](https://github.com/NewSpring/ApollosProject/commit/1e3ff6e))
+* Revert "Removes Mergify" ([#390](https://github.com/NewSpring/ApollosProject/issues/390)) ([c7d955f](https://github.com/NewSpring/ApollosProject/commit/c7d955f)), closes [#374](https://github.com/NewSpring/ApollosProject/issues/374)
+* Upgrades to Apollos 1.2.3 ([#384](https://github.com/NewSpring/ApollosProject/issues/384)) ([1ba164f](https://github.com/NewSpring/ApollosProject/commit/1ba164f))
+
+
+
 ### [7.5.8](https://github.com/NewSpring/ApollosProject/compare/v7.5.7...v7.5.8) (2019-11-11)
 
 
